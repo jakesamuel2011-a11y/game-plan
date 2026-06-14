@@ -90,13 +90,37 @@ async function build() {
   // ---- Build HTML ----
   const li = (s) => `<li>${s}</li>`;
   const section = (title, body) =>
-    `<h3 style="margin:18px 0 6px;color:#0a7d3c">${title}</h3>${body}`;
+    `<hr style="border:none;border-top:1px solid #dfe6ea;margin:20px 0 0" />
+     <h3 style="margin:16px 0 6px;color:#0a7d3c">${title}</h3>${body}`;
   const esc = (s) => String(s ?? "").replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]));
 
   let html = `<div style="font-family:Arial,sans-serif;max-width:560px;margin:auto;color:#1b232c">
     <div style="background:#0a7d3c;color:#fff;padding:16px 18px;border-radius:12px">
       <div style="font-size:20px;font-weight:800">⚽ Jake's Game Plan — twice-weekly update</div>
       <div style="opacity:.85;font-size:13px">${today.toDateString()}</div>
+    </div>`;
+
+  // homework due within the next 2 school days (Mon–Fri) — should be done in advance
+  const workingHorizon = (n) => {
+    const d = new Date(today); d.setHours(0, 0, 0, 0); let c = 0;
+    for (let i = 0; i < 21; i++) { const wd = d.getDay(); if (wd >= 1 && wd <= 5) { c++; if (c >= n) return d.toISOString().slice(0, 10); } d.setDate(d.getDate() + 1); }
+    return d.toISOString().slice(0, 10);
+  };
+  const horizon = workingHorizon(2);
+  const dueIn2 = pending.filter((h) => h.due && h.due >= todayStr && h.due <= horizon);
+
+  // Brief summary up top
+  const sumItems = [
+    overdue.length ? `⚠️ ${overdue.length} homework overdue` : (dueIn2.length ? `📌 ${dueIn2.length} homework due in the next 2 school days (do in advance): ${dueIn2.map((h) => esc(h.subject)).join(", ")}` : (pending.length ? `${pending.length} homework pending — nothing due in next 2 school days` : "Homework all clear ✅")),
+    `🎬 ${vDone}/${VIDEO_GOAL} videos — need ${perWeek}/week to hit Dec 31`,
+    `💪 ${fitDone7} fitness check-ins this week`,
+    `🐶 ${nicoDoneToday}/${nico.length} of Nico's duties done today`,
+    upcomingTours.length ? `🏆 Next tournament: ${esc(upcomingTours[0].name)} (${upcomingTours[0].date})` : null,
+    upcomingMatches.length ? `🌍 ${upcomingMatches.length} match(es) on the watchlist` : null,
+  ].filter(Boolean);
+  html += `<div style="background:#f2f6f4;border:1px solid #d8e6df;border-radius:10px;padding:12px 14px;margin-top:14px;font-size:14px">
+      <b>📋 Jake's weekly snapshot</b>
+      <ul style="margin:8px 0 0;padding-left:18px;line-height:1.6">${sumItems.map(li).join("")}</ul>
     </div>`;
 
   // Homework

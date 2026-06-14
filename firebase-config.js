@@ -17,9 +17,9 @@ export const firebaseConfig = {
 };
 
 // Optional: who is who. Put the two login emails here so the app
-// can show friendly names ("Jake" / "Mum") on done-by labels.
+// can show friendly names ("Jake" / "Christabel") on done-by labels.
 export const PEOPLE = {
   // "email@example.com": "Display name",
   "jakesamuel2011@gmail.com": "Jake",
-  "christabelsingh@gmail.com": "Mum",
+  "christabelsingh@gmail.com": "Christabel",
 };

@@ -11,7 +11,7 @@ const FOOTBALL_DAYS = [1, 3, 5];
 // Returns the ordered blocks for a day. Study windows are where
 // homework gets slotted; everything else is fixed/rest/free.
 // Each window: {start, end, type, label}  (times = minutes from midnight)
-function dayTemplate(day) {
+function dayTemplate(day, opts = {}) {
   const T = (h, m = 0) => h * 60 + m;
   if (day === 0) { // Sunday — free
     return { rest: true, windows: [], note: "Rest & recharge — fully free day 🎉" };
@@ -34,20 +34,27 @@ function dayTemplate(day) {
     { start: T(6, 30), end: T(16, 15), type: "fixed", label: "🎒 School" },
     { start: T(16, 15), end: T(16, 45), type: "rest", label: "Snack & rest" },
   ];
-  if (FOOTBALL_DAYS.includes(day)) {
+  const footballDay = FOOTBALL_DAYS.includes(day);
+  const trainingOn = footballDay && !opts.noFootball;
+  let note = "";
+  if (trainingOn) {
     blocks.push({ start: T(17), end: T(18, 30), type: "fixed", label: "⚽ Football training (SCUFA)" });
     blocks.push({ start: T(18, 30), end: T(19), type: "rest", label: "Shower & dinner" });
     blocks.push({ start: T(19), end: T(21, 15), type: "study", label: "Study" });
     blocks.push({ start: T(21, 15), end: T(21, 45), type: "fixed", label: "🐶 Nico evening + wind down" });
     blocks.push({ start: T(22), end: T(22, 1), type: "fixed", label: "😴 Lights out (wake ~5:45 = 7h45 sleep)" });
   } else {
-    blocks.push({ start: T(16, 45), end: T(18, 30), type: "study", label: "Study" });
+    // No-football evening (normal Tue/Thu, or a rained-out Mon/Wed/Fri):
+    // the 5–6:30 slot is freed up for study so the time isn't wasted.
+    if (footballDay && opts.noFootball)
+      note = "🌧️ Training cancelled — the 5–6:30 slot is now study time. Get ahead, then relax.";
+    blocks.push({ start: T(16, 45), end: T(18, 30), type: "study", label: footballDay ? "Study (training cancelled)" : "Study" });
     blocks.push({ start: T(18, 30), end: T(19, 15), type: "rest", label: "Dinner" });
     blocks.push({ start: T(19, 15), end: T(21), type: "study", label: "Study (or World Cup if caught up)" });
     blocks.push({ start: T(21), end: T(21, 45), type: "fixed", label: "🐶 Nico evening + free time / football watch" });
     blocks.push({ start: T(22), end: T(22, 1), type: "fixed", label: "😴 Lights out (wake ~5:45 = 7h45 sleep)" });
   }
-  return { windows: blocks.filter(b => b.type === "study"), fixed: blocks, note: "" };
+  return { windows: blocks.filter(b => b.type === "study"), fixed: blocks, note };
 }
 
 function fmt(min) {
@@ -59,8 +66,8 @@ function fmt(min) {
 
 // Greedily slot pending homework (sorted earliest-due first) into study windows.
 // hwItems: [{subject, task, mins, due}]  -> returns {blocks, overflow}
-function buildDayPlan(day, hwItems) {
-  const tpl = dayTemplate(day);
+function buildDayPlan(day, hwItems, opts = {}) {
+  const tpl = dayTemplate(day, opts);
   const queue = hwItems.map(h => ({ ...h, mins: Math.max(10, h.mins || 45) }));
   const out = [];
 
@@ -122,5 +129,49 @@ function buildDayPlan(day, hwItems) {
   return { rest: false, note: tpl.note, blocks: out, overflow: queue };
 }
 
+// ---------- World Cup match approval logic ----------
+// Parse an IST kickoff string like "12:30am IST" or "9pm" -> decimal hour (0..23.99) or null.
+function parseISTHour(timeStr) {
+  if (!timeStr) return null;
+  const m = String(timeStr).match(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)/i);
+  if (!m) return null;
+  let h = parseInt(m[1], 10) % 12;
+  if (/pm/i.test(m[3])) h += 12;
+  const min = m[2] ? parseInt(m[2], 10) : 0;
+  return h + min / 60;
+}
+
+// Assess a fixture for sleep impact + whether it needs Mum's approval.
+// Rule: weekend / daytime matches are auto-OK; only school-night or late/overnight
+// kickoffs need approval. Returns {needsApproval, level, text}.
+//   level: 'none' | 'school' | 'ok' | 'high' | 'unknown'
+function matchAssessment(dateStr, timeStr) {
+  if (!dateStr) return { needsApproval: true, level: "unknown", text: "Date unknown — check before approving." };
+  const hour = parseISTHour(timeStr);
+  const wd = new Date(dateStr + "T00:00:00").getDay(); // 0 Sun .. 6 Sat
+  if (hour === null) return { needsApproval: true, level: "unknown", text: "Kickoff time unknown — check before approving." };
+
+  // Daytime kickoff (6:00am–6:59pm)
+  if (hour >= 6 && hour < 19) {
+    if (wd >= 1 && wd <= 5 && hour < 16.25)
+      return { needsApproval: false, level: "school", text: "Falls during school hours — watch the recording after." };
+    return { needsApproval: false, level: "none", text: "Daytime kickoff — no sleep impact." };
+  }
+  // Evening / night kickoff (7:00pm–11:59pm): is there school tomorrow?
+  if (hour >= 19) {
+    const schoolTomorrow = wd >= 0 && wd <= 4; // Sun..Thu nights precede Mon..Fri
+    if (schoolTomorrow)
+      return hour >= 21
+        ? { needsApproval: true, level: "high", text: "⚠️ Late kickoff before a school day — high sleep impact." }
+        : { needsApproval: true, level: "ok", text: "School night — would run into the evening." };
+    return { needsApproval: false, level: "none", text: "Weekend evening — no school next day." };
+  }
+  // Overnight / early morning (12:00am–5:59am): is today a school day?
+  const schoolToday = wd >= 1 && wd <= 5;
+  if (schoolToday)
+    return { needsApproval: true, level: "high", text: "⚠️ Overnight/early kickoff on a school day — high sleep impact." };
+  return { needsApproval: false, level: "none", text: "Weekend early hours — no school." };
+}
+
 // Export for both browser (ES module) and Node (test)
-export { buildDayPlan, dayTemplate, FOOTBALL_DAYS };
+export { buildDayPlan, dayTemplate, FOOTBALL_DAYS, parseISTHour, matchAssessment };

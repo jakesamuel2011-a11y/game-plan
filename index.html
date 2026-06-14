@@ -31,17 +31,26 @@
     </header>
 
     <nav class="tabs">
-      <button class="tab active" data-tab="today">📅 Today</button>
+      <button class="tab active" data-tab="home">🏠 Home</button>
+      <button class="tab" data-tab="today">📅 Today</button>
       <button class="tab" data-tab="homework">📚 Homework</button>
       <button class="tab" data-tab="videos">🎬 GNR Videos</button>
       <button class="tab" data-tab="football">🏆 Football</button>
       <button class="tab" data-tab="fifa">🌍 World Cup</button>
       <button class="tab" data-tab="nico">🐶 Nico</button>
+      <button class="tab" data-tab="mum">👩 From Christabel</button>
+      <button class="tab" data-tab="progress">🏆 Progress</button>
     </nav>
 
     <main>
+      <!-- HOME / DASHBOARD -->
+      <section id="tab-home" class="tab-panel active">
+        <h2 id="dashHi">Dashboard</h2>
+        <div id="dashboard" class="dash"></div>
+      </section>
+
       <!-- TODAY -->
-      <section id="tab-today" class="tab-panel active">
+      <section id="tab-today" class="tab-panel">
         <div class="row-between">
           <h2 id="todayTitle">Today</h2>
           <select id="planDay" class="select"></select>
@@ -57,16 +66,20 @@
         <h2>📚 Homework</h2>
         <div class="card add-card">
           <div class="grid2">
-            <select id="hwSubject" class="select">
-              <option value="Math">Math</option>
-              <option value="English">English</option>
-              <option value="Humanities">Humanities</option>
-              <option value="Bio">Bio</option>
-              <option value="Physics">Physics</option>
-              <option value="Chem">Chem</option>
-              <option value="EM">EM</option>
-            </select>
-            <input id="hwDue" type="date" class="select" />
+            <label class="mins">Subject
+              <select id="hwSubject" class="select">
+                <option value="Math">Math</option>
+                <option value="English">English</option>
+                <option value="Humanities">Humanities</option>
+                <option value="Bio">Bio</option>
+                <option value="Physics">Physics</option>
+                <option value="Chem">Chem</option>
+                <option value="EM">EM</option>
+              </select>
+            </label>
+            <label class="mins">Due date
+              <input id="hwDue" type="date" class="select" />
+            </label>
           </div>
           <input id="hwTask" type="text" placeholder="What's the homework? e.g. Ch.4 problems 1–10" />
           <div class="grid2">
@@ -112,7 +125,8 @@
       <!-- FIFA -->
       <section id="tab-fifa" class="tab-panel">
         <h2>🌍 World Cup 2026 Watchlist</h2>
-        <p class="muted small">⭐ = want to watch · ✓ = watched. Times shown in IST (Bangalore).</p>
+        <p class="muted small">Weekend & daytime matches are auto-OK. School-night or late kickoffs need Christabel's approval — tap “Request to watch”.</p>
+        <div id="fxPending"></div>
         <div class="card add-card">
           <input id="fxMatch" type="text" placeholder="Match e.g. Brazil vs France" />
           <div class="grid2">
@@ -134,9 +148,29 @@
           <button id="nicoAdd" class="btn primary">Add duty</button>
         </div>
       </section>
+
+      <!-- FROM MUM -->
+      <section id="tab-mum" class="tab-panel">
+        <h2>👩 From Christabel</h2>
+        <p class="muted small">Tasks &amp; notes Christabel has set for Jake. Jake ticks them off when done — Christabel sees it live.</p>
+        <div class="card add-card">
+          <input id="momText" type="text" placeholder="Add a task or note for Jake (e.g. take Nico to vet Sat)" />
+          <input id="momDue" type="date" class="select" />
+          <button id="momAdd" class="btn primary">Add</button>
+        </div>
+        <div id="momList" class="list"></div>
+      </section>
+
+      <!-- PROGRESS -->
+      <section id="tab-progress" class="tab-panel">
+        <h2>🏆 Progress</h2>
+        <div id="progStats" class="stats"></div>
+        <div id="progDetail"></div>
+        <p class="muted small">Points this week reward staying on top of homework and duties. Streak = days in a row with all of Nico's duties done.</p>
+      </section>
     </main>
 
-    <footer class="foot muted small">Shared with Mum in real time · saved to your Firebase</footer>
+    <footer class="foot muted small">Shared with Christabel in real time · saved to your Firebase</footer>
   </div>
 
   <script type="module" src="app.js"></script>
