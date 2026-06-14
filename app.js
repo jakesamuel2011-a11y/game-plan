@@ -420,7 +420,7 @@ function renderToday() {
   // Quote header — shown above the plan
   const [qt, qa] = quoteOfDay();
   const dq = $("dayQuote");
-  if (dq) dq.innerHTML = `“${esc(qt)}”<span class="q-by">— ${esc(qa)}</span>`;
+  if (dq) dq.innerHTML = `${esc(qt)}<span class="q-by">— ${esc(qa)}</span>`;
 
   // Timeline
   const tl = $("timeline"); tl.innerHTML = "";
