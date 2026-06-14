@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a7d3c" />
+  <title>Jake's Game Plan</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>" />
+</head>
+<body>
+
+  <!-- ===== LOGIN SCREEN ===== -->
+  <div id="loginScreen" class="login-wrap hidden">
+    <div class="login-card">
+      <div class="logo">⚽ Jake's Game Plan</div>
+      <p class="muted">Homework · Football · Videos · World Cup · Nico</p>
+      <input id="email" type="email" placeholder="Email" autocomplete="username" />
+      <input id="password" type="password" placeholder="Password" autocomplete="current-password" />
+      <button id="loginBtn" class="btn primary">Log in</button>
+      <button id="signupBtn" class="btn ghost">Create account</button>
+      <p id="loginMsg" class="error"></p>
+    </div>
+  </div>
+
+  <!-- ===== MAIN APP ===== -->
+  <div id="app" class="hidden">
+    <header class="topbar">
+      <div class="brand">⚽ Game Plan</div>
+      <div class="who"><span id="whoami"></span> <button id="logoutBtn" class="btn tiny ghost">Log out</button></div>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="today">📅 Today</button>
+      <button class="tab" data-tab="homework">📚 Homework</button>
+      <button class="tab" data-tab="videos">🎬 GNR Videos</button>
+      <button class="tab" data-tab="football">🏆 Football</button>
+      <button class="tab" data-tab="fifa">🌍 World Cup</button>
+      <button class="tab" data-tab="nico">🐶 Nico</button>
+    </nav>
+
+    <main>
+      <!-- TODAY -->
+      <section id="tab-today" class="tab-panel active">
+        <div class="row-between">
+          <h2 id="todayTitle">Today</h2>
+          <select id="planDay" class="select"></select>
+        </div>
+        <div id="dueAlerts"></div>
+        <h3 class="section-h">⏱️ Your plan</h3>
+        <div id="timeline" class="timeline"></div>
+        <p class="muted small">The plan auto-builds from your pending homework + routines around school, football and sleep. Add or tick homework in the Homework tab.</p>
+      </section>
+
+      <!-- HOMEWORK -->
+      <section id="tab-homework" class="tab-panel">
+        <h2>📚 Homework</h2>
+        <div class="card add-card">
+          <div class="grid2">
+            <select id="hwSubject" class="select">
+              <option value="Math">Math</option>
+              <option value="English">English</option>
+              <option value="Humanities">Humanities</option>
+              <option value="Bio">Bio</option>
+              <option value="Physics">Physics</option>
+              <option value="Chem">Chem</option>
+              <option value="EM">EM</option>
+            </select>
+            <input id="hwDue" type="date" class="select" />
+          </div>
+          <input id="hwTask" type="text" placeholder="What's the homework? e.g. Ch.4 problems 1–10" />
+          <div class="grid2">
+            <label class="mins">Est. mins
+              <input id="hwMins" type="number" value="45" min="10" step="5" />
+            </label>
+            <button id="hwAdd" class="btn primary">Add homework</button>
+          </div>
+        </div>
+        <div id="hwList" class="list"></div>
+      </section>
+
+      <!-- VIDEOS -->
+      <section id="tab-videos" class="tab-panel">
+        <h2>🎬 GNR Video Goal</h2>
+        <div id="videoStats" class="stats"></div>
+        <div class="card add-card">
+          <input id="vidTitle" type="text" placeholder="Video title / idea" />
+          <input id="vidSkill" type="text" placeholder="New skill you'll build (e.g. transitions, color grading)" />
+          <button id="vidAdd" class="btn primary">Add video</button>
+        </div>
+        <div id="vidList" class="list"></div>
+      </section>
+
+      <!-- FOOTBALL -->
+      <section id="tab-football" class="tab-panel">
+        <h2>🏆 Football — SCUFA</h2>
+        <h3 class="section-h">Tournaments</h3>
+        <div class="card add-card">
+          <input id="tourName" type="text" placeholder="Tournament name" />
+          <div class="grid2">
+            <input id="tourDate" type="date" class="select" />
+            <input id="tourLoc" type="text" placeholder="Location" />
+          </div>
+          <button id="tourAdd" class="btn primary">Add tournament</button>
+        </div>
+        <div id="tourList" class="list"></div>
+        <h3 class="section-h">Fitness routine</h3>
+        <p class="muted small">Tick these daily to stay match-ready. Training is Mon/Wed/Fri 5–6:30pm.</p>
+        <div id="fitList" class="list"></div>
+      </section>
+
+      <!-- FIFA -->
+      <section id="tab-fifa" class="tab-panel">
+        <h2>🌍 World Cup 2026 Watchlist</h2>
+        <p class="muted small">⭐ = want to watch · ✓ = watched. Times shown in IST (Bangalore).</p>
+        <div class="card add-card">
+          <input id="fxMatch" type="text" placeholder="Match e.g. Brazil vs France" />
+          <div class="grid2">
+            <input id="fxDate" type="date" class="select" />
+            <input id="fxTime" type="text" placeholder="IST kickoff e.g. 12:30am" />
+          </div>
+          <button id="fxAdd" class="btn primary">Add match</button>
+        </div>
+        <div id="fxList" class="list"></div>
+      </section>
+
+      <!-- NICO -->
+      <section id="tab-nico" class="tab-panel">
+        <h2>🐶 Nico's Care</h2>
+        <p class="muted small">Daily duties — tick them off each day. They reset every morning.</p>
+        <div id="nicoList" class="list"></div>
+        <div class="card add-card">
+          <input id="nicoTask" type="text" placeholder="Add a duty (e.g. evening walk)" />
+          <button id="nicoAdd" class="btn primary">Add duty</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot muted small">Shared with Mum in real time · saved to your Firebase</footer>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

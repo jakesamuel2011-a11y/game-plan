@@ -1,0 +1,11 @@
+{
+  "name": "game-plan-digest",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "Twice-weekly email summary for Jake's Game Plan",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "nodemailer": "^6.9.14"
+  }
+}
