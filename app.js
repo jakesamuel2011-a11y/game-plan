@@ -30,7 +30,7 @@ const MUM_EMAIL = "christabelsingh@gmail.com";
 const JAKE_EMAIL = "jakesamuel2011@gmail.com";
 const isMum = () => !!ME && ME.email === MUM_EMAIL;   // Christabel
 const isJake = () => !!ME && ME.email === JAKE_EMAIL;
-const cache = { homework: [], videos: [], fixtures: [], tournaments: [], routines: [], nicolog: {}, momtasks: [], footballOff: new Set() };
+const cache = { homework: [], videos: [], fixtures: [], tournaments: [], routines: [], nicolog: {}, momtasks: [], footballOff: new Set(), winsWeek: false };
 
 // Daily inspiration — wide pool so it won't repeat for ~3 months (rotates daily).
 // Famous footballer/manager quotes + clearly-labelled "Football wisdom" mantras.
@@ -253,7 +253,8 @@ function subscribeAll() {
   onSnapshot(doc(db, "nicolog", todayStr()), s => { cache.nicolog = s.exists() ? s.data() : {}; renderFitness(); renderNico(); renderDashboard(); });
   onSnapshot(query(collection(db, "momtasks")), s => { cache.momtasks = rows(s); renderMom(); renderDashboard(); });
   onSnapshot(query(collection(db, "footballoff")), s => { cache.footballOff = new Set(s.docs.map(d => d.id)); renderToday(); renderDashboard(); });
-  loadProgress(); // compute points/streaks/badges for the dashboard
+  onSnapshot(doc(db, "winslog", ymd(mondayOf(new Date()))), s => { cache.winsWeek = s.exists() && !!s.data().done; renderVideos(); });
+  loadProgress(); // compute streaks/badges/ladder for the dashboard
 }
 const rows = (snap) => snap.docs.map(d => ({ id: d.id, ...d.data() }));
 
@@ -429,28 +430,42 @@ function renderVideos() {
     <div class="stat"><div class="n">${(remaining / weeksLeft).toFixed(1)}</div><div class="l">/week needed</div></div>
     <div class="stat"><div class="n">${byNov14}</div><div class="l">by Nov 14 (concert)</div></div>`;
   const pct = Math.round((done / goal) * 100);
-  $("videoStats").insertAdjacentHTML("afterend", "");
-  const list = $("vidList"); list.innerHTML =
-    `<div class="card"><div class="progress"><div style="width:${pct}%"></div></div><div class="small muted">${pct}% to the GNR concert 🎸 — upload weekly to NEXT + YouTube, log in NEXT wins doc.</div></div>`;
+  const list = $("vidList");
+
+  // weekly NEXT-wins-doc checkbox (resets each week)
+  const wkKey = ymd(mondayOf(new Date()));
+  list.innerHTML =
+    `<div class="card"><div class="progress"><div style="width:${pct}%"></div></div><div class="small muted">${pct}% to the GNR concert 🎸</div></div>
+     <div class="item" id="winsWeekRow">
+       <button class="check ${cache.winsWeek ? "on" : ""}">${cache.winsWeek ? "✓" : ""}</button>
+       <div class="item-main"><div class="item-title">🏅 This week's wins submitted to NEXT wins doc</div>
+         <div class="item-sub muted">Tick once a week, after you've logged the week's wins.</div></div>
+     </div>`;
+  list.querySelector("#winsWeekRow .check").onclick = () =>
+    setDoc(doc(db, "winslog", wkKey), { done: !cache.winsWeek, by: ME.email, at: serverTimestamp() }, { merge: true });
+
   if (!cache.videos.length) { list.insertAdjacentHTML("beforeend", `<p class="muted small">No videos yet. Add your first idea above 👆</p>`); return; }
+
+  const chk = (on, label) => `<button class="${on ? "on" : ""}">${on ? "☑" : "☐"} ${label}</button>`;
   [...cache.videos].reverse().forEach(v => {
+    const created = v.stage === "done";
     const el = document.createElement("div");
-    el.className = "item" + (v.stage === "done" ? " done" : "");
-    const stageBtns = STAGES.map(s => `<button data-s="${s}" class="${v.stage === s ? "on" : ""}">${s}</button>`).join("");
+    el.className = "item" + (created ? " done" : "");
     el.innerHTML = `
       <div class="item-main">
-        <div class="item-title">${v.title}</div>
-        ${v.skill ? `<div class="item-sub">🛠️ Skill: ${v.skill}</div>` : ""}
-        <div class="stage-btns">${stageBtns}</div>
+        <div class="item-title">${esc(v.title)}</div>
+        ${v.skill ? `<div class="item-sub">🛠️ Skill: ${esc(v.skill)}</div>` : ""}
         <div class="stage-btns" style="margin-top:6px">
-          <button data-c="youtube" class="${v.youtube ? "on" : ""}">▶ YouTube</button>
-          <button data-c="next" class="${v.next ? "on" : ""}">📱 NEXT</button>
-          <button data-c="wins" class="${v.wins ? "on" : ""}">🏅 Wins doc</button>
+          <span data-act="created">${chk(created, "Video created")}</span>
+          <span data-act="next">${chk(v.next, "Uploaded to NEXT")}</span>
+          <span data-act="youtube">${chk(v.youtube, "Uploaded to YouTube")}</span>
         </div>
       </div>
       <button class="del">✕</button>`;
-    el.querySelectorAll("[data-s]").forEach(b => b.onclick = () => updateDoc(doc(db, "videos", v.id), { stage: b.dataset.s, doneAt: b.dataset.s === "done" ? serverTimestamp() : null }));
-    el.querySelectorAll("[data-c]").forEach(b => b.onclick = () => updateDoc(doc(db, "videos", v.id), { [b.dataset.c]: !v[b.dataset.c] }));
+    el.querySelector('[data-act="created"] button').onclick = () =>
+      updateDoc(doc(db, "videos", v.id), { stage: created ? "idea" : "done", doneAt: created ? null : serverTimestamp() });
+    el.querySelector('[data-act="next"] button').onclick = () => updateDoc(doc(db, "videos", v.id), { next: !v.next });
+    el.querySelector('[data-act="youtube"] button').onclick = () => updateDoc(doc(db, "videos", v.id), { youtube: !v.youtube });
     el.querySelector(".del").onclick = () => deleteDoc(doc(db, "videos", v.id));
     list.appendChild(el);
   });
