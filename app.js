@@ -685,7 +685,7 @@ const BADGE_ART = {
 };
 function badgeSVG(key, on) {
   const a = BADGE_ART[key];
-  if (!on) return `<svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="30" r="26" fill="#454c56"/><circle cx="32" cy="30" r="21" fill="#2a2f37"/><path d="M26 30 V26.5 a6 6 0 0 1 12 0 V30" fill="none" stroke="#828b95" stroke-width="2.6"/><rect x="24" y="30" width="16" height="12" rx="2.5" fill="#828b95"/></svg>`;
+  if (!on) return `<svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="30" r="26" fill="#3a414b"/><circle cx="32" cy="30" r="21" fill="#262b33"/><g opacity="0.4">${a.em}</g><rect x="45" y="49" width="11" height="8.5" rx="1.6" fill="#cfd6dd"/><path d="M46.8 49 V46.4 a2.7 2.7 0 0 1 5.4 0 V49" fill="none" stroke="#cfd6dd" stroke-width="1.7"/></svg>`;
   return `<svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="30" r="26" fill="${a.ring}"/><circle cx="32" cy="30" r="21" fill="${a.face}"/>${a.em}</svg>`;
 }
 
@@ -791,24 +791,28 @@ function renderProgress() {
   const { week, streak, overallPct, streakBadges, ladder, ladderTier } = progressCache;
   const p = week.pillars;
   statsEl.innerHTML = `
-    <div class="stat"><div class="n">${week.rating}/10</div><div class="l">this week's form</div></div>
+    <div class="stat"><div class="n">${week.rating}/10</div><div class="l">form rating</div></div>
     <div class="stat"><div class="n">${streak}🔥</div><div class="l">week streak</div></div>
-    <div class="stat"><div class="n">${week.pillarsMet}/4</div><div class="l">requirements</div></div>
+    <div class="stat"><div class="n">${week.pillarsMet}/4</div><div class="l">requirements met</div></div>
     <div class="stat"><div class="n">${overallPct}%</div><div class="l">season goals</div></div>`;
 
   const chip = (ok, label) => `<span class="chip ${ok ? "on" : ""}">${ok ? "✓" : "✗"} ${label}</span>`;
   const cell = (b, sub) => `<div class="bcell ${b.on ? "" : "lock"}" title="${esc(BADGE_DESC[b.key])} ${b.on ? "— unlocked ✓" : "— locked"}">${badgeSVG(b.key, b.on)}<div class="bname">${b.name}</div><div class="bmeta muted small">${sub}</div></div>`;
+  const nextTier = ladder.find(l => !l.on);
 
   detailEl.innerHTML = `
-    <div class="card"><b>This week's requirements</b>
-      <div class="chips" style="margin-top:8px">${chip(p.hw, "HW on time")} ${chip(p.video, "1 video")} ${chip(p.fitness, `fitness ${week.fitness}/${REQ.fitness}`)} ${chip(p.nico, `Nico ${week.nicoDays}/${REQ.nicoDays}d`)}</div>
-      <div class="muted small" style="margin-top:8px">Meet all four to keep your week "on target" — that's what builds streaks and unlocks matches.</div>
+    <div class="card"><b>How this works</b>
+      <div class="muted small" style="margin-top:4px">Tick off your 4 weekly requirements below to raise your <b>Form rating</b> (out of 10). A week with all 4 done is "on target" — string those together to grow your <b>streak</b> and earn <b>streak badges</b>. Your overall progress across the year fills the <b>Career Ladder</b>, from Academy to Legend. Greyed badges show what's coming next.</div>
     </div>
-    <h3 class="section-h">Streak badges (${progressCache.streakUnlocked}/4)</h3>
+    <div class="card"><b>This week's requirements (${week.pillarsMet}/4 done)</b>
+      <div class="chips" style="margin-top:8px">${chip(p.hw, "homework on time")} ${chip(p.video, "1 video uploaded")} ${chip(p.fitness, `fitness ${week.fitness}/${REQ.fitness}`)} ${chip(p.nico, `Nico ${week.nicoDays}/${REQ.nicoDays} days`)}</div>
+      <div class="muted small" style="margin-top:8px">✓ = done · ✗ = still to do. All four green = this week counts as "on target".</div>
+    </div>
+    <h3 class="section-h">🔥 Streak badges — earned by consistent weeks (${progressCache.streakUnlocked}/4)</h3>
     <div class="badgegrid">${streakBadges.map(b => cell(b, b.on ? "unlocked ✓" : b.meta)).join("")}</div>
-    <h3 class="section-h">Career ladder — ${overallPct}% of season goals${ladderTier ? ` · ${ladderTier.name}` : ""}</h3>
+    <h3 class="section-h">🪜 Career ladder — ${overallPct}% of season goals${nextTier ? ` · next: ${nextTier.name} at ${nextTier.p}%` : " · maxed out! 👑"}</h3>
     <div class="progress"><div style="width:${overallPct}%"></div></div>
-    <div class="badgegrid five">${ladder.map(b => cell(b, `${b.p}%`)).join("")}</div>`;
+    <div class="badgegrid five">${ladder.map(b => cell(b, b.on ? "reached ✓" : `${b.p}%`)).join("")}</div>`;
 }
 
 // ---------- DASHBOARD (one-glance home) ----------
