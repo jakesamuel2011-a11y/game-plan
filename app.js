@@ -30,7 +30,8 @@ const MUM_EMAIL = "christabelsingh@gmail.com";
 const JAKE_EMAIL = "jakesamuel2011@gmail.com";
 const isMum = () => !!ME && ME.email === MUM_EMAIL;   // Christabel
 const isJake = () => !!ME && ME.email === JAKE_EMAIL;
-const cache = { homework: [], videos: [], fixtures: [], tournaments: [], routines: [], nicolog: {}, momtasks: [], footballOff: new Set(), winsWeek: false };
+const cache = { homework: [], videos: [], fixtures: [], tournaments: [], routines: [], nicolog: {}, momtasks: [], footballOff: new Set(), resched: new Map(), winsWeek: false };
+function fmtT(hhmm) { if (!hhmm) return ""; const [h, m] = hhmm.split(":").map(Number); const ap = h >= 12 ? "pm" : "am"; let hh = h % 12; if (hh === 0) hh = 12; return m ? `${hh}:${String(m).padStart(2, "0")}${ap}` : `${hh}${ap}`; }
 
 // Daily inspiration — wide pool so it won't repeat for ~3 months (rotates daily).
 // Famous footballer/manager quotes + clearly-labelled "Football wisdom" mantras.
@@ -127,7 +128,55 @@ const QUOTES = [
   ["Warm up properly, finish stronger.", "Football wisdom"],
   ["Stay ready so you never have to get ready.", "Football wisdom"],
 ];
-function quoteOfDay() { const s = new Date(new Date().getFullYear(), 0, 0); const day = Math.floor((new Date() - s) / 864e5); return QUOTES[day % QUOTES.length]; }
+// Inspirational Bible verses (shown on 3 days/week; football quotes on the other 4)
+const VERSES = [
+  ["I can do all things through Christ who strengthens me.", "Philippians 4:13"],
+  ["Be strong and courageous. Do not be afraid, for the Lord your God is with you wherever you go.", "Joshua 1:9"],
+  ["Whatever you do, work at it with all your heart.", "Colossians 3:23"],
+  ["Let us run with perseverance the race marked out for us.", "Hebrews 12:1"],
+  ["Those who hope in the Lord will renew their strength; they will run and not grow weary.", "Isaiah 40:31"],
+  ["Commit to the Lord whatever you do, and your plans will succeed.", "Proverbs 16:3"],
+  ["The Lord is my strength and my shield; my heart trusts in him.", "Psalm 28:7"],
+  ["For I know the plans I have for you — plans to give you hope and a future.", "Jeremiah 29:11"],
+  ["Trust in the Lord with all your heart, and lean not on your own understanding.", "Proverbs 3:5"],
+  ["Everyone who competes in the games trains with discipline.", "1 Corinthians 9:25"],
+  ["Run in such a way as to get the prize.", "1 Corinthians 9:24"],
+  ["I press on toward the goal to win the prize.", "Philippians 3:14"],
+  ["Whoever is faithful in little will be faithful in much.", "Luke 16:10"],
+  ["Let us not become weary in doing good, for in due time we will reap a harvest.", "Galatians 6:9"],
+  ["He gives strength to the weary and increases the power of the weak.", "Isaiah 40:29"],
+  ["The plans of the diligent lead surely to abundance.", "Proverbs 21:5"],
+  ["Whatever your hand finds to do, do it with all your might.", "Ecclesiastes 9:10"],
+  ["Be strong, and let your heart take courage.", "Psalm 31:24"],
+  ["In their hearts humans plan their course, but the Lord establishes their steps.", "Proverbs 16:9"],
+  ["Iron sharpens iron, so one person sharpens another.", "Proverbs 27:17"],
+  ["Be on your guard; stand firm in the faith; be courageous; be strong.", "1 Corinthians 16:13"],
+  ["Cast all your anxiety on him, because he cares for you.", "1 Peter 5:7"],
+  ["Be strong in the Lord and in his mighty power.", "Ephesians 6:10"],
+  ["A cheerful heart is good medicine.", "Proverbs 17:22"],
+  ["Wait for the Lord; be strong and take heart.", "Psalm 27:14"],
+  ["Encourage one another and build each other up.", "1 Thessalonians 5:11"],
+  ["Humble yourselves before the Lord, and he will lift you up.", "James 4:10"],
+  ["Whatever is true, whatever is noble, whatever is right — think about such things.", "Philippians 4:8"],
+  ["The Lord will fight for you; you need only to be still.", "Exodus 14:14"],
+  ["Patience is better than pride.", "Ecclesiastes 7:8"],
+  ["A good name is more desirable than great riches.", "Proverbs 22:1"],
+  ["Train yourself to be godly.", "1 Timothy 4:7"],
+  ["Do everything in love.", "1 Corinthians 16:14"],
+  ["Where there is no vision, the people perish.", "Proverbs 29:18"],
+  ["Do not be overcome by evil, but overcome evil with good.", "Romans 12:21"],
+  ["Plans fail for lack of counsel, but with many advisers they succeed.", "Proverbs 15:22"],
+  ["The Lord gives wisdom; from his mouth come knowledge and understanding.", "Proverbs 2:6"],
+  ["Let your light shine before others.", "Matthew 5:16"],
+  ["Be joyful in hope, patient in affliction, faithful in prayer.", "Romans 12:12"],
+];
+// Tue/Thu/Sat = verse days (3/week); the other 4 days = football quotes.
+function quoteOfDay() {
+  const now = new Date();
+  const day = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 864e5);
+  const verseDay = [2, 4, 6].includes(now.getDay());
+  return verseDay ? VERSES[day % VERSES.length] : QUOTES[day % QUOTES.length];
+}
 
 // date string of the n-th upcoming school day (Mon–Fri), today included
 function workingHorizon(n = 2) {
@@ -254,6 +303,7 @@ function subscribeAll() {
   onSnapshot(query(collection(db, "momtasks")), s => { cache.momtasks = rows(s); renderMom(); renderDashboard(); });
   onSnapshot(query(collection(db, "footballoff")), s => { cache.footballOff = new Set(s.docs.map(d => d.id)); renderToday(); renderDashboard(); });
   onSnapshot(doc(db, "winslog", ymd(mondayOf(new Date()))), s => { cache.winsWeek = s.exists() && !!s.data().done; renderVideos(); });
+  onSnapshot(query(collection(db, "footballresched")), s => { cache.resched = new Map(s.docs.map(d => [d.id, d.data()])); renderToday(); });
   loadProgress(); // compute streaks/badges/ladder for the dashboard
 }
 const rows = (snap) => snap.docs.map(d => ({ id: d.id, ...d.data() }));
@@ -291,6 +341,10 @@ async function setFootballOff(dateStr, off) {
   if (off) await setDoc(ref, { by: ME.email, at: serverTimestamp() });
   else await deleteDoc(ref);
 }
+async function setResched(dateStr, data) {
+  await setDoc(doc(db, "footballresched", dateStr), { orig: dateStr, ...data, by: ME.email, at: serverTimestamp() }, { merge: true });
+}
+async function clearResched(dateStr) { try { await deleteDoc(doc(db, "footballresched", dateStr)); } catch (e) { } }
 
 function renderToday() {
   const day = parseInt($("planDay").value);
@@ -298,7 +352,7 @@ function renderToday() {
 
   const selDate = dateForDay(day);
   const isFootballDay = FOOTBALL_DAYS.includes(day);
-  const noFootball = cache.footballOff.has(selDate);
+  const noFootball = cache.footballOff.has(selDate) || cache.resched.has(selDate);
 
   // Due alerts
   const alerts = $("dueAlerts"); alerts.innerHTML = "";
@@ -311,20 +365,56 @@ function renderToday() {
   if (tour) addAlert(alerts, "green", `🏆 Next tournament: ${tour.name} on ${tour.date}${tour.location ? " · " + tour.location : ""}`);
   if (!over.length && !due.length) addAlert(alerts, "green", "✅ Nothing overdue — nice work!");
 
-  // Football-cancelled toggle (only on training days: Mon/Wed/Fri)
+  // Any day a session was MOVED TO
+  for (const [orig, r] of cache.resched) {
+    if (r.toDate === selDate) addAlert(alerts, "blue", `⚽ Rescheduled training today: ${fmtT(r.from)}–${fmtT(r.to)} (moved from ${orig})`);
+  }
+
+  // Football status controls (training days: Mon/Wed/Fri): Cancelled / Rescheduled
   if (isFootballDay) {
-    const toggle = document.createElement("div");
-    toggle.className = "alert " + (noFootball ? "amber" : "green");
-    toggle.style.display = "flex";
-    toggle.style.justifyContent = "space-between";
-    toggle.style.alignItems = "center";
-    toggle.innerHTML = `<span>${noFootball ? "🌧️ Training cancelled — extra study time" : "⚽ Training on (5–6:30pm)"}</span>`;
-    const btn = document.createElement("button");
-    btn.className = "btn tiny " + (noFootball ? "primary" : "ghost");
-    btn.textContent = noFootball ? "Training is back on" : "Mark cancelled (rain)";
-    btn.onclick = () => setFootballOff(selDate, !noFootball);
-    toggle.appendChild(btn);
-    alerts.appendChild(toggle);
+    const cancelled = cache.footballOff.has(selDate);
+    const resched = cache.resched.get(selDate);
+    const box = document.createElement("div");
+    box.className = "alert " + (cancelled || resched ? "amber" : "green");
+    const head = cancelled ? "🌧️ Training cancelled — extra study time"
+      : resched ? `🔁 Training moved to ${resched.toDate} · ${fmtT(resched.from)}–${fmtT(resched.to)}`
+        : "⚽ Training on (5–6:30pm)";
+    box.innerHTML = `<div style="margin-bottom:8px">${head}</div>`;
+
+    const row = document.createElement("div"); row.className = "stage-btns";
+    const cBtn = document.createElement("button"); cBtn.textContent = "Cancelled"; cBtn.className = cancelled ? "on" : "";
+    const rBtn = document.createElement("button"); rBtn.textContent = "Rescheduled"; rBtn.className = resched ? "on" : "";
+    row.appendChild(cBtn); row.appendChild(rBtn);
+    if (cancelled || resched) {
+      const onBtn = document.createElement("button"); onBtn.textContent = "↩︎ Training on";
+      onBtn.onclick = async () => { await setFootballOff(selDate, false); await clearResched(selDate); };
+      row.appendChild(onBtn);
+    }
+    box.appendChild(row);
+
+    cBtn.onclick = async () => { await clearResched(selDate); await setFootballOff(selDate, true); };
+
+    const form = document.createElement("div");
+    form.style.marginTop = "8px";
+    form.style.display = resched ? "block" : "none";
+    form.innerHTML = `
+      <div class="muted small">New date & time:</div>
+      <input type="date" class="mininput" value="${resched ? resched.toDate : selDate}" />
+      <div class="grid2" style="margin-top:6px">
+        <input type="time" class="mininput" value="${resched ? resched.from : "17:00"}" />
+        <input type="time" class="mininput" value="${resched ? resched.to : "18:30"}" />
+      </div>
+      <button class="btn tiny primary" style="margin-top:8px">Save new time</button>`;
+    rBtn.onclick = () => { form.style.display = form.style.display === "none" ? "block" : "none"; };
+    form.querySelector("button").onclick = async () => {
+      const ins = form.querySelectorAll("input");
+      const toDate = ins[0].value, from = ins[1].value, to = ins[2].value;
+      if (!toDate || !from || !to) return;
+      await setFootballOff(selDate, false);
+      await setResched(selDate, { toDate, from, to });
+    };
+    box.appendChild(form);
+    alerts.appendChild(box);
   }
 
   // Quote header — shown above the plan

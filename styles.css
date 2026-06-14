@@ -90,6 +90,7 @@ h2{font-size:1.3rem;margin-bottom:12px}
 .alert.red{background:#3a1414;color:var(--red);border:1px solid #5a1f1f}
 .alert.amber{background:#3a2c10;color:var(--amber);border:1px solid #5a4418}
 .alert.green{background:#13302a;color:var(--accent);border:1px solid #1c4a3e}
+.alert.blue{background:#10283a;color:var(--blue);border:1px solid #1c3a55}
 
 /* ===== Timeline ===== */
 .timeline{display:flex;flex-direction:column;gap:8px}
