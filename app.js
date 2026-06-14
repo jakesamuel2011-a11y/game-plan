@@ -326,14 +326,16 @@ function renderToday() {
     alerts.appendChild(toggle);
   }
 
-  // Timeline — open with a quote from a legend
-  const tl = $("timeline");
+  // Quote header — shown above the plan
   const [qt, qa] = quoteOfDay();
-  const quoteHTML = `<div class="quote">“${esc(qt)}”<span class="q-by">— ${esc(qa)}</span></div>`;
-  tl.innerHTML = quoteHTML;
+  const dq = $("dayQuote");
+  if (dq) dq.innerHTML = `“${esc(qt)}”<span class="q-by">— ${esc(qa)}</span>`;
+
+  // Timeline
+  const tl = $("timeline"); tl.innerHTML = "";
   const plan = buildDayPlan(day, pendingHw().map(h => ({ subject: h.subject, task: h.task, mins: h.mins, due: h.due })), { noFootball });
   if (plan.rest) {
-    tl.innerHTML = quoteHTML + `<div class="block rest"><div class="t">All day</div><div class="b">${plan.note}</div></div>`;
+    tl.innerHTML = `<div class="block rest"><div class="t">All day</div><div class="b">${plan.note}</div></div>`;
     return;
   }
   if (plan.note) {
@@ -630,7 +632,17 @@ $("momAdd").onclick = async () => {
   });
   $("momText").value = ""; $("momDue").value = "";
 };
+// Show the "From Christabel" tab only to Christabel, or to Jake when she's set tasks.
+function refreshMumTab() {
+  const btn = document.querySelector('.tab[data-tab="mum"]');
+  const show = isMum() || cache.momtasks.length > 0;
+  if (btn) btn.style.display = show ? "" : "none";
+  const addCard = document.querySelector('#tab-mum .add-card');
+  if (addCard) addCard.style.display = isMum() ? "" : "none";
+  if (!show) { const panel = $("tab-mum"); if (panel && panel.classList.contains("active")) activateTab("home"); }
+}
 function renderMom() {
+  refreshMumTab();
   const list = $("momList"); if (!list) return; list.innerHTML = "";
   if (!cache.momtasks.length) { list.innerHTML = `<p class="muted small">Nothing from Christabel yet.</p>`; return; }
   const t = todayStr();
@@ -685,7 +697,7 @@ const BADGE_ART = {
 };
 function badgeSVG(key, on) {
   const a = BADGE_ART[key];
-  if (!on) return `<svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="30" r="26" fill="#3a414b"/><circle cx="32" cy="30" r="21" fill="#262b33"/><g opacity="0.4">${a.em}</g><rect x="45" y="49" width="11" height="8.5" rx="1.6" fill="#cfd6dd"/><path d="M46.8 49 V46.4 a2.7 2.7 0 0 1 5.4 0 V49" fill="none" stroke="#cfd6dd" stroke-width="1.7"/></svg>`;
+  if (!on) return `<svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="30" r="26" fill="${a.ring}" opacity="0.45"/><circle cx="32" cy="30" r="21" fill="${a.face}" opacity="0.7"/><g opacity="0.55">${a.em}</g><rect x="45" y="49" width="11" height="8.5" rx="1.6" fill="#e7edf2"/><path d="M46.8 49 V46.4 a2.7 2.7 0 0 1 5.4 0 V49" fill="none" stroke="#e7edf2" stroke-width="1.7"/></svg>`;
   return `<svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="30" r="26" fill="${a.ring}"/><circle cx="32" cy="30" r="21" fill="${a.face}"/>${a.em}</svg>`;
 }
 
@@ -879,22 +891,24 @@ function renderDashboard() {
     html += card("fifa", "🌍 World Cup", pendApprovals, false, "awaiting your approval ⏳", "warn");
   else {
     const nm = upcoming[0];
-    let sub = "no matches starred";
+    let sub = "no matches starred", fifaCls = "";
     if (nm) {
       const na = matchAssessment(nm.date, nm.time);
-      const state = !na.needsApproval ? "auto-OK ✓"
-        : nm.reqStatus === "approved" ? "approved ✓"
-          : nm.reqStatus === "declined" ? "declined"
-            : nm.reqStatus === "requested" ? "awaiting approval ⏳"
-              : "not yet approved";
+      let state;
+      if (!na.needsApproval) { state = "auto-OK ✓"; fifaCls = "good"; }
+      else if (nm.reqStatus === "approved") { state = "approved ✓"; fifaCls = "good"; }
+      else if (nm.reqStatus === "declined") { state = "declined ✗"; fifaCls = "bad"; }
+      else if (nm.reqStatus === "requested") { state = "⏳ not yet approved"; fifaCls = "warn"; }
+      else { state = "⏳ not yet approved"; fifaCls = "warn"; }
       sub = `Next: ${esc(nm.match)} — ${state}`;
     }
-    html += card("fifa", "🌍 World Cup", upcoming.length, false, sub);
+    html += card("fifa", "🌍 World Cup", upcoming.length, false, sub, fifaCls);
   }
   html += card("nico", "🐶 Nico", `${nicoDone}/${nicoIds.length}`, true,
     (nicoIds.length && nicoDone === nicoIds.length) ? "all done today ✅" : "duties today",
     (nicoIds.length && nicoDone === nicoIds.length) ? "good" : "");
-  html += card("mum", "👩 From Christabel", momOpen, false, momOpen ? "open task(s)" : "all done ✅", momOpen ? "warn" : "good");
+  if (cache.momtasks.length > 0)
+    html += card("mum", "👩 From Christabel", momOpen, false, momOpen ? "open task(s)" : "all done ✅", momOpen ? "warn" : "good");
   html += card("today", "📅 Today's plan", DAY_NAMES[new Date().getDay()].slice(0, 3), true, "tap for your schedule");
 
   if (pg) {
