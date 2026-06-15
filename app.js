@@ -931,12 +931,17 @@ function renderProgress() {
   else if (overallPct === 0) ladderHeadline = "🪜 Your climb to Legend starts here!";
   else if (nextTier && nextTier.name === "Legend") ladderHeadline = `🪜 Just ${nextTier.p - overallPct}% to go to unlock Legend status! 🚀`;
   else ladderHeadline = `🪜 Just ${nextTier.p - overallPct}% to unlock ${nextTier.name}!`;
+  const di = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 864e5);
+  const full4 = week.pillarsMet === 4;
+  const reqHeader = (di % 2 === 0)
+    ? `🎯 Hit your 4 this week — ${full4 ? "bullseye! 🎯" : week.pillarsMet + "/4 so far"}`
+    : `⭐ Win the week — ${full4 ? "flawless! ✨" : week.pillarsMet + "/4 done"}`;
 
   detailEl.innerHTML = `
-    <div class="card"><b>How this works</b>
-      <div class="muted small" style="margin-top:4px">Tick off your 4 weekly requirements below to raise your <b>Form rating</b> (out of 10). A week with all 4 done is "on target" — string those together to grow your <b>streak</b> and earn <b>streak badges</b>. Your overall progress across the year fills the <b>Career Ladder</b>, from Academy to Legend. Greyed badges show what's coming next.</div>
+    <div class="card"><b>🎮 Your game plan</b>
+      <div class="muted small" style="margin-top:4px">Smash all <b>4 weekly targets</b> to push your <b>Form rating</b> toward a perfect 10. Nail every one and the week's <b>on target</b> — stack those weeks to fire up your <b>streak</b> and earn <b>streak badges</b>. Every win also climbs the ladder, from Academy all the way to Legend. Greyed badges? That's what you're playing for next. Let's go! 🚀</div>
     </div>
-    <div class="card"><b>This week's requirements (${week.pillarsMet}/4 done)</b>
+    <div class="card"><b>${reqHeader}</b>
       <div class="chips" style="margin-top:8px">${chip(p.hw, "homework on time")} ${chip(p.video, "1 video uploaded")} ${chip(p.fitness, `fitness ${week.fitness}/${REQ.fitness}`)} ${chip(p.nico, `Nico ${week.nicoDays}/${REQ.nicoDays} days`)}</div>
       <div class="muted small" style="margin-top:8px">✓ = done · ✗ = still to do. All four green = this week counts as "on target".</div>
     </div>
@@ -1038,7 +1043,7 @@ function renderDashboard() {
   if (pg) {
     const nextName = (pg.ladder.find(l => !l.on) || {}).name || "Legend";
     let h2;
-    if (pg.overallPct >= 100) h2 = "👑 You're a Legend — top of the ladder!";
+    if (pg.overallPct >= 100) h2 = "👑 LEGEND unlocked! You climbed the whole ladder — take a bow, GOAT! 🐐";
     else if (pg.streak >= 1) {
       const opts = [
         `🔥 ${pg.streak}-week streak! Keep rolling to unlock your ${nextName} badge!`,
