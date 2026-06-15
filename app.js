@@ -2,7 +2,7 @@
 //  app.js — Firebase wiring + UI for Jake's Game Plan
 // =============================================================
 import { firebaseConfig, PEOPLE } from "./firebase-config.js";
-import { buildDayPlan, matchAssessment, FOOTBALL_DAYS } from "./planner.js";
+import { buildDayPlan, matchAssessment, FOOTBALL_DAYS } from "./planner.js?v=24";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
@@ -32,6 +32,7 @@ const isMum = () => !!ME && ME.email === MUM_EMAIL;   // Christabel
 const isJake = () => !!ME && ME.email === JAKE_EMAIL;
 const cache = { homework: [], videos: [], fixtures: [], tournaments: [], routines: [], nicolog: {}, momtasks: [], footballOff: new Set(), resched: new Map(), winsWeek: false };
 function fmtT(hhmm) { if (!hhmm) return ""; const [h, m] = hhmm.split(":").map(Number); const ap = h >= 12 ? "pm" : "am"; let hh = h % 12; if (hh === 0) hh = 12; return m ? `${hh}:${String(m).padStart(2, "0")}${ap}` : `${hh}${ap}`; }
+function fmtDate(s) { if (!s) return ""; const d = new Date(s + "T00:00:00"); return d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }); }
 
 // Daily inspiration — wide pool so it won't repeat for ~3 months (rotates daily).
 // Famous footballer/manager quotes + clearly-labelled "Football wisdom" mantras.
@@ -670,7 +671,8 @@ function renderFixtures() {
     el.className = "item" + (f.watched ? " done" : "");
 
     let statusHtml;
-    if (!a.needsApproval) statusHtml = `<span class="pill soon">auto-OK ✓</span>`;
+    if (a.autoDecline) statusHtml = `<span class="pill over">🚫 auto-declined (school hours)</span>`;
+    else if (!a.needsApproval) statusHtml = `<span class="pill soon">auto-OK ✓</span>`;
     else if (status === "approved") statusHtml = `<span class="pill" style="background:#13302a;color:var(--accent)">✓ approved${f.reqNote ? " — " + esc(f.reqNote) : ""}</span>`;
     else if (status === "declined") statusHtml = `<span class="pill over">declined${f.reqNote ? " — " + esc(f.reqNote) : ""}</span>`;
     else if (status === "requested") statusHtml = `<span class="pill today">⏳ not yet approved — awaiting Christabel</span>`;
@@ -689,7 +691,7 @@ function renderFixtures() {
       <button class="check ${f.watched ? "on" : ""}" title="watched">${f.watched ? "✓" : ""}</button>
       <div class="item-main">
         <div class="item-title">${esc(f.match)}</div>
-        <div class="item-sub">${f.comp ? `<span class="tag">${esc(f.comp)}</span>` : ""}${esc(f.date || "")}${f.time ? " · " + esc(f.time) : ""}</div>
+        <div class="item-sub">${f.comp ? `<span class="tag">${esc(f.comp)}</span>` : ""}${esc(fmtDate(f.date))}${f.time ? " · " + esc(f.time) : ""}</div>
         <div class="item-sub">${statusHtml} <span class="muted">${a.text}</span>${recTag}</div>
         <div class="rowbtns"></div>
       </div>
@@ -701,6 +703,11 @@ function renderFixtures() {
       if (isJake() && (status === "none" || status === "declined")) {
         const b = mkBtn(status === "declined" ? "Ask again" : "Request to watch", "primary");
         b.onclick = () => setReq(f, { reqStatus: "requested", reqBy: ME.email, reqNote: "" });
+        rb.appendChild(b);
+      }
+      if (isJake() && status === "requested") {
+        const b = mkBtn("↩︎ Take back request", "ghost");
+        b.onclick = () => setReq(f, { reqStatus: "none", reqNote: "" });
         rb.appendChild(b);
       }
       if (!isJake()) { // Christabel (or unknown role) can approve/decline
@@ -986,7 +993,7 @@ function renderDashboard() {
 
   const pendApprovals = cache.fixtures.filter(f => matchAssessment(f.date, f.time).needsApproval && f.reqStatus === "requested").length;
   const upcoming = cache.fixtures.filter(f => f.watch && !f.watched && f.date && f.date >= t).sort((a, b) => a.date.localeCompare(b.date));
-  const upNext = upcoming.filter(f => f.reqStatus !== "declined"); // never surface declined matches
+  const upNext = upcoming.filter(f => f.reqStatus !== "declined" && !matchAssessment(f.date, f.time).autoDecline); // skip declined & school-hours matches
 
   const nicoIds = cache.routines.filter(r => r.kind === "nico").map(r => r.id);
   const nicoDone = nicoIds.filter(id => cache.nicolog[id]).length;

@@ -153,8 +153,8 @@ function matchAssessment(dateStr, timeStr) {
 
   // Daytime kickoff (6:00am–6:59pm)
   if (hour >= 6 && hour < 19) {
-    if (wd >= 1 && wd <= 5 && hour < 16.25)
-      return { needsApproval: false, level: "school", text: "Falls during school hours — watch the recording after." };
+    if (wd >= 1 && wd <= 5 && hour >= 6.5 && hour < 16.25)
+      return { needsApproval: false, autoDecline: true, level: "school", text: "Kicks off during school hours — can't watch live. Catch the highlights later! 📺" };
     return { needsApproval: false, level: "none", text: "Daytime kickoff — no sleep impact." };
   }
   // Evening / night kickoff (7:00pm–11:59pm): is there school tomorrow?
