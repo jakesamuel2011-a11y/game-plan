@@ -2,7 +2,7 @@
 //  app.js — Firebase wiring + UI for Jake's Game Plan
 // =============================================================
 import { firebaseConfig, PEOPLE } from "./firebase-config.js";
-import { buildDayPlan, matchAssessment, FOOTBALL_DAYS } from "./planner.js?v=24";
+import { buildDayPlan, matchAssessment, FOOTBALL_DAYS } from "./planner.js?v=25";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
@@ -30,9 +30,11 @@ const MUM_EMAIL = "christabelsingh@gmail.com";
 const JAKE_EMAIL = "jakesamuel2011@gmail.com";
 const isMum = () => !!ME && ME.email === MUM_EMAIL;   // Christabel
 const isJake = () => !!ME && ME.email === JAKE_EMAIL;
-const cache = { homework: [], videos: [], fixtures: [], tournaments: [], routines: [], nicolog: {}, momtasks: [], footballOff: new Set(), resched: new Map(), winsWeek: false };
+const cache = { homework: [], videos: [], fixtures: [], tournaments: [], routines: [], nicolog: {}, momtasks: [], footballOff: new Set(), resched: new Map(), winsWeek: false, holidays: [] };
 function fmtT(hhmm) { if (!hhmm) return ""; const [h, m] = hhmm.split(":").map(Number); const ap = h >= 12 ? "pm" : "am"; let hh = h % 12; if (hh === 0) hh = 12; return m ? `${hh}:${String(m).padStart(2, "0")}${ap}` : `${hh}${ap}`; }
 function fmtDate(s) { if (!s) return ""; const d = new Date(s + "T00:00:00"); return d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }); }
+function fmtDayMonth(s) { if (!s) return ""; const d = new Date(s + "T00:00:00"); return d.toLocaleDateString("en-GB", { day: "numeric", month: "short" }); }
+const isHoliday = (dateStr) => cache.holidays.some(h => h.from && h.to && dateStr >= h.from && dateStr <= h.to);
 
 // Daily inspiration — wide pool so it won't repeat for ~3 months (rotates daily).
 // Famous footballer/manager quotes + clearly-labelled "Football wisdom" mantras.
@@ -314,6 +316,7 @@ function subscribeAll() {
   onSnapshot(query(collection(db, "footballoff")), s => { cache.footballOff = new Set(s.docs.map(d => d.id)); renderToday(); renderDashboard(); });
   onSnapshot(doc(db, "winslog", ymd(mondayOf(new Date()))), s => { cache.winsWeek = s.exists() && !!s.data().done; renderVideos(); });
   onSnapshot(query(collection(db, "footballresched")), s => { cache.resched = new Map(s.docs.map(d => [d.id, d.data()])); renderToday(); });
+  onSnapshot(query(collection(db, "holidays")), s => { cache.holidays = rows(s); renderToday(); });
   loadProgress(); // compute streaks/badges/ladder for the dashboard
 }
 const rows = (snap) => snap.docs.map(d => ({ id: d.id, ...d.data() }));
@@ -325,9 +328,10 @@ const DAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Frid
   const today = new Date().getDay();
   for (let i = 0; i < 7; i++) {
     const d = (today + i) % 7;
+    const ds = ymd(new Date(Date.now() + i * 864e5));
     const o = document.createElement("option");
     o.value = d;
-    o.textContent = i === 0 ? `Today (${DAY_NAMES[d]})` : DAY_NAMES[d];
+    o.textContent = i === 0 ? `Today · ${fmtDate(ds)}` : fmtDate(ds);
     sel.appendChild(o);
   }
   sel.onchange = renderToday;
@@ -358,11 +362,12 @@ async function clearResched(dateStr) { try { await deleteDoc(doc(db, "footballre
 
 function renderToday() {
   const day = parseInt($("planDay").value);
-  $("todayTitle").textContent = DAY_NAMES[day] + " plan";
-
   const selDate = dateForDay(day);
+  $("todayTitle").textContent = `${DAY_NAMES[day]} · ${fmtDayMonth(selDate)}`;
   const isFootballDay = FOOTBALL_DAYS.includes(day);
+  const holiday = isHoliday(selDate);
   const noFootball = cache.footballOff.has(selDate) || cache.resched.has(selDate);
+  renderHolidayBox(selDate);
 
   // Due alerts
   const alerts = $("dueAlerts"); alerts.innerHTML = "";
@@ -380,8 +385,10 @@ function renderToday() {
     if (r.toDate === selDate) addAlert(alerts, "blue", `⚽ Rescheduled training today: ${fmtT(r.from)}–${fmtT(r.to)} (moved from ${orig})`);
   }
 
+  if (holiday) addAlert(alerts, "green", "🎉 Holiday — no school today!");
+
   // Football status controls (training days: Mon/Wed/Fri): Cancelled / Rescheduled
-  if (isFootballDay) {
+  if (isFootballDay && !holiday) {
     const cancelled = cache.footballOff.has(selDate);
     const resched = cache.resched.get(selDate);
     const box = document.createElement("div");
@@ -434,7 +441,7 @@ function renderToday() {
 
   // Timeline
   const tl = $("timeline"); tl.innerHTML = "";
-  const plan = buildDayPlan(day, pendingHw().map(h => ({ subject: h.subject, task: h.task, mins: h.mins, due: h.due })), { noFootball });
+  const plan = buildDayPlan(day, pendingHw().map(h => ({ subject: h.subject, task: h.task, mins: h.mins, due: h.due })), { noFootball, holiday });
   if (plan.rest) {
     tl.innerHTML = `<div class="block rest"><div class="t">All day</div><div class="b">${plan.note}</div></div>`;
     return;
@@ -460,6 +467,30 @@ function renderToday() {
 }
 function addAlert(parent, cls, txt) {
   const d = document.createElement("div"); d.className = "alert " + cls; d.textContent = txt; parent.appendChild(d);
+}
+function renderHolidayBox(selDate) {
+  const box = $("holidayBox"); if (!box) return;
+  const onHol = isHoliday(selDate);
+  let html = `<div class="card add-card"><b>🎉 Holidays</b>
+    <div class="muted small" style="margin:4px 0 8px">${onHol ? "This day is a holiday — no school 🎉" : "Mark school holidays (a single day or a longer break) so the plan gives a day off."}</div>
+    <div class="grid2"><label class="mins">From<input type="date" id="holFrom" value="${selDate}" /></label><label class="mins">To<input type="date" id="holTo" value="${selDate}" /></label></div>
+    <input type="text" id="holName" placeholder="Name (optional) e.g. Mid-term break" />
+    <button class="btn primary" id="holAdd">Add holiday</button>`;
+  if (cache.holidays.length) {
+    html += `<div class="list" style="margin-top:10px">` +
+      [...cache.holidays].sort((a, b) => (a.from || "").localeCompare(b.from || "")).map(h =>
+        `<div class="item"><div class="item-main"><div class="item-title">${h.from === h.to ? fmtDate(h.from) : `${fmtDate(h.from)} → ${fmtDate(h.to)}`}</div>${h.name ? `<div class="item-sub">${esc(h.name)}</div>` : ""}</div><button class="del" data-id="${h.id}">✕</button></div>`).join("") +
+      `</div>`;
+  }
+  html += `</div>`;
+  box.innerHTML = html;
+  $("holAdd").onclick = async () => {
+    const from = $("holFrom").value; let to = $("holTo").value || from;
+    if (!from) return;
+    if (to < from) to = from;
+    await addDoc(collection(db, "holidays"), { from, to, name: $("holName").value.trim(), by: ME.email, at: serverTimestamp() });
+  };
+  box.querySelectorAll(".del[data-id]").forEach(b => b.onclick = () => deleteDoc(doc(db, "holidays", b.dataset.id)));
 }
 
 // ---------- HOMEWORK ----------
@@ -660,89 +691,100 @@ function renderPending() {
   box.appendChild(card);
 }
 
+function buildFixtureEl(f, isPast) {
+  const a = matchAssessment(f.date, f.time);
+  const status = f.reqStatus || "none";
+  const el = document.createElement("div");
+  el.className = "item" + (f.watched ? " done" : "");
+
+  let statusHtml;
+  if (isPast) statusHtml = f.watched
+    ? `<span class="pill" style="background:#13302a;color:var(--accent)">✓ watched</span>`
+    : (status === "approved" ? `<span class="pill">was approved · not watched</span>` : `<span class="pill">not watched</span>`);
+  else if (a.autoDecline) statusHtml = `<span class="pill over">🚫 auto-declined (school hours)</span>`;
+  else if (!a.needsApproval) statusHtml = `<span class="pill soon">auto-OK ✓</span>`;
+  else if (status === "approved") statusHtml = `<span class="pill" style="background:#13302a;color:var(--accent)">✓ approved${f.reqNote ? " — " + esc(f.reqNote) : ""}</span>`;
+  else if (status === "declined") statusHtml = `<span class="pill over">declined${f.reqNote ? " — " + esc(f.reqNote) : ""}</span>`;
+  else if (status === "requested") statusHtml = `<span class="pill today">⏳ not yet approved — awaiting Christabel</span>`;
+  else statusHtml = `<span class="pill ${LEVEL_CLASS[a.level] || "today"}">⏳ not yet approved</span>`;
+
+  let recTag = "";
+  if (!isPast && a.needsApproval && (status === "none" || status === "requested") && progressCache && progressCache.week) {
+    const r = progressCache.week.rec;
+    const c = r.level === "approve" ? "var(--accent)" : r.level === "conditional" ? "var(--amber)" : "var(--red)";
+    const ic = r.level === "approve" ? "✅" : r.level === "conditional" ? "🟡" : "⛔";
+    recTag = ` <span style="color:${c}">· rec: ${ic} ${r.level}</span>`;
+  }
+
+  el.innerHTML = `
+    <button class="check ${f.watched ? "on" : ""}" title="watched">${f.watched ? "✓" : ""}</button>
+    <div class="item-main">
+      <div class="item-title">${esc(f.match)}</div>
+      <div class="item-sub">${f.comp ? `<span class="tag">${esc(f.comp)}</span>` : ""}${esc(fmtDate(f.date))}${f.time ? " · " + esc(f.time) : ""}</div>
+      <div class="item-sub">${statusHtml}${!isPast ? ` <span class="muted">${a.text}</span>` : ""}${recTag}</div>
+      <div class="rowbtns"></div>
+    </div>
+    <button class="star" title="want to watch">${f.watch ? "⭐" : "☆"}</button>`;
+
+  const rb = el.querySelector(".rowbtns");
+  if (!isPast && a.needsApproval && status !== "approved") {
+    if (isJake() && (status === "none" || status === "declined")) {
+      const b = mkBtn(status === "declined" ? "Ask again" : "Request to watch", "primary");
+      b.onclick = () => setReq(f, { reqStatus: "requested", reqBy: ME.email, reqNote: "" });
+      rb.appendChild(b);
+    }
+    if (isJake() && status === "requested") {
+      const b = mkBtn("↩︎ Take back request", "ghost");
+      b.onclick = () => setReq(f, { reqStatus: "none", reqNote: "" });
+      rb.appendChild(b);
+    }
+    if (!isJake()) { // Christabel (or unknown role) can approve/decline
+      const rec = progressCache && progressCache.week ? progressCache.week.rec : null;
+      const recline = document.createElement("div");
+      recline.className = "item-sub";
+      if (rec) {
+        const col = rec.level === "approve" ? "var(--accent)" : rec.level === "conditional" ? "var(--amber)" : "var(--red)";
+        const ic = rec.level === "approve" ? "✅" : rec.level === "conditional" ? "🟡" : "⛔";
+        recline.innerHTML = `<span style="color:${col}">${ic} ${esc(rec.text)}</span>`;
+      } else {
+        recline.innerHTML = `<span class="muted">Weekly check loading…</span>`;
+      }
+      const note = document.createElement("input");
+      note.placeholder = "note / condition (optional)";
+      note.className = "mininput";
+      note.value = f.reqNote || (rec && rec.level === "conditional" ? rec.note : "");
+      const ap = mkBtn("Approve", "primary");
+      ap.onclick = () => setReq(f, { reqStatus: "approved", reqNote: note.value.trim(), reqDecidedBy: ME.email });
+      const dc = mkBtn("Decline", "ghost");
+      dc.onclick = () => setReq(f, { reqStatus: "declined", reqNote: note.value.trim(), reqDecidedBy: ME.email });
+      rb.appendChild(recline); rb.appendChild(note); rb.appendChild(ap); rb.appendChild(dc);
+    }
+  }
+  if (!isPast && status === "approved" && !isJake()) {
+    const un = mkBtn("Undo approval", "ghost");
+    un.onclick = () => setReq(f, { reqStatus: "requested" });
+    rb.appendChild(un);
+  }
+
+  el.querySelector(".check").onclick = () => updateDoc(doc(db, "fixtures", f.id), { watched: !f.watched });
+  el.querySelector(".star").onclick = () => updateDoc(doc(db, "fixtures", f.id), { watch: !f.watch });
+  return el;
+}
+
 function renderFixtures() {
   renderPending();
   const list = $("fxList"); list.innerHTML = "";
   if (!cache.fixtures.length) { list.innerHTML = `<p class="muted small">No matches yet.</p>`; return; }
-  [...cache.fixtures].sort((a, b) => (a.date || "").localeCompare(b.date || "")).forEach(f => {
-    const a = matchAssessment(f.date, f.time);
-    const status = f.reqStatus || "none";
-    const el = document.createElement("div");
-    el.className = "item" + (f.watched ? " done" : "");
-
-    let statusHtml;
-    if (a.autoDecline) statusHtml = `<span class="pill over">🚫 auto-declined (school hours)</span>`;
-    else if (!a.needsApproval) statusHtml = `<span class="pill soon">auto-OK ✓</span>`;
-    else if (status === "approved") statusHtml = `<span class="pill" style="background:#13302a;color:var(--accent)">✓ approved${f.reqNote ? " — " + esc(f.reqNote) : ""}</span>`;
-    else if (status === "declined") statusHtml = `<span class="pill over">declined${f.reqNote ? " — " + esc(f.reqNote) : ""}</span>`;
-    else if (status === "requested") statusHtml = `<span class="pill today">⏳ not yet approved — awaiting Christabel</span>`;
-    else statusHtml = `<span class="pill ${LEVEL_CLASS[a.level] || "today"}">⏳ not yet approved</span>`;
-
-    // recommendation tag (visible to both) while a decision is pending
-    let recTag = "";
-    if (a.needsApproval && (status === "none" || status === "requested") && progressCache && progressCache.week) {
-      const r = progressCache.week.rec;
-      const c = r.level === "approve" ? "var(--accent)" : r.level === "conditional" ? "var(--amber)" : "var(--red)";
-      const ic = r.level === "approve" ? "✅" : r.level === "conditional" ? "🟡" : "⛔";
-      recTag = ` <span style="color:${c}">· rec: ${ic} ${r.level}</span>`;
-    }
-
-    el.innerHTML = `
-      <button class="check ${f.watched ? "on" : ""}" title="watched">${f.watched ? "✓" : ""}</button>
-      <div class="item-main">
-        <div class="item-title">${esc(f.match)}</div>
-        <div class="item-sub">${f.comp ? `<span class="tag">${esc(f.comp)}</span>` : ""}${esc(fmtDate(f.date))}${f.time ? " · " + esc(f.time) : ""}</div>
-        <div class="item-sub">${statusHtml} <span class="muted">${a.text}</span>${recTag}</div>
-        <div class="rowbtns"></div>
-      </div>
-      <button class="star" title="want to watch">${f.watch ? "⭐" : "☆"}</button>
-      <button class="del">✕</button>`;
-
-    const rb = el.querySelector(".rowbtns");
-    if (a.needsApproval && status !== "approved") {
-      if (isJake() && (status === "none" || status === "declined")) {
-        const b = mkBtn(status === "declined" ? "Ask again" : "Request to watch", "primary");
-        b.onclick = () => setReq(f, { reqStatus: "requested", reqBy: ME.email, reqNote: "" });
-        rb.appendChild(b);
-      }
-      if (isJake() && status === "requested") {
-        const b = mkBtn("↩︎ Take back request", "ghost");
-        b.onclick = () => setReq(f, { reqStatus: "none", reqNote: "" });
-        rb.appendChild(b);
-      }
-      if (!isJake()) { // Christabel (or unknown role) can approve/decline
-        const rec = progressCache && progressCache.week ? progressCache.week.rec : null;
-        const recline = document.createElement("div");
-        recline.className = "item-sub";
-        if (rec) {
-          const col = rec.level === "approve" ? "var(--accent)" : rec.level === "conditional" ? "var(--amber)" : "var(--red)";
-          const ic = rec.level === "approve" ? "✅" : rec.level === "conditional" ? "🟡" : "⛔";
-          recline.innerHTML = `<span style="color:${col}">${ic} ${esc(rec.text)}</span>`;
-        } else {
-          recline.innerHTML = `<span class="muted">Weekly check loading…</span>`;
-        }
-        const note = document.createElement("input");
-        note.placeholder = "note / condition (optional)";
-        note.className = "mininput";
-        note.value = f.reqNote || (rec && rec.level === "conditional" ? rec.note : "");
-        const ap = mkBtn("Approve", "primary");
-        ap.onclick = () => setReq(f, { reqStatus: "approved", reqNote: note.value.trim(), reqDecidedBy: ME.email });
-        const dc = mkBtn("Decline", "ghost");
-        dc.onclick = () => setReq(f, { reqStatus: "declined", reqNote: note.value.trim(), reqDecidedBy: ME.email });
-        rb.appendChild(recline); rb.appendChild(note); rb.appendChild(ap); rb.appendChild(dc);
-      }
-    }
-    if (status === "approved" && !isJake()) {
-      const un = mkBtn("Undo approval", "ghost");
-      un.onclick = () => setReq(f, { reqStatus: "requested" });
-      rb.appendChild(un);
-    }
-
-    el.querySelector(".check").onclick = () => updateDoc(doc(db, "fixtures", f.id), { watched: !f.watched });
-    el.querySelector(".star").onclick = () => updateDoc(doc(db, "fixtures", f.id), { watch: !f.watch });
-    el.querySelector(".del").onclick = () => deleteDoc(doc(db, "fixtures", f.id));
-    list.appendChild(el);
-  });
+  const t = todayStr();
+  const upcoming = cache.fixtures.filter(f => !f.date || f.date >= t).sort((a, b) => (a.date || "9999").localeCompare(b.date || "9999"));
+  const past = cache.fixtures.filter(f => f.date && f.date < t).sort((a, b) => b.date.localeCompare(a.date));
+  upcoming.forEach(f => list.appendChild(buildFixtureEl(f, false)));
+  if (past.length) {
+    const h = document.createElement("h3");
+    h.className = "section-h"; h.textContent = "⏮️ Already played";
+    list.appendChild(h);
+    past.forEach(f => list.appendChild(buildFixtureEl(f, true)));
+  }
 }
 
 // ---------- FROM MUM ----------

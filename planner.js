@@ -13,6 +13,9 @@ const FOOTBALL_DAYS = [1, 3, 5];
 // Each window: {start, end, type, label}  (times = minutes from midnight)
 function dayTemplate(day, opts = {}) {
   const T = (h, m = 0) => h * 60 + m;
+  if (opts.holiday) { // marked holiday — day off
+    return { rest: true, windows: [], note: "🎉 Holiday — enjoy your day off! Great time for videos or catching up if you like." };
+  }
   if (day === 0) { // Sunday — free
     return { rest: true, windows: [], note: "Rest & recharge — fully free day 🎉" };
   }
