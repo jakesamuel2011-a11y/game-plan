@@ -237,11 +237,6 @@ $("loginBtn").onclick = async () => {
     await signInWithEmailAndPassword(auth, $("email").value.trim(), $("password").value);
   } catch (e) { $("loginMsg").textContent = friendlyErr(e); }
 };
-$("signupBtn").onclick = async () => {
-  try {
-    await createUserWithEmailAndPassword(auth, $("email").value.trim(), $("password").value);
-  } catch (e) { $("loginMsg").textContent = friendlyErr(e); }
-};
 $("logoutBtn").onclick = () => signOut(auth);
 function friendlyErr(e) {
   const m = (e.code || "").replace("auth/", "").replace(/-/g, " ");
@@ -376,7 +371,7 @@ function renderToday() {
   const over = pendingHw().filter(h => h.due && effectiveDue(h.due) < t);
   const due = pendingHw().filter(h => h.due && effectiveDue(h.due) === t);
   if (over.length) addAlert(alerts, "red", `⚠️ ${over.length} overdue: ${over.map(h => h.subject).join(", ")}`);
-  if (due.length) addAlert(alerts, "amber", `📌 Finish today (due in advance): ${due.map(h => h.subject).join(", ")}`);
+  if (due.length) addAlert(alerts, "amber", `📌 Pending today (due next school day): ${due.map(h => h.subject).join(", ")}`);
   const tour = cache.tournaments.filter(x => x.date >= t).sort((a, b) => a.date.localeCompare(b.date))[0];
   if (tour) addAlert(alerts, "green", `🏆 Next tournament: ${tour.name} on ${tour.date}${tour.location ? " · " + tour.location : ""}`);
   if (!over.length && !due.length) addAlert(alerts, "green", "✅ Nothing overdue — nice work!");
@@ -512,12 +507,12 @@ function buildHwEl(h) {
   if (!done && h.due) {
     const eff = effectiveDue(h.due);
     if (eff < t) pill = `<span class="pill over">overdue</span>`;
-    else if (eff === t) pill = `<span class="pill today">finish today</span>`;
-    else pill = `<span class="pill soon">do by ${eff}</span>`;
+    else if (eff === t) pill = `<span class="pill today">pending — do today</span>`;
+    else pill = `<span class="pill soon">do by ${fmtDate(eff)}</span>`;
   }
   const sub = done
     ? `done${h.doneBy ? " by " + nameFor(h.doneBy) : ""}${h.doneAt && h.doneAt.toDate ? " · " + fmtDate(ymd(h.doneAt.toDate())) : ""}`
-    : `${pill} ${h.due ? `· due ${h.due}` : ""} · ${h.mins || 45} min`;
+    : `${pill} ${h.due ? `· due ${fmtDate(h.due)}` : ""} · ${h.mins || 45} min`;
   const el = document.createElement("div");
   el.className = "item" + (done ? " done" : "");
   el.innerHTML = `
@@ -574,6 +569,29 @@ $("vidAdd").onclick = async () => {
   });
   $("vidTitle").value = ""; $("vidSkill").value = "";
 };
+function buildVidEl(v) {
+  const chk = (on, label) => `<button class="${on ? "on" : ""}">${on ? "☑" : "☐"} ${label}</button>`;
+  const created = v.stage === "done";
+  const el = document.createElement("div");
+  el.className = "item" + (created ? " done" : "");
+  el.innerHTML = `
+    <div class="item-main">
+      <div class="item-title">${esc(v.title)}</div>
+      ${v.skill ? `<div class="item-sub">🛠️ Skill: ${esc(v.skill)}</div>` : ""}
+      <div class="stage-btns" style="margin-top:6px">
+        <span data-act="created">${chk(created, "Video created")}</span>
+        <span data-act="next">${chk(v.next, "Uploaded to NEXT")}</span>
+        <span data-act="youtube">${chk(v.youtube, "Uploaded to YouTube")}</span>
+      </div>
+    </div>
+    ${created ? "" : `<button class="del">✕</button>`}`;
+  el.querySelector('[data-act="created"] button').onclick = () =>
+    updateDoc(doc(db, "videos", v.id), { stage: created ? "idea" : "done", doneAt: created ? null : serverTimestamp() });
+  el.querySelector('[data-act="next"] button').onclick = () => updateDoc(doc(db, "videos", v.id), { next: !v.next });
+  el.querySelector('[data-act="youtube"] button').onclick = () => updateDoc(doc(db, "videos", v.id), { youtube: !v.youtube });
+  const del = el.querySelector(".del"); if (del) del.onclick = () => deleteDoc(doc(db, "videos", v.id));
+  return el;
+}
 function renderVideos() {
   const done = cache.videos.filter(v => v.stage === "done").length;
   const goal = 29, byNov14 = 23;
@@ -603,29 +621,20 @@ function renderVideos() {
 
   if (!cache.videos.length) { list.insertAdjacentHTML("beforeend", `<p class="muted small">No videos yet. Add your first idea above 👆</p>`); return; }
 
-  const chk = (on, label) => `<button class="${on ? "on" : ""}">${on ? "☑" : "☐"} ${label}</button>`;
-  [...cache.videos].reverse().forEach(v => {
-    const created = v.stage === "done";
-    const el = document.createElement("div");
-    el.className = "item" + (created ? " done" : "");
-    el.innerHTML = `
-      <div class="item-main">
-        <div class="item-title">${esc(v.title)}</div>
-        ${v.skill ? `<div class="item-sub">🛠️ Skill: ${esc(v.skill)}</div>` : ""}
-        <div class="stage-btns" style="margin-top:6px">
-          <span data-act="created">${chk(created, "Video created")}</span>
-          <span data-act="next">${chk(v.next, "Uploaded to NEXT")}</span>
-          <span data-act="youtube">${chk(v.youtube, "Uploaded to YouTube")}</span>
-        </div>
-      </div>
-      <button class="del">✕</button>`;
-    el.querySelector('[data-act="created"] button').onclick = () =>
-      updateDoc(doc(db, "videos", v.id), { stage: created ? "idea" : "done", doneAt: created ? null : serverTimestamp() });
-    el.querySelector('[data-act="next"] button').onclick = () => updateDoc(doc(db, "videos", v.id), { next: !v.next });
-    el.querySelector('[data-act="youtube"] button').onclick = () => updateDoc(doc(db, "videos", v.id), { youtube: !v.youtube });
-    el.querySelector(".del").onclick = () => deleteDoc(doc(db, "videos", v.id));
-    list.appendChild(el);
-  });
+  const inProgress = cache.videos.filter(v => v.stage !== "done");
+  const completed = cache.videos.filter(v => v.stage === "done")
+    .sort((a, b) => ((b.doneAt && b.doneAt.toDate ? b.doneAt.toDate() : 0) - (a.doneAt && a.doneAt.toDate ? a.doneAt.toDate() : 0)));
+  [...inProgress].reverse().forEach(v => list.appendChild(buildVidEl(v)));
+
+  const head = document.createElement("h3"); head.className = "section-h";
+  head.textContent = `✅ Videos created (${completed.length}/${goal})`;
+  list.appendChild(head);
+  if (!completed.length) {
+    const p = document.createElement("p"); p.className = "muted small";
+    p.textContent = "No videos created yet — your first one's waiting! 🎬";
+    list.appendChild(p);
+  }
+  completed.forEach(v => list.appendChild(buildVidEl(v)));
 }
 
 // ---------- FOOTBALL: tournaments + fitness ----------
