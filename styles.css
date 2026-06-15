@@ -123,7 +123,7 @@ h2{font-size:1.3rem;margin-bottom:12px}
 .stage-btns button{font-size:.7rem;padding:4px 9px;border-radius:7px;border:1px solid var(--line);
   background:var(--card2);color:var(--muted)}
 .stage-btns button.on{background:var(--green);color:#fff;border-color:var(--green)}
-.foot{text-align:center;padding:20px}
+.foot{text-align:center;padding:20px;font-size:.62rem;color:#5f6b75}
 /* Dashboard */
 .dash{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .dcard{background:var(--card);border:1px solid var(--line);border-radius:14px;

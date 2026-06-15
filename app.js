@@ -420,7 +420,7 @@ function renderToday() {
   // Quote header — shown above the plan
   const [qt, qa] = quoteOfDay();
   const dq = $("dayQuote");
-  if (dq) dq.innerHTML = `${esc(qt)}<span class="q-by">— ${esc(qa)}</span>`;
+  if (dq) dq.innerHTML = `“${esc(qt)}”<span class="q-by">— ${esc(qa)}</span>`;
 
   // Timeline
   const tl = $("timeline"); tl.innerHTML = "";
@@ -916,6 +916,11 @@ function renderProgress() {
   const chip = (ok, label) => `<span class="chip ${ok ? "on" : ""}">${ok ? "✓" : "✗"} ${label}</span>`;
   const cell = (b, sub) => `<div class="bcell ${b.on ? "" : "lock"}" title="${esc(BADGE_DESC[b.key])} ${b.on ? "— unlocked ✓" : "— locked"}">${badgeSVG(b.key, b.on)}<div class="bname">${b.name}</div><div class="bmeta muted small">${sub}</div></div>`;
   const nextTier = ladder.find(l => !l.on);
+  let ladderHeadline;
+  if (overallPct >= 100) ladderHeadline = "🏆 Legend status: unlocked! 👑";
+  else if (overallPct === 0) ladderHeadline = "🪜 Your climb to Legend starts here!";
+  else if (nextTier && nextTier.name === "Legend") ladderHeadline = `🪜 Just ${nextTier.p - overallPct}% to go to unlock Legend status! 🚀`;
+  else ladderHeadline = `🪜 Just ${nextTier.p - overallPct}% to unlock ${nextTier.name}!`;
 
   detailEl.innerHTML = `
     <div class="card"><b>How this works</b>
@@ -925,9 +930,9 @@ function renderProgress() {
       <div class="chips" style="margin-top:8px">${chip(p.hw, "homework on time")} ${chip(p.video, "1 video uploaded")} ${chip(p.fitness, `fitness ${week.fitness}/${REQ.fitness}`)} ${chip(p.nico, `Nico ${week.nicoDays}/${REQ.nicoDays} days`)}</div>
       <div class="muted small" style="margin-top:8px">✓ = done · ✗ = still to do. All four green = this week counts as "on target".</div>
     </div>
-    <h3 class="section-h">🔥 Streak badges — earned by consistent weeks (${progressCache.streakUnlocked}/4)</h3>
+    <h3 class="section-h">🔥 Win the week, grow your streak, grab a badge! (${progressCache.streakUnlocked}/4)</h3>
     <div class="badgegrid">${streakBadges.map(b => cell(b, b.on ? "unlocked ✓" : b.meta)).join("")}</div>
-    <h3 class="section-h">🪜 Career ladder — ${overallPct}% of season goals${nextTier ? ` · next: ${nextTier.name} at ${nextTier.p}%` : " · maxed out! 👑"}</h3>
+    <h3 class="section-h">${ladderHeadline}</h3>
     <div class="progress"><div style="width:${overallPct}%"></div></div>
     <div class="badgegrid five">${ladder.map(b => cell(b, b.on ? "reached ✓" : `${b.p}%`)).join("")}</div>`;
 }
@@ -957,6 +962,7 @@ function renderDashboard() {
 
   const pendApprovals = cache.fixtures.filter(f => matchAssessment(f.date, f.time).needsApproval && f.reqStatus === "requested").length;
   const upcoming = cache.fixtures.filter(f => f.watch && !f.watched && f.date && f.date >= t).sort((a, b) => a.date.localeCompare(b.date));
+  const upNext = upcoming.filter(f => f.reqStatus !== "declined"); // never surface declined matches
 
   const nicoIds = cache.routines.filter(r => r.kind === "nico").map(r => r.id);
   const nicoDone = nicoIds.filter(id => cache.nicolog[id]).length;
@@ -977,7 +983,7 @@ function renderDashboard() {
   parts.push(`${vDone}/29 videos`);
   parts.push(`Nico ${nicoDone}/${nicoIds.length}`);
   if (isMum() && pendApprovals) parts.push(`${pendApprovals} match${pendApprovals > 1 ? "es" : ""} to approve`);
-  else if (upcoming[0]) parts.push(`next match: ${esc(upcoming[0].match)}`);
+  else if (upNext[0]) parts.push(`next match: ${esc(upNext[0].match)}`);
   const tone = over ? "bad" : ((soon.length || (pendApprovals && isMum())) ? "warn" : "good");
   const summary = `<div class="dash-summary ${tone}">📋 <b>Jake's ${dayName} snapshot:</b> ${parts.join(" · ")}.${pg ? ` Form ${pg.week.rating}/10 · season ${pg.overallPct}%.` : ""}</div>`;
 
@@ -992,22 +998,16 @@ function renderDashboard() {
   html += card("videos", "🎬 GNR Videos", `${vDone}/29`, true, `${perWk}/wk to hit Dec 31`);
   html += card("football", "🏆 Football", `${fitDone}/${fitIds.length}`, true,
     nextTour ? `Next: ${esc(nextTour.name)} · ${nextTour.date}` : (isFb ? (fbOff ? "training cancelled 🌧️" : "training today ⚽") : "fitness today"));
-  if (isMum() && pendApprovals)
-    html += card("fifa", "🌍 World Cup", pendApprovals, false, "awaiting your approval ⏳", "warn");
-  else {
-    const nm = upcoming[0];
-    let sub = "no matches starred", fifaCls = "";
+  {
+    const nm = upNext[0];
+    let sub = "No matches lined up — star some to watch", fifaCls = "";
     if (nm) {
       const na = matchAssessment(nm.date, nm.time);
-      let state;
-      if (!na.needsApproval) { state = "auto-OK ✓"; fifaCls = "good"; }
-      else if (nm.reqStatus === "approved") { state = "approved ✓"; fifaCls = "good"; }
-      else if (nm.reqStatus === "declined") { state = "declined ✗"; fifaCls = "bad"; }
-      else if (nm.reqStatus === "requested") { state = "⏳ not yet approved"; fifaCls = "warn"; }
-      else { state = "⏳ not yet approved"; fifaCls = "warn"; }
-      sub = `Next: ${esc(nm.match)} — ${state}`;
+      const ready = !na.needsApproval || nm.reqStatus === "approved";
+      if (ready) { sub = `Next up: ${esc(nm.match)} — good to watch ✅`; fifaCls = "good"; }
+      else { sub = `Next up: ${esc(nm.match)} — approval pending ⏳`; fifaCls = "warn"; }
     }
-    html += card("fifa", "🌍 World Cup", upcoming.length, false, sub, fifaCls);
+    html += card("fifa", "🌍 World Cup", upNext.length, false, sub, fifaCls);
   }
   html += card("nico", "🐶 Nico", `${nicoDone}/${nicoIds.length}`, true,
     (nicoIds.length && nicoDone === nicoIds.length) ? "all done today ✅" : "duties today",
