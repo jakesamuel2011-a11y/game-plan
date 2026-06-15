@@ -189,6 +189,15 @@ function workingHorizon(n = 2) {
   }
   return ymd(d);
 }
+// Homework must be finished in advance: by the school day before it's due,
+// or at the latest the previous Saturday (if the day-before falls on Sunday).
+function effectiveDue(dueStr) {
+  if (!dueStr) return "";
+  const d = new Date(dueStr + "T00:00:00");
+  d.setDate(d.getDate() - 1);
+  if (d.getDay() === 0) d.setDate(d.getDate() - 1); // Sunday → Saturday
+  return ymd(d);
+}
 const BADGE_DESC = {
   kickoff: "Complete one full week meeting all four requirements.",
   inform: "Stay on target 3 weeks in a row.",
@@ -357,10 +366,10 @@ function renderToday() {
   // Due alerts
   const alerts = $("dueAlerts"); alerts.innerHTML = "";
   const t = todayStr();
-  const over = pendingHw().filter(h => h.due && h.due < t);
-  const due = pendingHw().filter(h => h.due === t);
+  const over = pendingHw().filter(h => h.due && effectiveDue(h.due) < t);
+  const due = pendingHw().filter(h => h.due && effectiveDue(h.due) === t);
   if (over.length) addAlert(alerts, "red", `⚠️ ${over.length} overdue: ${over.map(h => h.subject).join(", ")}`);
-  if (due.length) addAlert(alerts, "amber", `📌 Due today: ${due.map(h => h.subject).join(", ")}`);
+  if (due.length) addAlert(alerts, "amber", `📌 Finish today (due in advance): ${due.map(h => h.subject).join(", ")}`);
   const tour = cache.tournaments.filter(x => x.date >= t).sort((a, b) => a.date.localeCompare(b.date))[0];
   if (tour) addAlert(alerts, "green", `🏆 Next tournament: ${tour.name} on ${tour.date}${tour.location ? " · " + tour.location : ""}`);
   if (!over.length && !due.length) addAlert(alerts, "green", "✅ Nothing overdue — nice work!");
@@ -475,9 +484,10 @@ function renderHomework() {
     const done = h.status === "done";
     let pill = "";
     if (!done && h.due) {
-      if (h.due < t) pill = `<span class="pill over">overdue</span>`;
-      else if (h.due === t) pill = `<span class="pill today">due today</span>`;
-      else pill = `<span class="pill soon">${h.due}</span>`;
+      const eff = effectiveDue(h.due);
+      if (eff < t) pill = `<span class="pill over">overdue</span>`;
+      else if (eff === t) pill = `<span class="pill today">finish today</span>`;
+      else pill = `<span class="pill soon">do by ${eff}</span>`;
     }
     const el = document.createElement("div");
     el.className = "item" + (done ? " done" : "");
@@ -485,7 +495,7 @@ function renderHomework() {
       <button class="check ${done ? "on" : ""}">${done ? "✓" : ""}</button>
       <div class="item-main">
         <div class="item-title"><span class="tag subj">${h.subject}</span>${h.task}</div>
-        <div class="item-sub">${pill} ${h.mins || 45} min ${done && h.doneBy ? "· done by " + nameFor(h.doneBy) : ""}</div>
+        <div class="item-sub">${pill} ${h.due ? `· due ${h.due}` : ""} · ${h.mins || 45} min ${done && h.doneBy ? "· done by " + nameFor(h.doneBy) : ""}</div>
       </div>
       <button class="del">✕</button>`;
     el.querySelector(".check").onclick = () => updateDoc(doc(db, "homework", h.id), {
@@ -914,7 +924,7 @@ function renderProgress() {
     <div class="stat"><div class="n">${overallPct}%</div><div class="l">season goals</div></div>`;
 
   const chip = (ok, label) => `<span class="chip ${ok ? "on" : ""}">${ok ? "✓" : "✗"} ${label}</span>`;
-  const cell = (b, sub) => `<div class="bcell ${b.on ? "" : "lock"}" title="${esc(BADGE_DESC[b.key])} ${b.on ? "— unlocked ✓" : "— locked"}">${badgeSVG(b.key, b.on)}<div class="bname">${b.name}</div><div class="bmeta muted small">${sub}</div></div>`;
+  const cell = (b, sub) => `<div class="bcell ${b.on ? "" : "lock"}" data-desc="${esc(b.name)}: ${esc(BADGE_DESC[b.key])} ${b.on ? "— unlocked ✓" : "— locked 🔒"}" title="${esc(BADGE_DESC[b.key])}">${badgeSVG(b.key, b.on)}<div class="bname">${b.name}</div><div class="bmeta muted small">${sub}</div></div>`;
   const nextTier = ladder.find(l => !l.on);
   let ladderHeadline;
   if (overallPct >= 100) ladderHeadline = "🏆 Legend status: unlocked! 👑";
@@ -930,11 +940,21 @@ function renderProgress() {
       <div class="chips" style="margin-top:8px">${chip(p.hw, "homework on time")} ${chip(p.video, "1 video uploaded")} ${chip(p.fitness, `fitness ${week.fitness}/${REQ.fitness}`)} ${chip(p.nico, `Nico ${week.nicoDays}/${REQ.nicoDays} days`)}</div>
       <div class="muted small" style="margin-top:8px">✓ = done · ✗ = still to do. All four green = this week counts as "on target".</div>
     </div>
+    <div id="badgeInfo" class="badge-info">👆 Tap any badge to see how to unlock it.</div>
     <h3 class="section-h">🔥 Win the week, grow your streak, grab a badge! (${progressCache.streakUnlocked}/4)</h3>
     <div class="badgegrid">${streakBadges.map(b => cell(b, b.on ? "unlocked ✓" : b.meta)).join("")}</div>
     <h3 class="section-h">${ladderHeadline}</h3>
     <div class="progress"><div style="width:${overallPct}%"></div></div>
     <div class="badgegrid five">${ladder.map(b => cell(b, b.on ? "reached ✓" : `${b.p}%`)).join("")}</div>`;
+
+  const info = $("badgeInfo");
+  detailEl.querySelectorAll(".bcell").forEach(c => c.onclick = () => {
+    if (!info) return;
+    info.textContent = c.dataset.desc;
+    info.classList.remove("flash"); void info.offsetWidth; info.classList.add("flash"); // restart animation
+    detailEl.querySelectorAll(".bcell.sel").forEach(x => x.classList.remove("sel"));
+    c.classList.add("sel");
+  });
 }
 
 // ---------- DASHBOARD (one-glance home) ----------
@@ -944,10 +964,9 @@ function renderDashboard() {
   const hi = $("dashHi"); if (hi) hi.textContent = MY_NAME ? `Hi ${MY_NAME} 👋` : "Dashboard";
 
   const pend = cache.homework.filter(h => h.status !== "done");
-  const over = pend.filter(h => h.due && h.due < t).length;
-  const dueToday = pend.filter(h => h.due === t).length;
+  const over = pend.filter(h => h.due && effectiveDue(h.due) < t).length;
   const horizon = workingHorizon(2);
-  const soon = pend.filter(h => h.due && h.due >= t && h.due <= horizon);
+  const soon = pend.filter(h => h.due && effectiveDue(h.due) >= t && effectiveDue(h.due) <= horizon);
   const soonSubj = [...new Set(soon.map(h => h.subject))];
 
   const vDone = cache.videos.filter(v => v.stage === "done").length;
@@ -1017,11 +1036,29 @@ function renderDashboard() {
   html += card("today", "📅 Today's plan", DAY_NAMES[new Date().getDay()].slice(0, 3), true, "tap for your schedule");
 
   if (pg) {
+    const nextName = (pg.ladder.find(l => !l.on) || {}).name || "Legend";
+    let h2;
+    if (pg.overallPct >= 100) h2 = "👑 You're a Legend — top of the ladder!";
+    else if (pg.streak >= 1) {
+      const opts = [
+        `🔥 ${pg.streak}-week streak! Keep rolling to unlock your ${nextName} badge!`,
+        `🔥 ${pg.streak} weeks on target — next stop: your ${nextName} badge!`,
+        `On fire, ${pg.streak}-week streak! One more win toward ${nextName}! 🔥`,
+      ];
+      const di = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 864e5);
+      h2 = opts[di % 3];
+    } else if (pg.overallPct > 0) {
+      h2 = `Back on it! Win this week to unlock your ${nextName} badge! 💪`;
+    } else {
+      h2 = `Kickoff your streak and unlock your ${nextName} badge! 🚀`;
+    }
+    html += `<div class="dash-h2">${esc(h2)}</div>`;
+
     const chips = pg.streakBadges.map(b => `<span class="chip ${b.on ? "on" : ""}" title="${esc(BADGE_DESC[b.key])} ${b.on ? "— unlocked ✓" : "— locked"}">${b.name}</span>`).join("");
     const tierName = pg.ladderTier ? pg.ladderTier.name : "Academy (locked)";
-    html += `<div class="dcard wide" data-go="progress"><div class="dc-h">🏆 Form ${pg.week.rating}/10 · ${pg.streak}-week streak 🔥 · ${pg.streakUnlocked}/4 badges · ${pg.overallPct}% season (${tierName})</div><div class="chips">${chips}</div></div>`;
+    html += `<div class="dcard wide" data-go="progress"><div class="dc-h">🏅 Form ${pg.week.rating}/10 · ${pg.streak}-week streak 🔥 · ${pg.streakUnlocked}/4 badges · ${pg.overallPct}% season (${tierName})</div><div class="chips">${chips}</div></div>`;
   } else {
-    html += `<div class="dcard wide" data-go="progress"><div class="dc-h">🏆 Badges & progress</div><div class="dc-sub">tap to view form, streaks & ladder</div></div>`;
+    html += `<div class="dcard wide" data-go="progress"><div class="dc-h">🏅 Badges & progress</div><div class="dc-sub">tap to view form, streaks & ladder</div></div>`;
   }
 
   el.innerHTML = html;
