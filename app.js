@@ -2,7 +2,7 @@
 //  app.js — Firebase wiring + UI for Jake's Game Plan
 // =============================================================
 import { firebaseConfig, PEOPLE } from "./firebase-config.js";
-import { buildDayPlan, matchAssessment, FOOTBALL_DAYS } from "./planner.js?v=25";
+import { buildDayPlan, matchAssessment, FOOTBALL_DAYS } from "./planner.js?v=26";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
@@ -21,6 +21,7 @@ const db = getFirestore(fb);
 const $ = (id) => document.getElementById(id);
 const nameFor = (email) => PEOPLE[email] || (email ? email.split("@")[0] : "someone");
 const todayStr = () => new Date().toISOString().slice(0, 10);
+const ymd = (d) => d.toISOString().slice(0, 10);
 const esc = (s) => String(s ?? "").replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]));
 
 let ME = null;
@@ -1118,4 +1119,3 @@ function renderDashboard() {
   el.innerHTML = html;
   el.querySelectorAll(".dcard").forEach(c => (c.onclick = () => activateTab(c.dataset.go)));
 }
-const ymd = (d) => d.toISOString().slice(0, 10);
