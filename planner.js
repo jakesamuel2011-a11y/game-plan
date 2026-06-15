@@ -13,8 +13,20 @@ const FOOTBALL_DAYS = [1, 3, 5];
 // Each window: {start, end, type, label}  (times = minutes from midnight)
 function dayTemplate(day, opts = {}) {
   const T = (h, m = 0) => h * 60 + m;
-  if (opts.holiday) { // marked holiday — day off
-    return { rest: true, windows: [], note: "🎉 Holiday — enjoy your day off! Great time for videos or catching up if you like." };
+  if (opts.holiday) { // marked holiday
+    if (day === 0) // Sunday holiday — fully free
+      return { rest: true, windows: [], note: "🎉 Holiday — enjoy your day off!" };
+    // weekday OR Saturday holiday — use the morning to clear any pending homework, then free
+    const study = { start: T(9), end: T(13), type: "study", label: "Catch up on homework" };
+    return {
+      windows: [study],
+      fixed: [
+        { start: T(8), end: T(8, 30), type: "fixed", label: "🐶 Nico morning duties + breakfast" },
+        study,
+        { start: T(13), end: T(13, 30), type: "free", label: "Done! Rest of the holiday is FREE 🎉" },
+      ],
+      note: "🎉 Holiday! Clear any pending homework this morning, then the day's all yours.",
+    };
   }
   if (day === 0) { // Sunday — free
     return { rest: true, windows: [], note: "Rest & recharge — fully free day 🎉" };

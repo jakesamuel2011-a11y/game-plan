@@ -2,7 +2,7 @@
 //  app.js — Firebase wiring + UI for Jake's Game Plan
 // =============================================================
 import { firebaseConfig, PEOPLE } from "./firebase-config.js";
-import { buildDayPlan, matchAssessment, FOOTBALL_DAYS } from "./planner.js?v=26";
+import { buildDayPlan, matchAssessment, FOOTBALL_DAYS } from "./planner.js?v=28";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
@@ -505,38 +505,62 @@ $("hwAdd").onclick = async () => {
   });
   $("hwTask").value = "";
 };
+function buildHwEl(h) {
+  const done = h.status === "done";
+  const t = todayStr();
+  let pill = "";
+  if (!done && h.due) {
+    const eff = effectiveDue(h.due);
+    if (eff < t) pill = `<span class="pill over">overdue</span>`;
+    else if (eff === t) pill = `<span class="pill today">finish today</span>`;
+    else pill = `<span class="pill soon">do by ${eff}</span>`;
+  }
+  const sub = done
+    ? `done${h.doneBy ? " by " + nameFor(h.doneBy) : ""}${h.doneAt && h.doneAt.toDate ? " · " + fmtDate(ymd(h.doneAt.toDate())) : ""}`
+    : `${pill} ${h.due ? `· due ${h.due}` : ""} · ${h.mins || 45} min`;
+  const el = document.createElement("div");
+  el.className = "item" + (done ? " done" : "");
+  el.innerHTML = `
+    <button class="check ${done ? "on" : ""}">${done ? "✓" : ""}</button>
+    <div class="item-main">
+      <div class="item-title"><span class="tag subj">${esc(h.subject)}</span>${esc(h.task)}</div>
+      <div class="item-sub">${sub}</div>
+    </div>`;
+  el.querySelector(".check").onclick = () => updateDoc(doc(db, "homework", h.id), {
+    status: done ? "todo" : "done", doneBy: done ? "" : ME.email, doneAt: done ? null : serverTimestamp(),
+  });
+  return el;
+}
 function renderHomework() {
   const list = $("hwList"); list.innerHTML = "";
-  const items = [...cache.homework].sort((a, b) => {
-    if ((a.status === "done") !== (b.status === "done")) return a.status === "done" ? 1 : -1;
-    return (a.due || "9999").localeCompare(b.due || "9999");
-  });
-  if (!items.length) { list.innerHTML = `<p class="muted small">No homework yet. Add this week's tasks above 👆</p>`; return; }
-  const t = todayStr();
-  items.forEach(h => {
-    const done = h.status === "done";
-    let pill = "";
-    if (!done && h.due) {
-      const eff = effectiveDue(h.due);
-      if (eff < t) pill = `<span class="pill over">overdue</span>`;
-      else if (eff === t) pill = `<span class="pill today">finish today</span>`;
-      else pill = `<span class="pill soon">do by ${eff}</span>`;
-    }
-    const el = document.createElement("div");
-    el.className = "item" + (done ? " done" : "");
-    el.innerHTML = `
-      <button class="check ${done ? "on" : ""}">${done ? "✓" : ""}</button>
-      <div class="item-main">
-        <div class="item-title"><span class="tag subj">${h.subject}</span>${h.task}</div>
-        <div class="item-sub">${pill} ${h.due ? `· due ${h.due}` : ""} · ${h.mins || 45} min ${done && h.doneBy ? "· done by " + nameFor(h.doneBy) : ""}</div>
-      </div>
-      <button class="del">✕</button>`;
-    el.querySelector(".check").onclick = () => updateDoc(doc(db, "homework", h.id), {
-      status: done ? "todo" : "done", doneBy: done ? "" : ME.email, doneAt: done ? null : serverTimestamp(),
-    });
-    el.querySelector(".del").onclick = () => deleteDoc(doc(db, "homework", h.id));
-    list.appendChild(el);
-  });
+  const weekStart = mondayOf(new Date());
+  const pending = cache.homework.filter(h => h.status !== "done").sort((a, b) => (a.due || "9999").localeCompare(b.due || "9999"));
+  const done = cache.homework.filter(h => h.status === "done");
+  const doneThisWeek = done.filter(h => h.doneAt && h.doneAt.toDate && h.doneAt.toDate() >= weekStart).sort((a, b) => b.doneAt.toDate() - a.doneAt.toDate());
+  const doneEarlier = done.filter(h => !(h.doneAt && h.doneAt.toDate && h.doneAt.toDate() >= weekStart));
+
+  if (!pending.length) {
+    const p = document.createElement("p"); p.className = "muted small";
+    p.textContent = cache.homework.length ? "No homework to do right now 🎉" : "No homework yet. Add this week's tasks above 👆";
+    list.appendChild(p);
+  }
+  pending.forEach(h => list.appendChild(buildHwEl(h)));
+
+  const head = document.createElement("h3"); head.className = "section-h";
+  head.textContent = `✅ Completed this week (${doneThisWeek.length})`;
+  list.appendChild(head);
+  if (!doneThisWeek.length) {
+    const p = document.createElement("p"); p.className = "muted small";
+    p.textContent = "Nothing ticked off yet this week — let's change that! 💪";
+    list.appendChild(p);
+  }
+  doneThisWeek.forEach(h => list.appendChild(buildHwEl(h)));
+
+  if (doneEarlier.length) {
+    const head2 = document.createElement("h3"); head2.className = "section-h"; head2.textContent = "Earlier completed";
+    list.appendChild(head2);
+    doneEarlier.forEach(h => list.appendChild(buildHwEl(h)));
+  }
 }
 
 // ---------- VIDEOS ----------
