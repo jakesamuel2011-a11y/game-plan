@@ -520,11 +520,39 @@ function buildHwEl(h) {
     <div class="item-main">
       <div class="item-title"><span class="tag subj">${esc(h.subject)}</span>${esc(h.task)}</div>
       <div class="item-sub">${sub}</div>
-    </div>`;
+    </div>
+    ${done ? "" : `<button class="edit" title="edit">✎</button>`}`;
   el.querySelector(".check").onclick = () => updateDoc(doc(db, "homework", h.id), {
     status: done ? "todo" : "done", doneBy: done ? "" : ME.email, doneAt: done ? null : serverTimestamp(),
   });
+  const editBtn = el.querySelector(".edit");
+  if (editBtn) editBtn.onclick = () => editHwForm(el, h);
   return el;
+}
+function editHwForm(el, h) {
+  const subjects = ["Math", "English", "Humanities", "Bio", "Physics", "Chem", "EM"];
+  el.innerHTML = `<div class="item-main">
+    <div class="grid2">
+      <select class="select" data-f="subject">${subjects.map(s => `<option>${s}</option>`).join("")}</select>
+      <input type="date" class="select" data-f="due" />
+    </div>
+    <input type="text" class="select" data-f="task" placeholder="Homework description" />
+    <input type="number" class="select" data-f="mins" min="10" step="5" placeholder="Est. minutes" />
+    <div class="stage-btns">
+      <button class="btn tiny primary" data-act="save">Save</button>
+      <button class="btn tiny ghost" data-act="cancel">Cancel</button>
+    </div>
+  </div>`;
+  const f = (n) => el.querySelector(`[data-f="${n}"]`);
+  f("subject").value = h.subject || "Math";
+  f("due").value = h.due || "";
+  f("task").value = h.task || "";
+  f("mins").value = h.mins || 45;
+  el.querySelector('[data-act="save"]').onclick = () => {
+    const task = f("task").value.trim(); if (!task) return;
+    updateDoc(doc(db, "homework", h.id), { subject: f("subject").value, task, due: f("due").value || "", mins: parseInt(f("mins").value) || 45 });
+  };
+  el.querySelector('[data-act="cancel"]').onclick = () => renderHomework();
 }
 function renderHomework() {
   const list = $("hwList"); list.innerHTML = "";

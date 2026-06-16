@@ -79,6 +79,7 @@ h2{font-size:1.3rem;margin-bottom:12px}
 .tag.subj{background:#13302a;color:var(--accent);border-color:#1c4a3e}
 .del{background:none;border:none;color:var(--muted);font-size:1.1rem;padding:2px 6px;line-height:1}
 .star{background:none;border:none;font-size:1.2rem;padding:2px 4px;line-height:1}
+.edit{background:none;border:none;color:var(--muted);font-size:1rem;padding:2px 8px;line-height:1;cursor:pointer}
 .pill{font-size:.7rem;padding:2px 8px;border-radius:20px;font-weight:700}
 .pill.over{background:#3a1414;color:var(--red)}
 .pill.today{background:#3a2c10;color:var(--amber)}
