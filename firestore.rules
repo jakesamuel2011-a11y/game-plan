@@ -1,11 +1,18 @@
 // Firestore security rules for Jake's Game Plan.
 // Paste into Firebase Console ▸ Firestore Database ▸ Rules ▸ Publish.
-// Meaning: only logged-in users (you + Mum) can read/write the data.
+// Meaning: ONLY Jake's and Christabel's accounts can read/write — even if
+// someone else creates an account in the project, they get nothing.
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    function allowed() {
+      return request.auth != null && request.auth.token.email in [
+        'jakesamuel2011@gmail.com',
+        'christabelsingh@gmail.com'
+      ];
+    }
     match /{document=**} {
-      allow read, write: if request.auth != null;
+      allow read, write: if allowed();
     }
   }
 }
