@@ -35,7 +35,7 @@
       <button class="tab" data-tab="today">📅 Today</button>
       <button class="tab" data-tab="homework">📚 Homework</button>
       <button class="tab" data-tab="football">🏆 Football</button>
-      <button class="tab" data-tab="videos">🎬 GNR Videos</button>
+      <button class="tab" data-tab="videos">🎬 Content</button>
       <button class="tab" data-tab="nico">🐶 Nico</button>
       <button class="tab" data-tab="fifa">🌍 World Cup</button>
       <button class="tab" data-tab="mum">👩 From Christabel</button>
@@ -93,16 +93,23 @@
         <div id="hwList" class="list"></div>
       </section>
 
-      <!-- VIDEOS -->
+      <!-- CONTENT: YT Shorts + Songs -->
       <section id="tab-videos" class="tab-panel">
-        <h2>🎬 GNR Video Goal</h2>
-        <div id="videoStats" class="stats"></div>
+        <h2>🎬 Jake's Content Goals</h2>
+        <div id="missionBox" class="quote"></div>
+
+        <h3 class="section-h">⚽ YT Shorts — football · 15 by Nov 13</h3>
+        <div id="shortStats" class="stats"></div>
         <div class="card add-card">
-          <input id="vidTitle" type="text" placeholder="Video title / idea" />
-          <input id="vidSkill" type="text" placeholder="New skill you'll build (e.g. transitions, color grading)" />
-          <button id="vidAdd" class="btn primary">Add video</button>
+          <input id="vidTitle" type="text" placeholder="Short title / idea (e.g. keepie-uppie challenge)" />
+          <input id="vidSkill" type="text" placeholder="New skill you'll build (e.g. jump cuts, color grading)" />
+          <button id="vidAdd" class="btn primary">Add short</button>
         </div>
-        <div id="vidList" class="list"></div>
+        <div id="shortList" class="list"></div>
+
+        <h3 class="section-h">🎵 Songs — private YouTube channel · 2 total</h3>
+        <div id="songStats" class="stats"></div>
+        <div id="songList" class="list"></div>
       </section>
 
       <!-- FOOTBALL -->
@@ -174,6 +181,6 @@
     <footer class="foot muted small">Shared with Christabel in real time · saved to your Firebase</footer>
   </div>
 
-  <script type="module" src="app.js?v=32"></script>
+  <script type="module" src="app.js?v=33"></script>
 </body>
 </html>

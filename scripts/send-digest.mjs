@@ -12,8 +12,9 @@
 import admin from "firebase-admin";
 import nodemailer from "nodemailer";
 
-const VIDEO_GOAL = 29;
-const VIDEO_DEADLINE = new Date("2026-12-31");
+const SHORTS_GOAL = 15;
+const SONGS_GOAL = 2;
+const SHORTS_DEADLINE = new Date("2026-11-13");
 
 function need(name) {
   const v = process.env[name];
@@ -61,12 +62,15 @@ async function build() {
   const noDate = pending.filter((h) => !h.due);
   const doneRecently = homework.filter((h) => h.status === "done" && withinDays(h.doneAt, 7));
 
-  // ---- Videos ----
-  const vDone = videos.filter((v) => v.stage === "done").length;
-  const weeksLeft = Math.max(1, Math.ceil((VIDEO_DEADLINE - today) / (7 * 864e5)));
-  const remaining = Math.max(0, VIDEO_GOAL - vDone);
+  // ---- Content: Shorts + Songs ----
+  const shorts = videos.filter((v) => v.kind === "short");
+  const songs = videos.filter((v) => v.kind === "song").sort((a, b) => (a.slot || 0) - (b.slot || 0));
+  const shortsDone = shorts.filter((v) => v.stage === "done").length;
+  const songsDone = songs.filter((v) => v.stage === "done").length;
+  const weeksLeft = Math.max(1, Math.ceil((SHORTS_DEADLINE - today) / (7 * 864e5)));
+  const remaining = Math.max(0, SHORTS_GOAL - shortsDone);
   const perWeek = (remaining / weeksLeft).toFixed(1);
-  const uploaded = videos.filter((v) => v.youtube && v.next).length;
+  const shortsUploaded = shorts.filter((v) => v.uploaded).length;
 
   // ---- Football ----
   const upcomingTours = tournaments
@@ -112,7 +116,7 @@ async function build() {
   // Brief summary up top
   const sumItems = [
     overdue.length ? `⚠️ ${overdue.length} homework overdue` : (dueIn2.length ? `📌 ${dueIn2.length} homework due in the next 2 school days (do in advance): ${dueIn2.map((h) => esc(h.subject)).join(", ")}` : (pending.length ? `${pending.length} homework pending — nothing due in next 2 school days` : "Homework all clear ✅")),
-    `🎬 ${vDone}/${VIDEO_GOAL} videos — need ${perWeek}/week to hit Dec 31`,
+    `🎬 ${shortsDone}/${SHORTS_GOAL} shorts (need ${perWeek}/wk to Nov 13) · 🎵 ${songsDone}/${SONGS_GOAL} songs`,
     `💪 ${fitDone7} fitness check-ins this week`,
     `🐶 ${nicoDoneToday}/${nico.length} of Nico's duties done today`,
     upcomingTours.length ? `🏆 Next tournament: ${esc(upcomingTours[0].name)} (${upcomingTours[0].date})` : null,
@@ -132,11 +136,18 @@ async function build() {
   if (!pending.length) hwBody = `<p style="color:#0a7d3c;font-weight:700">🎉 No pending homework — all clear!</p>` + hwBody;
   html += section("📚 Homework", hwBody);
 
-  // Videos
-  const pct = Math.round((vDone / VIDEO_GOAL) * 100);
-  html += section("🎬 GNR Video Goal", `
-    <p><b>${vDone}/${VIDEO_GOAL}</b> done (${pct}%) · <b>${remaining}</b> to go · need <b>${perWeek}/week</b> to hit Dec 31.</p>
-    <p>${uploaded} video(s) uploaded to both YouTube + NEXT. ${vDone >= 23 ? "🎸 Past the 23-by-Nov-14 mark!" : `Target: 23 by Nov 14 for the concert.`}</p>`);
+  // Content — Shorts + Songs
+  const pct = Math.round((shortsDone / SHORTS_GOAL) * 100);
+  const songLines = songs.map((s) => {
+    const label = s.title ? esc(s.title) : `Song ${s.slot}`;
+    const state = s.stage === "done" ? "✅ done" : (s.by && s.by < todayStr ? `⚠️ overdue (was due ${s.by})` : `due ${s.by || "TBD"}`);
+    return li(`${label} — ${state}`);
+  }).join("");
+  html += section("🎬 Content — Shorts & Songs", `
+    <p>⚽ <b>YT Shorts:</b> ${shortsDone}/${SHORTS_GOAL} done (${pct}%) · <b>${remaining}</b> to go · need <b>${perWeek}/week</b> to hit Nov 13.</p>
+    <p>${shortsUploaded} short(s) uploaded to YouTube. ${shortsDone >= 5 ? "✅ Past the 5-by-Aug-31 milestone!" : "First milestone: 5 shorts by Aug 31."}</p>
+    <p>🎵 <b>Songs (private channel):</b> ${songsDone}/${SONGS_GOAL} done.</p>
+    <ul>${songLines}</ul>`);
 
   // Football
   let fBody = "";
@@ -154,7 +165,7 @@ async function build() {
 
   html += `<p style="margin-top:20px;font-size:12px;color:#7a8a96">Sent automatically from Jake's Game Plan. Open the app to update anything.</p></div>`;
 
-  return { html, summary: `${pending.length} HW pending, ${vDone}/${VIDEO_GOAL} videos` };
+  return { html, summary: `${pending.length} HW pending, ${shortsDone}/${SHORTS_GOAL} shorts, ${songsDone}/${SONGS_GOAL} songs` };
 }
 
 async function main() {

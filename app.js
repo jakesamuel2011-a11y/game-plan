@@ -31,7 +31,32 @@ const MUM_EMAIL = "christabelsingh@gmail.com";
 const JAKE_EMAIL = "jakesamuel2011@gmail.com";
 const isMum = () => !!ME && ME.email === MUM_EMAIL;   // Christabel
 const isJake = () => !!ME && ME.email === JAKE_EMAIL;
-const cache = { homework: [], videos: [], fixtures: [], tournaments: [], routines: [], nicolog: {}, momtasks: [], footballOff: new Set(), resched: new Map(), winsWeek: false, holidays: [] };
+const cache = { homework: [], videos: [], fixtures: [], tournaments: [], routines: [], nicolog: {}, momtasks: [], footballOff: new Set(), resched: new Map(), holidays: [] };
+
+// ---------- CONTENT GOALS: YT Shorts + Songs ----------
+// Jake's commitment: 15 football YT Shorts (5 by Aug 31, then 1/week to Nov 13)
+// + 2 songs on a private YT channel (Song 1 by Sep 20, Song 2 by Nov 1).
+const SHORTS_GOAL = 15;
+const SHORTS_M1 = { n: 5, by: "2026-08-31" };  // first milestone: 5 shorts by Aug 31
+const SHORTS_DEADLINE = "2026-11-13";          // remaining 10 at 1/week → 15 by Nov 13
+const SONG_PLAN = [
+  { slot: 1, by: "2026-09-20" },
+  { slot: 2, by: "2026-11-01" },
+];
+const MISSION = "I will create each of these in the best way I can, learning new skills and getting better at my art as well as my time management along the way.";
+const shortsAll = () => cache.videos.filter(v => v.kind === "short");
+const songsAll = () => cache.videos.filter(v => v.kind === "song").sort((a, b) => (a.slot || 0) - (b.slot || 0));
+const isCreated = (v) => v.stage === "done";
+// Expected shorts done by today: 0 before the Aug-31 milestone, then a straight
+// ramp from 5 up to 15 between Aug 31 and Nov 13.
+function shortsExpected() {
+  const now = new Date();
+  const m1 = new Date(SHORTS_M1.by + "T00:00:00");
+  const dl = new Date(SHORTS_DEADLINE + "T00:00:00");
+  if (now <= m1) return 0;
+  if (now >= dl) return SHORTS_GOAL;
+  return Math.round(SHORTS_M1.n + (SHORTS_GOAL - SHORTS_M1.n) * (now - m1) / (dl - m1));
+}
 function fmtT(hhmm) { if (!hhmm) return ""; const [h, m] = hhmm.split(":").map(Number); const ap = h >= 12 ? "pm" : "am"; let hh = h % 12; if (hh === 0) hh = 12; return m ? `${hh}:${String(m).padStart(2, "0")}${ap}` : `${hh}${ap}`; }
 function fmtDate(s) { if (!s) return ""; const d = new Date(s + "T00:00:00"); return d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }); }
 function fmtDayMonth(s) { if (!s) return ""; const d = new Date(s + "T00:00:00"); return d.toLocaleDateString("en-GB", { day: "numeric", month: "short" }); }
@@ -224,6 +249,7 @@ onAuthStateChanged(auth, async (user) => {
     $("whoami").textContent = MY_NAME;
     await ensureSeed();
     await ensureFixes();
+    await ensureDeliverables();
     subscribeAll();
   } else {
     ME = null;
@@ -278,7 +304,7 @@ async function ensureSeed() {
   ];
   for (const fx of fixtures) await addDoc(collection(db, "fixtures"), fx);
 
-  await setDoc(metaRef, { at: serverTimestamp(), videoGoal: 29, byNov14: 23 });
+  await setDoc(metaRef, { at: serverTimestamp() });
 }
 
 // ---------- One-time data fixes for already-seeded databases ----------
@@ -300,6 +326,33 @@ async function ensureFixes() {
   } catch (e) { console.warn("fixtime fix skipped", e); }
 }
 
+// ---------- One-time migration: retire GNR videos, seed the new deliverables ----------
+// Replaces the old "29 videos by Dec 31" goal with Jake's two committed tracks:
+// removes legacy GNR video docs and seeds the 2 song slots (idempotent by slot).
+// Shorts are added by Jake as he makes them.
+async function ensureDeliverables() {
+  const ref = doc(db, "meta", "deliverables_v1");
+  if ((await getDoc(ref)).exists()) return;
+  try {
+    const snap = await getDocs(collection(db, "videos"));
+    // Remove legacy GNR videos (docs with no `kind`) — fully replaced by Shorts + Songs.
+    for (const d of snap.docs) {
+      if (!d.data().kind) await deleteDoc(doc(db, "videos", d.id));
+    }
+    // Seed the two songs, skipping any slot that already exists.
+    const existingSongSlots = new Set(snap.docs.map(d => d.data()).filter(x => x.kind === "song").map(x => x.slot));
+    for (const s of SONG_PLAN) {
+      if (!existingSongSlots.has(s.slot)) {
+        await addDoc(collection(db, "videos"), {
+          kind: "song", slot: s.slot, title: "", skill: "", by: s.by,
+          stage: "idea", uploaded: false, createdAt: serverTimestamp(),
+        });
+      }
+    }
+    await setDoc(ref, { at: serverTimestamp() });
+  } catch (e) { console.warn("deliverables migration skipped", e); }
+}
+
 // ---------- LIVE SUBSCRIPTIONS ----------
 function subscribeAll() {
   onSnapshot(query(collection(db, "homework")), s => { cache.homework = rows(s); renderHomework(); renderToday(); renderDashboard(); });
@@ -310,7 +363,6 @@ function subscribeAll() {
   onSnapshot(doc(db, "nicolog", todayStr()), s => { cache.nicolog = s.exists() ? s.data() : {}; renderFitness(); renderNico(); renderDashboard(); });
   onSnapshot(query(collection(db, "momtasks")), s => { cache.momtasks = rows(s); renderMom(); renderDashboard(); });
   onSnapshot(query(collection(db, "footballoff")), s => { cache.footballOff = new Set(s.docs.map(d => d.id)); renderToday(); renderDashboard(); });
-  onSnapshot(doc(db, "winslog", ymd(mondayOf(new Date()))), s => { cache.winsWeek = s.exists() && !!s.data().done; renderVideos(); });
   onSnapshot(query(collection(db, "footballresched")), s => { cache.resched = new Map(s.docs.map(d => [d.id, d.data()])); renderToday(); });
   onSnapshot(query(collection(db, "holidays")), s => { cache.holidays = rows(s); renderToday(); });
   loadProgress(); // compute streaks/badges/ladder for the dashboard
@@ -586,20 +638,20 @@ function renderHomework() {
   }
 }
 
-// ---------- VIDEOS ----------
-const STAGES = ["idea", "filming", "editing", "done"];
+// ---------- CONTENT: YT Shorts + Songs ----------
 $("vidAdd").onclick = async () => {
   const title = $("vidTitle").value.trim();
   if (!title) return;
   await addDoc(collection(db, "videos"), {
-    title, skill: $("vidSkill").value.trim(), stage: "idea",
-    youtube: false, next: false, wins: false, addedBy: ME.email, createdAt: serverTimestamp(),
+    kind: "short", title, skill: $("vidSkill").value.trim(), stage: "idea",
+    uploaded: false, addedBy: ME.email, createdAt: serverTimestamp(),
   });
   $("vidTitle").value = ""; $("vidSkill").value = "";
 };
-function buildVidEl(v) {
+
+function buildShortEl(v) {
   const chk = (on, label) => `<button class="${on ? "on" : ""}">${on ? "☑" : "☐"} ${label}</button>`;
-  const created = v.stage === "done";
+  const created = isCreated(v);
   const el = document.createElement("div");
   el.className = "item" + (created ? " done" : "");
   el.innerHTML = `
@@ -607,62 +659,102 @@ function buildVidEl(v) {
       <div class="item-title">${esc(v.title)}</div>
       ${v.skill ? `<div class="item-sub">🛠️ Skill: ${esc(v.skill)}</div>` : ""}
       <div class="stage-btns" style="margin-top:6px">
-        <span data-act="created">${chk(created, "Video created")}</span>
-        <span data-act="next">${chk(v.next, "Uploaded to NEXT")}</span>
-        <span data-act="youtube">${chk(v.youtube, "Uploaded to YouTube")}</span>
+        <span data-act="created">${chk(created, "Filmed & edited")}</span>
+        <span data-act="uploaded">${chk(v.uploaded, "Uploaded to YouTube")}</span>
       </div>
     </div>
     ${created ? "" : `<button class="del">✕</button>`}`;
   el.querySelector('[data-act="created"] button').onclick = () =>
     updateDoc(doc(db, "videos", v.id), { stage: created ? "idea" : "done", doneAt: created ? null : serverTimestamp() });
-  el.querySelector('[data-act="next"] button').onclick = () => updateDoc(doc(db, "videos", v.id), { next: !v.next });
-  el.querySelector('[data-act="youtube"] button').onclick = () => updateDoc(doc(db, "videos", v.id), { youtube: !v.youtube });
+  el.querySelector('[data-act="uploaded"] button').onclick = () => updateDoc(doc(db, "videos", v.id), { uploaded: !v.uploaded });
   const del = el.querySelector(".del"); if (del) del.onclick = () => deleteDoc(doc(db, "videos", v.id));
   return el;
 }
+
+function buildSongEl(v) {
+  const chk = (on, label) => `<button class="${on ? "on" : ""}">${on ? "☑" : "☐"} ${label}</button>`;
+  const created = isCreated(v);
+  const t = todayStr();
+  let pill = created
+    ? `<span class="pill" style="background:#13302a;color:var(--accent)">✓ done</span>`
+    : (v.by ? (v.by < t ? `<span class="pill over">overdue</span>` : `<span class="pill soon">due ${fmtDate(v.by)}</span>`) : "");
+  const el = document.createElement("div");
+  el.className = "item" + (created ? " done" : "");
+  el.innerHTML = `
+    <div class="item-main">
+      <div class="item-title">🎵 ${esc(v.title || ("Song " + (v.slot || "")))} ${pill}</div>
+      <div class="item-sub muted">Target: ${v.by ? fmtDate(v.by) : "—"}</div>
+      <div class="stage-btns" style="margin-top:6px">
+        <span data-act="created">${chk(created, "Written & recorded")}</span>
+        <span data-act="uploaded">${chk(v.uploaded, "Uploaded to private channel")}</span>
+      </div>
+      <input class="mininput" data-f="title" placeholder="Song title (optional)" value="${esc(v.title || "")}" style="margin-top:6px" />
+    </div>`;
+  el.querySelector('[data-act="created"] button').onclick = () =>
+    updateDoc(doc(db, "videos", v.id), { stage: created ? "idea" : "done", doneAt: created ? null : serverTimestamp() });
+  el.querySelector('[data-act="uploaded"] button').onclick = () => updateDoc(doc(db, "videos", v.id), { uploaded: !v.uploaded });
+  const ti = el.querySelector('[data-f="title"]');
+  ti.onchange = () => updateDoc(doc(db, "videos", v.id), { title: ti.value.trim() });
+  return el;
+}
+
 function renderVideos() {
-  const done = cache.videos.filter(v => v.stage === "done").length;
-  const goal = 29, byNov14 = 23;
+  const mb = $("missionBox");
+  if (mb) mb.innerHTML = `“${esc(MISSION)}”<span class="q-by">— Jake</span>`;
+
+  // ----- Shorts -----
+  const shorts = shortsAll();
+  const shortsDone = shorts.filter(isCreated).length;
+  const m1Done = Math.min(shortsDone, SHORTS_M1.n);
   const today = new Date();
-  const deadline = new Date("2026-12-31");
-  const weeksLeft = Math.max(1, Math.ceil((deadline - today) / (7 * 864e5)));
-  const remaining = Math.max(0, goal - done);
-  $("videoStats").innerHTML = `
-    <div class="stat"><div class="n">${done}/${goal}</div><div class="l">videos done</div></div>
+  const m1 = new Date(SHORTS_M1.by + "T00:00:00");
+  const dl = new Date(SHORTS_DEADLINE + "T00:00:00");
+  const m1DaysLeft = Math.ceil((m1 - today) / 864e5);
+  const weeksLeft = Math.max(0, Math.ceil((dl - today) / (7 * 864e5)));
+  const remaining = Math.max(0, SHORTS_GOAL - shortsDone);
+  const perWk = weeksLeft > 0 ? (remaining / weeksLeft).toFixed(1) : String(remaining);
+  const onPace = shortsDone >= shortsExpected();
+
+  const ss = $("shortStats");
+  if (ss) ss.innerHTML = `
+    <div class="stat"><div class="n">${shortsDone}/${SHORTS_GOAL}</div><div class="l">shorts uploaded</div></div>
+    <div class="stat"><div class="n">${m1Done}/${SHORTS_M1.n}</div><div class="l">${m1DaysLeft >= 0 ? `by Aug 31 (${m1DaysLeft}d)` : "by Aug 31"}</div></div>
     <div class="stat"><div class="n">${remaining}</div><div class="l">to go</div></div>
-    <div class="stat"><div class="n">${(remaining / weeksLeft).toFixed(1)}</div><div class="l">/week needed</div></div>
-    <div class="stat"><div class="n">${byNov14}</div><div class="l">by Nov 14 (concert)</div></div>`;
-  const pct = Math.round((done / goal) * 100);
-  const list = $("vidList");
+    <div class="stat"><div class="n">${perWk}</div><div class="l">/week to Nov 13</div></div>`;
 
-  // weekly NEXT-wins-doc checkbox (resets each week)
-  const wkKey = ymd(mondayOf(new Date()));
-  list.innerHTML =
-    `<div class="card"><div class="progress"><div style="width:${pct}%"></div></div><div class="small muted">${pct}% to the GNR concert 🎸</div></div>
-     <div class="item" id="winsWeekRow">
-       <button class="check ${cache.winsWeek ? "on" : ""}">${cache.winsWeek ? "✓" : ""}</button>
-       <div class="item-main"><div class="item-title">🏅 This week's wins submitted to NEXT wins doc</div>
-         <div class="item-sub muted">Tick once a week, after you've logged the week's wins.</div></div>
-     </div>`;
-  list.querySelector("#winsWeekRow .check").onclick = () =>
-    setDoc(doc(db, "winslog", wkKey), { done: !cache.winsWeek, by: ME.email, at: serverTimestamp() }, { merge: true });
+  const list = $("shortList");
+  const pct = Math.round((shortsDone / SHORTS_GOAL) * 100);
+  list.innerHTML = `<div class="card"><div class="progress"><div style="width:${pct}%"></div></div>
+    <div class="small muted">${pct}% to 15 shorts by Nov 13 · ${onPace ? "on pace ✅" : "behind pace — let's catch up ⏳"}</div></div>`;
 
-  if (!cache.videos.length) { list.insertAdjacentHTML("beforeend", `<p class="muted small">No videos yet. Add your first idea above 👆</p>`); return; }
-
-  const inProgress = cache.videos.filter(v => v.stage !== "done");
-  const completed = cache.videos.filter(v => v.stage === "done")
+  const inProgress = shorts.filter(v => !isCreated(v));
+  const completed = shorts.filter(isCreated)
     .sort((a, b) => ((b.doneAt && b.doneAt.toDate ? b.doneAt.toDate() : 0) - (a.doneAt && a.doneAt.toDate ? a.doneAt.toDate() : 0)));
-  [...inProgress].reverse().forEach(v => list.appendChild(buildVidEl(v)));
-
-  const head = document.createElement("h3"); head.className = "section-h";
-  head.textContent = `✅ Videos created (${completed.length}/${goal})`;
-  list.appendChild(head);
-  if (!completed.length) {
-    const p = document.createElement("p"); p.className = "muted small";
-    p.textContent = "No videos created yet — your first one's waiting! 🎬";
-    list.appendChild(p);
+  if (!shorts.length) list.insertAdjacentHTML("beforeend", `<p class="muted small">No shorts yet. Add your first idea above 👆</p>`);
+  [...inProgress].reverse().forEach(v => list.appendChild(buildShortEl(v)));
+  if (completed.length) {
+    const head = document.createElement("h3"); head.className = "section-h";
+    head.textContent = `✅ Shorts uploaded (${completed.length}/${SHORTS_GOAL})`;
+    list.appendChild(head);
+    completed.forEach(v => list.appendChild(buildShortEl(v)));
   }
-  completed.forEach(v => list.appendChild(buildVidEl(v)));
+
+  // ----- Songs -----
+  const songs = songsAll();
+  const songsDone = songs.filter(isCreated).length;
+  const ssg = $("songStats");
+  if (ssg) ssg.innerHTML = `
+    <div class="stat"><div class="n">${songsDone}/2</div><div class="l">songs uploaded</div></div>` +
+    songs.map(s => {
+      const st = isCreated(s) ? "✓" : (s.by && s.by < todayStr() ? "⚠️" : "…");
+      return `<div class="stat"><div class="n">${st}</div><div class="l">Song ${s.slot} · ${fmtDayMonth(s.by)}</div></div>`;
+    }).join("");
+  const sl = $("songList");
+  if (sl) {
+    sl.innerHTML = "";
+    if (!songs.length) sl.innerHTML = `<p class="muted small">Your two songs will appear here.</p>`;
+    songs.forEach(s => sl.appendChild(buildSongEl(s)));
+  }
 }
 
 // ---------- FOOTBALL: tournaments + fitness ----------
@@ -897,7 +989,7 @@ function renderMom() {
 
 // ---------- PROGRESS: weekly requirements, recommendation, badges & ladder ----------
 const REQ = { fitness: 3, nicoDays: 5 };               // Standard weekly bar
-const SEASON = { videos: 29, hw: 100, fitness: 120, nico: 120 }; // season targets for blended %
+const SEASON = { content: 17, hw: 100, fitness: 120, nico: 120 }; // 15 shorts + 2 songs; season targets for blended %
 
 function hwOnTimeCount() {
   return cache.homework.filter(h => {
@@ -929,7 +1021,7 @@ function badgeSVG(key, on) {
 
 function computeWeek(logs, nicoIds, fitIds, weekStart) {
   const overdue = cache.homework.filter(h => h.status !== "done" && h.due && h.due < todayStr()).length;
-  const videoCount = cache.videos.filter(v => v.stage === "done" && v.doneAt && v.doneAt.toDate && v.doneAt.toDate() >= weekStart).length;
+  const shortsThisWeek = cache.videos.filter(v => v.kind === "short" && v.stage === "done" && v.doneAt && v.doneAt.toDate && v.doneAt.toDate() >= weekStart).length;
   let fitness = 0, nicoDays = 0;
   for (const d in logs) {
     if (new Date(d + "T00:00:00") >= weekStart) {
@@ -938,19 +1030,19 @@ function computeWeek(logs, nicoIds, fitIds, weekStart) {
       if (nicoIds.length && nicoIds.every(id => log[id])) nicoDays++;
     }
   }
-  const pillars = { hw: overdue === 0, video: videoCount >= 1, fitness: fitness >= REQ.fitness, nico: nicoDays >= REQ.nicoDays };
+  const pillars = { hw: overdue === 0, short: shortsThisWeek >= 1, fitness: fitness >= REQ.fitness, nico: nicoDays >= REQ.nicoDays };
   const pillarsMet = Object.values(pillars).filter(Boolean).length;
-  const rating = Math.round((pillars.hw ? 2.5 : 0) + (pillars.video ? 2.5 : 0) + Math.min(1, fitness / REQ.fitness) * 2.5 + Math.min(1, nicoDays / REQ.nicoDays) * 2.5);
+  const rating = Math.round((pillars.hw ? 2.5 : 0) + (pillars.short ? 2.5 : 0) + Math.min(1, fitness / REQ.fitness) * 2.5 + Math.min(1, nicoDays / REQ.nicoDays) * 2.5);
   const missing = [];
   if (!pillars.hw) missing.push(`clear ${overdue} overdue homework`);
-  if (!pillars.video) missing.push("upload this week's video");
+  if (!pillars.short) missing.push("upload this week's short");
   if (!pillars.fitness) missing.push(`${REQ.fitness - fitness} more fitness session(s)`);
   if (!pillars.nico) missing.push(`Nico duties to ${REQ.nicoDays}/7 (now ${nicoDays})`);
   let rec;
   if (pillarsMet === 4) rec = { level: "approve", text: "Recommend approve — earned it (4/4 weekly requirements met).", note: "" };
   else if (pillarsMet === 3) rec = { level: "conditional", text: `Recommend conditional — 3/4 met. Suggested condition: ${missing[0]}.`, note: `OK once: ${missing[0]}` };
   else rec = { level: "hold", text: `Recommend hold — only ${pillarsMet}/4 met. Missing: ${missing.join("; ")}.`, note: "" };
-  return { pillars, pillarsMet, fitness, nicoDays, videoCount, rating, onTarget: pillarsMet === 4, rec };
+  return { pillars, pillarsMet, fitness, nicoDays, shortsThisWeek, rating, onTarget: pillarsMet === 4, rec };
 }
 
 async function loadProgress() {
@@ -995,10 +1087,12 @@ async function loadProgress() {
     const all = await getDocs(collection(db, "weeklog"));
     all.forEach(d => { const w = d.data(); seasonFitness += w.fitness || 0; seasonNico += w.nicoDays || 0; });
   } catch (e) { seasonFitness = week.fitness; seasonNico = week.nicoDays; }
-  const videosDone = cache.videos.filter(v => v.stage === "done").length;
+  const shortsDone = cache.videos.filter(v => v.kind === "short" && v.stage === "done").length;
+  const songsDone = cache.videos.filter(v => v.kind === "song" && v.stage === "done").length;
+  const contentDone = shortsDone + songsDone;
   const hwOnTime = hwOnTimeCount();
   const fr = (a, b) => Math.min(1, a / b);
-  const overallPct = Math.round(((fr(videosDone, SEASON.videos) + fr(hwOnTime, SEASON.hw) + fr(seasonFitness, SEASON.fitness) + fr(seasonNico, SEASON.nico)) / 4) * 100);
+  const overallPct = Math.round(((fr(contentDone, SEASON.content) + fr(hwOnTime, SEASON.hw) + fr(seasonFitness, SEASON.fitness) + fr(seasonNico, SEASON.nico)) / 4) * 100);
 
   const streakBadges = [
     { key: "kickoff", name: "Kickoff", on: everOnTarget || week.onTarget, meta: "first on-target week" },
@@ -1016,7 +1110,7 @@ async function loadProgress() {
 
   progressCache = {
     week, streak, overallPct,
-    season: { videosDone, hwOnTime, seasonFitness, seasonNico },
+    season: { shortsDone, songsDone, contentDone, hwOnTime, seasonFitness, seasonNico },
     streakBadges, ladder, ladderTier,
     streakUnlocked: streakBadges.filter(b => b.on).length,
   };
@@ -1053,7 +1147,7 @@ function renderProgress() {
       <div class="muted small" style="margin-top:4px">Smash all <b>4 weekly targets</b> to push your <b>Form rating</b> toward a perfect 10. Nail every one and the week's <b>on target</b> — stack those weeks to fire up your <b>streak</b> and earn <b>streak badges</b>. Every win also climbs the ladder, from Academy all the way to Legend. Greyed badges? That's what you're playing for next. Let's go! 🚀</div>
     </div>
     <div class="card"><b>${reqHeader}</b>
-      <div class="chips" style="margin-top:8px">${chip(p.hw, "homework on time")} ${chip(p.video, "1 video uploaded")} ${chip(p.fitness, `fitness ${week.fitness}/${REQ.fitness}`)} ${chip(p.nico, `Nico ${week.nicoDays}/${REQ.nicoDays} days`)}</div>
+      <div class="chips" style="margin-top:8px">${chip(p.hw, "homework on time")} ${chip(p.short, "1 short uploaded")} ${chip(p.fitness, `fitness ${week.fitness}/${REQ.fitness}`)} ${chip(p.nico, `Nico ${week.nicoDays}/${REQ.nicoDays} days`)}</div>
       <div class="muted small" style="margin-top:8px">✓ = done · ✗ = still to do. All four green = this week counts as "on target".</div>
     </div>
     <div id="badgeInfo" class="badge-info">👆 Tap any badge to see how to unlock it.</div>
@@ -1085,9 +1179,10 @@ function renderDashboard() {
   const soon = pend.filter(h => h.due && effectiveDue(h.due) >= t && effectiveDue(h.due) <= horizon);
   const soonSubj = [...new Set(soon.map(h => h.subject))];
 
-  const vDone = cache.videos.filter(v => v.stage === "done").length;
-  const weeksLeft = Math.max(1, Math.ceil((new Date("2026-12-31") - new Date()) / (7 * 864e5)));
-  const perWk = (Math.max(0, 29 - vDone) / weeksLeft).toFixed(1);
+  const shortsDone = cache.videos.filter(v => v.kind === "short" && v.stage === "done").length;
+  const songsDone = cache.videos.filter(v => v.kind === "song" && v.stage === "done").length;
+  const weeksLeft = Math.max(1, Math.ceil((new Date(SHORTS_DEADLINE + "T00:00:00") - new Date()) / (7 * 864e5)));
+  const perWk = (Math.max(0, SHORTS_GOAL - shortsDone) / weeksLeft).toFixed(1);
 
   const nextTour = cache.tournaments.filter(x => x.date && x.date >= t).sort((a, b) => a.date.localeCompare(b.date))[0];
   const fitIds = cache.routines.filter(r => r.kind === "fitness").map(r => r.id);
@@ -1115,7 +1210,7 @@ function renderDashboard() {
   parts.push(pend.length
     ? `${pend.length} homework${over ? ` (${over} overdue)` : soon.length ? ` (${soon.length} due in next 2 school days)` : " (nothing due in next 2 school days)"}`
     : "homework all clear");
-  parts.push(`${vDone}/29 videos`);
+  parts.push(`${shortsDone}/15 shorts · ${songsDone}/2 songs`);
   parts.push(`Nico ${nicoDone}/${nicoIds.length}`);
   if (isMum() && pendApprovals) parts.push(`${pendApprovals} match${pendApprovals > 1 ? "es" : ""} to approve`);
   else if (upNext[0]) parts.push(`next match: ${esc(upNext[0].match)}`);
@@ -1130,7 +1225,7 @@ function renderDashboard() {
         : "all clear ✅";
   html += card("homework", "📚 Homework", pend.length, false, hwSub,
     over ? "bad" : (soon.length ? "warn" : (pend.length ? "" : "good")));
-  html += card("videos", "🎬 GNR Videos", `${vDone}/29`, true, `${perWk}/wk to hit Dec 31`);
+  html += card("videos", "🎬 Content", `${shortsDone}/15`, true, `${perWk}/wk shorts to Nov 13 · ${songsDone}/2 songs`);
   html += card("football", "🏆 Football", `${fitDone}/${fitIds.length}`, true,
     nextTour ? `Next: ${esc(nextTour.name)} · ${nextTour.date}` : (isFb ? (fbOff ? "training cancelled 🌧️" : "training today ⚽") : "fitness today"));
   {

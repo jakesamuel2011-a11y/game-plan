@@ -7,8 +7,9 @@
 import admin from "firebase-admin";
 import nodemailer from "nodemailer";
 
-const VIDEO_GOAL = 29;
-const SEASON = { videos: 29, hw: 100, fitness: 120, nico: 120 };
+const SHORTS_GOAL = 15;
+const SONGS_GOAL = 2;
+const SEASON = { content: 17, hw: 100, fitness: 120, nico: 120 };
 
 const QUOTES = [
   ["Success is no accident. It is hard work, perseverance, sacrifice and love of what you're doing.", "Pelé"],
@@ -38,8 +39,12 @@ async function build() {
 
   const [videos, homework, weeklog] = await Promise.all([getAll("videos"), getAll("homework"), getAll("weeklog")]);
 
-  const videosMonth = videos.filter((v) => v.stage === "done" && within(v.doneAt, monthStart, monthEnd)).length;
-  const videosTotal = videos.filter((v) => v.stage === "done").length;
+  const shorts = videos.filter((v) => v.kind === "short");
+  const songs = videos.filter((v) => v.kind === "song");
+  const contentMonth = videos.filter((v) => (v.kind === "short" || v.kind === "song") && v.stage === "done" && within(v.doneAt, monthStart, monthEnd)).length;
+  const shortsTotal = shorts.filter((v) => v.stage === "done").length;
+  const songsTotal = songs.filter((v) => v.stage === "done").length;
+  const contentTotal = shortsTotal + songsTotal;
 
   const hwOnTime = (h) => h.status === "done" && (!h.due || !(h.doneAt && h.doneAt.toDate) || ymd(h.doneAt.toDate()) <= h.due);
   const hwMonth = homework.filter((h) => hwOnTime(h) && within(h.doneAt, monthStart, monthEnd)).length;
@@ -55,7 +60,7 @@ async function build() {
   const seasonFit = weeklog.reduce((s, w) => s + (w.fitness || 0), 0);
   const seasonNico = weeklog.reduce((s, w) => s + (w.nicoDays || 0), 0);
   const fr = (a, b) => Math.min(1, a / b);
-  const overall = Math.round(((fr(videosTotal, SEASON.videos) + fr(hwTotal, SEASON.hw) + fr(seasonFit, SEASON.fitness) + fr(seasonNico, SEASON.nico)) / 4) * 100);
+  const overall = Math.round(((fr(contentTotal, SEASON.content) + fr(hwTotal, SEASON.hw) + fr(seasonFit, SEASON.fitness) + fr(seasonNico, SEASON.nico)) / 4) * 100);
 
   // streak + badges
   const sorted = [...weeklog].sort((a, b) => b.weekStart.localeCompare(a.weekStart));
@@ -80,7 +85,7 @@ async function build() {
       <b>📋 Month at a glance</b>
       <ul style="margin:8px 0 0;padding-left:18px;line-height:1.6">
         ${li(`🏅 Form: avg ${avgForm}/10 · ${weeksOnTarget}/${weeksMonth.length} weeks on target`)}
-        ${li(`🎬 Videos: ${videosMonth} this month · ${videosTotal}/${VIDEO_GOAL} total`)}
+        ${li(`🎬 Content: ${contentMonth} made this month · Shorts ${shortsTotal}/${SHORTS_GOAL} · Songs ${songsTotal}/${SONGS_GOAL}`)}
         ${li(`📚 Homework done on time: ${hwMonth} this month`)}
         ${li(`💪 Fitness sessions: ${fitMonth} this month`)}
         ${li(`🏆 Season progress: ${overall}% — ${esc(tierName)} · ${badgesUnlocked} badge(s) unlocked`)}
