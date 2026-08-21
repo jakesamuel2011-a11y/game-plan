@@ -47,7 +47,7 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 5. **Verify an upload landed:** open the file on GitHub and Cmd+F for a string you just changed.
 
 ### Current cache-buster versions (keep incrementing from here)
-- `app.js?v=33`
+- `app.js?v=34`
 - `styles.css?v=18`
 - planner import `./planner.js?v=28`
 

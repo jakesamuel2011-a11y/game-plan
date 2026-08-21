@@ -41,7 +41,7 @@ const SHORTS_M1 = { n: 5, by: "2026-08-31" };  // first milestone: 5 shorts by A
 const SHORTS_DEADLINE = "2026-11-13";          // remaining 10 at 1/week → 15 by Nov 13
 const SONG_PLAN = [
   { slot: 1, by: "2026-09-20" },
-  { slot: 2, by: "2026-11-01" },
+  { slot: 2, by: "2026-10-20" },
 ];
 const MISSION = "I will create each of these in the best way I can, learning new skills and getting better at my art as well as my time management along the way.";
 const shortsAll = () => cache.videos.filter(v => v.kind === "short");
@@ -250,6 +250,7 @@ onAuthStateChanged(auth, async (user) => {
     await ensureSeed();
     await ensureFixes();
     await ensureDeliverables();
+    await ensureFixups();
     subscribeAll();
   } else {
     ME = null;
@@ -351,6 +352,25 @@ async function ensureDeliverables() {
     }
     await setDoc(ref, { at: serverTimestamp() });
   } catch (e) { console.warn("deliverables migration skipped", e); }
+}
+
+// ---------- One-time fixups ----------
+// Clears the old World Cup match watchlist (the tab is now a generic
+// "Tournaments Watchlist" — Jake adds matches to watch), and moves Song 2's
+// due date to Oct 20.
+async function ensureFixups() {
+  const ref = doc(db, "meta", "fixups_v1");
+  if ((await getDoc(ref)).exists()) return;
+  try {
+    const fx = await getDocs(collection(db, "fixtures"));
+    for (const d of fx.docs) await deleteDoc(doc(db, "fixtures", d.id));
+    const vids = await getDocs(collection(db, "videos"));
+    for (const d of vids.docs) {
+      const v = d.data();
+      if (v.kind === "song" && v.slot === 2) await updateDoc(doc(db, "videos", d.id), { by: "2026-10-20" });
+    }
+    await setDoc(ref, { at: serverTimestamp() });
+  } catch (e) { console.warn("fixups migration skipped", e); }
 }
 
 // ---------- LIVE SUBSCRIPTIONS ----------
@@ -710,6 +730,9 @@ function renderVideos() {
   const m1 = new Date(SHORTS_M1.by + "T00:00:00");
   const dl = new Date(SHORTS_DEADLINE + "T00:00:00");
   const m1DaysLeft = Math.ceil((m1 - today) / 864e5);
+  const dlDaysLeft = Math.ceil((dl - today) / 864e5);
+  const phase2 = SHORTS_GOAL - SHORTS_M1.n;                          // 10 shorts in phase 2
+  const m2Done = Math.max(0, Math.min(phase2, shortsDone - SHORTS_M1.n));
   const weeksLeft = Math.max(0, Math.ceil((dl - today) / (7 * 864e5)));
   const remaining = Math.max(0, SHORTS_GOAL - shortsDone);
   const perWk = weeksLeft > 0 ? (remaining / weeksLeft).toFixed(1) : String(remaining);
@@ -719,6 +742,7 @@ function renderVideos() {
   if (ss) ss.innerHTML = `
     <div class="stat"><div class="n">${shortsDone}/${SHORTS_GOAL}</div><div class="l">shorts uploaded</div></div>
     <div class="stat"><div class="n">${m1Done}/${SHORTS_M1.n}</div><div class="l">${m1DaysLeft >= 0 ? `by Aug 31 (${m1DaysLeft}d)` : "by Aug 31"}</div></div>
+    <div class="stat"><div class="n">${m2Done}/${phase2}</div><div class="l">${dlDaysLeft >= 0 ? `by Nov 13 (${dlDaysLeft}d)` : "by Nov 13"}</div></div>
     <div class="stat"><div class="n">${remaining}</div><div class="l">to go</div></div>
     <div class="stat"><div class="n">${perWk}</div><div class="l">/week to Nov 13</div></div>`;
 
@@ -1237,7 +1261,7 @@ function renderDashboard() {
       if (ready) { sub = `Next up: ${esc(nm.match)} — good to watch ✅`; fifaCls = "good"; }
       else { sub = `Next up: ${esc(nm.match)} — approval pending ⏳`; fifaCls = "warn"; }
     }
-    html += card("fifa", "🌍 World Cup", upNext.length, false, sub, fifaCls);
+    html += card("fifa", "🌍 To Watch", upNext.length, false, sub, fifaCls);
   }
   html += card("nico", "🐶 Nico", `${nicoDone}/${nicoIds.length}`, true,
     (nicoIds.length && nicoDone === nicoIds.length) ? "all done today ✅" : "duties today",
