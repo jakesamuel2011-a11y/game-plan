@@ -1,6 +1,6 @@
 # ⚽ Jake's Game Plan
 
-A personal planner web app for Jake — homework + daily plan, GNR video goal, football fitness & tournaments, World Cup 2026 watchlist, and Nico's care. You and Mum both log in and see the **same data live**: when one of you ticks something done, the other's screen updates instantly. No more "did you do it?" conversations.
+A personal planner web app for Jake: homework and a daily plan, revision with practice, content goals, football fitness and tournaments, and a match watchlist. You and Mum both log in and see the **same data live**: when one of you ticks something done, the other's screen updates instantly. No more "did you do it?" conversations.
 
 Works on any device (phone, tablet, laptop) through a free web link.
 
@@ -8,12 +8,13 @@ Works on any device (phone, tablet, laptop) through a free web link.
 
 ## What it does
 
-- **Today** – an auto-built daily plan that slots your pending homework around school (6:30am–4:15pm), football (Mon/Wed/Fri 5–6:30pm) and sleep. Saturday morning is for catch-up; Saturday afternoon and Sunday stay free. Shows overdue / due-today alerts and your next tournament.
-- **Homework** – add this week's homework per subject (Math, English, History, Bio, Physics, Chem, EM) with a due date and an estimated time. Tick it off when done.
-- **GNR Videos** – tracks the 29-by-Dec-31 goal (23 by Nov 14), how many per week you need, each video's stage (idea → filming → editing → done), the new skill you're building, and whether it's uploaded to NEXT + YouTube and logged in the wins doc.
-- **Football** – add tournaments when SCUFA announces them, plus a daily fitness checklist.
-- **World Cup** – a match watchlist, pre-loaded with Argentina's group games (IST times). Star matches to watch, tick when watched.
-- **Nico** – daily puppy-care duties that reset every morning.
+- **Today** – an auto-built daily plan that slots pending homework and revision sessions around school, training and sleep, with alerts for overdue work and upcoming tests.
+- **Homework** – homework per subject with a due date and estimated time; tick it off when done.
+- **Revision** – subjects → topics with two revision rounds and confidence ratings, must-know checklists, tests, planned sessions, and practice packs (flashcards, quizzes, exam questions with mark schemes or model answers).
+- **Content** – progress towards the YouTube Shorts and songs goals.
+- **Football** – tournaments plus a daily fitness checklist.
+- **To Watch** – a match watchlist with a parent-approval step for late or school-night kickoffs.
+- **Progress** – weekly Form rating, streak badges, a season ladder and revision progress.
 - **Twice-weekly email** – an automatic summary emailed to you and Mum every Wednesday & Sunday evening (set up in Part C below).
 
 ---
@@ -30,7 +31,7 @@ You'll create a free **Firebase** project (stores the shared data) and publish t
 4. Still in Authentication, go to the **Users** tab → **Add user**. Create two accounts:
    - your email + a password (this is your login)
    - Mum's email + a password
-5. In the left menu open **Build ▸ Firestore Database ▸ Create database** → choose **Start in production mode** → pick a location close to India (e.g. `asia-south1`) → Enable.
+5. In the left menu open **Build ▸ Firestore Database ▸ Create database** → choose **Start in production mode** → pick a location close to you → Enable.
 6. Open the **Rules** tab, delete what's there, paste the contents of **`firestore.rules`** (in this folder), and click **Publish**.
 7. Now get your keys: click the **⚙️ gear ▸ Project settings**. Scroll to **Your apps**, click the **`</>` (Web)** icon, give it a nickname, **Register app**. Firebase shows a `firebaseConfig = { ... }` block.
 8. Open **`firebase-config.js`** in this folder and paste each value into the matching quotes. Also update the two emails in the `PEOPLE` list to your real login emails so names show correctly. Save.
@@ -49,7 +50,7 @@ You'll create a free **Firebase** project (stores the shared data) and publish t
 
 ### Part C — Twice-weekly email summary (optional but you asked for it ✉️)
 
-This sends a summary email to you **and** Mum automatically every **Wednesday and Sunday at ~7pm IST** — homework status, video progress, football + Nico, and your World Cup watchlist. It runs on **GitHub Actions** (free), so it works even when nobody has the app open.
+This sends a summary email to you **and** Mum automatically every **Wednesday and Sunday at ~7pm IST** — homework, revision, content progress, football and the watchlist. It runs on **GitHub Actions** (free), so it works even when nobody has the app open.
 
 You'll need three quick things: a Firebase "service account" key, a Gmail "app password" to send from, and a few GitHub secrets.
 

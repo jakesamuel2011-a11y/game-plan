@@ -7,8 +7,10 @@ service cloud.firestore {
   match /databases/{database}/documents {
     function allowed() {
       return request.auth != null && request.auth.token.email in [
-        'jakesamuel2011@gmail.com',
-        'christabelsingh@gmail.com'
+        // Replace with the two login emails (same as PEOPLE in firebase-config.js).
+        // The live copy in the Firebase console has the real ones.
+        'JAKE_LOGIN_EMAIL',
+        'PARENT_LOGIN_EMAIL'
       ];
     }
     match /{document=**} {
