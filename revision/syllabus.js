@@ -191,7 +191,7 @@ export const SUBJECTS = [
   { key: "Physics", name: "Physics", emoji: "⚡", guide: SCIENCE_GUIDE, topics: [] },
   { key: "Chem", name: "Chemistry", emoji: "⚗️", guide: SCIENCE_GUIDE, topics: [] },
   {
-    key: "EM", name: "Environmental Mgmt", emoji: "🌍",
+    key: "EM", name: "EM (Environmental Mgmt)", emoji: "🌍",
     guide: {
       papers: [["Paper 1: Theory · 1h 45 · 80 marks", "Short questions (20) + extended answers using sources (60)"], ["Paper 2: Management in context · 1h 45 · 80 marks", "Questions based on one country"]],
       tips: [

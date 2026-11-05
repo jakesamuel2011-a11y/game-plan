@@ -11,7 +11,7 @@
 //  app.js calls initRevision(...) after login and reads sessionsFor() /
 //  upcomingTests() / paceSummary() for the Today plan and dashboard.
 // =============================================================
-import { SUBJECTS, PACKS, PACK_VERSION, REVISION_GOAL, SEED_TESTS, SEED_SESSIONS, allTopics, topicById, subjectByKey } from "./syllabus.js?v=1";
+import { SUBJECTS, PACKS, PACK_VERSION, REVISION_GOAL, SEED_TESTS, SEED_SESSIONS, allTopics, topicById, subjectByKey } from "./syllabus.js?v=2";
 import { renderPack, packModes } from "./packview.js?v=2";
 
 const esc = (s) => String(s ?? "").replace(/[<>&"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
@@ -193,10 +193,11 @@ function paceCard() {
 
 function renderHome(el) {
   const t = todayStr();
-  el.innerHTML = `<h2>📖 Revision</h2>${paceCard()}<div id="rvParent"></div>
+  el.innerHTML = `<h2>📖 Revision</h2>
+    <h3 class="section-h">📚 Subjects: tap one for its topics, checklists and practice</h3><div id="rvSubj" class="rv-grid"></div>
+    ${paceCard()}<div id="rvParent"></div>
     <h3 class="section-h">📝 Tests</h3><div id="rvTests" class="list"></div>
-    <h3 class="section-h">🗓️ Revision sessions</h3><div id="rvSess" class="list"></div>
-    <h3 class="section-h">📚 Subjects</h3><div id="rvSubj" class="rv-grid"></div>`;
+    <h3 class="section-h">🗓️ Revision sessions</h3><div id="rvSess" class="list"></div>`;
 
   // Tests
   const tl = el.querySelector("#rvTests");
@@ -238,7 +239,7 @@ function renderHome(el) {
     const r2 = s.topics.filter(x => R.progress[x.id]?.r2?.done).length;
     const c = document.createElement("div"); c.className = "dcard";
     c.innerHTML = n
-      ? `<div class="dc-h">${s.emoji} ${esc(s.name)}</div><div class="rv-mini">R1 <div class="progress"><div class="bar" style="width:${100 * r1 / n}%"></div></div>${r1}/${n}</div><div class="rv-mini">R2 <div class="progress"><div class="bar" style="width:${100 * r2 / n}%"></div></div>${r2}/${n}</div>`
+      ? `<div class="dc-h">${s.emoji} ${esc(s.name)}</div>${s.topics.some(x => x.pack) ? `<div class="dc-sub good" style="margin-top:0">🎯 practice ready</div>` : ""}<div class="rv-mini">R1 <div class="progress"><div class="bar" style="width:${100 * r1 / n}%"></div></div>${r1}/${n}</div><div class="rv-mini">R2 <div class="progress"><div class="bar" style="width:${100 * r2 / n}%"></div></div>${r2}/${n}</div>`
       : `<div class="dc-h">${s.emoji} ${esc(s.name)}</div><div class="dc-sub">topics not listed yet</div>`;
     c.onclick = () => go({ name: "subject", key: s.key });
     grid.appendChild(c);
