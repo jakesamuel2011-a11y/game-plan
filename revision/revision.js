@@ -21,13 +21,13 @@ const addDays = (s, n) => { const d = new Date(s + "T00:00:00Z"); d.setUTCDate(d
 const fmtDate = (s) => s ? new Date(s + "T00:00:00").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }) : "";
 const daysUntil = (s) => Math.round((new Date(s + "T00:00:00") - new Date(todayStr() + "T00:00:00")) / 864e5);
 
-let DB, F, ME, NAME_FOR, ON_CHANGE;
+let DB, F, ME, NAME_FOR, ON_CHANGE, IS_PARENT;
 const R = { progress: {}, sessions: [], tests: [] };
 let view = { name: "home" };
 const packCache = new Map();
 
-export function initRevision({ db, fs, me, nameFor, onChange }) {
-  DB = db; F = fs; ME = me; NAME_FOR = nameFor; ON_CHANGE = onChange || (() => {});
+export function initRevision({ db, fs, me, nameFor, onChange, isParent }) {
+  DB = db; F = fs; ME = me; NAME_FOR = nameFor; ON_CHANGE = onChange || (() => {}); IS_PARENT = isParent || (() => false);
   seed().finally(() => {
     F.onSnapshot(F.query(F.collection(DB, "revprogress")), s => { R.progress = Object.fromEntries(s.docs.map(d => [d.id, d.data()])); changed(); });
     F.onSnapshot(F.query(F.collection(DB, "revsessions")), s => { R.sessions = s.docs.map(d => ({ id: d.id, ...d.data() })); changed(); });
@@ -306,7 +306,7 @@ function renderHome(el) {
 
 // Christabel only: three quick questions on the most recent session's pack.
 async function renderParentCheck(box) {
-  if (!box || ME()?.email !== "christabelsingh@gmail.com") return;
+  if (!box || !IS_PARENT()) return;
   const t = todayStr();
   const recent = R.sessions.filter(s => (s.done || s.date <= t) && (s.topics || []).length).sort((a, b) => b.date.localeCompare(a.date) || (b.slot || 0) - (a.slot || 0))[0];
   const topic = recent && topicById(recent.topics[0]);

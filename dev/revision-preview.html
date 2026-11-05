@@ -41,11 +41,11 @@
       onSnapshot: (c, cb) => { const l = { col: c.col, cb }; listeners.push(l); fire(l); return () => {}; },
     };
     const asJake = new URLSearchParams(location.search).get("as") === "jake";
-    const me = { email: asJake ? "jakesamuel2011@gmail.com" : "christabelsingh@gmail.com" };
-    const names = { "jakesamuel2011@gmail.com": "Jake", "christabelsingh@gmail.com": "Christabel" };
+    const me = { email: asJake ? "jake@example.com" : "parent@example.com" };
+    const names = { "jake@example.com": "Jake", "parent@example.com": "Christabel" };
     window.__fakeStore = store;
     const { initRevision } = await import("../revision/revision.js?v=dev");
-    initRevision({ db: {}, fs, me: () => me, nameFor: (e) => names[e] || e, onChange: () => {} });
+    initRevision({ db: {}, fs, me: () => me, nameFor: (e) => names[e] || e, onChange: () => {}, isParent: () => !asJake });
   </script>
 </body>
 </html>

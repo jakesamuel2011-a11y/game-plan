@@ -3,7 +3,7 @@
 // =============================================================
 import { firebaseConfig, PEOPLE } from "./firebase-config.js";
 import { buildDayPlan, matchAssessment, FOOTBALL_DAYS } from "./planner.js?v=28";
-import { initRevision, sessionsFor, upcomingTests, overdueSessions, paceSummary, revisionCount, progressHtml as revisionProgressHtml, subjectName, openSubject as openRevisionSubject, render as renderRevision } from "./revision/revision.js?v=9";
+import { initRevision, sessionsFor, upcomingTests, overdueSessions, paceSummary, revisionCount, progressHtml as revisionProgressHtml, subjectName, openSubject as openRevisionSubject, render as renderRevision } from "./revision/revision.js?v=10";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
@@ -29,8 +29,10 @@ let ME = null;
 let MY_NAME = "";
 let progressCache = null; // {week, streak, overallPct, badges…}
 let progressTimer = null;
-const MUM_EMAIL = "christabelsingh@gmail.com";
-const JAKE_EMAIL = "jakesamuel2011@gmail.com";
+// Login emails come from PEOPLE in firebase-config.js (the one place they're listed).
+const emailFor = (name) => Object.keys(PEOPLE).find(e => PEOPLE[e] === name) || "";
+const MUM_EMAIL = emailFor("Christabel");
+const JAKE_EMAIL = emailFor("Jake");
 const isMum = () => !!ME && ME.email === MUM_EMAIL;   // Christabel
 const isJake = () => !!ME && ME.email === JAKE_EMAIL;
 const cache = { homework: [], videos: [], fixtures: [], tournaments: [], routines: [], nicolog: {}, footballOff: new Set(), resched: new Map(), holidays: [] };
@@ -256,7 +258,7 @@ onAuthStateChanged(auth, async (user) => {
     await ensureHistoryRename();
     subscribeAll();
     initRevision({
-      db, me: () => ME, nameFor,
+      db, me: () => ME, nameFor, isParent: isMum,
       fs: { collection, doc, addDoc, setDoc, getDoc, updateDoc, deleteDoc, onSnapshot, query, serverTimestamp },
       onChange: () => { renderToday(); renderDashboard(); clearTimeout(progressTimer); progressTimer = setTimeout(loadProgress, 1500); },
     });

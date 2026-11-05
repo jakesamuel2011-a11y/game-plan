@@ -1,6 +1,6 @@
 # Jake's Game Plan — Project Handoff
 
-A personal planner web app for Jake (15, footballer, IGCSE Y9, Bangalore), shared live with his mum Christabel. Pure static web app (HTML/CSS/vanilla JS) on **free GitHub Pages**, backed by **Firebase** (Auth + Firestore). No build step, no server.
+A personal planner web app for Jake, shared live with his mum Christabel. Pure static web app (HTML/CSS/vanilla JS) on **free GitHub Pages**, backed by **Firebase** (Auth + Firestore). No build step, no server.
 
 ---
 
@@ -13,10 +13,9 @@ A personal planner web app for Jake (15, footballer, IGCSE Y9, Bangalore), share
 
 ## 👤 Logins (the two app accounts)
 
-- **Jake:** jakesamuel2011@gmail.com
-- **Christabel (mum):** christabelsingh@gmail.com
+Two Firebase Auth (Email/Password) users: Jake and Christabel. Their login emails live in **one place in code**, the `PEOPLE` map in `firebase-config.js` (app.js works out who is the parent from it), plus the live security rules in the Firebase console. Christabel sees parent-only bits (match approvals, the Revision parent check). Passwords are never stored in this repo; a forgotten one can be reset from the login screen's "Forgot password?" button.
 
-Both are Firebase Auth (Email/Password) users. The app shows only Jake's "From Christabel" tab when she's set tasks; Christabel sees approval controls. The GitHub account is **jakesamuel2011-a11y**. (Passwords are not stored here — keep them in a password manager.)
+> This repo is **public** (free GitHub Pages needs that), so keep personal details (ages, school, city, contact details) out of these notes. App data is not public: it lives in Firebase, readable only by the two logins.
 
 ---
 
@@ -47,10 +46,10 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 5. **Verify an upload landed:** open the file on GitHub and Cmd+F for a string you just changed.
 
 ### Current cache-buster versions (keep incrementing from here)
-- `app.js?v=42`
+- `app.js?v=43`
 - `styles.css?v=22`
 - planner import `./planner.js?v=28`
-- revision import in app.js `./revision/revision.js?v=9` (and its own imports of `syllabus.js?v=3` / `packview.js?v=2`)
+- revision import in app.js `./revision/revision.js?v=10` (and its own imports of `syllabus.js?v=3` / `packview.js?v=2`)
 - pack JSON files: bump `PACK_VERSION` in `revision/syllabus.js`
 
 > The `.github/workflows/*.yml` files won't drag-upload (hidden folder). Edit those via GitHub's **Add file → Create new file** if needed.
@@ -133,7 +132,7 @@ Two GitHub Actions run on a schedule using **firebase-admin + nodemailer**. They
 If emails ever stop: GitHub pauses scheduled jobs after ~60 days of repo inactivity — just hit **Run workflow** in the Actions tab to wake them.
 
 ## 🔒 Security
-Firestore rules are locked to the two emails only (in Firebase Console → Firestore → Rules). The Firebase web API key is public by design (safe). The Google Cloud API key is restricted to the GitHub Pages domain + localhost. If you add a new login, add its email to the rules.
+Firestore rules are locked to the two login emails only. The live rules are in Firebase Console → Firestore → Rules; `firestore.rules` here is a template with placeholders, so fill in the emails if you ever paste it in. The Firebase web API key is public by design (safe). The Google Cloud API key is restricted to the GitHub Pages domain + localhost. If you add a new login, add its email to the rules.
 
 ---
 
