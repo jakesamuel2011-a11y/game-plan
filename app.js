@@ -3,7 +3,7 @@
 // =============================================================
 import { firebaseConfig, PEOPLE } from "./firebase-config.js";
 import { buildDayPlan, matchAssessment, FOOTBALL_DAYS } from "./planner.js?v=28";
-import { initRevision, sessionsFor, upcomingTests, overdueSessions, paceSummary, revisionCount, render as renderRevision } from "./revision/revision.js?v=6";
+import { initRevision, sessionsFor, upcomingTests, overdueSessions, paceSummary, revisionCount, progressHtml as revisionProgressHtml, openSubject as openRevisionSubject, render as renderRevision } from "./revision/revision.js?v=7";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
@@ -1138,6 +1138,8 @@ function renderProgress() {
       <div class="chips" style="margin-top:8px">${chip(p.hw, "homework on time")} ${chip(p.short, "1 short uploaded")} ${chip(p.fitness, `fitness ${week.fitness}/${REQ.fitness}`)} ${chip(p.revision, `revision ${week.revision}/${REQ.revision}`)}</div>
       <div class="muted small" style="margin-top:8px">✓ = done · ✗ = still to do. All four green = this week counts as "on target".</div>
     </div>
+    <h3 class="section-h">📖 Revision: 2 full revisions by end of February</h3>
+    <div id="progRevision">${revisionProgressHtml()}</div>
     <div id="badgeInfo" class="badge-info">👆 Tap any badge to see how to unlock it.</div>
     <h3 class="section-h">🔥 Win the week, grow your streak, grab a badge! (${progressCache.streakUnlocked}/4)</h3>
     <div class="badgegrid">${streakBadges.map(b => cell(b, b.on ? "unlocked ✓" : b.meta)).join("")}</div>
@@ -1145,6 +1147,7 @@ function renderProgress() {
     <div class="progress"><div style="width:${overallPct}%"></div></div>
     <div class="badgegrid five">${ladder.map(b => cell(b, b.on ? "reached ✓" : `${b.p}%`)).join("")}</div>`;
 
+  detailEl.querySelectorAll("[data-rvsub]").forEach(b => b.onclick = () => { activateTab("revision"); openRevisionSubject(b.dataset.rvsub); });
   const info = $("badgeInfo");
   detailEl.querySelectorAll(".bcell").forEach(c => c.onclick = () => {
     if (!info) return;

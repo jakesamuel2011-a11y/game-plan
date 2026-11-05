@@ -122,6 +122,44 @@ async function practiceStore(packId) {
   return store;
 }
 
+// ---------- Progress tab section (app.js puts this HTML in the Progress tab) ----------
+export function openSubject(key) { view = key ? { name: "subject", key } : { name: "home" }; render(); }
+export function progressHtml() {
+  const t = todayStr(), weekAgo = addDays(t, -6);
+  const avg = (xs) => xs.length ? (xs.reduce((a, b) => a + b, 0) / xs.length).toFixed(1) : "–";
+  // per subject
+  const rows = SUBJECTS.map(s => {
+    const n = s.topics.length;
+    if (!n) return `<tr class="muted"><td><button class="rv-link" data-rvsub="${s.key}">${s.emoji} ${esc(s.name)}</button></td><td colspan="3" class="small">topics not listed yet</td></tr>`;
+    const p = s.topics.map(x => R.progress[x.id] || {});
+    const r1 = p.filter(x => x.r1?.done).length, r2 = p.filter(x => x.r2?.done).length;
+    const confs = p.flatMap(x => [x.r2?.done ? x.r2.conf : x.r1?.done ? x.r1.conf : null]).filter(Boolean);
+    const bar = (k) => `<div class="progress" style="margin:0"><div style="width:${100 * k / n}%"></div></div><span class="small muted">${k}/${n}</span>`;
+    return `<tr><td><button class="rv-link" data-rvsub="${s.key}">${s.emoji} ${esc(s.name)}</button></td><td>${bar(r1)}</td><td>${bar(r2)}</td><td class="small">${avg(confs)}</td></tr>`;
+  }).join("");
+  // this week
+  const weekRounds = revisionCount(weekAgo, t);
+  const weekSess = R.sessions.filter(s => s.done && s.doneAt >= weekAgo && s.doneAt <= t);
+  const missed = R.sessions.filter(s => !s.done && s.date < t);
+  // shaky topics: latest round rated 1–2
+  const shaky = allTopics().filter(tp => { const p = R.progress[tp.id] || {}; const last = p.r2?.done ? p.r2 : p.r1; return last?.done && last.conf <= 2; });
+  const recent = R.sessions.filter(s => s.done).sort((a, b) => (b.doneAt || "").localeCompare(a.doneAt || "")).slice(0, 5);
+  const next = upcomingTests()[0];
+  return `${paceCard()}
+    <div class="stats">
+      <div class="stat"><div class="n">${weekRounds}</div><div class="l">revision done in last 7 days</div></div>
+      <div class="stat"><div class="n">${weekSess.length}</div><div class="l">planned sessions done</div></div>
+      <div class="stat"><div class="n" style="${missed.length ? "color:var(--red)" : ""}">${missed.length}</div><div class="l">sessions missed</div></div>
+      <div class="stat"><div class="n" style="${shaky.length ? "color:var(--amber)" : ""}">${shaky.length}</div><div class="l">topics to revisit</div></div>
+    </div>
+    <div class="card"><b>By subject</b>
+      <table class="rv-table"><thead><tr><th></th><th>Round 1</th><th>Round 2</th><th>Avg conf.</th></tr></thead><tbody>${rows}</tbody></table>
+    </div>
+    ${shaky.length ? `<div class="card"><b>🟠 Revisit these (rated 1–2)</b><ul class="pk-ul">${shaky.map(tp => `<li>${esc(subjectByKey(tp.subject)?.name)}: ${esc(tp.name)}</li>`).join("")}</ul></div>` : ""}
+    ${next ? `<div class="card"><b>📝 Next test</b><div class="small">${esc(next.name)} · ${fmtDate(next.date)} (${daysUntil(next.date) === 0 ? "today" : `in ${daysUntil(next.date)} days`})</div></div>` : ""}
+    ${recent.length ? `<div class="card"><b>Recent sessions</b><ul class="pk-ul">${recent.map(s => `<li>${fmtDate(s.doneAt || s.date)} · ${esc(s.title)} · <b>${s.conf}/5</b>${s.notes ? ` <span class="muted">“${esc(s.notes)}”</span>` : ""}</li>`).join("")}</ul></div>` : ""}`;
+}
+
 // ---------- rendering ----------
 const root = () => document.getElementById("revRoot");
 function go(v) { view = v; render(); window.scrollTo(0, 0); }

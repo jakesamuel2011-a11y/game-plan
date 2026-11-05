@@ -273,3 +273,9 @@ details summary{list-style-position:inside}
 .rv-nav::-webkit-scrollbar{display:none}
 .rv-navbtn{white-space:nowrap;background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:20px;padding:7px 12px;font-size:.8rem;cursor:pointer}
 .rv-navbtn.on{background:#13302a;color:var(--accent);border-color:#1c4a3e;font-weight:700}
+.rv-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:.85rem}
+.rv-table th{font-size:.7rem;color:var(--muted);font-weight:600;text-align:left;padding:4px 6px}
+.rv-table td{padding:6px;border-top:1px solid var(--line);vertical-align:middle}
+.rv-table td .progress{display:inline-block;width:60%;vertical-align:middle;margin-right:6px}
+.rv-link{background:none;border:none;color:var(--text);padding:0;font:inherit;text-align:left;cursor:pointer}
+.rv-link:hover{color:var(--accent)}
