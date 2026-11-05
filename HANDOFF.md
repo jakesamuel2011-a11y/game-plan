@@ -47,10 +47,10 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 5. **Verify an upload landed:** open the file on GitHub and Cmd+F for a string you just changed.
 
 ### Current cache-buster versions (keep incrementing from here)
-- `app.js?v=41`
+- `app.js?v=42`
 - `styles.css?v=22`
 - planner import `./planner.js?v=28`
-- revision import in app.js `./revision/revision.js?v=8` (and its own imports of `syllabus.js?v=3` / `packview.js?v=2`)
+- revision import in app.js `./revision/revision.js?v=9` (and its own imports of `syllabus.js?v=3` / `packview.js?v=2`)
 - pack JSON files: bump `PACK_VERSION` in `revision/syllabus.js`
 
 > The `.github/workflows/*.yml` files won't drag-upload (hidden folder). Edit those via GitHub's **Add file → Create new file** if needed.
@@ -101,6 +101,7 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 - `revtests` {subject, name, date, topics[]}
 - `revpractice/{packId}` {answers, cards, quizzes[], drills} — practice-pack progress (shared: both logins can see it)
 - `meta/revision_v1` — seeds the Nov 7–13 EM/Bio plan + tests once
+- `meta/history_rename_v1` — one-time move of homework subject Humanities → History (revision keeps the internal key "Humanities", shown as History)
 - `meta/seeded`, `meta/fix_fixture_times_v1`, `meta/deliverables_v1` — one-time setup/migration flags
 
 ---

@@ -9,7 +9,7 @@ Works on any device (phone, tablet, laptop) through a free web link.
 ## What it does
 
 - **Today** – an auto-built daily plan that slots your pending homework around school (6:30am–4:15pm), football (Mon/Wed/Fri 5–6:30pm) and sleep. Saturday morning is for catch-up; Saturday afternoon and Sunday stay free. Shows overdue / due-today alerts and your next tournament.
-- **Homework** – add this week's homework per subject (Math, English, Humanities, Bio, Physics, Chem, EM) with a due date and an estimated time. Tick it off when done.
+- **Homework** – add this week's homework per subject (Math, English, History, Bio, Physics, Chem, EM) with a due date and an estimated time. Tick it off when done.
 - **GNR Videos** – tracks the 29-by-Dec-31 goal (23 by Nov 14), how many per week you need, each video's stage (idea → filming → editing → done), the new skill you're building, and whether it's uploaded to NEXT + YouTube and logged in the wins doc.
 - **Football** – add tournaments when SCUFA announces them, plus a daily fitness checklist.
 - **World Cup** – a match watchlist, pre-loaded with Argentina's group games (IST times). Star matches to watch, tick when watched.
