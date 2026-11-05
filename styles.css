@@ -263,3 +263,9 @@ details summary{list-style-position:inside}
 .pk-ev:before{content:"";position:absolute;left:-21px;top:10px;width:10px;height:10px;border-radius:50%;background:var(--bg);border:2px solid var(--muted)}
 .pk-ev b{margin-right:8px;color:var(--accent)}
 .pk-ev.u-kq4:before{border-color:var(--amber)} .pk-ev.u-kq5:before{border-color:var(--blue)} .pk-ev.u-kq6:before{border-color:var(--red)}
+.pk-modes{flex-wrap:wrap;overflow-x:visible}
+.rv-unitpk{border-left:4px solid var(--green)}
+.rv-modes{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.rv-modebtn{background:var(--card2);color:var(--text);border:1px solid var(--line);border-radius:9px;padding:8px 11px;font-size:.8rem;cursor:pointer}
+.rv-modebtn:hover{border-color:var(--green)}
+.rv-check-sum{cursor:pointer;font-size:.85rem;font-weight:600;padding:4px 0}

@@ -12,7 +12,7 @@
 //  upcomingTests() / paceSummary() for the Today plan and dashboard.
 // =============================================================
 import { SUBJECTS, PACKS, PACK_VERSION, REVISION_GOAL, SEED_TESTS, SEED_SESSIONS, allTopics, topicById, subjectByKey } from "./syllabus.js?v=1";
-import { renderPack } from "./packview.js?v=1";
+import { renderPack, packModes } from "./packview.js?v=2";
 
 const esc = (s) => String(s ?? "").replace(/[<>&"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
 const ymd = (d) => d.toISOString().slice(0, 10);
@@ -267,7 +267,7 @@ async function renderParentCheck(box) {
 function renderSubject(el, s) {
   if (!s) return go({ name: "home" });
   el.innerHTML = `<button class="btn tiny ghost" id="rvBack">← Revision</button><h2>${s.emoji} ${esc(s.name)}</h2>
-    <details class="card rv-guide"><summary><b>How it's marked</b></summary>
+    <details class="card rv-guide" open><summary><b>📋 How it's marked</b></summary>
       <div class="list" style="margin-top:8px">${s.guide.papers.map(([p, d]) => `<div class="item-sub"><b>${esc(p)}</b> · ${esc(d)}</div>`).join("")}</div>
       <ul class="pk-ul">${s.guide.tips.map(x => `<li>${esc(x)}</li>`).join("")}</ul>${s.guide.note ? `<div class="muted small">${esc(s.guide.note)}</div>` : ""}</details>
     <div id="rvTopics"></div>`;
@@ -279,12 +279,16 @@ function renderSubject(el, s) {
   }
   let unit = null;
   s.topics.forEach(tp => {
-    if (tp.unit !== unit) { unit = tp.unit; list.insertAdjacentHTML("beforeend", `<h3 class="section-h">${esc(unit || "Topics")}</h3>`); }
+    if (tp.unit !== unit) {
+      unit = tp.unit;
+      list.insertAdjacentHTML("beforeend", `<h3 class="section-h">${esc(unit || "Topics")}</h3>`);
+      if (tp.pack) list.appendChild(unitPracticeCard(tp.pack, s.key, unit));
+    }
     const pr = R.progress[tp.id] || {};
     const ticked = (tp.points || []).filter((_, i) => pr.pts?.[i]).length;
     const row = document.createElement("div"); row.className = "card rv-topic";
     row.innerHTML = `<div class="item-title">${esc(tp.name)}</div><div class="rv-rounds"></div>
-      <details><summary class="muted small">Must-know checklist · ${ticked}/${(tp.points || []).length} I can explain without notes</summary><div class="rv-pts"></div></details>`;
+      <details><summary class="rv-check-sum">✅ Must-know checklist <span class="pill ${ticked === (tp.points || []).length ? "today" : "soon"}">${ticked}/${(tp.points || []).length}</span> <span class="muted small">tick what you can explain without notes</span></summary><div class="rv-pts"></div></details>`;
     const rounds = row.querySelector(".rv-rounds");
     rounds.append(roundChip(tp, "r1"), roundChip(tp, "r2"));
     if (tp.pack) {
@@ -305,6 +309,23 @@ function renderSubject(el, s) {
   });
 }
 
+// A card at the top of each unit: one button per practice mode, straight into it.
+function unitPracticeCard(packId, subjectKey, unitName) {
+  const c = document.createElement("div");
+  c.className = "card rv-unitpk";
+  c.innerHTML = `<b>🎯 Practise ${esc(PACKS[packId] || unitName)}</b><div class="rv-modes"></div>`;
+  const row = c.querySelector(".rv-modes");
+  loadPack(packId).then(pack => {
+    packModes(pack).forEach(([k, label]) => {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "rv-modebtn"; b.textContent = label;
+      b.onclick = () => go({ name: "pack", id: packId, mode: k, back: subjectKey });
+      row.appendChild(b);
+    });
+  }).catch(() => { row.innerHTML = `<span class="muted small">Practice pack unavailable offline.</span>`; });
+  return c;
+}
+
 async function renderPackView(el) {
   const v = view;
   el.innerHTML = `<button class="btn tiny ghost" id="rvBack">← ${esc(subjectByKey(v.back)?.name || "Revision")}</button><div id="rvPack"><p class="muted small">Loading ${esc(PACKS[v.id] || "pack")}…</p></div>`;
@@ -312,7 +333,7 @@ async function renderPackView(el) {
   try {
     const [pack, store] = await Promise.all([loadPack(v.id), practiceStore(v.id)]);
     if (view !== v) return; // navigated away while loading
-    renderPack(el.querySelector("#rvPack"), pack, store, { unit: v.unit });
+    renderPack(el.querySelector("#rvPack"), pack, store, { unit: v.unit, mode: v.mode });
   } catch (e) {
     el.querySelector("#rvPack").innerHTML = `<p class="error">Couldn't load this pack (${esc(e.message)}). Check your connection and try again.</p>`;
   }

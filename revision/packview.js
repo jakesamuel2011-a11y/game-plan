@@ -30,7 +30,7 @@ export function packModes(pack) {
   if (pack.flashcards?.length) m.push(["cards", "Flashcards"]);
   if (pack.quiz?.length) m.push(["quiz", pack.quizTitle || "Quiz"]);
   else if (pack.timeline?.length) m.push(["quiz", "Date quiz"]);
-  if (pack.exam?.length) m.push(["exam", "Exam questions"]);
+  if (pack.exam?.length) m.push(["exam", pack.exam.some(q => q.model) ? "Exam questions + model answers" : "Exam questions + mark schemes"]);
   if (pack.dataPractice) m.push(["data", "Reading data"]);
   if (pack.planner) m.push(["plan", "6-mark plans"]);
   if (pack.debates?.length) m.push(["drill", "10-mark drill"]);
@@ -53,7 +53,8 @@ export function packStats(pack, state, unit) {
 export function renderPack(root, pack, store, opts = {}) {
   const S = store.state;
   S.answers ||= {}; S.cards ||= {}; S.quizzes ||= []; S.drills ||= {};
-  let mode = "cards" in Object.fromEntries(packModes(pack)) ? "cards" : "learn";
+  const modeKeys = packModes(pack).map(([k]) => k);
+  let mode = modeKeys.includes(opts.mode) ? opts.mode : modeKeys.includes("cards") ? "cards" : "learn";
   let unit = opts.unit || "all";
   const inUnit = (x) => unit === "all" || !x.unit || x.unit === unit;
   const unitName = (k) => (pack.units || []).find(u => u.key === k)?.name || "";
