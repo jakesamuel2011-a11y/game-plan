@@ -3,12 +3,12 @@
 // =============================================================
 import { firebaseConfig, PEOPLE } from "./firebase-config.js";
 import { buildDayPlan, matchAssessment, FOOTBALL_DAYS } from "./planner.js?v=28";
-import { initRevision, sessionsFor, upcomingTests, overdueSessions, paceSummary, revisionCount, progressHtml as revisionProgressHtml, openSubject as openRevisionSubject, render as renderRevision } from "./revision/revision.js?v=8";
+import { initRevision, sessionsFor, upcomingTests, overdueSessions, paceSummary, revisionCount, progressHtml as revisionProgressHtml, subjectName, openSubject as openRevisionSubject, render as renderRevision } from "./revision/revision.js?v=9";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
   getAuth, onAuthStateChanged, signInWithEmailAndPassword,
-  createUserWithEmailAndPassword, signOut,
+  createUserWithEmailAndPassword, signOut, sendPasswordResetEmail,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
   getFirestore, collection, doc, addDoc, setDoc, getDoc, getDocs,
@@ -253,6 +253,7 @@ onAuthStateChanged(auth, async (user) => {
     await ensureFixes();
     await ensureDeliverables();
     await ensureFixups();
+    await ensureHistoryRename();
     subscribeAll();
     initRevision({
       db, me: () => ME, nameFor,
@@ -269,6 +270,15 @@ onAuthStateChanged(auth, async (user) => {
 $("loginBtn").onclick = async () => {
   try {
     await signInWithEmailAndPassword(auth, $("email").value.trim(), $("password").value);
+  } catch (e) { $("loginMsg").textContent = friendlyErr(e); }
+};
+$("forgotBtn").onclick = async () => {
+  const email = $("email").value.trim();
+  $("loginMsg").textContent = ""; $("loginInfo").textContent = "";
+  if (!email) { $("loginMsg").textContent = "Type your email above first, then tap Forgot password."; return; }
+  try {
+    await sendPasswordResetEmail(auth, email);
+    $("loginInfo").textContent = `If ${email} has an account, a reset link is on its way. Check spam, and use only the newest email: each new request cancels the older links.`;
   } catch (e) { $("loginMsg").textContent = friendlyErr(e); }
 };
 $("logoutBtn").onclick = () => signOut(auth);
@@ -379,6 +389,17 @@ async function ensureFixups() {
     }
     await setDoc(ref, { at: serverTimestamp() });
   } catch (e) { console.warn("fixups migration skipped", e); }
+}
+
+// Homework subject "Humanities" was renamed "History" (Nov 2026): move existing entries over once.
+async function ensureHistoryRename() {
+  const ref = doc(db, "meta", "history_rename_v1");
+  try {
+    if ((await getDoc(ref)).exists()) return;
+    const hw = await getDocs(collection(db, "homework"));
+    for (const d of hw.docs) if (d.data().subject === "Humanities") await updateDoc(doc(db, "homework", d.id), { subject: "History" });
+    await setDoc(ref, { at: serverTimestamp() });
+  } catch (e) { console.warn("history rename skipped", e); }
 }
 
 // ---------- LIVE SUBSCRIPTIONS ----------
@@ -525,7 +546,7 @@ function renderToday() {
   // Timeline
   const tl = $("timeline"); tl.innerHTML = "";
   const items = pendingHw().map(h => ({ subject: h.subject, task: h.task, mins: h.mins, due: h.due }))
-    .concat(sessionsFor(selDate).map(s => ({ subject: "📖 " + s.subject + " revision", task: s.title, mins: s.mins || 45 })));
+    .concat(sessionsFor(selDate).map(s => ({ subject: "📖 " + subjectName(s.subject) + " revision", task: s.title, mins: s.mins || 45 })));
   const plan = buildDayPlan(day, items, { noFootball, holiday });
   if (plan.rest) {
     tl.innerHTML = `<div class="block rest"><div class="t">All day</div><div class="b">${plan.note}</div></div>`;
@@ -619,7 +640,7 @@ function buildHwEl(h) {
   return el;
 }
 function editHwForm(el, h) {
-  const subjects = ["Math", "English", "Humanities", "Bio", "Physics", "Chem", "EM"];
+  const subjects = ["Math", "English", "History", "Bio", "Physics", "Chem", "EM"];
   el.innerHTML = `<div class="item-main">
     <div class="grid2">
       <select class="select" data-f="subject">${subjects.map(s => `<option>${s}</option>`).join("")}</select>

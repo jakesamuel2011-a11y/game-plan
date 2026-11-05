@@ -47,6 +47,7 @@ async function seed() {
 }
 
 // ---------- read API for app.js ----------
+export const subjectName = (key) => subjectByKey(key)?.name || key;
 export function sessionsFor(dateStr) {
   return R.sessions.filter(s => s.date === dateStr && !s.done).sort((a, b) => (a.slot || 0) - (b.slot || 0));
 }
