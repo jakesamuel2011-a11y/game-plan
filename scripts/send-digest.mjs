@@ -43,12 +43,13 @@ function withinDays(ts, days) {
 }
 
 async function build() {
-  const [homework, videos, fixtures, tournaments, routines] = await Promise.all([
+  const [homework, videos, fixtures, tournaments, routines, revsessions, revtests, revprogress] = await Promise.all([
     getAll("homework"), getAll("videos"), getAll("fixtures"),
     getAll("tournaments"), getAll("routines"),
+    getAll("revsessions"), getAll("revtests"), getAll("revprogress"),
   ]);
 
-  // Nico/fitness logs for the last 7 days
+  // Fitness logs for the last 7 days (stored in the "nicolog" collection)
   const logDates = [];
   for (let i = 0; i < 7; i++) logDates.push(ymd(new Date(today - i * 864e5)));
   const logSnaps = await Promise.all(logDates.map((d) => db.collection("nicolog").doc(d).get()));
@@ -77,14 +78,22 @@ async function build() {
     .filter((t) => t.date && t.date >= todayStr)
     .sort((a, b) => a.date.localeCompare(b.date));
   const fitness = routines.filter((r) => r.kind === "fitness");
-  const nico = routines.filter((r) => r.kind === "nico");
   const countDoneOverWeek = (items) => {
     let total = 0;
     for (const d of logDates) { const log = logs[d] || {}; total += items.filter((r) => log[r.id]).length; }
     return total;
   };
   const fitDone7 = countDoneOverWeek(fitness);
-  const nicoDoneToday = nico.filter((r) => (logs[todayStr] || {})[r.id]).length;
+
+  // ---- Revision ----
+  const weekAgo = logDates[logDates.length - 1];
+  let roundsWeek = 0;
+  for (const p of revprogress) for (const r of ["r1", "r2"]) if (p[r]?.done && p[r].at >= weekAgo && p[r].at <= todayStr) roundsWeek++;
+  const sessDoneWeek = revsessions.filter((s) => s.done && s.doneAt >= weekAgo && s.doneAt <= todayStr);
+  const sessMissed = revsessions.filter((s) => !s.done && s.date < todayStr);
+  const sessNext = revsessions.filter((s) => !s.done && s.date >= todayStr).sort((a, b) => (a.date + a.slot).localeCompare(b.date + b.slot));
+  const shaky = revprogress.filter((p) => [p.r1, p.r2].some((r) => r?.done && r.conf <= 2)).map((p) => p.id);
+  const testsNext = revtests.filter((t) => t.date >= todayStr).sort((a, b) => a.date.localeCompare(b.date));
 
   // ---- World Cup ----
   const upcomingMatches = fixtures
@@ -118,7 +127,8 @@ async function build() {
     overdue.length ? `⚠️ ${overdue.length} homework overdue` : (dueIn2.length ? `📌 ${dueIn2.length} homework due in the next 2 school days (do in advance): ${dueIn2.map((h) => esc(h.subject)).join(", ")}` : (pending.length ? `${pending.length} homework pending — nothing due in next 2 school days` : "Homework all clear ✅")),
     `🎬 ${shortsDone}/${SHORTS_GOAL} shorts (need ${perWeek}/wk to Nov 13) · 🎵 ${songsDone}/${SONGS_GOAL} songs`,
     `💪 ${fitDone7} fitness check-ins this week`,
-    `🐶 ${nicoDoneToday}/${nico.length} of Nico's duties done today`,
+    `📖 ${roundsWeek} revision round(s) and ${sessDoneWeek.length} session(s) done this week${sessMissed.length ? ` · ⚠️ ${sessMissed.length} missed` : ""}`,
+    testsNext.length ? `📝 Next test: ${esc(testsNext[0].name)} (${testsNext[0].date})` : null,
     upcomingTours.length ? `🏆 Next tournament: ${esc(upcomingTours[0].name)} (${upcomingTours[0].date})` : null,
     upcomingMatches.length ? `🌍 ${upcomingMatches.length} match(es) on the watchlist` : null,
   ].filter(Boolean);
@@ -155,8 +165,16 @@ async function build() {
     ? `<p>🏆 Next tournament: <b>${esc(upcomingTours[0].name)}</b> on ${upcomingTours[0].date}${upcomingTours[0].location ? " · " + esc(upcomingTours[0].location) : ""}</p>`
     : `<p>No tournaments on the calendar yet.</p>`;
   fBody += `<p>💪 Fitness: ${fitDone7} routine check-offs in the last 7 days.</p>`;
-  fBody += `<p>🐶 Nico: ${nicoDoneToday}/${nico.length} duties done today.</p>`;
-  html += section("🏆 Football & 🐶 Nico", fBody);
+  html += section("🏆 Football", fBody);
+
+  // Revision
+  let rBody = `<p>📖 This week: <b>${roundsWeek}</b> topic round(s) ticked, <b>${sessDoneWeek.length}</b> planned session(s) done.</p>`;
+  if (sessDoneWeek.length) rBody += `<ul>${sessDoneWeek.map((s) => li(`${esc(s.subject)}: ${esc(s.title)} — confidence ${s.conf}/5${s.notes ? ` <em>(“${esc(s.notes)}”)</em>` : ""}`)).join("")}</ul>`;
+  if (sessMissed.length) rBody += `<p style="color:#c0392b;font-weight:700">⚠️ Missed: ${sessMissed.map((s) => `${esc(s.title)} (${s.date})`).join("; ")}</p>`;
+  if (sessNext.length) rBody += `<p>🗓️ Coming up: ${sessNext.slice(0, 4).map((s) => `${s.date}: ${esc(s.title)}`).join("; ")}</p>`;
+  if (testsNext.length) rBody += `<p>📝 Tests: ${testsNext.slice(0, 4).map((t) => `${esc(t.name)} (${t.date})`).join("; ")}</p>`;
+  if (shaky.length) rBody += `<p>🟠 Rated 1–2 (revisit): ${shaky.length} topic(s).</p>`;
+  html += section("📖 Revision", rBody);
 
   // World Cup
   html += section("🌍 World Cup watchlist", upcomingMatches.length

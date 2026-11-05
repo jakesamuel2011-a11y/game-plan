@@ -1,0 +1,472 @@
+{
+ "id": "bio-reproduction-environment",
+ "subject": "Bio",
+ "title": "Reproduction, ecology & human impact",
+ "sub": "Plants and humans, organisms and the environment, human influences, conservation",
+ "test": "Fri 13 Nov 2026",
+ "strategyIntro": "Cambridge Core Biology is assessed on Paper 1 (40 multiple-choice questions, 45 min), Paper 3 (structured theory questions, 1h 15, 80 marks) and Paper 6 (questions on experiments). Your school test may be shorter, but it will be marked the same way.",
+ "strategy": [
+  {
+   "title": "Multiple choice",
+   "key": true,
+   "points": [
+    "About a minute per question. If one is taking longer, mark it and move on.",
+    "Cross out options you know are wrong first. Two often look similar: read every word.",
+    "Never leave one blank. A wrong answer loses nothing."
+   ]
+  },
+  {
+   "title": "Structured questions",
+   "key": true,
+   "points": [
+    "Marks go to keywords. Write the textbook term: “oviduct”, not “tube”.",
+    "The marks in brackets tell you how many separate points to make.",
+    "Label diagrams with a ruler line that touches the exact part."
+   ]
+  },
+  {
+   "title": "Questions on experiments",
+   "points": [
+    "Results tables: units go in the column headings, not next to each number.",
+    "Graphs: label both axes with units, choose an even scale, plot with small crosses.",
+    "Know the control variables and one safety precaution for each experiment."
+   ]
+  },
+  {
+   "title": "Easy marks people lose",
+   "points": [
+    "Writing “energy is made”. Energy is released, transferred or lost, never made.",
+    "Mixing up pollination (pollen moves) and fertilisation (nuclei fuse).",
+    "Saying the placenta “mixes blood”. Mother’s and baby’s blood never mix."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "State",
+   "Give a short fact. No explanation needed."
+  ],
+  [
+   "Describe",
+   "Say what happens or what you see. With data, quote figures and units."
+  ],
+  [
+   "Explain",
+   "Say why or how. Use “because” and link cause to effect."
+  ],
+  [
+   "Suggest",
+   "Apply what you know to a new situation. Any sensible reason scores."
+  ],
+  [
+   "Compare",
+   "Give similarities or differences for both things in the same sentence."
+  ],
+  [
+   "Calculate",
+   "Show working and give the unit."
+  ]
+ ],
+ "quizTitle": "Multiple-choice practice",
+ "quizIntro": "Answer in Paper 1 style: about a minute each, eliminating wrong options first. Read the explanation after every answer, even when you get it right.",
+ "quiz": [
+  {
+   "q": "Which part of a flower produces pollen grains?",
+   "options": [
+    "Stigma",
+    "Anther",
+    "Ovary",
+    "Sepal"
+   ],
+   "answer": 1,
+   "why": "The anther (part of the stamen) makes pollen. The stigma receives it."
+  },
+  {
+   "q": "What is pollination?",
+   "options": [
+    "Fusion of the nuclei of two gametes",
+    "Growth of a pollen tube",
+    "Transfer of pollen grains from an anther to a stigma",
+    "Spreading of seeds away from the parent plant"
+   ],
+   "answer": 2,
+   "why": "Pollination is the transfer of pollen grains from the anther to the stigma. Fusion of nuclei is fertilisation."
+  },
+  {
+   "q": "Which is a feature of a wind-pollinated flower?",
+   "options": [
+    "Large, brightly coloured petals",
+    "Nectar and a strong scent",
+    "Feathery stigmas hanging outside the flower",
+    "Sticky, spiky pollen grains"
+   ],
+   "answer": 2,
+   "why": "Feathery stigmas outside the flower catch pollen from the air. The other three attract insects."
+  },
+  {
+   "q": "Which of these is NOT needed for a seed to germinate?",
+   "options": [
+    "Water",
+    "Oxygen",
+    "A suitable temperature",
+    "Light"
+   ],
+   "answer": 3,
+   "why": "Seeds need water, oxygen and a suitable temperature. Many germinate underground in the dark."
+  },
+  {
+   "q": "Offspring produced by asexual reproduction are:",
+   "options": [
+    "Genetically identical to the parent",
+    "Genetically different from each other",
+    "Formed when two gametes fuse",
+    "Always produced from seeds"
+   ],
+   "answer": 0,
+   "why": "Asexual reproduction involves one parent and no gametes, so offspring are genetically identical."
+  },
+  {
+   "q": "Where does fertilisation normally take place in humans?",
+   "options": [
+    "Ovary",
+    "Uterus",
+    "Oviduct",
+    "Vagina"
+   ],
+   "answer": 2,
+   "why": "The sperm meets the egg in the oviduct. The zygote then moves to the uterus to implant."
+  },
+  {
+   "q": "Which feature helps a sperm cell swim to the egg?",
+   "options": [
+    "Jelly coat",
+    "Flagellum",
+    "Energy store in the cytoplasm",
+    "Large size"
+   ],
+   "answer": 1,
+   "why": "The flagellum (tail) moves the sperm. Its many mitochondria release energy for swimming."
+  },
+  {
+   "q": "Compared with a sperm cell, an egg cell is:",
+   "options": [
+    "Smaller and able to move",
+    "Larger and contains energy stores",
+    "Made in the testes",
+    "Produced in millions each day"
+   ],
+   "answer": 1,
+   "why": "Egg cells are much larger and carry energy stores for the early embryo. They have a jelly coat that changes after fertilisation."
+  },
+  {
+   "q": "What is the main function of the placenta?",
+   "options": [
+    "Protecting the fetus from bumps",
+    "Producing eggs",
+    "Exchanging substances between the mother’s blood and the fetus’s blood",
+    "Mixing the blood of mother and fetus"
+   ],
+   "answer": 2,
+   "why": "Oxygen and nutrients pass to the fetus; carbon dioxide and urea pass to the mother. The two bloods do not mix. Amniotic fluid protects from bumps."
+  },
+  {
+   "q": "Which hormone causes the development of male secondary sexual characteristics at puberty?",
+   "options": [
+    "Oestrogen",
+    "Insulin",
+    "Testosterone",
+    "Adrenaline"
+   ],
+   "answer": 2,
+   "why": "Testosterone is made by the testes. Oestrogen, made by the ovaries, does this in girls."
+  },
+  {
+   "q": "What happens during menstruation?",
+   "options": [
+    "An egg is released from the ovary",
+    "The lining of the uterus breaks down and is lost",
+    "The uterus lining thickens",
+    "Fertilisation takes place"
+   ],
+   "answer": 1,
+   "why": "Menstruation is the loss of the uterus lining. Releasing an egg is ovulation, around the middle of the cycle."
+  },
+  {
+   "q": "HIV can be passed on by:",
+   "options": [
+    "Shaking hands",
+    "Sharing needles",
+    "Coughing",
+    "Sharing a cup"
+   ],
+   "answer": 1,
+   "why": "HIV spreads through body fluids: unprotected sex, shared needles, infected blood, and from mother to baby."
+  },
+  {
+   "q": "In a food chain, the arrows show:",
+   "options": [
+    "Which animal is bigger",
+    "The direction of energy flow",
+    "Who eats whom, pointing at the eater’s prey",
+    "The number of organisms"
+   ],
+   "answer": 1,
+   "why": "Arrows point from the organism eaten to the organism eating it: the direction energy moves."
+  },
+  {
+   "q": "Why are food chains usually no longer than five trophic levels?",
+   "options": [
+    "Animals at the top are too large",
+    "Energy is lost at each level, so too little is left",
+    "Producers stop photosynthesising",
+    "Decomposers eat the top consumers"
+   ],
+   "answer": 1,
+   "why": "Energy is lost at each level through respiration (heat), movement, and parts not eaten or not digested."
+  },
+  {
+   "q": "Which process removes carbon dioxide from the atmosphere?",
+   "options": [
+    "Respiration",
+    "Combustion",
+    "Decomposition",
+    "Photosynthesis"
+   ],
+   "answer": 3,
+   "why": "Photosynthesis takes in carbon dioxide. The other three release it."
+  },
+  {
+   "q": "In eutrophication, why do fish die?",
+   "options": [
+    "Fertiliser is poisonous to fish",
+    "Algae eat the fish",
+    "Decomposers use up the oxygen in the water",
+    "The water becomes too warm"
+   ],
+   "answer": 2,
+   "why": "Dead algae and plants are broken down by decomposers, which respire aerobically and use up the dissolved oxygen."
+  },
+  {
+   "q": "Which is a disadvantage of growing a crop as a monoculture?",
+   "options": [
+    "Higher biodiversity",
+    "Pests and diseases spread easily",
+    "Less fertiliser is needed",
+    "More habitats for wildlife"
+   ],
+   "answer": 1,
+   "why": "One crop over a large area reduces biodiversity and lets pests spread fast, so more pesticide is used."
+  },
+  {
+   "q": "Which is NOT an effect of deforestation?",
+   "options": [
+    "Loss of habitats",
+    "More soil erosion",
+    "Increased carbon dioxide in the atmosphere",
+    "Increased biodiversity"
+   ],
+   "answer": 3,
+   "why": "Deforestation reduces biodiversity. It also causes flooding and loss of soil."
+  },
+  {
+   "q": "A seed bank helps conservation by:",
+   "options": [
+    "Storing seeds so species can be regrown if they become rare",
+    "Selling seeds to farmers",
+    "Killing weeds",
+    "Increasing crop prices"
+   ],
+   "answer": 0,
+   "why": "Seed banks keep seeds of many species safe for years, so plants can be grown again and reintroduced."
+  },
+  {
+   "q": "Which factor would cause a population of rabbits to decrease?",
+   "options": [
+    "More food available",
+    "Fewer predators",
+    "An outbreak of disease",
+    "Less competition"
+   ],
+   "answer": 2,
+   "why": "Food supply, competition, predation and disease all affect how fast a population grows. Disease increases deaths."
+  }
+ ],
+ "flashIntro": "These are close to Cambridge’s own wording. Say each definition out loud before you tap, then check you used the exact keywords.",
+ "flashcards": [
+  {
+   "front": "Asexual reproduction",
+   "back": "A process resulting in genetically identical offspring from one parent."
+  },
+  {
+   "front": "Sexual reproduction",
+   "back": "Fusion of the nuclei of two gametes to form a zygote, producing offspring that are genetically different."
+  },
+  {
+   "front": "Fertilisation",
+   "back": "The fusion of the nuclei of gametes."
+  },
+  {
+   "front": "Pollination",
+   "back": "The transfer of pollen grains from the anther to the stigma."
+  },
+  {
+   "front": "Self-pollination",
+   "back": "Pollen moves to the stigma of the same flower or another flower on the same plant."
+  },
+  {
+   "front": "Cross-pollination",
+   "back": "Pollen moves to the stigma of a flower on a different plant of the same species."
+  },
+  {
+   "front": "Gamete",
+   "back": "A sex cell (sperm or egg in humans; pollen nucleus or ovule in plants)."
+  },
+  {
+   "front": "Zygote",
+   "back": "The cell formed when two gamete nuclei fuse."
+  },
+  {
+   "front": "Germination",
+   "back": "The start of growth of a seed into a seedling. Needs water, oxygen and a suitable temperature."
+  },
+  {
+   "front": "Placenta",
+   "back": "Organ where substances pass between mother’s and fetus’s blood without the bloods mixing."
+  },
+  {
+   "front": "Amniotic fluid",
+   "back": "Fluid around the fetus that protects it from knocks."
+  },
+  {
+   "front": "Producer",
+   "back": "An organism that makes its own organic nutrients, usually using energy from sunlight, by photosynthesis."
+  },
+  {
+   "front": "Consumer",
+   "back": "An organism that gets its energy by feeding on other organisms."
+  },
+  {
+   "front": "Decomposer",
+   "back": "An organism that gets its energy from dead or waste organic material."
+  },
+  {
+   "front": "Trophic level",
+   "back": "The position of an organism in a food chain or food web."
+  },
+  {
+   "front": "Population",
+   "back": "A group of organisms of one species living in the same area at the same time."
+  },
+  {
+   "front": "Community",
+   "back": "All the populations of different species in an ecosystem."
+  },
+  {
+   "front": "Ecosystem",
+   "back": "A community of organisms and their environment, interacting together."
+  },
+  {
+   "front": "Eutrophication",
+   "back": "Excess nutrients (e.g. nitrates) in water cause algae to grow, die and decompose, using up oxygen."
+  },
+  {
+   "front": "Sustainable resource",
+   "back": "One produced as fast as it is removed from the environment, so it does not run out."
+  }
+ ],
+ "examIntro": "Paper 3 style. Write your answer first, then open the mark scheme and give yourself one mark per point you made clearly. One point per mark is the rule.",
+ "exam": [
+  {
+   "q": "Explain how adding too much fertiliser to fields can lead to fish dying in a nearby lake.",
+   "marks": 5,
+   "points": [
+    "Fertiliser (nitrate) is washed / leaches into the lake",
+    "Algae / water plants grow quickly",
+    "Algae block light, so plants below cannot photosynthesise and die",
+    "Algae and plants die",
+    "Decomposers (bacteria) increase and break down the dead material",
+    "Decomposers respire aerobically and use up dissolved oxygen",
+    "Fish cannot get enough oxygen for respiration and die"
+   ],
+   "note": "Any 5. Keep them in order: examiners look for the sequence."
+  },
+  {
+   "q": "State three ways an insect-pollinated flower is different from a wind-pollinated flower.",
+   "marks": 3,
+   "points": [
+    "Large, brightly coloured petals (wind: small, dull or no petals)",
+    "Has nectar and / or scent (wind: none)",
+    "Anthers and stigma inside the flower (wind: hanging outside)",
+    "Stigma sticky (wind: feathery)",
+    "Pollen larger, sticky or spiky (wind: small, light, smooth, in large amounts)"
+   ],
+   "note": "Any 3. Each point must say which flower it describes, or compare both."
+  },
+  {
+   "q": "Describe the function of the placenta.",
+   "marks": 3,
+   "points": [
+    "Oxygen passes from mother’s blood to fetus",
+    "Nutrients (glucose, amino acids) pass to the fetus",
+    "Carbon dioxide passes from fetus to mother",
+    "Urea / waste passes from fetus to mother",
+    "Acts as a barrier to some toxins and pathogens"
+   ],
+   "note": "Any 3. Say which direction each substance moves."
+  },
+  {
+   "q": "State the three conditions a seed needs to germinate.",
+   "marks": 3,
+   "points": [
+    "Water",
+    "Oxygen",
+    "A suitable temperature"
+   ],
+   "note": "Light is not needed. Writing it does not lose marks but wastes time."
+  },
+  {
+   "q": "Explain why only a small part of the energy in grass ends up in a cow’s body tissues.",
+   "marks": 3,
+   "points": [
+    "Not all the grass is eaten (e.g. roots)",
+    "Some is not digested and is lost in faeces",
+    "Energy is released in respiration and lost as heat",
+    "Energy is used for movement",
+    "Energy lost in excretion (urine)"
+   ],
+   "note": "Any 3. Never say energy is “used up” on its own: say how it is lost."
+  },
+  {
+   "q": "Describe the role of decomposers in the carbon cycle.",
+   "marks": 2,
+   "points": [
+    "They break down dead organisms and waste",
+    "They respire, releasing carbon dioxide into the atmosphere"
+   ]
+  },
+  {
+   "q": "Suggest two reasons why scientists keep seeds of endangered plants in seed banks.",
+   "marks": 2,
+   "points": [
+    "Seeds can be stored for a long time",
+    "Plants can be regrown and reintroduced if the species dies out in the wild",
+    "Keeps genetic variation / diversity for the future",
+    "Protects plants that may be useful as medicines or food"
+   ],
+   "note": "Any 2."
+  },
+  {
+   "q": "Describe the differences between a sperm cell and an egg cell.",
+   "marks": 3,
+   "points": [
+    "Sperm is much smaller than the egg",
+    "Sperm has a flagellum and can move; egg cannot move by itself",
+    "Egg has energy stores (cytoplasm); sperm has very little",
+    "Egg has a jelly coat",
+    "Sperm made in large numbers; eggs one a month",
+    "Sperm has an acrosome with enzymes / many mitochondria"
+   ],
+   "note": "Any 3. Each point must mention both cells."
+  }
+ ]
+}

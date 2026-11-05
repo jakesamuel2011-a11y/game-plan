@@ -9,7 +9,7 @@ import nodemailer from "nodemailer";
 
 const SHORTS_GOAL = 15;
 const SONGS_GOAL = 2;
-const SEASON = { content: 17, hw: 100, fitness: 120, nico: 120 };
+const SEASON = { content: 17, hw: 100, fitness: 120, revision: 30 };
 
 const QUOTES = [
   ["Success is no accident. It is hard work, perseverance, sacrifice and love of what you're doing.", "Pelé"],
@@ -58,9 +58,9 @@ async function build() {
 
   // season totals + blended %
   const seasonFit = weeklog.reduce((s, w) => s + (w.fitness || 0), 0);
-  const seasonNico = weeklog.reduce((s, w) => s + (w.nicoDays || 0), 0);
+  const seasonRevision = weeklog.reduce((s, w) => s + (w.revision || 0), 0);
   const fr = (a, b) => Math.min(1, a / b);
-  const overall = Math.round(((fr(contentTotal, SEASON.content) + fr(hwTotal, SEASON.hw) + fr(seasonFit, SEASON.fitness) + fr(seasonNico, SEASON.nico)) / 4) * 100);
+  const overall = Math.round(((fr(contentTotal, SEASON.content) + fr(hwTotal, SEASON.hw) + fr(seasonFit, SEASON.fitness) + fr(seasonRevision, SEASON.revision)) / 4) * 100);
 
   // streak + badges
   const sorted = [...weeklog].sort((a, b) => b.weekStart.localeCompare(a.weekStart));

@@ -3,6 +3,7 @@
 // =============================================================
 import { firebaseConfig, PEOPLE } from "./firebase-config.js";
 import { buildDayPlan, matchAssessment, FOOTBALL_DAYS } from "./planner.js?v=28";
+import { initRevision, sessionsFor, upcomingTests, overdueSessions, paceSummary, revisionCount, progressHtml as revisionProgressHtml, openSubject as openRevisionSubject, render as renderRevision } from "./revision/revision.js?v=8";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
@@ -26,12 +27,13 @@ const esc = (s) => String(s ?? "").replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">":
 
 let ME = null;
 let MY_NAME = "";
-let progressCache = null; // {points, nicoStreak, fitnessStreak, badges[], unlocked}
+let progressCache = null; // {week, streak, overallPct, badges…}
+let progressTimer = null;
 const MUM_EMAIL = "christabelsingh@gmail.com";
 const JAKE_EMAIL = "jakesamuel2011@gmail.com";
 const isMum = () => !!ME && ME.email === MUM_EMAIL;   // Christabel
 const isJake = () => !!ME && ME.email === JAKE_EMAIL;
-const cache = { homework: [], videos: [], fixtures: [], tournaments: [], routines: [], nicolog: {}, momtasks: [], footballOff: new Set(), resched: new Map(), holidays: [] };
+const cache = { homework: [], videos: [], fixtures: [], tournaments: [], routines: [], nicolog: {}, footballOff: new Set(), resched: new Map(), holidays: [] };
 
 // ---------- CONTENT GOALS: YT Shorts + Songs ----------
 // Jake's commitment: 15 football YT Shorts (5 by Aug 31, then 1/week to Nov 13)
@@ -252,6 +254,11 @@ onAuthStateChanged(auth, async (user) => {
     await ensureDeliverables();
     await ensureFixups();
     subscribeAll();
+    initRevision({
+      db, me: () => ME, nameFor,
+      fs: { collection, doc, addDoc, setDoc, getDoc, updateDoc, deleteDoc, onSnapshot, query, serverTimestamp },
+      onChange: () => { renderToday(); renderDashboard(); clearTimeout(progressTimer); progressTimer = setTimeout(loadProgress, 1500); },
+    });
   } else {
     ME = null;
     $("app").classList.add("hidden");
@@ -277,6 +284,7 @@ function activateTab(name) {
   const panel = $("tab-" + name); if (panel) panel.classList.add("active");
   if (name === "progress") loadProgress();
   if (name === "home") renderDashboard();
+  if (name === "revision") renderRevision();
   window.scrollTo(0, 0);
 }
 document.querySelectorAll(".tab").forEach(t => { t.onclick = () => activateTab(t.dataset.tab); });
@@ -379,9 +387,8 @@ function subscribeAll() {
   onSnapshot(query(collection(db, "videos")), s => { cache.videos = rows(s); renderVideos(); renderDashboard(); });
   onSnapshot(query(collection(db, "fixtures")), s => { cache.fixtures = rows(s); renderFixtures(); renderDashboard(); });
   onSnapshot(query(collection(db, "tournaments")), s => { cache.tournaments = rows(s); renderTournaments(); renderToday(); renderDashboard(); });
-  onSnapshot(query(collection(db, "routines")), s => { cache.routines = rows(s); renderFitness(); renderNico(); renderDashboard(); });
-  onSnapshot(doc(db, "nicolog", todayStr()), s => { cache.nicolog = s.exists() ? s.data() : {}; renderFitness(); renderNico(); renderDashboard(); });
-  onSnapshot(query(collection(db, "momtasks")), s => { cache.momtasks = rows(s); renderMom(); renderDashboard(); });
+  onSnapshot(query(collection(db, "routines")), s => { cache.routines = rows(s); renderFitness(); renderDashboard(); });
+  onSnapshot(doc(db, "nicolog", todayStr()), s => { cache.nicolog = s.exists() ? s.data() : {}; renderFitness(); renderDashboard(); });
   onSnapshot(query(collection(db, "footballoff")), s => { cache.footballOff = new Set(s.docs.map(d => d.id)); renderToday(); renderDashboard(); });
   onSnapshot(query(collection(db, "footballresched")), s => { cache.resched = new Map(s.docs.map(d => [d.id, d.data()])); renderToday(); });
   onSnapshot(query(collection(db, "holidays")), s => { cache.holidays = rows(s); renderToday(); });
@@ -447,6 +454,14 @@ function renderToday() {
   const tour = cache.tournaments.filter(x => x.date >= t).sort((a, b) => a.date.localeCompare(b.date))[0];
   if (tour) addAlert(alerts, "green", `🏆 Next tournament: ${tour.name} on ${tour.date}${tour.location ? " · " + tour.location : ""}`);
   if (!over.length && !due.length) addAlert(alerts, "green", "✅ Nothing overdue — nice work!");
+  upcomingTests().filter(x => x.date >= selDate && x.date <= ymd(new Date(new Date(selDate + "T00:00:00Z").getTime() + 7 * 864e5))).forEach(x => {
+    const n = Math.round((new Date(x.date + "T00:00:00Z") - new Date(selDate + "T00:00:00Z")) / 864e5);
+    addAlert(alerts, n <= 1 ? "red" : "amber", `📝 ${x.name} test ${n === 0 ? "today" : n === 1 ? "tomorrow" : "on " + fmtDate(x.date)}`);
+  });
+  const revToday = sessionsFor(selDate);
+  if (revToday.length) addAlert(alerts, "blue", `📖 ${revToday.length} revision session${revToday.length > 1 ? "s" : ""} in the plan below. Tick them off in the Revision tab.`);
+  const revMissed = overdueSessions();
+  if (selDate === t && revMissed.length) addAlert(alerts, "amber", `📖 ${revMissed.length} missed revision session${revMissed.length > 1 ? "s" : ""}: catch up in the Revision tab.`);
 
   // Any day a session was MOVED TO
   for (const [orig, r] of cache.resched) {
@@ -509,7 +524,9 @@ function renderToday() {
 
   // Timeline
   const tl = $("timeline"); tl.innerHTML = "";
-  const plan = buildDayPlan(day, pendingHw().map(h => ({ subject: h.subject, task: h.task, mins: h.mins, due: h.due })), { noFootball, holiday });
+  const items = pendingHw().map(h => ({ subject: h.subject, task: h.task, mins: h.mins, due: h.due }))
+    .concat(sessionsFor(selDate).map(s => ({ subject: "📖 " + s.subject + " revision", task: s.title, mins: s.mins || 45 })));
+  const plan = buildDayPlan(day, items, { noFootball, holiday });
   if (plan.rest) {
     tl.innerHTML = `<div class="block rest"><div class="t">All day</div><div class="b">${plan.note}</div></div>`;
     return;
@@ -799,7 +816,6 @@ function renderTournaments() {
   });
 }
 function renderFitness() { renderRoutine("fitness", $("fitList")); }
-function renderNico() { renderRoutine("nico", $("nicoList")); }
 function renderRoutine(kind, list) {
   if (!list) return;
   list.innerHTML = "";
@@ -826,11 +842,6 @@ function renderRoutine(kind, list) {
     list.appendChild(el);
   });
 }
-$("nicoAdd").onclick = async () => {
-  const t = $("nicoTask").value.trim(); if (!t) return;
-  await addDoc(collection(db, "routines"), { title: t, kind: "nico" });
-  $("nicoTask").value = "";
-};
 
 // ---------- FIFA / World Cup (with approval cycle) ----------
 $("fxAdd").onclick = async () => {
@@ -965,55 +976,9 @@ function renderFixtures() {
   }
 }
 
-// ---------- FROM MUM ----------
-$("momAdd").onclick = async () => {
-  const text = $("momText").value.trim(); if (!text) return;
-  await addDoc(collection(db, "momtasks"), {
-    text, due: $("momDue").value || "", done: false,
-    by: ME.email, createdAt: serverTimestamp(),
-  });
-  $("momText").value = ""; $("momDue").value = "";
-};
-// Show the "From Christabel" tab only to Christabel, or to Jake when she's set tasks.
-function refreshMumTab() {
-  const btn = document.querySelector('.tab[data-tab="mum"]');
-  const show = isMum() || cache.momtasks.length > 0;
-  if (btn) btn.style.display = show ? "" : "none";
-  const addCard = document.querySelector('#tab-mum .add-card');
-  if (addCard) addCard.style.display = isMum() ? "" : "none";
-  if (!show) { const panel = $("tab-mum"); if (panel && panel.classList.contains("active")) activateTab("home"); }
-}
-function renderMom() {
-  refreshMumTab();
-  const list = $("momList"); if (!list) return; list.innerHTML = "";
-  if (!cache.momtasks.length) { list.innerHTML = `<p class="muted small">Nothing from Christabel yet.</p>`; return; }
-  const t = todayStr();
-  [...cache.momtasks].sort((a, b) => {
-    if (a.done !== b.done) return a.done ? 1 : -1;
-    return (a.due || "9999").localeCompare(b.due || "9999");
-  }).forEach(m => {
-    let pill = "";
-    if (!m.done && m.due) pill = m.due < t ? `<span class="pill over">overdue</span>` : m.due === t ? `<span class="pill today">today</span>` : `<span class="pill soon">${m.due}</span>`;
-    const el = document.createElement("div");
-    el.className = "item" + (m.done ? " done" : "");
-    el.innerHTML = `
-      <button class="check ${m.done ? "on" : ""}">${m.done ? "✓" : ""}</button>
-      <div class="item-main">
-        <div class="item-title">${esc(m.text)}</div>
-        <div class="item-sub">${pill} from ${nameFor(m.by)}${m.done && m.doneBy ? " · done by " + nameFor(m.doneBy) : ""}</div>
-      </div>
-      <button class="del">✕</button>`;
-    el.querySelector(".check").onclick = () => updateDoc(doc(db, "momtasks", m.id), {
-      done: !m.done, doneBy: m.done ? "" : ME.email, doneAt: m.done ? null : serverTimestamp(),
-    });
-    el.querySelector(".del").onclick = () => deleteDoc(doc(db, "momtasks", m.id));
-    list.appendChild(el);
-  });
-}
-
 // ---------- PROGRESS: weekly requirements, recommendation, badges & ladder ----------
-const REQ = { fitness: 3, nicoDays: 5 };               // Standard weekly bar
-const SEASON = { content: 17, hw: 100, fitness: 120, nico: 120 }; // 15 shorts + 2 songs; season targets for blended %
+const REQ = { fitness: 3, revision: 2 };              // Standard weekly bar (revision = topic-rounds or sessions)
+const SEASON = { content: 17, hw: 100, fitness: 120, revision: 30 }; // 15 shorts + 2 songs; revision ≈ 2/wk to end Feb
 
 function hwOnTimeCount() {
   return cache.homework.filter(h => {
@@ -1043,30 +1008,30 @@ function badgeSVG(key, on) {
   return `<svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="30" r="26" fill="${a.ring}"/><circle cx="32" cy="30" r="21" fill="${a.face}"/>${a.em}</svg>`;
 }
 
-function computeWeek(logs, nicoIds, fitIds, weekStart) {
+function computeWeek(logs, fitIds, weekStart) {
   const overdue = cache.homework.filter(h => h.status !== "done" && h.due && h.due < todayStr()).length;
   const shortsThisWeek = cache.videos.filter(v => v.kind === "short" && v.stage === "done" && v.doneAt && v.doneAt.toDate && v.doneAt.toDate() >= weekStart).length;
-  let fitness = 0, nicoDays = 0;
+  let fitness = 0;
+  const revision = revisionCount(ymd(weekStart), todayStr());
   for (const d in logs) {
     if (new Date(d + "T00:00:00") >= weekStart) {
       const log = logs[d] || {};
       fitness += fitIds.filter(id => log[id]).length;
-      if (nicoIds.length && nicoIds.every(id => log[id])) nicoDays++;
     }
   }
-  const pillars = { hw: overdue === 0, short: shortsThisWeek >= 1, fitness: fitness >= REQ.fitness, nico: nicoDays >= REQ.nicoDays };
+  const pillars = { hw: overdue === 0, short: shortsThisWeek >= 1, fitness: fitness >= REQ.fitness, revision: revision >= REQ.revision };
   const pillarsMet = Object.values(pillars).filter(Boolean).length;
-  const rating = Math.round((pillars.hw ? 2.5 : 0) + (pillars.short ? 2.5 : 0) + Math.min(1, fitness / REQ.fitness) * 2.5 + Math.min(1, nicoDays / REQ.nicoDays) * 2.5);
+  const rating = Math.round((pillars.hw ? 2.5 : 0) + (pillars.short ? 2.5 : 0) + Math.min(1, fitness / REQ.fitness) * 2.5 + Math.min(1, revision / REQ.revision) * 2.5);
   const missing = [];
   if (!pillars.hw) missing.push(`clear ${overdue} overdue homework`);
   if (!pillars.short) missing.push("upload this week's short");
   if (!pillars.fitness) missing.push(`${REQ.fitness - fitness} more fitness session(s)`);
-  if (!pillars.nico) missing.push(`Nico duties to ${REQ.nicoDays}/7 (now ${nicoDays})`);
+  if (!pillars.revision) missing.push(`${REQ.revision - revision} more revision round(s)`);
   let rec;
   if (pillarsMet === 4) rec = { level: "approve", text: "Recommend approve — earned it (4/4 weekly requirements met).", note: "" };
   else if (pillarsMet === 3) rec = { level: "conditional", text: `Recommend conditional — 3/4 met. Suggested condition: ${missing[0]}.`, note: `OK once: ${missing[0]}` };
   else rec = { level: "hold", text: `Recommend hold — only ${pillarsMet}/4 met. Missing: ${missing.join("; ")}.`, note: "" };
-  return { pillars, pillarsMet, fitness, nicoDays, shortsThisWeek, rating, onTarget: pillarsMet === 4, rec };
+  return { pillars, pillarsMet, fitness, revision, shortsThisWeek, rating, onTarget: pillarsMet === 4, rec };
 }
 
 async function loadProgress() {
@@ -1078,14 +1043,13 @@ async function loadProgress() {
     snaps.forEach((s, i) => { if (s.exists()) logs[days[i]] = s.data(); });
   } catch (e) { console.warn("progress load failed", e); }
 
-  const nicoIds = cache.routines.filter(r => r.kind === "nico").map(r => r.id);
   const fitIds = cache.routines.filter(r => r.kind === "fitness").map(r => r.id);
   const weekStart = mondayOf(new Date());
-  const week = computeWeek(logs, nicoIds, fitIds, weekStart);
+  const week = computeWeek(logs, fitIds, weekStart);
 
   const weekKey = ymd(weekStart);
   try {
-    await setDoc(doc(db, "weeklog", weekKey), { weekStart: weekKey, pillarsMet: week.pillarsMet, rating: week.rating, onTarget: week.onTarget, fitness: week.fitness, nicoDays: week.nicoDays, updatedAt: serverTimestamp() }, { merge: true });
+    await setDoc(doc(db, "weeklog", weekKey), { weekStart: weekKey, pillarsMet: week.pillarsMet, rating: week.rating, onTarget: week.onTarget, fitness: week.fitness, revision: week.revision, updatedAt: serverTimestamp() }, { merge: true });
   } catch (e) { console.warn("weeklog write failed", e); }
 
   // streak over recent weeks
@@ -1106,17 +1070,17 @@ async function loadProgress() {
   const everCleanSheet = recentWeeks.some(w => (w.rating || 0) >= 10);
 
   // season totals (sum across all stored weeks) for the blended ladder %
-  let seasonFitness = 0, seasonNico = 0;
+  let seasonFitness = 0, seasonRevision = 0;
   try {
     const all = await getDocs(collection(db, "weeklog"));
-    all.forEach(d => { const w = d.data(); seasonFitness += w.fitness || 0; seasonNico += w.nicoDays || 0; });
-  } catch (e) { seasonFitness = week.fitness; seasonNico = week.nicoDays; }
+    all.forEach(d => { const w = d.data(); seasonFitness += w.fitness || 0; seasonRevision += w.revision || 0; });
+  } catch (e) { seasonFitness = week.fitness; seasonRevision = week.revision; }
   const shortsDone = cache.videos.filter(v => v.kind === "short" && v.stage === "done").length;
   const songsDone = cache.videos.filter(v => v.kind === "song" && v.stage === "done").length;
   const contentDone = shortsDone + songsDone;
   const hwOnTime = hwOnTimeCount();
   const fr = (a, b) => Math.min(1, a / b);
-  const overallPct = Math.round(((fr(contentDone, SEASON.content) + fr(hwOnTime, SEASON.hw) + fr(seasonFitness, SEASON.fitness) + fr(seasonNico, SEASON.nico)) / 4) * 100);
+  const overallPct = Math.round(((fr(contentDone, SEASON.content) + fr(hwOnTime, SEASON.hw) + fr(seasonFitness, SEASON.fitness) + fr(seasonRevision, SEASON.revision)) / 4) * 100);
 
   const streakBadges = [
     { key: "kickoff", name: "Kickoff", on: everOnTarget || week.onTarget, meta: "first on-target week" },
@@ -1134,7 +1098,7 @@ async function loadProgress() {
 
   progressCache = {
     week, streak, overallPct,
-    season: { shortsDone, songsDone, contentDone, hwOnTime, seasonFitness, seasonNico },
+    season: { shortsDone, songsDone, contentDone, hwOnTime, seasonFitness, seasonRevision },
     streakBadges, ladder, ladderTier,
     streakUnlocked: streakBadges.filter(b => b.on).length,
   };
@@ -1171,9 +1135,11 @@ function renderProgress() {
       <div class="muted small" style="margin-top:4px">Smash all <b>4 weekly targets</b> to push your <b>Form rating</b> toward a perfect 10. Nail every one and the week's <b>on target</b> — stack those weeks to fire up your <b>streak</b> and earn <b>streak badges</b>. Every win also climbs the ladder, from Academy all the way to Legend. Greyed badges? That's what you're playing for next. Let's go! 🚀</div>
     </div>
     <div class="card"><b>${reqHeader}</b>
-      <div class="chips" style="margin-top:8px">${chip(p.hw, "homework on time")} ${chip(p.short, "1 short uploaded")} ${chip(p.fitness, `fitness ${week.fitness}/${REQ.fitness}`)} ${chip(p.nico, `Nico ${week.nicoDays}/${REQ.nicoDays} days`)}</div>
+      <div class="chips" style="margin-top:8px">${chip(p.hw, "homework on time")} ${chip(p.short, "1 short uploaded")} ${chip(p.fitness, `fitness ${week.fitness}/${REQ.fitness}`)} ${chip(p.revision, `revision ${week.revision}/${REQ.revision}`)}</div>
       <div class="muted small" style="margin-top:8px">✓ = done · ✗ = still to do. All four green = this week counts as "on target".</div>
     </div>
+    <h3 class="section-h">📖 Revision: 2 full revisions by end of February</h3>
+    <div id="progRevision">${revisionProgressHtml()}</div>
     <div id="badgeInfo" class="badge-info">👆 Tap any badge to see how to unlock it.</div>
     <h3 class="section-h">🔥 Win the week, grow your streak, grab a badge! (${progressCache.streakUnlocked}/4)</h3>
     <div class="badgegrid">${streakBadges.map(b => cell(b, b.on ? "unlocked ✓" : b.meta)).join("")}</div>
@@ -1181,6 +1147,7 @@ function renderProgress() {
     <div class="progress"><div style="width:${overallPct}%"></div></div>
     <div class="badgegrid five">${ladder.map(b => cell(b, b.on ? "reached ✓" : `${b.p}%`)).join("")}</div>`;
 
+  detailEl.querySelectorAll("[data-rvsub]").forEach(b => b.onclick = () => { activateTab("revision"); openRevisionSubject(b.dataset.rvsub); });
   const info = $("badgeInfo");
   detailEl.querySelectorAll(".bcell").forEach(c => c.onclick = () => {
     if (!info) return;
@@ -1218,9 +1185,6 @@ function renderDashboard() {
   const upcoming = cache.fixtures.filter(f => f.watch && !f.watched && f.date && f.date >= t).sort((a, b) => a.date.localeCompare(b.date));
   const upNext = upcoming.filter(f => f.reqStatus !== "declined" && !matchAssessment(f.date, f.time).autoDecline); // skip declined & school-hours matches
 
-  const nicoIds = cache.routines.filter(r => r.kind === "nico").map(r => r.id);
-  const nicoDone = nicoIds.filter(id => cache.nicolog[id]).length;
-  const momOpen = cache.momtasks.filter(m => !m.done).length;
   const pg = progressCache;
 
   const card = (go, h, big, sm, sub, subCls) =>
@@ -1235,7 +1199,6 @@ function renderDashboard() {
     ? `${pend.length} homework${over ? ` (${over} overdue)` : soon.length ? ` (${soon.length} due in next 2 school days)` : " (nothing due in next 2 school days)"}`
     : "homework all clear");
   parts.push(`${shortsDone}/15 shorts · ${songsDone}/2 songs`);
-  parts.push(`Nico ${nicoDone}/${nicoIds.length}`);
   if (isMum() && pendApprovals) parts.push(`${pendApprovals} match${pendApprovals > 1 ? "es" : ""} to approve`);
   else if (upNext[0]) parts.push(`next match: ${esc(upNext[0].match)}`);
   const tone = over ? "bad" : ((soon.length || (pendApprovals && isMum())) ? "warn" : "good");
@@ -1263,11 +1226,14 @@ function renderDashboard() {
     }
     html += card("fifa", "🌍 To Watch", upNext.length, false, sub, fifaCls);
   }
-  html += card("nico", "🐶 Nico", `${nicoDone}/${nicoIds.length}`, true,
-    (nicoIds.length && nicoDone === nicoIds.length) ? "all done today ✅" : "duties today",
-    (nicoIds.length && nicoDone === nicoIds.length) ? "good" : "");
-  if (cache.momtasks.length > 0)
-    html += card("mum", "👩 From Christabel", momOpen, false, momOpen ? "open task(s)" : "all done ✅", momOpen ? "warn" : "good");
+  {
+    const rp = paceSummary();
+    const nt = upcomingTests()[0];
+    const nDays = nt ? Math.round((new Date(nt.date + "T00:00:00") - new Date(t + "T00:00:00")) / 864e5) : null;
+    const sub = nt && nDays <= 7 ? `${esc(nt.name)} ${nDays === 0 ? "today" : nDays === 1 ? "tomorrow" : `in ${nDays} days`}`
+      : rp.behind ? `behind pace by ${rp.behind} · ${rp.perWeek}/wk to Feb` : `on pace · ${rp.perWeek}/wk to Feb`;
+    html += card("revision", "📖 Revision", `${rp.done}/${rp.total}`, true, sub, (nt && nDays <= 2) || rp.behind ? "warn" : "good");
+  }
   html += card("today", "📅 Today's plan", DAY_NAMES[new Date().getDay()].slice(0, 3), true, "tap for your schedule");
 
   if (pg) {

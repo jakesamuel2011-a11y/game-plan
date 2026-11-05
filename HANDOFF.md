@@ -47,9 +47,11 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 5. **Verify an upload landed:** open the file on GitHub and Cmd+F for a string you just changed.
 
 ### Current cache-buster versions (keep incrementing from here)
-- `app.js?v=34`
-- `styles.css?v=18`
+- `app.js?v=41`
+- `styles.css?v=22`
 - planner import `./planner.js?v=28`
+- revision import in app.js `./revision/revision.js?v=8` (and its own imports of `syllabus.js?v=3` / `packview.js?v=2`)
+- pack JSON files: bump `PACK_VERSION` in `revision/syllabus.js`
 
 > The `.github/workflows/*.yml` files won't drag-upload (hidden folder). Edit those via GitHub's **Add file → Create new file** if needed.
 
@@ -67,6 +69,11 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 - `firestore.rules` — security rules (reference copy; the live rules live in Firebase Console).
 - `scripts/send-digest.mjs` + `scripts/send-monthly.mjs` + `scripts/package.json` — email automations.
 - `.github/workflows/digest.yml` (twice-weekly) + `monthly.yml` (monthly) — schedules.
+- `revision/revision.js` — the 📖 Revision tab (subjects, topics, Round 1/2, tests, sessions, parent check). Exposes `sessionsFor` / `upcomingTests` / `paceSummary` to app.js for the Today plan + dashboard.
+- `revision/syllabus.js` — **edit this to add topics**: subjects → topics (stable ids!) → must-know points → practice pack; exam-format cards; the Feb goal; the Nov seed plan.
+- `revision/packview.js` — pure renderer for a practice pack (flashcards, quiz/date quiz, exam questions with mark scheme or model answer, data practice, 6-mark plans, 10-mark drill, timeline).
+- `revision/packs/*.json` — one file per practice pack. A new subject's pack = a new JSON file + `pack:` on its topics.
+- `dev/revision-preview.html` — local preview of the Revision tab on fake in-memory data (`python3 -m http.server 8765` from the repo root → `/dev/revision-preview.html`, `?as=jake` to view as Jake).
 - `jose-agent.md` — a maintenance-assistant agent definition ("José").
 - `README.md` — original Firebase + GitHub Pages setup guide.
 
@@ -89,20 +96,25 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 - `holidays` {from, to, name} — single day (from==to) or a range
 - `winslog/{...}` — **retired** (was the weekly NEXT-wins checkbox; removed with the GNR video goal)
 - `weeklog/{weekMondayYYYY-MM-DD}` — {pillarsMet, rating, onTarget, fitness, nicoDays} (drives streaks/badges)
+- `revprogress/{topicId}` {r1:{done,conf,at,by}, r2:{…}, pts:{index:true}} — revision rounds + checklist ticks
+- `revsessions` {date, slot, subject, topics[], title, method, mins, done, conf, notes, doneBy, doneAt} — planned revision sessions (feed the Today plan); finishing one marks the next round on its topics
+- `revtests` {subject, name, date, topics[]}
+- `revpractice/{packId}` {answers, cards, quizzes[], drills} — practice-pack progress (shared: both logins can see it)
+- `meta/revision_v1` — seeds the Nov 7–13 EM/Bio plan + tests once
 - `meta/seeded`, `meta/fix_fixture_times_v1`, `meta/deliverables_v1` — one-time setup/migration flags
 
 ---
 
 ## ✅ Features (what's built)
 
-- **Home dashboard:** one-glance cards (homework, content, football, World Cup, Nico, From Christabel, today, progress) + a status-aware encouraging banner.
+- **Home dashboard:** one-glance cards (homework, revision, content, football, To Watch, today, progress) + a status-aware encouraging banner.
 - **Today:** date-stamped daily plan auto-built around school (6:30a–4:15p), football (Mon/Wed/Fri 5–6:30p) and 7h45 sleep; opens with a daily quote (4 football quotes + 3 Bible verses/week). Football **Cancelled / Rescheduled** toggles. **Holiday** marking (single day or range) → weekday/Saturday holidays use the morning to catch up on homework; Sunday fully free.
 - **Homework:** add/edit (subject, description, due, mins), no delete; **effective deadline** = the school day before due (or previous Saturday) so it shows "pending — do today" the day before and "overdue" after. "Completed this week" + "Earlier completed" sections.
 - **Content (🎬 tab):** two committed tracks. **YT Shorts** (football) — 15 by Nov 13, milestone 5 by Aug 31 then 1/week; per-short checkboxes (Filmed & edited / Uploaded to YouTube), a pace bar (on pace / behind), and an "on pace" ramp helper. **Songs** — 2 on a private YT channel (Song 1 by Sep 20, Song 2 by Nov 1), fixed rows with editable title, due-date pill, and Written & recorded / Uploaded checkboxes. Opens with Jake's mission statement. Shorts logic lives in `SHORTS_GOAL`/`SHORTS_M1`/`SHORTS_DEADLINE`/`SONG_PLAN`/`shortsExpected()` near the top of `app.js`.
 - **Football:** tournaments + daily fitness routine.
 - **World Cup:** watchlist with weekday dates; **approval flow** (school-night/late matches need Christabel's OK; auto-decline during school hours; weekend/daytime auto-OK), with a recommendation engine (approve/conditional/hold) based on Jake meeting his weekly requirements; "Already played" section; no delete.
-- **Nico:** daily puppy-care duties.
-- **Progress:** weekly Form rating /10 (4 requirements: HW on time · 1 short · 3 fitness · Nico 5/7 days), week streak, 4 **football streak badges** (Kickoff/In Form/Clean Sheet/Captain's Armband) + 5-tier **Career Ladder** (Academy→Legend, blended season %; content target = 15 shorts + 2 songs). Tap a badge for its explanation.
+- **Revision (📖 tab):** subjects → topics with Round 1 / Round 2 + confidence, must-know checklists, practice packs, tests, planned sessions in the Today plan; goal = 2 full revisions by 28 Feb 2027. Nico and From Christabel tabs were removed (Nov 2026); their Firestore data (`routines` kind nico, `momtasks`) is left untouched.
+- **Progress:** weekly Form rating /10 (4 requirements: HW on time · 1 short · 3 fitness · 2 revision rounds/sessions), week streak, 4 **football streak badges** (Kickoff/In Form/Clean Sheet/Captain's Armband) + 5-tier **Career Ladder** (Academy→Legend, blended season %; content target = 15 shorts + 2 songs; revision target = 30). Tap a badge for its explanation.
 - **Emails:** twice-weekly digest (Wed & Sun ~7pm IST) + monthly report (1st of month) to both, via GitHub Actions.
 
 ## ⏰ Jake's schedule rules (the planner protects these)

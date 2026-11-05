@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0a7d3c" />
   <title>Jake's Game Plan</title>
-  <link rel="stylesheet" href="styles.css?v=18" />
+  <link rel="stylesheet" href="styles.css?v=22" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>" />
 </head>
 <body>
@@ -14,7 +14,7 @@
   <div id="loginScreen" class="login-wrap hidden">
     <div class="login-card">
       <div class="logo">⚽ Jake's Game Plan</div>
-      <p class="muted">Homework · Football · Content · World Cup · Nico</p>
+      <p class="muted">Homework · Revision · Football · Content · To Watch</p>
       <input id="email" type="email" placeholder="Email" autocomplete="username" />
       <input id="password" type="password" placeholder="Password" autocomplete="current-password" />
       <button id="loginBtn" class="btn primary">Log in</button>
@@ -34,11 +34,10 @@
       <button class="tab" data-tab="progress">🏅 Progress</button>
       <button class="tab" data-tab="today">📅 Today</button>
       <button class="tab" data-tab="homework">📚 Homework</button>
+      <button class="tab" data-tab="revision">📖 Revision</button>
       <button class="tab" data-tab="football">🏆 Football</button>
       <button class="tab" data-tab="videos">🎬 Content</button>
-      <button class="tab" data-tab="nico">🐶 Nico</button>
       <button class="tab" data-tab="fifa">🌍 To Watch</button>
-      <button class="tab" data-tab="mum">👩 From Christabel</button>
     </nav>
 
     <main>
@@ -93,6 +92,9 @@
         <div id="hwList" class="list"></div>
       </section>
 
+      <!-- REVISION (rendered by revision/revision.js) -->
+      <section id="tab-revision" class="tab-panel"><div id="revRoot"></div></section>
+
       <!-- CONTENT: YT Shorts + Songs -->
       <section id="tab-videos" class="tab-panel">
         <h2>🎬 Jake's Content Goals</h2>
@@ -146,29 +148,6 @@
         <div id="fxList" class="list"></div>
       </section>
 
-      <!-- NICO -->
-      <section id="tab-nico" class="tab-panel">
-        <h2>🐶 Nico's Care</h2>
-        <p class="muted small">Daily duties — tick them off each day. They reset every morning.</p>
-        <div id="nicoList" class="list"></div>
-        <div class="card add-card">
-          <input id="nicoTask" type="text" placeholder="Add a duty (e.g. evening walk)" />
-          <button id="nicoAdd" class="btn primary">Add duty</button>
-        </div>
-      </section>
-
-      <!-- FROM MUM -->
-      <section id="tab-mum" class="tab-panel">
-        <h2>👩 From Christabel</h2>
-        <p class="muted small">Tasks &amp; notes Christabel has set for Jake. Jake ticks them off when done — Christabel sees it live.</p>
-        <div class="card add-card">
-          <input id="momText" type="text" placeholder="Add a task or note for Jake (e.g. take Nico to vet Sat)" />
-          <input id="momDue" type="date" class="select" />
-          <button id="momAdd" class="btn primary">Add</button>
-        </div>
-        <div id="momList" class="list"></div>
-      </section>
-
       <!-- PROGRESS -->
       <section id="tab-progress" class="tab-panel">
         <h2>🏆 Progress</h2>
@@ -181,6 +160,6 @@
     <footer class="foot muted small">Shared with Christabel in real time · saved to your Firebase</footer>
   </div>
 
-  <script type="module" src="app.js?v=34"></script>
+  <script type="module" src="app.js?v=41"></script>
 </body>
 </html>
