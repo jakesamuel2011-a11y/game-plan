@@ -269,3 +269,7 @@ details summary{list-style-position:inside}
 .rv-modebtn{background:var(--card2);color:var(--text);border:1px solid var(--line);border-radius:9px;padding:8px 11px;font-size:.8rem;cursor:pointer}
 .rv-modebtn:hover{border-color:var(--green)}
 .rv-check-sum{cursor:pointer;font-size:.85rem;font-weight:600;padding:4px 0}
+.rv-nav{display:flex;gap:6px;overflow-x:auto;padding:8px 0 10px;margin-bottom:4px;position:sticky;top:96px;z-index:8;background:var(--bg);scrollbar-width:none}
+.rv-nav::-webkit-scrollbar{display:none}
+.rv-navbtn{white-space:nowrap;background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:20px;padding:7px 12px;font-size:.8rem;cursor:pointer}
+.rv-navbtn.on{background:#13302a;color:var(--accent);border-color:#1c4a3e;font-weight:700}

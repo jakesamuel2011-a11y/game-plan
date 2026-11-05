@@ -58,6 +58,15 @@ export function overdueSessions() {
   const t = todayStr();
   return R.sessions.filter(s => !s.done && s.date < t);
 }
+// Revision done between two dates (YYYY-MM-DD, inclusive): topic-rounds ticked,
+// plus finished sessions that don't cover a topic (e.g. past papers).
+// Drives the "revision" requirement in the weekly Form rating.
+export function revisionCount(from, to) {
+  let n = 0;
+  for (const p of Object.values(R.progress)) for (const r of ["r1", "r2"]) if (p[r]?.done && p[r].at >= from && p[r].at <= to) n++;
+  n += R.sessions.filter(s => s.done && !(s.topics || []).length && s.doneAt >= from && s.doneAt <= to).length;
+  return n;
+}
 export function paceSummary() {
   const topics = allTopics();
   const total = topics.length * REVISION_GOAL.rounds;
@@ -118,7 +127,15 @@ const root = () => document.getElementById("revRoot");
 function go(v) { view = v; render(); window.scrollTo(0, 0); }
 
 export function render() {
-  const el = root(); if (!el) return;
+  const host = root(); if (!host) return;
+  // Subject switcher: always at the top of every Revision page.
+  const current = view.name === "subject" ? view.key : view.name === "pack" ? view.back : null;
+  host.innerHTML = `<nav class="rv-nav"><button type="button" class="rv-navbtn ${view.name === "home" ? "on" : ""}" data-k="">📖 Overview</button>${SUBJECTS.map(s => `<button type="button" class="rv-navbtn ${current === s.key ? "on" : ""}" data-k="${s.key}">${s.emoji} ${esc(s.key === "EM" ? "EM" : s.name)}</button>`).join("")}</nav><div id="rvView"></div>`;
+  host.querySelectorAll(".rv-navbtn").forEach(b => b.onclick = () => go(b.dataset.k ? { name: "subject", key: b.dataset.k } : { name: "home" }));
+  const tabs = document.querySelector(".tabs");
+  if (tabs) host.querySelector(".rv-nav").style.top = Math.round(tabs.getBoundingClientRect().bottom) + "px"; // sit just under the app's tab bar
+  const on = host.querySelector(".rv-navbtn.on"); if (on) on.parentElement.scrollLeft = on.offsetLeft - 40;
+  const el = host.querySelector("#rvView");
   if (view.name === "subject") return renderSubject(el, subjectByKey(view.key));
   if (view.name === "pack") return renderPackView(el);
   renderHome(el);

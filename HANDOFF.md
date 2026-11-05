@@ -47,10 +47,10 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 5. **Verify an upload landed:** open the file on GitHub and Cmd+F for a string you just changed.
 
 ### Current cache-buster versions (keep incrementing from here)
-- `app.js?v=37`
-- `styles.css?v=20`
+- `app.js?v=39`
+- `styles.css?v=21`
 - planner import `./planner.js?v=28`
-- revision import in app.js `./revision/revision.js?v=3` (and its own imports of `syllabus.js?v=2` / `packview.js?v=2`)
+- revision import in app.js `./revision/revision.js?v=6` (and its own imports of `syllabus.js?v=2` / `packview.js?v=2`)
 - pack JSON files: bump `PACK_VERSION` in `revision/syllabus.js`
 
 > The `.github/workflows/*.yml` files won't drag-upload (hidden folder). Edit those via GitHub's **Add file → Create new file** if needed.
@@ -107,14 +107,14 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 
 ## ✅ Features (what's built)
 
-- **Home dashboard:** one-glance cards (homework, content, football, World Cup, Nico, From Christabel, today, progress) + a status-aware encouraging banner.
+- **Home dashboard:** one-glance cards (homework, revision, content, football, To Watch, today, progress) + a status-aware encouraging banner.
 - **Today:** date-stamped daily plan auto-built around school (6:30a–4:15p), football (Mon/Wed/Fri 5–6:30p) and 7h45 sleep; opens with a daily quote (4 football quotes + 3 Bible verses/week). Football **Cancelled / Rescheduled** toggles. **Holiday** marking (single day or range) → weekday/Saturday holidays use the morning to catch up on homework; Sunday fully free.
 - **Homework:** add/edit (subject, description, due, mins), no delete; **effective deadline** = the school day before due (or previous Saturday) so it shows "pending — do today" the day before and "overdue" after. "Completed this week" + "Earlier completed" sections.
 - **Content (🎬 tab):** two committed tracks. **YT Shorts** (football) — 15 by Nov 13, milestone 5 by Aug 31 then 1/week; per-short checkboxes (Filmed & edited / Uploaded to YouTube), a pace bar (on pace / behind), and an "on pace" ramp helper. **Songs** — 2 on a private YT channel (Song 1 by Sep 20, Song 2 by Nov 1), fixed rows with editable title, due-date pill, and Written & recorded / Uploaded checkboxes. Opens with Jake's mission statement. Shorts logic lives in `SHORTS_GOAL`/`SHORTS_M1`/`SHORTS_DEADLINE`/`SONG_PLAN`/`shortsExpected()` near the top of `app.js`.
 - **Football:** tournaments + daily fitness routine.
 - **World Cup:** watchlist with weekday dates; **approval flow** (school-night/late matches need Christabel's OK; auto-decline during school hours; weekend/daytime auto-OK), with a recommendation engine (approve/conditional/hold) based on Jake meeting his weekly requirements; "Already played" section; no delete.
-- **Nico:** daily puppy-care duties.
-- **Progress:** weekly Form rating /10 (4 requirements: HW on time · 1 short · 3 fitness · Nico 5/7 days), week streak, 4 **football streak badges** (Kickoff/In Form/Clean Sheet/Captain's Armband) + 5-tier **Career Ladder** (Academy→Legend, blended season %; content target = 15 shorts + 2 songs). Tap a badge for its explanation.
+- **Revision (📖 tab):** subjects → topics with Round 1 / Round 2 + confidence, must-know checklists, practice packs, tests, planned sessions in the Today plan; goal = 2 full revisions by 28 Feb 2027. Nico and From Christabel tabs were removed (Nov 2026); their Firestore data (`routines` kind nico, `momtasks`) is left untouched.
+- **Progress:** weekly Form rating /10 (4 requirements: HW on time · 1 short · 3 fitness · 2 revision rounds/sessions), week streak, 4 **football streak badges** (Kickoff/In Form/Clean Sheet/Captain's Armband) + 5-tier **Career Ladder** (Academy→Legend, blended season %; content target = 15 shorts + 2 songs; revision target = 30). Tap a badge for its explanation.
 - **Emails:** twice-weekly digest (Wed & Sun ~7pm IST) + monthly report (1st of month) to both, via GitHub Actions.
 
 ## ⏰ Jake's schedule rules (the planner protects these)
