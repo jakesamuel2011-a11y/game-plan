@@ -129,6 +129,21 @@
           <button id="tourAdd" class="btn primary">Add tournament</button>
         </div>
         <div id="tourList" class="list"></div>
+        <h3 class="section-h">❌ Missed training</h3>
+        <div id="missStats" class="stats"></div>
+        <div class="card add-card">
+          <div class="grid2">
+            <label class="mins">Date missed<input id="missDate" type="date" class="select" /></label>
+            <label class="mins">Why
+              <select id="missReason" class="select">
+                <option>Sick</option><option>Injury</option><option>Exam / school</option><option>Family</option><option>Other</option>
+              </select>
+            </label>
+          </div>
+          <input id="missNote" type="text" placeholder="Note (optional) e.g. fever, catch-up drills at home" />
+          <button id="missAdd" class="btn primary">Log missed session</button>
+        </div>
+        <div id="missList" class="list"></div>
         <h3 class="section-h">Fitness routine</h3>
         <p class="muted small">Tick these daily to stay match-ready. Training is Mon/Wed/Fri 5–6:30pm.</p>
         <div id="fitList" class="list"></div>
@@ -162,6 +177,6 @@
     <footer class="foot muted small">Shared with Christabel in real time · saved to your Firebase</footer>
   </div>
 
-  <script type="module" src="app.js?v=43"></script>
+  <script type="module" src="app.js?v=44"></script>
 </body>
 </html>

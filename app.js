@@ -35,7 +35,7 @@ const MUM_EMAIL = emailFor("Christabel");
 const JAKE_EMAIL = emailFor("Jake");
 const isMum = () => !!ME && ME.email === MUM_EMAIL;   // Christabel
 const isJake = () => !!ME && ME.email === JAKE_EMAIL;
-const cache = { homework: [], videos: [], fixtures: [], tournaments: [], routines: [], nicolog: {}, footballOff: new Set(), resched: new Map(), holidays: [] };
+const cache = { homework: [], videos: [], fixtures: [], tournaments: [], routines: [], nicolog: {}, missed: [], footballOff: new Set(), resched: new Map(), holidays: [] };
 
 // ---------- CONTENT GOALS: YT Shorts + Songs ----------
 // Jake's commitment: 15 football YT Shorts (5 by Aug 31, then 1/week to Nov 13)
@@ -412,6 +412,7 @@ function subscribeAll() {
   onSnapshot(query(collection(db, "tournaments")), s => { cache.tournaments = rows(s); renderTournaments(); renderToday(); renderDashboard(); });
   onSnapshot(query(collection(db, "routines")), s => { cache.routines = rows(s); renderFitness(); renderDashboard(); });
   onSnapshot(doc(db, "nicolog", todayStr()), s => { cache.nicolog = s.exists() ? s.data() : {}; renderFitness(); renderDashboard(); });
+  onSnapshot(query(collection(db, "footballmissed")), s => { cache.missed = rows(s); renderMissed(); renderToday(); renderDashboard(); });
   onSnapshot(query(collection(db, "footballoff")), s => { cache.footballOff = new Set(s.docs.map(d => d.id)); renderToday(); renderDashboard(); });
   onSnapshot(query(collection(db, "footballresched")), s => { cache.resched = new Map(s.docs.map(d => [d.id, d.data()])); renderToday(); });
   onSnapshot(query(collection(db, "holidays")), s => { cache.holidays = rows(s); renderToday(); });
@@ -464,7 +465,8 @@ function renderToday() {
   $("todayTitle").textContent = `${DAY_NAMES[day]} · ${fmtDayMonth(selDate)}`;
   const isFootballDay = FOOTBALL_DAYS.includes(day);
   const holiday = isHoliday(selDate);
-  const noFootball = cache.footballOff.has(selDate) || cache.resched.has(selDate);
+  const missedRec = cache.missed.find(m => m.date === selDate);
+  const noFootball = cache.footballOff.has(selDate) || cache.resched.has(selDate) || !!missedRec;
   renderHolidayBox(selDate);
 
   // Due alerts
@@ -498,8 +500,9 @@ function renderToday() {
     const cancelled = cache.footballOff.has(selDate);
     const resched = cache.resched.get(selDate);
     const box = document.createElement("div");
-    box.className = "alert " + (cancelled || resched ? "amber" : "green");
-    const head = cancelled ? "🌧️ Training cancelled — extra study time"
+    box.className = "alert " + (cancelled || resched || missedRec ? "amber" : "green");
+    const head = missedRec ? `❌ Missed training (${esc(missedRec.reason)})${missedRec.note ? ` · ${esc(missedRec.note)}` : ""}`
+      : cancelled ? "🌧️ Training cancelled — extra study time"
       : resched ? `🔁 Training moved to ${resched.toDate} · ${fmtT(resched.from)}–${fmtT(resched.to)}`
         : "⚽ Training on (5–6:30pm)";
     box.innerHTML = `<div style="margin-bottom:8px">${head}</div>`;
@@ -507,13 +510,19 @@ function renderToday() {
     const row = document.createElement("div"); row.className = "stage-btns";
     const cBtn = document.createElement("button"); cBtn.textContent = "Cancelled"; cBtn.className = cancelled ? "on" : "";
     const rBtn = document.createElement("button"); rBtn.textContent = "Rescheduled"; rBtn.className = resched ? "on" : "";
-    row.appendChild(cBtn); row.appendChild(rBtn);
+    const mBtn = document.createElement("button"); mBtn.textContent = missedRec ? "↩︎ Not missed" : "I missed it"; mBtn.className = missedRec ? "on" : "";
+    row.appendChild(cBtn); row.appendChild(rBtn); row.appendChild(mBtn);
+    const why = document.createElement("div"); why.className = "stage-btns"; why.style.display = "none";
+    why.innerHTML = `<span class="muted small" style="align-self:center">Why?</span>` + MISS_REASONS.map(r => `<button data-r="${r}">${r}</button>`).join("");
+    why.querySelectorAll("button").forEach(b => b.onclick = () => logMissed(selDate, b.dataset.r, ""));
+    mBtn.onclick = () => { if (missedRec) deleteDoc(doc(db, "footballmissed", selDate)); else why.style.display = why.style.display === "none" ? "flex" : "none"; };
     if (cancelled || resched) {
       const onBtn = document.createElement("button"); onBtn.textContent = "↩︎ Training on";
       onBtn.onclick = async () => { await setFootballOff(selDate, false); await clearResched(selDate); };
       row.appendChild(onBtn);
     }
     box.appendChild(row);
+    box.appendChild(why);
 
     cBtn.onclick = async () => { await clearResched(selDate); await setFootballOff(selDate, true); };
 
@@ -835,6 +844,51 @@ function renderTournaments() {
     const el = document.createElement("div"); el.className = "item";
     el.innerHTML = `<div class="item-main"><div class="item-title">🏆 ${x.name}</div><div class="item-sub">${x.date || "date TBD"}${x.location ? " · " + x.location : ""}</div></div><button class="del">✕</button>`;
     el.querySelector(".del").onclick = () => deleteDoc(doc(db, "tournaments", x.id));
+    list.appendChild(el);
+  });
+}
+// ---------- MISSED TRAINING (footballmissed/{YYYY-MM-DD}) ----------
+const MISS_REASONS = ["Sick", "Injury", "Exam / school", "Family", "Other"];
+async function logMissed(date, reason, note) {
+  await setDoc(doc(db, "footballmissed", date), { date, reason, note: note || "", by: ME.email, at: serverTimestamp() });
+}
+// Training sessions that actually ran in a date range: Mon/Wed/Fri, not cancelled,
+// not a holiday, up to yesterday (today counts once it's been logged as missed).
+function trainingDays(from, to) {
+  const out = [], d = new Date(from + "T12:00:00"), t = todayStr(); // noon, so ymd() (UTC) gives the same calendar day in IST
+  while (ymd(d) <= to) {
+    const s = ymd(d);
+    if (FOOTBALL_DAYS.includes(d.getDay()) && !cache.footballOff.has(s) && !isHoliday(s) && (s < t || cache.missed.some(m => m.date === s))) out.push(s);
+    d.setDate(d.getDate() + 1);
+  }
+  return out;
+}
+function missedStats() {
+  const t = todayStr(), monthStart = t.slice(0, 8) + "01";
+  const held = trainingDays(monthStart, t);
+  const missedMonth = cache.missed.filter(m => m.date >= monthStart && m.date <= t).length;
+  const attended = Math.max(0, held.length - missedMonth);
+  return { missedMonth, total: cache.missed.length, held: held.length, attended, pct: held.length ? Math.round(100 * attended / held.length) : null };
+}
+$("missDate").value = todayStr();
+$("missAdd").onclick = async () => {
+  const date = $("missDate").value; if (!date) return;
+  await logMissed(date, $("missReason").value, $("missNote").value.trim());
+  $("missNote").value = "";
+};
+function renderMissed() {
+  const st = missedStats();
+  const monthName = new Date().toLocaleDateString("en-GB", { month: "long" });
+  $("missStats").innerHTML = `
+    <div class="stat"><div class="n" style="${st.missedMonth ? "color:var(--amber)" : ""}">${st.missedMonth}</div><div class="l">missed in ${monthName}</div></div>
+    <div class="stat"><div class="n">${st.pct === null ? "–" : st.pct + "%"}</div><div class="l">attendance in ${monthName} (${st.attended}/${st.held})</div></div>
+    <div class="stat"><div class="n">${st.total}</div><div class="l">missed in total</div></div>`;
+  const list = $("missList"); list.innerHTML = "";
+  if (!cache.missed.length) { list.innerHTML = `<p class="muted small">No missed sessions logged. 💪</p>`; return; }
+  [...cache.missed].sort((a, b) => b.date.localeCompare(a.date)).forEach(m => {
+    const el = document.createElement("div"); el.className = "item";
+    el.innerHTML = `<div class="item-main"><div class="item-title">${fmtDate(m.date)}</div><div class="item-sub"><span class="tag">${esc(m.reason)}</span>${m.note ? esc(m.note) + " · " : ""}logged by ${nameFor(m.by)}</div></div><button class="del" title="Remove">✕</button>`;
+    el.querySelector(".del").onclick = () => { if (confirm(`Remove the missed session on ${fmtDate(m.date)}?`)) deleteDoc(doc(db, "footballmissed", m.id)); };
     list.appendChild(el);
   });
 }
@@ -1237,7 +1291,8 @@ function renderDashboard() {
     over ? "bad" : (soon.length ? "warn" : (pend.length ? "" : "good")));
   html += card("videos", "🎬 Content", `${shortsDone}/15`, true, `${perWk}/wk shorts to Nov 13 · ${songsDone}/2 songs`);
   html += card("football", "🏆 Football", `${fitDone}/${fitIds.length}`, true,
-    nextTour ? `Next: ${esc(nextTour.name)} · ${nextTour.date}` : (isFb ? (fbOff ? "training cancelled 🌧️" : "training today ⚽") : "fitness today"));
+    [nextTour ? `Next: ${esc(nextTour.name)} · ${nextTour.date}` : (isFb ? (fbOff ? "training cancelled 🌧️" : "training today ⚽") : "fitness today"),
+     missedStats().missedMonth ? `missed ${missedStats().missedMonth} this month` : ""].filter(Boolean).join(" · "));
   {
     const nm = upNext[0];
     let sub = "No matches lined up — star some to watch", fifaCls = "";

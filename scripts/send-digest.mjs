@@ -48,6 +48,7 @@ async function build() {
     getAll("tournaments"), getAll("routines"),
     getAll("revsessions"), getAll("revtests"), getAll("revprogress"),
   ]);
+  const missedTraining = (await getAll("footballmissed")).sort((a, b) => b.date.localeCompare(a.date));
 
   // Fitness logs for the last 7 days (stored in the "nicolog" collection)
   const logDates = [];
@@ -127,6 +128,7 @@ async function build() {
     overdue.length ? `⚠️ ${overdue.length} homework overdue` : (dueIn2.length ? `📌 ${dueIn2.length} homework due in the next 2 school days (do in advance): ${dueIn2.map((h) => esc(h.subject)).join(", ")}` : (pending.length ? `${pending.length} homework pending — nothing due in next 2 school days` : "Homework all clear ✅")),
     `🎬 ${shortsDone}/${SHORTS_GOAL} shorts (need ${perWeek}/wk to Nov 13) · 🎵 ${songsDone}/${SONGS_GOAL} songs`,
     `💪 ${fitDone7} fitness check-ins this week`,
+    missedTraining.filter((m) => m.date >= logDates[logDates.length - 1]).length ? `❌ Missed ${missedTraining.filter((m) => m.date >= logDates[logDates.length - 1]).length} football session(s) this week` : null,
     `📖 ${roundsWeek} revision round(s) and ${sessDoneWeek.length} session(s) done this week${sessMissed.length ? ` · ⚠️ ${sessMissed.length} missed` : ""}`,
     testsNext.length ? `📝 Next test: ${esc(testsNext[0].name)} (${testsNext[0].date})` : null,
     upcomingTours.length ? `🏆 Next tournament: ${esc(upcomingTours[0].name)} (${upcomingTours[0].date})` : null,
@@ -165,6 +167,11 @@ async function build() {
     ? `<p>🏆 Next tournament: <b>${esc(upcomingTours[0].name)}</b> on ${upcomingTours[0].date}${upcomingTours[0].location ? " · " + esc(upcomingTours[0].location) : ""}</p>`
     : `<p>No tournaments on the calendar yet.</p>`;
   fBody += `<p>💪 Fitness: ${fitDone7} routine check-offs in the last 7 days.</p>`;
+  const monthStart = todayStr.slice(0, 8) + "01";
+  const missedMonth = missedTraining.filter((m) => m.date >= monthStart && m.date <= todayStr);
+  fBody += missedMonth.length
+    ? `<p>❌ Missed training this month: <b>${missedMonth.length}</b> (${missedMonth.map((m) => `${m.date} – ${esc(m.reason)}${m.note ? ": " + esc(m.note) : ""}`).join("; ")})</p>`
+    : `<p>✅ No football sessions missed this month.</p>`;
   html += section("🏆 Football", fBody);
 
   // Revision
