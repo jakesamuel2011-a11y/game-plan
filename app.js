@@ -3,6 +3,7 @@
 // =============================================================
 import { firebaseConfig, PEOPLE } from "./firebase-config.js";
 import { buildDayPlan, matchAssessment, FOOTBALL_DAYS } from "./planner.js?v=28";
+import { initRevision, sessionsFor, upcomingTests, overdueSessions, paceSummary, render as renderRevision } from "./revision/revision.js?v=1";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
@@ -252,6 +253,11 @@ onAuthStateChanged(auth, async (user) => {
     await ensureDeliverables();
     await ensureFixups();
     subscribeAll();
+    initRevision({
+      db, me: () => ME, nameFor,
+      fs: { collection, doc, addDoc, setDoc, getDoc, updateDoc, deleteDoc, onSnapshot, query, serverTimestamp },
+      onChange: () => { renderToday(); renderDashboard(); },
+    });
   } else {
     ME = null;
     $("app").classList.add("hidden");
@@ -277,6 +283,7 @@ function activateTab(name) {
   const panel = $("tab-" + name); if (panel) panel.classList.add("active");
   if (name === "progress") loadProgress();
   if (name === "home") renderDashboard();
+  if (name === "revision") renderRevision();
   window.scrollTo(0, 0);
 }
 document.querySelectorAll(".tab").forEach(t => { t.onclick = () => activateTab(t.dataset.tab); });
@@ -447,6 +454,14 @@ function renderToday() {
   const tour = cache.tournaments.filter(x => x.date >= t).sort((a, b) => a.date.localeCompare(b.date))[0];
   if (tour) addAlert(alerts, "green", `🏆 Next tournament: ${tour.name} on ${tour.date}${tour.location ? " · " + tour.location : ""}`);
   if (!over.length && !due.length) addAlert(alerts, "green", "✅ Nothing overdue — nice work!");
+  upcomingTests().filter(x => x.date >= selDate && x.date <= ymd(new Date(new Date(selDate + "T00:00:00Z").getTime() + 7 * 864e5))).forEach(x => {
+    const n = Math.round((new Date(x.date + "T00:00:00Z") - new Date(selDate + "T00:00:00Z")) / 864e5);
+    addAlert(alerts, n <= 1 ? "red" : "amber", `📝 ${x.name} test ${n === 0 ? "today" : n === 1 ? "tomorrow" : "on " + fmtDate(x.date)}`);
+  });
+  const revToday = sessionsFor(selDate);
+  if (revToday.length) addAlert(alerts, "blue", `📖 ${revToday.length} revision session${revToday.length > 1 ? "s" : ""} in the plan below. Tick them off in the Revision tab.`);
+  const revMissed = overdueSessions();
+  if (selDate === t && revMissed.length) addAlert(alerts, "amber", `📖 ${revMissed.length} missed revision session${revMissed.length > 1 ? "s" : ""}: catch up in the Revision tab.`);
 
   // Any day a session was MOVED TO
   for (const [orig, r] of cache.resched) {
@@ -509,7 +524,9 @@ function renderToday() {
 
   // Timeline
   const tl = $("timeline"); tl.innerHTML = "";
-  const plan = buildDayPlan(day, pendingHw().map(h => ({ subject: h.subject, task: h.task, mins: h.mins, due: h.due })), { noFootball, holiday });
+  const items = pendingHw().map(h => ({ subject: h.subject, task: h.task, mins: h.mins, due: h.due }))
+    .concat(sessionsFor(selDate).map(s => ({ subject: "📖 " + s.subject + " revision", task: s.title, mins: s.mins || 45 })));
+  const plan = buildDayPlan(day, items, { noFootball, holiday });
   if (plan.rest) {
     tl.innerHTML = `<div class="block rest"><div class="t">All day</div><div class="b">${plan.note}</div></div>`;
     return;
@@ -1268,6 +1285,14 @@ function renderDashboard() {
     (nicoIds.length && nicoDone === nicoIds.length) ? "good" : "");
   if (cache.momtasks.length > 0)
     html += card("mum", "👩 From Christabel", momOpen, false, momOpen ? "open task(s)" : "all done ✅", momOpen ? "warn" : "good");
+  {
+    const rp = paceSummary();
+    const nt = upcomingTests()[0];
+    const nDays = nt ? Math.round((new Date(nt.date + "T00:00:00") - new Date(t + "T00:00:00")) / 864e5) : null;
+    const sub = nt && nDays <= 7 ? `${esc(nt.name)} ${nDays === 0 ? "today" : nDays === 1 ? "tomorrow" : `in ${nDays} days`}`
+      : rp.behind ? `behind pace by ${rp.behind} · ${rp.perWeek}/wk to Feb` : `on pace · ${rp.perWeek}/wk to Feb`;
+    html += card("revision", "📖 Revision", `${rp.done}/${rp.total}`, true, sub, (nt && nDays <= 2) || rp.behind ? "warn" : "good");
+  }
   html += card("today", "📅 Today's plan", DAY_NAMES[new Date().getDay()].slice(0, 3), true, "tap for your schedule");
 
   if (pg) {

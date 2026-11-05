@@ -47,9 +47,11 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 5. **Verify an upload landed:** open the file on GitHub and Cmd+F for a string you just changed.
 
 ### Current cache-buster versions (keep incrementing from here)
-- `app.js?v=34`
-- `styles.css?v=18`
+- `app.js?v=35`
+- `styles.css?v=19`
 - planner import `./planner.js?v=28`
+- revision import in app.js `./revision/revision.js?v=1` (and its own imports of `syllabus.js?v=1` / `packview.js?v=1`)
+- pack JSON files: bump `PACK_VERSION` in `revision/syllabus.js`
 
 > The `.github/workflows/*.yml` files won't drag-upload (hidden folder). Edit those via GitHub's **Add file → Create new file** if needed.
 
@@ -67,6 +69,11 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 - `firestore.rules` — security rules (reference copy; the live rules live in Firebase Console).
 - `scripts/send-digest.mjs` + `scripts/send-monthly.mjs` + `scripts/package.json` — email automations.
 - `.github/workflows/digest.yml` (twice-weekly) + `monthly.yml` (monthly) — schedules.
+- `revision/revision.js` — the 📖 Revision tab (subjects, topics, Round 1/2, tests, sessions, parent check). Exposes `sessionsFor` / `upcomingTests` / `paceSummary` to app.js for the Today plan + dashboard.
+- `revision/syllabus.js` — **edit this to add topics**: subjects → topics (stable ids!) → must-know points → practice pack; exam-format cards; the Feb goal; the Nov seed plan.
+- `revision/packview.js` — pure renderer for a practice pack (flashcards, quiz/date quiz, exam questions with mark scheme or model answer, data practice, 6-mark plans, 10-mark drill, timeline).
+- `revision/packs/*.json` — one file per practice pack. A new subject's pack = a new JSON file + `pack:` on its topics.
+- `dev/revision-preview.html` — local preview of the Revision tab on fake in-memory data (`python3 -m http.server 8765` from the repo root → `/dev/revision-preview.html`, `?as=jake` to view as Jake).
 - `jose-agent.md` — a maintenance-assistant agent definition ("José").
 - `README.md` — original Firebase + GitHub Pages setup guide.
 
@@ -89,6 +96,11 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 - `holidays` {from, to, name} — single day (from==to) or a range
 - `winslog/{...}` — **retired** (was the weekly NEXT-wins checkbox; removed with the GNR video goal)
 - `weeklog/{weekMondayYYYY-MM-DD}` — {pillarsMet, rating, onTarget, fitness, nicoDays} (drives streaks/badges)
+- `revprogress/{topicId}` {r1:{done,conf,at,by}, r2:{…}, pts:{index:true}} — revision rounds + checklist ticks
+- `revsessions` {date, slot, subject, topics[], title, method, mins, done, conf, notes, doneBy, doneAt} — planned revision sessions (feed the Today plan); finishing one marks the next round on its topics
+- `revtests` {subject, name, date, topics[]}
+- `revpractice/{packId}` {answers, cards, quizzes[], drills} — practice-pack progress (shared: both logins can see it)
+- `meta/revision_v1` — seeds the Nov 7–13 EM/Bio plan + tests once
 - `meta/seeded`, `meta/fix_fixture_times_v1`, `meta/deliverables_v1` — one-time setup/migration flags
 
 ---

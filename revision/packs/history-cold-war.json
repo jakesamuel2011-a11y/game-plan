@@ -1,0 +1,830 @@
+{
+ "id": "history-cold-war",
+ "subject": "Humanities",
+ "title": "Cold War (KQ4–6)",
+ "sub": "IGCSE History 0470 · who was to blame, containment, Soviet control of Eastern Europe",
+ "test": "Thu 5 Nov 2026 (done)",
+ "units": [
+  {
+   "key": "kq4",
+   "name": "KQ4 Blame"
+  },
+  {
+   "key": "kq5",
+   "name": "KQ5 Containment"
+  },
+  {
+   "key": "kq6",
+   "name": "KQ6 Eastern Europe"
+  }
+ ],
+ "strategyIntro": "Three question types. Every practice session should end with you writing an answer, not just reading. Close the book, write what you remember, then check.",
+ "strategy": [
+  {
+   "title": "4 marks: Facts (Describe… / What were…)",
+   "key": true,
+   "points": [
+    "Two points, each backed by a specific detail (a date, name, number).",
+    "No intro, no conclusion, no opinion. About 5 minutes."
+   ]
+  },
+  {
+   "title": "6 marks: Analysis (Explain why…)",
+   "key": true,
+   "points": [
+    "Two or three fully explained reasons; aim for at least one point each way where the question allows.",
+    "PEEL each paragraph: Point → Evidence → Explain how it caused the outcome → Link back to the question.",
+    "The marks are in the explanation. About 10 minutes."
+   ]
+  },
+  {
+   "title": "10 marks: Debate (How far do you agree…?)",
+   "key": true,
+   "points": [
+    "One-line intro stating your overall answer.",
+    "Side 1: two explained points that agree. Side 2: two explained points that disagree or give another factor.",
+    "Conclusion with a judgement and a reason, using a criterion: which came first, which made the others possible, which had the biggest effect.",
+    "A balanced essay with no clear judgement caps the mark. About 20 minutes."
+   ]
+  },
+  {
+   "title": "Useful phrases",
+   "points": [
+    "“The most important reason was… because…”",
+    "“However, this was only possible because…”",
+    "“On balance…”",
+    "“Without X, Y would not have happened.”"
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "Describe",
+   "4 marks: two specific facts."
+  ],
+  [
+   "Explain why",
+   "6 marks: reasons, each explained with PEEL."
+  ],
+  [
+   "How far",
+   "10 marks: both sides plus a judgement with a reason."
+  ]
+ ],
+ "quizTitle": "Date quiz",
+ "quizIntro": "Ten events, pick the year. Uses the timeline below.",
+ "flashIntro": "Read the question, answer out loud, then flip. Mark “Got it” or “Not yet”: “Not yet” cards come back sooner.",
+ "flashcards": [
+  {
+   "front": "What did Roosevelt, Churchill and Stalin agree at Yalta (Feb 1945)?",
+   "back": "Germany and Berlin split into 4 zones; free elections in Eastern Europe; USSR to join war on Japan; set up the United Nations.",
+   "unit": "kq4"
+  },
+  {
+   "front": "What changed between Yalta and Potsdam (Jul–Aug 1945)?",
+   "back": "Truman replaced Roosevelt and was tougher on Stalin; Attlee replaced Churchill; USA had tested the atomic bomb; Stalin had set up a communist government in Poland.",
+   "unit": "kq4"
+  },
+  {
+   "front": "Why did the atomic bomb increase mistrust?",
+   "back": "Truman told Stalin very little before using it on Japan (Aug 1945). Stalin saw this as intimidation and sped up the Soviet bomb (tested 1949).",
+   "unit": "kq4"
+  },
+  {
+   "front": "Why did Stalin want a 'buffer zone'?",
+   "back": "USSR lost about 20+ million people in WW2 and had been invaded through Eastern Europe twice. Friendly states would protect it.",
+   "unit": "kq4"
+  },
+  {
+   "front": "What were 'salami tactics'?",
+   "back": "Communists took power slice by slice: joining coalitions, then removing rival parties through arrests, intimidation and rigged elections.",
+   "unit": "kq4"
+  },
+  {
+   "front": "What happened in Czechoslovakia in Feb 1948?",
+   "back": "A communist coup: the last democratic government in Eastern Europe was taken over.",
+   "unit": "kq4"
+  },
+  {
+   "front": "What was the 'Iron Curtain' speech?",
+   "back": "Churchill, March 1946 (Fulton, USA): Europe was now divided by an 'iron curtain' with Soviet control to the east.",
+   "unit": "kq4"
+  },
+  {
+   "front": "What was the Truman Doctrine (Mar 1947)?",
+   "back": "USA would support free peoples resisting communism. Start of containment. First used to help Greece and Turkey.",
+   "unit": "kq4"
+  },
+  {
+   "front": "What was the Marshall Plan?",
+   "back": "1947 US aid programme, about $13 billion, to rebuild Europe so communism would be less attractive. Stalin called it 'dollar imperialism'.",
+   "unit": "kq4"
+  },
+  {
+   "front": "What were Cominform and Comecon?",
+   "back": "Stalin's responses: Cominform (1947) coordinated communist parties; Comecon (1949) was the Eastern bloc's own economic aid organisation.",
+   "unit": "kq4"
+  },
+  {
+   "front": "Why did Stalin blockade Berlin in June 1948?",
+   "back": "The West merged its zones and brought in a new currency. Stalin feared a strong West Germany and wanted to force the West out of Berlin.",
+   "unit": "kq4"
+  },
+  {
+   "front": "How did the West respond to the Blockade?",
+   "back": "The Berlin Airlift: about 11 months of flying in food and fuel. Stalin lifted the blockade in May 1949.",
+   "unit": "kq4"
+  },
+  {
+   "front": "What were the consequences of the Berlin Blockade?",
+   "back": "NATO formed (Apr 1949); Germany split into West Germany (FRG) and East Germany (GDR) in 1949; Cold War hardened.",
+   "unit": "kq4"
+  },
+  {
+   "front": "How did the USA react to China becoming communist in 1949?",
+   "back": "Refused to recognise Mao's government, backed Chiang Kai-shek in Taiwan, and boosted military spending (NSC-68).",
+   "unit": "kq5"
+  },
+  {
+   "front": "How did the Korean War start?",
+   "back": "North Korea invaded South Korea in June 1950. The USA got the UN to send a force (the USSR was boycotting the Security Council).",
+   "unit": "kq5"
+  },
+  {
+   "front": "What was the Inchon landing?",
+   "back": "Sept 1950: MacArthur landed behind North Korean lines, pushed them back past the 38th parallel towards China.",
+   "unit": "kq5"
+  },
+  {
+   "front": "Why did Truman sack MacArthur (1951)?",
+   "back": "After China joined the war, MacArthur wanted to attack China, even with nuclear weapons. Truman wanted a limited war.",
+   "unit": "kq5"
+  },
+  {
+   "front": "How did the Korean War end, and what did it mean for containment?",
+   "back": "Armistice July 1953 near the 38th parallel. South Korea saved (success) but communism not rolled back; costly stalemate.",
+   "unit": "kq5"
+  },
+  {
+   "front": "What was the Bay of Pigs (Apr 1961)?",
+   "back": "CIA-backed Cuban exiles invaded to overthrow Castro. Defeated in about 3 days. Humiliated Kennedy; pushed Castro to the USSR.",
+   "unit": "kq5"
+  },
+  {
+   "front": "Why did Khrushchev put missiles in Cuba?",
+   "back": "Close the 'missile gap'; answer US Jupiter missiles in Turkey; protect Cuba from invasion; test Kennedy.",
+   "unit": "kq5"
+  },
+  {
+   "front": "How was the Cuban Missile Crisis resolved (Oct 1962)?",
+   "back": "US naval quarantine; USSR removed missiles; USA promised not to invade Cuba and secretly removed missiles from Turkey.",
+   "unit": "kq5"
+  },
+  {
+   "front": "What were the results of the Cuban Missile Crisis?",
+   "back": "Hotline (1963), Test Ban Treaty (1963); Castro stayed in power; USSR built up its nuclear arsenal.",
+   "unit": "kq5"
+  },
+  {
+   "front": "What was the domino theory?",
+   "back": "If one country fell to communism, neighbours would follow, like dominoes. Main reason for US involvement in Vietnam.",
+   "unit": "kq5"
+  },
+  {
+   "front": "What was the Gulf of Tonkin incident (1964)?",
+   "back": "Reported attacks on US ships. Congress gave Johnson power to act, leading to bombing (Rolling Thunder) and ground troops in 1965.",
+   "unit": "kq5"
+  },
+  {
+   "front": "Why was the Tet Offensive (1968) a turning point?",
+   "back": "Military defeat for the Viet Cong, but it shocked Americans, who had been told the war was being won. Support at home collapsed.",
+   "unit": "kq5"
+  },
+  {
+   "front": "Give four reasons the USA failed in Vietnam.",
+   "back": "Viet Cong guerrilla tactics and Ho Chi Minh Trail; support from USSR and China; weak South Vietnamese government; anti-war protest and media at home.",
+   "unit": "kq5"
+  },
+  {
+   "front": "How did US involvement in Vietnam end?",
+   "back": "Nixon's 'Vietnamisation'; Paris Peace Agreement 1973; US troops left; Saigon fell to the North in 1975.",
+   "unit": "kq5"
+  },
+  {
+   "front": "How did the USSR control Eastern Europe?",
+   "back": "Warsaw Pact (1955), Comecon, secret police, Red Army troops, one-party rule, censorship.",
+   "unit": "kq6"
+  },
+  {
+   "front": "What was Khrushchev's 'secret speech' (Feb 1956)?",
+   "back": "He criticised Stalin's crimes. It raised hopes of more freedom in Eastern Europe.",
+   "unit": "kq6"
+  },
+  {
+   "front": "Why did the USSR invade Hungary in 1956?",
+   "back": "Nagy announced Hungary would leave the Warsaw Pact and allow multi-party elections. Tanks entered Budapest in Nov 1956.",
+   "unit": "kq6"
+  },
+  {
+   "front": "What happened after the Hungarian Uprising?",
+   "back": "Thousands killed; about 200,000 fled; Nagy executed in 1958; Kádár installed as a loyal leader. The West did not help.",
+   "unit": "kq6"
+  },
+  {
+   "front": "Why was the Berlin Wall built (Aug 1961)?",
+   "back": "Stop the 'brain drain': about 3 million East Germans had fled West through Berlin, many skilled. Embarrassing for communism.",
+   "unit": "kq6"
+  },
+  {
+   "front": "What was the Prague Spring (1968)?",
+   "back": "Dubček's 'socialism with a human face': less censorship, free speech, more travel. But Czechoslovakia stayed in the Warsaw Pact.",
+   "unit": "kq6"
+  },
+  {
+   "front": "How did the USSR end the Prague Spring?",
+   "back": "About 500,000 Warsaw Pact troops invaded in Aug 1968. Dubček removed. Mostly passive resistance from Czechs.",
+   "unit": "kq6"
+  },
+  {
+   "front": "What was the Brezhnev Doctrine?",
+   "back": "After 1968: the USSR would intervene in any communist country where communism was threatened.",
+   "unit": "kq6"
+  },
+  {
+   "front": "Hungary 1956 vs Czechoslovakia 1968: key difference?",
+   "back": "Hungary wanted to LEAVE the Warsaw Pact and fought back with weapons; Dubček stayed in the Pact and Czechs mostly used passive resistance.",
+   "unit": "kq6"
+  },
+  {
+   "front": "What was Solidarity?",
+   "back": "Independent trade union, Poland, 1980, from Gdańsk shipyard strikes, led by Lech Wałęsa. About 10 million members.",
+   "unit": "kq6"
+  },
+  {
+   "front": "How did the Polish government respond to Solidarity?",
+   "back": "General Jaruzelski declared martial law (Dec 1981) and banned it. It survived underground and won elections in 1989.",
+   "unit": "kq6"
+  },
+  {
+   "front": "What were glasnost and perestroika?",
+   "back": "Gorbachev's reforms from 1985: glasnost = openness (more free speech); perestroika = restructuring the economy.",
+   "unit": "kq6"
+  },
+  {
+   "front": "What was Gorbachev's key decision about Eastern Europe?",
+   "back": "He abandoned the Brezhnev Doctrine: the USSR would no longer send troops to keep communist governments in power.",
+   "unit": "kq6"
+  },
+  {
+   "front": "What happened in 1989?",
+   "back": "Hungary opened border to Austria; Solidarity won Polish elections; Berlin Wall fell (9 Nov); revolutions across Eastern Europe.",
+   "unit": "kq6"
+  },
+  {
+   "front": "Besides Gorbachev, what else caused the collapse?",
+   "back": "Failing Soviet economy; cost of arms race (Reagan, 'Star Wars'); war in Afghanistan 1979–89; example of Solidarity.",
+   "unit": "kq6"
+  }
+ ],
+ "examIntro": "Write your own answer first, then open the model. Look for the same moves, not the same words: two specific facts (4), explained reasons (6), both sides plus a judgement (10).",
+ "exam": [
+  {
+   "q": "Describe the agreements made at the Yalta Conference.",
+   "marks": 4,
+   "unit": "kq4",
+   "model": [
+    "At Yalta in February 1945, Roosevelt, Churchill and Stalin agreed that Germany would be divided into four zones of occupation after the war, with Berlin, inside the Soviet zone, also split into four. They also agreed that the countries of Eastern Europe freed from the Nazis would hold free elections, and Stalin agreed to join the war against Japan once Germany was defeated. A new United Nations organisation would be set up to keep peace."
+   ],
+   "why": "three or four separate agreements, each specific."
+  },
+  {
+   "q": "What was the Marshall Plan?",
+   "marks": 4,
+   "unit": "kq4",
+   "model": [
+    "The Marshall Plan, announced in June 1947, was a US programme of economic aid to help European countries rebuild after the Second World War. The USA gave about $13 billion in money, food and equipment. Its aim was to make Europe prosperous so that communism would be less attractive. Stalin refused the aid for the USSR and stopped the Eastern European states from accepting it."
+   ],
+   "why": ""
+  },
+  {
+   "q": "Explain why the wartime alliance between the USA and USSR broke down by 1946.",
+   "marks": 6,
+   "unit": "kq4",
+   "model": [
+    "One reason was the disagreement over Poland and Eastern Europe. At Yalta Stalin had promised free elections, but by Potsdam in July 1945 he had set up a pro-communist government in Poland. Truman saw this as a broken promise, which made the USA distrust Soviet intentions.",
+    "A second reason was the change of leaders and the atomic bomb. Truman was much tougher on Stalin than Roosevelt had been, and he only told Stalin vaguely about the new weapon before using it on Japan in August 1945. Stalin believed the USA was trying to frighten him, so he became more determined to build a buffer zone.",
+    "Finally, the two sides had opposite ideologies. Once the shared enemy, Hitler, was defeated, there was nothing holding together a capitalist democracy and a communist dictatorship, so suspicion grew quickly. By 1946 Churchill was speaking of an \"Iron Curtain\"."
+   ],
+   "why": "three reasons, each with evidence and an explanation of how it damaged the alliance."
+  },
+  {
+   "q": "Explain why Stalin blockaded Berlin in 1948.",
+   "marks": 6,
+   "unit": "kq4",
+   "model": [
+    "Stalin was alarmed that Britain, France and the USA had merged their zones of Germany and introduced a new currency in June 1948. He feared a strong, rebuilt West Germany could threaten the USSR again, as Germany had twice in his lifetime. Blockading Berlin was a way to stop this.",
+    "Stalin also saw West Berlin as a problem inside his zone. It was a showcase of Western wealth in the middle of communist East Germany. By cutting off road, rail and canal links he hoped to starve West Berlin into accepting Soviet control and force the Western powers to leave.",
+    "On the other hand, some historians argue he was testing the West's commitment to containment. If the West backed down over Berlin, it would show the Truman Doctrine was empty words."
+   ],
+   "why": ""
+  },
+  {
+   "q": "\"The USSR was more to blame than the USA for the Cold War.\" How far do you agree?",
+   "marks": 10,
+   "unit": "kq4",
+   "model": [
+    "Intro: I partly agree. Both sides contributed, but the USSR's actions in Eastern Europe were the main trigger.",
+    "Agree: Stalin broke his Yalta promise of free elections. Between 1945 and 1948 communists took power across Eastern Europe using rigged elections, intimidation and \"salami tactics\", ending with the Czech coup in 1948. To the West this looked like expansion, and it led directly to the Truman Doctrine. Stalin also caused the first major crisis by blockading Berlin in 1948, trying to force the West out of the city.",
+    "Disagree: The USA also acted in ways that made the USSR feel threatened. Truman kept the atomic bomb secret from his ally, which Stalin saw as intimidation. The Marshall Plan offered huge aid on American terms, which Stalin called \"dollar imperialism\", a way of buying Europe. From Moscow's view, the USSR had lost over 20 million people and only wanted a buffer zone for security, so its actions were defensive rather than aggressive.",
+    "Conclusion: On balance, the USSR was more to blame, because its takeover of Eastern Europe came first and the main US policies (the Truman Doctrine and Marshall Plan) were responses to it. However, US actions turned mistrust into a lasting conflict, so blame was shared even if it was not equal."
+   ],
+   "why": "two developed points each side, then a judgement with a reason (which came first)."
+  },
+  {
+   "q": "How far was the Berlin Blockade a success for the USA?",
+   "marks": 10,
+   "unit": "kq4",
+   "model": [
+    "Intro: The Blockade was largely a success for the USA, although it came at a cost.",
+    "Success: The Berlin Airlift kept West Berlin supplied for about 11 months, flying in food and fuel, and in May 1949 Stalin lifted the blockade without getting what he wanted. This was a propaganda victory: the USA looked like the protector of Berliners, while the USSR looked like it was trying to starve civilians. It also led to the creation of NATO in April 1949, binding Western Europe to the USA militarily, which was exactly what containment needed.",
+    "Not a success: The crisis made Germany's division permanent. In 1949 two separate states were set up, West Germany and East Germany, so the USA did not achieve a united, democratic Germany. The confrontation also deepened the Cold War: the USSR responded by tightening control in the East, and Berlin stayed a flashpoint, leading to the Berlin Wall in 1961.",
+    "Conclusion: Overall it was a success for the USA, because its main aim was to stop West Berlin falling to communism without a war, and it achieved this. The costs were real but longer term."
+   ],
+   "why": ""
+  },
+  {
+   "q": "Describe US involvement in the Korean War.",
+   "marks": 4,
+   "unit": "kq5",
+   "model": [
+    "When North Korea invaded South Korea in June 1950, the USA persuaded the UN to send a force to defend the South, and most of the troops were American, led by General MacArthur. In September 1950 MacArthur's landing at Inchon pushed the North Koreans back past the 38th parallel and almost to the Chinese border. After China intervened, the war became a stalemate, and in 1951 Truman sacked MacArthur for wanting to attack China. An armistice was signed in 1953."
+   ],
+   "why": ""
+  },
+  {
+   "q": "What happened during the Bay of Pigs invasion?",
+   "marks": 4,
+   "unit": "kq5",
+   "model": [
+    "In April 1961 about 1,400 Cuban exiles, trained and armed by the CIA, landed at the Bay of Pigs to overthrow Castro. Kennedy refused to send US air support, and the invaders were quickly defeated by Castro's much larger army within about three days. Most were captured. The failure humiliated Kennedy and pushed Castro closer to the USSR."
+   ],
+   "why": ""
+  },
+  {
+   "q": "Explain why the USA got involved in Vietnam.",
+   "marks": 6,
+   "unit": "kq5",
+   "model": [
+    "The main reason was the domino theory. US leaders believed that if South Vietnam fell to communism, neighbouring countries like Laos, Cambodia and Thailand would follow one by one. Containing communism in Vietnam was therefore seen as protecting the whole of Southeast Asia.",
+    "Another reason was the earlier loss of China in 1949 and the experience of Korea. Presidents did not want to be blamed for \"losing\" another country to communism, so the USA kept increasing support, first money and advisers for Diem's government in the 1950s, then combat troops.",
+    "A trigger was the Gulf of Tonkin incident in August 1964, when US ships were reported attacked. Congress gave President Johnson power to take military action, which led to bombing (Operation Rolling Thunder) and ground troops in 1965."
+   ],
+   "why": ""
+  },
+  {
+   "q": "Explain why the USSR placed missiles in Cuba.",
+   "marks": 6,
+   "unit": "kq5",
+   "model": [
+    "Khrushchev wanted to close the \"missile gap\". The USA had more long-range missiles and had placed Jupiter missiles in Turkey, close to the USSR. Putting missiles in Cuba, just 90 miles from Florida, would balance this and threaten most US cities.",
+    "He also wanted to protect Cuba, a new communist ally. After the Bay of Pigs in 1961, Castro feared another US invasion, and missiles would deter it.",
+    "Finally, Khrushchev may have been testing Kennedy. He thought the young president was weak after the Bay of Pigs and the Vienna summit, so he believed Kennedy would accept the missiles rather than risk war."
+   ],
+   "why": ""
+  },
+  {
+   "q": "\"The Cuban Missile Crisis was a success for the USA.\" How far do you agree?",
+   "marks": 10,
+   "unit": "kq5",
+   "model": [
+    "Intro: I mostly agree. The USA achieved its main aim, but it had to give something up and Cuba stayed communist.",
+    "Agree: Kennedy got the Soviet missiles removed from Cuba without a war. His naval \"quarantine\" in October 1962 gave Khrushchev a way to back down instead of forcing an immediate attack, and the USSR agreed to dismantle the sites. Kennedy came out looking strong and calm, which repaired his reputation after the Bay of Pigs. Afterwards, a hotline was set up in 1963 and the Test Ban Treaty was signed, reducing the risk of nuclear war.",
+    "Disagree: The USA had to promise not to invade Cuba, so Castro's communist government survived just off the US coast, which was a failure for containment. Kennedy also secretly agreed to remove the Jupiter missiles from Turkey, so it was a deal, not a one-sided victory. The crisis also pushed the USSR to build up its own nuclear arsenal so it would never be outmatched again, which accelerated the arms race.",
+    "Conclusion: On balance it was a success for the USA, because the most immediate and dangerous threat, nuclear missiles 90 miles away, was removed and war was avoided. But it was a limited success, because the USA paid for it by accepting a communist Cuba."
+   ],
+   "why": ""
+  },
+  {
+   "q": "How effectively did the USA contain communism in Asia?",
+   "marks": 10,
+   "unit": "kq5",
+   "model": [
+    "Intro: The USA had some success in Korea, but overall it was not effective in Asia.",
+    "Effective: In Korea the USA, through the UN, stopped North Korea from taking over the South. By the armistice of 1953 the border was back near the 38th parallel and South Korea stayed non-communist, which is exactly what containment aimed for. The USA also protected Taiwan and Japan, which became strong allies.",
+    "Not effective: The USA failed to stop China becoming communist in 1949, the largest country in Asia. In Vietnam, despite sending over 500,000 troops at the peak and heavy bombing, the USA could not defeat the Viet Cong's guerrilla tactics. After the Tet Offensive of 1968, public support collapsed, US troops left in 1973 and Saigon fell in 1975. Laos and Cambodia also became communist, so the domino theory came true.",
+    "Conclusion: Overall containment in Asia was not effective. Korea was only a partial success, a costly stalemate, while China and Vietnam were clear failures. Vietnam is the strongest evidence, because the USA used its full military power there and still lost."
+   ],
+   "why": ""
+  },
+  {
+   "q": "Describe the events of the Prague Spring.",
+   "marks": 4,
+   "unit": "kq6",
+   "model": [
+    "In January 1968 Alexander Dubček became leader of Czechoslovakia and introduced reforms he called \"socialism with a human face\". Censorship was relaxed, people could criticise the government, and there was more freedom to travel and trade with the West. Dubček insisted Czechoslovakia would stay in the Warsaw Pact. However, in August 1968 around 500,000 Warsaw Pact troops invaded, Dubček was removed, and the reforms were reversed."
+   ],
+   "why": ""
+  },
+  {
+   "q": "What was Solidarity?",
+   "marks": 4,
+   "unit": "kq6",
+   "model": [
+    "Solidarity was an independent trade union set up in Poland in 1980 after strikes at the Lenin Shipyard in Gdańsk, led by the electrician Lech Wałęsa. It was the first free trade union in the communist bloc and grew to around 10 million members. It was banned when General Jaruzelski declared martial law in December 1981, but it survived underground and won the Polish elections in 1989."
+   ],
+   "why": ""
+  },
+  {
+   "q": "Explain why the Berlin Wall was built in 1961.",
+   "marks": 6,
+   "unit": "kq6",
+   "model": [
+    "The main reason was the \"brain drain\". Since 1949 around 3 million East Germans had escaped to the West, mostly through Berlin, where the border was open. Many were young, skilled workers like doctors and engineers, and East Germany's economy could not afford to lose them.",
+    "The refugees were also deeply embarrassing for communism. Thousands of people choosing to leave showed that life was better under capitalism, which damaged Soviet propaganda.",
+    "Khrushchev had also failed to force the West out of Berlin by diplomacy, for example at the 1961 Vienna summit with Kennedy. Building the wall in August 1961 was a way to seal the border without going to war over the city."
+   ],
+   "why": ""
+  },
+  {
+   "q": "Explain why the USSR invaded Hungary in 1956.",
+   "marks": 6,
+   "unit": "kq6",
+   "model": [
+    "The key reason was that Imre Nagy announced Hungary would leave the Warsaw Pact. This threatened the USSR's buffer zone, and Khrushchev feared that if Hungary left, other satellite states would follow.",
+    "Nagy also promised free elections with other political parties. This would have ended the Communist Party's monopoly of power, which the USSR could not accept.",
+    "Khrushchev also had to show strength. His \"secret speech\" criticising Stalin in February 1956 had encouraged hopes of change, and he needed to prove de-Stalinisation did not mean the USSR would tolerate rebellion. In November 1956 Soviet tanks entered Budapest, and thousands of Hungarians were killed."
+   ],
+   "why": ""
+  },
+  {
+   "q": "\"Events in Hungary in 1956 and Czechoslovakia in 1968 were very similar.\" How far do you agree?",
+   "marks": 10,
+   "unit": "kq6",
+   "model": [
+    "Intro: I partly agree. The causes and Soviet response were similar, but the aims and the way people resisted were different.",
+    "Similar: In both countries, people wanted more freedom from Soviet-style communism and were led by a reforming leader, Nagy in Hungary and Dubček in Czechoslovakia. In both cases the USSR responded with military force: Soviet tanks in Budapest in 1956, and Warsaw Pact troops in Prague in 1968. In both cases the reformer was removed and a loyal leader was installed, and the West did nothing to help.",
+    "Different: Nagy went much further than Dubček. Hungary planned to leave the Warsaw Pact and allow multi-party elections, while Dubček promised to stay in the Pact and keep the Communist Party in charge. The resistance was also different. Hungarians fought back with weapons, so thousands died, while most Czechs used passive resistance like protests and removing street signs, so far fewer were killed. The consequences differed too: Nagy was executed in 1958, but Dubček was demoted and survived. The 1968 invasion also produced the Brezhnev Doctrine.",
+    "Conclusion: The events were similar in outcome, because both showed the USSR would use force to keep control. But they were different in their aims and resistance, and that is the more important difference, since Hungary directly threatened the Warsaw Pact while Czechoslovakia did not."
+   ],
+   "why": ""
+  },
+  {
+   "q": "\"Gorbachev was responsible for the collapse of Soviet control over Eastern Europe.\" How far do you agree?",
+   "marks": 10,
+   "unit": "kq6",
+   "model": [
+    "Intro: Gorbachev was the most important short-term cause, but long-term weaknesses made the collapse possible.",
+    "Agree: Gorbachev's decisions directly allowed the collapse. He introduced glasnost (openness) and perestroika (restructuring), which encouraged people to criticise communism openly. Most importantly, he abandoned the Brezhnev Doctrine and made clear Soviet tanks would not be sent to crush protests. In 1989, when Hungary opened its border, Poland held free elections and crowds broke through the Berlin Wall, the USSR did not intervene. In 1956 and 1968, it would have.",
+    "Disagree: The Soviet economy was already failing, with shortages and poor living standards across Eastern Europe. The arms race, especially Reagan's spending and \"Star Wars\", and the war in Afghanistan (1979–89) drained resources, so the USSR could no longer afford to control Eastern Europe by force. Solidarity in Poland had also shown from 1980 that millions of people could openly challenge communism and survive, inspiring others.",
+    "Conclusion: Gorbachev was responsible to a large extent, because without his refusal to use force the 1989 revolutions would likely have been crushed, as in 1956 and 1968. However, he only made those choices because the long-term economic crisis left him little alternative, so he was the trigger rather than the only cause."
+   ],
+   "why": ""
+  }
+ ],
+ "debates": [
+  {
+   "unit": "kq4",
+   "q": "“The USSR was more to blame than the USA for the Cold War.” How far do you agree?",
+   "for": [
+    "Stalin broke the Yalta promise of free elections",
+    "Communist takeovers across Eastern Europe, ending with the Czech coup (1948)",
+    "Berlin Blockade (1948) was an aggressive move to force the West out"
+   ],
+   "against": [
+    "Truman's atomic secrecy made Stalin feel threatened",
+    "Marshall Plan seen as 'dollar imperialism', buying influence",
+    "USSR lost 20+ million in WW2; a buffer zone was defensive, not aggressive"
+   ],
+   "judgement": "USSR more to blame because its takeover of Eastern Europe came first; US policies were mostly responses. But US actions turned mistrust into lasting conflict."
+  },
+  {
+   "unit": "kq4",
+   "q": "How far was the Berlin Blockade a success for the USA?",
+   "for": [
+    "Airlift kept West Berlin supplied for ~11 months; Stalin backed down in May 1949",
+    "Propaganda win: USA as protector, USSR starving civilians",
+    "Led to NATO (1949), tying Western Europe to the USA"
+   ],
+   "against": [
+    "Germany permanently divided into FRG and GDR (1949)",
+    "Cold War deepened; USSR tightened control in the East",
+    "Berlin stayed a flashpoint, leading to the Wall in 1961"
+   ],
+   "judgement": "A success, because the main aim (keep West Berlin free without war) was achieved. The costs were longer term."
+  },
+  {
+   "unit": "kq4",
+   "q": "“The Marshall Plan was the main reason the Cold War started.” How far do you agree?",
+   "for": [
+    "Stalin saw it as the USA buying Europe; he banned Eastern Europe from taking it",
+    "Led directly to Cominform (1947) and Comecon (1949): Europe split economically"
+   ],
+   "against": [
+    "Mistrust began earlier: Poland, Potsdam, the atomic bomb (1945)",
+    "Soviet takeover of Eastern Europe was already under way",
+    "Opposite ideologies made conflict likely once Hitler was gone"
+   ],
+   "judgement": "Not the main reason: tension already existed by 1945–46. The Marshall Plan deepened the split rather than starting it."
+  },
+  {
+   "unit": "kq5",
+   "q": "“The Cuban Missile Crisis was a success for the USA.” How far do you agree?",
+   "for": [
+    "Soviet missiles removed and war avoided",
+    "Kennedy's quarantine looked strong but gave Khrushchev a way out",
+    "Led to the hotline and Test Ban Treaty (1963)"
+   ],
+   "against": [
+    "USA promised not to invade: communist Cuba survived 90 miles away",
+    "Secret deal to remove US Jupiter missiles from Turkey",
+    "USSR built up its nuclear arsenal afterwards"
+   ],
+   "judgement": "A success because the most immediate danger was removed without war, but a limited one: the USA had to accept a communist Cuba."
+  },
+  {
+   "unit": "kq5",
+   "q": "How effectively did the USA contain communism in Asia?",
+   "for": [
+    "Korea: South Korea stayed non-communist after the 1953 armistice",
+    "Taiwan and Japan protected and became allies"
+   ],
+   "against": [
+    "China became communist in 1949",
+    "Vietnam: 500,000+ troops and heavy bombing still failed; Saigon fell 1975",
+    "Laos and Cambodia also fell: domino theory came true"
+   ],
+   "judgement": "Not effective overall. Korea was only a costly partial success; China and Vietnam were clear failures, and Vietnam failed despite full US military power."
+  },
+  {
+   "unit": "kq5",
+   "q": "“The USA failed in Vietnam mainly because of the Viet Cong's tactics.” How far do you agree?",
+   "for": [
+    "Guerrilla warfare: hard to identify the enemy, hit-and-run attacks",
+    "Tunnels and the Ho Chi Minh Trail kept them supplied"
+   ],
+   "against": [
+    "Support from the USSR and China",
+    "Weak, unpopular South Vietnamese government",
+    "US tactics (napalm, search and destroy) turned locals against them",
+    "Anti-war movement and media after Tet (1968)"
+   ],
+   "judgement": "Viet Cong tactics were important, but losing support at home after Tet was decisive: the USA left because it could no longer politically continue."
+  },
+  {
+   "unit": "kq6",
+   "q": "“Events in Hungary 1956 and Czechoslovakia 1968 were very similar.” How far do you agree?",
+   "for": [
+    "Both wanted more freedom under a reforming leader (Nagy, Dubček)",
+    "Both crushed by military force",
+    "Reformers removed, loyal leaders installed; West did not help"
+   ],
+   "against": [
+    "Hungary planned to LEAVE the Warsaw Pact; Dubček stayed in",
+    "Hungarians fought with weapons; Czechs used passive resistance",
+    "Nagy executed; Dubček survived. 1968 produced the Brezhnev Doctrine"
+   ],
+   "judgement": "Similar in outcome, but the difference in aims matters more: Hungary threatened the Warsaw Pact directly; Czechoslovakia did not."
+  },
+  {
+   "unit": "kq6",
+   "q": "“Gorbachev was responsible for the collapse of Soviet control over Eastern Europe.” How far do you agree?",
+   "for": [
+    "Glasnost and perestroika encouraged open criticism",
+    "Abandoned the Brezhnev Doctrine: no tanks sent in 1989",
+    "Without this, 1989 protests could have been crushed like 1956 and 1968"
+   ],
+   "against": [
+    "Failing Soviet economy and poor living standards",
+    "Cost of the arms race (Reagan, 'Star Wars') and Afghanistan (1979–89)",
+    "Solidarity had already shown communism could be challenged"
+   ],
+   "judgement": "Gorbachev was the trigger, but long-term economic weakness pushed him to those choices."
+  },
+  {
+   "unit": "kq6",
+   "q": "How secure was Soviet control over Eastern Europe, 1948–89?",
+   "for": [
+    "Every challenge crushed: Hungary 1956, Czechoslovakia 1968, martial law in Poland 1981",
+    "Warsaw Pact, secret police and the Berlin Wall kept control for 40 years"
+   ],
+   "against": [
+    "Repeated uprisings show control relied on force, not support",
+    "Berlin Wall needed to stop millions leaving",
+    "Collapsed quickly in 1989 once force was removed"
+   ],
+   "judgement": "Secure on the surface while the USSR was willing to use force, but never accepted by the people, which is why it collapsed so fast in 1989."
+  }
+ ],
+ "timeline": [
+  {
+   "unit": "kq4",
+   "event": "Yalta Conference",
+   "year": 1945
+  },
+  {
+   "unit": "kq4",
+   "event": "Potsdam Conference",
+   "year": 1945
+  },
+  {
+   "unit": "kq4",
+   "event": "Churchill's 'Iron Curtain' speech",
+   "year": 1946
+  },
+  {
+   "unit": "kq4",
+   "event": "Kennan's Long Telegram",
+   "year": 1946
+  },
+  {
+   "unit": "kq4",
+   "event": "Truman Doctrine",
+   "year": 1947
+  },
+  {
+   "unit": "kq4",
+   "event": "Marshall Plan announced",
+   "year": 1947
+  },
+  {
+   "unit": "kq4",
+   "event": "Cominform set up",
+   "year": 1947
+  },
+  {
+   "unit": "kq4",
+   "event": "Communist coup in Czechoslovakia",
+   "year": 1948
+  },
+  {
+   "unit": "kq4",
+   "event": "Berlin Blockade begins",
+   "year": 1948
+  },
+  {
+   "unit": "kq4",
+   "event": "NATO formed",
+   "year": 1949
+  },
+  {
+   "unit": "kq4",
+   "event": "Berlin Blockade ends",
+   "year": 1949
+  },
+  {
+   "unit": "kq4",
+   "event": "Germany split into FRG and GDR",
+   "year": 1949
+  },
+  {
+   "unit": "kq4",
+   "event": "Comecon set up",
+   "year": 1949
+  },
+  {
+   "unit": "kq5",
+   "event": "China becomes communist under Mao",
+   "year": 1949
+  },
+  {
+   "unit": "kq5",
+   "event": "North Korea invades South Korea",
+   "year": 1950
+  },
+  {
+   "unit": "kq5",
+   "event": "Inchon landing",
+   "year": 1950
+  },
+  {
+   "unit": "kq5",
+   "event": "Truman sacks MacArthur",
+   "year": 1951
+  },
+  {
+   "unit": "kq5",
+   "event": "Korean War armistice",
+   "year": 1953
+  },
+  {
+   "unit": "kq5",
+   "event": "French defeat at Dien Bien Phu",
+   "year": 1954
+  },
+  {
+   "unit": "kq5",
+   "event": "Castro takes power in Cuba",
+   "year": 1959
+  },
+  {
+   "unit": "kq5",
+   "event": "Bay of Pigs invasion",
+   "year": 1961
+  },
+  {
+   "unit": "kq5",
+   "event": "Cuban Missile Crisis",
+   "year": 1962
+  },
+  {
+   "unit": "kq5",
+   "event": "Washington–Moscow hotline set up",
+   "year": 1963
+  },
+  {
+   "unit": "kq5",
+   "event": "Gulf of Tonkin incident",
+   "year": 1964
+  },
+  {
+   "unit": "kq5",
+   "event": "Operation Rolling Thunder begins",
+   "year": 1965
+  },
+  {
+   "unit": "kq5",
+   "event": "Tet Offensive",
+   "year": 1968
+  },
+  {
+   "unit": "kq5",
+   "event": "Paris Peace Agreement; US troops leave Vietnam",
+   "year": 1973
+  },
+  {
+   "unit": "kq5",
+   "event": "Fall of Saigon",
+   "year": 1975
+  },
+  {
+   "unit": "kq6",
+   "event": "Stalin dies",
+   "year": 1953
+  },
+  {
+   "unit": "kq6",
+   "event": "Warsaw Pact formed",
+   "year": 1955
+  },
+  {
+   "unit": "kq6",
+   "event": "Khrushchev's 'secret speech'",
+   "year": 1956
+  },
+  {
+   "unit": "kq6",
+   "event": "Hungarian Uprising crushed",
+   "year": 1956
+  },
+  {
+   "unit": "kq6",
+   "event": "Berlin Wall built",
+   "year": 1961
+  },
+  {
+   "unit": "kq6",
+   "event": "Prague Spring and Warsaw Pact invasion",
+   "year": 1968
+  },
+  {
+   "unit": "kq6",
+   "event": "USSR invades Afghanistan",
+   "year": 1979
+  },
+  {
+   "unit": "kq6",
+   "event": "Solidarity founded in Poland",
+   "year": 1980
+  },
+  {
+   "unit": "kq6",
+   "event": "Martial law declared in Poland",
+   "year": 1981
+  },
+  {
+   "unit": "kq6",
+   "event": "Gorbachev becomes Soviet leader",
+   "year": 1985
+  },
+  {
+   "unit": "kq6",
+   "event": "Berlin Wall falls",
+   "year": 1989
+  },
+  {
+   "unit": "kq6",
+   "event": "Solidarity wins Polish elections",
+   "year": 1989
+  },
+  {
+   "unit": "kq6",
+   "event": "Warsaw Pact dissolved",
+   "year": 1991
+  },
+  {
+   "unit": "kq6",
+   "event": "USSR collapses",
+   "year": 1991
+  }
+ ]
+}

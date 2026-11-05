@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0a7d3c" />
   <title>Jake's Game Plan</title>
-  <link rel="stylesheet" href="styles.css?v=18" />
+  <link rel="stylesheet" href="styles.css?v=19" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>" />
 </head>
 <body>
@@ -34,6 +34,7 @@
       <button class="tab" data-tab="progress">🏅 Progress</button>
       <button class="tab" data-tab="today">📅 Today</button>
       <button class="tab" data-tab="homework">📚 Homework</button>
+      <button class="tab" data-tab="revision">📖 Revision</button>
       <button class="tab" data-tab="football">🏆 Football</button>
       <button class="tab" data-tab="videos">🎬 Content</button>
       <button class="tab" data-tab="nico">🐶 Nico</button>
@@ -92,6 +93,9 @@
         </div>
         <div id="hwList" class="list"></div>
       </section>
+
+      <!-- REVISION (rendered by revision/revision.js) -->
+      <section id="tab-revision" class="tab-panel"><div id="revRoot"></div></section>
 
       <!-- CONTENT: YT Shorts + Songs -->
       <section id="tab-videos" class="tab-panel">
@@ -181,6 +185,6 @@
     <footer class="foot muted small">Shared with Christabel in real time · saved to your Firebase</footer>
   </div>
 
-  <script type="module" src="app.js?v=34"></script>
+  <script type="module" src="app.js?v=35"></script>
 </body>
 </html>

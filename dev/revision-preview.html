@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DEV · Revision tab preview</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <!-- Developer preview only: runs the Revision tab against an in-memory fake
+       Firestore (nothing is saved to Firebase). Serve the repo root locally,
+       e.g. `python3 -m http.server 8765`, then open /dev/revision-preview.html.
+       Add ?as=jake to view as Jake (default is Christabel, who sees the parent check). -->
+  <div class="topbar"><div class="brand">DEV preview · Revision (fake data)</div></div>
+  <main><section class="tab-panel active"><div id="revRoot"></div></section></main>
+  <script type="module">
+    // The pack fetch uses a path relative to the page; the real app lives at the repo root.
+    const realFetch = window.fetch;
+    window.fetch = (u, o) => realFetch(String(u).startsWith("revision/") ? "../" + u : u, o);
+
+    const store = new Map(); // "col/id" -> data
+    const listeners = [];
+    let seq = 0;
+    const clone = (x) => JSON.parse(JSON.stringify(x));
+    const deepMerge = (a, b) => { const o = { ...(a || {}) }; for (const k in b) o[k] = (b[k] && typeof b[k] === "object" && !Array.isArray(b[k]) && o[k] && typeof o[k] === "object") ? deepMerge(o[k], b[k]) : b[k]; return o; };
+    const notify = () => listeners.forEach(fire);
+    function fire(l) {
+      const docs = [...store.entries()].filter(([k]) => k.startsWith(l.col + "/")).map(([k, v]) => ({ id: k.slice(l.col.length + 1), data: () => clone(v) }));
+      setTimeout(() => l.cb({ docs }), 0);
+    }
+    const fs = {
+      collection: (db, name) => ({ col: name }),
+      doc: (db, col, id) => ({ col, id }),
+      query: (x) => x,
+      serverTimestamp: () => new Date().toISOString(),
+      getDoc: async (r) => { const v = store.get(r.col + "/" + r.id); return { exists: () => v !== undefined, data: () => clone(v) }; },
+      setDoc: async (r, data, opt) => { const k = r.col + "/" + r.id; store.set(k, opt?.merge ? deepMerge(store.get(k), clone(data)) : clone(data)); notify(); },
+      addDoc: async (c, data) => { const id = "d" + (++seq); store.set(c.col + "/" + id, clone(data)); notify(); return { id }; },
+      updateDoc: async (r, data) => { const k = r.col + "/" + r.id; store.set(k, { ...store.get(k), ...clone(data) }); notify(); },
+      deleteDoc: async (r) => { store.delete(r.col + "/" + r.id); notify(); },
+      onSnapshot: (c, cb) => { const l = { col: c.col, cb }; listeners.push(l); fire(l); return () => {}; },
+    };
+    const asJake = new URLSearchParams(location.search).get("as") === "jake";
+    const me = { email: asJake ? "jakesamuel2011@gmail.com" : "christabelsingh@gmail.com" };
+    const names = { "jakesamuel2011@gmail.com": "Jake", "christabelsingh@gmail.com": "Christabel" };
+    window.__fakeStore = store;
+    const { initRevision } = await import("../revision/revision.js?v=dev");
+    initRevision({ db: {}, fs, me: () => me, nameFor: (e) => names[e] || e, onChange: () => {} });
+  </script>
+</body>
+</html>
