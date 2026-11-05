@@ -3,7 +3,7 @@
 // =============================================================
 import { firebaseConfig, PEOPLE } from "./firebase-config.js";
 import { buildDayPlan, matchAssessment, FOOTBALL_DAYS } from "./planner.js?v=28";
-import { initRevision, sessionsFor, upcomingTests, overdueSessions, paceSummary, revisionCount, progressHtml as revisionProgressHtml, openSubject as openRevisionSubject, render as renderRevision } from "./revision/revision.js?v=7";
+import { initRevision, sessionsFor, upcomingTests, overdueSessions, paceSummary, revisionCount, progressHtml as revisionProgressHtml, openSubject as openRevisionSubject, render as renderRevision } from "./revision/revision.js?v=8";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {

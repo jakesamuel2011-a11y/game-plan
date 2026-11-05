@@ -36,7 +36,7 @@ const SCIENCE_GUIDE = {
   note: "Jake is on Core for Biology: Core sits Papers 1, 3 and 6 (same question types, Core content).",
 };
 
-export const SUBJECTS = [
+const ALL_SUBJECTS = [
   {
     key: "Math", name: "Math", emoji: "📐",
     guide: {
@@ -64,7 +64,7 @@ export const SUBJECTS = [
     topics: [],
   },
   {
-    key: "Humanities", name: "Humanities", emoji: "🏛️",
+    key: "Humanities", name: "History", emoji: "🏛️", // key stays "Humanities" to match the Homework subject list
     guide: {
       papers: [["Paper 1 · 2h · 60 marks", "Structured essays: (a) 4, (b) 6, (c) 10 marks"], ["Paper 2 · 1h 45 · 40 marks", "Source-based document questions"], ["Paper 4 or coursework · 40 marks", "Depth study"]],
       tips: [
@@ -235,6 +235,10 @@ export const SUBJECTS = [
     ],
   },
 ];
+
+// Display order on the Revision tab (by key).
+const ORDER = ["Humanities", "EM", "Bio", "Math", "English", "Physics", "Chem"];
+export const SUBJECTS = ORDER.map(k => ALL_SUBJECTS.find(s => s.key === k));
 
 export const allTopics = () => SUBJECTS.flatMap(s => s.topics.map(t => ({ ...t, subject: s.key })));
 export const topicById = (id) => allTopics().find(t => t.id === id);
