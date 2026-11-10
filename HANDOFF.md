@@ -66,8 +66,8 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 - `planner.js` — **pure, testable** daily-plan generator + match-assessment logic. No Firebase. Imported by app.js with a `?v=` cache-buster.
 - `firebase-config.js` — Firebase keys (safe to be public) + PEOPLE name map.
 - `firestore.rules` — security rules (reference copy; the live rules live in Firebase Console).
-- `scripts/send-digest.mjs` + `scripts/send-monthly.mjs` + `scripts/package.json` — email automations.
-- `.github/workflows/digest.yml` (twice-weekly) + `monthly.yml` (monthly) — schedules.
+- `scripts/send-digest.mjs` + `scripts/send-monthly.mjs` + `scripts/send-session-email.mjs` + `scripts/package.json` — email automations. The session email goes to the parent (PEOPLE entry in firebase-config.js, or a `MAIL_PARENT` secret).
+- `.github/workflows/digest.yml` (twice-weekly) + `monthly.yml` (monthly) + `session-email.yml` (every 15 min: emails each finished study session once) — schedules. Pushing workflow files needs a `gh` token with the `workflow` scope (`gh auth refresh -h github.com -s workflow`).
 - `revision/revision.js` — the 📖 Revision tab (subjects, topics, Round 1/2, tests, sessions, parent check). Exposes `sessionsFor` / `upcomingTests` / `paceSummary` to app.js for the Today plan + dashboard.
 - `revision/syllabus.js` — **edit this to add topics**: subjects → topics (stable ids!) → must-know points → practice pack; exam-format cards; the Feb goal; the Nov seed plan.
 - `revision/packview.js` — pure renderer for a practice pack (flashcards, quiz/date quiz, exam questions with mark scheme or model answer, data practice, 6-mark plans, 10-mark drill, timeline).
@@ -99,8 +99,9 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 - `revprogress/{topicId}` {r1:{done,conf,at,by}, r2:{…}, pts:{index:true}} — revision rounds + checklist ticks
 - `revsessions` {date, slot, subject, topics[], title, method, mins, done, conf, notes, doneBy, doneAt} — planned revision sessions (feed the Today plan); finishing one marks the next round on its topics
 - `revtests` {subject, name, date, topics[]}
-- `revpractice/{packId}` {answers, cards, quizzes[], drills, sent} — practice-pack progress (shared: both logins can see it). `sent` = answers already sent for grading
-- `revgrade` {subject, date, by, items[{q, marks, answer, guide}], status, feedback} — "Grade this": Jake sends new written answers; the parent copies them (with mark schemes) into Claude, pastes the feedback back; also listed in the digest email
+- `revpractice/{packId}` {answers, cards, quizzes[], drills, done, sent} — practice-pack progress (shared: both logins can see it). `done` = answers Jake tapped Submit on; `sent` = answers already sent for grading
+- `studysessions` {by, date, start, end, mins, subjects[], status: running|done, conf, notes, answers, gradeId, emailed} — Jake's timed study sessions (Start / End bar on every Revision page; table in Progress). Ending one copies the new answers in its subjects into a `revgrade` set; `send-session-email.mjs` emails it to the parent and sets `emailed`. Sessions of 20+ min count toward the weekly revision requirement
+- `revgrade` {sessionId, subjects[], subject, date, by, items[{q, marks, answer, guide, subject}], prompt, status, feedback} — grading sets. The parent copies `prompt` (questions, answers, mark schemes) into Claude and pastes the feedback back for Jake; waiting sets are also in the digest email. Older sets (no sessionId) came from the retired "Grade this" button
 - `meta/revision_v1` — seeds the Nov 7–13 EM/Bio plan + tests once
 - `meta/history_rename_v1` — one-time move of homework subject Humanities → History (revision keeps the internal key "Humanities", shown as History)
 - `meta/seeded`, `meta/fix_fixture_times_v1`, `meta/deliverables_v1` — one-time setup/migration flags
