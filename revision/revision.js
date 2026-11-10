@@ -538,8 +538,9 @@ function paceCard() {
 function renderHome(el) {
   const t = todayStr();
   el.innerHTML = `<h2>📖 Revision</h2>
+    <div id="rvGrades"></div>
     <h3 class="section-h">📚 Subjects: tap one for its topics, checklists and practice</h3><div id="rvSubj" class="rv-grid"></div>
-    <div id="rvGrades"></div>${paceCard()}<div id="rvParent"></div>
+    ${paceCard()}<div id="rvParent"></div>
     <h3 class="section-h">📝 Tests</h3><div id="rvTests" class="list"></div>
     <h3 class="section-h">🗓️ Revision sessions</h3><div id="rvSess" class="list"></div>`;
 
@@ -600,6 +601,8 @@ function renderHome(el) {
     const l = document.createElement("div"); l.className = "list";
     list.forEach(g => l.appendChild(gradeItem(g, true)));
     gb.appendChild(l);
+  } else if (IS_PARENT()) {
+    gb.innerHTML = `<h3 class="section-h">✍️ Ready to grade (0)</h3><div class="card muted small">Nothing to mark yet. When Jake ends a study session with written answers, they appear here (and you get an email), with a 📋 Copy for Claude button, a box to paste the feedback and a Score box.</div>`;
   }
 }
 
