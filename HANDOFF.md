@@ -99,7 +99,8 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 - `revprogress/{topicId}` {r1:{done,conf,at,by}, r2:{…}, pts:{index:true}} — revision rounds + checklist ticks
 - `revsessions` {date, slot, subject, topics[], title, method, mins, done, conf, notes, doneBy, doneAt} — planned revision sessions (feed the Today plan); finishing one marks the next round on its topics
 - `revtests` {subject, name, date, topics[]}
-- `revpractice/{packId}` {answers, cards, quizzes[], drills} — practice-pack progress (shared: both logins can see it)
+- `revpractice/{packId}` {answers, cards, quizzes[], drills, sent} — practice-pack progress (shared: both logins can see it). `sent` = answers already sent for grading
+- `revgrade` {subject, date, by, items[{q, marks, answer, guide}], status, feedback} — "Grade this": Jake sends new written answers; the parent copies them (with mark schemes) into Claude, pastes the feedback back; also listed in the digest email
 - `meta/revision_v1` — seeds the Nov 7–13 EM/Bio plan + tests once
 - `meta/history_rename_v1` — one-time move of homework subject Humanities → History (revision keeps the internal key "Humanities", shown as History)
 - `meta/seeded`, `meta/fix_fixture_times_v1`, `meta/deliverables_v1` — one-time setup/migration flags

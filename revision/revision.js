@@ -5,14 +5,18 @@
 //    revprogress/{topicId}  {r1:{done,conf,at,by}, r2:{…}, pts:{index:true}}
 //    revsessions            {date, slot, subject, topics[], title, method, mins, done, conf, notes, doneBy}
 //    revtests               {subject, name, date, topics[]}
-//    revpractice/{packId}   practice state (answers, flashcards, quiz scores, drills)
+//    revpractice/{packId}   practice state (answers, flashcards, quiz scores, drills,
+//                           sent:{key:text} = answers already sent for grading)
+//    revgrade               "Grade this" requests: {subject, date, by, items[], status:"waiting"|"graded",
+//                           feedback, gradedAt, gradedBy}. Jake sends; Mum copies the text into
+//                           Claude, then pastes the feedback back for Jake to read.
 //    meta/revision_v1       one-time seed flag
 //
 //  app.js calls initRevision(...) after login and reads sessionsFor() /
 //  upcomingTests() / paceSummary() for the Today plan and dashboard.
 // =============================================================
 import { SUBJECTS, PACKS, PACK_VERSION, REVISION_GOAL, SEED_TESTS, SEED_SESSIONS, allTopics, topicById, subjectByKey } from "./syllabus.js?v=3";
-import { renderPack, packModes } from "./packview.js?v=2";
+import { renderPack, packModes, writtenWork } from "./packview.js?v=3";
 
 const esc = (s) => String(s ?? "").replace(/[<>&"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
 const ymd = (d) => d.toISOString().slice(0, 10);
@@ -22,7 +26,8 @@ const fmtDate = (s) => s ? new Date(s + "T00:00:00").toLocaleDateString("en-GB",
 const daysUntil = (s) => Math.round((new Date(s + "T00:00:00") - new Date(todayStr() + "T00:00:00")) / 864e5);
 
 let DB, F, ME, NAME_FOR, ON_CHANGE, IS_PARENT;
-const R = { progress: {}, sessions: [], tests: [] };
+const R = { progress: {}, sessions: [], tests: [], practice: {}, grades: [] };
+let liveStore = null; // { id, store } for the pack open on screen (has unsaved typing)
 let view = { name: "home" };
 const packCache = new Map();
 
@@ -32,9 +37,15 @@ export function initRevision({ db, fs, me, nameFor, onChange, isParent }) {
     F.onSnapshot(F.query(F.collection(DB, "revprogress")), s => { R.progress = Object.fromEntries(s.docs.map(d => [d.id, d.data()])); changed(); });
     F.onSnapshot(F.query(F.collection(DB, "revsessions")), s => { R.sessions = s.docs.map(d => ({ id: d.id, ...d.data() })); changed(); });
     F.onSnapshot(F.query(F.collection(DB, "revtests")), s => { R.tests = s.docs.map(d => ({ id: d.id, ...d.data() })); changed(); });
+    F.onSnapshot(F.query(F.collection(DB, "revpractice")), s => { R.practice = Object.fromEntries(s.docs.map(d => [d.id, d.data()])); changed(true); });
+    F.onSnapshot(F.query(F.collection(DB, "revgrade")), s => { R.grades = s.docs.map(d => ({ id: d.id, ...d.data() })).sort((a, b) => (b.date || "").localeCompare(a.date || "") || (b.n || 0) - (a.n || 0)); changed(); });
   });
 }
-function changed() { if (view.name !== "pack") render(); ON_CHANGE(); }
+function changed(quiet) {
+  // Practice saves arrive while Jake types; don't redraw the page under him.
+  if (view.name !== "pack" && !(quiet && view.name === "home" && !IS_PARENT())) render();
+  if (!quiet) ON_CHANGE();
+}
 
 async function seed() {
   try {
@@ -68,6 +79,8 @@ export function revisionCount(from, to) {
   n += R.sessions.filter(s => s.done && !(s.topics || []).length && s.doneAt >= from && s.doneAt <= to).length;
   return n;
 }
+// Grading requests still waiting for Mum's feedback (dashboard badge).
+export const gradeQueue = () => R.grades.filter(g => g.status !== "graded");
 export function paceSummary() {
   const topics = allTopics();
   const total = topics.length * REVISION_GOAL.rounds;
@@ -123,6 +136,128 @@ async function practiceStore(packId) {
   return store;
 }
 
+// ---------- Grade this ----------
+const subjectPacks = (s) => [...new Set((s?.topics || []).map(t => t.pack).filter(Boolean))];
+const stateFor = (packId) => liveStore?.id === packId ? liveStore.store.state : (R.practice[packId] || {});
+// Written answers in a subject that are new or changed since they were last sent.
+async function newWork(s) {
+  const out = [];
+  for (const id of subjectPacks(s)) {
+    try {
+      const st = stateFor(id), sent = st.sent || {};
+      writtenWork(await loadPack(id), st).forEach(w => { if (sent[w.key] !== w.answer) out.push({ ...w, packId: id }); });
+    } catch (e) { /* pack unavailable */ }
+  }
+  return out;
+}
+async function sendForGrading(s) {
+  const items = await newWork(s);
+  if (!items.length) { alert("Nothing new to grade yet. Write answers in the exam questions first."); return false; }
+  const date = todayStr();
+  await F.addDoc(F.collection(DB, "revgrade"), {
+    subject: s.key, date, n: Date.now(), by: ME().email, status: "waiting", at: F.serverTimestamp(),
+    items: items.map(({ packId, kind, pack, unit, q, marks, answer, guide }) => ({ packId, kind, pack, unit, q, marks, answer, guide })),
+  });
+  // Remember what was sent so the next Grade this only picks up new work.
+  for (const id of new Set(items.map(i => i.packId))) {
+    const sent = { ...(stateFor(id).sent || {}) };
+    items.filter(i => i.packId === id).forEach(i => { sent[i.key] = i.answer; });
+    if (liveStore?.id === id) liveStore.store.state.sent = sent; // so the open pack's next save keeps it
+    await F.setDoc(F.doc(DB, "revpractice", id), { sent }, { merge: true });
+  }
+  return true;
+}
+export function gradePrompt(g) {
+  const s = subjectByKey(g.subject);
+  const who = NAME_FOR(g.by);
+  const total = g.items.reduce((n, i) => n + (+i.marks || 0), 0);
+  const head = `Please mark ${who}'s revision answers like a Cambridge IGCSE examiner.
+Subject: ${s?.name || g.subject}. ${who} is 15.${s?.guide?.note ? " " + s.guide.note : ""}
+There ${g.items.length > 1 ? `are ${g.items.length} answers` : "is 1 answer"} (${total} mark${total > 1 ? "s" : ""} in total), each with its mark scheme or model answer below.
+
+For each answer: give a mark (e.g. 3/4), say what earned the marks, what was missing compared with the mark scheme, and one clear tip to improve it.
+Then finish with: total score, 2 things ${who} did well, and the 2 most important things to work on next.
+Write to ${who} directly. Keep it encouraging, plain, and easy to read on a phone.`;
+  const body = g.items.map((i, k) => `--- Question ${k + 1} of ${g.items.length} (${i.marks} mark${i.marks > 1 ? "s" : ""})${i.unit ? " · " + i.unit : ""} ---
+Question: ${i.q}
+
+${who}'s answer:
+${i.answer}
+
+${i.guide}`).join("\n\n");
+  return head + "\n\n" + body;
+}
+async function copyText(text, btn) {
+  try { await navigator.clipboard.writeText(text); }
+  catch (e) {
+    const t = document.createElement("textarea"); t.value = text; document.body.appendChild(t); t.select();
+    try { document.execCommand("copy"); } finally { t.remove(); }
+  }
+  const was = btn.textContent; btn.textContent = "✓ Copied"; setTimeout(() => { btn.textContent = was; }, 2000);
+}
+
+// One request: status, and either Mum's tools (copy + paste feedback) or the feedback itself.
+function gradeItem(g, showSubject) {
+  const s = subjectByKey(g.subject);
+  const el = document.createElement("div");
+  el.className = "item rv-grade";
+  const what = `${g.items.length} answer${g.items.length > 1 ? "s" : ""}${showSubject ? " · " + esc(s?.name || g.subject) : ""}`;
+  const status = g.status === "graded"
+    ? `<span class="pill today" style="color:var(--accent);background:#13302a">✓ graded</span>`
+    : `<span class="pill soon">⏳ waiting for ${IS_PARENT() ? "you" : "Mum"}</span>`;
+  el.innerHTML = `<div class="item-main">
+    <div class="row-between"><div class="item-title">✍️ ${what}</div>${status}</div>
+    <div class="item-sub">Sent ${fmtDate(g.date)} by ${esc(NAME_FOR(g.by))}${g.gradedAt ? ` · feedback ${fmtDate(g.gradedAt)}` : ""}</div>
+    <details class="rv-gq"><summary class="muted small">See the questions and answers</summary><ol class="pk-ul small">${g.items.map(i => `<li><b>${esc(i.q)}</b> <span class="muted">(${i.marks})</span><div class="rv-pre">${esc(i.answer)}</div></li>`).join("")}</ol></details>
+    ${g.feedback ? `<div class="pk-ms rv-fb"><div class="pk-ms-h">Feedback</div><div class="rv-pre">${esc(g.feedback)}</div></div>` : ""}
+    <div class="rv-gtools"></div></div>`;
+  if (IS_PARENT()) {
+    const tools = el.querySelector(".rv-gtools");
+    const copy = document.createElement("button");
+    copy.className = "btn primary"; copy.type = "button"; copy.textContent = "📋 Copy for Claude";
+    copy.onclick = () => copyText(gradePrompt(g), copy);
+    const hint = document.createElement("div");
+    hint.className = "muted small"; hint.textContent = "Paste it into a Claude chat. When Claude has marked it, paste the feedback below so Jake can read it.";
+    const ta = document.createElement("textarea");
+    ta.className = "pk-text"; ta.placeholder = "Paste Claude's feedback here"; ta.value = g.feedback || "";
+    const save = document.createElement("button");
+    save.className = "btn"; save.type = "button"; save.textContent = g.feedback ? "Update feedback" : "Save feedback for Jake";
+    save.onclick = async () => {
+      const fb = ta.value.trim(); if (!fb) return;
+      await F.updateDoc(F.doc(DB, "revgrade", g.id), { feedback: fb, status: "graded", gradedAt: todayStr(), gradedBy: ME().email });
+    };
+    const del = document.createElement("button");
+    del.className = "btn tiny ghost"; del.type = "button"; del.textContent = "Remove";
+    del.onclick = () => { if (confirm("Remove this grading request?")) F.deleteDoc(F.doc(DB, "revgrade", g.id)); };
+    if (g.status === "graded") {
+      const d = document.createElement("details"); d.innerHTML = `<summary class="muted small">Copy again or edit feedback</summary>`;
+      d.append(copy, ta, save, del); tools.appendChild(d);
+    } else tools.append(copy, hint, ta, save, del);
+  }
+  return el;
+}
+
+// The Grade this card for a subject page (or the top of a practice pack).
+function gradeCard(s, onSent) {
+  const c = document.createElement("div");
+  c.className = "card rv-gradecard";
+  c.innerHTML = `<div class="row-between"><b>✍️ Get your answers marked</b><button class="btn primary" type="button">Grade this</button></div><div class="muted small rv-gcount">Checking your written answers…</div>`;
+  const btn = c.querySelector("button"), info = c.querySelector(".rv-gcount");
+  const refresh = () => newWork(s).then(w => {
+    info.textContent = w.length
+      ? `${w.length} new written answer${w.length > 1 ? "s" : ""} ready. When you've finished for today, tap Grade this and Mum gets them to mark.`
+      : "Write answers in the exam questions (and 6-mark plans), then tap Grade this to send them to Mum for marking.";
+  });
+  btn.onclick = async () => {
+    btn.disabled = true; btn.textContent = "Sending…";
+    try { if (await sendForGrading(s)) { btn.textContent = "✓ Sent to Mum"; info.textContent = "Sent. Her feedback will show on this page."; onSent?.(); return; } }
+    catch (e) { alert("Couldn't send: " + e.message); }
+    btn.textContent = "Grade this"; refresh();
+  };
+  refresh();
+  return c;
+}
+
 // ---------- Progress tab section (app.js puts this HTML in the Progress tab) ----------
 export function openSubject(key) { view = key ? { name: "subject", key } : { name: "home" }; render(); }
 export function progressHtml() {
@@ -163,7 +298,7 @@ export function progressHtml() {
 
 // ---------- rendering ----------
 const root = () => document.getElementById("revRoot");
-function go(v) { view = v; render(); window.scrollTo(0, 0); }
+function go(v) { if (v.name !== "pack") liveStore = null; view = v; render(); window.scrollTo(0, 0); }
 
 export function render() {
   const host = root(); if (!host) return;
@@ -251,7 +386,7 @@ function renderHome(el) {
   const t = todayStr();
   el.innerHTML = `<h2>📖 Revision</h2>
     <h3 class="section-h">📚 Subjects: tap one for its topics, checklists and practice</h3><div id="rvSubj" class="rv-grid"></div>
-    ${paceCard()}<div id="rvParent"></div>
+    <div id="rvGrades"></div>${paceCard()}<div id="rvParent"></div>
     <h3 class="section-h">📝 Tests</h3><div id="rvTests" class="list"></div>
     <h3 class="section-h">🗓️ Revision sessions</h3><div id="rvSess" class="list"></div>`;
 
@@ -302,6 +437,17 @@ function renderHome(el) {
   });
 
   renderParentCheck(el.querySelector("#rvParent"));
+
+  // Grading: Mum sees everything waiting; Jake sees his latest requests and feedback.
+  const gb = el.querySelector("#rvGrades");
+  const waiting = gradeQueue();
+  const list = IS_PARENT() ? waiting : R.grades.slice(0, 3);
+  if (list.length) {
+    gb.innerHTML = `<h3 class="section-h">✍️ ${IS_PARENT() ? `Ready to grade (${waiting.length})` : "Marking"}</h3>`;
+    const l = document.createElement("div"); l.className = "list";
+    list.forEach(g => l.appendChild(gradeItem(g, true)));
+    gb.appendChild(l);
+  }
 }
 
 // Christabel only: three quick questions on the most recent session's pack.
@@ -327,8 +473,14 @@ function renderSubject(el, s) {
     <details class="card rv-guide" open><summary><b>📋 How it's marked</b></summary>
       <div class="list" style="margin-top:8px">${s.guide.papers.map(([p, d]) => `<div class="item-sub"><b>${esc(p)}</b> · ${esc(d)}</div>`).join("")}</div>
       <ul class="pk-ul">${s.guide.tips.map(x => `<li>${esc(x)}</li>`).join("")}</ul>${s.guide.note ? `<div class="muted small">${esc(s.guide.note)}</div>` : ""}</details>
-    <div id="rvTopics"></div>`;
+    <div id="rvGrade"></div><div id="rvTopics"></div>`;
   el.querySelector("#rvBack").onclick = () => go({ name: "home" });
+  if (subjectPacks(s).length) {
+    const gbox = el.querySelector("#rvGrade");
+    if (!IS_PARENT()) gbox.appendChild(gradeCard(s));
+    const mine = R.grades.filter(g => g.subject === s.key).slice(0, 3);
+    if (mine.length) { gbox.insertAdjacentHTML("beforeend", `<h3 class="section-h">✍️ Marking</h3>`); const l = document.createElement("div"); l.className = "list"; mine.forEach(g => l.appendChild(gradeItem(g))); gbox.appendChild(l); }
+  }
   const list = el.querySelector("#rvTopics");
   if (!s.topics.length) {
     list.innerHTML = `<div class="card muted small">No topics listed for ${esc(s.name)} yet. Send Claude the chapter list (a photo of the textbook contents page is fine) and they'll appear here.</div>`;
@@ -390,7 +542,10 @@ async function renderPackView(el) {
   try {
     const [pack, store] = await Promise.all([loadPack(v.id), practiceStore(v.id)]);
     if (view !== v) return; // navigated away while loading
+    liveStore = { id: v.id, store };
     renderPack(el.querySelector("#rvPack"), pack, store, { unit: v.unit, mode: v.mode });
+    const s = subjectByKey(v.back);
+    if (s && !IS_PARENT()) el.appendChild(gradeCard(s));
   } catch (e) {
     el.querySelector("#rvPack").innerHTML = `<p class="error">Couldn't load this pack (${esc(e.message)}). Check your connection and try again.</p>`;
   }
