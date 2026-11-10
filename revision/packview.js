@@ -8,6 +8,8 @@
 //            state: { answers:{key:text}, cards:{key:"got"|"again"},
 //                     quizzes:[{d, unit, score, n}], drills:{key:date} }
 //    opts  = { unit }  — pre-select a unit chip (e.g. "kq4")
+//            { submit(key), submitted(key) } — optional: shows a Submit button
+//            under each written answer (Jake only)
 // =============================================================
 
 const esc = (s) => String(s ?? "").replace(/[<>&"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
@@ -161,6 +163,22 @@ export function renderPack(root, pack, store, opts = {}) {
     wrap.append(t, speakButton(t));
     return wrap;
   }
+  // "Submit answer": sends this one answer to Mum for marking. Goes back to
+  // "Submit" if Jake edits the answer afterwards.
+  function submitBtn(card, key) {
+    if (!opts.submit) return;
+    const b = h("button", { class: "btn primary pk-submit", type: "button" });
+    const set = () => { const done = opts.submitted(key); b.textContent = done ? "✓ Submitted for marking" : "Submit answer"; b.classList.toggle("done", done); };
+    b.addEventListener("click", async () => {
+      if (opts.submitted(key)) return set();
+      b.disabled = true; b.textContent = "Sending…";
+      try { await opts.submit(key); } catch (e) { alert("Couldn't submit: " + e.message); }
+      b.disabled = false; set();
+    });
+    card.addEventListener("input", set);
+    set();
+    card.appendChild(b);
+  }
   function reveal(label, target) {
     target.hidden = true;
     const b = h("button", { class: "btn tiny ghost", type: "button", on: { click: () => { target.hidden = !target.hidden; b.textContent = target.hidden ? label : "Hide"; } } }, esc(label));
@@ -178,6 +196,7 @@ export function renderPack(root, pack, store, opts = {}) {
     c.appendChild(h("div", { class: "row-between" }, `<div class="pk-q">${esc(q.q)}</div><span class="pill soon">${q.marks} mark${q.marks > 1 ? "s" : ""}</span>`));
     if (q.unit && unit === "all") c.appendChild(h("div", { class: "tag" }, esc(unitName(q.unit))));
     c.appendChild(textBox(key, `Write your answer first (${q.marks} mark${q.marks > 1 ? "s" : ""}), then check`));
+    submitBtn(c, key);
     const ms = q.model
       ? msBox("Model answer", null, q.why ? "Why it scores: " + q.why : "", q.model)
       : msBox("Mark scheme points", q.points, q.note);
@@ -348,6 +367,7 @@ export function renderPack(root, pack, store, opts = {}) {
         c.appendChild(h("div", { class: "pk-lab " + cls }, esc(lab)));
         c.appendChild(textBox(`pl${i}-${j}`, j < 4 ? "Point + why it matters" : "Overall I think… because… but it depends on…"));
       });
+      submitBtn(c, "pl" + i);
       const ms = msBox("Points that would score", null, null, [`For: ${st.for.join("; ")}.`, `Against: ${st.against.join("; ")}.`, `Conclusion example: ${st.conclusion}`]);
       c.append(reveal("Compare with model points", ms), ms);
       body.appendChild(c);

@@ -16,7 +16,7 @@
 //  upcomingTests() / paceSummary() for the Today plan and dashboard.
 // =============================================================
 import { SUBJECTS, PACKS, PACK_VERSION, REVISION_GOAL, SEED_TESTS, SEED_SESSIONS, allTopics, topicById, subjectByKey } from "./syllabus.js?v=3";
-import { renderPack, packModes, writtenWork } from "./packview.js?v=4";
+import { renderPack, packModes, writtenWork } from "./packview.js?v=5";
 
 const esc = (s) => String(s ?? "").replace(/[<>&"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
 const ymd = (d) => d.toISOString().slice(0, 10);
@@ -153,11 +153,22 @@ async function newWork(s) {
 async function sendForGrading(s) {
   const items = await newWork(s);
   if (!items.length) { alert("Nothing new to grade yet. Write answers in the exam questions first."); return false; }
-  const date = todayStr();
-  await F.addDoc(F.collection(DB, "revgrade"), {
-    subject: s.key, date, n: Date.now(), by: ME().email, status: "waiting", at: F.serverTimestamp(),
-    items: items.map(({ packId, kind, pack, unit, q, marks, answer, guide }) => ({ packId, kind, pack, unit, q, marks, answer, guide })),
-  });
+  await queueForGrading(s, items);
+  return true;
+}
+// Adds answers to today's waiting set for this subject (so Mum gets one set a
+// day, whether Jake submits answers one by one or taps Grade this), then
+// remembers what was sent.
+async function queueForGrading(s, items) {
+  const me = ME().email, date = todayStr();
+  const clean = items.map(({ key, packId, kind, pack, unit, q, marks, answer, guide }) => ({ key, packId, kind, pack, unit, q, marks, answer, guide }));
+  const open = R.grades.find(g => g.subject === s.key && g.status !== "graded" && g.date === date && g.by === me);
+  if (open) {
+    const ids = new Set(clean.map(i => i.packId + "/" + i.key));
+    await F.updateDoc(F.doc(DB, "revgrade", open.id), { items: [...(open.items || []).filter(i => !ids.has(i.packId + "/" + i.key)), ...clean] });
+  } else {
+    await F.addDoc(F.collection(DB, "revgrade"), { subject: s.key, date, n: Date.now(), by: me, status: "waiting", at: F.serverTimestamp(), items: clean });
+  }
   // Remember what was sent so the next Grade this only picks up new work.
   for (const id of new Set(items.map(i => i.packId))) {
     const sent = { ...(stateFor(id).sent || {}) };
@@ -165,7 +176,6 @@ async function sendForGrading(s) {
     if (liveStore?.id === id) liveStore.store.state.sent = sent; // so the open pack's next save keeps it
     await F.setDoc(F.doc(DB, "revpractice", id), { sent }, { merge: true });
   }
-  return true;
 }
 export function gradePrompt(g) {
   const s = subjectByKey(g.subject);
@@ -246,8 +256,9 @@ function gradeCard(s, onSent) {
   const refresh = () => newWork(s).then(w => {
     info.textContent = w.length
       ? `${w.length} new written answer${w.length > 1 ? "s" : ""} ready. When you've finished for today, tap Grade this and Mum gets them to mark.`
-      : "Write answers in the exam questions (and 6-mark plans), then tap Grade this to send them to Mum for marking.";
+      : "Tap Submit under each answer when it's finished, or write a few and tap Grade this to send them all. Mum gets them to mark.";
   });
+  c.refresh = refresh;
   btn.onclick = async () => {
     btn.disabled = true; btn.textContent = "Sending…";
     try { if (await sendForGrading(s)) { btn.textContent = "✓ Sent to Mum"; info.textContent = "Sent. Her feedback will show on this page."; onSent?.(); return; } }
@@ -543,9 +554,20 @@ async function renderPackView(el) {
     const [pack, store] = await Promise.all([loadPack(v.id), practiceStore(v.id)]);
     if (view !== v) return; // navigated away while loading
     liveStore = { id: v.id, store };
-    renderPack(el.querySelector("#rvPack"), pack, store, { unit: v.unit, mode: v.mode });
     const s = subjectByKey(v.back);
-    if (s && !IS_PARENT()) el.appendChild(gradeCard(s));
+    const jake = s && !IS_PARENT();
+    const gc = jake ? gradeCard(s) : null;
+    // Submit one answer: it joins today's set for Mum straight away.
+    const current = (key) => writtenWork(pack, store.state).find(w => w.key === key);
+    const submit = async (key) => {
+      const w = current(key);
+      if (!w) { alert("Write a bit more first, then submit."); return; }
+      await queueForGrading(s, [{ ...w, packId: v.id }]);
+      gc?.refresh();
+    };
+    const submitted = (key) => { const w = current(key); return !!w && store.state.sent?.[key] === w.answer; };
+    renderPack(el.querySelector("#rvPack"), pack, store, jake ? { unit: v.unit, mode: v.mode, submit, submitted } : { unit: v.unit, mode: v.mode });
+    if (gc) el.appendChild(gc);
   } catch (e) {
     el.querySelector("#rvPack").innerHTML = `<p class="error">Couldn't load this pack (${esc(e.message)}). Check your connection and try again.</p>`;
   }
