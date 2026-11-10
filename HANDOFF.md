@@ -46,10 +46,10 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 5. **Verify an upload landed:** open the file on GitHub and Cmd+F for a string you just changed.
 
 ### Current cache-buster versions (keep incrementing from here)
-- `app.js?v=44`
-- `styles.css?v=22`
+- `app.js?v=45`
+- `styles.css?v=23`
 - planner import `./planner.js?v=28`
-- revision import in app.js `./revision/revision.js?v=10` (and its own imports of `syllabus.js?v=3` / `packview.js?v=2`)
+- revision import in app.js `./revision/revision.js?v=11` (and its own imports of `syllabus.js?v=3` / `packview.js?v=3`)
 - pack JSON files: bump `PACK_VERSION` in `revision/syllabus.js`
 
 > The `.github/workflows/*.yml` files won't drag-upload (hidden folder). Edit those via GitHub's **Add file → Create new file** if needed.
