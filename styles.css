@@ -279,3 +279,16 @@ details summary{list-style-position:inside}
 .rv-table td .progress{display:inline-block;width:60%;vertical-align:middle;margin-right:6px}
 .rv-link{background:none;border:none;color:var(--text);padding:0;font:inherit;text-align:left;cursor:pointer}
 .rv-link:hover{color:var(--accent)}
+.rv-gradecard{border-left:4px solid var(--amber)}
+.rv-gradecard .row-between{gap:10px}
+.rv-grade{flex-direction:column;align-items:stretch}
+.rv-grade .row-between{gap:8px}
+.rv-pre{white-space:pre-wrap;font-size:.86rem;margin-top:4px}
+.rv-fb{margin-top:8px}
+.rv-gq{margin-top:6px}
+.rv-gq summary{cursor:pointer}
+.rv-gtools{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.rv-gtools details{display:flex;flex-direction:column;gap:8px}
+.rv-gtools details[open] > *{margin-top:8px}
+.pk-textwrap{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.pk-mic.on{background:#3a1414;color:#ff8a80;border-color:#6a2a2a}

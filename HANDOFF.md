@@ -46,10 +46,10 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 5. **Verify an upload landed:** open the file on GitHub and Cmd+F for a string you just changed.
 
 ### Current cache-buster versions (keep incrementing from here)
-- `app.js?v=44`
-- `styles.css?v=22`
+- `app.js?v=46`
+- `styles.css?v=24`
 - planner import `./planner.js?v=28`
-- revision import in app.js `./revision/revision.js?v=10` (and its own imports of `syllabus.js?v=3` / `packview.js?v=2`)
+- revision import in app.js `./revision/revision.js?v=12` (and its own imports of `syllabus.js?v=3` / `packview.js?v=4`)
 - pack JSON files: bump `PACK_VERSION` in `revision/syllabus.js`
 
 > The `.github/workflows/*.yml` files won't drag-upload (hidden folder). Edit those via GitHub's **Add file → Create new file** if needed.
@@ -99,7 +99,8 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 - `revprogress/{topicId}` {r1:{done,conf,at,by}, r2:{…}, pts:{index:true}} — revision rounds + checklist ticks
 - `revsessions` {date, slot, subject, topics[], title, method, mins, done, conf, notes, doneBy, doneAt} — planned revision sessions (feed the Today plan); finishing one marks the next round on its topics
 - `revtests` {subject, name, date, topics[]}
-- `revpractice/{packId}` {answers, cards, quizzes[], drills} — practice-pack progress (shared: both logins can see it)
+- `revpractice/{packId}` {answers, cards, quizzes[], drills, sent} — practice-pack progress (shared: both logins can see it). `sent` = answers already sent for grading
+- `revgrade` {subject, date, by, items[{q, marks, answer, guide}], status, feedback} — "Grade this": Jake sends new written answers; the parent copies them (with mark schemes) into Claude, pastes the feedback back; also listed in the digest email
 - `meta/revision_v1` — seeds the Nov 7–13 EM/Bio plan + tests once
 - `meta/history_rename_v1` — one-time move of homework subject Humanities → History (revision keeps the internal key "Humanities", shown as History)
 - `meta/seeded`, `meta/fix_fixture_times_v1`, `meta/deliverables_v1` — one-time setup/migration flags

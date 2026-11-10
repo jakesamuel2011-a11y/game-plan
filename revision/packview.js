@@ -50,6 +50,72 @@ export function packStats(pack, state, unit) {
   return { cards: cards.length, got, exam: exam.length, written, bestQuizPct: best };
 }
 
+// Every written answer Jake has typed in this pack (exam, data and 6-mark
+// plan questions), with the question and its mark scheme / model answer, so
+// the work can be sent for grading. `key` matches state.answers (plans: "pl<i>").
+export function writtenWork(pack, state) {
+  const A = state.answers || {};
+  const unitName = (k) => (pack.units || []).find(u => u.key === k)?.name || "";
+  const out = [];
+  const exam = (q, key, kind) => {
+    const answer = (A[key] || "").trim();
+    if (answer.length < 15) return;
+    const guide = q.model
+      ? "Model answer: " + q.model.join(" ") + (q.why ? "\nWhy it scores: " + q.why : "")
+      : "Mark scheme points: " + (q.points || []).join("; ") + (q.note ? "\nNote: " + q.note : "");
+    out.push({ key, kind, pack: pack.title, unit: unitName(q.unit), q: q.q, marks: q.marks, answer, guide });
+  };
+  (pack.exam || []).forEach((q, i) => exam(q, "eq" + i, "exam"));
+  (pack.dataPractice?.questions || []).forEach((q, i) => exam({ ...q, q: (pack.dataPractice.chartTitle ? `[Chart: ${pack.dataPractice.chartTitle}] ` : "") + q.q }, "dp" + i, "data"));
+  const p = pack.planner;
+  (p?.statements || []).forEach((st, i) => {
+    const labs = ["For 1", "For 2", "Against 1", "Against 2", "Conclusion"];
+    const parts = labs.map((l, j) => [l, (A[`pl${i}-${j}`] || "").trim()]).filter(([, t]) => t);
+    if (parts.map(([, t]) => t).join("").length < 15) return;
+    out.push({
+      key: "pl" + i, kind: "plan", pack: pack.title, unit: "", q: `“${st.text}” ${p.task}`, marks: 6,
+      answer: parts.map(([l, t]) => `${l}: ${t}`).join("\n"),
+      guide: `Points that would score. For: ${st.for.join("; ")}. Against: ${st.against.join("; ")}. Example conclusion: ${st.conclusion}`,
+    });
+  });
+  return out;
+}
+
+// 🎤 Speak: turns speech into text in an answer box (Chrome, Edge, Safari;
+// not Firefox, where the button is simply not shown). Needs internet.
+const SpeechRec = typeof window !== "undefined" && (window.SpeechRecognition || window.webkitSpeechRecognition);
+let activeRec = null;
+function speakButton(t) {
+  const b = h("button", { class: "btn tiny ghost pk-mic", type: "button", title: "Speak your answer instead of typing" }, "🎤 Speak");
+  let rec = null;
+  const stop = () => { if (rec) rec.stop(); };
+  b.addEventListener("click", () => {
+    if (rec) return stop();
+    if (activeRec) activeRec.stop(); // one microphone at a time
+    rec = new SpeechRec();
+    rec.lang = "en-IN"; rec.continuous = true; rec.interimResults = true;
+    const base = t.value.replace(/\s+$/, "");
+    rec.onresult = (e) => {
+      let said = "";
+      for (let i = 0; i < e.results.length; i++) said += e.results[i][0].transcript;
+      said = said.trim();
+      if (said && (!base || /[.!?]$/.test(base))) said = said[0].toUpperCase() + said.slice(1); // new sentence
+      t.value = base + (base && said ? " " : "") + said;
+      t.dispatchEvent(new Event("input")); // saves like typing
+    };
+    rec.onerror = (e) => {
+      if (e.error === "not-allowed" || e.error === "service-not-allowed") alert("The microphone is blocked. Allow microphone access for this site in the browser settings, then try again.");
+      else if (e.error === "network") alert("Speaking needs an internet connection.");
+    };
+    rec.onend = () => { rec = null; if (activeRec === r) activeRec = null; b.textContent = "🎤 Speak"; b.classList.remove("on"); };
+    const r = rec;
+    activeRec = rec;
+    try { rec.start(); b.textContent = "⏹ Stop"; b.classList.add("on"); }
+    catch (err) { rec = null; activeRec = null; }
+  });
+  return b;
+}
+
 export function renderPack(root, pack, store, opts = {}) {
   const S = store.state;
   S.answers ||= {}; S.cards ||= {}; S.quizzes ||= []; S.drills ||= {};
@@ -90,7 +156,10 @@ export function renderPack(root, pack, store, opts = {}) {
     const t = h("textarea", { class: "pk-text", placeholder });
     t.value = S.answers[key] || "";
     t.addEventListener("input", () => { S.answers[key] = t.value; store.save(); });
-    return t;
+    if (!SpeechRec) return t;
+    const wrap = h("div", { class: "pk-textwrap" });
+    wrap.append(t, speakButton(t));
+    return wrap;
   }
   function reveal(label, target) {
     target.hidden = true;

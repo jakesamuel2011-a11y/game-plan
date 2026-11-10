@@ -48,6 +48,7 @@ async function build() {
     getAll("tournaments"), getAll("routines"),
     getAll("revsessions"), getAll("revtests"), getAll("revprogress"),
   ]);
+  const toGrade = (await getAll("revgrade")).filter((g) => g.status !== "graded").sort((a, b) => (a.date || "").localeCompare(b.date || ""));
   const missedTraining = (await getAll("footballmissed")).sort((a, b) => b.date.localeCompare(a.date));
 
   // Fitness logs for the last 7 days (stored in the "nicolog" collection)
@@ -130,6 +131,7 @@ async function build() {
     `💪 ${fitDone7} fitness check-ins this week`,
     missedTraining.filter((m) => m.date >= logDates[logDates.length - 1]).length ? `❌ Missed ${missedTraining.filter((m) => m.date >= logDates[logDates.length - 1]).length} football session(s) this week` : null,
     `📖 ${roundsWeek} revision round(s) and ${sessDoneWeek.length} session(s) done this week${sessMissed.length ? ` · ⚠️ ${sessMissed.length} missed` : ""}`,
+    toGrade.length ? `✍️ ${toGrade.length} set(s) of written answers waiting for you to grade` : null,
     testsNext.length ? `📝 Next test: ${esc(testsNext[0].name)} (${testsNext[0].date})` : null,
     upcomingTours.length ? `🏆 Next tournament: ${esc(upcomingTours[0].name)} (${upcomingTours[0].date})` : null,
     upcomingMatches.length ? `🌍 ${upcomingMatches.length} match(es) on the watchlist` : null,
@@ -182,6 +184,19 @@ async function build() {
   if (testsNext.length) rBody += `<p>📝 Tests: ${testsNext.slice(0, 4).map((t) => `${esc(t.name)} (${t.date})`).join("; ")}</p>`;
   if (shaky.length) rBody += `<p>🟠 Rated 1–2 (revisit): ${shaky.length} topic(s).</p>`;
   html += section("📖 Revision", rBody);
+
+  // Grade this: the same text the app's "Copy for Claude" button gives, ready to paste into Claude.
+  if (toGrade.length) {
+    const SUBJ = { Humanities: "History", EM: "Environmental Management", Bio: "Biology", Math: "Maths", Chem: "Chemistry" };
+    const gBody = toGrade.map((g) => {
+      const total = (g.items || []).reduce((n, i) => n + (+i.marks || 0), 0);
+      const text = `Please mark Jake's revision answers like a Cambridge IGCSE examiner.\nSubject: ${SUBJ[g.subject] || g.subject}. Jake is 15.\nThere ${(g.items || []).length > 1 ? `are ${g.items.length} answers` : "is 1 answer"} (${total} marks in total), each with its mark scheme or model answer below.\n\nFor each answer: give a mark (e.g. 3/4), say what earned the marks, what was missing compared with the mark scheme, and one clear tip to improve it.\nThen finish with: total score, 2 things Jake did well, and the 2 most important things to work on next.\nWrite to Jake directly. Keep it encouraging, plain, and easy to read on a phone.\n\n` +
+        (g.items || []).map((i, k) => `--- Question ${k + 1} of ${g.items.length} (${i.marks} marks)${i.unit ? " · " + i.unit : ""} ---\nQuestion: ${i.q}\n\nJake's answer:\n${i.answer}\n\n${i.guide}`).join("\n\n");
+      return `<p><b>${esc(SUBJ[g.subject] || g.subject)}</b> · ${(g.items || []).length} answer(s) sent ${g.date}</p>
+        <pre style="white-space:pre-wrap;font-family:Arial,sans-serif;font-size:13px;background:#f6f8f9;border:1px solid #dfe6ea;border-radius:8px;padding:10px">${esc(text)}</pre>`;
+    }).join("");
+    html += section("✍️ Ready to grade", `<p>Copy each block below into a Claude chat. Then paste Claude's feedback into the app (Revision ▸ Ready to grade) so Jake can read it.</p>${gBody}`);
+  }
 
   // World Cup
   html += section("🌍 World Cup watchlist", upcomingMatches.length

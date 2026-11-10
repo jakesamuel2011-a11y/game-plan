@@ -3,7 +3,7 @@
 // =============================================================
 import { firebaseConfig, PEOPLE } from "./firebase-config.js";
 import { buildDayPlan, matchAssessment, FOOTBALL_DAYS } from "./planner.js?v=28";
-import { initRevision, sessionsFor, upcomingTests, overdueSessions, paceSummary, revisionCount, progressHtml as revisionProgressHtml, subjectName, openSubject as openRevisionSubject, render as renderRevision } from "./revision/revision.js?v=10";
+import { initRevision, sessionsFor, upcomingTests, overdueSessions, paceSummary, revisionCount, progressHtml as revisionProgressHtml, subjectName, openSubject as openRevisionSubject, render as renderRevision, gradeQueue } from "./revision/revision.js?v=12";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
@@ -1310,7 +1310,9 @@ function renderDashboard() {
     const nDays = nt ? Math.round((new Date(nt.date + "T00:00:00") - new Date(t + "T00:00:00")) / 864e5) : null;
     const sub = nt && nDays <= 7 ? `${esc(nt.name)} ${nDays === 0 ? "today" : nDays === 1 ? "tomorrow" : `in ${nDays} days`}`
       : rp.behind ? `behind pace by ${rp.behind} · ${rp.perWeek}/wk to Feb` : `on pace · ${rp.perWeek}/wk to Feb`;
-    html += card("revision", "📖 Revision", `${rp.done}/${rp.total}`, true, sub, (nt && nDays <= 2) || rp.behind ? "warn" : "good");
+    const toGrade = gradeQueue().length;
+    const gradeNote = toGrade ? (isMum() ? `✍️ ${toGrade} to grade · ` : `✍️ ${toGrade} waiting for marking · `) : "";
+    html += card("revision", "📖 Revision", `${rp.done}/${rp.total}`, true, gradeNote + sub, (nt && nDays <= 2) || rp.behind || (toGrade && isMum()) ? "warn" : "good");
   }
   html += card("today", "📅 Today's plan", DAY_NAMES[new Date().getDay()].slice(0, 3), true, "tap for your schedule");
 

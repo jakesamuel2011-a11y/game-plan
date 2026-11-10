@@ -43,7 +43,7 @@
     const asJake = new URLSearchParams(location.search).get("as") === "jake";
     const me = { email: asJake ? "jake@example.com" : "parent@example.com" };
     const names = { "jake@example.com": "Jake", "parent@example.com": "Christabel" };
-    window.__fakeStore = store;
+    window.__fakeStore = store; window.__fakeFs = fs; // for test scripts
     const { initRevision } = await import("../revision/revision.js?v=dev");
     initRevision({ db: {}, fs, me: () => me, nameFor: (e) => names[e] || e, onChange: () => {}, isParent: () => !asJake });
   </script>
