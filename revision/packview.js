@@ -125,12 +125,12 @@ export function renderPack(root, pack, store, opts = {}) {
     t.addEventListener("input", () => { S.answers[key] = t.value; store.save(); });
     return t;
   }
-  // "Submit answer": sends this one answer to Mum for marking. Goes back to
-  // "Submit" if Jake edits the answer afterwards.
+  // "Submit answer": marks this answer finished; it goes to Mum when the study
+  // session ends. Goes back to "Submit" if Jake edits the answer afterwards.
   function submitBtn(card, key) {
     if (!opts.submit) return;
     const b = h("button", { class: "btn primary pk-submit", type: "button" });
-    const set = () => { const done = opts.submitted(key); b.textContent = done ? "✓ Submitted for marking" : "Submit answer"; b.classList.toggle("done", done); };
+    const set = () => { const done = opts.submitted(key); b.textContent = done ? "✓ Submitted · goes to Mum when you end your session" : "Submit answer"; b.classList.toggle("done", done); };
     b.addEventListener("click", async () => {
       if (opts.submitted(key)) return set();
       b.disabled = true; b.textContent = "Sending…";

@@ -292,3 +292,15 @@ details summary{list-style-position:inside}
 .rv-gtools details[open] > *{margin-top:8px}
 .pk-submit{display:block;width:100%;margin:8px 0}
 .pk-submit.done{background:#13302a;color:var(--accent);border:1px solid #1c4a3e;cursor:default}
+.rv-sbar{border-left:4px solid var(--line)}
+.rv-sbar.on{border-left-color:var(--green)}
+.rv-sbar .row-between{gap:10px}
+.rv-schips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.rv-slab{display:flex;align-items:center;gap:8px;font-size:.85rem;margin:6px 0}
+.rv-slab input{width:90px}
+.rv-conf-row button.on{background:#13302a;color:var(--accent);border-color:#1c4a3e}
+.rv-sbar .mininput{margin:8px 0}
+.rv-tscroll{overflow-x:auto}
+.rv-stable td,.rv-stable th{white-space:nowrap}
+.rv-stable td.small{white-space:normal;min-width:110px}
+.rv-gdetail td{padding:8px 0}
