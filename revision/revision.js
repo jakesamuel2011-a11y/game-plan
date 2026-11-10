@@ -16,7 +16,7 @@
 //  upcomingTests() / paceSummary() for the Today plan and dashboard.
 // =============================================================
 import { SUBJECTS, PACKS, PACK_VERSION, REVISION_GOAL, SEED_TESTS, SEED_SESSIONS, allTopics, topicById, subjectByKey } from "./syllabus.js?v=3";
-import { renderPack, packModes, writtenWork } from "./packview.js?v=5";
+import { renderPack, packModes, writtenWork } from "./packview.js?v=6";
 
 const esc = (s) => String(s ?? "").replace(/[<>&"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
 const ymd = (d) => d.toISOString().slice(0, 10);
