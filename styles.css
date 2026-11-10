@@ -290,3 +290,5 @@ details summary{list-style-position:inside}
 .rv-gtools{display:flex;flex-direction:column;gap:8px;margin-top:8px}
 .rv-gtools details{display:flex;flex-direction:column;gap:8px}
 .rv-gtools details[open] > *{margin-top:8px}
+.pk-textwrap{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.pk-mic.on{background:#3a1414;color:#ff8a80;border-color:#6a2a2a}
