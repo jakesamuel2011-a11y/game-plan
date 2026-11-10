@@ -10,6 +10,8 @@
 //    opts  = { unit }  — pre-select a unit chip (e.g. "kq4")
 //            { submit(key), submitted(key) } — optional: shows a Submit button
 //            under each written answer (Jake only)
+//            { locked() } — optional: true hides model answers / mark schemes
+//            (during a study session). Call the returned applyLocks() when it changes.
 // =============================================================
 
 const esc = (s) => String(s ?? "").replace(/[<>&"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
@@ -114,7 +116,7 @@ export function renderPack(root, pack, store, opts = {}) {
     modesBar.querySelectorAll(".pk-mode").forEach(b => b.classList.toggle("on", b.dataset.m === mode));
     unitsBar.querySelectorAll(".chip").forEach(b => b.classList.toggle("on", b.dataset.u === unit));
     unitsBar.classList.toggle("hidden", !pack.units?.length || mode === "learn");
-    body.innerHTML = "";
+    body.innerHTML = ""; lockBtns = [];
     ({ learn, cards, quiz, exam, data, plan, drill, timeline })[mode]();
   }
 
@@ -141,11 +143,27 @@ export function renderPack(root, pack, store, opts = {}) {
     set();
     card.appendChild(b);
   }
+  // Model answers / mark schemes. Locked (hidden) while Jake has a study
+  // session running, so the answers he sends for marking are his own.
+  const isLocked = () => !!opts.locked?.();
+  let lockBtns = [];
   function reveal(label, target) {
     target.hidden = true;
-    const b = h("button", { class: "btn tiny ghost", type: "button", on: { click: () => { target.hidden = !target.hidden; b.textContent = target.hidden ? label : "Hide"; } } }, esc(label));
+    const b = h("button", { class: "btn tiny ghost", type: "button", on: { click: () => {
+      if (isLocked()) return applyLocks();
+      target.hidden = !target.hidden; b.textContent = target.hidden ? label : "Hide";
+    } } }, esc(label));
+    lockBtns.push({ b, label, target });
+    if (isLocked()) setLock(b, label, target);
     return b;
   }
+  function setLock(b, label, target) {
+    const locked = isLocked();
+    if (locked) { target.hidden = true; b.textContent = "🔒 Hidden during your session: end it to see this"; }
+    else if (target.hidden) b.textContent = label;
+    b.disabled = locked; b.classList.toggle("pk-locked", locked);
+  }
+  function applyLocks() { lockBtns.forEach(x => setLock(x.b, x.label, x.target)); }
   function msBox(title, items, note, paras) {
     let html = `<div class="pk-ms-h">${esc(title)}</div>`;
     if (items?.length) html += `<ul>${items.map(p => `<li>${esc(p)}</li>`).join("")}</ul>`;
@@ -372,4 +390,5 @@ export function renderPack(root, pack, store, opts = {}) {
   }
 
   draw();
+  return { applyLocks };
 }

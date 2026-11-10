@@ -19,7 +19,7 @@
 //  upcomingTests() / paceSummary() for the Today plan and dashboard.
 // =============================================================
 import { SUBJECTS, PACKS, PACK_VERSION, REVISION_GOAL, SEED_TESTS, SEED_SESSIONS, allTopics, topicById, subjectByKey } from "./syllabus.js?v=3";
-import { renderPack, packModes, writtenWork } from "./packview.js?v=7";
+import { renderPack, packModes, writtenWork } from "./packview.js?v=8";
 
 const esc = (s) => String(s ?? "").replace(/[<>&"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
 const ymd = (d) => d.toISOString().slice(0, 10);
@@ -30,6 +30,7 @@ const daysUntil = (s) => Math.round((new Date(s + "T00:00:00") - new Date(todayS
 
 let DB, F, ME, NAME_FOR, ON_CHANGE, IS_PARENT;
 const R = { progress: {}, sessions: [], tests: [], practice: {}, grades: [], study: [] };
+let packHandle = null; // { applyLocks } for the pack open on screen
 let liveStore = null; // { id, store } for the pack open on screen (has unsaved typing)
 let view = { name: "home" };
 const packCache = new Map();
@@ -48,7 +49,7 @@ export function initRevision({ db, fs, me, nameFor, onChange, isParent }) {
 function changed(quiet) {
   // Practice saves arrive while Jake types; don't redraw the page under him.
   if (view.name !== "pack" && !(quiet && view.name === "home" && !IS_PARENT())) render();
-  else if (view.name === "pack" && !quiet) { const sb = document.getElementById("rvSess"); if (sb) { sb.innerHTML = ""; sessionControl(sb); } }
+  else if (view.name === "pack" && !quiet) { const sb = document.getElementById("rvSess"); if (sb) { sb.innerHTML = ""; sessionControl(sb); } packHandle?.applyLocks(); }
   if (!quiet) ON_CHANGE();
 }
 
@@ -193,7 +194,7 @@ function gradeItem(g, showSubject) {
   el.className = "item rv-grade";
   const what = `${g.items.length} answer${g.items.length > 1 ? "s" : ""}${showSubject ? " · " + esc(subjNames(subjectsOf(g))) : ""}`;
   const status = g.status === "graded"
-    ? `<span class="pill today" style="color:var(--accent);background:#13302a">✓ graded</span>`
+    ? `<span class="pill today" style="color:var(--accent);background:#13302a">✓ ${g.score ? esc(g.score) : "graded"}</span>`
     : `<span class="pill soon">⏳ waiting for ${IS_PARENT() ? "you" : "Mum"}</span>`;
   el.innerHTML = `<div class="item-main">
     <div class="row-between"><div class="item-title">✍️ ${what}</div>${status}</div>
@@ -210,19 +211,21 @@ function gradeItem(g, showSubject) {
     hint.className = "muted small"; hint.textContent = "Paste it into a Claude chat. When Claude has marked it, paste the feedback below so Jake can read it.";
     const ta = document.createElement("textarea");
     ta.className = "pk-text"; ta.placeholder = "Paste Claude's feedback here"; ta.value = g.feedback || "";
+    const sc = document.createElement("input");
+    sc.type = "text"; sc.className = "mininput rv-score"; sc.placeholder = "Score, e.g. 14/20 (Claude gives the total at the end)"; sc.value = g.score || "";
     const save = document.createElement("button");
     save.className = "btn"; save.type = "button"; save.textContent = g.feedback ? "Update feedback" : "Save feedback for Jake";
     save.onclick = async () => {
       const fb = ta.value.trim(); if (!fb) return;
-      await F.updateDoc(F.doc(DB, "revgrade", g.id), { feedback: fb, status: "graded", gradedAt: todayStr(), gradedBy: ME().email });
+      await F.updateDoc(F.doc(DB, "revgrade", g.id), { feedback: fb, score: sc.value.trim(), status: "graded", gradedAt: todayStr(), gradedBy: ME().email });
     };
     const del = document.createElement("button");
     del.className = "btn tiny ghost"; del.type = "button"; del.textContent = "Remove";
     del.onclick = () => { if (confirm("Remove this grading request?")) F.deleteDoc(F.doc(DB, "revgrade", g.id)); };
     if (g.status === "graded") {
       const d = document.createElement("details"); d.innerHTML = `<summary class="muted small">Copy again or edit feedback</summary>`;
-      d.append(copy, ta, save, del); tools.appendChild(d);
-    } else tools.append(copy, hint, ta, save, del);
+      d.append(copy, ta, sc, save, del); tools.appendChild(d);
+    } else tools.append(copy, hint, ta, sc, save, del);
   }
   return el;
 }
@@ -260,14 +263,20 @@ async function sessionWork(keys) {
 async function endSession(sess, { subjects, conf, notes, mins, drafts }) {
   const work = await sessionWork(subjects);
   const items = [...work.fin, ...(drafts ? work.drafts : [])];
-  let gradeId = null;
+  // One grading set per subject, so each subject gets its own feedback and score.
+  const grades = {}, answersBy = {};
   if (items.length) {
-    const g = {
-      sessionId: sess.id, subject: subjects[0], subjects, date: todayStr(), n: Date.now(), by: sess.by, status: "waiting", at: F.serverTimestamp(),
-      items: items.map(({ key, packId, subject, kind, pack, unit, q, marks, answer, guide }) => ({ key, packId, subject, kind, pack, unit, q, marks, answer, guide })),
-    };
-    g.prompt = gradePrompt(g); // stored so the email script can send the same text
-    gradeId = (await F.addDoc(F.collection(DB, "revgrade"), g)).id;
+    for (const k of subjects) {
+      const mine = items.filter(i => i.subject === k);
+      if (!mine.length) continue;
+      const g = {
+        sessionId: sess.id, subject: k, subjects: [k], date: todayStr(), n: Date.now(), by: sess.by, status: "waiting", at: F.serverTimestamp(),
+        items: mine.map(({ key, packId, subject, kind, pack, unit, q, marks, answer, guide }) => ({ key, packId, subject, kind, pack, unit, q, marks, answer, guide })),
+      };
+      g.prompt = gradePrompt(g); // stored so the email script can send the same text
+      grades[k] = (await F.addDoc(F.collection(DB, "revgrade"), g)).id;
+      answersBy[k] = mine.length;
+    }
     for (const id of new Set(items.map(i => i.packId))) {
       const sent = { ...(stateFor(id).sent || {}) };
       items.filter(i => i.packId === id).forEach(i => { sent[i.key] = i.answer; });
@@ -277,7 +286,7 @@ async function endSession(sess, { subjects, conf, notes, mins, drafts }) {
   }
   await F.updateDoc(F.doc(DB, "studysessions", sess.id), {
     status: "done", end: new Date().toISOString(), doneAt: todayStr(), mins, subjects, conf, notes: notes || "",
-    answers: items.length, gradeId, emailed: false,
+    answers: items.length, answersBy, grades, gradeId: Object.values(grades)[0] || null, emailed: false,
   });
 }
 
@@ -324,8 +333,8 @@ function sessionControl(host) {
     return;
   }
   if (sessUI.mode !== "end" || sessUI.id !== run.id) {
-    box.innerHTML = `<div class="card rv-sbar on"><div class="row-between"><div><b>⏱️ Session running · <span class="rv-timer" data-start="${run.start}">${minsSince(run.start)}</span> min</b><div class="muted small">${esc(subjNames(run.subjects))} · started ${hhmm(run.start)}</div></div><button class="btn primary" type="button">■ End session</button></div></div>`;
-    box.querySelector("button").onclick = () => { sessUI = { ...sessUI, mode: "end", id: run.id, picks: [...run.subjects], conf: 0, notes: "", drafts: true, mins: Math.min(minsSince(run.start), 240) }; redraw(); };
+    box.innerHTML = `<div class="card rv-sbar on"><div class="row-between"><div><b>⏱️ Session running · <span class="rv-timer" data-start="${run.start}">${minsSince(run.start)}</span> min</b><div class="muted small">${esc(subjNames(run.subjects))} · started ${hhmm(run.start)} · model answers hidden until you end it</div></div><button class="btn primary" type="button">■ End session</button></div></div>`;
+    box.querySelector("button").onclick = () => { sessUI = { ...sessUI, mode: "end", id: run.id, picks: [...run.subjects], conf: 0, notes: "", drafts: true, mins: Math.max(1, Math.min(minsSince(run.start), 240)) }; redraw(); };
     return;
   }
   // End panel
@@ -378,14 +387,20 @@ export function mountStudyLog(el) {
   const card = document.createElement("div"); card.className = "card";
   if (!done.length) { card.innerHTML = `<b>📒 Study sessions</b><div class="muted small" style="margin-top:4px">No sessions yet. Tap ▶ Start session before revising.</div>`; el.appendChild(card); return; }
   const gById = Object.fromEntries(R.grades.map(g => [g.id, g]));
-  const mark = (s) => {
-    const g = s.gradeId && gById[s.gradeId];
-    if (!g) return `<span class="muted">${s.answers ? "–" : "no answers"}</span>`;
-    return g.status === "graded" ? `<button class="rv-link" data-g="${g.id}">✓ feedback ▸</button>` : `<button class="rv-link" data-g="${g.id}">⏳ waiting ▸</button>`;
+  // One row per subject in each session (time, minutes and confidence are the session's).
+  const rows = done.slice(0, 20).flatMap(s => (s.subjects?.length ? s.subjects : ["?"]).map((k, i) => {
+    const gid = s.grades ? s.grades[k] : (s.gradeId && (gById[s.gradeId]?.subjects || []).includes(k) ? s.gradeId : null);
+    const n = s.answersBy ? (s.answersBy[k] || 0) : (gid ? gById[gid]?.items?.length || 0 : 0);
+    return { s, k, gid, n, first: i === 0 };
+  }));
+  const mark = (gid, n) => {
+    const g = gid && gById[gid];
+    if (!g) return `<span class="muted">${n ? "–" : "no answers"}</span>`;
+    return g.status === "graded" ? `<button class="rv-link" data-g="${g.id}">✓ ${g.score ? esc(g.score) : "feedback"} ▸</button>` : `<button class="rv-link" data-g="${g.id}">⏳ waiting ▸</button>`;
   };
   card.innerHTML = `<div class="row-between"><b>📒 Study sessions</b><span class="muted small">last 7 days: ${wk.length} session${wk.length === 1 ? "" : "s"} · ${Math.floor(wkMins / 60)}h ${wkMins % 60}m</span></div>
-    <div class="rv-tscroll"><table class="rv-table rv-stable"><thead><tr><th>Date</th><th>Time</th><th>Mins</th><th>Subjects</th><th>Conf.</th><th>Answers</th><th>Marking</th></tr></thead><tbody>
-    ${done.slice(0, 20).map(s => `<tr><td>${fmtDate(s.date)}</td><td class="small">${hhmm(s.start)}–${hhmm(s.end)}</td><td>${s.mins || "–"}</td><td class="small">${esc(subjNames(s.subjects || []))}${s.notes ? `<div class="muted">“${esc(s.notes)}”</div>` : ""}</td><td>${s.conf ? s.conf + "/5" : "–"}</td><td>${s.answers || 0}</td><td class="small">${mark(s)}</td></tr><tr class="rv-gdetail" data-for="${s.gradeId || ""}" hidden><td colspan="7"></td></tr>`).join("")}
+    <div class="rv-tscroll"><table class="rv-table rv-stable"><thead><tr><th>Date</th><th>Time</th><th>Mins</th><th>Subject</th><th>Conf.</th><th>Answers</th><th>Score</th></tr></thead><tbody>
+    ${rows.map(({ s, k, gid, n, first }) => `<tr class="${first ? "rv-snew" : "rv-ssame"}"><td>${fmtDate(s.date)}</td><td class="small">${hhmm(s.start)}–${hhmm(s.end)}</td><td>${s.mins || "–"}</td><td class="small">${esc(subjNames([k]))}${first && s.notes ? `<div class="muted">“${esc(s.notes)}”</div>` : ""}</td><td>${s.conf ? s.conf + "/5" : "–"}</td><td>${n}</td><td class="small">${mark(gid, n)}</td></tr>${gid ? `<tr class="rv-gdetail" data-for="${gid}" hidden><td colspan="7"></td></tr>` : ""}`).join("")}
     </tbody></table></div>`;
   card.querySelectorAll("[data-g]").forEach(b => b.onclick = () => {
     const tr = card.querySelector(`.rv-gdetail[data-for="${b.dataset.g}"]`);
@@ -523,8 +538,9 @@ function paceCard() {
 function renderHome(el) {
   const t = todayStr();
   el.innerHTML = `<h2>📖 Revision</h2>
+    <div id="rvGrades"></div>
     <h3 class="section-h">📚 Subjects: tap one for its topics, checklists and practice</h3><div id="rvSubj" class="rv-grid"></div>
-    <div id="rvGrades"></div>${paceCard()}<div id="rvParent"></div>
+    ${paceCard()}<div id="rvParent"></div>
     <h3 class="section-h">📝 Tests</h3><div id="rvTests" class="list"></div>
     <h3 class="section-h">🗓️ Revision sessions</h3><div id="rvSess" class="list"></div>`;
 
@@ -585,6 +601,8 @@ function renderHome(el) {
     const l = document.createElement("div"); l.className = "list";
     list.forEach(g => l.appendChild(gradeItem(g, true)));
     gb.appendChild(l);
+  } else if (IS_PARENT()) {
+    gb.innerHTML = `<h3 class="section-h">✍️ Ready to grade (0)</h3><div class="card muted small">Nothing to mark yet. When Jake ends a study session with written answers, they appear here (and you get an email), with a 📋 Copy for Claude button, a box to paste the feedback and a Score box.</div>`;
   }
 }
 
@@ -692,7 +710,8 @@ async function renderPackView(el) {
       store.save();
     };
     const submitted = (key) => { const w = current(key); return !!w && (store.state.done?.[key] === w.answer || store.state.sent?.[key] === w.answer); };
-    renderPack(el.querySelector("#rvPack"), pack, store, jake ? { unit: v.unit, mode: v.mode, submit, submitted } : { unit: v.unit, mode: v.mode });
+    const locked = () => !!runningSession(); // model answers hidden while his session runs
+    packHandle = renderPack(el.querySelector("#rvPack"), pack, store, jake ? { unit: v.unit, mode: v.mode, submit, submitted, locked } : { unit: v.unit, mode: v.mode });
   } catch (e) {
     el.querySelector("#rvPack").innerHTML = `<p class="error">Couldn't load this pack (${esc(e.message)}). Check your connection and try again.</p>`;
   }

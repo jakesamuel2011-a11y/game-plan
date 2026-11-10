@@ -47,9 +47,11 @@ async function main() {
   for (const d of todo) {
     const s = d.data();
     const subjects = (s.subjects || []).map((k) => SUBJ[k] || k).join(", ");
-    let g = null;
-    if (s.gradeId) { const gs = await db.collection("revgrade").doc(s.gradeId).get(); if (gs.exists) g = gs.data(); }
-    const n = g?.items?.length || 0;
+    // One grading set per subject (older sessions: a single gradeId).
+    const ids = s.grades ? Object.values(s.grades) : (s.gradeId ? [s.gradeId] : []);
+    const sets = [];
+    for (const id of ids) { const gs = await db.collection("revgrade").doc(id).get(); if (gs.exists) sets.push(gs.data()); }
+    const n = sets.reduce((t, g) => t + (g.items?.length || 0), 0);
     let html = `<div style="font-family:Arial,sans-serif;max-width:560px;margin:auto;color:#1b232c">
       <div style="background:#0a7d3c;color:#fff;padding:14px 18px;border-radius:12px">
         <div style="font-size:19px;font-weight:800">📖 Jake finished a study session</div>
@@ -62,9 +64,12 @@ async function main() {
         ${s.notes ? `<li><b>Notes:</b> “${esc(s.notes)}”</li>` : ""}
         <li><b>Written answers:</b> ${n}</li>
       </ul>`;
-    if (g && n) {
-      html += `<p style="font-size:14px"><b>To mark them:</b> copy everything in the grey box into a Claude chat. Then paste Claude's feedback into the app: <b>Revision ▸ Ready to grade</b> (or <b>Progress ▸ Study sessions</b>), and Jake will see it there.</p>
+    if (n) {
+      html += `<p style="font-size:14px"><b>To mark them:</b> copy each grey box (one per subject) into a Claude chat. Then paste Claude's feedback and the score into the app: <b>Revision ▸ Ready to grade</b> (or <b>Progress ▸ Study sessions</b>), and Jake will see it there.</p>`;
+      for (const g of sets) {
+        html += `<h3 style="margin:18px 0 6px;color:#0a7d3c;font-size:16px">${esc(SUBJ[g.subject] || g.subject)} · ${g.items?.length || 0} answer(s)</h3>
         <pre style="white-space:pre-wrap;font-family:Arial,sans-serif;font-size:13px;background:#f6f8f9;border:1px solid #dfe6ea;border-radius:8px;padding:10px">${esc(g.prompt || "")}</pre>`;
+      }
     } else {
       html += `<p style="font-size:14px">No written answers this session (flashcards, quizzes or reading only).</p>`;
     }

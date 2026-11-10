@@ -306,3 +306,6 @@ details summary{list-style-position:inside}
 .rv-stable td,.rv-stable th{white-space:nowrap}
 .rv-stable td.small{white-space:normal;min-width:110px}
 .rv-gdetail td{padding:8px 0}
+.pk-locked{opacity:.75;cursor:not-allowed}
+.rv-gtools .rv-score{width:100%;box-sizing:border-box;margin:0}
+.rv-stable tr.rv-ssame td{border-top:1px dashed var(--line)}
