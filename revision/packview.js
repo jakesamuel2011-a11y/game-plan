@@ -8,6 +8,8 @@
 //            state: { answers:{key:text}, cards:{key:"got"|"again"},
 //                     quizzes:[{d, unit, score, n}], drills:{key:date} }
 //    opts  = { unit }  — pre-select a unit chip (e.g. "kq4")
+//            { submit(key), submitted(key) } — optional: shows a Submit button
+//            under each written answer (Jake only)
 // =============================================================
 
 const esc = (s) => String(s ?? "").replace(/[<>&"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
@@ -81,41 +83,6 @@ export function writtenWork(pack, state) {
   return out;
 }
 
-// 🎤 Speak: turns speech into text in an answer box (Chrome, Edge, Safari;
-// not Firefox, where the button is simply not shown). Needs internet.
-const SpeechRec = typeof window !== "undefined" && (window.SpeechRecognition || window.webkitSpeechRecognition);
-let activeRec = null;
-function speakButton(t) {
-  const b = h("button", { class: "btn tiny ghost pk-mic", type: "button", title: "Speak your answer instead of typing" }, "🎤 Speak");
-  let rec = null;
-  const stop = () => { if (rec) rec.stop(); };
-  b.addEventListener("click", () => {
-    if (rec) return stop();
-    if (activeRec) activeRec.stop(); // one microphone at a time
-    rec = new SpeechRec();
-    rec.lang = "en-IN"; rec.continuous = true; rec.interimResults = true;
-    const base = t.value.replace(/\s+$/, "");
-    rec.onresult = (e) => {
-      let said = "";
-      for (let i = 0; i < e.results.length; i++) said += e.results[i][0].transcript;
-      said = said.trim();
-      if (said && (!base || /[.!?]$/.test(base))) said = said[0].toUpperCase() + said.slice(1); // new sentence
-      t.value = base + (base && said ? " " : "") + said;
-      t.dispatchEvent(new Event("input")); // saves like typing
-    };
-    rec.onerror = (e) => {
-      if (e.error === "not-allowed" || e.error === "service-not-allowed") alert("The microphone is blocked. Allow microphone access for this site in the browser settings, then try again.");
-      else if (e.error === "network") alert("Speaking needs an internet connection.");
-    };
-    rec.onend = () => { rec = null; if (activeRec === r) activeRec = null; b.textContent = "🎤 Speak"; b.classList.remove("on"); };
-    const r = rec;
-    activeRec = rec;
-    try { rec.start(); b.textContent = "⏹ Stop"; b.classList.add("on"); }
-    catch (err) { rec = null; activeRec = null; }
-  });
-  return b;
-}
-
 export function renderPack(root, pack, store, opts = {}) {
   const S = store.state;
   S.answers ||= {}; S.cards ||= {}; S.quizzes ||= []; S.drills ||= {};
@@ -156,10 +123,23 @@ export function renderPack(root, pack, store, opts = {}) {
     const t = h("textarea", { class: "pk-text", placeholder });
     t.value = S.answers[key] || "";
     t.addEventListener("input", () => { S.answers[key] = t.value; store.save(); });
-    if (!SpeechRec) return t;
-    const wrap = h("div", { class: "pk-textwrap" });
-    wrap.append(t, speakButton(t));
-    return wrap;
+    return t;
+  }
+  // "Submit answer": marks this answer finished; it goes to Mum when the study
+  // session ends. Goes back to "Submit" if Jake edits the answer afterwards.
+  function submitBtn(card, key) {
+    if (!opts.submit) return;
+    const b = h("button", { class: "btn primary pk-submit", type: "button" });
+    const set = () => { const done = opts.submitted(key); b.textContent = done ? "✓ Submitted · goes to Mum when you end your session" : "Submit answer"; b.classList.toggle("done", done); };
+    b.addEventListener("click", async () => {
+      if (opts.submitted(key)) return set();
+      b.disabled = true; b.textContent = "Sending…";
+      try { await opts.submit(key); } catch (e) { alert("Couldn't submit: " + e.message); }
+      b.disabled = false; set();
+    });
+    card.addEventListener("input", set);
+    set();
+    card.appendChild(b);
   }
   function reveal(label, target) {
     target.hidden = true;
@@ -178,6 +158,7 @@ export function renderPack(root, pack, store, opts = {}) {
     c.appendChild(h("div", { class: "row-between" }, `<div class="pk-q">${esc(q.q)}</div><span class="pill soon">${q.marks} mark${q.marks > 1 ? "s" : ""}</span>`));
     if (q.unit && unit === "all") c.appendChild(h("div", { class: "tag" }, esc(unitName(q.unit))));
     c.appendChild(textBox(key, `Write your answer first (${q.marks} mark${q.marks > 1 ? "s" : ""}), then check`));
+    submitBtn(c, key);
     const ms = q.model
       ? msBox("Model answer", null, q.why ? "Why it scores: " + q.why : "", q.model)
       : msBox("Mark scheme points", q.points, q.note);
@@ -348,6 +329,7 @@ export function renderPack(root, pack, store, opts = {}) {
         c.appendChild(h("div", { class: "pk-lab " + cls }, esc(lab)));
         c.appendChild(textBox(`pl${i}-${j}`, j < 4 ? "Point + why it matters" : "Overall I think… because… but it depends on…"));
       });
+      submitBtn(c, "pl" + i);
       const ms = msBox("Points that would score", null, null, [`For: ${st.for.join("; ")}.`, `Against: ${st.against.join("; ")}.`, `Conclusion example: ${st.conclusion}`]);
       c.append(reveal("Compare with model points", ms), ms);
       body.appendChild(c);
