@@ -289,7 +289,7 @@ const VERSES = [
   ["I praise you because I am fearfully and wonderfully made.", "Psalm 139:14"],
 ];
 // Tue/Thu/Sat = verse days (3/week); the other 4 days = quotes (football + role models).
-// Pop-up of today's quote for 3.5s when the app opens or is refreshed (tap to close early).
+// Pop-up of today’s quote for 5s when the app opens or is refreshed (tap to close early).
 let quotePopShown = false;
 function showQuotePop() {
   if (quotePopShown) return; // once per page load (not again on re-login without a refresh)
@@ -302,7 +302,7 @@ function showQuotePop() {
   void el.offsetWidth; setTimeout(() => el.classList.add("on"), 20); // fade in
   const close = () => { el.classList.remove("on"); setTimeout(() => el.remove(), 400); };
   el.onclick = close;
-  setTimeout(close, 3500);
+  setTimeout(close, 5000);
 }
 function quoteOfDay() {
   const now = new Date();
