@@ -69,29 +69,25 @@ const isHoliday = (dateStr) => cache.holidays.some(h => h.from && h.to && dateSt
 
 // Daily inspiration — wide pool so it won't repeat for ~3 months (rotates daily).
 // Quotes: sport, role models, books/poems/films, art & martial arts, Stoics, women leaders,
-// short sayings (mixed so themes alternate). Verses are in VERSES below.
+// (mixed so themes alternate). Verses are in VERSES below.
 const QUOTES = [
-  // Mixed so themes alternate: sport & role models, art/writing/reading/martial arts, Stoics, women leaders, short sayings.
+  // Mixed so themes alternate: sport & role models, art/writing/reading/martial arts, Stoics, women leaders.
   ["Success is no accident. It's hard work, perseverance, sacrifice and love of what you're doing.", "Pelé"],
   ["Creativity takes courage.", "Henri Matisse"],
   ["Men are disturbed not by things, but by the views which they take of them.", "Epictetus"],
   ["One child, one teacher, one book, one pen can change the world.", "Malala Yousafzai"],
-  ["One chapter a night adds up to a library.", "Reader’s wisdom"],
   ["It’s the job that’s never started as takes longest to finish.", "Sam Gamgee, The Lord of the Rings"],
   ["You can’t use up creativity. The more you use, the more you have.", "Maya Angelou"],
   ["We suffer more often in imagination than in reality.", "Seneca"],
   ["We realise the importance of our voices only when we are silenced.", "Malala Yousafzai"],
-  ["Finish homework early; enjoy your evening twice.", "Planner’s wisdom"],
   ["Change will not come if we wait for some other person or some other time. We are the ones we've been waiting for.", "Barack Obama"],
   ["There is no greater agony than bearing an untold story inside you.", "Maya Angelou"],
   ["Begin at once to live, and count each separate day as a separate life.", "Seneca"],
   ["Success isn’t about how much money you make; it’s about the difference you make in people’s lives.", "Michelle Obama"],
-  ["Hard things get easier when you start them sooner.", "Planner’s wisdom"],
   ["The more difficult the victory, the greater the happiness in winning.", "Pelé"],
   ["Art enables us to find ourselves and lose ourselves at the same time.", "Thomas Merton"],
   ["While we are postponing, life speeds by.", "Seneca"],
   ["The path from dreams to success does exist. May you have the vision to find it, the courage to get on to it, and the perseverance to follow it.", "Kalpana Chawla"],
-  ["Win the day, and the week takes care of itself.", "Planner’s wisdom"],
   ["The fault, dear Brutus, is not in our stars, but in ourselves.", "Shakespeare, Julius Caesar"],
   ["Inspiration exists, but it has to find you working.", "Pablo Picasso"],
   ["He who is everywhere is nowhere.", "Seneca"],
@@ -293,6 +289,21 @@ const VERSES = [
   ["I praise you because I am fearfully and wonderfully made.", "Psalm 139:14"],
 ];
 // Tue/Thu/Sat = verse days (3/week); the other 4 days = quotes (football + role models).
+// Pop-up of today's quote for 3.5s when the app opens or is refreshed (tap to close early).
+let quotePopShown = false;
+function showQuotePop() {
+  if (quotePopShown) return; // once per page load (not again on re-login without a refresh)
+  quotePopShown = true;
+  const [qt, qa] = quoteOfDay();
+  const el = document.createElement("div");
+  el.className = "quote-pop";
+  el.innerHTML = `<div class="quote quote-pop-card">“${esc(qt)}”<span class="q-by">— ${esc(qa)}</span></div>`;
+  document.body.appendChild(el);
+  void el.offsetWidth; setTimeout(() => el.classList.add("on"), 20); // fade in
+  const close = () => { el.classList.remove("on"); setTimeout(() => el.remove(), 400); };
+  el.onclick = close;
+  setTimeout(close, 3500);
+}
 function quoteOfDay() {
   const now = new Date();
   const day = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 864e5);
@@ -340,6 +351,7 @@ onAuthStateChanged(auth, async (user) => {
     $("loginScreen").classList.add("hidden");
     $("app").classList.remove("hidden");
     $("whoami").textContent = MY_NAME;
+    showQuotePop();
     await ensureSeed();
     await ensureFixes();
     await ensureDeliverables();

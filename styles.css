@@ -326,3 +326,9 @@ details summary{list-style-position:inside}
 .tt-col.on{background:#13302a;border-color:var(--green)}
 .tt-col.on .tt-day{color:var(--accent)}
 .tt-cell.now{color:var(--accent);font-weight:700}
+.quote-pop{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:24px;
+  background:rgba(5,10,14,.72);opacity:0;transition:opacity .4s ease;cursor:pointer}
+.quote-pop.on{opacity:1}
+.quote-pop-card{max-width:520px;font-size:1.35rem;line-height:1.45;padding:22px 24px;transform:scale(.96);transition:transform .4s ease}
+.quote-pop.on .quote-pop-card{transform:scale(1)}
+.quote-pop-card .q-by{font-size:.8rem;margin-top:10px}
