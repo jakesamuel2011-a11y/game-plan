@@ -46,9 +46,9 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 5. **Verify an upload landed:** open the file on GitHub and Cmd+F for a string you just changed.
 
 ### Current cache-buster versions (keep incrementing from here)
-- `app.js?v=54`
+- `app.js?v=55`
 - `styles.css?v=30`
-- planner import `./planner.js?v=28`
+- planner import `./planner.js?v=29`
 - timetable import `./timetable.js?v=3` (Jake's school timetable, shown in Today)
 - revision import in app.js `./revision/revision.js?v=16` (and its own imports of `syllabus.js?v=3` / `packview.js?v=8`)
 - pack JSON files: bump `PACK_VERSION` in `revision/syllabus.js`
@@ -113,7 +113,7 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 ## ✅ Features (what's built)
 
 - **Home dashboard:** one-glance cards (homework, revision, content, football, To Watch, today, progress) + a status-aware encouraging banner.
-- **Today:** date-stamped daily plan auto-built around school (6:30a–4:15p), football (Mon/Wed/Fri 5–6:30p) and 7h45 sleep; opens with a daily quote (4 football quotes + 3 Bible verses/week). Football **Cancelled / Rescheduled** toggles. **Holiday** marking (single day or range) → weekday/Saturday holidays use the morning to catch up on homework; Sunday fully free.
+- **Today:** date-stamped daily plan auto-built around school (6:30a–4:15p), football (Mon/Wed/Fri 5–6:30p) and 8h30 sleep (wind down 9:15–9:30pm, lights out 9:30pm, wake 6am); opens with a daily quote (4 football quotes + 3 Bible verses/week). Football **Cancelled / Rescheduled** toggles. **Holiday** marking (single day or range) → weekday/Saturday holidays use the morning to catch up on homework; Sunday fully free.
 - **Homework:** add/edit (subject, description, due, mins), no delete; **effective deadline** = the school day before due (or previous Saturday) so it shows "pending — do today" the day before and "overdue" after. "Completed this week" + "Earlier completed" sections.
 - **Content (🎬 tab):** two committed tracks. **YT Shorts** (football) — 15 by Nov 13, milestone 5 by Aug 31 then 1/week; per-short checkboxes (Filmed & edited / Uploaded to YouTube), a pace bar (on pace / behind), and an "on pace" ramp helper. **Songs** — 2 on a private YT channel (Song 1 by Sep 20, Song 2 by Nov 1), fixed rows with editable title, due-date pill, and Written & recorded / Uploaded checkboxes. Opens with Jake's mission statement. Shorts logic lives in `SHORTS_GOAL`/`SHORTS_M1`/`SHORTS_DEADLINE`/`SONG_PLAN`/`shortsExpected()` near the top of `app.js`.
 - **Football:** tournaments, missed-training log with monthly attendance %, daily fitness routine.
@@ -123,7 +123,7 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 - **Emails:** twice-weekly digest (Wed & Sun ~7pm IST) + monthly report (1st of month) to both, via GitHub Actions.
 
 ## ⏰ Jake's schedule rules (the planner protects these)
-School 6:30am–4:15pm. Football Mon/Wed/Fri 5–6:30pm. Lights out 10pm school nights (~7h45 sleep). Weekdays + Saturday morning for work; Saturday afternoon + Sunday free. Edit in `planner.js` (`dayTemplate`).
+School 6:30am–4:15pm. Football Mon/Wed/Fri 5–6:30pm. Wind down 9:15–9:30pm, lights out 9:30pm school nights, wake 6am (8h30 sleep). Weekdays + Saturday morning for work; Saturday afternoon + Sunday free. Edit in `planner.js` (`dayTemplate`).
 
 ---
 
