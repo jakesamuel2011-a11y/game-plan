@@ -293,6 +293,21 @@ const VERSES = [
   ["I praise you because I am fearfully and wonderfully made.", "Psalm 139:14"],
 ];
 // Tue/Thu/Sat = verse days (3/week); the other 4 days = quotes (football + role models).
+// Pop-up of today's quote for 3.5s when the app opens or is refreshed (tap to close early).
+let quotePopShown = false;
+function showQuotePop() {
+  if (quotePopShown) return; // once per page load (not again on re-login without a refresh)
+  quotePopShown = true;
+  const [qt, qa] = quoteOfDay();
+  const el = document.createElement("div");
+  el.className = "quote-pop";
+  el.innerHTML = `<div class="quote quote-pop-card">“${esc(qt)}”<span class="q-by">— ${esc(qa)}</span></div>`;
+  document.body.appendChild(el);
+  void el.offsetWidth; setTimeout(() => el.classList.add("on"), 20); // fade in
+  const close = () => { el.classList.remove("on"); setTimeout(() => el.remove(), 400); };
+  el.onclick = close;
+  setTimeout(close, 3500);
+}
 function quoteOfDay() {
   const now = new Date();
   const day = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 864e5);
@@ -340,6 +355,7 @@ onAuthStateChanged(auth, async (user) => {
     $("loginScreen").classList.add("hidden");
     $("app").classList.remove("hidden");
     $("whoami").textContent = MY_NAME;
+    showQuotePop();
     await ensureSeed();
     await ensureFixes();
     await ensureDeliverables();
