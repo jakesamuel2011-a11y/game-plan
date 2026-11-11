@@ -57,7 +57,7 @@ function dayTemplate(day, opts = {}) {
     blocks.push({ start: T(18, 30), end: T(19), type: "rest", label: "Shower & dinner" });
     blocks.push({ start: T(19), end: T(21, 15), type: "study", label: "Study" });
     blocks.push({ start: T(21, 15), end: T(21, 30), type: "fixed", label: "🐶 Nico evening + wind down" });
-    blocks.push({ start: T(21, 30), end: T(21, 31), type: "fixed", label: "😴 Lights out (wake ~5:45 = 8h15 sleep)" });
+    blocks.push({ start: T(21, 30), end: T(21, 31), type: "fixed", label: "😴 Lights out (wake 6:00 = 8h30 sleep)" });
   } else {
     // No-football evening (normal Tue/Thu, or a rained-out Mon/Wed/Fri):
     // the 5–6:30 slot is freed up for study so the time isn't wasted.
@@ -68,7 +68,7 @@ function dayTemplate(day, opts = {}) {
     blocks.push({ start: T(19, 15), end: T(21), type: "study", label: "Study (or World Cup if caught up)" });
     blocks.push({ start: T(21), end: T(21, 15), type: "rest", label: "Free time / football watch" });
     blocks.push({ start: T(21, 15), end: T(21, 30), type: "fixed", label: "🐶 Nico evening + wind down" });
-    blocks.push({ start: T(21, 30), end: T(21, 31), type: "fixed", label: "😴 Lights out (wake ~5:45 = 8h15 sleep)" });
+    blocks.push({ start: T(21, 30), end: T(21, 31), type: "fixed", label: "😴 Lights out (wake 6:00 = 8h30 sleep)" });
   }
   return { windows: blocks.filter(b => b.type === "study"), fixed: blocks, note };
 }
