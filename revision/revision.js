@@ -19,7 +19,7 @@
 //  upcomingTests() / paceSummary() for the Today plan and dashboard.
 // =============================================================
 import { SUBJECTS, PACKS, PACK_VERSION, REVISION_GOAL, SEED_TESTS, SEED_SESSIONS, allTopics, topicById, subjectByKey } from "./syllabus.js?v=3";
-import { renderPack, packModes, writtenWork } from "./packview.js?v=8";
+import { renderPack, packModes, writtenWork } from "./packview.js?v=9";
 
 const esc = (s) => String(s ?? "").replace(/[<>&"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
 const ymd = (d) => d.toISOString().slice(0, 10);
@@ -177,7 +177,11 @@ ${who}'s answer:
 ${i.answer}
 
 ${i.guide}`).join("\n\n");
-  return head + "\n\n" + body;
+  const p = g.practice;
+  const extra = p ? `\n\n--- Also this session: flashcards and quizzes (already marked by the app) ---
+${(p.quizzes || []).map(q => `${quizLabel(q)} (${q.pack}): ${q.score}/${q.n}`).join("\n")}${p.cards?.seen ? `\nFlashcards: ${p.cards.seen} reviewed. ${p.cards.got} "Got it", ${p.cards.again} "Not yet".` : ""}${p.notYet?.length ? `\nStill "Not yet": ${p.notYet.join("; ")}` : ""}
+Add one short line of feedback on these too (they are not part of the written-answer total).` : "";
+  return head + "\n\n" + body + extra;
 }
 async function copyText(text, btn) {
   try { await navigator.clipboard.writeText(text); }
@@ -199,6 +203,7 @@ function gradeItem(g, showSubject) {
   el.innerHTML = `<div class="item-main">
     <div class="row-between"><div class="item-title">✍️ ${what}</div>${status}</div>
     <div class="item-sub">Sent ${fmtDate(g.date)} by ${esc(NAME_FOR(g.by))}${g.gradedAt ? ` · feedback ${fmtDate(g.gradedAt)}` : ""}</div>
+    ${g.practice ? `<div class="item-sub">🃏 ${esc(practiceLine(g.practice))}</div>` : ""}
     <details class="rv-gq"><summary class="muted small">See the questions and answers</summary><ol class="pk-ul small">${g.items.map(i => `<li><b>${esc(i.q)}</b> <span class="muted">(${i.marks})</span><div class="rv-pre">${esc(i.answer)}</div></li>`).join("")}</ol></details>
     ${g.feedback ? `<div class="pk-ms rv-fb"><div class="pk-ms-h">Feedback</div><div class="rv-pre">${esc(g.feedback)}</div></div>` : ""}
     <div class="rv-gtools"></div></div>`;
@@ -260,8 +265,41 @@ async function sessionWork(keys) {
   const fin = all.filter(w => stateFor(w.packId).done?.[w.key] === w.answer);
   return { fin, drafts: all.filter(w => !fin.includes(w)) };
 }
+// Flashcards and quizzes done since the session started (they mark themselves).
+// Returns { [subject]: { quizzes:[{pack, kind, score, n}], cards:{seen, got, again}, notYet:[front…] } }
+async function sessionPractice(keys, startISO) {
+  const out = {};
+  for (const k of keys) {
+    const p = { quizzes: [], cards: { seen: 0, got: 0, again: 0 }, notYet: [] };
+    for (const id of subjectPacks(subjectByKey(k))) {
+      try {
+        const st = stateFor(id), pack = await loadPack(id);
+        (st.quizzes || []).filter(q => q.at && q.at >= startISO && q.n > 0)
+          .forEach(q => p.quizzes.push({ pack: PACKS[id] || pack.title, kind: q.kind || "quiz", score: q.score, n: q.n }));
+        const last = {};
+        (st.cardLog || []).filter(e => e.at >= startISO).forEach(e => { last[e.key] = e.r; });
+        for (const [key, r] of Object.entries(last)) {
+          p.cards.seen++; p.cards[r === "got" ? "got" : "again"]++;
+          if (r !== "got" && p.notYet.length < 10) { const c = pack.flashcards?.[+key.slice(1)]; if (c) p.notYet.push(c.front); }
+        }
+      } catch (e) { /* pack unavailable */ }
+    }
+    if (p.quizzes.length || p.cards.seen) out[k] = p;
+  }
+  return out;
+}
+const quizLabel = (q) => q.kind === "dates" ? "Date quiz" : "Quiz";
+// One short line, e.g. "Quiz 14/16 · Flashcards ✓9 ✗3"
+export function practiceLine(p) {
+  if (!p) return "";
+  const qs = (p.quizzes || []).map(q => `${quizLabel(q)} ${q.score}/${q.n}`);
+  const c = p.cards?.seen ? [`Flashcards ✓${p.cards.got} ✗${p.cards.again}`] : [];
+  return [...qs, ...c].join(" · ");
+}
+
 async function endSession(sess, { subjects, conf, notes, mins, drafts }) {
   const work = await sessionWork(subjects);
+  const practice = await sessionPractice(subjects, sess.start);
   const items = [...work.fin, ...(drafts ? work.drafts : [])];
   // One grading set per subject, so each subject gets its own feedback and score.
   const grades = {}, answersBy = {};
@@ -273,6 +311,7 @@ async function endSession(sess, { subjects, conf, notes, mins, drafts }) {
         sessionId: sess.id, subject: k, subjects: [k], date: todayStr(), n: Date.now(), by: sess.by, status: "waiting", at: F.serverTimestamp(),
         items: mine.map(({ key, packId, subject, kind, pack, unit, q, marks, answer, guide }) => ({ key, packId, subject, kind, pack, unit, q, marks, answer, guide })),
       };
+      if (practice[k]) g.practice = practice[k];
       g.prompt = gradePrompt(g); // stored so the email script can send the same text
       grades[k] = (await F.addDoc(F.collection(DB, "revgrade"), g)).id;
       answersBy[k] = mine.length;
@@ -286,7 +325,7 @@ async function endSession(sess, { subjects, conf, notes, mins, drafts }) {
   }
   await F.updateDoc(F.doc(DB, "studysessions", sess.id), {
     status: "done", end: new Date().toISOString(), doneAt: todayStr(), mins, subjects, conf, notes: notes || "",
-    answers: items.length, answersBy, grades, gradeId: Object.values(grades)[0] || null, emailed: false,
+    answers: items.length, answersBy, grades, gradeId: Object.values(grades)[0] || null, practice, emailed: false,
   });
 }
 
@@ -352,8 +391,9 @@ function sessionControl(host) {
   rest.querySelector(".rv-snotes").oninput = (e) => { sessUI.notes = e.target.value; };
   rest.querySelectorAll("[data-c]").forEach(b => b.onclick = () => { sessUI.conf = +b.dataset.c; rest.querySelectorAll("[data-c]").forEach(x => x.classList.toggle("on", x === b)); });
   const workEl = rest.querySelector(".rv-swork");
-  sessionWork(sessUI.picks).then(({ fin, drafts }) => {
-    workEl.innerHTML = `${fin.length ? `✅ <b>${fin.length}</b> submitted answer${fin.length > 1 ? "s" : ""} will go to Mum to mark.` : "No submitted answers this time."}
+  Promise.all([sessionWork(sessUI.picks), sessionPractice(sessUI.picks, run.start)]).then(([{ fin, drafts }, prac]) => {
+    const pl = Object.entries(prac).map(([k, p]) => `${esc(subjNames([k]))}: ${esc(practiceLine(p))}`).join("<br>");
+    workEl.innerHTML = `${pl ? `🃏 Recorded with this session:<br>${pl}<br>` : ""}${fin.length ? `✅ <b>${fin.length}</b> submitted answer${fin.length > 1 ? "s" : ""} will go to Mum to mark.` : "No submitted answers this time."}
       ${drafts.length ? `<label class="rv-pt" style="margin-top:6px"><input type="checkbox" ${sessUI.drafts ? "checked" : ""}> <span>Also send ${drafts.length} answer${drafts.length > 1 ? "s" : ""} you didn't submit</span></label>` : ""}`;
     const cb = workEl.querySelector("input"); if (cb) cb.onchange = () => { sessUI.drafts = cb.checked; };
   });
@@ -399,8 +439,8 @@ export function mountStudyLog(el) {
     return g.status === "graded" ? `<button class="rv-link" data-g="${g.id}">✓ ${g.score ? esc(g.score) : "feedback"} ▸</button>` : `<button class="rv-link" data-g="${g.id}">⏳ waiting ▸</button>`;
   };
   card.innerHTML = `<div class="row-between"><b>📒 Study sessions</b><span class="muted small">last 7 days: ${wk.length} session${wk.length === 1 ? "" : "s"} · ${Math.floor(wkMins / 60)}h ${wkMins % 60}m</span></div>
-    <div class="rv-tscroll"><table class="rv-table rv-stable"><thead><tr><th>Date</th><th>Time</th><th>Mins</th><th>Subject</th><th>Conf.</th><th>Answers</th><th>Score</th></tr></thead><tbody>
-    ${rows.map(({ s, k, gid, n, first }) => `<tr class="${first ? "rv-snew" : "rv-ssame"}"><td>${fmtDate(s.date)}</td><td class="small">${hhmm(s.start)}–${hhmm(s.end)}</td><td>${s.mins || "–"}</td><td class="small">${esc(subjNames([k]))}${first && s.notes ? `<div class="muted">“${esc(s.notes)}”</div>` : ""}</td><td>${s.conf ? s.conf + "/5" : "–"}</td><td>${n}</td><td class="small">${mark(gid, n)}</td></tr>${gid ? `<tr class="rv-gdetail" data-for="${gid}" hidden><td colspan="7"></td></tr>` : ""}`).join("")}
+    <div class="rv-tscroll"><table class="rv-table rv-stable"><thead><tr><th>Date</th><th>Time</th><th>Mins</th><th>Subject</th><th>Conf.</th><th>Answers</th><th>Score</th><th>Quiz &amp; cards</th></tr></thead><tbody>
+    ${rows.map(({ s, k, gid, n, first }) => `<tr class="${first ? "rv-snew" : "rv-ssame"}"><td>${fmtDate(s.date)}</td><td class="small">${hhmm(s.start)}–${hhmm(s.end)}</td><td>${s.mins || "–"}</td><td class="small">${esc(subjNames([k]))}${first && s.notes ? `<div class="muted">“${esc(s.notes)}”</div>` : ""}</td><td>${s.conf ? s.conf + "/5" : "–"}</td><td>${n}</td><td class="small">${mark(gid, n)}</td><td class="small">${esc(practiceLine(s.practice?.[k])) || "–"}</td></tr>${gid ? `<tr class="rv-gdetail" data-for="${gid}" hidden><td colspan="8"></td></tr>` : ""}`).join("")}
     </tbody></table></div>`;
   card.querySelectorAll("[data-g]").forEach(b => b.onclick = () => {
     const tr = card.querySelector(`.rv-gdetail[data-for="${b.dataset.g}"]`);

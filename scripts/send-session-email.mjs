@@ -35,6 +35,16 @@ function parentEmail() {
 admin.initializeApp({ credential: admin.credential.cert(JSON.parse(need("FIREBASE_SERVICE_ACCOUNT"))) });
 const db = admin.firestore();
 const esc = (s) => String(s ?? "").replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]));
+// Flashcards / quizzes done in the session (already marked by the app).
+const quizLabel = (q) => (q.kind === "dates" ? "Date quiz" : "Quiz");
+function practiceHtml(practice) {
+  const rows = Object.entries(practice || {}).map(([k, p]) => {
+    const bits = [...(p.quizzes || []).map((q) => `${quizLabel(q)} ${q.score}/${q.n}`), ...(p.cards?.seen ? [`Flashcards: ${p.cards.got} got it, ${p.cards.again} not yet`] : [])];
+    const ny = p.notYet?.length ? `<br><span style="color:#7a8a96">Still “not yet”: ${esc(p.notYet.join("; "))}</span>` : "";
+    return `<li><b>${esc(SUBJ[k] || k)} quiz &amp; flashcards:</b> ${esc(bits.join(" · "))}${ny}</li>`;
+  });
+  return rows.join("");
+}
 const time = (iso) => iso ? new Date(iso).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "Asia/Kolkata" }) : "";
 
 async function main() {
@@ -63,6 +73,7 @@ async function main() {
         <li><b>Confidence:</b> ${s.conf || "?"}/5</li>
         ${s.notes ? `<li><b>Notes:</b> “${esc(s.notes)}”</li>` : ""}
         <li><b>Written answers:</b> ${n}</li>
+        ${practiceHtml(s.practice)}
       </ul>`;
     if (n) {
       html += `<p style="font-size:14px"><b>To mark them:</b> copy each grey box (one per subject) into a Claude chat. Then paste Claude's feedback and the score into the app: <b>Revision ▸ Ready to grade</b> (or <b>Progress ▸ Study sessions</b>), and Jake will see it there.</p>`;
@@ -71,7 +82,7 @@ async function main() {
         <pre style="white-space:pre-wrap;font-family:Arial,sans-serif;font-size:13px;background:#f6f8f9;border:1px solid #dfe6ea;border-radius:8px;padding:10px">${esc(g.prompt || "")}</pre>`;
       }
     } else {
-      html += `<p style="font-size:14px">No written answers this session (flashcards, quizzes or reading only).</p>`;
+      html += `<p style="font-size:14px">No written answers this session${s.practice && Object.keys(s.practice).length ? " (quiz and flashcard results are above)" : " (reading or other practice only)"}.</p>`;
     }
     html += `<p style="font-size:12px;color:#7a8a96"><a href="${APP_URL}">Open Jake's Game Plan</a> · sent automatically when a session ends.</p></div>`;
 

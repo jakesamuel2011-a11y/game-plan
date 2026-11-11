@@ -46,11 +46,11 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 5. **Verify an upload landed:** open the file on GitHub and Cmd+F for a string you just changed.
 
 ### Current cache-buster versions (keep incrementing from here)
-- `app.js?v=60`
+- `app.js?v=61`
 - `styles.css?v=31`
 - planner import `./planner.js?v=29`
 - timetable import `./timetable.js?v=3` (Jake's school timetable, shown in Today)
-- revision import in app.js `./revision/revision.js?v=16` (and its own imports of `syllabus.js?v=3` / `packview.js?v=8`)
+- revision import in app.js `./revision/revision.js?v=17` (and its own imports of `syllabus.js?v=3` / `packview.js?v=9`)
 - pack JSON files: bump `PACK_VERSION` in `revision/syllabus.js`
 
 > The `.github/workflows/*.yml` files won't drag-upload (hidden folder). Edit those via GitHub's **Add file → Create new file** if needed.
@@ -101,8 +101,8 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 - `revprogress/{topicId}` {r1:{done,conf,at,by}, r2:{…}, pts:{index:true}} — revision rounds + checklist ticks
 - `revsessions` {date, slot, subject, topics[], title, method, mins, done, conf, notes, doneBy, doneAt} — planned revision sessions (feed the Today plan); finishing one marks the next round on its topics
 - `revtests` {subject, name, date, topics[]}
-- `revpractice/{packId}` {answers, cards, quizzes[], drills, done, sent} — practice-pack progress (shared: both logins can see it). `done` = answers Jake tapped Submit on; `sent` = answers already sent for grading
-- `studysessions` {by, date, start, end, mins, subjects[], status: running|done, conf, notes, answers, answersBy{subject:n}, grades{subject:gradeId}, gradeId (first; older sessions), emailed} — Jake's timed study sessions (Start / End bar on every Revision page; table in Progress). Ending one copies the new answers in its subjects into one `revgrade` set per subject (Progress shows one row per subject, each with its own score); `send-session-email.mjs` emails it to the parent and sets `emailed`. Sessions of 20+ min count toward the weekly revision requirement. While a session is running, model answers / mark schemes are hidden for Jake (packview `locked` option)
+- `revpractice/{packId}` {answers, cards, cardLog[{at,unit,key,r}], quizzes[{d,at,unit,kind,score,n}], drills, done, sent} — practice-pack progress (shared: both logins can see it). `done` = answers Jake tapped Submit on; `sent` = answers already sent for grading
+- `studysessions` {by, date, start, end, mins, subjects[], status: running|done, conf, notes, answers, answersBy{subject:n}, grades{subject:gradeId}, gradeId (first; older sessions), practice{subject:{quizzes[], cards{seen,got,again}, notYet[]}}, emailed} — Jake's timed study sessions (Start / End bar on every Revision page; table in Progress). Ending one copies the new answers in its subjects into one `revgrade` set per subject (Progress shows one row per subject, each with its own score); `send-session-email.mjs` emails it to the parent and sets `emailed`. Sessions of 20+ min count toward the weekly revision requirement. While a session is running, model answers / mark schemes are hidden for Jake (packview `locked` option)
 - `revgrade` {sessionId, subjects[], subject, date, by, items[{q, marks, answer, guide, subject}], prompt, status, feedback, score} — grading sets. The parent copies `prompt` (questions, answers, mark schemes) into Claude and pastes the feedback back for Jake; waiting sets are also in the digest email. Older sets (no sessionId) came from the retired "Grade this" button
 - `meta/revision_v1` — seeds the Nov 7–13 EM/Bio plan + tests once
 - `meta/history_rename_v1` — one-time move of homework subject Humanities → History (revision keeps the internal key "Humanities", shown as History)
