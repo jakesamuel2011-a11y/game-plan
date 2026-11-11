@@ -460,23 +460,23 @@ async function setResched(dateStr, data) {
 }
 async function clearResched(dateStr) { try { await deleteDoc(doc(db, "footballresched", dateStr)); } catch (e) { } }
 
-// 🏫 The day's classes from timetable.js, plus the full week in a fold-out.
+// 🏫 The school week from timetable.js, always shown, with the selected day
+// highlighted (and the current class, when it's today).
 const ttTime = (s) => { const [h, m] = s.split(":").map(Number); return `${h > 12 ? h - 12 : h}:${String(m).padStart(2, "0")}`; };
 function renderSchoolDay(day, selDate, holiday) {
   const el = $("schoolDay"); if (!el) return;
-  const blocks = TIMETABLE[day];
   const nowHM = new Date().toTimeString().slice(0, 5);
   const isToday = selDate === todayStr();
-  const week = `<details class="tt-week"><summary class="muted small">📅 See the full week</summary><div class="tt-scroll"><div class="tt-grid">${[1, 2, 3, 4, 5].map(d => `<div class="tt-col ${d === day ? "on" : ""}"><div class="tt-day">${DAY_NAMES[d].slice(0, 3)}</div>${TIMETABLE[d].filter(b => !b[3]).map(b => `<div class="tt-cell"><span class="muted">${ttTime(b[0])}</span> ${esc(b[2])}</div>`).join("")}</div>`).join("")}</div></div></details>`;
-  if (!blocks || holiday) {
-    el.innerHTML = `<div class="card tt-card"><b>🏫 School</b><div class="muted small">${holiday ? "Holiday: no school." : selDate === todayStr() ? "No school today." : `No school on ${DAY_NAMES[day]}.`}</div>${week}</div>`;
-    return;
-  }
-  const rows = blocks.map(([s, e, name, kind]) => {
-    const now = isToday && nowHM >= s && nowHM < e;
-    return `<div class="tt-row ${kind ? "brk" : ""} ${now ? "now" : ""}"><span class="tt-t">${ttTime(s)}–${ttTime(e)}</span><span>${esc(name)}</span>${now ? `<span class="pill today">now</span>` : ""}</div>`;
+  const grid = [1, 2, 3, 4, 5].map(d => {
+    const sel = d === day && !holiday;
+    const cells = TIMETABLE[d].filter(b => !b[3]).map(([s, e, name]) => {
+      const now = sel && isToday && nowHM >= s && nowHM < e;
+      return `<div class="tt-cell ${now ? "now" : ""}"><span class="muted">${ttTime(s)}</span> ${esc(name)}</div>`;
+    }).join("");
+    return `<div class="tt-col ${sel ? "on" : ""}"><div class="tt-day">${DAY_NAMES[d].slice(0, 3)}</div>${cells}</div>`;
   }).join("");
-  el.innerHTML = `<div class="card tt-card"><b>🏫 At school ${isToday ? "today" : "on " + DAY_NAMES[day]}</b><div class="tt-list">${rows}</div>${week}</div>`;
+  const note = holiday ? "Holiday: no school" : !TIMETABLE[day] ? (isToday ? "No school today" : `No school on ${DAY_NAMES[day]}`) : "";
+  el.innerHTML = `<div class="card tt-card"><div class="row-between"><b>🏫 School timetable</b>${note ? `<span class="muted small">${note}</span>` : ""}</div><div class="tt-scroll"><div class="tt-grid">${grid}</div></div></div>`;
 }
 
 function renderToday() {

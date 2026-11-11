@@ -318,8 +318,11 @@ details summary{list-style-position:inside}
 .tt-week{margin-top:8px}
 .tt-week summary{cursor:pointer}
 .tt-scroll{overflow-x:auto}
-.tt-grid{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:6px;margin-top:8px}
+.tt-grid{display:grid;grid-template-columns:repeat(5,minmax(104px,1fr));gap:6px;margin-top:8px}
 .tt-col{background:var(--card2);border:1px solid var(--line);border-radius:9px;padding:6px}
 .tt-col.on{border-color:var(--green)}
 .tt-day{font-weight:700;font-size:.8rem;margin-bottom:4px}
 .tt-cell{font-size:.76rem;padding:3px 0;border-top:1px solid var(--line)}
+.tt-col.on{background:#13302a;border-color:var(--green)}
+.tt-col.on .tt-day{color:var(--accent)}
+.tt-cell.now{color:var(--accent);font-weight:700}
