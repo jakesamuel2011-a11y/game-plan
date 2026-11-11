@@ -309,3 +309,17 @@ details summary{list-style-position:inside}
 .pk-locked{opacity:.75;cursor:not-allowed}
 .rv-gtools .rv-score{width:100%;box-sizing:border-box;margin:0}
 .rv-stable tr.rv-ssame td{border-top:1px dashed var(--line)}
+.tt-card b{display:block;margin-bottom:6px}
+.tt-list{display:flex;flex-direction:column;gap:2px}
+.tt-row{display:flex;gap:10px;align-items:center;font-size:.86rem;padding:4px 6px;border-radius:7px}
+.tt-row .tt-t{color:var(--muted);min-width:92px;font-variant-numeric:tabular-nums}
+.tt-row.brk{color:var(--muted);font-size:.78rem}
+.tt-row.now{background:#13302a;color:var(--accent);font-weight:700}
+.tt-week{margin-top:8px}
+.tt-week summary{cursor:pointer}
+.tt-scroll{overflow-x:auto}
+.tt-grid{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:6px;margin-top:8px}
+.tt-col{background:var(--card2);border:1px solid var(--line);border-radius:9px;padding:6px}
+.tt-col.on{border-color:var(--green)}
+.tt-day{font-weight:700;font-size:.8rem;margin-bottom:4px}
+.tt-cell{font-size:.76rem;padding:3px 0;border-top:1px solid var(--line)}

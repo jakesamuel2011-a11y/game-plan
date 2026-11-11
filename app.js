@@ -3,6 +3,7 @@
 // =============================================================
 import { firebaseConfig, PEOPLE } from "./firebase-config.js";
 import { buildDayPlan, matchAssessment, FOOTBALL_DAYS } from "./planner.js?v=28";
+import { TIMETABLE } from "./timetable.js?v=1";
 import { initRevision, sessionsFor, upcomingTests, overdueSessions, paceSummary, revisionCount, progressHtml as revisionProgressHtml, subjectName, openSubject as openRevisionSubject, render as renderRevision, gradeQueue, mountStudyLog } from "./revision/revision.js?v=16";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -459,6 +460,25 @@ async function setResched(dateStr, data) {
 }
 async function clearResched(dateStr) { try { await deleteDoc(doc(db, "footballresched", dateStr)); } catch (e) { } }
 
+// 🏫 The day's classes from timetable.js, plus the full week in a fold-out.
+const ttTime = (s) => { const [h, m] = s.split(":").map(Number); return `${h > 12 ? h - 12 : h}:${String(m).padStart(2, "0")}`; };
+function renderSchoolDay(day, selDate, holiday) {
+  const el = $("schoolDay"); if (!el) return;
+  const blocks = TIMETABLE[day];
+  const nowHM = new Date().toTimeString().slice(0, 5);
+  const isToday = selDate === todayStr();
+  const week = `<details class="tt-week"><summary class="muted small">📅 See the full week</summary><div class="tt-scroll"><div class="tt-grid">${[1, 2, 3, 4, 5].map(d => `<div class="tt-col ${d === day ? "on" : ""}"><div class="tt-day">${DAY_NAMES[d].slice(0, 3)}</div>${TIMETABLE[d].filter(b => !b[3]).map(b => `<div class="tt-cell"><span class="muted">${ttTime(b[0])}</span> ${esc(b[2])}</div>`).join("")}</div>`).join("")}</div></div></details>`;
+  if (!blocks || holiday) {
+    el.innerHTML = `<div class="card tt-card"><b>🏫 School</b><div class="muted small">${holiday ? "Holiday: no school." : selDate === todayStr() ? "No school today." : `No school on ${DAY_NAMES[day]}.`}</div>${week}</div>`;
+    return;
+  }
+  const rows = blocks.map(([s, e, name, kind]) => {
+    const now = isToday && nowHM >= s && nowHM < e;
+    return `<div class="tt-row ${kind ? "brk" : ""} ${now ? "now" : ""}"><span class="tt-t">${ttTime(s)}–${ttTime(e)}</span><span>${esc(name)}</span>${now ? `<span class="pill today">now</span>` : ""}</div>`;
+  }).join("");
+  el.innerHTML = `<div class="card tt-card"><b>🏫 At school ${isToday ? "today" : "on " + DAY_NAMES[day]}</b><div class="tt-list">${rows}</div>${week}</div>`;
+}
+
 function renderToday() {
   const day = parseInt($("planDay").value);
   const selDate = dateForDay(day);
@@ -468,6 +488,7 @@ function renderToday() {
   const missedRec = cache.missed.find(m => m.date === selDate);
   const noFootball = cache.footballOff.has(selDate) || cache.resched.has(selDate) || !!missedRec;
   renderHolidayBox(selDate);
+  renderSchoolDay(day, selDate, holiday);
 
   // Due alerts
   const alerts = $("dueAlerts"); alerts.innerHTML = "";
