@@ -6,7 +6,9 @@
 //    store = { state, save() }  — state is a plain object this module reads
 //            and mutates; call save() after each change (caller persists it).
 //            state: { answers:{key:text}, cards:{key:"got"|"again"},
-//                     quizzes:[{d, unit, score, n}], drills:{key:date} }
+//                     cardLog:[{at, unit, key, r}]  (every Got it / Not yet, newest last),
+//                     quizzes:[{d, at, unit, kind, score, n}]  (saved after every answer),
+//                     drills:{key:date} }
 //    opts  = { unit }  — pre-select a unit chip (e.g. "kq4")
 //            { submit(key), submitted(key) } — optional: shows a Submit button
 //            under each written answer (Jake only)
@@ -49,7 +51,7 @@ export function packStats(pack, state, unit) {
   const got = cards.filter(c => state.cards?.[c.key] === "got").length;
   const exam = (pack.exam || []).map((q, i) => ({ ...q, key: "eq" + i })).filter(inUnit);
   const written = exam.filter(q => (state.answers?.[q.key] || "").trim().length > 20).length;
-  const qz = (state.quizzes || []).filter(q => !unit || q.unit === unit || q.unit === "all");
+  const qz = (state.quizzes || []).filter(q => (!unit || q.unit === unit || q.unit === "all") && q.n >= 5); // ignore barely-started attempts
   const best = qz.length ? Math.max(...qz.map(q => Math.round(100 * q.score / q.n))) : null;
   return { cards: cards.length, got, exam: exam.length, written, bestQuizPct: best };
 }
@@ -87,7 +89,10 @@ export function writtenWork(pack, state) {
 
 export function renderPack(root, pack, store, opts = {}) {
   const S = store.state;
-  S.answers ||= {}; S.cards ||= {}; S.quizzes ||= []; S.drills ||= {};
+  S.answers ||= {}; S.cards ||= {}; S.quizzes ||= []; S.drills ||= {}; S.cardLog ||= [];
+  const nowISO = () => new Date().toISOString();
+  // Each Got it / Not yet is logged with a time, so a study session can report what was done in it.
+  const logCard = (key, r) => { S.cardLog.push({ at: nowISO(), unit, key, r }); if (S.cardLog.length > 1500) S.cardLog.splice(0, S.cardLog.length - 1500); };
   const modeKeys = packModes(pack).map(([k]) => k);
   let mode = modeKeys.includes(opts.mode) ? opts.mode : modeKeys.includes("cards") ? "cards" : "learn";
   let unit = opts.unit || "all";
@@ -232,16 +237,18 @@ export function renderPack(root, pack, store, opts = {}) {
     };
     card.addEventListener("click", flip);
     card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flip(); } });
-    got.onclick = () => { const c = deck.shift(); S.cards[c.key] = "got"; store.save(); show(); };
+    got.onclick = () => { const c = deck.shift(); S.cards[c.key] = "got"; logCard(c.key, "got"); store.save(); show(); };
     again.onclick = () => {
-      const c = deck.shift(); S.cards[c.key] = "again"; store.save();
+      const c = deck.shift(); S.cards[c.key] = "again"; logCard(c.key, "again"); store.save();
       deck.splice(Math.min(deck.length, 3 + Math.floor(Math.random() * 3)), 0, c); show();
     };
     restart.onclick = () => { all.forEach(c => delete S.cards[c.key]); store.save(); deck = shuffle(all); show(); };
     show();
   }
 
-  function logQuiz(score, n) { S.quizzes.push({ d: today(), unit, score, n }); store.save(); }
+  // One entry per attempt, updated after every answer, so a half-finished quiz still counts.
+  function startQuiz(kind) { const q = { d: today(), at: nowISO(), unit, kind, score: 0, n: 0 }; let saved = false;
+    return (score, n) => { q.score = score; q.n = n; if (!saved) { S.quizzes.push(q); saved = true; } store.save(); }; }
 
   function quiz() {
     if (pack.quiz?.length) return mcq();
@@ -250,13 +257,13 @@ export function renderPack(root, pack, store, opts = {}) {
     const years = [...new Set((pack.timeline || []).map(e => e.year))].sort();
     const qs = shuffle(events).slice(0, 10);
     let i = 0, score = 0;
+    const record = startQuiz("dates");
     body.appendChild(h("p", { class: "muted small" }, esc(pack.quizIntro || "Pick the year.")));
     const box = h("div", { class: "card" });
     const next = h("button", { class: "btn primary", type: "button" }, "Next");
     body.append(box, next);
     function show() {
       if (i >= qs.length) {
-        logQuiz(score, qs.length);
         box.innerHTML = `<div class="pk-big">${score} / ${qs.length}</div><div>${score >= 8 ? "Strong. Dates are locked in." : score >= 5 ? "Good base. Go again and beat it." : "Worth another go. Check the Timeline first."}</div>`;
         next.textContent = "Play again"; next.onclick = () => { body.innerHTML = ""; quiz(); };
         return;
@@ -273,6 +280,7 @@ export function renderPack(root, pack, store, opts = {}) {
             if (grid.dataset.done) return; grid.dataset.done = 1;
             if (y === e.year) { score++; ev.currentTarget.classList.add("right"); fb.textContent = "Correct."; }
             else { ev.currentTarget.classList.add("wrong"); fb.textContent = `It was ${e.year}.`; [...grid.children].forEach(b => { if (+b.textContent === e.year) b.classList.add("right"); }); }
+            record(score, i + 1);
           }
         }
       }, String(y))));
@@ -285,6 +293,7 @@ export function renderPack(root, pack, store, opts = {}) {
   function mcq() {
     const qs = pack.quiz;
     let right = 0, done = 0;
+    const record = startQuiz("mcq");
     body.appendChild(h("p", { class: "muted small" }, esc(pack.quizIntro || "")));
     const score = h("div", { class: "pk-big" }, "0 / 0");
     body.appendChild(score);
@@ -299,7 +308,7 @@ export function renderPack(root, pack, store, opts = {}) {
             [...grid.children][q.answer].classList.add("right");
             if (j !== q.answer) ev.currentTarget.classList.add("wrong"); else right++;
             done++; why.hidden = false; score.textContent = `${right} / ${done}`;
-            if (done === qs.length) logQuiz(right, done);
+            record(right, done);
           }
         }
       }, `<b>${"ABCD"[j]}</b> ${esc(o)}`)));
