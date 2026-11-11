@@ -46,10 +46,10 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 5. **Verify an upload landed:** open the file on GitHub and Cmd+F for a string you just changed.
 
 ### Current cache-buster versions (keep incrementing from here)
-- `app.js?v=51`
+- `app.js?v=52`
 - `styles.css?v=29`
 - planner import `./planner.js?v=28`
-- timetable import `./timetable.js?v=1` (Jake's school timetable, shown in Today)
+- timetable import `./timetable.js?v=2` (Jake's school timetable, shown in Today)
 - revision import in app.js `./revision/revision.js?v=16` (and its own imports of `syllabus.js?v=3` / `packview.js?v=8`)
 - pack JSON files: bump `PACK_VERSION` in `revision/syllabus.js`
 
