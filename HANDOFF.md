@@ -46,10 +46,10 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 5. **Verify an upload landed:** open the file on GitHub and Cmd+F for a string you just changed.
 
 ### Current cache-buster versions (keep incrementing from here)
-- `app.js?v=51`
-- `styles.css?v=29`
+- `app.js?v=53`
+- `styles.css?v=30`
 - planner import `./planner.js?v=28`
-- timetable import `./timetable.js?v=1` (Jake's school timetable, shown in Today)
+- timetable import `./timetable.js?v=2` (Jake's school timetable, shown in Today)
 - revision import in app.js `./revision/revision.js?v=16` (and its own imports of `syllabus.js?v=3` / `packview.js?v=8`)
 - pack JSON files: bump `PACK_VERSION` in `revision/syllabus.js`
 
@@ -64,7 +64,7 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 - `index.html` — markup, tab nav, login screen, cache-buster versions.
 - `styles.css` — all styling (dark green football theme, mobile-first).
 - `app.js` — Firebase wiring, auth, live Firestore subscriptions, all rendering/CRUD, dashboard, progress/badges, quotes.
-- `timetable.js` — Jake's school timetable (Vaayu 9 IGCSE), by weekday; shown as "🏫 At school today" + a full-week fold-out in the Today tab. Teachers' names left out (public repo).
+- `timetable.js` — Jake's school timetable (Vaayu 9 IGCSE), by weekday; shown as a full-week grid in the Today tab, with the selected day highlighted. Teachers' names left out (public repo).
 - `planner.js` — **pure, testable** daily-plan generator + match-assessment logic. No Firebase. Imported by app.js with a `?v=` cache-buster.
 - `firebase-config.js` — Firebase keys (safe to be public) + PEOPLE name map.
 - `firestore.rules` — security rules (reference copy; the live rules live in Firebase Console).
