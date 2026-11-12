@@ -196,7 +196,7 @@ async function copyText(text, btn) {
 function gradeItem(g, showSubject) {
   const el = document.createElement("div");
   el.className = "item rv-grade";
-  const what = `${g.items.length} answer${g.items.length > 1 ? "s" : ""}${showSubject ? " · " + esc(subjNames(subjectsOf(g))) : ""}`;
+  const what = `${g.items.length} answer${g.items.length > 1 ? "s" : ""}${showSubject ? " · " + esc(shortNames(subjectsOf(g))) : ""}`;
   const status = g.status === "graded"
     ? `<span class="pill today" style="color:var(--accent);background:#13302a">✓ ${g.score ? esc(g.score) : "graded"}</span>`
     : `<span class="pill soon">⏳ waiting for ${IS_PARENT() ? "you" : "Mum"}</span>`;
@@ -243,6 +243,8 @@ function gradeItem(g, showSubject) {
 // feedback back and Jake sees it in the session row.
 const subjectsOf = (g) => g.subjects?.length ? g.subjects : [g.subject];
 const subjNames = (keys) => keys.map(k => subjectByKey(k)?.name || k).join(", ");
+// Short names, as in the school timetable (EM rather than "EM (Environmental Mgmt)").
+const shortNames = (keys) => keys.map(k => k === "EM" ? "EM" : subjectByKey(k)?.name || k).join(", ");
 const hhmm = (iso) => iso ? new Date(iso).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" }) : "";
 const minsSince = (iso) => Math.max(0, Math.round((Date.now() - new Date(iso)) / 6e4));
 export const runningSession = () => R.study.find(s => s.status === "running" && s.by === ME().email);
@@ -336,7 +338,7 @@ function sessionControl(host) {
   const run = runningSession();
   if (IS_PARENT()) {
     const j = anyRunning();
-    if (j) box.innerHTML = `<div class="card rv-sbar"><b>⏱️ ${esc(NAME_FOR(j.by))} is revising now</b> · ${esc(subjNames(j.subjects))} · <span class="rv-timer" data-start="${j.start}">${minsSince(j.start)}</span> min</div>`;
+    if (j) box.innerHTML = `<div class="card rv-sbar"><b>⏱️ ${esc(NAME_FOR(j.by))} is revising now</b> · ${esc(shortNames(j.subjects))} · <span class="rv-timer" data-start="${j.start}">${minsSince(j.start)}</span> min</div>`;
     return;
   }
   const chips = (picks, onToggle) => {
@@ -372,7 +374,7 @@ function sessionControl(host) {
     return;
   }
   if (sessUI.mode !== "end" || sessUI.id !== run.id) {
-    box.innerHTML = `<div class="card rv-sbar on"><div class="row-between"><div><b>⏱️ Session running · <span class="rv-timer" data-start="${run.start}">${minsSince(run.start)}</span> min</b><div class="muted small">${esc(subjNames(run.subjects))} · started ${hhmm(run.start)} · model answers hidden until you end it</div></div><button class="btn primary" type="button">■ End session</button></div></div>`;
+    box.innerHTML = `<div class="card rv-sbar on"><div class="row-between"><div><b>⏱️ Session running · <span class="rv-timer" data-start="${run.start}">${minsSince(run.start)}</span> min</b><div class="muted small">${esc(shortNames(run.subjects))} · started ${hhmm(run.start)} · model answers hidden until you end it</div></div><button class="btn primary" type="button">■ End session</button></div></div>`;
     box.querySelector("button").onclick = () => { sessUI = { ...sessUI, mode: "end", id: run.id, picks: [...run.subjects], conf: 0, notes: "", drafts: true, mins: Math.max(1, Math.min(minsSince(run.start), 240)) }; redraw(); };
     return;
   }
@@ -392,7 +394,7 @@ function sessionControl(host) {
   rest.querySelectorAll("[data-c]").forEach(b => b.onclick = () => { sessUI.conf = +b.dataset.c; rest.querySelectorAll("[data-c]").forEach(x => x.classList.toggle("on", x === b)); });
   const workEl = rest.querySelector(".rv-swork");
   Promise.all([sessionWork(sessUI.picks), sessionPractice(sessUI.picks, run.start)]).then(([{ fin, drafts }, prac]) => {
-    const pl = Object.entries(prac).map(([k, p]) => `${esc(subjNames([k]))}: ${esc(practiceLine(p))}`).join("<br>");
+    const pl = Object.entries(prac).map(([k, p]) => `${esc(shortNames([k]))}: ${esc(practiceLine(p))}`).join("<br>");
     workEl.innerHTML = `${pl ? `🃏 Recorded with this session:<br>${pl}<br>` : ""}${fin.length ? `✅ <b>${fin.length}</b> submitted answer${fin.length > 1 ? "s" : ""} will go to Mum to mark.` : "No submitted answers this time."}
       ${drafts.length ? `<label class="rv-pt" style="margin-top:6px"><input type="checkbox" ${sessUI.drafts ? "checked" : ""}> <span>Also send ${drafts.length} answer${drafts.length > 1 ? "s" : ""} you didn't submit</span></label>` : ""}`;
     const cb = workEl.querySelector("input"); if (cb) cb.onchange = () => { sessUI.drafts = cb.checked; };
@@ -440,7 +442,7 @@ export function mountStudyLog(el) {
   };
   card.innerHTML = `<div class="row-between"><b>📒 Study sessions</b><span class="muted small">last 7 days: ${wk.length} session${wk.length === 1 ? "" : "s"} · ${Math.floor(wkMins / 60)}h ${wkMins % 60}m</span></div>
     <div class="rv-tscroll"><table class="rv-table rv-stable"><thead><tr><th>Date</th><th>Time</th><th>Mins</th><th>Subject</th><th>Conf.</th><th>Answers</th><th>Score</th><th>Quiz &amp; cards</th></tr></thead><tbody>
-    ${rows.map(({ s, k, gid, n, first }) => `<tr class="${first ? "rv-snew" : "rv-ssame"}"><td>${fmtDate(s.date)}</td><td class="small">${hhmm(s.start)}–${hhmm(s.end)}</td><td>${s.mins || "–"}</td><td class="small">${esc(subjNames([k]))}${first && s.notes ? `<div class="muted">“${esc(s.notes)}”</div>` : ""}</td><td>${s.conf ? s.conf + "/5" : "–"}</td><td>${n}</td><td class="small">${mark(gid, n)}</td><td class="small">${esc(practiceLine(s.practice?.[k])) || "–"}</td></tr>${gid ? `<tr class="rv-gdetail" data-for="${gid}" hidden><td colspan="8"></td></tr>` : ""}`).join("")}
+    ${rows.map(({ s, k, gid, n, first }) => `<tr class="${first ? "rv-snew" : "rv-ssame"}"><td>${fmtDate(s.date)}</td><td class="small">${hhmm(s.start)}–${hhmm(s.end)}</td><td>${s.mins || "–"}</td><td class="small">${esc(shortNames([k]))}${first && s.notes ? `<div class="muted">“${esc(s.notes)}”</div>` : ""}</td><td>${s.conf ? s.conf + "/5" : "–"}</td><td>${n}</td><td class="small">${mark(gid, n)}</td><td class="small">${esc(practiceLine(s.practice?.[k])) || "–"}</td></tr>${gid ? `<tr class="rv-gdetail" data-for="${gid}" hidden><td colspan="8"></td></tr>` : ""}`).join("")}
     </tbody></table></div>`;
   card.querySelectorAll("[data-g]").forEach(b => b.onclick = () => {
     const tr = card.querySelector(`.rv-gdetail[data-for="${b.dataset.g}"]`);
