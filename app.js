@@ -245,7 +245,7 @@ const QUOTES = [
   ["When the season starts, the aim is to win everything — with the team.", "Lionel Messi"],
   ["I'm always trying to improve and evolve as a player.", "Cristiano Ronaldo"],
 ];
-// Inspirational Bible verses (shown on 3 days/week; football quotes on the other 4)
+// Inspirational Bible verses (mixed in with QUOTES every day)
 const VERSES = [
   ["I can do all things through Christ who strengthens me.", "Philippians 4:13"],
   ["Be strong and courageous. Do not be afraid, for the Lord your God is with you wherever you go.", "Joshua 1:9"],
@@ -304,13 +304,12 @@ function showQuotePop() {
   setTimeout(close, 5000);
 }
 // A random pick each time the app is opened or refreshed (same pick for the pop-up and the
-// Today header until the next refresh). Verses on Tue/Thu/Sat, quotes on the other days.
+// Today header until the next refresh). Quotes and verses are mixed in one pool, every day.
 // Never repeats the one shown last time on this device.
 let quotePick = null;
 function quoteOfDay() {
   if (quotePick) return quotePick;
-  const verseDay = [2, 4, 6].includes(new Date().getDay());
-  const list = verseDay ? VERSES : QUOTES;
+  const list = QUOTES.concat(VERSES);
   let last = null;
   try { last = localStorage.getItem("lastQuote"); } catch (e) { /* storage blocked */ }
   let i = Math.floor(Math.random() * list.length);
