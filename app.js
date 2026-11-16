@@ -288,7 +288,6 @@ const VERSES = [
   ["Be joyful in hope, patient in affliction, faithful in prayer.", "Romans 12:12"],
   ["I praise you because I am fearfully and wonderfully made.", "Psalm 139:14"],
 ];
-// Tue/Thu/Sat = verse days (3/week); the other 4 days = quotes (football + role models).
 // Pop-up of today’s quote for 5s when the app opens or is refreshed (tap to close early).
 let quotePopShown = false;
 function showQuotePop() {
@@ -304,11 +303,21 @@ function showQuotePop() {
   el.onclick = close;
   setTimeout(close, 5000);
 }
+// A random pick each time the app is opened or refreshed (same pick for the pop-up and the
+// Today header until the next refresh). Verses on Tue/Thu/Sat, quotes on the other days.
+// Never repeats the one shown last time on this device.
+let quotePick = null;
 function quoteOfDay() {
-  const now = new Date();
-  const day = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 864e5);
-  const verseDay = [2, 4, 6].includes(now.getDay());
-  return verseDay ? VERSES[day % VERSES.length] : QUOTES[day % QUOTES.length];
+  if (quotePick) return quotePick;
+  const verseDay = [2, 4, 6].includes(new Date().getDay());
+  const list = verseDay ? VERSES : QUOTES;
+  let last = null;
+  try { last = localStorage.getItem("lastQuote"); } catch (e) { /* storage blocked */ }
+  let i = Math.floor(Math.random() * list.length);
+  if (list.length > 1 && list[i][0] === last) i = (i + 1 + Math.floor(Math.random() * (list.length - 1))) % list.length;
+  quotePick = list[i];
+  try { localStorage.setItem("lastQuote", quotePick[0]); } catch (e) { /* storage blocked */ }
+  return quotePick;
 }
 
 // date string of the n-th upcoming school day (Mon–Fri), today included
