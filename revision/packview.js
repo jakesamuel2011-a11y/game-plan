@@ -9,7 +9,8 @@
 //                     cardLog:[{at, unit, key, r}]  (every Got it / Not yet, newest last),
 //                     quizzes:[{d, at, unit, kind, score, n}]  (saved after every answer),
 //                     drills:{key:date} }
-//    opts  = { unit }  — pre-select a unit chip (e.g. "kq4")
+//    opts  = { unit }  — pre-select a chapter (e.g. "kq4", or an array of chapters).
+//            Chapters ("units") are multi-select; none selected = all chapters.
 //            { submit(key), submitted(key) } — optional: shows a Submit button
 //            under each written answer (Jake only)
 //            { locked() } — optional: true hides model answers / mark schemes
@@ -92,11 +93,14 @@ export function renderPack(root, pack, store, opts = {}) {
   S.answers ||= {}; S.cards ||= {}; S.quizzes ||= []; S.drills ||= {}; S.cardLog ||= [];
   const nowISO = () => new Date().toISOString();
   // Each Got it / Not yet is logged with a time, so a study session can report what was done in it.
-  const logCard = (key, r) => { S.cardLog.push({ at: nowISO(), unit, key, r }); if (S.cardLog.length > 1500) S.cardLog.splice(0, S.cardLog.length - 1500); };
+  const logCard = (key, r) => { S.cardLog.push({ at: nowISO(), unit: unitKey(), key, r }); if (S.cardLog.length > 1500) S.cardLog.splice(0, S.cardLog.length - 1500); };
   const modeKeys = packModes(pack).map(([k]) => k);
   let mode = modeKeys.includes(opts.mode) ? opts.mode : modeKeys.includes("cards") ? "cards" : "learn";
-  let unit = opts.unit || "all";
-  const inUnit = (x) => unit === "all" || !x.unit || x.unit === unit;
+  // Chapters: pick any number (none = all). Quiz, exam and flashcard order is shuffled.
+  const sel = new Set(opts.unit ? [].concat(opts.unit) : []);
+  const unitKey = () => sel.size ? [...sel].sort().join("+") : "all"; // stored with quiz/flashcard logs
+  const inUnit = (x) => !sel.size || !x.unit || sel.has(x.unit);
+  const oneChapter = () => sel.size === 1;
   const unitName = (k) => (pack.units || []).find(u => u.key === k)?.name || "";
 
   root.innerHTML = "";
@@ -112,15 +116,20 @@ export function renderPack(root, pack, store, opts = {}) {
     modesBar.appendChild(b);
   });
   if (pack.units?.length) {
-    [{ key: "all", name: "All" }, ...pack.units].forEach(u => {
-      unitsBar.appendChild(h("button", { class: "chip", type: "button", "data-u": u.key, on: { click: () => { unit = u.key; draw(); } } }, esc(u.name)));
+    unitsBar.appendChild(h("div", { class: "muted small pk-units-h" }, "Chapters: tap one or more"));
+    [{ key: "all", name: "All chapters" }, ...pack.units].forEach(u => {
+      unitsBar.appendChild(h("button", { class: "chip", type: "button", "data-u": u.key, on: { click: () => {
+        if (u.key === "all") sel.clear(); else if (sel.has(u.key)) sel.delete(u.key); else sel.add(u.key);
+        if (sel.size === pack.units.length) sel.clear(); // every chapter picked = all
+        draw();
+      } } }, esc(u.name)));
     });
   }
 
   function draw() {
     modesBar.querySelectorAll(".pk-mode").forEach(b => b.classList.toggle("on", b.dataset.m === mode));
-    unitsBar.querySelectorAll(".chip").forEach(b => b.classList.toggle("on", b.dataset.u === unit));
-    unitsBar.classList.toggle("hidden", !pack.units?.length || mode === "learn");
+    unitsBar.querySelectorAll(".chip").forEach(b => b.classList.toggle("on", b.dataset.u === "all" ? !sel.size : sel.has(b.dataset.u)));
+    unitsBar.classList.toggle("hidden", !pack.units?.length || mode === "learn" || mode === "data");
     body.innerHTML = ""; lockBtns = [];
     ({ learn, cards, quiz, exam, data, plan, drill, timeline })[mode]();
   }
@@ -179,7 +188,7 @@ export function renderPack(root, pack, store, opts = {}) {
   function examCard(q, key) {
     const c = h("div", { class: "card pk-eq" });
     c.appendChild(h("div", { class: "row-between" }, `<div class="pk-q">${esc(q.q)}</div><span class="pill soon">${q.marks} mark${q.marks > 1 ? "s" : ""}</span>`));
-    if (q.unit && unit === "all") c.appendChild(h("div", { class: "tag" }, esc(unitName(q.unit))));
+    if (q.unit && !oneChapter()) c.appendChild(h("div", { class: "tag" }, esc(unitName(q.unit))));
     c.appendChild(textBox(key, `Write your answer first (${q.marks} mark${q.marks > 1 ? "s" : ""}), then check`));
     submitBtn(c, key);
     const ms = q.model
@@ -218,11 +227,11 @@ export function renderPack(root, pack, store, opts = {}) {
     function show() {
       flipped = false; card.classList.remove("on");
       if (!deck.length) {
-        card.innerHTML = `<div class="pk-face">🎉 You know all ${all.length} cards here.<div class="muted small">Switch unit or try the exam questions.</div></div>`;
+        card.innerHTML = `<div class="pk-face">🎉 You know all ${all.length} cards here.<div class="muted small">Pick other chapters or try the exam questions.</div></div>`;
         again.disabled = got.disabled = true;
       } else {
         const c = deck[0];
-        card.innerHTML = `<div class="pk-face"><div class="pk-front">${esc(c.front)}</div><div class="muted small">${c.unit && unit === "all" ? esc(unitName(c.unit)) + " · " : ""}tap to flip</div></div>`;
+        card.innerHTML = `<div class="pk-face"><div class="pk-front">${esc(c.front)}</div><div class="muted small">${c.unit && !oneChapter() ? esc(unitName(c.unit)) + " · " : ""}tap to flip</div></div>`;
         again.disabled = got.disabled = false;
       }
       meta.textContent = `${deck.length} left this round · ${known()} / ${all.length} known`;
@@ -247,7 +256,7 @@ export function renderPack(root, pack, store, opts = {}) {
   }
 
   // One entry per attempt, updated after every answer, so a half-finished quiz still counts.
-  function startQuiz(kind) { const q = { d: today(), at: nowISO(), unit, kind, score: 0, n: 0 }; let saved = false;
+  function startQuiz(kind) { const q = { d: today(), at: nowISO(), unit: unitKey(), kind, score: 0, n: 0 }; let saved = false;
     return (score, n) => { q.score = score; q.n = n; if (!saved) { S.quizzes.push(q); saved = true; } store.save(); }; }
 
   function quiz() {
@@ -291,7 +300,8 @@ export function renderPack(root, pack, store, opts = {}) {
   }
 
   function mcq() {
-    const qs = pack.quiz;
+    const qs = shuffle(pack.quiz.filter(inUnit));
+    if (!qs.length) { body.appendChild(h("p", { class: "muted" }, "No quiz questions for these chapters. Pick other chapters.")); return; }
     let right = 0, done = 0;
     const record = startQuiz("mcq");
     body.appendChild(h("p", { class: "muted small" }, esc(pack.quizIntro || "")));
@@ -319,7 +329,9 @@ export function renderPack(root, pack, store, opts = {}) {
 
   function exam() {
     body.appendChild(h("p", { class: "muted small" }, esc(pack.examIntro || "")));
-    (pack.exam || []).forEach((q, i) => { if (inUnit(q)) body.appendChild(examCard(q, "eq" + i)); });
+    const qs = shuffle((pack.exam || []).map((q, i) => ({ q, key: "eq" + i })).filter(x => inUnit(x.q)));
+    if (!qs.length) body.appendChild(h("p", { class: "muted" }, "No exam questions for these chapters. Pick other chapters."));
+    qs.forEach(x => body.appendChild(examCard(x.q, x.key)));
   }
 
   function data() {
@@ -351,6 +363,7 @@ export function renderPack(root, pack, store, opts = {}) {
     const p = pack.planner;
     body.appendChild(h("p", { class: "muted small" }, esc(p.intro)));
     p.statements.forEach((st, i) => {
+      if (!inUnit(st)) return;
       const c = h("div", { class: "card pk-eq" }, `<div class="row-between"><div class="pk-q">“${esc(st.text)}” ${esc(p.task)}</div><span class="pill soon">6 marks</span></div>`);
       [["For, point 1", "for"], ["For, point 2", "for"], ["Against, point 1", "against"], ["Against, point 2", "against"], ["Conclusion: your judgement and what it depends on", "concl"]].forEach(([lab, cls], j) => {
         c.appendChild(h("div", { class: "pk-lab " + cls }, esc(lab)));
@@ -390,7 +403,7 @@ export function renderPack(root, pack, store, opts = {}) {
       else { rev.textContent = "Your verdict can differ"; rev.disabled = true; S.drills[ds[i].key] = today(); store.save(); }
     };
     nxt.onclick = () => { i = (i + 1) % ds.length; show(); };
-    if (ds.length) show(); else c.textContent = "No drills for this unit.";
+    if (ds.length) show(); else c.textContent = "No drills for these chapters.";
   }
 
   function timeline() {

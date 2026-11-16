@@ -79,7 +79,8 @@
     "Sepal"
    ],
    "answer": 1,
-   "why": "The anther (part of the stamen) makes pollen. The stigma receives it."
+   "why": "The anther (part of the stamen) makes pollen. The stigma receives it.",
+   "unit": "plants"
   },
   {
    "q": "What is pollination?",
@@ -90,7 +91,8 @@
     "Spreading of seeds away from the parent plant"
    ],
    "answer": 2,
-   "why": "Pollination is the transfer of pollen grains from the anther to the stigma. Fusion of nuclei is fertilisation."
+   "why": "Pollination is the transfer of pollen grains from the anther to the stigma. Fusion of nuclei is fertilisation.",
+   "unit": "plants"
   },
   {
    "q": "Which is a feature of a wind-pollinated flower?",
@@ -101,7 +103,8 @@
     "Sticky, spiky pollen grains"
    ],
    "answer": 2,
-   "why": "Feathery stigmas outside the flower catch pollen from the air. The other three attract insects."
+   "why": "Feathery stigmas outside the flower catch pollen from the air. The other three attract insects.",
+   "unit": "plants"
   },
   {
    "q": "Which of these is NOT needed for a seed to germinate?",
@@ -112,7 +115,8 @@
     "Light"
    ],
    "answer": 3,
-   "why": "Seeds need water, oxygen and a suitable temperature. Many germinate underground in the dark."
+   "why": "Seeds need water, oxygen and a suitable temperature. Many germinate underground in the dark.",
+   "unit": "plants"
   },
   {
    "q": "Offspring produced by asexual reproduction are:",
@@ -123,7 +127,8 @@
     "Always produced from seeds"
    ],
    "answer": 0,
-   "why": "Asexual reproduction involves one parent and no gametes, so offspring are genetically identical."
+   "why": "Asexual reproduction involves one parent and no gametes, so offspring are genetically identical.",
+   "unit": "plants"
   },
   {
    "q": "Where does fertilisation normally take place in humans?",
@@ -134,7 +139,8 @@
     "Vagina"
    ],
    "answer": 2,
-   "why": "The sperm meets the egg in the oviduct. The zygote then moves to the uterus to implant."
+   "why": "The sperm meets the egg in the oviduct. The zygote then moves to the uterus to implant.",
+   "unit": "humans"
   },
   {
    "q": "Which feature helps a sperm cell swim to the egg?",
@@ -145,7 +151,8 @@
     "Large size"
    ],
    "answer": 1,
-   "why": "The flagellum (tail) moves the sperm. Its many mitochondria release energy for swimming."
+   "why": "The flagellum (tail) moves the sperm. Its many mitochondria release energy for swimming.",
+   "unit": "humans"
   },
   {
    "q": "Compared with a sperm cell, an egg cell is:",
@@ -156,7 +163,8 @@
     "Produced in millions each day"
    ],
    "answer": 1,
-   "why": "Egg cells are much larger and carry energy stores for the early embryo. They have a jelly coat that changes after fertilisation."
+   "why": "Egg cells are much larger and carry energy stores for the early embryo. They have a jelly coat that changes after fertilisation.",
+   "unit": "humans"
   },
   {
    "q": "What is the main function of the placenta?",
@@ -167,7 +175,8 @@
     "Mixing the blood of mother and fetus"
    ],
    "answer": 2,
-   "why": "Oxygen and nutrients pass to the fetus; carbon dioxide and urea pass to the mother. The two bloods do not mix. Amniotic fluid protects from bumps."
+   "why": "Oxygen and nutrients pass to the fetus; carbon dioxide and urea pass to the mother. The two bloods do not mix. Amniotic fluid protects from bumps.",
+   "unit": "humans"
   },
   {
    "q": "Which hormone causes the development of male secondary sexual characteristics at puberty?",
@@ -178,7 +187,8 @@
     "Adrenaline"
    ],
    "answer": 2,
-   "why": "Testosterone is made by the testes. Oestrogen, made by the ovaries, does this in girls."
+   "why": "Testosterone is made by the testes. Oestrogen, made by the ovaries, does this in girls.",
+   "unit": "humans"
   },
   {
    "q": "What happens during menstruation?",
@@ -189,7 +199,8 @@
     "Fertilisation takes place"
    ],
    "answer": 1,
-   "why": "Menstruation is the loss of the uterus lining. Releasing an egg is ovulation, around the middle of the cycle."
+   "why": "Menstruation is the loss of the uterus lining. Releasing an egg is ovulation, around the middle of the cycle.",
+   "unit": "humans"
   },
   {
    "q": "HIV can be passed on by:",
@@ -200,7 +211,8 @@
     "Sharing a cup"
    ],
    "answer": 1,
-   "why": "HIV spreads through body fluids: unprotected sex, shared needles, infected blood, and from mother to baby."
+   "why": "HIV spreads through body fluids: unprotected sex, shared needles, infected blood, and from mother to baby.",
+   "unit": "humans"
   },
   {
    "q": "In a food chain, the arrows show:",
@@ -211,7 +223,8 @@
     "The number of organisms"
    ],
    "answer": 1,
-   "why": "Arrows point from the organism eaten to the organism eating it: the direction energy moves."
+   "why": "Arrows point from the organism eaten to the organism eating it: the direction energy moves.",
+   "unit": "ecology"
   },
   {
    "q": "Why are food chains usually no longer than five trophic levels?",
@@ -222,7 +235,8 @@
     "Decomposers eat the top consumers"
    ],
    "answer": 1,
-   "why": "Energy is lost at each level through respiration (heat), movement, and parts not eaten or not digested."
+   "why": "Energy is lost at each level through respiration (heat), movement, and parts not eaten or not digested.",
+   "unit": "ecology"
   },
   {
    "q": "Which process removes carbon dioxide from the atmosphere?",
@@ -233,7 +247,8 @@
     "Photosynthesis"
    ],
    "answer": 3,
-   "why": "Photosynthesis takes in carbon dioxide. The other three release it."
+   "why": "Photosynthesis takes in carbon dioxide. The other three release it.",
+   "unit": "ecology"
   },
   {
    "q": "In eutrophication, why do fish die?",
@@ -244,7 +259,8 @@
     "The water becomes too warm"
    ],
    "answer": 2,
-   "why": "Dead algae and plants are broken down by decomposers, which respire aerobically and use up the dissolved oxygen."
+   "why": "Dead algae and plants are broken down by decomposers, which respire aerobically and use up the dissolved oxygen.",
+   "unit": "impact"
   },
   {
    "q": "Which is a disadvantage of growing a crop as a monoculture?",
@@ -255,7 +271,8 @@
     "More habitats for wildlife"
    ],
    "answer": 1,
-   "why": "One crop over a large area reduces biodiversity and lets pests spread fast, so more pesticide is used."
+   "why": "One crop over a large area reduces biodiversity and lets pests spread fast, so more pesticide is used.",
+   "unit": "impact"
   },
   {
    "q": "Which is NOT an effect of deforestation?",
@@ -266,7 +283,8 @@
     "Increased biodiversity"
    ],
    "answer": 3,
-   "why": "Deforestation reduces biodiversity. It also causes flooding and loss of soil."
+   "why": "Deforestation reduces biodiversity. It also causes flooding and loss of soil.",
+   "unit": "impact"
   },
   {
    "q": "A seed bank helps conservation by:",
@@ -277,7 +295,8 @@
     "Increasing crop prices"
    ],
    "answer": 0,
-   "why": "Seed banks keep seeds of many species safe for years, so plants can be grown again and reintroduced."
+   "why": "Seed banks keep seeds of many species safe for years, so plants can be grown again and reintroduced.",
+   "unit": "conservation"
   },
   {
    "q": "Which factor would cause a population of rabbits to decrease?",
@@ -288,90 +307,111 @@
     "Less competition"
    ],
    "answer": 2,
-   "why": "Food supply, competition, predation and disease all affect how fast a population grows. Disease increases deaths."
+   "why": "Food supply, competition, predation and disease all affect how fast a population grows. Disease increases deaths.",
+   "unit": "ecology"
   }
  ],
  "flashIntro": "These are close to Cambridge’s own wording. Say each definition out loud before you tap, then check you used the exact keywords.",
  "flashcards": [
   {
    "front": "Asexual reproduction",
-   "back": "A process resulting in genetically identical offspring from one parent."
+   "back": "A process resulting in genetically identical offspring from one parent.",
+   "unit": "plants"
   },
   {
    "front": "Sexual reproduction",
-   "back": "Fusion of the nuclei of two gametes to form a zygote, producing offspring that are genetically different."
+   "back": "Fusion of the nuclei of two gametes to form a zygote, producing offspring that are genetically different.",
+   "unit": "plants"
   },
   {
    "front": "Fertilisation",
-   "back": "The fusion of the nuclei of gametes."
+   "back": "The fusion of the nuclei of gametes.",
+   "unit": "plants"
   },
   {
    "front": "Pollination",
-   "back": "The transfer of pollen grains from the anther to the stigma."
+   "back": "The transfer of pollen grains from the anther to the stigma.",
+   "unit": "plants"
   },
   {
    "front": "Self-pollination",
-   "back": "Pollen moves to the stigma of the same flower or another flower on the same plant."
+   "back": "Pollen moves to the stigma of the same flower or another flower on the same plant.",
+   "unit": "plants"
   },
   {
    "front": "Cross-pollination",
-   "back": "Pollen moves to the stigma of a flower on a different plant of the same species."
+   "back": "Pollen moves to the stigma of a flower on a different plant of the same species.",
+   "unit": "plants"
   },
   {
    "front": "Gamete",
-   "back": "A sex cell (sperm or egg in humans; pollen nucleus or ovule in plants)."
+   "back": "A sex cell (sperm or egg in humans; pollen nucleus or ovule in plants).",
+   "unit": "humans"
   },
   {
    "front": "Zygote",
-   "back": "The cell formed when two gamete nuclei fuse."
+   "back": "The cell formed when two gamete nuclei fuse.",
+   "unit": "humans"
   },
   {
    "front": "Germination",
-   "back": "The start of growth of a seed into a seedling. Needs water, oxygen and a suitable temperature."
+   "back": "The start of growth of a seed into a seedling. Needs water, oxygen and a suitable temperature.",
+   "unit": "plants"
   },
   {
    "front": "Placenta",
-   "back": "Organ where substances pass between mother’s and fetus’s blood without the bloods mixing."
+   "back": "Organ where substances pass between mother’s and fetus’s blood without the bloods mixing.",
+   "unit": "humans"
   },
   {
    "front": "Amniotic fluid",
-   "back": "Fluid around the fetus that protects it from knocks."
+   "back": "Fluid around the fetus that protects it from knocks.",
+   "unit": "humans"
   },
   {
    "front": "Producer",
-   "back": "An organism that makes its own organic nutrients, usually using energy from sunlight, by photosynthesis."
+   "back": "An organism that makes its own organic nutrients, usually using energy from sunlight, by photosynthesis.",
+   "unit": "ecology"
   },
   {
    "front": "Consumer",
-   "back": "An organism that gets its energy by feeding on other organisms."
+   "back": "An organism that gets its energy by feeding on other organisms.",
+   "unit": "ecology"
   },
   {
    "front": "Decomposer",
-   "back": "An organism that gets its energy from dead or waste organic material."
+   "back": "An organism that gets its energy from dead or waste organic material.",
+   "unit": "ecology"
   },
   {
    "front": "Trophic level",
-   "back": "The position of an organism in a food chain or food web."
+   "back": "The position of an organism in a food chain or food web.",
+   "unit": "ecology"
   },
   {
    "front": "Population",
-   "back": "A group of organisms of one species living in the same area at the same time."
+   "back": "A group of organisms of one species living in the same area at the same time.",
+   "unit": "ecology"
   },
   {
    "front": "Community",
-   "back": "All the populations of different species in an ecosystem."
+   "back": "All the populations of different species in an ecosystem.",
+   "unit": "ecology"
   },
   {
    "front": "Ecosystem",
-   "back": "A community of organisms and their environment, interacting together."
+   "back": "A community of organisms and their environment, interacting together.",
+   "unit": "ecology"
   },
   {
    "front": "Eutrophication",
-   "back": "Excess nutrients (e.g. nitrates) in water cause algae to grow, die and decompose, using up oxygen."
+   "back": "Excess nutrients (e.g. nitrates) in water cause algae to grow, die and decompose, using up oxygen.",
+   "unit": "impact"
   },
   {
    "front": "Sustainable resource",
-   "back": "One produced as fast as it is removed from the environment, so it does not run out."
+   "back": "One produced as fast as it is removed from the environment, so it does not run out.",
+   "unit": "conservation"
   }
  ],
  "examIntro": "Paper 3 style. Write your answer first, then open the mark scheme and give yourself one mark per point you made clearly. One point per mark is the rule.",
@@ -388,7 +428,8 @@
     "Decomposers respire aerobically and use up dissolved oxygen",
     "Fish cannot get enough oxygen for respiration and die"
    ],
-   "note": "Any 5. Keep them in order: examiners look for the sequence."
+   "note": "Any 5. Keep them in order: examiners look for the sequence.",
+   "unit": "impact"
   },
   {
    "q": "State three ways an insect-pollinated flower is different from a wind-pollinated flower.",
@@ -400,7 +441,8 @@
     "Stigma sticky (wind: feathery)",
     "Pollen larger, sticky or spiky (wind: small, light, smooth, in large amounts)"
    ],
-   "note": "Any 3. Each point must say which flower it describes, or compare both."
+   "note": "Any 3. Each point must say which flower it describes, or compare both.",
+   "unit": "plants"
   },
   {
    "q": "Describe the function of the placenta.",
@@ -412,7 +454,8 @@
     "Urea / waste passes from fetus to mother",
     "Acts as a barrier to some toxins and pathogens"
    ],
-   "note": "Any 3. Say which direction each substance moves."
+   "note": "Any 3. Say which direction each substance moves.",
+   "unit": "humans"
   },
   {
    "q": "State the three conditions a seed needs to germinate.",
@@ -422,7 +465,8 @@
     "Oxygen",
     "A suitable temperature"
    ],
-   "note": "Light is not needed. Writing it does not lose marks but wastes time."
+   "note": "Light is not needed. Writing it does not lose marks but wastes time.",
+   "unit": "plants"
   },
   {
    "q": "Explain why only a small part of the energy in grass ends up in a cow’s body tissues.",
@@ -434,7 +478,8 @@
     "Energy is used for movement",
     "Energy lost in excretion (urine)"
    ],
-   "note": "Any 3. Never say energy is “used up” on its own: say how it is lost."
+   "note": "Any 3. Never say energy is “used up” on its own: say how it is lost.",
+   "unit": "ecology"
   },
   {
    "q": "Describe the role of decomposers in the carbon cycle.",
@@ -442,7 +487,8 @@
    "points": [
     "They break down dead organisms and waste",
     "They respire, releasing carbon dioxide into the atmosphere"
-   ]
+   ],
+   "unit": "ecology"
   },
   {
    "q": "Suggest two reasons why scientists keep seeds of endangered plants in seed banks.",
@@ -453,7 +499,8 @@
     "Keeps genetic variation / diversity for the future",
     "Protects plants that may be useful as medicines or food"
    ],
-   "note": "Any 2."
+   "note": "Any 2.",
+   "unit": "conservation"
   },
   {
    "q": "Describe the differences between a sperm cell and an egg cell.",
@@ -466,7 +513,30 @@
     "Sperm made in large numbers; eggs one a month",
     "Sperm has an acrosome with enzymes / many mitochondria"
    ],
-   "note": "Any 3. Each point must mention both cells."
+   "note": "Any 3. Each point must mention both cells.",
+   "unit": "humans"
+  }
+ ],
+ "units": [
+  {
+   "key": "plants",
+   "name": "Plant reproduction"
+  },
+  {
+   "key": "humans",
+   "name": "Human reproduction"
+  },
+  {
+   "key": "ecology",
+   "name": "Ecosystems"
+  },
+  {
+   "key": "impact",
+   "name": "Human impact"
+  },
+  {
+   "key": "conservation",
+   "name": "Conservation"
   }
  ]
 }
