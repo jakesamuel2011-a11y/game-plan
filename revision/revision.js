@@ -19,7 +19,7 @@
 //  upcomingTests() / paceSummary() for the Today plan and dashboard.
 // =============================================================
 import { SUBJECTS, PACKS, PACK_VERSION, REVISION_GOAL, SEED_TESTS, SEED_SESSIONS, allTopics, topicById, subjectByKey } from "./syllabus.js?v=5";
-import { renderPack, packModes, writtenWork } from "./packview.js?v=10";
+import { renderPack, packModes, writtenWork } from "./packview.js?v=11";
 
 const esc = (s) => String(s ?? "").replace(/[<>&"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
 const ymd = (d) => d.toISOString().slice(0, 10);
@@ -31,7 +31,7 @@ const daysUntil = (s) => Math.round((new Date(s + "T00:00:00") - new Date(todayS
 let DB, F, ME, NAME_FOR, ON_CHANGE, IS_PARENT;
 const R = { progress: {}, sessions: [], tests: [], practice: {}, grades: [], study: [] };
 let packHandle = null; // { applyLocks } for the pack open on screen
-let liveStore = null; // { id, store } for the pack open on screen (has unsaved typing)
+let liveStore = null; // the pack(s) open on screen (has unsaved typing): { stores:{id:store}, states:{id:state}, setSent(id, sent) }
 let view = { name: "home" };
 const packCache = new Map();
 
@@ -146,7 +146,7 @@ async function practiceStore(packId) {
 
 // ---------- Grade this ----------
 const subjectPacks = (s) => [...new Set((s?.topics || []).map(t => t.pack).filter(Boolean))];
-const stateFor = (packId) => liveStore?.id === packId ? liveStore.store.state : (R.practice[packId] || {});
+const stateFor = (packId) => liveStore?.states[packId] || R.practice[packId] || {};
 // Written answers in a subject that are new or changed since they were last sent.
 async function newWork(s) {
   const out = [];
@@ -256,10 +256,6 @@ async function startSession(subjects) {
     by: ME().email, date: todayStr(), start: new Date().toISOString(), subjects, status: "running", at: F.serverTimestamp(),
   });
 }
-async function addSessionSubject(key) {
-  const s = runningSession();
-  if (s && !s.subjects.includes(key)) await F.updateDoc(F.doc(DB, "studysessions", s.id), { subjects: [...s.subjects, key] });
-}
 // New answers in these subjects, split into submitted and not-yet-submitted.
 async function sessionWork(keys) {
   const all = [];
@@ -273,11 +269,15 @@ async function sessionPractice(keys, startISO) {
   const out = {};
   for (const k of keys) {
     const p = { quizzes: [], cards: { seen: 0, got: 0, again: 0 }, notYet: [] };
+    const byAt = {}; // a quiz mixing several books is saved under each book with the same start time: join it back
     for (const id of subjectPacks(subjectByKey(k))) {
       try {
-        const st = stateFor(id), pack = await loadPack(id);
-        (st.quizzes || []).filter(q => q.at && q.at >= startISO && q.n > 0)
-          .forEach(q => p.quizzes.push({ pack: PACKS[id] || pack.title, kind: q.kind || "quiz", score: q.score, n: q.n }));
+        const st = stateFor(id), pack = await loadPack(id), name = PACKS[id] || pack.title;
+        (st.quizzes || []).filter(q => q.at && q.at >= startISO && q.n > 0).forEach(q => {
+          const j = byAt[q.at];
+          if (j) { j.score += q.score; j.n += q.n; j.pack += " + " + name; }
+          else p.quizzes.push(byAt[q.at] = { pack: name, kind: q.kind || "quiz", score: q.score, n: q.n });
+        });
         const last = {};
         (st.cardLog || []).filter(e => e.at >= startISO).forEach(e => { last[e.key] = e.r; });
         for (const [key, r] of Object.entries(last)) {
@@ -321,7 +321,7 @@ async function endSession(sess, { subjects, conf, notes, mins, drafts }) {
     for (const id of new Set(items.map(i => i.packId))) {
       const sent = { ...(stateFor(id).sent || {}) };
       items.filter(i => i.packId === id).forEach(i => { sent[i.key] = i.answer; });
-      if (liveStore?.id === id) liveStore.store.state.sent = sent; // so the open pack's next save keeps it
+      liveStore?.setSent(id, sent); // so the open pack's next save keeps it
       await F.setDoc(F.doc(DB, "revpractice", id), { sent }, { merge: true });
     }
   }
@@ -363,11 +363,11 @@ function sessionControl(host) {
       return;
     }
     const c = document.createElement("div"); c.className = "card rv-sbar";
-    c.innerHTML = `<b>▶ Which subjects are you revising?</b><div class="muted small">Pick one or more. You can add more later.</div>`;
-    c.appendChild(chips(sessUI.picks, k => { sessUI.picks = sessUI.picks.includes(k) ? sessUI.picks.filter(x => x !== k) : [...sessUI.picks, k]; redraw(); }));
+    c.innerHTML = `<b>▶ Which subject are you revising?</b><div class="muted small">One subject per session, so the timing stays clear.</div>`;
+    c.appendChild(chips(sessUI.picks, k => { sessUI.picks = [k]; redraw(); }));
     const row = document.createElement("div"); row.className = "pk-btns";
     const go = document.createElement("button"); go.className = "btn primary"; go.type = "button"; go.textContent = "Start";
-    go.onclick = async () => { if (!sessUI.picks.length) return alert("Pick at least one subject."); go.disabled = true; await startSession(sessUI.picks); sessUI.mode = null; };
+    go.onclick = async () => { if (!sessUI.picks.length) return alert("Pick the subject you're revising."); go.disabled = true; await startSession(sessUI.picks); sessUI.mode = null; };
     const cancel = document.createElement("button"); cancel.className = "btn ghost"; cancel.type = "button"; cancel.textContent = "Cancel";
     cancel.onclick = () => { sessUI.mode = null; redraw(); };
     row.append(go, cancel); c.appendChild(row); box.appendChild(c);
@@ -375,13 +375,13 @@ function sessionControl(host) {
   }
   if (sessUI.mode !== "end" || sessUI.id !== run.id) {
     box.innerHTML = `<div class="card rv-sbar on"><div class="row-between"><div><b>⏱️ Session running · <span class="rv-timer" data-start="${run.start}">${minsSince(run.start)}</span> min</b><div class="muted small">${esc(shortNames(run.subjects))} · started ${hhmm(run.start)} · model answers hidden until you end it</div></div><button class="btn primary" type="button">■ End session</button></div></div>`;
-    box.querySelector("button").onclick = () => { sessUI = { ...sessUI, mode: "end", id: run.id, picks: [...run.subjects], conf: 0, notes: "", drafts: true, mins: Math.max(1, Math.min(minsSince(run.start), 240)) }; redraw(); };
+    box.querySelector("button").onclick = () => { sessUI = { ...sessUI, mode: "end", id: run.id, picks: run.subjects.slice(0, 1), conf: 0, notes: "", drafts: true, mins: Math.max(1, Math.min(minsSince(run.start), 240)) }; redraw(); };
     return;
   }
   // End panel
   const c = document.createElement("div"); c.className = "card rv-sbar on";
-  c.innerHTML = `<b>■ End session</b><div class="muted small">Started ${hhmm(run.start)}. Check the subjects you revised:</div>`;
-  c.appendChild(chips(sessUI.picks, k => { sessUI.picks = sessUI.picks.includes(k) ? sessUI.picks.filter(x => x !== k) : [...sessUI.picks, k]; redraw(); }));
+  c.innerHTML = `<b>■ End session</b><div class="muted small">Started ${hhmm(run.start)}. Check the subject you revised:</div>`;
+  c.appendChild(chips(sessUI.picks, k => { sessUI.picks = [k]; redraw(); }));
   const rest = document.createElement("div");
   rest.innerHTML = `<label class="rv-slab">Minutes revised <input type="number" min="1" max="600" class="mininput rv-smins" value="${sessUI.mins}"></label>
     <div class="muted small">How confident do you feel now? (1 = shaky, 5 = could teach it)</div>
@@ -402,7 +402,7 @@ function sessionControl(host) {
   const row = document.createElement("div"); row.className = "pk-btns";
   const fin = document.createElement("button"); fin.className = "btn primary"; fin.type = "button"; fin.textContent = "✓ Finish session";
   fin.onclick = async () => {
-    if (!sessUI.picks.length) return alert("Pick the subjects you revised.");
+    if (!sessUI.picks.length) return alert("Pick the subject you revised.");
     if (!sessUI.conf) return alert("Tap how confident you feel (1–5).");
     if (!(sessUI.mins > 0)) return alert("How many minutes did you revise?");
     fin.disabled = true; fin.textContent = "Saving…";
@@ -492,7 +492,7 @@ export function progressHtml() {
 
 // ---------- rendering ----------
 const root = () => document.getElementById("revRoot");
-function go(v) { if (v.name !== "pack") liveStore = null; view = v; render(); window.scrollTo(0, 0); }
+function go(v) { liveStore = null; view = v; render(); window.scrollTo(0, 0); }
 
 export function render() {
   const host = root(); if (!host) return;
@@ -732,19 +732,101 @@ function unitPracticeCard(packId, subjectKey, unitName) {
   return c;
 }
 
+// ---------- several books at once (one subject) ----------
+// Picking more than one book merges them into one pack for the screen. Merged
+// items and chapters are keyed "<packId>::c3", "<packId>::eq2", "<packId>::<unit>";
+// one shared state is split back into each book's own revpractice/{packId} on every save.
+const SEP = "::";
+const MERGE_FIELDS = ["answers", "cards", "done", "sent", "drills"];
+const splitKey = (k) => { const i = k.indexOf(SEP); return [k.slice(0, i), k.slice(i + SEP.length)]; };
+
+function mergePacks(ids, packs) {
+  const m = { title: ids.map((id, i) => PACKS[id] || packs[i].title).join(" + "), sub: "Mixed: questions from every chapter you pick, shuffled.",
+    units: [], flashcards: [], quiz: [], exam: [], debates: [], timeline: [], strategy: [], commandWords: [] };
+  const words = new Set();
+  ids.forEach((id, i) => {
+    const p = packs[i], book = PACKS[id] || p.title, q = (u) => id + SEP + (u || "*");
+    (p.units || []).forEach(u => m.units.push({ key: q(u.key), name: u.name, book, label: `${book} · ${u.name}` }));
+    const lists = ["flashcards", "quiz", "exam", "debates", "timeline"];
+    if (lists.some(l => (p[l] || []).some(x => !x.unit))) m.units.push({ key: q(), name: p.units?.length ? "Other" : "Whole book", book, label: book });
+    const tag = (l, pre) => (p[l] || []).forEach((x, j) => m[l].push({ ...x, unit: q(x.unit), ...(pre ? { key: id + SEP + pre + j } : {}) }));
+    tag("flashcards", "c"); tag("quiz"); tag("exam", "eq"); tag("debates", "d"); tag("timeline");
+    (p.strategy || []).forEach(x => m.strategy.push({ ...x, title: `${book}: ${x.title}` }));
+    (p.commandWords || []).forEach(w => { if (!words.has(w[0].toLowerCase())) { words.add(w[0].toLowerCase()); m.commandWords.push(w); } });
+  });
+  return m;
+}
+function mergedStore(ids, stores) {
+  const S = { quizzes: [], cardLog: [] };
+  MERGE_FIELDS.forEach(f => { S[f] = {}; ids.forEach(id => Object.entries(stores[id].state[f] || {}).forEach(([k, v]) => { S[f][id + SEP + k] = v; })); });
+  const base = Object.fromEntries(ids.map(id => [id, { quizzes: (stores[id].state.quizzes || []).slice(), cardLog: (stores[id].state.cardLog || []).slice() }]));
+  const split = () => ids.forEach(id => {
+    const st = stores[id].state, pre = id + SEP, mine = (k) => k.startsWith(pre), strip = (k) => k.slice(pre.length);
+    const units = (u) => (u || "all").split("+").filter(mine).map(strip).sort().join("+") || "all";
+    const before = JSON.stringify(st);
+    MERGE_FIELDS.forEach(f => { st[f] = Object.fromEntries(Object.entries(S[f]).filter(([k]) => mine(k)).map(([k, v]) => [strip(k), v])); });
+    st.cardLog = base[id].cardLog.concat(S.cardLog.filter(e => mine(e.key)).map(e => ({ ...e, key: strip(e.key), unit: units(e.unit) }))).slice(-1500);
+    st.quizzes = base[id].quizzes.concat(S.quizzes.map(q => {
+      const bu = Object.entries(q.byUnit || {}).filter(([k]) => mine(k));
+      if (!bu.length) return null;
+      return { d: q.d, at: q.at, unit: units(q.unit), kind: q.kind, score: bu.reduce((a, [, v]) => a + v[0], 0), n: bu.reduce((a, [, v]) => a + v[1], 0),
+        byUnit: Object.fromEntries(bu.map(([k, v]) => [strip(k), v.slice()])) };
+    }).filter(Boolean));
+    if (JSON.stringify(st) !== before) stores[id].save();
+  });
+  return { state: S, save: split };
+}
+
 async function renderPackView(el) {
   const v = view;
-  el.innerHTML = `<button class="btn tiny ghost" id="rvBack">← ${esc(subjectByKey(v.back)?.name || "Revision")}</button><div id="rvPack"><p class="muted small">Loading ${esc(PACKS[v.id] || "pack")}…</p></div>`;
+  const s = subjectByKey(v.back);
+  const ids = v.ids ||= [v.id];
+  // Chapters are remembered fully qualified ("<packId>::<unit>") so they survive adding or removing a book.
+  v.units ||= [].concat(v.unit || []).map(u => u.includes(SEP) ? u : v.id + SEP + u);
+  const books = subjectPacks(s);
+  el.innerHTML = `<button class="btn tiny ghost" id="rvBack">← ${esc(s?.name || "Revision")}</button><div id="rvBooks"></div><div id="rvPack"><p class="muted small">Loading ${esc(ids.map(id => PACKS[id] || "pack").join(" + "))}…</p></div>`;
   el.querySelector("#rvBack").onclick = () => go(v.back ? { name: "subject", key: v.back } : { name: "home" });
+  if (books.length > 1) {
+    const c = el.querySelector("#rvBooks");
+    c.className = "card rv-books";
+    c.innerHTML = `<b>📚 Books</b><div class="muted small">Tap to add or remove. Pick more than one to mix their chapters.</div><div class="rv-schips"></div>`;
+    books.forEach(id => {
+      const b = document.createElement("button"); b.type = "button";
+      b.className = "chip" + (ids.includes(id) ? " on" : ""); b.textContent = PACKS[id] || id;
+      b.onclick = () => {
+        const next = ids.includes(id) ? ids.filter(x => x !== id) : books.filter(x => x === id || ids.includes(x));
+        if (!next.length) return; // keep at least one book
+        view = { ...v, id: next[0], ids: next }; render();
+      };
+      c.querySelector(".rv-schips").appendChild(b);
+    });
+  }
   try {
-    const [pack, store] = await Promise.all([loadPack(v.id), practiceStore(v.id)]);
+    const stores = liveStore?.stores || {};
+    const [packs] = await Promise.all([Promise.all(ids.map(loadPack)), ...ids.map(async id => { stores[id] ||= await practiceStore(id); })]);
     if (view !== v) return; // navigated away while loading
-    liveStore = { id: v.id, store };
-    const s = subjectByKey(v.back);
+    const byId = Object.fromEntries(ids.map((id, i) => [id, packs[i]]));
+    const multi = ids.length > 1;
+    const pack = multi ? mergePacks(ids, packs) : packs[0];
+    const store = multi ? mergedStore(ids, stores) : stores[ids[0]];
+    liveStore = {
+      stores, states: Object.fromEntries(ids.map(id => [id, stores[id].state])),
+      setSent(id, sent) {
+        if (!stores[id]) return;
+        stores[id].state.sent = sent;
+        if (multi && ids.includes(id)) {
+          for (const k of Object.keys(store.state.sent)) if (k.startsWith(id + SEP)) delete store.state.sent[k];
+          for (const [k, a] of Object.entries(sent)) store.state.sent[id + SEP + k] = a;
+        }
+      },
+    };
     const jake = s && !IS_PARENT();
-    if (jake) addSessionSubject(s.key); // practising a subject adds it to the running session
     // Submit marks an answer finished; it goes to Mum when the session ends.
-    const current = (key) => writtenWork(pack, store.state).find(w => w.key === key);
+    const current = (key) => {
+      if (!multi) return writtenWork(pack, store.state).find(w => w.key === key);
+      const [id, raw] = splitKey(key);
+      return byId[id] && writtenWork(byId[id], stores[id].state).find(w => w.key === raw);
+    };
     const submit = async (key) => {
       const w = current(key);
       if (!w) { alert("Write a bit more first, then submit."); return; }
@@ -753,7 +835,14 @@ async function renderPackView(el) {
     };
     const submitted = (key) => { const w = current(key); return !!w && (store.state.done?.[key] === w.answer || store.state.sent?.[key] === w.answer); };
     const locked = () => !!runningSession(); // model answers hidden while his session runs
-    packHandle = renderPack(el.querySelector("#rvPack"), pack, store, jake ? { unit: v.unit, mode: v.mode, submit, submitted, locked } : { unit: v.unit, mode: v.mode });
+    const unit = multi ? v.units.filter(u => ids.includes(splitKey(u)[0])) : v.units.filter(u => splitKey(u)[0] === ids[0]).map(u => splitKey(u)[1]);
+    const onUnits = (keys) => {
+      const q = multi ? keys : keys.map(k => ids[0] + SEP + k);
+      v.units = [...v.units.filter(u => !ids.includes(splitKey(u)[0])), ...q]; // keep picks in books not shown
+    };
+    const onMode = (m) => { v.mode = m; };
+    const o = { unit, mode: v.mode, onUnits, onMode };
+    packHandle = renderPack(el.querySelector("#rvPack"), pack, store, jake ? { ...o, submit, submitted, locked } : o);
   } catch (e) {
     el.querySelector("#rvPack").innerHTML = `<p class="error">Couldn't load this pack (${esc(e.message)}). Check your connection and try again.</p>`;
   }

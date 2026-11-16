@@ -7,7 +7,8 @@
 //            and mutates; call save() after each change (caller persists it).
 //            state: { answers:{key:text}, cards:{key:"got"|"again"},
 //                     cardLog:[{at, unit, key, r}]  (every Got it / Not yet, newest last),
-//                     quizzes:[{d, at, unit, kind, score, n}]  (saved after every answer),
+//                     quizzes:[{d, at, unit, kind, score, n, byUnit:{unit:[score, n]}}]
+//                              (saved after every answer; byUnit = per-chapter score),
 //                     drills:{key:date} }
 //    opts  = { unit }  — pre-select a chapter (e.g. "kq4", or an array of chapters).
 //            Chapters ("units") are multi-select; none selected = all chapters.
@@ -15,6 +16,11 @@
 //            under each written answer (Jake only)
 //            { locked() } — optional: true hides model answers / mark schemes
 //            (during a study session). Call the returned applyLocks() when it changes.
+//            { onUnits(keys), onMode(mode) } — optional: told when the chapters or
+//            mode change, so the caller can keep them when it redraws the pack.
+//  Items may carry their own `key` (used instead of "c3" / "eq2" / "d1"), and
+//  units may carry `book` (a heading over that book's chapters) and `label`
+//  (shown on a question instead of the chapter name). Mixed packs use these.
 // =============================================================
 
 const esc = (s) => String(s ?? "").replace(/[<>&"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
@@ -48,9 +54,9 @@ export function packModes(pack) {
 // Summary numbers for progress displays.
 export function packStats(pack, state, unit) {
   const inUnit = (x) => !unit || !x.unit || x.unit === unit;
-  const cards = (pack.flashcards || []).map((c, i) => ({ ...c, key: "c" + i })).filter(inUnit);
+  const cards = (pack.flashcards || []).map((c, i) => ({ ...c, key: c.key || "c" + i })).filter(inUnit);
   const got = cards.filter(c => state.cards?.[c.key] === "got").length;
-  const exam = (pack.exam || []).map((q, i) => ({ ...q, key: "eq" + i })).filter(inUnit);
+  const exam = (pack.exam || []).map((q, i) => ({ ...q, key: q.key || "eq" + i })).filter(inUnit);
   const written = exam.filter(q => (state.answers?.[q.key] || "").trim().length > 20).length;
   const qz = (state.quizzes || []).filter(q => (!unit || q.unit === unit || q.unit === "all") && q.n >= 5); // ignore barely-started attempts
   const best = qz.length ? Math.max(...qz.map(q => Math.round(100 * q.score / q.n))) : null;
@@ -72,7 +78,7 @@ export function writtenWork(pack, state) {
       : "Mark scheme points: " + (q.points || []).join("; ") + (q.note ? "\nNote: " + q.note : "");
     out.push({ key, kind, pack: pack.title, unit: unitName(q.unit), q: q.q, marks: q.marks, answer, guide });
   };
-  (pack.exam || []).forEach((q, i) => exam(q, "eq" + i, "exam"));
+  (pack.exam || []).forEach((q, i) => exam(q, q.key || "eq" + i, "exam"));
   (pack.dataPractice?.questions || []).forEach((q, i) => exam({ ...q, q: (pack.dataPractice.chartTitle ? `[Chart: ${pack.dataPractice.chartTitle}] ` : "") + q.q }, "dp" + i, "data"));
   const p = pack.planner;
   (p?.statements || []).forEach((st, i) => {
@@ -96,12 +102,17 @@ export function renderPack(root, pack, store, opts = {}) {
   const logCard = (key, r) => { S.cardLog.push({ at: nowISO(), unit: unitKey(), key, r }); if (S.cardLog.length > 1500) S.cardLog.splice(0, S.cardLog.length - 1500); };
   const modeKeys = packModes(pack).map(([k]) => k);
   let mode = modeKeys.includes(opts.mode) ? opts.mode : modeKeys.includes("cards") ? "cards" : "learn";
+  const setMode = (m) => { mode = m; opts.onMode?.(m); };
   // Chapters: pick any number (none = all). Quiz, exam and flashcard order is shuffled.
   const sel = new Set(opts.unit ? [].concat(opts.unit) : []);
   const unitKey = () => sel.size ? [...sel].sort().join("+") : "all"; // stored with quiz/flashcard logs
   const inUnit = (x) => !sel.size || !x.unit || sel.has(x.unit);
   const oneChapter = () => sel.size === 1;
-  const unitName = (k) => (pack.units || []).find(u => u.key === k)?.name || "";
+  const unitObj = (k) => (pack.units || []).find(u => u.key === k);
+  const unitName = (k) => unitObj(k)?.label || unitObj(k)?.name || "";
+  const known = new Set((pack.units || []).map(u => u.key));
+  [].concat(opts.unit || []).forEach(k => { if (!known.has(k)) sel.delete(k); }); // ignore chapters not in this pack
+  if (sel.size && sel.size === known.size) sel.clear();
 
   root.innerHTML = "";
   root.classList.add("pk");
@@ -112,15 +123,18 @@ export function renderPack(root, pack, store, opts = {}) {
   root.append(head, modesBar, unitsBar, body);
 
   packModes(pack).forEach(([k, label]) => {
-    const b = h("button", { class: "pk-mode", type: "button", "data-m": k, on: { click: () => { mode = k; draw(); } } }, esc(label));
+    const b = h("button", { class: "pk-mode", type: "button", "data-m": k, on: { click: () => { setMode(k); draw(); } } }, esc(label));
     modesBar.appendChild(b);
   });
   if (pack.units?.length) {
     unitsBar.appendChild(h("div", { class: "muted small pk-units-h" }, "Chapters: tap one or more"));
+    let book = null;
     [{ key: "all", name: "All chapters" }, ...pack.units].forEach(u => {
+      if (u.book && u.book !== book) { book = u.book; unitsBar.appendChild(h("div", { class: "pk-book-h" }, esc(book))); }
       unitsBar.appendChild(h("button", { class: "chip", type: "button", "data-u": u.key, on: { click: () => {
         if (u.key === "all") sel.clear(); else if (sel.has(u.key)) sel.delete(u.key); else sel.add(u.key);
         if (sel.size === pack.units.length) sel.clear(); // every chapter picked = all
+        opts.onUnits?.([...sel]);
         draw();
       } } }, esc(u.name)));
     });
@@ -210,7 +224,7 @@ export function renderPack(root, pack, store, opts = {}) {
   }
 
   function cards() {
-    const all = (pack.flashcards || []).map((c, i) => ({ ...c, key: "c" + i })).filter(inUnit);
+    const all = (pack.flashcards || []).map((c, i) => ({ ...c, key: c.key || "c" + i })).filter(inUnit);
     let deck = shuffle(all.filter(c => S.cards[c.key] !== "got"));
     const known = () => all.filter(c => S.cards[c.key] === "got").length;
     body.appendChild(h("p", { class: "muted small" }, esc(pack.flashIntro || "Answer out loud, then flip.")));
@@ -256,8 +270,13 @@ export function renderPack(root, pack, store, opts = {}) {
   }
 
   // One entry per attempt, updated after every answer, so a half-finished quiz still counts.
-  function startQuiz(kind) { const q = { d: today(), at: nowISO(), unit: unitKey(), kind, score: 0, n: 0 }; let saved = false;
-    return (score, n) => { q.score = score; q.n = n; if (!saved) { S.quizzes.push(q); saved = true; } store.save(); }; }
+  // record(score, n, unit, right): unit/right are this question's chapter and result, kept per chapter in byUnit.
+  function startQuiz(kind) { const q = { d: today(), at: nowISO(), unit: unitKey(), kind, score: 0, n: 0, byUnit: {} }; let saved = false;
+    return (score, n, unit, right) => {
+      q.score = score; q.n = n;
+      if (unit) { const b = q.byUnit[unit] ||= [0, 0]; b[0] += right ? 1 : 0; b[1]++; }
+      if (!saved) { S.quizzes.push(q); saved = true; } store.save();
+    }; }
 
   function quiz() {
     if (pack.quiz?.length) return mcq();
@@ -289,7 +308,7 @@ export function renderPack(root, pack, store, opts = {}) {
             if (grid.dataset.done) return; grid.dataset.done = 1;
             if (y === e.year) { score++; ev.currentTarget.classList.add("right"); fb.textContent = "Correct."; }
             else { ev.currentTarget.classList.add("wrong"); fb.textContent = `It was ${e.year}.`; [...grid.children].forEach(b => { if (+b.textContent === e.year) b.classList.add("right"); }); }
-            record(score, i + 1);
+            record(score, i + 1, e.unit, y === e.year);
           }
         }
       }, String(y))));
@@ -308,7 +327,7 @@ export function renderPack(root, pack, store, opts = {}) {
     const score = h("div", { class: "pk-big" }, "0 / 0");
     body.appendChild(score);
     qs.forEach((q, i) => {
-      const c = h("div", { class: "card" }, `<div class="pk-q"><span class="muted">${i + 1}.</span> ${esc(q.q)}</div>`);
+      const c = h("div", { class: "card" }, `<div class="pk-q"><span class="muted">${i + 1}.</span> ${esc(q.q)}</div>${q.unit && !oneChapter() && unitObj(q.unit)?.label ? `<div class="tag">${esc(unitName(q.unit))}</div>` : ""}`);
       const grid = h("div", { class: "pk-opts wide" });
       const why = h("div", { class: "pk-why" }, esc(q.why || "")); why.hidden = true;
       q.options.forEach((o, j) => grid.appendChild(h("button", {
@@ -318,7 +337,7 @@ export function renderPack(root, pack, store, opts = {}) {
             [...grid.children][q.answer].classList.add("right");
             if (j !== q.answer) ev.currentTarget.classList.add("wrong"); else right++;
             done++; why.hidden = false; score.textContent = `${right} / ${done}`;
-            record(right, done);
+            record(right, done, q.unit, j === q.answer);
           }
         }
       }, `<b>${"ABCD"[j]}</b> ${esc(o)}`)));
@@ -329,7 +348,7 @@ export function renderPack(root, pack, store, opts = {}) {
 
   function exam() {
     body.appendChild(h("p", { class: "muted small" }, esc(pack.examIntro || "")));
-    const qs = shuffle((pack.exam || []).map((q, i) => ({ q, key: "eq" + i })).filter(x => inUnit(x.q)));
+    const qs = shuffle((pack.exam || []).map((q, i) => ({ q, key: q.key || "eq" + i })).filter(x => inUnit(x.q)));
     if (!qs.length) body.appendChild(h("p", { class: "muted" }, "No exam questions for these chapters. Pick other chapters."));
     qs.forEach(x => body.appendChild(examCard(x.q, x.key)));
   }
@@ -377,7 +396,7 @@ export function renderPack(root, pack, store, opts = {}) {
   }
 
   function drill() {
-    const ds = shuffle((pack.debates || []).map((d, i) => ({ ...d, key: "d" + i })).filter(inUnit));
+    const ds = shuffle((pack.debates || []).map((d, i) => ({ ...d, key: d.key || "d" + i })).filter(inUnit));
     let i = 0;
     const c = h("div", { class: "card" });
     const row = h("div", { class: "pk-btns" });
