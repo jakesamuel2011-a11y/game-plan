@@ -13,7 +13,7 @@
 export const REVISION_GOAL = { start: "2026-11-07", by: "2027-02-28", rounds: 2 };
 
 // Bump when a pack JSON changes so browsers fetch the new copy.
-export const PACK_VERSION = 1;
+export const PACK_VERSION = 2;
 
 export const PACKS = {
   "em-natural-resources": "Natural resources",
@@ -138,7 +138,7 @@ const ALL_SUBJECTS = [
     key: "Bio", name: "Biology", emoji: "🧬", guide: SCIENCE_GUIDE,
     topics: [
       {
-        id: "bio-plants", unit: "Reproduction", pack: "bio-reproduction-environment",
+        id: "bio-plants", unit: "Reproduction", pack: "bio-reproduction-environment", packUnit: "plants",
         name: "Reproduction in plants",
         points: [
           "Asexual vs sexual reproduction",
@@ -149,7 +149,7 @@ const ALL_SUBJECTS = [
         ],
       },
       {
-        id: "bio-humans", unit: "Reproduction", pack: "bio-reproduction-environment",
+        id: "bio-humans", unit: "Reproduction", pack: "bio-reproduction-environment", packUnit: "humans",
         name: "Reproduction in humans",
         points: [
           "Male and female reproductive systems",
@@ -160,7 +160,7 @@ const ALL_SUBJECTS = [
         ],
       },
       {
-        id: "bio-ecology", unit: "Ecology", pack: "bio-reproduction-environment",
+        id: "bio-ecology", unit: "Ecology", pack: "bio-reproduction-environment", packUnit: "ecology",
         name: "Organisms and the environment",
         points: [
           "Food chains and webs; trophic levels",
@@ -170,7 +170,7 @@ const ALL_SUBJECTS = [
         ],
       },
       {
-        id: "bio-impact", unit: "Ecology", pack: "bio-reproduction-environment",
+        id: "bio-impact", unit: "Ecology", pack: "bio-reproduction-environment", packUnit: "impact",
         name: "Human influences on ecosystems",
         points: [
           "Monocultures and intensive farming",
@@ -179,7 +179,7 @@ const ALL_SUBJECTS = [
         ],
       },
       {
-        id: "bio-conservation", unit: "Ecology", pack: "bio-reproduction-environment",
+        id: "bio-conservation", unit: "Ecology", pack: "bio-reproduction-environment", packUnit: "conservation",
         name: "Conservation",
         points: [
           "Sustainable fishing and forestry",
@@ -203,12 +203,12 @@ const ALL_SUBJECTS = [
     },
     topics: [
       {
-        id: "em-rocks", unit: "Natural resources", pack: "em-natural-resources",
+        id: "em-rocks", unit: "Natural resources", pack: "em-natural-resources", packUnit: "rocks",
         name: "Rocks and the rock cycle",
         points: ["Igneous, sedimentary and metamorphic rocks: how each forms", "The rock cycle"],
       },
       {
-        id: "em-extraction", unit: "Natural resources", pack: "em-natural-resources",
+        id: "em-extraction", unit: "Natural resources", pack: "em-natural-resources", packUnit: "extraction",
         name: "Extraction and its impacts",
         points: [
           "Surface (open-pit) vs deep mining",
@@ -218,12 +218,12 @@ const ALL_SUBJECTS = [
         ],
       },
       {
-        id: "em-sustainable", unit: "Natural resources", pack: "em-natural-resources",
+        id: "em-sustainable", unit: "Natural resources", pack: "em-natural-resources", packUnit: "sustainable",
         name: "Sustainable management of minerals",
         points: ["Recycling, reduce/reuse, laws and regulation", "Land restoration after mining: one case study"],
       },
       {
-        id: "em-energy", unit: "Natural resources", pack: "em-natural-resources",
+        id: "em-energy", unit: "Natural resources", pack: "em-natural-resources", packUnit: "energy",
         name: "Energy resources",
         points: [
           "Renewable vs non-renewable; how fossil fuels form",

@@ -169,7 +169,8 @@
      "Visual impact of the pit and spoil heaps",
      "Local communities may be moved off their land"
     ],
-    "conclusion": "The benefits can outweigh the costs only if the mine is well managed: an environmental impact assessment before work starts, strict pollution laws, and a plan to restore the land when mining ends."
+    "conclusion": "The benefits can outweigh the costs only if the mine is well managed: an environmental impact assessment before work starts, strict pollution laws, and a plan to restore the land when mining ends.",
+    "unit": "extraction"
    },
    {
     "text": "Countries should replace fossil fuels with renewable energy as quickly as possible.",
@@ -185,7 +186,8 @@
      "Jobs lost in coal mining and power stations",
      "Some renewables have impacts too: HEP dams flood land and move people"
     ],
-    "conclusion": "Countries should switch as fast as they can afford, but gradually enough to keep a reliable supply and retrain workers, using a mix of sources rather than relying on one."
+    "conclusion": "Countries should switch as fast as they can afford, but gradually enough to keep a reliable supply and retrain workers, using a mix of sources rather than relying on one.",
+    "unit": "energy"
    }
   ]
  },
@@ -201,7 +203,8 @@
     "Rocks are broken down by weathering"
    ],
    "answer": 1,
-   "why": "Granite (cooled slowly underground, large crystals) and basalt (cooled quickly at the surface, small crystals)."
+   "why": "Granite (cooled slowly underground, large crystals) and basalt (cooled quickly at the surface, small crystals).",
+   "unit": "rocks"
   },
   {
    "q": "Which rock is sedimentary?",
@@ -212,7 +215,8 @@
     "Basalt"
    ],
    "answer": 2,
-   "why": "Limestone and sandstone are sedimentary. Marble is metamorphic: limestone changed by heat and pressure."
+   "why": "Limestone and sandstone are sedimentary. Marble is metamorphic: limestone changed by heat and pressure.",
+   "unit": "rocks"
   },
   {
    "q": "Metamorphic rocks form when:",
@@ -223,7 +227,8 @@
     "Rocks are mined"
    ],
    "answer": 0,
-   "why": "Examples: limestone → marble, shale (mudstone) → slate."
+   "why": "Examples: limestone → marble, shale (mudstone) → slate.",
+   "unit": "rocks"
   },
   {
    "q": "An ore is:",
@@ -234,7 +239,8 @@
     "A fossil fuel"
    ],
    "answer": 1,
-   "why": "Whether a rock counts as an ore depends on how much metal it holds and the price of that metal."
+   "why": "Whether a rock counts as an ore depends on how much metal it holds and the price of that metal.",
+   "unit": "rocks"
   },
   {
    "q": "Open-pit (surface) mining is used when:",
@@ -245,7 +251,8 @@
     "There is no overburden at all"
    ],
    "answer": 1,
-   "why": "The overburden (rock and soil on top) is removed to reach a shallow deposit. Deep deposits need shaft mining."
+   "why": "The overburden (rock and soil on top) is removed to reach a shallow deposit. Deep deposits need shaft mining.",
+   "unit": "extraction"
   },
   {
    "q": "Which is an environmental impact of mining, not a social or economic one?",
@@ -256,7 +263,8 @@
     "Tax for the government"
    ],
    "answer": 2,
-   "why": "Habitat loss, dust, noise and water pollution are environmental. Jobs, roads and tax are social or economic benefits."
+   "why": "Habitat loss, dust, noise and water pollution are environmental. Jobs, roads and tax are social or economic benefits.",
+   "unit": "extraction"
   },
   {
    "q": "Which would make a mineral deposit LESS likely to be mined?",
@@ -267,7 +275,8 @@
     "Good transport links"
    ],
    "answer": 2,
-   "why": "Other factors: low grade, great depth, high cost, low demand, poor access, strict environmental laws."
+   "why": "Other factors: low grade, great depth, high cost, low demand, poor access, strict environmental laws.",
+   "unit": "extraction"
   },
   {
    "q": "What is an environmental impact assessment (EIA)?",
@@ -278,7 +287,8 @@
     "A type of mining"
    ],
    "answer": 1,
-   "why": "An EIA weighs up environmental, social and economic impacts before a decision is made."
+   "why": "An EIA weighs up environmental, social and economic impacts before a decision is made.",
+   "unit": "extraction"
   },
   {
    "q": "Which of these is a way to restore land after mining?",
@@ -289,7 +299,8 @@
     "Building more roads"
    ],
    "answer": 1,
-   "why": "Restoration also includes filling the pit, landscaping, or flooding it to make a lake for wildlife or recreation."
+   "why": "Restoration also includes filling the pit, landscaping, or flooding it to make a lake for wildlife or recreation.",
+   "unit": "sustainable"
   },
   {
    "q": "Why does recycling metals help manage resources sustainably?",
@@ -300,7 +311,8 @@
     "Metals are renewable"
    ],
    "answer": 1,
-   "why": "Recycling also usually uses less energy than extracting new metal and reduces landfill."
+   "why": "Recycling also usually uses less energy than extracting new metal and reduces landfill.",
+   "unit": "sustainable"
   },
   {
    "q": "Fossil fuels formed from:",
@@ -311,7 +323,8 @@
     "Sea water"
    ],
    "answer": 1,
-   "why": "Coal from plants in swamps; oil and natural gas from tiny sea organisms. They are non-renewable."
+   "why": "Coal from plants in swamps; oil and natural gas from tiny sea organisms. They are non-renewable.",
+   "unit": "energy"
   },
   {
    "q": "Which energy source is renewable?",
@@ -322,7 +335,8 @@
     "Geothermal"
    ],
    "answer": 3,
-   "why": "Geothermal uses heat from inside the Earth, which will not run out. Uranium is finite."
+   "why": "Geothermal uses heat from inside the Earth, which will not run out. Uranium is finite.",
+   "unit": "energy"
   },
   {
    "q": "A main disadvantage of wind power is that:",
@@ -333,7 +347,8 @@
     "The fuel will run out"
    ],
    "answer": 1,
-   "why": "Wind and solar are intermittent. Some people also object to noise and the look of turbines."
+   "why": "Wind and solar are intermittent. Some people also object to noise and the look of turbines.",
+   "unit": "energy"
   },
   {
    "q": "A main disadvantage of hydroelectric power (HEP) is that:",
@@ -344,7 +359,8 @@
     "It produces radioactive waste"
    ],
    "answer": 0,
-   "why": "Flooding destroys habitats and can force people to move. HEP is reliable and releases no CO₂ when running."
+   "why": "Flooding destroys habitats and can force people to move. HEP is reliable and releases no CO₂ when running.",
+   "unit": "energy"
   },
   {
    "q": "Which is an advantage of nuclear power?",
@@ -355,7 +371,8 @@
     "No risk of accidents"
    ],
    "answer": 1,
-   "why": "Disadvantages: radioactive waste dangerous for thousands of years, risk of accidents, high building and decommissioning costs."
+   "why": "Disadvantages: radioactive waste dangerous for thousands of years, risk of accidents, high building and decommissioning costs.",
+   "unit": "energy"
   },
   {
    "q": "Which is a way to reduce energy use in a home?",
@@ -366,82 +383,101 @@
     "Opening windows with heating on"
    ],
    "answer": 1,
-   "why": "Also: LED bulbs, efficient appliances, turning off devices, solar water heating."
+   "why": "Also: LED bulbs, efficient appliances, turning off devices, solar water heating.",
+   "unit": "energy"
   }
  ],
  "flashIntro": "Say each definition out loud before you tap, then check you used the exact keywords.",
  "flashcards": [
   {
    "front": "Mineral",
-   "back": "A naturally occurring solid with a definite chemical make-up."
+   "back": "A naturally occurring solid with a definite chemical make-up.",
+   "unit": "rocks"
   },
   {
    "front": "Ore",
-   "back": "Rock containing enough of a metal or mineral to make extraction economically worthwhile."
+   "back": "Rock containing enough of a metal or mineral to make extraction economically worthwhile.",
+   "unit": "rocks"
   },
   {
    "front": "Rock cycle",
-   "back": "Continuous process by which rocks form, break down and re-form as igneous, sedimentary and metamorphic rock."
+   "back": "Continuous process by which rocks form, break down and re-form as igneous, sedimentary and metamorphic rock.",
+   "unit": "rocks"
   },
   {
    "front": "Weathering",
-   "back": "Breakdown of rock where it is, by physical, chemical or biological processes."
+   "back": "Breakdown of rock where it is, by physical, chemical or biological processes.",
+   "unit": "rocks"
   },
   {
    "front": "Erosion",
-   "back": "Removal and transport of rock fragments by water, wind or ice."
+   "back": "Removal and transport of rock fragments by water, wind or ice.",
+   "unit": "rocks"
   },
   {
    "front": "Overburden",
-   "back": "Rock and soil lying on top of a mineral deposit that must be removed in surface mining."
+   "back": "Rock and soil lying on top of a mineral deposit that must be removed in surface mining.",
+   "unit": "extraction"
   },
   {
    "front": "Spoil / spoil heap",
-   "back": "Waste rock from mining, piled up near the mine."
+   "back": "Waste rock from mining, piled up near the mine.",
+   "unit": "extraction"
   },
   {
    "front": "Open-pit mining",
-   "back": "Surface mining: removing overburden to dig out a deposit near the surface."
+   "back": "Surface mining: removing overburden to dig out a deposit near the surface.",
+   "unit": "extraction"
   },
   {
    "front": "Shaft (deep) mining",
-   "back": "Reaching deep deposits through vertical shafts and tunnels."
+   "back": "Reaching deep deposits through vertical shafts and tunnels.",
+   "unit": "extraction"
   },
   {
    "front": "EIA",
-   "back": "Environmental impact assessment: study of a project’s likely impacts before it is approved."
+   "back": "Environmental impact assessment: study of a project’s likely impacts before it is approved.",
+   "unit": "extraction"
   },
   {
    "front": "Land restoration",
-   "back": "Returning a mined site to a useful state: filling, landscaping, replacing topsoil, planting."
+   "back": "Returning a mined site to a useful state: filling, landscaping, replacing topsoil, planting.",
+   "unit": "sustainable"
   },
   {
    "front": "Finite resource",
-   "back": "A resource that exists in limited amounts and will run out."
+   "back": "A resource that exists in limited amounts and will run out.",
+   "unit": "sustainable"
   },
   {
    "front": "Renewable energy",
-   "back": "Energy from a source that will not run out, e.g. wind, solar, HEP, tidal, geothermal."
+   "back": "Energy from a source that will not run out, e.g. wind, solar, HEP, tidal, geothermal.",
+   "unit": "energy"
   },
   {
    "front": "Non-renewable energy",
-   "back": "Energy from a source that will run out, e.g. coal, oil, natural gas, uranium."
+   "back": "Energy from a source that will run out, e.g. coal, oil, natural gas, uranium.",
+   "unit": "energy"
   },
   {
    "front": "Fossil fuel",
-   "back": "Coal, oil or natural gas, formed from remains of organisms over millions of years."
+   "back": "Coal, oil or natural gas, formed from remains of organisms over millions of years.",
+   "unit": "energy"
   },
   {
    "front": "Biofuel",
-   "back": "Fuel made from plant material or animal waste, e.g. ethanol from sugar cane."
+   "back": "Fuel made from plant material or animal waste, e.g. ethanol from sugar cane.",
+   "unit": "energy"
   },
   {
    "front": "Energy efficiency",
-   "back": "Getting the same result using less energy, e.g. LED bulbs, insulation."
+   "back": "Getting the same result using less energy, e.g. LED bulbs, insulation.",
+   "unit": "energy"
   },
   {
    "front": "Sustainable development",
-   "back": "Meeting the needs of people today without harming the ability of future generations to meet theirs."
+   "back": "Meeting the needs of people today without harming the ability of future generations to meet theirs.",
+   "unit": "sustainable"
   }
  ],
  "examIntro": "Paper 1 Section A style. Write your answer first, then open the mark scheme. Your mine case study answers go in the last box: fill it in once so it is ready to learn.",
@@ -455,7 +491,8 @@
     "Layers are compacted by the weight of layers above",
     "Particles are cemented together over a long time"
    ],
-   "note": "Any 3, in order."
+   "note": "Any 3, in order.",
+   "unit": "rocks"
   },
   {
    "q": "Explain why a mining company might decide not to extract a mineral deposit.",
@@ -468,7 +505,8 @@
     "The area is protected or environmental laws are strict",
     "Local opposition"
    ],
-   "note": "Any 3. “Explain” means each point needs a reason, e.g. low grade means little profit."
+   "note": "Any 3. “Explain” means each point needs a reason, e.g. low grade means little profit.",
+   "unit": "extraction"
   },
   {
    "q": "Describe how a mine site can be restored when mining ends.",
@@ -481,7 +519,8 @@
     "Flood the pit to make a lake for wildlife or recreation",
     "Monitor water for pollution"
    ],
-   "note": "Any 3."
+   "note": "Any 3.",
+   "unit": "sustainable"
   },
   {
    "q": "Give two advantages and one disadvantage of nuclear power.",
@@ -494,7 +533,8 @@
     "Disadv: risk of accidents releasing radiation",
     "Disadv: very expensive to build and decommission"
    ],
-   "note": "2 advantages + 1 disadvantage."
+   "note": "2 advantages + 1 disadvantage.",
+   "unit": "energy"
   },
   {
    "q": "Suggest three ways a household could reduce its use of energy.",
@@ -507,7 +547,8 @@
     "Install solar panels or solar water heating",
     "Walk, cycle or use public transport"
    ],
-   "note": "Any 3."
+   "note": "Any 3.",
+   "unit": "energy"
   },
   {
    "q": "For a mine you have studied: name it and its country, then describe its impacts and how it was managed.",
@@ -520,7 +561,26 @@
     "How it was managed or restored",
     "A specific fact or figure that shows you know this mine"
    ],
-   "note": "Use the case study from Jake’s textbook or class notes. This box is saved on this device, so he only has to write it once."
+   "note": "Use the case study from Jake’s textbook or class notes. This box is saved on this device, so he only has to write it once.",
+   "unit": "sustainable"
+  }
+ ],
+ "units": [
+  {
+   "key": "rocks",
+   "name": "Rocks"
+  },
+  {
+   "key": "extraction",
+   "name": "Extraction"
+  },
+  {
+   "key": "sustainable",
+   "name": "Sustainable mgmt"
+  },
+  {
+   "key": "energy",
+   "name": "Energy"
   }
  ]
 }

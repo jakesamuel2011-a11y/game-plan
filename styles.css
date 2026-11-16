@@ -332,3 +332,4 @@ details summary{list-style-position:inside}
 .quote-pop-card{max-width:520px;font-size:1.35rem;line-height:1.45;padding:22px 24px;transform:scale(.96);transition:transform .4s ease}
 .quote-pop.on .quote-pop-card{transform:scale(1)}
 .quote-pop-card .q-by{font-size:.8rem;margin-top:10px}
+.pk-units-h{flex-basis:100%;margin-bottom:2px}
