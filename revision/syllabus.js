@@ -9,8 +9,8 @@
 //  pack: drop a JSON file in revision/packs/ and set `pack` on the topics it covers.
 // =============================================================
 
-// Goal: every topic revised twice (Round 1 + Round 2) by end of February.
-export const REVISION_GOAL = { start: "2026-11-07", by: "2027-02-28", rounds: 2 };
+// Goal: every topic revised twice (Round 1 + Round 2) by Sun 31 Jan.
+export const REVISION_GOAL = { start: "2026-11-07", by: "2027-01-31", rounds: 2 };
 
 // Bump when a pack JSON changes so browsers fetch the new copy.
 export const PACK_VERSION = 2;

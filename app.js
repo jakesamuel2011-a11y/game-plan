@@ -4,7 +4,7 @@
 import { firebaseConfig, PEOPLE } from "./firebase-config.js";
 import { buildDayPlan, matchAssessment, FOOTBALL_DAYS } from "./planner.js?v=29";
 import { TIMETABLE } from "./timetable.js?v=3";
-import { initRevision, sessionsFor, upcomingTests, overdueSessions, paceSummary, revisionCount, progressHtml as revisionProgressHtml, subjectName, openSubject as openRevisionSubject, render as renderRevision, gradeQueue, mountStudyLog } from "./revision/revision.js?v=19";
+import { initRevision, sessionsFor, upcomingTests, overdueSessions, paceSummary, revisionCount, progressHtml as revisionProgressHtml, subjectName, openSubject as openRevisionSubject, render as renderRevision, gradeQueue, mountStudyLog } from "./revision/revision.js?v=20";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
@@ -1185,7 +1185,7 @@ function renderFixtures() {
 
 // ---------- PROGRESS: weekly requirements, recommendation, badges & ladder ----------
 const REQ = { fitness: 3, revision: 2 };              // Standard weekly bar (revision = topic-rounds or sessions)
-const SEASON = { content: 17, hw: 100, fitness: 120, revision: 30 }; // 15 shorts + 2 songs; revision ≈ 2/wk to end Feb
+const SEASON = { content: 17, hw: 100, fitness: 120, revision: 30 }; // 15 shorts + 2 songs; revision ≈ 2.5/wk to 31 Jan
 
 function hwOnTimeCount() {
   return cache.homework.filter(h => {
@@ -1347,7 +1347,7 @@ function renderProgress() {
     </div>
     <h3 class="section-h">⏱️ Study sessions</h3>
     <div id="progStudy"></div>
-    <h3 class="section-h">📖 Revision: 2 full revisions by end of February</h3>
+    <h3 class="section-h">📖 Revision: 2 full revisions by Sun 31 Jan</h3>
     <div id="progRevision">${revisionProgressHtml()}</div>
     <div id="badgeInfo" class="badge-info">👆 Tap any badge to see how to unlock it.</div>
     <h3 class="section-h">🔥 Win the week, grow your streak, grab a badge! (${progressCache.streakUnlocked}/4)</h3>
@@ -1442,7 +1442,7 @@ function renderDashboard() {
     const nt = upcomingTests()[0];
     const nDays = nt ? Math.round((new Date(nt.date + "T00:00:00") - new Date(t + "T00:00:00")) / 864e5) : null;
     const sub = nt && nDays <= 7 ? `${esc(nt.name)} ${nDays === 0 ? "today" : nDays === 1 ? "tomorrow" : `in ${nDays} days`}`
-      : rp.behind ? `behind pace by ${rp.behind} · ${rp.perWeek}/wk to Feb` : `on pace · ${rp.perWeek}/wk to Feb`;
+      : rp.behind ? `behind pace by ${rp.behind} · ${rp.perWeek}/wk to 31 Jan` : `on pace · ${rp.perWeek}/wk to 31 Jan`;
     const toGrade = gradeQueue().length;
     const gradeNote = toGrade ? (isMum() ? `✍️ ${toGrade} to grade · ` : `✍️ ${toGrade} waiting for marking · `) : "";
     html += card("revision", "📖 Revision", `${rp.done}/${rp.total}`, true, gradeNote + sub, (nt && nDays <= 2) || rp.behind || (toGrade && isMum()) ? "warn" : "good");
