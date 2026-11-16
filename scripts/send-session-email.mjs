@@ -15,7 +15,7 @@ import nodemailer from "nodemailer";
 import { readFileSync } from "node:fs";
 
 const APP_URL = "https://jakesamuel2011-a11y.github.io/game-plan/";
-const SUBJ = { Humanities: "History", EM: "Environmental Management", Bio: "Biology", Math: "Maths", English: "English", Physics: "Physics", Chem: "Chemistry" };
+const SUBJ = { Humanities: "History", EM: "EM", Bio: "Biology", Math: "Maths", English: "English", Physics: "Physics", Chem: "Chemistry" };
 
 function need(name) {
   const v = process.env[name];
