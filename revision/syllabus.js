@@ -13,7 +13,7 @@
 export const REVISION_GOAL = { start: "2026-11-07", by: "2027-01-31", rounds: 2 };
 
 // Bump when a pack JSON changes so browsers fetch the new copy.
-export const PACK_VERSION = 2;
+export const PACK_VERSION = 3;
 
 export const PACKS = {
   "em-natural-resources": "Natural resources",
@@ -21,6 +21,10 @@ export const PACKS = {
   "history-cold-war": "Cold War (KQ4–6)",
   "history-interwar": "Inter-war years (KQ1–3)",
   "history-russia": "Russia 1905–41 (depth study)",
+  "bio-cells-molecules": "Cells, molecules & enzymes",
+  "bio-coordination-inheritance": "Coordination, inheritance & variation",
+  "bio-health-breathing": "Disease, breathing & respiration",
+  "bio-nutrition-transport": "Nutrition & transport",
 };
 
 // "How it's marked" cards, from the IGCSE Exam Guide (Cambridge, Nov 2026).
@@ -242,6 +246,203 @@ const ALL_SUBJECTS = [
   {
     key: "Bio", name: "Biology", emoji: "🧬", guide: SCIENCE_GUIDE,
     topics: [
+      {
+        id: "bio-classify", unit: "Cells, molecules & enzymes", pack: "bio-cells-molecules", packUnit: "classify",
+        name: "Characteristics and classification of living organisms",
+        points: [
+          "The seven characteristics (MRS GREN) and their definitions",
+          "Species definition",
+          "Binomial system: genus then species",
+          "Using and building dichotomous keys",
+          "Features of the five vertebrate groups",
+        ],
+      },
+      {
+        id: "bio-cells", unit: "Cells, molecules & enzymes", pack: "bio-cells-molecules", packUnit: "cells",
+        name: "Cells and organisation",
+        points: [
+          "Animal, plant and bacterial cell structures and functions",
+          "Ribosomes and mitochondria",
+          "Specialised cells and what they do",
+          "Cell → tissue → organ → organ system → organism",
+          "Magnification = image ÷ actual; mm ↔ µm",
+        ],
+      },
+      {
+        id: "bio-movement", unit: "Cells, molecules & enzymes", pack: "bio-cells-molecules", packUnit: "movement",
+        name: "Movement into and out of cells",
+        points: [
+          "Diffusion definition; why it is passive",
+          "Factors affecting rate of diffusion",
+          "Osmosis definition and partially permeable membranes",
+          "Turgid, flaccid and plasmolysed plant cells; animal cells bursting",
+          "Potato cylinder experiment",
+          "Active transport uses energy; root hair cells",
+        ],
+      },
+      {
+        id: "bio-molecules", unit: "Cells, molecules & enzymes", pack: "bio-cells-molecules", packUnit: "molecules",
+        name: "Biological molecules",
+        points: [
+          "Elements in carbohydrates, fats and proteins",
+          "Starch, glycogen and cellulose from glucose",
+          "Proteins from amino acids; fats from fatty acids and glycerol",
+          "Food tests: iodine, Benedict’s, biuret, ethanol emulsion, DCPIP",
+          "Colour changes for each test",
+        ],
+      },
+      {
+        id: "bio-enzymes", unit: "Cells, molecules & enzymes", pack: "bio-cells-molecules", packUnit: "enzymes",
+        name: "Enzymes",
+        points: [
+          "Catalyst and enzyme definitions",
+          "Active site, substrate, lock and key",
+          "Effect of temperature: optimum, denaturing",
+          "Effect of pH: optimum pH",
+          "Describe enzyme experiments and graphs",
+        ],
+      },
+      {
+        id: "bio-photosynthesis", unit: "Nutrition & transport", pack: "bio-nutrition-transport", packUnit: "photosynthesis",
+        name: "Plant nutrition",
+        points: [
+          "Photosynthesis definition and word equation",
+          "Role of chlorophyll",
+          "Uses of glucose; storage as starch",
+          "Starch test on a leaf; destarching; variegated leaves",
+          "Limiting factors: light, carbon dioxide, temperature",
+          "Pondweed bubble experiment",
+          "Leaf structure and adaptations",
+          "Nitrate and magnesium ions",
+        ],
+      },
+      {
+        id: "bio-nutrition", unit: "Nutrition & transport", pack: "bio-nutrition-transport", packUnit: "nutrition",
+        name: "Human nutrition",
+        points: [
+          "Balanced diet; nutrient sources and uses",
+          "Vitamin C, vitamin D, calcium, iron and their deficiencies",
+          "Fibre and water",
+          "Organs of the digestive system in order",
+          "Physical vs chemical digestion",
+          "Amylase, protease, lipase and their products",
+          "Stomach acid",
+          "Absorption and villi in the small intestine; water in the colon",
+        ],
+      },
+      {
+        id: "bio-planttransport", unit: "Nutrition & transport", pack: "bio-nutrition-transport", packUnit: "planttransport",
+        name: "Transport in plants",
+        points: [
+          "Xylem: water and mineral ions; phloem: sucrose and amino acids",
+          "Root hair cells and their surface area",
+          "Pathway of water from soil to leaf",
+          "Transpiration definition",
+          "Effect of temperature and humidity",
+          "Wilting",
+          "Dye experiment to show xylem",
+        ],
+      },
+      {
+        id: "bio-circulation", unit: "Nutrition & transport", pack: "bio-nutrition-transport", packUnit: "circulation",
+        name: "Transport in mammals",
+        points: [
+          "Double circulation",
+          "Heart structure: chambers, valves, septum, main blood vessels",
+          "Why the left ventricle wall is thicker",
+          "Coronary heart disease risk factors",
+          "Effect of exercise on heart rate",
+          "Arteries, veins and capillaries",
+          "Red and white blood cells, platelets, plasma",
+        ],
+      },
+      {
+        id: "bio-disease", unit: "Disease, breathing & respiration", pack: "bio-health-breathing", packUnit: "disease",
+        name: "Diseases and immunity",
+        points: [
+          "Pathogen and transmissible disease definitions",
+          "Direct and indirect transmission",
+          "Mechanical, chemical and cell defences",
+          "Phagocytes and antibodies",
+          "Vaccination",
+          "Controlling spread: water, food hygiene, waste, sewage",
+        ],
+      },
+      {
+        id: "bio-gasexchange", unit: "Disease, breathing & respiration", pack: "bio-health-breathing", packUnit: "gasexchange",
+        name: "Gas exchange in humans",
+        points: [
+          "Features of gas exchange surfaces",
+          "Parts of the breathing system: trachea, bronchi, bronchioles, alveoli, ribs, intercostal muscles, diaphragm",
+          "Inspired vs expired air; limewater test",
+          "Effect of exercise on rate and depth of breathing",
+          "Cartilage, mucus and cilia",
+          "Breathing is not respiration",
+        ],
+      },
+      {
+        id: "bio-respiration", unit: "Disease, breathing & respiration", pack: "bio-health-breathing", packUnit: "respiration",
+        name: "Respiration",
+        points: [
+          "Uses of energy in the body",
+          "Aerobic respiration definition and word equation",
+          "Anaerobic respiration definition",
+          "Anaerobic word equations: muscles (lactic acid) and yeast (alcohol + carbon dioxide)",
+          "Aerobic releases more energy",
+          "Yeast in bread-making and brewing",
+          "Yeast and germinating seed experiments",
+        ],
+      },
+      {
+        id: "bio-nerves", unit: "Coordination, inheritance & variation", pack: "bio-coordination-inheritance", packUnit: "nerves",
+        name: "Nervous control and the eye",
+        points: [
+          "CNS and peripheral nervous system",
+          "Nerve impulses; sensory, relay and motor neurones",
+          "Reflex action and reflex arc",
+          "Sense organs and receptors",
+          "Parts of the eye: cornea, iris, pupil, lens, retina, optic nerve",
+          "Pupil reflex",
+        ],
+      },
+      {
+        id: "bio-hormones", unit: "Coordination, inheritance & variation", pack: "bio-coordination-inheritance", packUnit: "hormones",
+        name: "Hormones, homeostasis and tropisms",
+        points: [
+          "Hormone definition",
+          "Glands: adrenal, pancreas, testes, ovaries",
+          "Effects of adrenaline",
+          "Nervous vs hormonal control",
+          "Homeostasis; insulin lowers blood glucose",
+          "Body temperature control",
+          "Phototropism and gravitropism in shoots and roots",
+        ],
+      },
+      {
+        id: "bio-inheritance", unit: "Coordination, inheritance & variation", pack: "bio-coordination-inheritance", packUnit: "inheritance",
+        name: "Inheritance",
+        points: [
+          "Inheritance, chromosome, gene and allele definitions",
+          "46 chromosomes in body cells; 23 in gametes",
+          "Sex inheritance: XX and XY",
+          "Genotype, phenotype, dominant, recessive",
+          "Homozygous and heterozygous",
+          "Monohybrid crosses and ratios (3:1, 1:1)",
+          "Mitosis vs meiosis",
+        ],
+      },
+      {
+        id: "bio-variation", unit: "Coordination, inheritance & variation", pack: "bio-coordination-inheritance", packUnit: "variation",
+        name: "Variation and selection",
+        points: [
+          "Continuous and discontinuous variation; graphs",
+          "Mutation; radiation and chemicals",
+          "Adaptive features (e.g. cactus)",
+          "Natural selection steps",
+          "Antibiotic resistance",
+          "Selective breeding; compare with natural selection",
+        ],
+      },
       {
         id: "bio-plants", unit: "Reproduction", pack: "bio-reproduction-environment", packUnit: "plants",
         name: "Reproduction in plants",

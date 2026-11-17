@@ -412,6 +412,51 @@
    "front": "Sustainable resource",
    "back": "One produced as fast as it is removed from the environment, so it does not run out.",
    "unit": "conservation"
+  },
+  {
+   "front": "Monoculture",
+   "back": "A large area growing only one crop species. Lowers biodiversity and lets pests and diseases spread quickly.",
+   "unit": "impact"
+  },
+  {
+   "front": "Intensive livestock production",
+   "back": "Keeping many animals indoors in a small space to produce food cheaply. Risks: pollution from waste, disease spreading, animal welfare.",
+   "unit": "impact"
+  },
+  {
+   "front": "Effects of deforestation",
+   "back": "Loss of habitats and biodiversity, soil erosion, flooding, and more carbon dioxide in the atmosphere.",
+   "unit": "impact"
+  },
+  {
+   "front": "Non-biodegradable plastics",
+   "back": "Not broken down by decomposers, so they last for years on land and in water, and harm animals that eat or get trapped in them.",
+   "unit": "impact"
+  },
+  {
+   "front": "Greenhouse gases",
+   "back": "Carbon dioxide (burning fossil fuels, deforestation) and methane (cattle, rice fields). More of them causes an enhanced greenhouse effect and climate change.",
+   "unit": "impact"
+  },
+  {
+   "front": "Endangered species",
+   "back": "A species at risk of becoming extinct.",
+   "unit": "conservation"
+  },
+  {
+   "front": "Why species become endangered",
+   "back": "Habitat loss, hunting, pollution, introduced species and climate change.",
+   "unit": "conservation"
+  },
+  {
+   "front": "Conservation methods",
+   "back": "Protecting and monitoring habitats, education, captive breeding programmes and seed banks.",
+   "unit": "conservation"
+  },
+  {
+   "front": "Conserving fish stocks",
+   "back": "Quotas, closed seasons, protected areas, controlling net mesh size, and monitoring numbers.",
+   "unit": "conservation"
   }
  ],
  "examIntro": "Paper 3 style. Write your answer first, then open the mark scheme and give yourself one mark per point you made clearly. One point per mark is the rule.",

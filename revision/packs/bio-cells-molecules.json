@@ -1,0 +1,844 @@
+{
+ "id": "bio-cells-molecules",
+ "subject": "Bio",
+ "title": "Cells, molecules & enzymes",
+ "sub": "Living things and classification, cells, diffusion and osmosis, food tests, enzymes",
+ "units": [
+  {
+   "key": "classify",
+   "name": "Classification"
+  },
+  {
+   "key": "cells",
+   "name": "Cells"
+  },
+  {
+   "key": "movement",
+   "name": "Diffusion & osmosis"
+  },
+  {
+   "key": "molecules",
+   "name": "Biological molecules"
+  },
+  {
+   "key": "enzymes",
+   "name": "Enzymes"
+  }
+ ],
+ "strategyIntro": "Cambridge Core Biology is assessed on Paper 1 (40 multiple-choice questions, 45 min), Paper 3 (structured theory questions, 1h 15, 80 marks) and Paper 6 (questions on experiments). Your school test may be shorter, but it will be marked the same way.",
+ "strategy": [
+  {
+   "title": "Multiple choice",
+   "key": true,
+   "points": [
+    "About a minute per question. If one is taking longer, mark it and move on.",
+    "Cross out options you know are wrong first. Two often look similar: read every word.",
+    "Never leave one blank. A wrong answer loses nothing."
+   ]
+  },
+  {
+   "title": "Structured questions",
+   "key": true,
+   "points": [
+    "Marks go to keywords. Write the textbook term: “oviduct”, not “tube”.",
+    "The marks in brackets tell you how many separate points to make.",
+    "Label diagrams with a ruler line that touches the exact part."
+   ]
+  },
+  {
+   "title": "Questions on experiments",
+   "points": [
+    "Results tables: units go in the column headings, not next to each number.",
+    "Graphs: label both axes with units, choose an even scale, plot with small crosses.",
+    "Know the control variables and one safety precaution for each experiment."
+   ]
+  },
+  {
+   "title": "Easy marks people lose",
+   "points": [
+    "Writing “growth is getting bigger”. Growth is a permanent increase in size and dry mass.",
+    "Giving magnification a unit. It is just “×400”. Convert to the same units first (1 mm = 1000 µm).",
+    "Saying enzymes are “killed”. They are proteins, not alive: they are denatured.",
+    "Forgetting “partially permeable membrane” in the definition of osmosis."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "State",
+   "Give a short fact. No explanation needed."
+  ],
+  [
+   "Describe",
+   "Say what happens or what you see. With data, quote figures and units."
+  ],
+  [
+   "Explain",
+   "Say why or how. Use “because” and link cause to effect."
+  ],
+  [
+   "Suggest",
+   "Apply what you know to a new situation. Any sensible reason scores."
+  ],
+  [
+   "Compare",
+   "Give similarities or differences for both things in the same sentence."
+  ],
+  [
+   "Calculate",
+   "Show working and give the unit."
+  ]
+ ],
+ "quizTitle": "Multiple-choice practice",
+ "quizIntro": "Answer in Paper 1 style: about a minute each, eliminating wrong options first. Read the explanation after every answer, even when you get it right.",
+ "flashIntro": "These are close to Cambridge’s own wording. Say each definition out loud before you tap, then check you used the exact keywords.",
+ "flashcards": [
+  {
+   "front": "The seven characteristics of living organisms",
+   "back": "Movement, respiration, sensitivity, growth, reproduction, excretion, nutrition (MRS GREN).",
+   "unit": "classify"
+  },
+  {
+   "front": "Respiration",
+   "back": "The chemical reactions in cells that break down nutrient molecules and release energy for metabolism.",
+   "unit": "classify"
+  },
+  {
+   "front": "Sensitivity",
+   "back": "The ability to detect and respond to changes in the internal or external environment.",
+   "unit": "classify"
+  },
+  {
+   "front": "Growth",
+   "back": "A permanent increase in size and dry mass.",
+   "unit": "classify"
+  },
+  {
+   "front": "Excretion",
+   "back": "Removal of the waste products of metabolism, toxic materials and substances in excess of requirements.",
+   "unit": "classify"
+  },
+  {
+   "front": "Species",
+   "back": "A group of organisms that can reproduce to produce fertile offspring.",
+   "unit": "classify"
+  },
+  {
+   "front": "Binomial system",
+   "back": "Naming a species with two names: the genus first (capital letter), then the species, e.g. Homo sapiens.",
+   "unit": "classify"
+  },
+  {
+   "front": "Dichotomous key",
+   "back": "A key that identifies organisms by a series of steps, each giving a choice between two statements.",
+   "unit": "classify"
+  },
+  {
+   "front": "The five vertebrate groups",
+   "back": "Mammals, birds, reptiles, amphibians and fish.",
+   "unit": "classify"
+  },
+  {
+   "front": "Features of mammals",
+   "back": "Fur or hair, external ears (pinnae), mammary glands that make milk; most give birth to live young.",
+   "unit": "classify"
+  },
+  {
+   "front": "Cell membrane",
+   "back": "Controls what enters and leaves the cell.",
+   "unit": "cells"
+  },
+  {
+   "front": "Nucleus",
+   "back": "Contains the genetic material (DNA in chromosomes) that controls the cell’s activities.",
+   "unit": "cells"
+  },
+  {
+   "front": "Mitochondria",
+   "back": "Where aerobic respiration takes place, releasing energy.",
+   "unit": "cells"
+  },
+  {
+   "front": "Ribosomes",
+   "back": "Where proteins are made (protein synthesis).",
+   "unit": "cells"
+  },
+  {
+   "front": "Cell wall",
+   "back": "Found in plant cells, made of cellulose. Strengthens the cell and stops it bursting.",
+   "unit": "cells"
+  },
+  {
+   "front": "Chloroplast",
+   "back": "Contains chlorophyll, which absorbs light energy for photosynthesis. Plant cells only.",
+   "unit": "cells"
+  },
+  {
+   "front": "Permanent vacuole",
+   "back": "Large space filled with cell sap. Keeps a plant cell firm (turgid).",
+   "unit": "cells"
+  },
+  {
+   "front": "Bacterial cell",
+   "back": "Cell wall, cell membrane, cytoplasm, ribosomes, a circular DNA loop and plasmids. No nucleus.",
+   "unit": "cells"
+  },
+  {
+   "front": "Specialised cells",
+   "back": "Ciliated cells move mucus; root hair cells absorb water and ions; palisade cells photosynthesise; neurones carry impulses; red blood cells carry oxygen.",
+   "unit": "cells"
+  },
+  {
+   "front": "Levels of organisation",
+   "back": "Cell → tissue → organ → organ system → organism.",
+   "unit": "cells"
+  },
+  {
+   "front": "Magnification",
+   "back": "magnification = image size ÷ actual size. Use the same units for both; 1 mm = 1000 µm.",
+   "unit": "cells"
+  },
+  {
+   "front": "Diffusion",
+   "back": "The net movement of particles from a region of higher concentration to a region of lower concentration, down a concentration gradient, as a result of their random movement.",
+   "unit": "movement"
+  },
+  {
+   "front": "Energy for diffusion",
+   "back": "None from the cell: it is passive. The particles’ own kinetic energy (random movement) drives it.",
+   "unit": "movement"
+  },
+  {
+   "front": "Factors that speed up diffusion",
+   "back": "Larger surface area, higher temperature, steeper concentration gradient, shorter distance.",
+   "unit": "movement"
+  },
+  {
+   "front": "Osmosis",
+   "back": "The net movement of water molecules from a dilute solution to a more concentrated solution through a partially permeable membrane.",
+   "unit": "movement"
+  },
+  {
+   "front": "Partially permeable membrane",
+   "back": "A membrane that lets small molecules such as water through but not larger ones such as sucrose.",
+   "unit": "movement"
+  },
+  {
+   "front": "Plant cell in pure water",
+   "back": "Water enters by osmosis, the vacuole swells and the cell becomes turgid. The cell wall stops it bursting.",
+   "unit": "movement"
+  },
+  {
+   "front": "Plant cell in a concentrated solution",
+   "back": "Water leaves by osmosis; the cell becomes flaccid and the membrane may pull away from the wall (plasmolysis).",
+   "unit": "movement"
+  },
+  {
+   "front": "Animal cell in pure water",
+   "back": "Water enters by osmosis; the cell swells and may burst because it has no cell wall.",
+   "unit": "movement"
+  },
+  {
+   "front": "Active transport",
+   "back": "Movement of particles through a cell membrane from lower to higher concentration (against the gradient), using energy from respiration.",
+   "unit": "movement"
+  },
+  {
+   "front": "Example of active transport",
+   "back": "Root hair cells taking in mineral ions (e.g. nitrate) from the soil, where they are at a lower concentration.",
+   "unit": "movement"
+  },
+  {
+   "front": "Elements in carbohydrates and fats",
+   "back": "Carbon, hydrogen and oxygen.",
+   "unit": "molecules"
+  },
+  {
+   "front": "Elements in proteins",
+   "back": "Carbon, hydrogen, oxygen and nitrogen (some also contain sulfur).",
+   "unit": "molecules"
+  },
+  {
+   "front": "Starch, glycogen and cellulose",
+   "back": "Made from many glucose molecules joined together.",
+   "unit": "molecules"
+  },
+  {
+   "front": "Proteins",
+   "back": "Made from amino acids.",
+   "unit": "molecules"
+  },
+  {
+   "front": "Fats and oils",
+   "back": "Made from fatty acids and glycerol.",
+   "unit": "molecules"
+  },
+  {
+   "front": "Iodine test",
+   "back": "Tests for starch: orange-brown → blue-black.",
+   "unit": "molecules"
+  },
+  {
+   "front": "Benedict’s test",
+   "back": "Tests for reducing sugars (e.g. glucose): heat in a hot water bath; blue → green, yellow, orange or brick red.",
+   "unit": "molecules"
+  },
+  {
+   "front": "Biuret test",
+   "back": "Tests for protein: blue → purple (lilac).",
+   "unit": "molecules"
+  },
+  {
+   "front": "Ethanol emulsion test",
+   "back": "Tests for fats and oils: shake with ethanol, then add water; a cloudy white emulsion forms.",
+   "unit": "molecules"
+  },
+  {
+   "front": "DCPIP test",
+   "back": "Tests for vitamin C: blue DCPIP loses its colour.",
+   "unit": "molecules"
+  },
+  {
+   "front": "Catalyst",
+   "back": "A substance that increases the rate of a chemical reaction and is not changed by the reaction.",
+   "unit": "enzymes"
+  },
+  {
+   "front": "Enzyme",
+   "back": "A protein that functions as a biological catalyst.",
+   "unit": "enzymes"
+  },
+  {
+   "front": "Why enzymes are needed",
+   "back": "They speed up the reactions in cells enough to keep the organism alive at body temperature.",
+   "unit": "enzymes"
+  },
+  {
+   "front": "Active site",
+   "back": "The region on an enzyme where the substrate binds.",
+   "unit": "enzymes"
+  },
+  {
+   "front": "Substrate",
+   "back": "The molecule an enzyme acts on, e.g. starch for amylase.",
+   "unit": "enzymes"
+  },
+  {
+   "front": "Lock and key",
+   "back": "The active site has a shape complementary to the substrate, so each enzyme only works on one substrate.",
+   "unit": "enzymes"
+  },
+  {
+   "front": "Optimum temperature",
+   "back": "The temperature at which an enzyme works fastest: about 37 °C for human enzymes.",
+   "unit": "enzymes"
+  },
+  {
+   "front": "Low temperature",
+   "back": "Enzymes work slowly: molecules have less kinetic energy, so there are fewer collisions. The enzyme is not damaged.",
+   "unit": "enzymes"
+  },
+  {
+   "front": "Denatured",
+   "back": "High temperature or the wrong pH changes the shape of the active site, so the substrate no longer fits. This is permanent.",
+   "unit": "enzymes"
+  },
+  {
+   "front": "Optimum pH",
+   "back": "Each enzyme works best at one pH, e.g. the protease in the stomach works best in acid (about pH 2).",
+   "unit": "enzymes"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "Which of these is NOT a characteristic of all living organisms?",
+   "options": [
+    "Excretion",
+    "Sensitivity",
+    "Photosynthesis",
+    "Reproduction"
+   ],
+   "answer": 2,
+   "why": "Only plants (and some other organisms) photosynthesise. The characteristic all organisms share is nutrition.",
+   "unit": "classify"
+  },
+  {
+   "q": "The lion is Panthera leo. What does “Panthera” tell you?",
+   "options": [
+    "Its species",
+    "Its genus",
+    "Its kingdom",
+    "Its common name"
+   ],
+   "answer": 1,
+   "why": "In the binomial system the first name is the genus and the second is the species.",
+   "unit": "classify"
+  },
+  {
+   "q": "An animal has dry, scaly skin and lays eggs with rubbery shells on land. Which group is it in?",
+   "options": [
+    "Fish",
+    "Amphibians",
+    "Reptiles",
+    "Birds"
+   ],
+   "answer": 2,
+   "why": "Reptiles have dry scales and lay shelled eggs on land. Amphibians have moist skin and lay eggs in water; birds have feathers.",
+   "unit": "classify"
+  },
+  {
+   "q": "Which is the best definition of growth?",
+   "options": [
+    "An increase in the number of cells",
+    "Gaining mass by drinking water",
+    "An increase in height",
+    "A permanent increase in size and dry mass"
+   ],
+   "answer": 3,
+   "why": "Growth must be permanent and is measured as dry mass, so water taken in does not count.",
+   "unit": "classify"
+  },
+  {
+   "q": "Removing carbon dioxide from the body is an example of:",
+   "options": [
+    "Excretion",
+    "Egestion",
+    "Nutrition",
+    "Sensitivity"
+   ],
+   "answer": 0,
+   "why": "Carbon dioxide is a waste product of metabolism (respiration). Egestion is getting rid of undigested food, which was never made by cells.",
+   "unit": "classify"
+  },
+  {
+   "q": "Which structure is found in plant cells but not in animal cells?",
+   "options": [
+    "Mitochondria",
+    "Cell membrane",
+    "Ribosome",
+    "Cell wall"
+   ],
+   "answer": 3,
+   "why": "Plant cells have a cellulose cell wall, chloroplasts and a large permanent vacuole. Animal cells have the other three.",
+   "unit": "cells"
+  },
+  {
+   "q": "Which structure do bacterial cells NOT have?",
+   "options": [
+    "A nucleus",
+    "A cell wall",
+    "Ribosomes",
+    "Plasmids"
+   ],
+   "answer": 0,
+   "why": "Bacteria have no nucleus: their DNA is a circular loop free in the cytoplasm, plus small rings called plasmids.",
+   "unit": "cells"
+  },
+  {
+   "q": "A drawing of a cell is 15 mm long. The magnification is ×300. What is the actual length of the cell?",
+   "options": [
+    "4500 mm",
+    "0.5 mm",
+    "0.05 mm",
+    "5 mm"
+   ],
+   "answer": 2,
+   "why": "Actual size = image size ÷ magnification = 15 ÷ 300 = 0.05 mm (50 µm).",
+   "unit": "cells"
+  },
+  {
+   "q": "What is the function of ciliated cells lining the trachea?",
+   "options": [
+    "Absorbing oxygen",
+    "Moving mucus up and away from the lungs",
+    "Making antibodies",
+    "Exchanging carbon dioxide"
+   ],
+   "answer": 1,
+   "why": "Cilia beat to sweep mucus, with trapped dust and pathogens, up to the throat.",
+   "unit": "cells"
+  },
+  {
+   "q": "Which order of organisation is correct, from smallest to largest?",
+   "options": [
+    "Cell, organ, tissue, organ system",
+    "Tissue, cell, organ, organ system",
+    "Cell, tissue, organ system, organ",
+    "Cell, tissue, organ, organ system"
+   ],
+   "answer": 3,
+   "why": "Similar cells form a tissue, tissues form an organ, organs work together in an organ system.",
+   "unit": "cells"
+  },
+  {
+   "q": "Where does aerobic respiration happen in a cell?",
+   "options": [
+    "Mitochondria",
+    "Nucleus",
+    "Ribosomes",
+    "Chloroplasts"
+   ],
+   "answer": 0,
+   "why": "Mitochondria release energy by aerobic respiration. Ribosomes make proteins; chloroplasts photosynthesise.",
+   "unit": "cells"
+  },
+  {
+   "q": "How does oxygen move from the alveoli into the blood?",
+   "options": [
+    "Osmosis",
+    "Active transport",
+    "Diffusion",
+    "Transpiration"
+   ],
+   "answer": 2,
+   "why": "Oxygen is at a higher concentration in the alveoli than in the blood, so it diffuses across.",
+   "unit": "movement"
+  },
+  {
+   "q": "A potato cylinder is left in concentrated sugar solution for an hour. What happens?",
+   "options": [
+    "Its mass increases as water enters",
+    "Its mass decreases as water leaves by osmosis",
+    "Its mass stays the same",
+    "Its mass increases as sugar enters"
+   ],
+   "answer": 1,
+   "why": "The solution is more concentrated than the potato cells, so water moves out of the cells by osmosis.",
+   "unit": "movement"
+  },
+  {
+   "q": "Which change would increase the rate of diffusion?",
+   "options": [
+    "Lowering the temperature",
+    "Making the membrane thicker",
+    "Reducing the concentration difference",
+    "Increasing the surface area"
+   ],
+   "answer": 3,
+   "why": "More surface area means more particles can cross at once. The other three all slow diffusion down.",
+   "unit": "movement"
+  },
+  {
+   "q": "Red blood cells burst in pure water but plant cells do not. Why?",
+   "options": [
+    "Plant cells have a cell wall",
+    "Plant cells have no membrane",
+    "Plant cells have chloroplasts",
+    "Red blood cells have no nucleus"
+   ],
+   "answer": 0,
+   "why": "Both cells take in water by osmosis, but the strong cellulose cell wall stops a plant cell bursting.",
+   "unit": "movement"
+  },
+  {
+   "q": "Which process needs energy from respiration?",
+   "options": [
+    "Diffusion",
+    "Osmosis",
+    "Evaporation",
+    "Active transport"
+   ],
+   "answer": 3,
+   "why": "Active transport moves particles against a concentration gradient, so it needs energy. Diffusion and osmosis are passive.",
+   "unit": "movement"
+  },
+  {
+   "q": "Which reagent is used to test for protein?",
+   "options": [
+    "Iodine solution",
+    "Benedict’s solution",
+    "Biuret reagent",
+    "Ethanol"
+   ],
+   "answer": 2,
+   "why": "Biuret turns from blue to purple with protein. Iodine is for starch, Benedict’s for reducing sugar, ethanol for fats.",
+   "unit": "molecules"
+  },
+  {
+   "q": "A food sample turns blue-black when iodine solution is added. It contains:",
+   "options": [
+    "Protein",
+    "Starch",
+    "Glucose",
+    "Fat"
+   ],
+   "answer": 1,
+   "why": "Iodine goes from orange-brown to blue-black when starch is present.",
+   "unit": "molecules"
+  },
+  {
+   "q": "Proteins are made from:",
+   "options": [
+    "Amino acids",
+    "Glucose",
+    "Fatty acids",
+    "Glycerol"
+   ],
+   "answer": 0,
+   "why": "Amino acids join in long chains to make proteins. Glucose builds starch; fatty acids and glycerol build fats.",
+   "unit": "molecules"
+  },
+  {
+   "q": "Which food test needs heating?",
+   "options": [
+    "Iodine test",
+    "Biuret test",
+    "Ethanol emulsion test",
+    "Benedict’s test"
+   ],
+   "answer": 3,
+   "why": "Benedict’s solution must be heated in a hot water bath before the colour change appears.",
+   "unit": "molecules"
+  },
+  {
+   "q": "Which element is found in proteins but not in carbohydrates?",
+   "options": [
+    "Carbon",
+    "Oxygen",
+    "Nitrogen",
+    "Hydrogen"
+   ],
+   "answer": 2,
+   "why": "Carbohydrates contain only C, H and O. Proteins also contain nitrogen.",
+   "unit": "molecules"
+  },
+  {
+   "q": "What is an enzyme?",
+   "options": [
+    "A carbohydrate that speeds up reactions",
+    "A protein that is a biological catalyst",
+    "A fat that stores energy",
+    "A hormone carried in the blood"
+   ],
+   "answer": 1,
+   "why": "All enzymes are proteins, and they catalyse reactions without being used up.",
+   "unit": "enzymes"
+  },
+  {
+   "q": "The rate of an enzyme reaction rises up to 40 °C, then falls quickly. Why does it fall?",
+   "options": [
+    "The substrate is used up",
+    "The enzyme has too much energy",
+    "The molecules stop moving",
+    "The active site changes shape so the substrate no longer fits"
+   ],
+   "answer": 3,
+   "why": "Above the optimum the enzyme is denatured: its active site loses its shape.",
+   "unit": "enzymes"
+  },
+  {
+   "q": "At 5 °C an enzyme reaction is very slow. Why?",
+   "options": [
+    "Molecules move slowly, so there are fewer collisions",
+    "The enzyme is denatured",
+    "The substrate is destroyed",
+    "The enzyme is used up"
+   ],
+   "answer": 0,
+   "why": "Cold slows molecules down. The enzyme is not denatured: warm it up and it works again.",
+   "unit": "enzymes"
+  },
+  {
+   "q": "Amylase breaks down starch but not protein. Why?",
+   "options": [
+    "Protein is too small",
+    "Amylase only works in acid",
+    "Only starch fits the shape of amylase’s active site",
+    "Protein is not a substrate for any enzyme"
+   ],
+   "answer": 2,
+   "why": "Enzymes are specific: the active site is complementary to one substrate only.",
+   "unit": "enzymes"
+  },
+  {
+   "q": "What does amylase break starch down into?",
+   "options": [
+    "Amino acids",
+    "Simple sugars (maltose)",
+    "Fatty acids",
+    "Glycerol"
+   ],
+   "answer": 1,
+   "why": "Amylase digests starch to simple sugars. Proteases make amino acids; lipases make fatty acids and glycerol.",
+   "unit": "enzymes"
+  }
+ ],
+ "examIntro": "Paper 3 style. Write your answer first, then open the mark scheme and give yourself one mark per point you made clearly. One point per mark is the rule.",
+ "exam": [
+  {
+   "q": "State two features that all mammals have but fish do not.",
+   "marks": 2,
+   "points": [
+    "Fur / hair",
+    "Mammary glands / feed young on milk",
+    "External ears (pinnae)",
+    "Lungs (fish have gills)"
+   ],
+   "note": "Any 2.",
+   "unit": "classify"
+  },
+  {
+   "q": "A student says a car is alive because it moves, uses fuel and gives out waste gases. Explain why a car is not a living organism.",
+   "marks": 3,
+   "points": [
+    "It does not grow (no permanent increase in dry mass)",
+    "It cannot reproduce",
+    "It is not sensitive / cannot detect and respond to stimuli by itself",
+    "It is not made of cells",
+    "Burning fuel is combustion, not respiration in cells"
+   ],
+   "note": "Any 3. Use the characteristics of living things by name.",
+   "unit": "classify"
+  },
+  {
+   "q": "Define the term species and explain how the binomial system is used to name humans, Homo sapiens.",
+   "marks": 4,
+   "points": [
+    "Species: a group of organisms that can reproduce",
+    "to produce fertile offspring",
+    "Each species has two names",
+    "Homo is the genus",
+    "sapiens is the species"
+   ],
+   "note": "Any 4.",
+   "unit": "classify"
+  },
+  {
+   "q": "State the function of (a) the nucleus and (b) the cell membrane.",
+   "marks": 2,
+   "points": [
+    "(a) Contains genetic material / controls the activities of the cell",
+    "(b) Controls what enters and leaves the cell"
+   ],
+   "unit": "cells"
+  },
+  {
+   "q": "A drawing of a cell is 60 mm long. The real cell is 0.12 mm long. Calculate the magnification of the drawing. Show your working.",
+   "marks": 3,
+   "points": [
+    "magnification = image size ÷ actual size",
+    "60 ÷ 0.12",
+    "= ×500 (no units)"
+   ],
+   "unit": "cells"
+  },
+  {
+   "q": "Name three structures found in a plant cell but not in an animal cell, and state the function of each.",
+   "marks": 6,
+   "points": [
+    "Cell wall",
+    "Strengthens the cell / keeps its shape / stops it bursting",
+    "Chloroplast",
+    "Absorbs light for photosynthesis",
+    "Large permanent vacuole",
+    "Contains cell sap / keeps the cell turgid for support"
+   ],
+   "note": "One mark for each structure, one for its matching function.",
+   "unit": "cells"
+  },
+  {
+   "q": "Define osmosis.",
+   "marks": 2,
+   "points": [
+    "Net movement of water molecules from a dilute to a more concentrated solution",
+    "Through a partially permeable membrane"
+   ],
+   "unit": "movement"
+  },
+  {
+   "q": "Describe and explain what happens to a plant cell placed in pure water.",
+   "marks": 4,
+   "points": [
+    "Water moves into the cell",
+    "By osmosis",
+    "Through the partially permeable membrane",
+    "Because the cell sap is more concentrated than the water",
+    "The vacuole swells and the cell becomes turgid",
+    "The cell wall stops the cell bursting"
+   ],
+   "note": "Any 4.",
+   "unit": "movement"
+  },
+  {
+   "q": "A student put one potato cylinder in distilled water and one in concentrated sugar solution for an hour. The first gained mass and the second lost mass. Explain these results and state two variables the student should keep the same.",
+   "marks": 5,
+   "points": [
+    "In water: water entered the cells by osmosis, as the cell contents were more concentrated",
+    "In sugar solution: water left the cells by osmosis, into the more concentrated solution",
+    "Through partially permeable membranes",
+    "Control: starting size / length / mass of the cylinders",
+    "Control: temperature",
+    "Control: time left in the solution / volume of solution / same potato"
+   ],
+   "note": "Up to 3 for the explanation, 2 for the variables.",
+   "unit": "movement"
+  },
+  {
+   "q": "Name the smaller molecules that make up (a) starch and (b) fats.",
+   "marks": 2,
+   "points": [
+    "(a) Glucose",
+    "(b) Fatty acids and glycerol"
+   ],
+   "unit": "molecules"
+  },
+  {
+   "q": "Describe how to test a food for reducing sugar. Include the positive result.",
+   "marks": 3,
+   "points": [
+    "Add Benedict’s solution to the food (in solution)",
+    "Heat in a hot water bath",
+    "Colour changes from blue to (green, yellow, orange or) brick red"
+   ],
+   "unit": "molecules"
+  },
+  {
+   "q": "Describe how you would test a liquid food to find out whether it contains starch and protein. Give the result for each if the substance is present.",
+   "marks": 5,
+   "points": [
+    "Add iodine solution",
+    "Turns blue-black if starch is present (stays orange-brown if not)",
+    "Add biuret reagent (or sodium hydroxide then copper sulfate solution)",
+    "Turns purple / lilac if protein is present",
+    "Stays blue if no protein"
+   ],
+   "note": "One mark per point.",
+   "unit": "molecules"
+  },
+  {
+   "q": "Define the term enzyme.",
+   "marks": 2,
+   "points": [
+    "A protein",
+    "That is a biological catalyst / speeds up a reaction without being changed"
+   ],
+   "unit": "enzymes"
+  },
+  {
+   "q": "Explain why an enzyme only works on one type of substrate.",
+   "marks": 3,
+   "points": [
+    "The enzyme has an active site",
+    "with a specific shape",
+    "that is complementary to / fits only its substrate (lock and key)",
+    "Other molecules do not fit the active site"
+   ],
+   "note": "Any 3.",
+   "unit": "enzymes"
+  },
+  {
+   "q": "Describe and explain how temperature affects the rate of a reaction controlled by an enzyme.",
+   "marks": 5,
+   "points": [
+    "As temperature increases the rate increases, up to the optimum",
+    "Molecules have more kinetic energy, so more collisions between enzyme and substrate",
+    "Optimum (for human enzymes) is about 37 °C",
+    "Above the optimum the rate falls quickly",
+    "The enzyme is denatured",
+    "The active site changes shape so the substrate no longer fits"
+   ],
+   "note": "Any 5.",
+   "unit": "enzymes"
+  }
+ ]
+}

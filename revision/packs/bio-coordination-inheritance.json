@@ -1,0 +1,697 @@
+{
+ "id": "bio-coordination-inheritance",
+ "subject": "Bio",
+ "title": "Coordination, inheritance & variation",
+ "sub": "Nerves and the eye, hormones and tropisms, chromosomes and genes, variation and natural selection",
+ "units": [
+  {
+   "key": "nerves",
+   "name": "Nerves & the eye"
+  },
+  {
+   "key": "hormones",
+   "name": "Hormones & tropisms"
+  },
+  {
+   "key": "inheritance",
+   "name": "Inheritance"
+  },
+  {
+   "key": "variation",
+   "name": "Variation & selection"
+  }
+ ],
+ "strategyIntro": "Cambridge Core Biology is assessed on Paper 1 (40 multiple-choice questions, 45 min), Paper 3 (structured theory questions, 1h 15, 80 marks) and Paper 6 (questions on experiments). Your school test may be shorter, but it will be marked the same way.",
+ "strategy": [
+  {
+   "title": "Multiple choice",
+   "key": true,
+   "points": [
+    "About a minute per question. If one is taking longer, mark it and move on.",
+    "Cross out options you know are wrong first. Two often look similar: read every word.",
+    "Never leave one blank. A wrong answer loses nothing."
+   ]
+  },
+  {
+   "title": "Structured questions",
+   "key": true,
+   "points": [
+    "Marks go to keywords. Write the textbook term: “oviduct”, not “tube”.",
+    "The marks in brackets tell you how many separate points to make.",
+    "Label diagrams with a ruler line that touches the exact part."
+   ]
+  },
+  {
+   "title": "Questions on experiments",
+   "points": [
+    "Results tables: units go in the column headings, not next to each number.",
+    "Graphs: label both axes with units, choose an even scale, plot with small crosses.",
+    "Know the control variables and one safety precaution for each experiment."
+   ]
+  },
+  {
+   "title": "Easy marks people lose",
+   "points": [
+    "Saying nerves carry “messages”. Say electrical impulses along neurones.",
+    "Writing “the pupil contracts”. The iris muscles contract; the pupil gets smaller (constricts).",
+    "In genetics, using the same letter in two different ways: one letter, capital for dominant, lower case for recessive.",
+    "Writing that organisms “adapt” or “choose” to change. Individuals with useful variations survive and pass on their alleles."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "State",
+   "Give a short fact. No explanation needed."
+  ],
+  [
+   "Describe",
+   "Say what happens or what you see. With data, quote figures and units."
+  ],
+  [
+   "Explain",
+   "Say why or how. Use “because” and link cause to effect."
+  ],
+  [
+   "Suggest",
+   "Apply what you know to a new situation. Any sensible reason scores."
+  ],
+  [
+   "Compare",
+   "Give similarities or differences for both things in the same sentence."
+  ],
+  [
+   "Calculate",
+   "Show working and give the unit."
+  ]
+ ],
+ "quizTitle": "Multiple-choice practice",
+ "quizIntro": "Answer in Paper 1 style: about a minute each, eliminating wrong options first. Read the explanation after every answer, even when you get it right.",
+ "flashIntro": "These are close to Cambridge’s own wording. Say each definition out loud before you tap, then check you used the exact keywords.",
+ "flashcards": [
+  {
+   "front": "Nervous system",
+   "back": "Central nervous system (brain and spinal cord) plus peripheral nervous system (nerves). Coordinates and regulates body functions.",
+   "unit": "nerves"
+  },
+  {
+   "front": "Nerve impulse",
+   "back": "An electrical signal that passes along neurones.",
+   "unit": "nerves"
+  },
+  {
+   "front": "Three types of neurone",
+   "back": "Sensory neurones (from receptors), relay neurones (in the CNS), motor neurones (to effectors).",
+   "unit": "nerves"
+  },
+  {
+   "front": "Reflex action",
+   "back": "A fast, automatic response to a stimulus, without conscious thought. Protects the body.",
+   "unit": "nerves"
+  },
+  {
+   "front": "Reflex arc",
+   "back": "Stimulus → receptor → sensory neurone → relay neurone → motor neurone → effector (muscle or gland) → response.",
+   "unit": "nerves"
+  },
+  {
+   "front": "Sense organs",
+   "back": "Groups of receptor cells that respond to specific stimuli: light, sound, touch, temperature, chemicals.",
+   "unit": "nerves"
+  },
+  {
+   "front": "Cornea and lens",
+   "back": "Both refract (bend) light; the lens focuses it onto the retina.",
+   "unit": "nerves"
+  },
+  {
+   "front": "Retina and optic nerve",
+   "back": "The retina contains light-sensitive receptor cells; the optic nerve carries impulses to the brain.",
+   "unit": "nerves"
+  },
+  {
+   "front": "Iris",
+   "back": "Coloured ring of muscle that controls the size of the pupil, and so how much light enters the eye.",
+   "unit": "nerves"
+  },
+  {
+   "front": "Pupil reflex",
+   "back": "Bright light: the pupil gets smaller to protect the retina. Dim light: the pupil gets wider to let more light in.",
+   "unit": "nerves"
+  },
+  {
+   "front": "Hormone",
+   "back": "A chemical substance made by a gland and carried by the blood, which changes the activity of specific target organs.",
+   "unit": "hormones"
+  },
+  {
+   "front": "Endocrine glands and hormones",
+   "back": "Adrenal glands: adrenaline. Pancreas: insulin. Testes: testosterone. Ovaries: oestrogen.",
+   "unit": "hormones"
+  },
+  {
+   "front": "Adrenaline",
+   "back": "Released in “fight or flight” situations: increases heart rate and breathing rate and widens the pupils.",
+   "unit": "hormones"
+  },
+  {
+   "front": "Nervous vs hormonal control",
+   "back": "Nerves: electrical impulses, very fast, short-lived. Hormones: chemicals in the blood, slower, longer-lasting.",
+   "unit": "hormones"
+  },
+  {
+   "front": "Homeostasis",
+   "back": "The maintenance of a constant internal environment.",
+   "unit": "hormones"
+  },
+  {
+   "front": "Insulin",
+   "back": "Made by the pancreas; lowers the concentration of glucose in the blood.",
+   "unit": "hormones"
+  },
+  {
+   "front": "Keeping body temperature constant",
+   "back": "About 37 °C. When hot we sweat; evaporation of sweat cools the skin. When cold we shiver.",
+   "unit": "hormones"
+  },
+  {
+   "front": "Phototropism",
+   "back": "A response in which parts of a plant grow towards or away from the direction of light.",
+   "unit": "hormones"
+  },
+  {
+   "front": "Gravitropism",
+   "back": "A response in which parts of a plant grow towards or away from gravity.",
+   "unit": "hormones"
+  },
+  {
+   "front": "Shoots and roots",
+   "back": "Shoots grow towards light and away from gravity. Roots grow towards gravity.",
+   "unit": "hormones"
+  },
+  {
+   "front": "Inheritance",
+   "back": "The passing on of genetic information from one generation to the next.",
+   "unit": "inheritance"
+  },
+  {
+   "front": "Chromosome",
+   "back": "A thread-like structure of DNA, carrying genetic information in the form of genes.",
+   "unit": "inheritance"
+  },
+  {
+   "front": "Gene",
+   "back": "A length of DNA that codes for a protein.",
+   "unit": "inheritance"
+  },
+  {
+   "front": "Allele",
+   "back": "An alternative form of a gene, e.g. the alleles for blue or brown eyes.",
+   "unit": "inheritance"
+  },
+  {
+   "front": "Human chromosome number",
+   "back": "Body cells have 46 chromosomes (23 pairs). Gametes have 23.",
+   "unit": "inheritance"
+  },
+  {
+   "front": "Sex inheritance",
+   "back": "Females are XX, males XY. Eggs all carry X; sperm carry X or Y, so there is a 50% chance of each sex.",
+   "unit": "inheritance"
+  },
+  {
+   "front": "Genotype and phenotype",
+   "back": "Genotype: the alleles an organism has (e.g. Bb). Phenotype: its observable features (e.g. brown eyes).",
+   "unit": "inheritance"
+  },
+  {
+   "front": "Dominant and recessive",
+   "back": "A dominant allele shows whenever it is present (capital letter). A recessive allele only shows when there are two copies.",
+   "unit": "inheritance"
+  },
+  {
+   "front": "Homozygous and heterozygous",
+   "back": "Homozygous: two identical alleles (BB or bb). Heterozygous: two different alleles (Bb).",
+   "unit": "inheritance"
+  },
+  {
+   "front": "Mitosis and meiosis",
+   "back": "Mitosis makes genetically identical cells (growth, repair). Meiosis makes gametes with half the chromosomes, genetically different.",
+   "unit": "inheritance"
+  },
+  {
+   "front": "Variation",
+   "back": "Differences between individuals of the same species.",
+   "unit": "variation"
+  },
+  {
+   "front": "Continuous variation",
+   "back": "A range of phenotypes between two extremes, e.g. height or mass. Caused by genes and the environment.",
+   "unit": "variation"
+  },
+  {
+   "front": "Discontinuous variation",
+   "back": "A few distinct phenotypes with no in-betweens, e.g. ABO blood group. Usually caused by genes alone.",
+   "unit": "variation"
+  },
+  {
+   "front": "Mutation",
+   "back": "A genetic change. Source of new alleles. Rate increased by ionising radiation and some chemicals.",
+   "unit": "variation"
+  },
+  {
+   "front": "Adaptive feature",
+   "back": "An inherited feature that helps an organism survive and reproduce in its environment.",
+   "unit": "variation"
+  },
+  {
+   "front": "Plants adapted to dry places",
+   "back": "e.g. cactus: spines instead of leaves, thick waxy cuticle, stores water in its stem, long or wide roots.",
+   "unit": "variation"
+  },
+  {
+   "front": "Natural selection",
+   "back": "Variation → more offspring than can survive → competition → best adapted survive and reproduce → pass on their alleles.",
+   "unit": "variation"
+  },
+  {
+   "front": "Antibiotic resistance",
+   "back": "A mutation lets a few bacteria survive an antibiotic; they reproduce, so the resistant population grows.",
+   "unit": "variation"
+  },
+  {
+   "front": "Selective breeding",
+   "back": "Humans choose individuals with useful features to breed, and repeat over many generations.",
+   "unit": "variation"
+  },
+  {
+   "front": "Natural vs selective",
+   "back": "In natural selection the environment does the selecting; in selective breeding humans do.",
+   "unit": "variation"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "Which neurone carries impulses from a receptor to the central nervous system?",
+   "options": [
+    "Sensory neurone",
+    "Motor neurone",
+    "Relay neurone",
+    "Optic neurone"
+   ],
+   "answer": 0,
+   "why": "Sensory neurones carry impulses into the CNS; motor neurones carry them out to effectors.",
+   "unit": "nerves"
+  },
+  {
+   "q": "Which is the correct order in a reflex arc?",
+   "options": [
+    "Receptor, motor neurone, relay neurone, sensory neurone, effector",
+    "Effector, sensory neurone, relay neurone, motor neurone, receptor",
+    "Receptor, sensory neurone, relay neurone, motor neurone, effector",
+    "Receptor, relay neurone, sensory neurone, effector, motor neurone"
+   ],
+   "answer": 2,
+   "why": "Receptor → sensory → relay (in spinal cord) → motor → effector.",
+   "unit": "nerves"
+  },
+  {
+   "q": "What happens to the pupil in bright light?",
+   "options": [
+    "It gets wider",
+    "It gets smaller",
+    "It stays the same",
+    "The lens gets thicker"
+   ],
+   "answer": 1,
+   "why": "The pupil narrows so less light reaches the retina and damages it.",
+   "unit": "nerves"
+  },
+  {
+   "q": "Which part of the eye contains the light-sensitive cells?",
+   "options": [
+    "Cornea",
+    "Lens",
+    "Iris",
+    "Retina"
+   ],
+   "answer": 3,
+   "why": "The retina has the receptor cells. The cornea and lens focus light onto it.",
+   "unit": "nerves"
+  },
+  {
+   "q": "In the knee-jerk reflex, what is the effector?",
+   "options": [
+    "The spinal cord",
+    "The sensory neurone",
+    "A muscle in the thigh",
+    "The brain"
+   ],
+   "answer": 2,
+   "why": "The effector carries out the response: the thigh muscle contracts and the leg kicks.",
+   "unit": "nerves"
+  },
+  {
+   "q": "How are hormones carried around the body?",
+   "options": [
+    "Along nerves",
+    "In the lymph only",
+    "In the blood",
+    "By diffusion through the skin"
+   ],
+   "answer": 2,
+   "why": "Hormones are secreted into the blood and travel to their target organs.",
+   "unit": "hormones"
+  },
+  {
+   "q": "Which is an effect of adrenaline?",
+   "options": [
+    "Increased heart rate",
+    "Narrower pupils",
+    "Slower breathing",
+    "Lower blood glucose"
+   ],
+   "answer": 0,
+   "why": "Adrenaline prepares the body for action: faster heart rate and breathing, wider pupils.",
+   "unit": "hormones"
+  },
+  {
+   "q": "A plant on a windowsill grows towards the window. This is:",
+   "options": [
+    "Negative gravitropism",
+    "Positive gravitropism",
+    "Negative phototropism",
+    "Positive phototropism"
+   ],
+   "answer": 3,
+   "why": "Growing towards light is positive phototropism.",
+   "unit": "hormones"
+  },
+  {
+   "q": "Roots grow downwards. This response is called:",
+   "options": [
+    "Negative phototropism",
+    "Positive gravitropism",
+    "Negative gravitropism",
+    "Positive phototropism"
+   ],
+   "answer": 1,
+   "why": "Roots grow towards gravity: positive gravitropism. Shoots show negative gravitropism.",
+   "unit": "hormones"
+  },
+  {
+   "q": "Compared with nervous control, hormonal control is:",
+   "options": [
+    "Faster and shorter-lasting",
+    "Electrical",
+    "Slower and longer-lasting",
+    "Only found in plants"
+   ],
+   "answer": 2,
+   "why": "Hormones travel in the blood, so they act more slowly, but their effects last longer.",
+   "unit": "hormones"
+  },
+  {
+   "q": "What is an allele?",
+   "options": [
+    "A length of DNA that codes for a protein",
+    "An alternative form of a gene",
+    "A thread of DNA",
+    "A sex cell"
+   ],
+   "answer": 1,
+   "why": "A gene can come in different versions; each version is an allele.",
+   "unit": "inheritance"
+  },
+  {
+   "q": "Why does the father’s sperm decide the sex of a baby?",
+   "options": [
+    "Sperm are smaller than eggs",
+    "Eggs carry X or Y",
+    "Sperm carry two X chromosomes",
+    "Sperm carry either an X or a Y chromosome"
+   ],
+   "answer": 3,
+   "why": "Every egg has an X. A sperm with X gives a girl (XX); a sperm with Y gives a boy (XY).",
+   "unit": "inheritance"
+  },
+  {
+   "q": "An organism has the genotype Tt. It is:",
+   "options": [
+    "Heterozygous",
+    "Homozygous dominant",
+    "Homozygous recessive",
+    "A recessive phenotype"
+   ],
+   "answer": 0,
+   "why": "Two different alleles make it heterozygous. It shows the dominant (T) feature.",
+   "unit": "inheritance"
+  },
+  {
+   "q": "Bb is crossed with bb. What proportion of the offspring will be bb?",
+   "options": [
+    "0%",
+    "25%",
+    "50%",
+    "100%"
+   ],
+   "answer": 2,
+   "why": "Gametes B or b from one parent, only b from the other: Bb, Bb, bb, bb. Half are bb.",
+   "unit": "inheritance"
+  },
+  {
+   "q": "How many chromosomes are in a human egg cell?",
+   "options": [
+    "46",
+    "23",
+    "92",
+    "12"
+   ],
+   "answer": 1,
+   "why": "Gametes have half the number of body cells, so that fertilisation restores 46.",
+   "unit": "inheritance"
+  },
+  {
+   "q": "Two parents are both Bb (B = brown eyes, dominant). What is the chance of a child with blue eyes (bb)?",
+   "options": [
+    "75%",
+    "50%",
+    "0%",
+    "25%"
+   ],
+   "answer": 3,
+   "why": "Offspring: BB, Bb, Bb, bb. One in four is bb.",
+   "unit": "inheritance"
+  },
+  {
+   "q": "Which is an example of discontinuous variation?",
+   "options": [
+    "Height",
+    "Body mass",
+    "ABO blood group",
+    "Hand span"
+   ],
+   "answer": 2,
+   "why": "Blood group has a few distinct categories. The others vary across a continuous range.",
+   "unit": "variation"
+  },
+  {
+   "q": "Which increases the rate of mutation?",
+   "options": [
+    "Eating a balanced diet",
+    "Regular exercise",
+    "Selective breeding",
+    "Ionising radiation"
+   ],
+   "answer": 3,
+   "why": "Ionising radiation (e.g. X-rays, gamma rays) and some chemicals damage DNA.",
+   "unit": "variation"
+  },
+  {
+   "q": "A farmer breeds only from the cows that give the most milk. This is:",
+   "options": [
+    "Natural selection",
+    "Selective breeding",
+    "Mutation",
+    "Asexual reproduction"
+   ],
+   "answer": 1,
+   "why": "Humans are choosing which animals breed, so it is selective (artificial) breeding.",
+   "unit": "variation"
+  },
+  {
+   "q": "Which graph is best for showing continuous variation, such as height?",
+   "options": [
+    "Histogram (bars touching)",
+    "Bar chart with gaps",
+    "Pie chart",
+    "Line graph through every point"
+   ],
+   "answer": 0,
+   "why": "Continuous data are grouped into ranges, plotted as a histogram with bars touching.",
+   "unit": "variation"
+  },
+  {
+   "q": "In natural selection, which individuals pass on their alleles?",
+   "options": [
+    "The largest ones",
+    "Those that are born first",
+    "The best adapted ones, which survive and reproduce",
+    "All of them equally"
+   ],
+   "answer": 2,
+   "why": "Individuals with helpful variations are more likely to survive long enough to breed.",
+   "unit": "variation"
+  }
+ ],
+ "examIntro": "Paper 3 style. Write your answer first, then open the mark scheme and give yourself one mark per point you made clearly. One point per mark is the rule.",
+ "exam": [
+  {
+   "q": "State the function of (a) the lens and (b) the retina.",
+   "marks": 2,
+   "points": [
+    "(a) Focuses light onto the retina",
+    "(b) Contains light-sensitive receptor cells / detects light"
+   ],
+   "unit": "nerves"
+  },
+  {
+   "q": "Describe and explain what happens to the pupil when a person walks from a dark room into bright sunlight.",
+   "marks": 3,
+   "points": [
+    "Muscles in the iris contract (this is a reflex)",
+    "The pupil gets smaller",
+    "Less light enters the eye",
+    "This protects the retina from damage"
+   ],
+   "note": "Any 3.",
+   "unit": "nerves"
+  },
+  {
+   "q": "A person touches a hot plate and pulls their hand away. Describe how the reflex arc brings about this response.",
+   "marks": 5,
+   "points": [
+    "Receptors in the skin detect the heat (stimulus)",
+    "Impulse travels along a sensory neurone",
+    "To a relay neurone in the spinal cord / CNS",
+    "Then along a motor neurone",
+    "To the effector, a muscle, which contracts",
+    "Hand is pulled away quickly, without thinking"
+   ],
+   "note": "Any 5.",
+   "unit": "nerves"
+  },
+  {
+   "q": "Define the term hormone.",
+   "marks": 2,
+   "points": [
+    "A chemical substance made by a gland",
+    "Carried in the blood",
+    "Changes the activity of one or more target organs"
+   ],
+   "note": "Any 2.",
+   "unit": "hormones"
+  },
+  {
+   "q": "Describe three effects of adrenaline on the body and suggest why each is useful in a dangerous situation.",
+   "marks": 3,
+   "points": [
+    "Heart rate increases: more oxygen and glucose to muscles",
+    "Breathing rate increases: more oxygen taken in",
+    "Pupils widen: more light enters, better vision",
+    "Blood glucose rises: more fuel for respiration"
+   ],
+   "note": "Any 3, each with a reason.",
+   "unit": "hormones"
+  },
+  {
+   "q": "A bean seedling is laid on its side in the dark. Describe and explain how its shoot and root respond after a few days.",
+   "marks": 4,
+   "points": [
+    "Shoot grows upwards",
+    "Negative gravitropism",
+    "Root grows downwards",
+    "Positive gravitropism",
+    "It is dark, so the response is to gravity, not light",
+    "Helps the shoot reach light and the root reach water / anchor the plant"
+   ],
+   "note": "Any 4.",
+   "unit": "hormones"
+  },
+  {
+   "q": "Define the terms gene and allele.",
+   "marks": 2,
+   "points": [
+    "Gene: a length of DNA that codes for a protein",
+    "Allele: an alternative form of a gene"
+   ],
+   "unit": "inheritance"
+  },
+  {
+   "q": "Explain, using a genetic diagram, why there is an equal chance of a baby being a boy or a girl.",
+   "marks": 4,
+   "points": [
+    "Mother is XX, father is XY",
+    "All eggs carry X",
+    "Half the sperm carry X and half carry Y",
+    "Diagram showing offspring XX, XX, XY, XY",
+    "So 1:1 ratio / 50% chance of each"
+   ],
+   "note": "Any 4.",
+   "unit": "inheritance"
+  },
+  {
+   "q": "In humans, the allele for brown eyes (B) is dominant to the allele for blue eyes (b). Two heterozygous parents have a child. Use a genetic diagram to find the probability that the child has blue eyes.",
+   "marks": 5,
+   "points": [
+    "Parents’ genotypes: Bb × Bb",
+    "Gametes: B and b from each parent",
+    "Offspring genotypes: BB, Bb, Bb, bb",
+    "Phenotypes: 3 brown : 1 blue",
+    "Probability of blue eyes = 1/4 (25%, 0.25)"
+   ],
+   "note": "One mark per point. Label each line of the diagram.",
+   "unit": "inheritance"
+  },
+  {
+   "q": "State two differences between continuous and discontinuous variation.",
+   "marks": 2,
+   "points": [
+    "Continuous: a range of values; discontinuous: distinct groups",
+    "Continuous: genes and environment; discontinuous: mainly genes",
+    "Continuous shown on a histogram; discontinuous on a bar chart",
+    "Examples: height (continuous), blood group (discontinuous)"
+   ],
+   "note": "Any 2. Compare both.",
+   "unit": "variation"
+  },
+  {
+   "q": "Describe how a farmer could use selective breeding to produce wheat with a higher yield.",
+   "marks": 3,
+   "points": [
+    "Choose the plants with the highest yield",
+    "Breed (cross-pollinate) them together",
+    "Grow the seeds and again select the highest-yielding offspring",
+    "Repeat over many generations"
+   ],
+   "note": "Any 3.",
+   "unit": "variation"
+  },
+  {
+   "q": "Explain how natural selection could lead to a population of rabbits with thicker fur in a cold climate.",
+   "marks": 5,
+   "points": [
+    "Rabbits show variation in fur thickness",
+    "This variation is genetic / caused by mutation",
+    "More offspring are produced than can survive",
+    "Competition / the cold kills some rabbits",
+    "Rabbits with thicker fur are better adapted and survive",
+    "They reproduce",
+    "They pass the alleles for thick fur to their offspring",
+    "Over many generations most rabbits have thick fur"
+   ],
+   "note": "Any 5.",
+   "unit": "variation"
+  }
+ ]
+}
