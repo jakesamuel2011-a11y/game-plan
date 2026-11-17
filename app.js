@@ -4,7 +4,7 @@
 import { firebaseConfig, PEOPLE } from "./firebase-config.js";
 import { buildDayPlan, matchAssessment, FOOTBALL_DAYS } from "./planner.js?v=29";
 import { TIMETABLE } from "./timetable.js?v=3";
-import { initRevision, sessionsFor, upcomingTests, overdueSessions, paceSummary, revisionCount, progressHtml as revisionProgressHtml, subjectName, openSubject as openRevisionSubject, render as renderRevision, gradeQueue, mountStudyLog, setPlanCapacity, mountDayPlan, revisionPlanFor, openTopicPractice, TOPIC_MINS } from "./revision/revision.js?v=30";
+import { initRevision, sessionsFor, upcomingTests, overdueSessions, paceSummary, revisionCount, progressHtml as revisionProgressHtml, subjectName, openSubject as openRevisionSubject, render as renderRevision, gradeQueue, mountStudyLog, setPlanCapacity, mountDayPlan, revisionPlanFor, openTopicPractice, TOPIC_MINS, mountOffDays } from "./revision/revision.js?v=30";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
@@ -610,6 +610,7 @@ function renderToday() {
   const missedRec = cache.missed.find(m => m.date === selDate);
   const noFootball = cache.footballOff.has(selDate) || cache.resched.has(selDate) || !!missedRec;
   renderHolidayBox(selDate);
+  if ($("revOffBox")) mountOffDays($("revOffBox"), selDate);
   renderSchoolDay(day, selDate, holiday);
   const rp = $("revPlan");
   if (rp) mountDayPlan(rp, selDate, { label: selDate === todayStr() ? "Today" : DAY_NAMES[day], onPractise: (id) => { activateTab("revision"); openTopicPractice(id); } });

@@ -43,7 +43,7 @@ export function initRevision({ db, fs, me, nameFor, onChange, isParent }) {
     F.onSnapshot(F.query(F.collection(DB, "revtests")), s => { R.tests = s.docs.map(d => ({ id: d.id, ...d.data() })); changed(); });
     F.onSnapshot(F.query(F.collection(DB, "revpractice")), s => { R.practice = Object.fromEntries(s.docs.map(d => [d.id, d.data()])); changed(true); });
     F.onSnapshot(F.query(F.collection(DB, "studysessions")), s => { R.study = s.docs.map(d => ({ id: d.id, ...d.data() })); changed(); });
-    F.onSnapshot(F.query(F.collection(DB, "revoff")), s => { revOff = new Set(s.docs.map(d => d.id)); changed(); });
+    F.onSnapshot(F.query(F.collection(DB, "revoff")), s => { revOff = new Map(s.docs.map(d => [d.id, d.data()])); changed(); });
     F.onSnapshot(F.query(F.collection(DB, "revgrade")), s => { R.grades = s.docs.map(d => ({ id: d.id, ...d.data() })).sort((a, b) => (b.date || "").localeCompare(a.date || "") || (b.n || 0) - (a.n || 0)); changed(); });
   });
 }
@@ -115,7 +115,7 @@ export function paceSummary() {
 // Saturday adds catch-up (up to 3) for topics planned Mon–Fri that week but not done.
 export const TOPIC_MINS = 25;
 const PLAN_ORDER = ["Humanities", "EM", "Bio", "Math", "Physics", "Chem", "English"];
-let revOff = new Set();
+let revOff = new Map(); // date -> {reason, by, at}
 let capacityFor = (d) => (new Date(d + "T00:00:00Z").getUTCDay() === 0 ? 0 : 2);
 export function setPlanCapacity(fn) { capacityFor = fn; }
 const dayCap = (d) => (revOff.has(d) ? 0 : capacityFor(d));
@@ -181,7 +181,36 @@ export function openTopicPractice(topicId) {
   const tp = topicById(topicId); if (!tp) return;
   go(tp.pack ? { name: "pack", id: tp.pack, unit: tp.packUnit, back: tp.subject } : { name: "subject", key: tp.subject });
 }
-const setRevOff = (d, on) => on ? F.setDoc(F.doc(DB, "revoff", d), { by: ME().email, at: F.serverTimestamp() }) : F.deleteDoc(F.doc(DB, "revoff", d));
+const setRevOff = (d, on, reason = "") => on ? F.setDoc(F.doc(DB, "revoff", d), { reason, by: ME().email, at: F.serverTimestamp() }) : F.deleteDoc(F.doc(DB, "revoff", d));
+
+// "No-revision days" box in the Today tab: mark a day or a range (trip, busy day) as off.
+export function mountOffDays(el, selDate) {
+  const t = todayStr();
+  const dates = [...revOff.keys()].filter(d => d >= t).sort();
+  // Group runs of consecutive days with the same reason.
+  const runs = [];
+  dates.forEach(d => {
+    const last = runs[runs.length - 1], reason = revOff.get(d)?.reason || "";
+    if (last && addDays(last.to, 1) === d && last.reason === reason) last.to = d; else runs.push({ from: d, to: d, reason });
+  });
+  el.innerHTML = `<div class="card add-card"><b>🚫 No-revision days</b>
+    <div class="muted small" style="margin:4px 0 8px">Trips, events or busy days when Jake can't revise. The daily plan skips them and moves topics to other days.</div>
+    <div class="grid2"><label class="mins">From<input type="date" class="rvOffFrom" value="${selDate}" /></label><label class="mins">To<input type="date" class="rvOffTo" value="${selDate}" /></label></div>
+    <input type="text" class="rvOffWhy" placeholder="Reason (optional) e.g. School trip" />
+    <button class="btn primary rvOffAdd" type="button">Add no-revision days</button>
+    ${runs.length ? `<div class="list" style="margin-top:10px">${runs.map((r, i) => `<div class="item"><div class="item-main"><div class="item-title">${r.from === r.to ? fmtDate(r.from) : `${fmtDate(r.from)} → ${fmtDate(r.to)}`}</div>${r.reason ? `<div class="item-sub">${esc(r.reason)}</div>` : ""}</div><button class="del" data-i="${i}" title="Remove">✕</button></div>`).join("")}</div>` : ""}</div>`;
+  el.querySelector(".rvOffAdd").onclick = async () => {
+    const from = el.querySelector(".rvOffFrom").value; let to = el.querySelector(".rvOffTo").value || from;
+    if (!from) return;
+    if (to < from) to = from;
+    const reason = el.querySelector(".rvOffWhy").value.trim();
+    for (let d = from; d <= to; d = addDays(d, 1)) await setRevOff(d, true, reason);
+  };
+  el.querySelectorAll(".del[data-i]").forEach(b => b.onclick = async () => {
+    const r = runs[+b.dataset.i];
+    for (let d = r.from; d <= r.to; d = addDays(d, 1)) await setRevOff(d, false);
+  });
+}
 
 // The "Today's revision" card in the Today tab.
 export function mountDayPlan(el, d, { onPractise, label }) {
@@ -191,7 +220,7 @@ export function mountDayPlan(el, d, { onPractise, label }) {
   const c = document.createElement("div"); c.className = "card rv-today";
   const mins = todo.length * TOPIC_MINS;
   const head = off === "sunday" ? "Sunday: no revision. Rest day 🎉"
-    : off === "marked" ? "No revision planned (marked as a day off)"
+    : off === "marked" ? `No revision planned${revOff.get(d)?.reason ? `: ${esc(revOff.get(d).reason)}` : " (marked as a day off)"}`
     : off === "busy" ? "No revision planned (tournament day)"
     : todo.length ? `${todo.length} topic${todo.length > 1 ? "s" : ""} · about ${mins} min${mk ? ` · includes ${mk} catch-up` : ""}`
     : done.length ? "All done for the day ✅" : d < t ? "Nothing was planned" : "Nothing left to plan 🎉";
