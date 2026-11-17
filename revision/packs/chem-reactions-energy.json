@@ -1,0 +1,684 @@
+{
+ "id": "chem-reactions-energy",
+ "subject": "Chem",
+ "title": "Electrolysis, energy & reactions",
+ "sub": "Electrolysis, exothermic and endothermic reactions, rates of reaction, reversible reactions and redox",
+ "units": [
+  {
+   "key": "electrolysis",
+   "name": "Electrolysis"
+  },
+  {
+   "key": "energy",
+   "name": "Energy changes"
+  },
+  {
+   "key": "rates",
+   "name": "Rates of reaction"
+  },
+  {
+   "key": "redox",
+   "name": "Reversible & redox"
+  }
+ ],
+ "strategyIntro": "Cambridge IGCSE Co-ordinated Sciences tests chemistry alongside biology and physics: a multiple-choice paper (40 questions, 45 min), a theory paper of structured questions, and a practical or alternative-to-practical paper. Your school test may be shorter, but it will be marked the same way.",
+ "strategy": [
+  {
+   "title": "Multiple choice",
+   "key": true,
+   "points": [
+    "About a minute per question. If one is taking longer, mark it and move on.",
+    "Cross out options you know are wrong first. Two often look similar: read every word.",
+    "Never leave one blank. A wrong answer loses nothing."
+   ]
+  },
+  {
+   "title": "Structured questions",
+   "key": true,
+   "points": [
+    "Marks go to keywords. Write the textbook term: “effervescence” or “fizzing”, not “it reacts”.",
+    "The marks in brackets tell you how many separate points to make.",
+    "Equations: check every atom balances, and add state symbols when the question asks."
+   ]
+  },
+  {
+   "title": "Questions on experiments",
+   "points": [
+    "Results tables: units go in the column headings, not next to each number.",
+    "Colour changes need both colours: “blue to white”, not just “white”.",
+    "Know the control variables and one safety precaution for each experiment."
+   ]
+  },
+  {
+   "title": "Easy marks people lose",
+   "points": [
+    "Saying ionic bonds “share” electrons. Ionic = transfer; covalent = share.",
+    "Writing “chlorine” when you mean the chloride ion, or “clear” when you mean “colourless”.",
+    "Calculations without units, or without the working shown."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "State",
+   "Give a short fact. No explanation needed."
+  ],
+  [
+   "Describe",
+   "Say what happens or what you see. With data, quote figures and units."
+  ],
+  [
+   "Explain",
+   "Say why or how. Use “because” and link cause to effect."
+  ],
+  [
+   "Suggest",
+   "Apply what you know to a new situation. Any sensible reason scores."
+  ],
+  [
+   "Compare",
+   "Give similarities or differences for both things in the same sentence."
+  ],
+  [
+   "Calculate",
+   "Show working and give the unit."
+  ]
+ ],
+ "quizTitle": "Multiple-choice practice",
+ "quizIntro": "Answer in Paper 1 style: about a minute each, eliminating wrong options first. Read the explanation after every answer, even when you get it right.",
+ "flashIntro": "These are close to Cambridge’s own wording. Say each definition out loud before you tap, then check you used the exact keywords. Cards marked (Extended) are Supplement content.",
+ "flashcards": [
+  {
+   "front": "Electrolysis",
+   "back": "The decomposition of an ionic compound, when molten or in aqueous solution, by the passage of an electric current.",
+   "unit": "electrolysis"
+  },
+  {
+   "front": "Electrolyte",
+   "back": "A molten or aqueous ionic substance that conducts electricity and is decomposed by it.",
+   "unit": "electrolysis"
+  },
+  {
+   "front": "Anode and cathode",
+   "back": "Anode = positive electrode. Cathode = negative electrode.",
+   "unit": "electrolysis"
+  },
+  {
+   "front": "Which ions go where",
+   "back": "Positive ions (cations, e.g. metal ions and H⁺) move to the cathode. Negative ions (anions) move to the anode.",
+   "unit": "electrolysis"
+  },
+  {
+   "front": "Inert electrodes",
+   "back": "Electrodes that do not react during electrolysis, usually graphite (carbon) or platinum.",
+   "unit": "electrolysis"
+  },
+  {
+   "front": "Molten binary compound",
+   "back": "A compound of two elements, e.g. lead(II) bromide. The metal forms at the cathode and the non-metal at the anode.",
+   "unit": "electrolysis"
+  },
+  {
+   "front": "Molten lead(II) bromide",
+   "back": "Lead (silvery liquid metal) at the cathode; bromine (red-brown vapour) at the anode.",
+   "unit": "electrolysis"
+  },
+  {
+   "front": "Concentrated aqueous sodium chloride",
+   "back": "Hydrogen at the cathode, chlorine at the anode; sodium hydroxide is left in solution. Hydrogen forms, not sodium, because sodium is more reactive than hydrogen.",
+   "unit": "electrolysis"
+  },
+  {
+   "front": "Dilute sulfuric acid",
+   "back": "Hydrogen at the cathode, oxygen at the anode, in a 2 : 1 volume ratio.",
+   "unit": "electrolysis"
+  },
+  {
+   "front": "(Extended) Half-equations for molten PbBr₂",
+   "back": "Cathode: Pb²⁺ + 2e⁻ → Pb (reduction). Anode: 2Br⁻ → Br₂ + 2e⁻ (oxidation).",
+   "unit": "electrolysis"
+  },
+  {
+   "front": "Exothermic reaction",
+   "back": "A reaction that transfers thermal energy to the surroundings, so the temperature of the surroundings increases. ΔH is negative.",
+   "unit": "energy"
+  },
+  {
+   "front": "Endothermic reaction",
+   "back": "A reaction that takes in thermal energy from the surroundings, so the temperature of the surroundings decreases. ΔH is positive.",
+   "unit": "energy"
+  },
+  {
+   "front": "Examples of exothermic reactions",
+   "back": "Combustion of fuels, neutralisation, reaction of metals with acids, respiration.",
+   "unit": "energy"
+  },
+  {
+   "front": "Examples of endothermic reactions",
+   "back": "Thermal decomposition (e.g. of calcium carbonate), photosynthesis, dissolving ammonium nitrate in water.",
+   "unit": "energy"
+  },
+  {
+   "front": "Enthalpy change, ΔH",
+   "back": "The transfer of thermal energy during a reaction, measured in kJ/mol.",
+   "unit": "energy"
+  },
+  {
+   "front": "Exothermic reaction pathway diagram",
+   "back": "Products are at a lower energy level than the reactants. The arrow for ΔH points down.",
+   "unit": "energy"
+  },
+  {
+   "front": "Endothermic reaction pathway diagram",
+   "back": "Products are at a higher energy level than the reactants. The arrow for ΔH points up.",
+   "unit": "energy"
+  },
+  {
+   "front": "(Extended) Activation energy, Ea",
+   "back": "The minimum energy that colliding particles must have to react. Shown as the hump from the reactants up to the peak.",
+   "unit": "energy"
+  },
+  {
+   "front": "(Extended) Bond breaking and making",
+   "back": "Breaking bonds takes in energy (endothermic). Making bonds releases energy (exothermic).",
+   "unit": "energy"
+  },
+  {
+   "front": "(Extended) ΔH from bond energies",
+   "back": "ΔH = energy taken in to break bonds − energy released making bonds. Negative answer = exothermic.",
+   "unit": "energy"
+  },
+  {
+   "front": "Rate of reaction",
+   "back": "How fast reactants are used up or products are made: the change in amount per unit time.",
+   "unit": "rates"
+  },
+  {
+   "front": "Concentration and rate",
+   "back": "Higher concentration of a reactant in solution → faster reaction.",
+   "unit": "rates"
+  },
+  {
+   "front": "Temperature and rate",
+   "back": "Higher temperature → faster reaction.",
+   "unit": "rates"
+  },
+  {
+   "front": "Surface area and rate",
+   "back": "Smaller pieces (powder) have a larger surface area → faster reaction.",
+   "unit": "rates"
+  },
+  {
+   "front": "Gas pressure and rate",
+   "back": "For reactions of gases, higher pressure → faster reaction (particles are closer together).",
+   "unit": "rates"
+  },
+  {
+   "front": "Catalyst",
+   "back": "A substance that increases the rate of a reaction and is chemically unchanged at the end.",
+   "unit": "rates"
+  },
+  {
+   "front": "Rate graphs",
+   "back": "Steeper gradient = faster rate. The curve levels off when one reactant has been used up. Same amounts of reactants give the same final amount of product.",
+   "unit": "rates"
+  },
+  {
+   "front": "Measuring rate",
+   "back": "Measure volume of gas with a gas syringe, loss of mass on a balance, or time for a cross under the flask to disappear (precipitate forms). Take readings at regular time intervals.",
+   "unit": "rates"
+  },
+  {
+   "front": "(Extended) Collision theory",
+   "back": "Particles react only when they collide with at least the activation energy. Rate depends on the frequency of successful collisions.",
+   "unit": "rates"
+  },
+  {
+   "front": "(Extended) Why temperature increases rate",
+   "back": "Particles have more kinetic energy: they collide more often, and a greater proportion of collisions have energy equal to or above the activation energy.",
+   "unit": "rates"
+  },
+  {
+   "front": "(Extended) How a catalyst works",
+   "back": "It provides an alternative reaction pathway with a lower activation energy, so more collisions are successful.",
+   "unit": "rates"
+  },
+  {
+   "front": "Physical vs chemical change",
+   "back": "A chemical change makes a new substance and is often hard to reverse. A physical change (melting, dissolving) makes no new substance.",
+   "unit": "redox"
+  },
+  {
+   "front": "Reversible reaction",
+   "back": "A reaction in which the products can react to form the original reactants again. Symbol: ⇌",
+   "unit": "redox"
+  },
+  {
+   "front": "Hydrated copper(II) sulfate",
+   "back": "Heating blue hydrated copper(II) sulfate gives white anhydrous copper(II) sulfate and water. Adding water turns it blue again and gives out heat.",
+   "unit": "redox"
+  },
+  {
+   "front": "Hydrated cobalt(II) chloride",
+   "back": "Pink when hydrated, blue when anhydrous. Heating turns it blue; adding water turns it pink again.",
+   "unit": "redox"
+  },
+  {
+   "front": "(Extended) Dynamic equilibrium",
+   "back": "In a closed system, the forward and reverse reactions happen at the same rate, so the concentrations of reactants and products stay constant.",
+   "unit": "redox"
+  },
+  {
+   "front": "Oxidation (oxygen)",
+   "back": "Gain of oxygen by a substance.",
+   "unit": "redox"
+  },
+  {
+   "front": "Reduction (oxygen)",
+   "back": "Loss of oxygen by a substance.",
+   "unit": "redox"
+  },
+  {
+   "front": "Redox reaction",
+   "back": "A reaction in which oxidation and reduction happen at the same time. E.g. CuO + H₂ → Cu + H₂O: copper(II) oxide is reduced, hydrogen is oxidised.",
+   "unit": "redox"
+  },
+  {
+   "front": "(Extended) Oxidation and reduction (electrons)",
+   "back": "Oxidation is loss of electrons; reduction is gain of electrons. “OIL RIG”.",
+   "unit": "redox"
+  },
+  {
+   "front": "(Extended) Oxidising and reducing agents",
+   "back": "An oxidising agent oxidises another substance and is itself reduced. A reducing agent reduces another substance and is itself oxidised.",
+   "unit": "redox"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "Molten lead(II) bromide is electrolysed. What forms at the cathode?",
+   "options": [
+    "Bromine",
+    "Lead",
+    "Hydrogen",
+    "Oxygen"
+   ],
+   "answer": 1,
+   "why": "Positive lead ions are attracted to the negative cathode and gain electrons to form lead. Bromine forms at the anode.",
+   "unit": "electrolysis"
+  },
+  {
+   "q": "Why must an ionic compound be molten or dissolved before it can be electrolysed?",
+   "options": [
+    "So the ions are free to move to the electrodes",
+    "So the electrodes do not corrode",
+    "So electrons can flow through the liquid",
+    "So it reaches a high enough temperature"
+   ],
+   "answer": 0,
+   "why": "In a solid the ions are fixed in the lattice. Melting or dissolving lets them move. The current is carried by ions in the electrolyte, not electrons.",
+   "unit": "electrolysis"
+  },
+  {
+   "q": "Concentrated aqueous sodium chloride is electrolysed with inert electrodes. What forms at the anode?",
+   "options": [
+    "Oxygen",
+    "Sodium",
+    "Hydrogen",
+    "Chlorine"
+   ],
+   "answer": 3,
+   "why": "Chloride ions go to the positive anode and form chlorine gas. Hydrogen forms at the cathode; sodium is never produced from the solution.",
+   "unit": "electrolysis"
+  },
+  {
+   "q": "Which statement about the cathode is correct?",
+   "options": [
+    "It is the positive electrode",
+    "It is the negative electrode",
+    "It is where chlorine forms",
+    "Negative ions move towards it"
+   ],
+   "answer": 1,
+   "why": "The cathode is negative, so positive ions move to it. Chlorine and other non-metals form at the positive anode.",
+   "unit": "electrolysis"
+  },
+  {
+   "q": "(Extended) Which half-equation shows what happens at the cathode when molten sodium chloride is electrolysed?",
+   "options": [
+    "Na → Na⁺ + e⁻",
+    "2Cl⁻ → Cl₂ + 2e⁻",
+    "Na⁺ + e⁻ → Na",
+    "Na⁺ → Na + e⁻"
+   ],
+   "answer": 2,
+   "why": "At the cathode positive ions gain electrons (reduction): Na⁺ + e⁻ → Na. The chloride equation happens at the anode.",
+   "unit": "electrolysis"
+  },
+  {
+   "q": "During a reaction the temperature of the solution falls from 21 °C to 15 °C. What type of reaction is it?",
+   "options": [
+    "Exothermic",
+    "Endothermic",
+    "Neutralisation",
+    "Combustion"
+   ],
+   "answer": 1,
+   "why": "The reaction took thermal energy from the solution, so it got colder: endothermic. Neutralisation and combustion are exothermic.",
+   "unit": "energy"
+  },
+  {
+   "q": "Which of these is endothermic?",
+   "options": [
+    "Burning methane",
+    "Neutralising an acid with an alkali",
+    "Thermal decomposition of calcium carbonate",
+    "Respiration"
+   ],
+   "answer": 2,
+   "why": "Thermal decomposition needs continuous heating to break the compound down, so it takes energy in. The others release energy.",
+   "unit": "energy"
+  },
+  {
+   "q": "On a reaction pathway diagram for an exothermic reaction, where are the products?",
+   "options": [
+    "At a lower energy level than the reactants",
+    "At the same energy level as the reactants",
+    "At a higher energy level than the reactants",
+    "At the top of the activation energy hump"
+   ],
+   "answer": 0,
+   "why": "Energy has been given out to the surroundings, so the products have less energy than the reactants.",
+   "unit": "energy"
+  },
+  {
+   "q": "(Extended) Which statement about breaking chemical bonds is correct?",
+   "options": [
+    "It releases energy",
+    "It involves no energy change",
+    "It happens only when a catalyst is present",
+    "It takes in energy"
+   ],
+   "answer": 3,
+   "why": "Breaking bonds always needs energy (endothermic). Energy is released when new bonds form.",
+   "unit": "energy"
+  },
+  {
+   "q": "(Extended) H₂ + Cl₂ → 2HCl. Bond energies (kJ/mol): H–H 436, Cl–Cl 242, H–Cl 431. What is ΔH?",
+   "options": [
+    "+184 kJ/mol",
+    "−184 kJ/mol",
+    "+247 kJ/mol",
+    "−247 kJ/mol"
+   ],
+   "answer": 1,
+   "why": "Breaking: 436 + 242 = 678. Making: 2 × 431 = 862. ΔH = 678 − 862 = −184 kJ/mol. Remember there are two H–Cl bonds.",
+   "unit": "energy"
+  },
+  {
+   "q": "Marble chips react with dilute hydrochloric acid. Which change would NOT increase the rate?",
+   "options": [
+    "Using powdered marble",
+    "Warming the acid",
+    "Using more concentrated acid",
+    "Using a larger volume of the same acid"
+   ],
+   "answer": 3,
+   "why": "Extra acid of the same concentration does not make particles collide more often. Powder, heat and concentration all increase the rate.",
+   "unit": "rates"
+  },
+  {
+   "q": "A graph of volume of gas against time levels off. Why?",
+   "options": [
+    "The catalyst has been used up",
+    "One of the reactants has been used up",
+    "The temperature has dropped",
+    "The reaction has become endothermic"
+   ],
+   "answer": 1,
+   "why": "When a reactant runs out, no more gas is made. Catalysts are not used up.",
+   "unit": "rates"
+  },
+  {
+   "q": "Which is the best description of a catalyst?",
+   "options": [
+    "A substance that speeds up a reaction and is chemically unchanged at the end",
+    "A reactant that is added in excess",
+    "A substance that slows a reaction down",
+    "A substance that increases the amount of product made"
+   ],
+   "answer": 0,
+   "why": "A catalyst only changes how fast the product forms, not how much. It is not used up.",
+   "unit": "rates"
+  },
+  {
+   "q": "Why does magnesium powder react faster with acid than a magnesium ribbon of the same mass?",
+   "options": [
+    "Powder has a higher concentration",
+    "Powder particles have more energy",
+    "Powder has a larger surface area, so collisions are more frequent",
+    "Powder acts as a catalyst"
+   ],
+   "answer": 2,
+   "why": "More atoms are exposed to the acid, so there are more collisions per second.",
+   "unit": "rates"
+  },
+  {
+   "q": "(Extended) Why does increasing the temperature increase the rate of a reaction?",
+   "options": [
+    "It lowers the activation energy",
+    "There are more particles in the same volume",
+    "The particles become larger",
+    "Particles move faster, collide more often, and more collisions have energy ≥ activation energy"
+   ],
+   "answer": 3,
+   "why": "Temperature changes particle energy, not the activation energy. Lowering activation energy is what a catalyst does.",
+   "unit": "rates"
+  },
+  {
+   "q": "Which of these is a chemical change?",
+   "options": [
+    "Ice melting",
+    "Sugar dissolving in water",
+    "Iron rusting",
+    "Water boiling"
+   ],
+   "answer": 2,
+   "why": "Rusting makes a new substance (hydrated iron(III) oxide). The others change state or dissolve: no new substance.",
+   "unit": "redox"
+  },
+  {
+   "q": "Blue hydrated copper(II) sulfate is heated. What colour change is seen?",
+   "options": [
+    "White to blue",
+    "Blue to white",
+    "Pink to blue",
+    "Blue to pink"
+   ],
+   "answer": 1,
+   "why": "Heating removes the water of crystallisation, leaving white anhydrous copper(II) sulfate. Pink/blue is cobalt(II) chloride.",
+   "unit": "redox"
+  },
+  {
+   "q": "In 2Mg + O₂ → 2MgO, what happens to the magnesium?",
+   "options": [
+    "It is reduced because it gains oxygen",
+    "It acts as a catalyst",
+    "It is neither oxidised nor reduced",
+    "It is oxidised because it gains oxygen"
+   ],
+   "answer": 3,
+   "why": "Gain of oxygen is oxidation. Reduction is loss of oxygen.",
+   "unit": "redox"
+  },
+  {
+   "q": "Fe₂O₃ + 3CO → 2Fe + 3CO₂. Which substance is reduced?",
+   "options": [
+    "Iron(III) oxide",
+    "Carbon monoxide",
+    "Iron",
+    "Carbon dioxide"
+   ],
+   "answer": 0,
+   "why": "Iron(III) oxide loses its oxygen, so it is reduced. Carbon monoxide gains oxygen, so it is oxidised.",
+   "unit": "redox"
+  },
+  {
+   "q": "(Extended) Cl₂ + 2Br⁻ → 2Cl⁻ + Br₂. Which statement is correct?",
+   "options": [
+    "Bromide ions gain electrons",
+    "Chlorine is reduced and is the oxidising agent",
+    "Chlorine is oxidised",
+    "Bromide ions are the oxidising agent"
+   ],
+   "answer": 1,
+   "why": "Each chlorine atom gains an electron (reduction), so chlorine is the oxidising agent. Bromide ions lose electrons and are oxidised.",
+   "unit": "redox"
+  }
+ ],
+ "examIntro": "Theory-paper style. Write your answer first, then open the mark scheme and give yourself one mark per point you made clearly. One point per mark is the rule.",
+ "exam": [
+  {
+   "q": "Molten potassium iodide is electrolysed with inert electrodes. Name the product at each electrode.",
+   "marks": 2,
+   "points": [
+    "Cathode: potassium",
+    "Anode: iodine"
+   ],
+   "unit": "electrolysis"
+  },
+  {
+   "q": "Dilute sulfuric acid is electrolysed with inert electrodes. Name the gas formed at each electrode and give a test for each gas.",
+   "marks": 4,
+   "points": [
+    "Cathode: hydrogen",
+    "Test: lighted splint gives a squeaky pop",
+    "Anode: oxygen",
+    "Test: relights a glowing splint"
+   ],
+   "unit": "electrolysis"
+  },
+  {
+   "q": "Describe what happens when concentrated aqueous sodium chloride is electrolysed with inert electrodes. Explain why sodium is not produced.",
+   "marks": 5,
+   "points": [
+    "Hydrogen gas forms at the cathode",
+    "Because hydrogen is less reactive than sodium (H⁺ ions are discharged, not Na⁺)",
+    "Chlorine gas forms at the anode, from chloride ions",
+    "Chlorine bleaches damp litmus paper",
+    "Sodium hydroxide is left in the solution",
+    "(Extended) 2H⁺ + 2e⁻ → H₂ and 2Cl⁻ → Cl₂ + 2e⁻"
+   ],
+   "note": "Any 5.",
+   "unit": "electrolysis"
+  },
+  {
+   "q": "State what is meant by an exothermic reaction and by an endothermic reaction.",
+   "marks": 2,
+   "points": [
+    "Exothermic: transfers thermal energy to the surroundings (temperature rises)",
+    "Endothermic: takes in thermal energy from the surroundings (temperature falls)"
+   ],
+   "unit": "energy"
+  },
+  {
+   "q": "A student adds magnesium ribbon to dilute hydrochloric acid in a polystyrene cup. The temperature rises from 20.0 °C to 31.5 °C. (a) Calculate the temperature change. (b) State the type of reaction and give a reason. (c) Suggest why a polystyrene cup is used.",
+   "marks": 4,
+   "points": [
+    "(a) 11.5 °C",
+    "(b) Exothermic",
+    "(b) Because the temperature increased / thermal energy was given out",
+    "(c) Polystyrene is an insulator, so less thermal energy is lost to the surroundings"
+   ],
+   "unit": "energy"
+  },
+  {
+   "q": "(Extended) Methane burns in oxygen in an exothermic reaction. Describe the reaction pathway diagram for this reaction, including the axes and all the labels needed.",
+   "marks": 5,
+   "points": [
+    "y-axis energy, x-axis progress of reaction",
+    "Reactants (CH₄ + 2O₂) on the left at a higher level",
+    "Products (CO₂ + 2H₂O) on the right at a lower level",
+    "Curve rises to a peak then falls to the products",
+    "Activation energy: arrow from reactants up to the peak",
+    "ΔH: arrow from reactants down to products, labelled negative"
+   ],
+   "note": "Any 5.",
+   "unit": "energy"
+  },
+  {
+   "q": "State two ways of increasing the rate of reaction between zinc and dilute sulfuric acid.",
+   "marks": 2,
+   "points": [
+    "Increase the temperature",
+    "Use more concentrated acid",
+    "Use zinc powder / smaller pieces",
+    "Add a catalyst (e.g. copper(II) sulfate)"
+   ],
+   "note": "Any 2.",
+   "unit": "rates"
+  },
+  {
+   "q": "Describe an experiment to find how the rate of reaction between marble chips (calcium carbonate) and dilute hydrochloric acid changes with time.",
+   "marks": 4,
+   "points": [
+    "Collect the carbon dioxide in a gas syringe (or measure loss of mass on a balance)",
+    "Start the stopwatch as the reactants are mixed",
+    "Record volume (or mass) at regular time intervals, e.g. every 30 s",
+    "Plot a graph of volume (or mass) against time",
+    "Steeper gradient = faster rate; rate is fastest at the start"
+   ],
+   "note": "Any 4.",
+   "unit": "rates"
+  },
+  {
+   "q": "(Extended) Use collision theory to explain why (a) increasing the concentration of acid and (b) adding a catalyst both increase the rate of a reaction.",
+   "marks": 5,
+   "points": [
+    "(a) More reacting particles in the same volume",
+    "(a) So collisions are more frequent",
+    "(a) More successful collisions per second",
+    "(b) Catalyst provides an alternative pathway",
+    "(b) With a lower activation energy",
+    "(b) So a greater proportion of collisions have enough energy to react"
+   ],
+   "note": "Any 5. Say “more frequent” or “per second”, not just “more collisions”.",
+   "unit": "rates"
+  },
+  {
+   "q": "State what is meant by a reversible reaction and give the symbol used in equations.",
+   "marks": 2,
+   "points": [
+    "The products can react to form the original reactants again / the reaction can go in both directions",
+    "⇌"
+   ],
+   "unit": "redox"
+  },
+  {
+   "q": "Blue hydrated copper(II) sulfate crystals are heated in a test tube. The solid left is cooled and then water is added to it. Describe what is seen at each stage.",
+   "marks": 4,
+   "points": [
+    "On heating, blue crystals turn white",
+    "Droplets of water / steam given off (condense near the top of the tube)",
+    "When water is added, the white solid turns blue again",
+    "The tube gets hot when water is added (exothermic)"
+   ],
+   "unit": "redox"
+  },
+  {
+   "q": "When hydrogen is passed over heated copper(II) oxide: CuO + H₂ → Cu + H₂O. Explain why this is a redox reaction and describe what is seen.",
+   "marks": 5,
+   "points": [
+    "Copper(II) oxide loses oxygen",
+    "So copper(II) oxide is reduced",
+    "Hydrogen gains oxygen",
+    "So hydrogen is oxidised",
+    "Both happen at the same time, so it is redox",
+    "Black solid turns pink-brown (copper)",
+    "Droplets of water / condensation form"
+   ],
+   "note": "Any 5.",
+   "unit": "redox"
+  }
+ ]
+}
