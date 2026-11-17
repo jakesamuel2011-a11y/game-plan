@@ -247,8 +247,13 @@ export function mountDayPlan(el, d, { onPractise, label }) {
   if (!off || off === "marked") { done.forEach(x => row(x.topic, x.round, x.done)); todo.forEach(x => row(x.topic, x.round)); }
   if (d >= t && weekday(d) !== 0) {
     const b = document.createElement("button"); b.type = "button"; b.className = "btn tiny ghost rv-offbtn";
-    b.textContent = off === "marked" ? "↩︎ Plan revision for this day again" : "🚫 Can't revise this day";
-    b.onclick = () => setRevOff(d, off !== "marked");
+    b.textContent = off === "marked" ? "↩︎ Plan revision for this day again" : "🚫 I can't revise on this day (trip, event…)";
+    b.onclick = () => {
+      if (off === "marked") return setRevOff(d, false);
+      const why = prompt(`No revision on ${fmtDate(d)}? Its topics move to other days.\n\nReason (e.g. trip, tournament, event):`);
+      if (why === null) return; // cancelled
+      setRevOff(d, true, why.trim());
+    };
     if (off !== "busy") c.appendChild(b);
   }
   const pr = planProjection();
