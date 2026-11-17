@@ -1,0 +1,718 @@
+{
+ "id": "em-hazards",
+ "subject": "EM",
+ "title": "Natural hazards",
+ "sub": "Earthquakes, volcanoes, cyclones, floods, drought, management",
+ "strategyIntro": "Environmental Management has no Core or Extended split. The full exam is Paper 1 (theory: short questions, then longer questions using source material) and Paper 2 (management in context, based on one country). Most marks come from reading sources and building arguments.",
+ "strategy": [
+  {
+   "title": "Quote the data",
+   "key": true,
+   "points": [
+    "Most marks come from graphs, tables and maps.",
+    "Use figures with units: “fell from 62% to 41%” scores; “it fell” doesn’t.",
+    "Describe the overall trend first, then give the highest, lowest or any exception."
+   ]
+  },
+  {
+   "title": "The 6-mark argument",
+   "key": true,
+   "points": [
+    "Usually one per paper: discuss a statement for and against.",
+    "Structure: two points for, two against, then a conclusion.",
+    "Each point needs a reason: say why it matters, not just what it is."
+   ]
+  },
+  {
+   "title": "Use named examples",
+   "points": [
+    "Learn one named example of an earthquake or eruption and one tropical cyclone: place, date, impacts and responses.",
+    "On Paper 2, link every answer back to the country in the source. General answers score lower."
+   ]
+  },
+  {
+   "title": "Fieldwork comes up every year",
+   "points": [
+    "Know sampling, quadrats, questionnaires and how to make them reliable.",
+    "Evaluate a method: one strength, one weakness, one improvement."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "State",
+   "Give a short fact. No explanation needed."
+  ],
+  [
+   "Describe",
+   "Say what happens or what you see. With data, quote figures and units."
+  ],
+  [
+   "Explain",
+   "Say why or how. Use “because” and link cause to effect."
+  ],
+  [
+   "Suggest",
+   "Apply what you know to a new situation. Any sensible reason scores."
+  ],
+  [
+   "Compare",
+   "Give similarities or differences for both things in the same sentence."
+  ],
+  [
+   "Calculate",
+   "Show working and give the unit."
+  ],
+  [
+   "Evaluate",
+   "Weigh up both sides and finish with a judgement."
+  ]
+ ],
+ "quizTitle": "Quick recall check",
+ "quizIntro": "These are not exam-format questions (EM has no multiple choice). Use them to check the facts are secure before you try the longer questions.",
+ "flashIntro": "Say each definition out loud before you tap, then check you used the exact keywords.",
+ "flashcards": [
+  {
+   "front": "Structure of the Earth",
+   "back": "Crust (thin, solid), mantle (hot, semi-molten rock), outer core (liquid iron and nickel), inner core (solid).",
+   "unit": "tectonic"
+  },
+  {
+   "front": "Tectonic plate",
+   "back": "A large slab of the Earth’s crust that moves slowly, driven by convection currents in the mantle.",
+   "unit": "tectonic"
+  },
+  {
+   "front": "Destructive boundary",
+   "back": "Plates move towards each other; the denser oceanic plate sinks (subduction). Violent earthquakes and explosive volcanoes, e.g. Andes, Japan.",
+   "unit": "tectonic"
+  },
+  {
+   "front": "Constructive boundary",
+   "back": "Plates move apart; magma rises to make new crust. Gentle volcanoes and small earthquakes, e.g. Mid-Atlantic Ridge, Iceland.",
+   "unit": "tectonic"
+  },
+  {
+   "front": "Conservative boundary",
+   "back": "Plates slide past each other. Earthquakes but no volcanoes, e.g. San Andreas Fault, California.",
+   "unit": "tectonic"
+  },
+  {
+   "front": "Collision boundary",
+   "back": "Two continental plates push together and crumple upwards into fold mountains, e.g. the Himalayas. Earthquakes, no volcanoes.",
+   "unit": "tectonic"
+  },
+  {
+   "front": "Focus and epicentre",
+   "back": "Focus: the point underground where the earthquake starts. Epicentre: the point on the surface directly above it.",
+   "unit": "tectonic"
+  },
+  {
+   "front": "Earthquake magnitude",
+   "back": "Measured on the Richter or moment magnitude scale. Each whole number up means 10 times more ground shaking.",
+   "unit": "tectonic"
+  },
+  {
+   "front": "Tsunami",
+   "back": "A series of very large sea waves caused when an undersea earthquake (or eruption, landslide) suddenly moves the sea floor.",
+   "unit": "tectonic"
+  },
+  {
+   "front": "Volcanic hazards",
+   "back": "Lava flows, pyroclastic flows (fast clouds of hot gas, ash and rock), ash fall, lahars (volcanic mudflows), toxic gases.",
+   "unit": "tectonic"
+  },
+  {
+   "front": "Tropical cyclone",
+   "back": "An intense low-pressure storm with very strong winds (over 119 km/h) and heavy rain. Called hurricanes (Atlantic) and typhoons (NW Pacific).",
+   "unit": "cyclones"
+  },
+  {
+   "front": "Conditions for formation",
+   "back": "Sea surface over about 26.5°C, warm water at least 50 m deep, 5–30° from the equator, high humidity, little wind shear.",
+   "unit": "cyclones"
+  },
+  {
+   "front": "How they form",
+   "back": "Warm, moist air rises over the sea; water vapour condenses, releasing heat; this pulls in more air, which spins because of the Earth’s rotation.",
+   "unit": "cyclones"
+  },
+  {
+   "front": "Coriolis effect",
+   "back": "The Earth’s rotation makes moving air curve, so storms spin. It is too weak near the equator, so cyclones do not form there.",
+   "unit": "cyclones"
+  },
+  {
+   "front": "Eye and eye wall",
+   "back": "Eye: calm, clear centre where air sinks. Eye wall: ring of the strongest winds and heaviest rain around it.",
+   "unit": "cyclones"
+  },
+  {
+   "front": "Storm surge",
+   "back": "A rise in sea level caused by strong winds pushing water onshore and low pressure lifting the sea. Floods coasts; often the biggest killer.",
+   "unit": "cyclones"
+  },
+  {
+   "front": "Cyclone hazards",
+   "back": "Strong winds, storm surge, heavy rain causing floods and landslides.",
+   "unit": "cyclones"
+  },
+  {
+   "front": "Why cyclones weaken over land",
+   "back": "They lose their supply of warm, moist air (their energy source), and friction with the land slows the winds.",
+   "unit": "cyclones"
+  },
+  {
+   "front": "Saffir–Simpson scale",
+   "back": "Classifies hurricanes from category 1 to 5 by wind speed.",
+   "unit": "cyclones"
+  },
+  {
+   "front": "Cyclone season",
+   "back": "Late summer and autumn, when sea temperatures are highest.",
+   "unit": "cyclones"
+  },
+  {
+   "front": "Flood",
+   "back": "Water covering land that is normally dry, e.g. when a river overflows its banks or the sea floods the coast.",
+   "unit": "floods"
+  },
+  {
+   "front": "Physical causes of floods",
+   "back": "Heavy or prolonged rain, snowmelt, saturated or impermeable ground, steep slopes, storm surges.",
+   "unit": "floods"
+  },
+  {
+   "front": "Human causes of floods",
+   "back": "Urbanisation (concrete, drains), deforestation, compacted farmland, building on floodplains.",
+   "unit": "floods"
+  },
+  {
+   "front": "Interception",
+   "back": "Leaves and branches catching rainfall, slowing how fast it reaches the ground.",
+   "unit": "floods"
+  },
+  {
+   "front": "Discharge",
+   "back": "The volume of water flowing past a point in a river each second, measured in cubic metres per second (cumecs).",
+   "unit": "floods"
+  },
+  {
+   "front": "Lag time",
+   "back": "Time between peak rainfall and peak discharge on a flood hydrograph. A short lag time means a higher flood risk.",
+   "unit": "floods"
+  },
+  {
+   "front": "Floodplain",
+   "back": "The flat land beside a river that floods naturally.",
+   "unit": "floods"
+  },
+  {
+   "front": "Drought",
+   "back": "A long period with much less rainfall than normal, so there is not enough water to meet demand.",
+   "unit": "floods"
+  },
+  {
+   "front": "Causes of drought",
+   "back": "Persistent high pressure (dry, sinking air), El Niño, climate change; made worse by overuse of rivers and groundwater, and deforestation.",
+   "unit": "floods"
+  },
+  {
+   "front": "Impacts of drought",
+   "back": "Crop failure, livestock deaths, food shortages and famine, water rationing, wildfires, desertification, migration.",
+   "unit": "floods"
+  },
+  {
+   "front": "Primary and secondary impacts",
+   "back": "Primary: direct effects, e.g. buildings collapse. Secondary: later effects, e.g. fires, disease, homelessness, job losses.",
+   "unit": "hazmanage"
+  },
+  {
+   "front": "Prediction",
+   "back": "Forecasting when and where a hazard will happen, using monitoring. Cyclones and many eruptions can be predicted; earthquakes cannot yet.",
+   "unit": "hazmanage"
+  },
+  {
+   "front": "Monitoring volcanoes",
+   "back": "Seismometers (small earthquakes), tiltmeters (ground swelling), gas measurements, satellite heat images.",
+   "unit": "hazmanage"
+  },
+  {
+   "front": "Monitoring cyclones",
+   "back": "Satellites, aircraft and weather radar track the storm’s path and strength, so warnings can be issued days ahead.",
+   "unit": "hazmanage"
+  },
+  {
+   "front": "Preparation",
+   "back": "Emergency plans, drills, evacuation routes, shelters, emergency supply kits and public education.",
+   "unit": "hazmanage"
+  },
+  {
+   "front": "Land-use planning",
+   "back": "Using hazard maps to stop building in high-risk areas, e.g. floodplains or near volcanoes.",
+   "unit": "hazmanage"
+  },
+  {
+   "front": "Earthquake-resistant buildings",
+   "back": "Deep foundations, steel frames, cross-bracing, rubber base isolators that absorb shaking, and light roofs.",
+   "unit": "hazmanage"
+  },
+  {
+   "front": "Hard engineering (floods)",
+   "back": "Built structures: dams, levees (embankments), flood walls, straightened or deepened channels.",
+   "unit": "hazmanage"
+  },
+  {
+   "front": "Soft engineering (floods)",
+   "back": "Working with nature: planting trees, restoring wetlands, floodplain zoning, flood warnings.",
+   "unit": "hazmanage"
+  },
+  {
+   "front": "Short-term and long-term aid",
+   "back": "Short-term: food, water, shelter, medical care right after. Long-term: rebuilding homes, roads and services.",
+   "unit": "hazmanage"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "Tectonic plates move because of:",
+   "options": [
+    "The Moon’s gravity",
+    "Convection currents in the mantle",
+    "Winds at the surface",
+    "Ocean currents"
+   ],
+   "answer": 1,
+   "why": "Heat from the core makes mantle rock rise, spread and sink, dragging the plates.",
+   "unit": "tectonic"
+  },
+  {
+   "q": "The San Andreas Fault in California is a:",
+   "options": [
+    "Destructive boundary",
+    "Constructive boundary",
+    "Conservative boundary",
+    "Collision boundary"
+   ],
+   "answer": 2,
+   "why": "The Pacific and North American plates slide past each other.",
+   "unit": "tectonic"
+  },
+  {
+   "q": "Why are there no volcanoes at conservative boundaries?",
+   "options": [
+    "The plates move too fast",
+    "The crust there is too thick",
+    "There is too much water",
+    "Crust is neither destroyed nor created, so no magma forms"
+   ],
+   "answer": 3,
+   "why": "Magma forms where a plate melts in subduction or where plates pull apart.",
+   "unit": "tectonic"
+  },
+  {
+   "q": "A pyroclastic flow is:",
+   "options": [
+    "A fast-moving cloud of hot gas, ash and rock",
+    "A slow river of lava",
+    "A mudflow after heavy rain",
+    "A crack in the ground"
+   ],
+   "answer": 0,
+   "why": "They can move at over 100 km/h and are the deadliest volcanic hazard.",
+   "unit": "tectonic"
+  },
+  {
+   "q": "Many people live near volcanoes because:",
+   "options": [
+    "Volcanoes never erupt",
+    "The land is cheap and flat",
+    "Weathered volcanic rock makes very fertile soil",
+    "There are no earthquakes there"
+   ],
+   "answer": 2,
+   "why": "Other reasons: geothermal energy, tourism, minerals, and people having lived there for generations.",
+   "unit": "tectonic"
+  },
+  {
+   "q": "Compared with a magnitude 5 earthquake, a magnitude 7 earthquake has:",
+   "options": [
+    "2 times more ground shaking",
+    "20 times more ground shaking",
+    "100 times more ground shaking",
+    "1000 times more ground shaking"
+   ],
+   "answer": 2,
+   "why": "Each step is 10 times, so two steps is 10 × 10 = 100. The energy released rises even more (about 32 times per step).",
+   "unit": "tectonic"
+  },
+  {
+   "q": "The main energy source of a tropical cyclone is:",
+   "options": [
+    "Heat released when water vapour condenses",
+    "Wind from the poles",
+    "The Earth’s rotation",
+    "Volcanic heat"
+   ],
+   "answer": 0,
+   "why": "Warm seas give lots of evaporation; condensation in the clouds releases that heat, powering the storm.",
+   "unit": "cyclones"
+  },
+  {
+   "q": "Tropical cyclones do not form on the equator because:",
+   "options": [
+    "The sea is too cold",
+    "There is too little moisture",
+    "The Coriolis effect is too weak to make them spin",
+    "Air pressure is too high"
+   ],
+   "answer": 2,
+   "why": "They form between about 5° and 30° from the equator.",
+   "unit": "cyclones"
+  },
+  {
+   "q": "A storm surge is:",
+   "options": [
+    "A sudden gust of wind",
+    "A rise in sea level pushed onshore by strong winds and low pressure",
+    "A tsunami caused by an earthquake",
+    "Heavy rain on mountains"
+   ],
+   "answer": 1,
+   "why": "Low-lying coasts such as Bangladesh are most at risk.",
+   "unit": "cyclones"
+  },
+  {
+   "q": "Conditions in the eye of a tropical cyclone are:",
+   "options": [
+    "The strongest winds and heaviest rain",
+    "Snow and hail",
+    "Thunderstorms and tornadoes",
+    "Calm, with light winds and clear skies"
+   ],
+   "answer": 3,
+   "why": "Air sinks in the eye. The worst weather is in the eye wall around it.",
+   "unit": "cyclones"
+  },
+  {
+   "q": "In the north-west Pacific, tropical cyclones are called:",
+   "options": [
+    "Hurricanes",
+    "Tornadoes",
+    "Typhoons",
+    "Monsoons"
+   ],
+   "answer": 2,
+   "why": "Hurricane (Atlantic, NE Pacific), typhoon (NW Pacific), cyclone (Indian Ocean, South Pacific).",
+   "unit": "cyclones"
+  },
+  {
+   "q": "Which change in a river basin would shorten the lag time?",
+   "options": [
+    "Planting forest",
+    "Building a town with concrete surfaces and drains",
+    "Restoring wetlands",
+    "Leaving farmland as grassland"
+   ],
+   "answer": 1,
+   "why": "Impermeable surfaces and drains get rainwater into the river much faster.",
+   "unit": "floods"
+  },
+  {
+   "q": "Deforestation increases flood risk because:",
+   "options": [
+    "Trees cause more rain",
+    "Soil becomes more permeable",
+    "There is less interception and infiltration, so more surface runoff",
+    "Rivers become deeper"
+   ],
+   "answer": 2,
+   "why": "Eroded soil also fills river channels, so they hold less water.",
+   "unit": "floods"
+  },
+  {
+   "q": "River discharge is measured in:",
+   "options": [
+    "Cubic metres per second",
+    "Millimetres",
+    "Kilometres per hour",
+    "Litres per day"
+   ],
+   "answer": 0,
+   "why": "1 cumec = 1 cubic metre per second.",
+   "unit": "floods"
+  },
+  {
+   "q": "Which is an impact of drought rather than of flooding?",
+   "options": [
+    "Storm surge damage",
+    "Sewage mixing with drinking water",
+    "Landslides on saturated slopes",
+    "Wildfires"
+   ],
+   "answer": 3,
+   "why": "Dry vegetation burns easily during a drought.",
+   "unit": "floods"
+  },
+  {
+   "q": "Drought is often linked to:",
+   "options": [
+    "A long-lasting high-pressure system",
+    "A deep low-pressure system",
+    "Tropical cyclones",
+    "Snowmelt"
+   ],
+   "answer": 0,
+   "why": "Sinking air in high pressure stops clouds forming, so there is little rain for weeks or months.",
+   "unit": "floods"
+  },
+  {
+   "q": "Which helps scientists predict a volcanic eruption?",
+   "options": [
+    "Rain gauges",
+    "Tiltmeters measuring swelling of the ground",
+    "Flood walls",
+    "Sea walls"
+   ],
+   "answer": 1,
+   "why": "Rising magma makes the volcano bulge and causes small earthquakes and gas release.",
+   "unit": "hazmanage"
+  },
+  {
+   "q": "Rubber base isolators in buildings:",
+   "options": [
+    "Stop fires",
+    "Make buildings taller",
+    "Absorb shaking so the building moves less",
+    "Prevent flooding"
+   ],
+   "answer": 2,
+   "why": "The building sits on flexible pads, so less of the ground movement reaches it.",
+   "unit": "hazmanage"
+  },
+  {
+   "q": "Which is an example of soft engineering to reduce flooding?",
+   "options": [
+    "Planting trees in the river basin",
+    "Building a dam",
+    "Raising levees",
+    "Concreting the river channel"
+   ],
+   "answer": 0,
+   "why": "Trees increase interception and infiltration, slowing water reaching the river.",
+   "unit": "hazmanage"
+  },
+  {
+   "q": "Which is short-term aid after a disaster?",
+   "options": [
+    "Rebuilding schools",
+    "Training builders in earthquake-proof methods",
+    "Building new roads",
+    "Bottled water and tents"
+   ],
+   "answer": 3,
+   "why": "Short-term aid meets immediate needs in the first days and weeks.",
+   "unit": "hazmanage"
+  },
+  {
+   "q": "Which is a secondary impact of an earthquake?",
+   "options": [
+    "Buildings shaking",
+    "Fires from broken gas pipes",
+    "Ground cracking",
+    "Bridges collapsing"
+   ],
+   "answer": 1,
+   "why": "Secondary impacts happen as a result of the primary ones.",
+   "unit": "hazmanage"
+  }
+ ],
+ "examIntro": "Paper 1 style. Write your answer first, then open the mark scheme. The data questions give a small table in the question: quote the figures in your answer.",
+ "exam": [
+  {
+   "q": "State two differences between oceanic crust and continental crust.",
+   "marks": 2,
+   "points": [
+    "Oceanic crust is thinner",
+    "Oceanic crust is denser / heavier",
+    "Oceanic crust is younger",
+    "Oceanic crust is mainly basalt; continental mainly granite",
+    "Oceanic crust can be subducted / destroyed; continental is not"
+   ],
+   "note": "Any 2.",
+   "unit": "tectonic"
+  },
+  {
+   "q": "Explain why earthquakes and volcanoes occur at destructive plate boundaries.",
+   "marks": 4,
+   "points": [
+    "Plates move towards each other",
+    "The denser oceanic plate is subducted beneath the continental plate",
+    "Plates stick; pressure builds up and is released suddenly as an earthquake",
+    "The subducted plate melts in the mantle to form magma",
+    "Magma is less dense, so it rises through cracks and erupts as a volcano"
+   ],
+   "note": "Any 4.",
+   "unit": "tectonic"
+  },
+  {
+   "q": "Two earthquakes of the same magnitude (made-up figures). Earthquake A, high-income country: magnitude 7.0, deaths 120. Earthquake B, low-income country: magnitude 7.0, deaths 45 000. (a) Calculate how many times more deaths there were in earthquake B. (b) Suggest reasons why earthquake B caused more deaths.",
+   "marks": 5,
+   "points": [
+    "(a) 45 000 ÷ 120 = 375 times",
+    "(b) Fewer earthquake-resistant buildings / weak building materials, so more collapsed",
+    "(b) Building laws not enforced",
+    "(b) Less preparation: fewer drills, emergency kits or plans",
+    "(b) Fewer emergency services, hospitals and rescue equipment",
+    "(b) Dense informal settlements / poor roads slowed rescue and aid"
+   ],
+   "note": "(a) 1 mark; (b) any 4.",
+   "unit": "tectonic"
+  },
+  {
+   "q": "State two conditions needed for a tropical cyclone to form.",
+   "marks": 2,
+   "points": [
+    "Sea surface temperature above about 26.5°C",
+    "Warm water to a depth of at least 50 m",
+    "Between about 5° and 30° from the equator",
+    "Humid / moist air",
+    "Low wind shear"
+   ],
+   "note": "Any 2.",
+   "unit": "cyclones"
+  },
+  {
+   "q": "Describe the hazards caused by a tropical cyclone when it reaches land.",
+   "marks": 4,
+   "points": [
+    "Very strong winds damage buildings, trees and power lines",
+    "Storm surge floods low-lying coastal land",
+    "Heavy rainfall causes river flooding",
+    "Landslides on steep slopes",
+    "Flying debris injures people",
+    "Contaminated water spreads disease afterwards"
+   ],
+   "note": "Any 4.",
+   "unit": "cyclones"
+  },
+  {
+   "q": "Maximum wind speed of a hurricane after it reached land (made-up figures): 0 hours – 210 km/h; 6 hours – 160 km/h; 12 hours – 120 km/h; 24 hours – 70 km/h. (a) Describe the change in wind speed. (b) Calculate the average fall in wind speed per hour over the 24 hours. (c) Explain why the hurricane weakened.",
+   "marks": 5,
+   "points": [
+    "(a) Wind speed fell from 210 to 70 km/h",
+    "(a) Fastest fall in the first 6 hours (50 km/h)",
+    "(b) (210 − 70) ÷ 24 = 5.8 km/h per hour",
+    "(c) Over land there is no warm sea, so no supply of warm, moist air",
+    "(c) Less condensation, so less heat released to power the storm",
+    "(c) Friction with the land surface slows the winds"
+   ],
+   "note": "Any 5; (b) needs working.",
+   "unit": "cyclones"
+  },
+  {
+   "q": "State two physical causes of flooding.",
+   "marks": 2,
+   "points": [
+    "Heavy or prolonged rainfall",
+    "Snowmelt",
+    "Saturated ground",
+    "Impermeable rock or frozen ground",
+    "Steep slopes",
+    "Storm surge / tropical cyclone"
+   ],
+   "note": "Any 2.",
+   "unit": "floods"
+  },
+  {
+   "q": "Explain how urbanisation increases the risk of flooding.",
+   "marks": 3,
+   "points": [
+    "Concrete and tarmac are impermeable, so water cannot infiltrate",
+    "More surface runoff",
+    "Drains carry water quickly to rivers, so the lag time is shorter",
+    "Fewer trees, so less interception",
+    "River discharge peaks higher and faster"
+   ],
+   "note": "Any 3.",
+   "unit": "floods"
+  },
+  {
+   "q": "Rainfall in Town T (mm). Average year: 820; 2021: 790; 2022: 540; 2023: 410. Reservoir level at the end of each year (% full): 2021 – 85; 2022 – 52; 2023 – 30. (a) Calculate the 2023 rainfall as a percentage of the average. (b) Describe the changes shown. (c) Suggest two impacts of these changes on people in the area.",
+   "marks": 6,
+   "points": [
+    "(a) 410 ÷ 820 × 100",
+    "(a) = 50%",
+    "(b) Rainfall was below average every year and fell each year, from 790 to 410 mm",
+    "(b) Reservoir level fell from 85% to 30% full, following the fall in rainfall",
+    "(c) Water rationing / hosepipe bans",
+    "(c) Crops fail or irrigation is limited, so food prices rise",
+    "(c) Livestock die / wildfires / low rivers harm fishing and wildlife"
+   ],
+   "note": "(c) any 2.",
+   "unit": "floods"
+  },
+  {
+   "q": "Give two ways buildings can be designed to withstand earthquakes.",
+   "marks": 2,
+   "points": [
+    "Deep foundations",
+    "Steel frame / reinforced concrete",
+    "Rubber base isolators / shock absorbers",
+    "Cross-bracing",
+    "Counterweights on the roof",
+    "Light roof materials / windows that do not shatter"
+   ],
+   "note": "Any 2.",
+   "unit": "hazmanage"
+  },
+  {
+   "q": "Describe how people can prepare for a tropical cyclone.",
+   "marks": 4,
+   "points": [
+    "Monitor the storm by satellite and issue warnings",
+    "Plan evacuation routes and evacuate people in time",
+    "Build cyclone shelters on stilts / raised ground",
+    "Prepare emergency kits: water, food, torch, first aid",
+    "Board up windows and tie down loose objects",
+    "Plant mangroves or build sea walls against storm surge",
+    "Run drills and public education campaigns"
+   ],
+   "note": "Any 4.",
+   "unit": "hazmanage"
+  },
+  {
+   "q": "“Hard engineering is the best way to reduce the risk of flooding.” Discuss this statement.",
+   "marks": 6,
+   "points": [
+    "For: dams and levees can hold back large volumes of water, protecting towns",
+    "For: gives quick, visible protection for valuable land and buildings",
+    "For: dams can also provide HEP and water supply",
+    "Against: very expensive to build and maintain",
+    "Against: can fail or be overtopped in an extreme flood, and may move flooding downstream",
+    "Against: damages habitats; soft engineering (trees, wetlands, zoning, warnings) is cheaper and more sustainable",
+    "Conclusion: e.g. a mix works best: hard engineering for cities, soft engineering for the rest of the basin"
+   ],
+   "note": "Two points for, two against, plus a conclusion. Max 5 without a conclusion.",
+   "unit": "hazmanage"
+  }
+ ],
+ "units": [
+  {
+   "key": "tectonic",
+   "name": "Tectonic hazards"
+  },
+  {
+   "key": "cyclones",
+   "name": "Tropical cyclones"
+  },
+  {
+   "key": "floods",
+   "name": "Floods & drought"
+  },
+  {
+   "key": "hazmanage",
+   "name": "Managing hazards"
+  }
+ ]
+}

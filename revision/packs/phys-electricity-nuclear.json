@@ -1,0 +1,1140 @@
+{
+ "id": "phys-electricity-nuclear",
+ "subject": "Physics",
+ "title": "Electricity, magnetism & nuclear",
+ "sub": "Magnetism, electrical quantities, circuits and safety, electromagnetic effects, the nuclear atom, radioactivity",
+ "units": [
+  {
+   "key": "magnets",
+   "name": "Magnetism"
+  },
+  {
+   "key": "elec",
+   "name": "Electrical quantities"
+  },
+  {
+   "key": "circuits",
+   "name": "Circuits & safety"
+  },
+  {
+   "key": "emag",
+   "name": "Electromagnetism"
+  },
+  {
+   "key": "atom",
+   "name": "The nuclear atom"
+  },
+  {
+   "key": "radio",
+   "name": "Radioactivity"
+  }
+ ],
+ "strategyIntro": "In Co-ordinated Sciences, physics is one third of every paper: a multiple-choice paper, a structured theory paper and a paper on experiments. Your school test may be shorter, but it will be marked the same way.",
+ "strategy": [
+  {
+   "title": "Multiple choice",
+   "key": true,
+   "points": [
+    "About a minute per question. Calculation questions: work it out on paper before you look at the options.",
+    "Wrong options are often the answer from using the formula the wrong way round (e.g. dividing instead of multiplying). Check units.",
+    "Never leave one blank. A wrong answer loses nothing."
+   ]
+  },
+  {
+   "title": "Calculations",
+   "key": true,
+   "points": [
+    "Three steps for full marks: write the formula, substitute the numbers, give the answer with its unit.",
+    "Convert units first: g to kg, cm to m, minutes to seconds, kW to W.",
+    "Keep the answer to 2 or 3 significant figures, like the data in the question."
+   ]
+  },
+  {
+   "title": "Structured questions",
+   "points": [
+    "The marks in brackets tell you how many separate points to make.",
+    "Use the keyword the syllabus uses (“resultant force”, “principal focus”), not an everyday word.",
+    "For “explain”, link cause to effect with “so” or “because”."
+   ]
+  },
+  {
+   "title": "Questions on experiments",
+   "points": [
+    "Name the instrument and say what you measure with it.",
+    "Repeat readings and take an average; time many oscillations or measure many sheets, then divide.",
+    "Tables: units in the column headings. Graphs: labelled axes with units, even scale, small crosses, best-fit line."
+   ]
+  },
+  {
+   "title": "Easy marks people lose",
+   "points": [
+    "Putting the voltmeter in series. Ammeter in series, voltmeter in parallel.",
+    "Saying current is “used up” by a lamp. The current is the same all round a series circuit; energy is transferred.",
+    "Saying attraction proves something is a magnet. Only repulsion proves it.",
+    "Forgetting to subtract background count before working out half-life."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "State",
+   "Give a short fact or name. No explanation needed."
+  ],
+  [
+   "Define",
+   "Give the exact meaning, ideally with the equation in words."
+  ],
+  [
+   "Describe",
+   "Say what happens or what you see, step by step."
+  ],
+  [
+   "Explain",
+   "Say why or how. Use “because” and link cause to effect."
+  ],
+  [
+   "Calculate",
+   "Formula, substitution, answer with unit. Show working."
+  ],
+  [
+   "Suggest",
+   "Apply what you know to a new situation. Any sensible physics scores."
+  ],
+  [
+   "Sketch",
+   "A simple drawn graph or diagram showing the right shape, with labelled axes."
+  ]
+ ],
+ "quizTitle": "Multiple-choice practice",
+ "quizIntro": "Answer in multiple-choice-paper style: about a minute each. For calculations, work out the answer first, then find it. Read the explanation after every answer.",
+ "flashIntro": "Say the definition or equation out loud before you tap, then check you used the exact keywords and the right unit.",
+ "flashcards": [
+  {
+   "front": "Forces between poles",
+   "back": "Like poles repel; unlike poles attract.",
+   "unit": "magnets"
+  },
+  {
+   "front": "Magnetic materials",
+   "back": "Iron, steel, nickel and cobalt are attracted by magnets. Most other metals (copper, aluminium, brass) are not.",
+   "unit": "magnets"
+  },
+  {
+   "front": "Induced magnetism",
+   "back": "A magnetic material near a magnet becomes a magnet itself. The end nearest a north pole becomes a south pole, so it is attracted.",
+   "unit": "magnets"
+  },
+  {
+   "front": "Soft iron vs steel",
+   "back": "Soft iron is easily magnetised and loses it easily: temporary magnets, electromagnet cores. Steel is harder to magnetise but keeps it: permanent magnets.",
+   "unit": "magnets"
+  },
+  {
+   "front": "Magnetic field",
+   "back": "A region in which a magnetic pole experiences a force.",
+   "unit": "magnets"
+  },
+  {
+   "front": "Magnetic field lines",
+   "back": "Go from the north pole to the south pole outside the magnet. Show the direction of the force on a north pole. Lines closest together where the field is strongest (at the poles).",
+   "unit": "magnets"
+  },
+  {
+   "front": "Plotting a field",
+   "back": "Move a small plotting compass around the magnet and mark the direction its needle points, then join up the marks. Or sprinkle iron filings on paper over the magnet.",
+   "unit": "magnets"
+  },
+  {
+   "front": "Electromagnet vs permanent magnet",
+   "back": "An electromagnet can be switched on and off and its strength changed by changing the current. A permanent magnet is always magnetised.",
+   "unit": "magnets"
+  },
+  {
+   "front": "Testing whether an object is a magnet",
+   "back": "Bring each end near a known magnet. Only repulsion proves it is a magnet; any magnetic material is attracted.",
+   "unit": "magnets"
+  },
+  {
+   "front": "Electric charge",
+   "back": "Positive or negative. Like charges repel; unlike charges attract. Unit coulomb (C).",
+   "unit": "elec"
+  },
+  {
+   "front": "Charging by friction",
+   "back": "Rubbing two insulators transfers electrons. The one that gains electrons becomes negative; the one that loses them becomes positive.",
+   "unit": "elec"
+  },
+  {
+   "front": "Conductors and insulators",
+   "back": "Conductors (metals) let electrons move through them. Insulators (plastic, rubber, glass) do not.",
+   "unit": "elec"
+  },
+  {
+   "front": "Electric current",
+   "back": "A flow of charge; in metals, a flow of electrons. Measured with an ammeter in series. Unit ampere (A).",
+   "unit": "elec"
+  },
+  {
+   "front": "(Extended) Charge and current",
+   "back": "Q = It. Charge (C) = current (A) × time (s).",
+   "unit": "elec"
+  },
+  {
+   "front": "Conventional current",
+   "back": "Flows from the positive terminal to the negative terminal. Electrons actually flow the opposite way.",
+   "unit": "elec"
+  },
+  {
+   "front": "E.m.f. and p.d.",
+   "back": "Electromotive force: energy given to charge by the source. Potential difference: energy transferred by charge in a component. Both in volts (V), measured with a voltmeter in parallel.",
+   "unit": "elec"
+  },
+  {
+   "front": "Resistance",
+   "back": "R = V ÷ I. Unit ohm (Ω).",
+   "unit": "elec"
+  },
+  {
+   "front": "Resistance of a wire",
+   "back": "Longer wire → greater resistance. Thicker wire (larger cross-sectional area) → smaller resistance.",
+   "unit": "elec"
+  },
+  {
+   "front": "I–V graphs",
+   "back": "Fixed resistor (constant temperature): straight line through the origin. Filament lamp: curve; resistance increases as the filament gets hotter.",
+   "unit": "elec"
+  },
+  {
+   "front": "Electrical power and energy",
+   "back": "P = IV (W). E = IVt (J). In kilowatt-hours: energy (kWh) = power (kW) × time (h).",
+   "unit": "elec"
+  },
+  {
+   "front": "Series circuit",
+   "back": "One loop. Same current everywhere. The supply p.d. is shared between components. If one lamp breaks, they all go out.",
+   "unit": "circuits"
+  },
+  {
+   "front": "Parallel circuit",
+   "back": "Several branches. Current from the supply = sum of branch currents. Each branch has the full supply p.d.",
+   "unit": "circuits"
+  },
+  {
+   "front": "Resistors in series",
+   "back": "Combined resistance R = R₁ + R₂ + …",
+   "unit": "circuits"
+  },
+  {
+   "front": "Resistors in parallel",
+   "back": "The combined resistance of two resistors in parallel is less than that of either one alone.",
+   "unit": "circuits"
+  },
+  {
+   "front": "(Extended) Parallel resistance equation",
+   "back": "1/R = 1/R₁ + 1/R₂.",
+   "unit": "circuits"
+  },
+  {
+   "front": "Why house lamps are in parallel",
+   "back": "Each lamp gets the full supply p.d.; each can be switched on and off separately; if one fails the others stay on.",
+   "unit": "circuits"
+  },
+  {
+   "front": "Thermistor and LDR",
+   "back": "Thermistor: resistance decreases as temperature increases. LDR (light-dependent resistor): resistance decreases as light intensity increases.",
+   "unit": "circuits"
+  },
+  {
+   "front": "Electrical hazards",
+   "back": "Damaged insulation, overheating cables (too much current), damp conditions, overloaded sockets.",
+   "unit": "circuits"
+  },
+  {
+   "front": "Fuse",
+   "back": "A thin wire in the live wire that melts if the current is above its rating, breaking the circuit. Choose a rating just above the normal current.",
+   "unit": "circuits"
+  },
+  {
+   "front": "Circuit breaker",
+   "back": "An automatic switch that trips (opens) when the current is too large. It can be reset instead of replaced.",
+   "unit": "circuits"
+  },
+  {
+   "front": "Earthing and double insulation",
+   "back": "Earth wire joins a metal case to earth: if the live wire touches the case, a large current flows to earth and the fuse blows. Double-insulated appliances have plastic cases and need no earth wire.",
+   "unit": "circuits"
+  },
+  {
+   "front": "Field around a straight wire",
+   "back": "Concentric circles around the wire. Reversing the current reverses the field. Stronger closer to the wire and with a larger current.",
+   "unit": "emag"
+  },
+  {
+   "front": "Field of a solenoid (coil)",
+   "back": "Like a bar magnet outside; strong and uniform inside the coil.",
+   "unit": "emag"
+  },
+  {
+   "front": "Making an electromagnet stronger",
+   "back": "Increase the current, increase the number of turns, use a soft iron core.",
+   "unit": "emag"
+  },
+  {
+   "front": "Uses of electromagnets",
+   "back": "Relays, scrapyard cranes, electric bells, magnetic door locks.",
+   "unit": "emag"
+  },
+  {
+   "front": "Motor effect",
+   "back": "A current-carrying wire in a magnetic field feels a force. The force reverses if the current or the field is reversed.",
+   "unit": "emag"
+  },
+  {
+   "front": "(Extended) Fleming’s left-hand rule",
+   "back": "First finger: Field (N to S). SeCond finger: Current. ThuMb: Motion (force). All at right angles.",
+   "unit": "emag"
+  },
+  {
+   "front": "d.c. motor",
+   "back": "A current-carrying coil in a magnetic field has a turning effect. Increase it with more turns, a larger current or a stronger magnetic field.",
+   "unit": "emag"
+  },
+  {
+   "front": "(Extended) Split-ring commutator",
+   "back": "Reverses the current in the coil every half turn, so the coil keeps turning the same way. Brushes connect it to the supply.",
+   "unit": "emag"
+  },
+  {
+   "front": "Electromagnetic induction",
+   "back": "When a conductor moves across magnetic field lines, or the magnetic field through a coil changes, an e.m.f. is induced. A current flows if the circuit is complete.",
+   "unit": "emag"
+  },
+  {
+   "front": "(Extended) Increasing the induced e.m.f.",
+   "back": "Move the magnet or wire faster, use a stronger magnet, use more turns on the coil.",
+   "unit": "emag"
+  },
+  {
+   "front": "(Extended) Transformer",
+   "back": "Two coils on a soft iron core. Alternating current in the primary makes a changing field, which induces an alternating e.m.f. in the secondary. Vp ÷ Vs = Np ÷ Ns.",
+   "unit": "emag"
+  },
+  {
+   "front": "Structure of the atom",
+   "back": "A tiny, positively charged nucleus containing protons and neutrons, surrounded by negatively charged electrons. Most of the atom is empty space.",
+   "unit": "atom"
+  },
+  {
+   "front": "Proton, neutron, electron",
+   "back": "Proton: charge +1, relative mass 1. Neutron: charge 0, relative mass 1. Electron: charge −1, very small mass (about 1/1840).",
+   "unit": "atom"
+  },
+  {
+   "front": "Proton number (Z)",
+   "back": "The number of protons in the nucleus.",
+   "unit": "atom"
+  },
+  {
+   "front": "Nucleon number (A)",
+   "back": "The total number of protons and neutrons in the nucleus. Neutrons = A − Z.",
+   "unit": "atom"
+  },
+  {
+   "front": "Nuclide notation",
+   "back": "Written with A at the top and Z at the bottom before the symbol, e.g. ¹⁴₆C: 6 protons, 8 neutrons.",
+   "unit": "atom"
+  },
+  {
+   "front": "Isotopes",
+   "back": "Atoms of the same element with the same proton number but different nucleon numbers (different numbers of neutrons).",
+   "unit": "atom"
+  },
+  {
+   "front": "Ions",
+   "back": "An atom that loses electrons becomes a positive ion; one that gains electrons becomes a negative ion.",
+   "unit": "atom"
+  },
+  {
+   "front": "(Extended) Alpha-particle scattering",
+   "back": "Alpha particles fired at gold foil: most pass straight through (atom mostly empty space); a few are deflected at large angles (small, dense, positive nucleus).",
+   "unit": "atom"
+  },
+  {
+   "front": "Nuclear fission",
+   "back": "A large nucleus (e.g. uranium-235) splits into two smaller nuclei, releasing energy and neutrons. Used in nuclear power stations.",
+   "unit": "atom"
+  },
+  {
+   "front": "Nuclear fusion",
+   "back": "Two light nuclei join to form a heavier nucleus, releasing energy. This happens in stars.",
+   "unit": "atom"
+  },
+  {
+   "front": "Background radiation",
+   "back": "Ionising radiation that is always present. Sources: radon gas, rocks and buildings, cosmic rays, food and drink, medical sources.",
+   "unit": "radio"
+  },
+  {
+   "front": "Detecting radiation",
+   "back": "A Geiger–Müller tube and counter measure the count rate (counts per second or per minute). Subtract the background count rate to get the corrected count rate.",
+   "unit": "radio"
+  },
+  {
+   "front": "Alpha (α)",
+   "back": "A helium nucleus (2 protons + 2 neutrons). Most strongly ionising. Stopped by paper or a few cm of air.",
+   "unit": "radio"
+  },
+  {
+   "front": "Beta (β)",
+   "back": "A fast-moving electron emitted from the nucleus. Moderately ionising. Stopped by a few mm of aluminium.",
+   "unit": "radio"
+  },
+  {
+   "front": "Gamma (γ)",
+   "back": "Electromagnetic radiation. Weakly ionising, most penetrating. Reduced by thick lead or concrete.",
+   "unit": "radio"
+  },
+  {
+   "front": "Radioactive decay",
+   "back": "An unstable nucleus changes, giving out α, β and/or γ radiation. It is random (cannot predict which nucleus or when) and spontaneous (not affected by temperature or chemicals).",
+   "unit": "radio"
+  },
+  {
+   "front": "(Extended) Changes in α and β decay",
+   "back": "α: nucleon number −4, proton number −2. β: a neutron becomes a proton and an electron; nucleon number unchanged, proton number +1. γ: no change in A or Z.",
+   "unit": "radio"
+  },
+  {
+   "front": "Half-life",
+   "back": "The time taken for half the nuclei of a radioactive isotope in a sample to decay (or for the count rate to halve).",
+   "unit": "radio"
+  },
+  {
+   "front": "Safety with radioactive sources",
+   "back": "Increase distance (use tongs), reduce time of exposure, use shielding (lead-lined storage). Ionising radiation damages cells and can cause mutations and cancer.",
+   "unit": "radio"
+  },
+  {
+   "front": "Uses of radioactivity",
+   "back": "Smoke alarms (α), measuring paper or foil thickness (β), sterilising food and medical equipment (γ), medical tracers and radiotherapy (γ), carbon dating.",
+   "unit": "radio"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "Which metal is NOT a magnetic material?",
+   "options": [
+    "Iron",
+    "Nickel",
+    "Copper",
+    "Steel"
+   ],
+   "answer": 2,
+   "why": "Copper is not attracted by a magnet. Iron, nickel, cobalt and steel are.",
+   "unit": "magnets"
+  },
+  {
+   "q": "Two north poles are brought close together. What happens?",
+   "options": [
+    "They repel",
+    "They attract",
+    "Nothing",
+    "They attract then repel"
+   ],
+   "answer": 0,
+   "why": "Like poles repel.",
+   "unit": "magnets"
+  },
+  {
+   "q": "Why is the core of an electromagnet made of soft iron?",
+   "options": [
+    "It is a permanent magnet",
+    "It is easily magnetised and demagnetised",
+    "It is a good electrical insulator",
+    "It is light"
+   ],
+   "answer": 1,
+   "why": "The magnet must switch off when the current stops, so the core must lose its magnetism easily.",
+   "unit": "magnets"
+  },
+  {
+   "q": "In which direction do magnetic field lines point outside a bar magnet?",
+   "options": [
+    "South to north",
+    "Into the middle from both ends",
+    "Out of the middle",
+    "North to south"
+   ],
+   "answer": 3,
+   "why": "Field lines show the direction of the force on a north pole, so they go from N to S.",
+   "unit": "magnets"
+  },
+  {
+   "q": "How can you prove that a steel bar is a magnet?",
+   "options": [
+    "It is attracted to a magnet",
+    "It sticks to iron",
+    "One end repels a pole of a known magnet",
+    "It conducts electricity"
+   ],
+   "answer": 2,
+   "why": "Attraction happens with any magnetic material. Only a magnet can repel another magnet.",
+   "unit": "magnets"
+  },
+  {
+   "q": "Where is the magnetic field of a bar magnet strongest?",
+   "options": [
+    "In the middle",
+    "At the poles",
+    "Equally strong everywhere",
+    "Far from the magnet"
+   ],
+   "answer": 1,
+   "why": "Field lines are closest together at the poles.",
+   "unit": "magnets"
+  },
+  {
+   "q": "A resistor has a current of 0.50 A when the p.d. across it is 6.0 V. What is its resistance?",
+   "options": [
+    "3.0 Ω",
+    "12 Ω",
+    "0.083 Ω",
+    "6.5 Ω"
+   ],
+   "answer": 1,
+   "why": "R = V ÷ I = 6.0 ÷ 0.50 = 12 Ω. 3.0 Ω comes from multiplying.",
+   "unit": "elec"
+  },
+  {
+   "q": "How should an ammeter be connected?",
+   "options": [
+    "In parallel with the component",
+    "Across the battery",
+    "In series with the component",
+    "Either way"
+   ],
+   "answer": 2,
+   "why": "An ammeter measures the current through a component, so the current must flow through it: in series.",
+   "unit": "elec"
+  },
+  {
+   "q": "A wire is replaced by a thicker wire of the same length and material. What happens to the resistance?",
+   "options": [
+    "It increases",
+    "It stays the same",
+    "It doubles",
+    "It decreases"
+   ],
+   "answer": 3,
+   "why": "A larger cross-sectional area gives the charge more room to flow, so resistance is lower.",
+   "unit": "elec"
+  },
+  {
+   "q": "A 2.0 kW kettle is used for 0.25 h. How much energy does it transfer?",
+   "options": [
+    "8 kWh",
+    "0.125 kWh",
+    "0.5 kWh",
+    "2.25 kWh"
+   ],
+   "answer": 2,
+   "why": "Energy = power × time = 2.0 kW × 0.25 h = 0.5 kWh.",
+   "unit": "elec"
+  },
+  {
+   "q": "A lamp takes 2.0 A from a 12 V supply. What is its power?",
+   "options": [
+    "6 W",
+    "14 W",
+    "0.17 W",
+    "24 W"
+   ],
+   "answer": 3,
+   "why": "P = IV = 2.0 × 12 = 24 W.",
+   "unit": "elec"
+  },
+  {
+   "q": "(Extended) A current of 0.20 A flows for 60 s. How much charge passes?",
+   "options": [
+    "12 C",
+    "300 C",
+    "0.0033 C",
+    "60.2 C"
+   ],
+   "answer": 0,
+   "why": "Q = It = 0.20 × 60 = 12 C.",
+   "unit": "elec"
+  },
+  {
+   "q": "Why does the I–V graph for a filament lamp curve?",
+   "options": [
+    "The voltage is not measured correctly",
+    "Its resistance increases as it gets hotter",
+    "Its resistance decreases as it gets hotter",
+    "The current is used up"
+   ],
+   "answer": 1,
+   "why": "As current rises the filament heats up and its resistance increases, so current rises less for each extra volt.",
+   "unit": "elec"
+  },
+  {
+   "q": "Two lamps are in series. One lamp breaks. What happens to the other?",
+   "options": [
+    "It gets brighter",
+    "It stays the same",
+    "It goes out",
+    "It flickers"
+   ],
+   "answer": 2,
+   "why": "In series there is only one path. A break anywhere stops the current everywhere.",
+   "unit": "circuits"
+  },
+  {
+   "q": "Resistors of 4 Ω and 6 Ω are connected in series. What is the combined resistance?",
+   "options": [
+    "2.4 Ω",
+    "10 Ω",
+    "24 Ω",
+    "1.5 Ω"
+   ],
+   "answer": 1,
+   "why": "In series, add: 4 + 6 = 10 Ω. 2.4 Ω would be the parallel value.",
+   "unit": "circuits"
+  },
+  {
+   "q": "Two parallel branches carry 0.3 A and 0.5 A. What is the current from the supply?",
+   "options": [
+    "0.2 A",
+    "0.15 A",
+    "0.5 A",
+    "0.8 A"
+   ],
+   "answer": 3,
+   "why": "In parallel, the branch currents add up: 0.3 + 0.5 = 0.8 A.",
+   "unit": "circuits"
+  },
+  {
+   "q": "A 2300 W kettle runs on 230 V, so its normal current is 10 A. Which fuse should it have?",
+   "options": [
+    "3 A",
+    "5 A",
+    "13 A",
+    "30 A"
+   ],
+   "answer": 2,
+   "why": "Choose the rating just above the normal current. 3 A and 5 A would blow at once; 30 A would not protect it.",
+   "unit": "circuits"
+  },
+  {
+   "q": "Why is the fuse placed in the live wire?",
+   "options": [
+    "So the appliance is disconnected from the high voltage when it blows",
+    "Because the live wire carries no current",
+    "So the earth wire carries the current",
+    "To make the appliance work faster"
+   ],
+   "answer": 0,
+   "why": "If the fuse were in the neutral wire, the appliance would still be connected to the live supply after it blew.",
+   "unit": "circuits"
+  },
+  {
+   "q": "(Extended) A 6 Ω and a 3 Ω resistor are connected in parallel. What is the combined resistance?",
+   "options": [
+    "9 Ω",
+    "4.5 Ω",
+    "0.5 Ω",
+    "2 Ω"
+   ],
+   "answer": 3,
+   "why": "1/R = 1/6 + 1/3 = 1/6 + 2/6 = 3/6, so R = 2 Ω. It is less than the smaller resistor, as expected.",
+   "unit": "circuits"
+  },
+  {
+   "q": "What happens to the resistance of a thermistor when it is warmed?",
+   "options": [
+    "It increases",
+    "It decreases",
+    "It stays the same",
+    "It becomes zero"
+   ],
+   "answer": 1,
+   "why": "A thermistor’s resistance falls as its temperature rises.",
+   "unit": "circuits"
+  },
+  {
+   "q": "Which change makes an electromagnet stronger?",
+   "options": [
+    "Using a copper core",
+    "Fewer turns of wire",
+    "Smaller current",
+    "More turns of wire"
+   ],
+   "answer": 3,
+   "why": "More turns, more current or an iron core make it stronger. Copper is not magnetic.",
+   "unit": "emag"
+  },
+  {
+   "q": "A wire carrying a current in a magnetic field feels an upward force. The current is reversed. What happens?",
+   "options": [
+    "The force is now downward",
+    "The force is still upward",
+    "The force disappears",
+    "The force doubles"
+   ],
+   "answer": 0,
+   "why": "Reversing the current (or the field) reverses the force.",
+   "unit": "emag"
+  },
+  {
+   "q": "What is the shape of the magnetic field around a long straight wire carrying a current?",
+   "options": [
+    "Straight lines parallel to the wire",
+    "Concentric circles around the wire",
+    "Like a bar magnet's field",
+    "There is no field"
+   ],
+   "answer": 1,
+   "why": "The field lines form circles centred on the wire.",
+   "unit": "emag"
+  },
+  {
+   "q": "A magnet is pushed into a coil connected to a meter, then held still inside it. When is an e.m.f. induced?",
+   "options": [
+    "Only while it is held still",
+    "All the time",
+    "Never",
+    "Only while the magnet is moving"
+   ],
+   "answer": 3,
+   "why": "An e.m.f. is only induced while the magnetic field through the coil is changing.",
+   "unit": "emag"
+  },
+  {
+   "q": "(Extended) A transformer steps 240 V down to 12 V. The primary coil has 2000 turns. How many turns does the secondary have?",
+   "options": [
+    "40 000",
+    "20",
+    "100",
+    "1000"
+   ],
+   "answer": 2,
+   "why": "Ns = Np × Vs ÷ Vp = 2000 × 12 ÷ 240 = 100 turns.",
+   "unit": "emag"
+  },
+  {
+   "q": "(Extended) In Fleming’s left-hand rule, what does the second finger represent?",
+   "options": [
+    "Field",
+    "Current",
+    "Force (motion)",
+    "Voltage"
+   ],
+   "answer": 1,
+   "why": "First finger = Field, seCond finger = Current, thuMb = Motion.",
+   "unit": "emag"
+  },
+  {
+   "q": "Which change would make a d.c. motor turn faster?",
+   "options": [
+    "Reversing the current",
+    "Using fewer turns on the coil",
+    "Using a stronger magnet",
+    "Reversing the magnet"
+   ],
+   "answer": 2,
+   "why": "A stronger field (or more current, or more turns) increases the turning effect. Reversing either just changes direction.",
+   "unit": "emag"
+  },
+  {
+   "q": "Uranium-238 has 92 protons. How many neutrons does it have?",
+   "options": [
+    "92",
+    "238",
+    "330",
+    "146"
+   ],
+   "answer": 3,
+   "why": "Neutrons = A − Z = 238 − 92 = 146.",
+   "unit": "atom"
+  },
+  {
+   "q": "Isotopes of an element have different numbers of which particle?",
+   "options": [
+    "Protons",
+    "Electrons",
+    "Neutrons",
+    "Charges on the nucleus"
+   ],
+   "answer": 2,
+   "why": "Same element means same proton number; isotopes differ in the number of neutrons.",
+   "unit": "atom"
+  },
+  {
+   "q": "Where is most of the mass of an atom?",
+   "options": [
+    "In the nucleus",
+    "In the electrons",
+    "Spread evenly through the atom",
+    "In the empty space"
+   ],
+   "answer": 0,
+   "why": "Protons and neutrons are about 1840 times heavier than electrons, and both are in the nucleus.",
+   "unit": "atom"
+  },
+  {
+   "q": "What is the overall charge of a nucleus?",
+   "options": [
+    "Negative",
+    "Neutral",
+    "It varies between elements",
+    "Positive"
+   ],
+   "answer": 3,
+   "why": "The nucleus contains positive protons and neutral neutrons, so it is always positive.",
+   "unit": "atom"
+  },
+  {
+   "q": "Which describes nuclear fusion?",
+   "options": [
+    "A uranium nucleus splits in two",
+    "Hydrogen nuclei join to form helium",
+    "An atom loses an electron",
+    "A nucleus emits an alpha particle"
+   ],
+   "answer": 1,
+   "why": "Fusion means joining light nuclei. Splitting a heavy nucleus is fission.",
+   "unit": "atom"
+  },
+  {
+   "q": "(Extended) In the alpha-scattering experiment, most alpha particles went straight through the gold foil. What does this show?",
+   "options": [
+    "The nucleus is negative",
+    "Electrons are heavy",
+    "Most of the atom is empty space",
+    "Atoms are solid spheres"
+   ],
+   "answer": 2,
+   "why": "Only a few particles came near the tiny nucleus; most passed through the empty space.",
+   "unit": "atom"
+  },
+  {
+   "q": "Which radiation is stopped by a sheet of paper?",
+   "options": [
+    "Alpha",
+    "Beta",
+    "Gamma",
+    "All three"
+   ],
+   "answer": 0,
+   "why": "Alpha is the least penetrating. Beta needs aluminium; gamma needs thick lead.",
+   "unit": "radio"
+  },
+  {
+   "q": "A sample has a count rate of 800 counts/min. Its half-life is 6 hours. What is the count rate after 18 hours? (Ignore background.)",
+   "options": [
+    "400 counts/min",
+    "266 counts/min",
+    "100 counts/min",
+    "200 counts/min"
+   ],
+   "answer": 2,
+   "why": "18 h = 3 half-lives: 800 → 400 → 200 → 100 counts/min.",
+   "unit": "radio"
+  },
+  {
+   "q": "Which type of radiation is an electromagnetic wave?",
+   "options": [
+    "Alpha",
+    "Beta",
+    "Neutrons",
+    "Gamma"
+   ],
+   "answer": 3,
+   "why": "Gamma rays are electromagnetic radiation. Alpha and beta are particles.",
+   "unit": "radio"
+  },
+  {
+   "q": "Which is a source of background radiation?",
+   "options": [
+    "Mobile phones",
+    "Rocks containing radioactive isotopes",
+    "Visible light",
+    "Microwave ovens"
+   ],
+   "answer": 1,
+   "why": "Radon gas and rocks are major sources. Phones and microwave ovens give non-ionising radiation.",
+   "unit": "radio"
+  },
+  {
+   "q": "Radioactive decay is random. What does this mean?",
+   "options": [
+    "It happens faster when heated",
+    "All nuclei decay at the same moment",
+    "You cannot predict when a particular nucleus will decay",
+    "It only happens in the dark"
+   ],
+   "answer": 2,
+   "why": "We can say what fraction will decay in a half-life, but not which nucleus will decay next.",
+   "unit": "radio"
+  },
+  {
+   "q": "(Extended) Radium-226 (proton number 88) emits an alpha particle. What are the nucleon and proton numbers of the new nucleus?",
+   "options": [
+    "226 and 86",
+    "222 and 86",
+    "222 and 90",
+    "224 and 87"
+   ],
+   "answer": 1,
+   "why": "Alpha decay: nucleon number − 4 = 222; proton number − 2 = 86.",
+   "unit": "radio"
+  },
+  {
+   "q": "A sample’s corrected count rate falls from 520 to 65 counts/min in 30 minutes. What is its half-life?",
+   "options": [
+    "30 min",
+    "10 min",
+    "15 min",
+    "7.5 min"
+   ],
+   "answer": 1,
+   "why": "520 → 260 → 130 → 65 is three half-lives in 30 min, so one half-life = 10 min.",
+   "unit": "radio"
+  }
+ ],
+ "examIntro": "Theory-paper style. Write your answer first, then open the mark scheme and give yourself one mark per point you made clearly. In calculations, the formula, the substitution and the answer with unit each earn marks.",
+ "exam": [
+  {
+   "q": "State one difference between soft iron and steel as magnetic materials.",
+   "marks": 2,
+   "points": [
+    "Soft iron is easily magnetised and easily demagnetised (temporary magnet)",
+    "Steel is harder to magnetise but keeps its magnetism (permanent magnet)"
+   ],
+   "note": "1 mark for each material.",
+   "unit": "magnets"
+  },
+  {
+   "q": "Describe how to use a plotting compass to draw the magnetic field lines around a bar magnet.",
+   "marks": 3,
+   "points": [
+    "Place the magnet on paper and draw round it",
+    "Put the compass near one pole and mark a dot where the needle points",
+    "Move the compass so its other end is at the dot and mark again; repeat",
+    "Join the dots with a smooth line and add arrows from N to S"
+   ],
+   "note": "Any 3.",
+   "unit": "magnets"
+  },
+  {
+   "q": "Explain why an unmagnetised iron nail is attracted to either pole of a bar magnet.",
+   "marks": 4,
+   "points": [
+    "The magnet induces magnetism in the nail",
+    "The end of the nail nearest a N pole becomes a S pole (and nearest a S pole, a N pole)",
+    "Unlike poles attract",
+    "So the nail is attracted whichever pole is used"
+   ],
+   "unit": "magnets"
+  },
+  {
+   "q": "The p.d. across a resistor is 9.0 V and the current through it is 0.30 A. Calculate its resistance.",
+   "marks": 3,
+   "points": [
+    "R = V ÷ I",
+    "= 9.0 ÷ 0.30",
+    "= 30 Ω"
+   ],
+   "unit": "elec"
+  },
+  {
+   "q": "A heater is connected to a 230 V supply and takes a current of 4.0 A. Calculate (a) its power, (b) the energy it transfers in 10 minutes.",
+   "marks": 4,
+   "points": [
+    "(a) P = IV = 230 × 4.0",
+    "= 920 W",
+    "(b) E = IVt (or Pt) with t = 600 s: 920 × 600",
+    "= 552 000 J (5.5 × 10⁵ J)"
+   ],
+   "unit": "elec"
+  },
+  {
+   "q": "Describe an experiment to investigate how the resistance of a wire depends on its length.",
+   "marks": 5,
+   "points": [
+    "Circuit: cell/power supply, ammeter in series with the wire, voltmeter in parallel across the wire",
+    "Use crocodile clips to connect different lengths, measured with a metre rule",
+    "Record the current and p.d. for each length",
+    "Calculate R = V ÷ I for each length",
+    "Keep the same wire (material and thickness); use a small current / switch off between readings so it does not heat up",
+    "Plot resistance against length: straight line, resistance increases with length"
+   ],
+   "note": "Any 5.",
+   "unit": "elec"
+  },
+  {
+   "q": "A 6.0 V battery is connected to a 2.0 Ω resistor and a 4.0 Ω resistor in series. Calculate the current.",
+   "marks": 3,
+   "points": [
+    "Total resistance = 2.0 + 4.0 = 6.0 Ω",
+    "I = V ÷ R = 6.0 ÷ 6.0",
+    "= 1.0 A"
+   ],
+   "unit": "circuits"
+  },
+  {
+   "q": "A kettle has a metal case, an earth wire and a fuse. A fault makes the live wire touch the case. Explain how the earth wire and fuse protect the user.",
+   "marks": 4,
+   "points": [
+    "The earth wire connects the metal case to earth",
+    "Current flows through the earth wire (low resistance) instead of through a person",
+    "This current is very large",
+    "So the fuse melts / blows",
+    "This disconnects the live wire, so the case is no longer live"
+   ],
+   "note": "Any 4.",
+   "unit": "circuits"
+  },
+  {
+   "q": "(Extended) A 4.0 Ω resistor and a 12 Ω resistor are connected in parallel to a 12 V supply. Calculate (a) their combined resistance, (b) the current from the supply.",
+   "marks": 5,
+   "points": [
+    "(a) 1/R = 1/R₁ + 1/R₂",
+    "= 1/4.0 + 1/12 (= 1/3)",
+    "R = 3.0 Ω",
+    "(b) I = V ÷ R = 12 ÷ 3.0",
+    "= 4.0 A"
+   ],
+   "unit": "circuits"
+  },
+  {
+   "q": "State two ways to increase the strength of an electromagnet.",
+   "marks": 2,
+   "points": [
+    "Increase the current",
+    "Increase the number of turns on the coil",
+    "Use a soft iron core"
+   ],
+   "note": "Any 2.",
+   "unit": "emag"
+  },
+  {
+   "q": "Describe how to show electromagnetic induction using a bar magnet, a coil of wire and a sensitive meter, and what is seen.",
+   "marks": 4,
+   "points": [
+    "Connect the coil to the sensitive meter (galvanometer)",
+    "Push the magnet into the coil: the needle deflects",
+    "Hold the magnet still: no reading",
+    "Pull it out: the needle deflects the opposite way",
+    "Moving the magnet faster gives a bigger deflection"
+   ],
+   "note": "Any 4.",
+   "unit": "emag"
+  },
+  {
+   "q": "(Extended) A transformer changes 230 V to 11.5 V. The primary coil has 1000 turns. (a) Calculate the number of turns on the secondary. (b) Explain why a transformer only works with alternating current.",
+   "marks": 5,
+   "points": [
+    "(a) Vp ÷ Vs = Np ÷ Ns",
+    "Ns = 1000 × 11.5 ÷ 230",
+    "= 50 turns",
+    "(b) Alternating current in the primary produces a changing magnetic field in the core",
+    "A changing field is needed to induce an e.m.f. in the secondary (d.c. gives a steady field, so no e.m.f.)"
+   ],
+   "unit": "emag"
+  },
+  {
+   "q": "(Extended) Explain how a simple d.c. motor keeps turning.",
+   "marks": 5,
+   "points": [
+    "Current flows through the coil, which is in a magnetic field",
+    "Each side of the coil feels a force",
+    "The forces on the two sides are in opposite directions (one up, one down), giving a turning effect",
+    "A split-ring commutator reverses the current in the coil every half turn",
+    "So the forces keep turning the coil in the same direction",
+    "Brushes keep the commutator in contact with the supply"
+   ],
+   "note": "Any 5.",
+   "unit": "emag"
+  },
+  {
+   "q": "A sodium atom is ²³₁₁Na. State the numbers of protons, neutrons and electrons in the atom.",
+   "marks": 3,
+   "points": [
+    "11 protons",
+    "12 neutrons (23 − 11)",
+    "11 electrons"
+   ],
+   "unit": "atom"
+  },
+  {
+   "q": "Explain what is meant by isotopes, and give an example.",
+   "marks": 3,
+   "points": [
+    "Atoms of the same element / same proton number",
+    "With different nucleon numbers / different numbers of neutrons",
+    "Example: carbon-12 and carbon-14 (or any correct pair)"
+   ],
+   "unit": "atom"
+  },
+  {
+   "q": "(Extended) Describe the results of the alpha-particle scattering experiment and what they show about the atom.",
+   "marks": 5,
+   "points": [
+    "Alpha particles were fired at a very thin gold foil",
+    "Most went straight through: the atom is mostly empty space",
+    "Some were deflected by small angles",
+    "A very few bounced back: the nucleus is very small and dense / holds most of the mass",
+    "Alpha particles were repelled: the nucleus is positively charged"
+   ],
+   "note": "Any 5.",
+   "unit": "atom"
+  },
+  {
+   "q": "Describe the nature of alpha, beta and gamma radiation.",
+   "marks": 3,
+   "points": [
+    "Alpha: a helium nucleus (2 protons and 2 neutrons)",
+    "Beta: a fast-moving electron (from the nucleus)",
+    "Gamma: electromagnetic radiation (a wave)"
+   ],
+   "unit": "radio"
+  },
+  {
+   "q": "The count rate from a radioactive source is 680 counts/min. The background count rate is 40 counts/min. The half-life is 5 days. Calculate the corrected count rate after 15 days.",
+   "marks": 4,
+   "points": [
+    "Corrected count rate = 680 − 40 = 640 counts/min",
+    "15 days = 3 half-lives",
+    "640 → 320 → 160 → 80",
+    "= 80 counts/min"
+   ],
+   "unit": "radio"
+  },
+  {
+   "q": "(Extended) Thorium-234 (proton number 90) decays by beta emission. State the nucleon number and proton number of the new nucleus and explain the change.",
+   "marks": 4,
+   "points": [
+    "Nucleon number stays 234",
+    "Proton number becomes 91",
+    "A neutron in the nucleus changes into a proton",
+    "and an electron, which is emitted as the beta particle"
+   ],
+   "unit": "radio"
+  },
+  {
+   "q": "A teacher uses a radioactive source in a lesson. Describe four safety precautions and explain why they are needed.",
+   "marks": 5,
+   "points": [
+    "Handle the source with long tongs / never touch it",
+    "Keep it at arm’s length / as far as possible from the body",
+    "Keep the time it is out of its box as short as possible",
+    "Store it in a lead-lined box when not in use",
+    "Never point it at anyone",
+    "Reason: ionising radiation damages cells / DNA, which can cause mutations or cancer"
+   ],
+   "note": "Any 4 precautions + 1 for the reason.",
+   "unit": "radio"
+  }
+ ]
+}

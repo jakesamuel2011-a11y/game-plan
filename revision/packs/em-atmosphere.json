@@ -1,0 +1,856 @@
+{
+ "id": "em-atmosphere",
+ "subject": "EM",
+ "title": "Atmosphere & climate",
+ "sub": "Structure, air pollution, acid rain, ozone, climate change",
+ "strategyIntro": "Environmental Management has no Core or Extended split. The full exam is Paper 1 (theory: short questions, then longer questions using source material) and Paper 2 (management in context, based on one country). Most marks come from reading sources and building arguments.",
+ "strategy": [
+  {
+   "title": "Quote the data",
+   "key": true,
+   "points": [
+    "Most marks come from graphs, tables and maps.",
+    "Use figures with units: “fell from 62% to 41%” scores; “it fell” doesn’t.",
+    "Describe the overall trend first, then give the highest, lowest or any exception."
+   ]
+  },
+  {
+   "title": "The 6-mark argument",
+   "key": true,
+   "points": [
+    "Usually one per paper: discuss a statement for and against.",
+    "Structure: two points for, two against, then a conclusion.",
+    "Each point needs a reason: say why it matters, not just what it is."
+   ]
+  },
+  {
+   "title": "Keep the issues separate",
+   "points": [
+    "Acid rain, ozone depletion and the enhanced greenhouse effect have different causes, effects and solutions. Do not mix them up: CFCs damage ozone; CO2 does not.",
+    "On Paper 2, link every answer back to the country in the source. General answers score lower."
+   ]
+  },
+  {
+   "title": "Fieldwork comes up every year",
+   "points": [
+    "Know sampling, quadrats, questionnaires and how to make them reliable.",
+    "Evaluate a method: one strength, one weakness, one improvement."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "State",
+   "Give a short fact. No explanation needed."
+  ],
+  [
+   "Describe",
+   "Say what happens or what you see. With data, quote figures and units."
+  ],
+  [
+   "Explain",
+   "Say why or how. Use “because” and link cause to effect."
+  ],
+  [
+   "Suggest",
+   "Apply what you know to a new situation. Any sensible reason scores."
+  ],
+  [
+   "Compare",
+   "Give similarities or differences for both things in the same sentence."
+  ],
+  [
+   "Calculate",
+   "Show working and give the unit."
+  ],
+  [
+   "Evaluate",
+   "Weigh up both sides and finish with a judgement."
+  ]
+ ],
+ "quizTitle": "Quick recall check",
+ "quizIntro": "These are not exam-format questions (EM has no multiple choice). Use them to check the facts are secure before you try the longer questions.",
+ "flashIntro": "Say each definition out loud before you tap, then check you used the exact keywords.",
+ "flashcards": [
+  {
+   "front": "Composition of dry air",
+   "back": "Nitrogen about 78%, oxygen about 21%, argon about 0.9%, carbon dioxide about 0.04%, plus varying water vapour.",
+   "unit": "atmos"
+  },
+  {
+   "front": "Troposphere",
+   "back": "Lowest layer, from the ground to about 12 km. Contains most of the air and all the weather; temperature falls with height.",
+   "unit": "atmos"
+  },
+  {
+   "front": "Stratosphere",
+   "back": "Layer from about 12 to 50 km. Contains the ozone layer; temperature rises with height because ozone absorbs UV.",
+   "unit": "atmos"
+  },
+  {
+   "front": "Mesosphere and thermosphere",
+   "back": "Mesosphere (about 50–80 km): temperature falls with height. Thermosphere (above about 80 km): temperature rises.",
+   "unit": "atmos"
+  },
+  {
+   "front": "Ozone layer",
+   "back": "A layer of ozone (O3) gas in the stratosphere that absorbs most of the Sun’s harmful ultraviolet (UV) radiation.",
+   "unit": "atmos"
+  },
+  {
+   "front": "Short-wave and long-wave radiation",
+   "back": "The Sun’s energy arrives as short-wave radiation; the warmed Earth gives off long-wave infrared radiation.",
+   "unit": "atmos"
+  },
+  {
+   "front": "Natural greenhouse effect",
+   "back": "Greenhouse gases absorb infrared radiation from the Earth and re-emit it, keeping the Earth about 33°C warmer than it would be.",
+   "unit": "atmos"
+  },
+  {
+   "front": "Greenhouse gases",
+   "back": "Water vapour, carbon dioxide, methane, nitrous oxide and CFCs.",
+   "unit": "atmos"
+  },
+  {
+   "front": "Removing carbon dioxide",
+   "back": "Photosynthesis by plants and phytoplankton, and dissolving in the oceans, take carbon dioxide out of the air.",
+   "unit": "atmos"
+  },
+  {
+   "front": "Adding carbon dioxide",
+   "back": "Respiration, burning (combustion) of fuels and forests, decomposition, volcanic eruptions.",
+   "unit": "atmos"
+  },
+  {
+   "front": "Pollutant",
+   "back": "A substance released into the environment that harms living things.",
+   "unit": "airpoll"
+  },
+  {
+   "front": "Carbon monoxide",
+   "back": "From incomplete combustion, e.g. car engines. Combines with haemoglobin, so blood carries less oxygen.",
+   "unit": "airpoll"
+  },
+  {
+   "front": "Sulfur dioxide",
+   "back": "From burning coal and oil that contain sulfur. Causes acid rain and breathing problems.",
+   "unit": "airpoll"
+  },
+  {
+   "front": "Nitrogen oxides",
+   "back": "Formed in hot engines and power stations. Cause acid rain and photochemical smog; irritate lungs.",
+   "unit": "airpoll"
+  },
+  {
+   "front": "Particulates",
+   "back": "Tiny particles of soot and dust, e.g. from diesel engines and burning. Cause lung and heart disease.",
+   "unit": "airpoll"
+  },
+  {
+   "front": "Photochemical smog",
+   "back": "Brown haze formed when sunlight acts on nitrogen oxides and hydrocarbons from traffic, producing ground-level ozone.",
+   "unit": "airpoll"
+  },
+  {
+   "front": "Ground-level ozone",
+   "back": "A secondary pollutant: irritates eyes and lungs and damages crops. (High up, ozone is useful; at ground level it is harmful.)",
+   "unit": "airpoll"
+  },
+  {
+   "front": "Temperature inversion",
+   "back": "A layer of warm air sits above cooler air near the ground, trapping pollution so it cannot rise and disperse.",
+   "unit": "airpoll"
+  },
+  {
+   "front": "Catalytic converter",
+   "back": "Fitted to car exhausts; converts carbon monoxide, nitrogen oxides and unburnt hydrocarbons into carbon dioxide, nitrogen and water.",
+   "unit": "airpoll"
+  },
+  {
+   "front": "Reducing urban air pollution",
+   "back": "Clean air laws, low-emission zones, public transport, electric vehicles, smokeless fuels, filters on factory chimneys.",
+   "unit": "airpoll"
+  },
+  {
+   "front": "Acid rain",
+   "back": "Rain with a pH below about 5.6, caused by sulfur dioxide and nitrogen oxides dissolving in water in the air to form sulfuric and nitric acids.",
+   "unit": "acidrain"
+  },
+  {
+   "front": "Normal rain",
+   "back": "Slightly acidic (pH about 5.6) because carbon dioxide dissolves in it to form weak carbonic acid.",
+   "unit": "acidrain"
+  },
+  {
+   "front": "Wet and dry deposition",
+   "back": "Wet: acids fall in rain, snow or fog. Dry: acidic gases and particles settle directly on surfaces.",
+   "unit": "acidrain"
+  },
+  {
+   "front": "Acid rain and lakes",
+   "back": "Lower pH; aluminium is washed out of soils, damaging fish gills. Fish eggs and invertebrates die.",
+   "unit": "acidrain"
+  },
+  {
+   "front": "Acid rain and trees",
+   "back": "Damages leaves; nutrients such as calcium and magnesium are leached from soil; trees weaken and die.",
+   "unit": "acidrain"
+  },
+  {
+   "front": "Acid rain and buildings",
+   "back": "Limestone and marble are dissolved (chemical weathering); metals corrode.",
+   "unit": "acidrain"
+  },
+  {
+   "front": "Transboundary pollution",
+   "back": "Pollution carried by winds across national borders, e.g. emissions from the UK falling as acid rain in Scandinavia.",
+   "unit": "acidrain"
+  },
+  {
+   "front": "Flue gas desulfurisation",
+   "back": "“Scrubbers” in power station chimneys use lime or limestone to remove sulfur dioxide from waste gases.",
+   "unit": "acidrain"
+  },
+  {
+   "front": "Liming lakes",
+   "back": "Adding powdered limestone to neutralise acidic lakes. Treats the symptom, not the cause.",
+   "unit": "acidrain"
+  },
+  {
+   "front": "Reducing acid rain",
+   "back": "Switch from coal to gas or renewables, use low-sulfur fuels, fit scrubbers and catalytic converters, international agreements.",
+   "unit": "acidrain"
+  },
+  {
+   "front": "Ozone depletion",
+   "back": "Thinning of the ozone layer in the stratosphere, mainly caused by CFCs.",
+   "unit": "ozone"
+  },
+  {
+   "front": "CFCs",
+   "back": "Chlorofluorocarbons: once used in aerosol sprays, fridges, air-conditioning and foam packaging.",
+   "unit": "ozone"
+  },
+  {
+   "front": "How CFCs destroy ozone",
+   "back": "UV breaks CFCs apart in the stratosphere, releasing chlorine. Each chlorine atom can destroy thousands of ozone molecules.",
+   "unit": "ozone"
+  },
+  {
+   "front": "Ozone hole",
+   "back": "Area of severe ozone thinning over Antarctica, largest each southern spring (September to November).",
+   "unit": "ozone"
+  },
+  {
+   "front": "Effects of more UV on people",
+   "back": "Sunburn, skin cancer, cataracts (eye damage), weakened immune system.",
+   "unit": "ozone"
+  },
+  {
+   "front": "Effects of more UV on ecosystems",
+   "back": "Damage to crops and to phytoplankton, the base of ocean food chains.",
+   "unit": "ozone"
+  },
+  {
+   "front": "Montreal Protocol",
+   "back": "1987 international agreement to phase out CFCs and other ozone-depleting gases. Signed by every country.",
+   "unit": "ozone"
+  },
+  {
+   "front": "Ozone recovery",
+   "back": "The ozone layer is slowly recovering, but CFCs stay in the air for decades, so full recovery will take until the second half of this century.",
+   "unit": "ozone"
+  },
+  {
+   "front": "CFC replacements",
+   "back": "HCFCs and HFCs, and hydrocarbons. HFCs do not harm ozone but are strong greenhouse gases.",
+   "unit": "ozone"
+  },
+  {
+   "front": "Enhanced greenhouse effect",
+   "back": "Extra greenhouse gases from human activities trap more heat, causing global warming.",
+   "unit": "climate"
+  },
+  {
+   "front": "Sources of carbon dioxide",
+   "back": "Burning fossil fuels (power, transport, industry), deforestation, cement making.",
+   "unit": "climate"
+  },
+  {
+   "front": "Sources of methane",
+   "back": "Cattle (digestion), rice paddies, landfill sites, leaks from gas and coal mining, melting permafrost.",
+   "unit": "climate"
+  },
+  {
+   "front": "Nitrous oxide",
+   "back": "A greenhouse gas released mainly from nitrogen fertilisers and animal manure.",
+   "unit": "climate"
+  },
+  {
+   "front": "Carbon dioxide levels",
+   "back": "About 280 ppm before the Industrial Revolution; over 420 ppm today.",
+   "unit": "climate"
+  },
+  {
+   "front": "Sea level rise",
+   "back": "Caused by thermal expansion of warming sea water and melting of land ice (glaciers, ice sheets).",
+   "unit": "climate"
+  },
+  {
+   "front": "Impacts of climate change",
+   "back": "More extreme weather, droughts and floods, sea level rise, coral bleaching, species shifting or going extinct, malaria spreading.",
+   "unit": "climate"
+  },
+  {
+   "front": "Ocean acidification",
+   "back": "The oceans absorb carbon dioxide, which forms carbonic acid. Makes it harder for corals and shellfish to build shells.",
+   "unit": "climate"
+  },
+  {
+   "front": "Mitigation and adaptation",
+   "back": "Mitigation: reducing the causes (e.g. renewables, planting trees). Adaptation: coping with the effects (e.g. sea walls, drought-resistant crops).",
+   "unit": "climate"
+  },
+  {
+   "front": "Paris Agreement",
+   "back": "2015 agreement to keep global warming well below 2°C above pre-industrial levels, aiming for 1.5°C.",
+   "unit": "climate"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "Which gas makes up most of the atmosphere?",
+   "options": [
+    "Oxygen",
+    "Carbon dioxide",
+    "Argon",
+    "Nitrogen"
+   ],
+   "answer": 3,
+   "why": "Nitrogen is about 78% of dry air; oxygen about 21%.",
+   "unit": "atmos"
+  },
+  {
+   "q": "In which layer does weather happen?",
+   "options": [
+    "Troposphere",
+    "Stratosphere",
+    "Mesosphere",
+    "Thermosphere"
+   ],
+   "answer": 0,
+   "why": "Almost all water vapour and clouds are in the troposphere.",
+   "unit": "atmos"
+  },
+  {
+   "q": "The ozone layer is found in the:",
+   "options": [
+    "Troposphere",
+    "Stratosphere",
+    "Mesosphere",
+    "Thermosphere"
+   ],
+   "answer": 1,
+   "why": "About 15–35 km up, inside the stratosphere.",
+   "unit": "atmos"
+  },
+  {
+   "q": "Without the natural greenhouse effect, the Earth’s average temperature would be about:",
+   "options": [
+    "15°C",
+    "33°C",
+    "−18°C",
+    "0°C"
+   ],
+   "answer": 2,
+   "why": "The actual average is about 15°C, so the natural greenhouse effect adds about 33°C.",
+   "unit": "atmos"
+  },
+  {
+   "q": "Greenhouse gases warm the Earth by absorbing:",
+   "options": [
+    "Infrared radiation given off by the Earth’s surface",
+    "Ultraviolet radiation from the Sun",
+    "Visible light from the Sun",
+    "Radio waves"
+   ],
+   "answer": 0,
+   "why": "Short-wave sunlight passes through; long-wave infrared from the warm surface is absorbed and re-emitted.",
+   "unit": "atmos"
+  },
+  {
+   "q": "Which pollutant reduces the amount of oxygen the blood can carry?",
+   "options": [
+    "Sulfur dioxide",
+    "Carbon monoxide",
+    "Nitrogen",
+    "Methane"
+   ],
+   "answer": 1,
+   "why": "Carbon monoxide binds to haemoglobin more strongly than oxygen does.",
+   "unit": "airpoll"
+  },
+  {
+   "q": "A temperature inversion makes smog worse because:",
+   "options": [
+    "Warm air above traps cooler, polluted air near the ground",
+    "It brings heavy rain",
+    "It increases wind speed",
+    "It destroys ozone"
+   ],
+   "answer": 0,
+   "why": "Normally warm polluted air rises and disperses; under an inversion it cannot rise.",
+   "unit": "airpoll"
+  },
+  {
+   "q": "Catalytic converters reduce emissions of:",
+   "options": [
+    "Carbon dioxide only",
+    "CFCs",
+    "Water vapour",
+    "Carbon monoxide, nitrogen oxides and hydrocarbons"
+   ],
+   "answer": 3,
+   "why": "They do not reduce carbon dioxide; they actually turn carbon monoxide into it.",
+   "unit": "airpoll"
+  },
+  {
+   "q": "Photochemical smog is most common in cities that:",
+   "options": [
+    "Are cold and cloudy",
+    "Have no traffic",
+    "Are sunny and have heavy traffic",
+    "Are on the coast"
+   ],
+   "answer": 2,
+   "why": "It needs sunlight acting on traffic pollutants: e.g. Los Angeles, Mexico City.",
+   "unit": "airpoll"
+  },
+  {
+   "q": "A major source of particulates in cities is:",
+   "options": [
+    "Diesel vehicles",
+    "Wind turbines",
+    "Solar panels",
+    "Trees"
+   ],
+   "answer": 0,
+   "why": "Also burning of coal, wood and waste, and construction dust.",
+   "unit": "airpoll"
+  },
+  {
+   "q": "Unpolluted rain is slightly acidic because:",
+   "options": [
+    "Sulfur dioxide dissolves in it",
+    "Carbon dioxide dissolves in it, forming weak carbonic acid",
+    "It contains salt",
+    "Ozone dissolves in it"
+   ],
+   "answer": 1,
+   "why": "Rain only counts as acid rain when the pH is below about 5.6.",
+   "unit": "acidrain"
+  },
+  {
+   "q": "The main gases that cause acid rain are:",
+   "options": [
+    "Sulfur dioxide and nitrogen oxides",
+    "Carbon dioxide and methane",
+    "CFCs and ozone",
+    "Oxygen and nitrogen"
+   ],
+   "answer": 0,
+   "why": "They react with water to form sulfuric and nitric acids.",
+   "unit": "acidrain"
+  },
+  {
+   "q": "Flue gas desulfurisation removes:",
+   "options": [
+    "Carbon dioxide",
+    "Nitrogen oxides",
+    "Particulates",
+    "Sulfur dioxide"
+   ],
+   "answer": 3,
+   "why": "Limestone reacts with the sulfur dioxide, making gypsum, which can be sold for plasterboard.",
+   "unit": "acidrain"
+  },
+  {
+   "q": "Fish die in acidified lakes partly because:",
+   "options": [
+    "The water becomes too warm",
+    "Algae grow too fast",
+    "Aluminium released from soils damages their gills",
+    "Oil coats their scales"
+   ],
+   "answer": 2,
+   "why": "Fish eggs are also very sensitive to low pH.",
+   "unit": "acidrain"
+  },
+  {
+   "q": "Acid rain needs international agreements because:",
+   "options": [
+    "Only one country causes it",
+    "Winds carry pollutants across national borders",
+    "It only falls at sea",
+    "It is caused by volcanoes"
+   ],
+   "answer": 1,
+   "why": "The country that suffers is often not the one that produced the pollution.",
+   "unit": "acidrain"
+  },
+  {
+   "q": "CFCs were widely used in:",
+   "options": [
+    "Car fuel",
+    "Fertilisers",
+    "Fridges and aerosol sprays",
+    "Steel making"
+   ],
+   "answer": 2,
+   "why": "Also air-conditioning and foam packaging.",
+   "unit": "ozone"
+  },
+  {
+   "q": "The largest ozone hole forms each year over:",
+   "options": [
+    "The Arctic",
+    "Antarctica",
+    "The equator",
+    "Europe"
+   ],
+   "answer": 1,
+   "why": "Very cold stratospheric clouds there speed up the reactions that destroy ozone.",
+   "unit": "ozone"
+  },
+  {
+   "q": "A health effect of increased UV radiation is:",
+   "options": [
+    "Skin cancer",
+    "Asthma",
+    "Cholera",
+    "Malaria"
+   ],
+   "answer": 0,
+   "why": "Also cataracts and sunburn.",
+   "unit": "ozone"
+  },
+  {
+   "q": "The Montreal Protocol aimed to:",
+   "options": [
+    "Cut carbon dioxide emissions",
+    "Reduce acid rain",
+    "Protect whales",
+    "Phase out CFCs and other ozone-depleting gases"
+   ],
+   "answer": 3,
+   "why": "Often called the most successful environmental agreement ever.",
+   "unit": "ozone"
+  },
+  {
+   "q": "Why will the ozone layer take decades to recover?",
+   "options": [
+    "New CFCs are still widely used in fridges",
+    "CFCs already released stay in the atmosphere for many years",
+    "Ozone cannot form again",
+    "UV radiation destroys ozone permanently"
+   ],
+   "answer": 1,
+   "why": "CFCs are very stable, so they last a long time in the atmosphere.",
+   "unit": "ozone"
+  },
+  {
+   "q": "The main reason carbon dioxide levels have risen since 1800 is:",
+   "options": [
+    "Volcanic eruptions",
+    "Burning fossil fuels",
+    "Respiration by animals",
+    "Ozone depletion"
+   ],
+   "answer": 1,
+   "why": "Deforestation adds to it, by burning trees and removing a carbon sink.",
+   "unit": "climate"
+  },
+  {
+   "q": "Which is a major source of methane?",
+   "options": [
+    "Wind farms",
+    "Nuclear power stations",
+    "Rice paddies and cattle",
+    "Solar panels"
+   ],
+   "answer": 2,
+   "why": "Also landfill sites and gas leaks.",
+   "unit": "climate"
+  },
+  {
+   "q": "Global sea level is rising mainly because of:",
+   "options": [
+    "Thermal expansion and melting land ice",
+    "Melting sea ice only",
+    "More rainfall",
+    "Tsunamis"
+   ],
+   "answer": 0,
+   "why": "Melting sea ice is already floating, so it barely changes sea level.",
+   "unit": "climate"
+  },
+  {
+   "q": "Which is an example of adaptation rather than mitigation?",
+   "options": [
+    "Building wind farms",
+    "Planting forests",
+    "Using electric cars",
+    "Building higher sea walls"
+   ],
+   "answer": 3,
+   "why": "Adaptation copes with the effects; the others reduce the causes.",
+   "unit": "climate"
+  },
+  {
+   "q": "The Paris Agreement aims to limit global warming to:",
+   "options": [
+    "Well below 2°C, aiming for 1.5°C",
+    "Below 5°C",
+    "Exactly 0°C",
+    "Below 3°C, aiming for 2.5°C"
+   ],
+   "answer": 0,
+   "why": "Measured against pre-industrial temperatures.",
+   "unit": "climate"
+  },
+  {
+   "q": "Before the Industrial Revolution, carbon dioxide in the air was about:",
+   "options": [
+    "420 ppm",
+    "1000 ppm",
+    "280 ppm",
+    "40 ppm"
+   ],
+   "answer": 2,
+   "why": "It is now over 420 ppm, about 50% higher.",
+   "unit": "climate"
+  }
+ ],
+ "examIntro": "Paper 1 style. Write your answer first, then open the mark scheme. The data questions give a small table in the question: quote the figures in your answer.",
+ "exam": [
+  {
+   "q": "State the approximate percentage of nitrogen and of oxygen in dry air.",
+   "marks": 2,
+   "points": [
+    "Nitrogen: 78%",
+    "Oxygen: 21%"
+   ],
+   "unit": "atmos"
+  },
+  {
+   "q": "Describe the natural greenhouse effect.",
+   "marks": 4,
+   "points": [
+    "Short-wave radiation from the Sun passes through the atmosphere",
+    "It heats the Earth’s surface",
+    "The Earth gives off long-wave (infrared) radiation",
+    "Greenhouse gases (e.g. CO2, water vapour, methane) absorb it",
+    "and re-emit heat back towards the Earth",
+    "This keeps the Earth warm enough for life (about 15°C instead of −18°C)"
+   ],
+   "note": "Any 4.",
+   "unit": "atmos"
+  },
+  {
+   "q": "Air temperature at different heights: 0 km 15°C; 10 km −50°C; 20 km −56°C; 30 km −46°C; 50 km −2°C; 85 km −86°C. (a) Describe how temperature changes with height. (b) Explain why temperature rises between 20 km and 50 km.",
+   "marks": 5,
+   "points": [
+    "(a) Falls from 15°C at ground level to −50°C at 10 km (troposphere)",
+    "(a) Stays low around 20 km, then rises to −2°C at 50 km (stratosphere)",
+    "(a) Falls again above 50 km, to −86°C at 85 km",
+    "(b) This is the stratosphere, where the ozone layer is",
+    "(b) Ozone absorbs ultraviolet radiation from the Sun",
+    "(b) The absorbed energy heats the air, more so higher up"
+   ],
+   "note": "Any 5; (a) needs figures.",
+   "unit": "atmos"
+  },
+  {
+   "q": "Name two pollutants released in vehicle exhaust gases.",
+   "marks": 2,
+   "points": [
+    "Carbon monoxide",
+    "Nitrogen oxides",
+    "Particulates / soot",
+    "Unburnt hydrocarbons",
+    "Carbon dioxide",
+    "Sulfur dioxide (from diesel)"
+   ],
+   "note": "Any 2.",
+   "unit": "airpoll"
+  },
+  {
+   "q": "Explain how a temperature inversion can lead to a smog event in a city.",
+   "marks": 3,
+   "points": [
+    "A layer of warm air forms above cooler air near the ground",
+    "Often on calm, clear nights or in valleys / basins",
+    "Pollution from traffic and industry cannot rise or disperse",
+    "So it builds up near the ground, forming smog"
+   ],
+   "note": "Any 3.",
+   "unit": "airpoll"
+  },
+  {
+   "q": "Average nitrogen dioxide in City C (micrograms per m³): 2015 – 62; 2017 – 58; 2019 – 55; 2020 – 38; 2022 – 47. A low-emission zone started in 2019. (a) Calculate the percentage fall from 2015 to 2022. (b) Describe the changes. (c) Suggest why the level fell sharply in 2020. (d) Evaluate whether the low-emission zone has worked.",
+   "marks": 6,
+   "points": [
+    "(a) (62 − 47) ÷ 62 × 100 = 24%",
+    "(b) Slow fall from 62 to 55 by 2019",
+    "(b) Sharp fall to 38 in 2020, then rose to 47 in 2022",
+    "(c) Much less traffic, e.g. lockdowns / people working from home",
+    "(d) 2022 (47) is lower than 2019 (55), which suggests it helped",
+    "(d) But other factors could explain it, e.g. more electric cars, weather, fewer commuters; data from only one city / few years"
+   ],
+   "note": "Any 6; (d) needs both sides.",
+   "unit": "airpoll"
+  },
+  {
+   "q": "State two effects of acid rain on the environment.",
+   "marks": 2,
+   "points": [
+    "Lakes become acidic; fish and invertebrates die",
+    "Trees damaged / forests die back",
+    "Nutrients leached from soil / aluminium released",
+    "Limestone buildings and statues weathered",
+    "Metal structures corrode"
+   ],
+   "note": "Any 2.",
+   "unit": "acidrain"
+  },
+  {
+   "q": "Explain how burning coal in power stations can cause trees to die hundreds of kilometres away.",
+   "marks": 4,
+   "points": [
+    "Coal contains sulfur, so burning it releases sulfur dioxide (and nitrogen oxides)",
+    "Tall chimneys release the gases high up; winds carry them long distances",
+    "The gases dissolve in water droplets to form sulfuric and nitric acid",
+    "Acid rain falls on forests far away",
+    "Leaves are damaged and nutrients are leached from the soil / aluminium released, so trees weaken and die"
+   ],
+   "note": "Any 4.",
+   "unit": "acidrain"
+  },
+  {
+   "q": "Sulfur dioxide emissions in Country E (million tonnes): 1980 – 4.8; 1990 – 3.7; 2000 – 1.2; 2010 – 0.4; 2020 – 0.2. Mean pH of rain at a monitoring site: 1980 – 4.3; 1990 – 4.5; 2000 – 4.9; 2010 – 5.2; 2020 – 5.3. (a) Calculate the percentage fall in emissions from 1980 to 2020. (b) Describe the relationship between emissions and rain pH. (c) Suggest reasons why emissions fell.",
+   "marks": 6,
+   "points": [
+    "(a) (4.8 − 0.2) ÷ 4.8 × 100",
+    "(a) = 96%",
+    "(b) As emissions fell, the pH of rain rose (rain became less acidic)",
+    "(b) pH rose from 4.3 to 5.3 while emissions fell from 4.8 to 0.2 million tonnes",
+    "(c) Coal power stations replaced by gas or renewables",
+    "(c) Scrubbers (flue gas desulfurisation) fitted / low-sulfur fuels",
+    "(c) Laws and international agreements limiting emissions"
+   ],
+   "note": "(c) any 2.",
+   "unit": "acidrain"
+  },
+  {
+   "q": "State two uses of CFCs before they were banned.",
+   "marks": 2,
+   "points": [
+    "Aerosol propellants",
+    "Coolant in fridges / freezers",
+    "Air-conditioning",
+    "Foam packaging / insulation",
+    "Solvents for cleaning"
+   ],
+   "note": "Any 2.",
+   "unit": "ozone"
+  },
+  {
+   "q": "Explain how CFCs damage the ozone layer and why this is a risk to human health.",
+   "marks": 4,
+   "points": [
+    "CFCs rise slowly into the stratosphere",
+    "UV radiation breaks them down, releasing chlorine",
+    "Chlorine breaks down ozone molecules; one chlorine atom destroys many",
+    "Thinner ozone layer, so more UV reaches the ground",
+    "More skin cancer / cataracts / sunburn"
+   ],
+   "note": "Any 4.",
+   "unit": "ozone"
+  },
+  {
+   "q": "Explain why the Montreal Protocol was more successful than international attempts to cut carbon dioxide emissions.",
+   "marks": 5,
+   "points": [
+    "Only a few products and industries used CFCs",
+    "Cheap alternatives were available",
+    "Clear evidence (the ozone hole) and a direct health threat (skin cancer)",
+    "Richer countries helped pay for poorer countries to switch",
+    "Carbon dioxide comes from almost all energy use, transport and industry",
+    "Cutting carbon dioxide is expensive and can slow economic growth",
+    "Countries disagree about who should cut most and when"
+   ],
+   "note": "Any 5; points on both CFCs and carbon dioxide needed.",
+   "unit": "ozone"
+  },
+  {
+   "q": "Distinguish between mitigation and adaptation in responding to climate change.",
+   "marks": 2,
+   "points": [
+    "Mitigation reduces the causes / greenhouse gas emissions, e.g. renewable energy",
+    "Adaptation adjusts to the effects, e.g. flood defences, drought-resistant crops"
+   ],
+   "unit": "climate"
+  },
+  {
+   "q": "Explain how human activities have increased the greenhouse effect.",
+   "marks": 4,
+   "points": [
+    "Burning fossil fuels releases carbon dioxide",
+    "Deforestation releases carbon dioxide and fewer trees absorb it",
+    "Farming releases methane (cattle, rice) and nitrous oxide (fertilisers)",
+    "Landfill releases methane",
+    "More greenhouse gases absorb more infrared radiation",
+    "So more heat is kept in and global temperatures rise"
+   ],
+   "note": "Any 4.",
+   "unit": "climate"
+  },
+  {
+   "q": "Carbon dioxide at an observatory (ppm): 1960 – 317; 1980 – 339; 2000 – 370; 2020 – 414. (a) Calculate the average yearly increase from 1960 to 1980 and from 2000 to 2020. (b) Describe what your answers show. (c) Suggest two impacts of rising carbon dioxide on a low-lying coastal country.",
+   "marks": 6,
+   "points": [
+    "(a) 1960–1980: 22 ÷ 20 = 1.1 ppm per year",
+    "(a) 2000–2020: 44 ÷ 20 = 2.2 ppm per year",
+    "(b) Carbon dioxide is rising, and the rate of increase has doubled / is speeding up",
+    "(c) Sea level rise floods land and homes",
+    "(c) Salt water gets into farmland and drinking water",
+    "(c) Stronger storms and storm surges / coral reefs and fisheries damaged / people forced to move"
+   ],
+   "note": "(c) any 2.",
+   "unit": "climate"
+  }
+ ],
+ "units": [
+  {
+   "key": "atmos",
+   "name": "The atmosphere"
+  },
+  {
+   "key": "airpoll",
+   "name": "Air pollution"
+  },
+  {
+   "key": "acidrain",
+   "name": "Acid rain"
+  },
+  {
+   "key": "ozone",
+   "name": "Ozone depletion"
+  },
+  {
+   "key": "climate",
+   "name": "Climate change"
+  }
+ ]
+}

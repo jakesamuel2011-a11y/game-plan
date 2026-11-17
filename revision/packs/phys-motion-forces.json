@@ -1,0 +1,912 @@
+{
+ "id": "phys-motion-forces",
+ "subject": "Physics",
+ "title": "Motion, forces & pressure",
+ "sub": "Measurement, motion, mass, weight and density, forces and turning effects, pressure",
+ "units": [
+  {
+   "key": "measure",
+   "name": "Measurement"
+  },
+  {
+   "key": "motion",
+   "name": "Motion"
+  },
+  {
+   "key": "mass",
+   "name": "Mass, weight & density"
+  },
+  {
+   "key": "forces",
+   "name": "Forces"
+  },
+  {
+   "key": "pressure",
+   "name": "Pressure"
+  }
+ ],
+ "strategyIntro": "In Co-ordinated Sciences, physics is one third of every paper: a multiple-choice paper, a structured theory paper and a paper on experiments. Your school test may be shorter, but it will be marked the same way.",
+ "strategy": [
+  {
+   "title": "Multiple choice",
+   "key": true,
+   "points": [
+    "About a minute per question. Calculation questions: work it out on paper before you look at the options.",
+    "Wrong options are often the answer from using the formula the wrong way round (e.g. dividing instead of multiplying). Check units.",
+    "Never leave one blank. A wrong answer loses nothing."
+   ]
+  },
+  {
+   "title": "Calculations",
+   "key": true,
+   "points": [
+    "Three steps for full marks: write the formula, substitute the numbers, give the answer with its unit.",
+    "Convert units first: g to kg, cm to m, minutes to seconds, kW to W.",
+    "Keep the answer to 2 or 3 significant figures, like the data in the question."
+   ]
+  },
+  {
+   "title": "Structured questions",
+   "points": [
+    "The marks in brackets tell you how many separate points to make.",
+    "Use the keyword the syllabus uses (“resultant force”, “principal focus”), not an everyday word.",
+    "For “explain”, link cause to effect with “so” or “because”."
+   ]
+  },
+  {
+   "title": "Questions on experiments",
+   "points": [
+    "Name the instrument and say what you measure with it.",
+    "Repeat readings and take an average; time many oscillations or measure many sheets, then divide.",
+    "Tables: units in the column headings. Graphs: labelled axes with units, even scale, small crosses, best-fit line."
+   ]
+  },
+  {
+   "title": "Easy marks people lose",
+   "points": [
+    "Mixing up mass (kg) and weight (N). Weight is a force: W = mg.",
+    "Forgetting to convert cm to m before working out a moment in N m or an area in m².",
+    "Saying an object with balanced forces “must be still”. It can also move at constant speed in a straight line.",
+    "Reading the distance from the gradient of a speed–time graph. Gradient = acceleration; area = distance."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "State",
+   "Give a short fact or name. No explanation needed."
+  ],
+  [
+   "Define",
+   "Give the exact meaning, ideally with the equation in words."
+  ],
+  [
+   "Describe",
+   "Say what happens or what you see, step by step."
+  ],
+  [
+   "Explain",
+   "Say why or how. Use “because” and link cause to effect."
+  ],
+  [
+   "Calculate",
+   "Formula, substitution, answer with unit. Show working."
+  ],
+  [
+   "Suggest",
+   "Apply what you know to a new situation. Any sensible physics scores."
+  ],
+  [
+   "Sketch",
+   "A simple drawn graph or diagram showing the right shape, with labelled axes."
+  ]
+ ],
+ "quizTitle": "Multiple-choice practice",
+ "quizIntro": "Answer in multiple-choice-paper style: about a minute each. For calculations, work out the answer first, then find it. Read the explanation after every answer.",
+ "flashIntro": "Say the definition or equation out loud before you tap, then check you used the exact keywords and the right unit.",
+ "flashcards": [
+  {
+   "front": "Measuring length",
+   "back": "Use a ruler or metre rule (mm scale). Put your eye directly above the mark you read, perpendicular to the scale, to avoid parallax error.",
+   "unit": "measure"
+  },
+  {
+   "front": "Measuring the volume of a liquid",
+   "back": "Use a measuring cylinder on a flat surface. Read the bottom of the meniscus at eye level. Unit cm³ (1 cm³ = 1 ml).",
+   "unit": "measure"
+  },
+  {
+   "front": "Measuring time",
+   "back": "Use a stopwatch or clock. Human reaction time adds error, so time a long interval or many events.",
+   "unit": "measure"
+  },
+  {
+   "front": "Measuring something very small (e.g. thickness of a sheet of paper)",
+   "back": "Measure many together and divide: e.g. thickness of 100 sheets ÷ 100.",
+   "unit": "measure"
+  },
+  {
+   "front": "Period of a pendulum",
+   "back": "Time for one complete oscillation (there and back). Time 20 oscillations and divide by 20.",
+   "unit": "measure"
+  },
+  {
+   "front": "Average of repeated readings",
+   "back": "Add the readings and divide by how many there are. Repeating and averaging reduces the effect of random errors.",
+   "unit": "measure"
+  },
+  {
+   "front": "SI base units",
+   "back": "Length: metre (m). Mass: kilogram (kg). Time: second (s). Current: ampere (A). Temperature: kelvin (K).",
+   "unit": "measure"
+  },
+  {
+   "front": "Prefixes",
+   "back": "M (mega) = × 1 000 000. k (kilo) = × 1000. c (centi) = ÷ 100. m (milli) = ÷ 1000.",
+   "unit": "measure"
+  },
+  {
+   "front": "Zero error",
+   "back": "When an instrument does not read zero when it should (e.g. a worn ruler end). Correct every reading by the same amount.",
+   "unit": "measure"
+  },
+  {
+   "front": "(Extended) Scalar and vector",
+   "back": "Scalar: size only (distance, speed, time, mass, energy, temperature). Vector: size and direction (force, weight, velocity, acceleration).",
+   "unit": "measure"
+  },
+  {
+   "front": "Speed",
+   "back": "Distance travelled per unit time. speed = distance ÷ time (v = s/t). Unit m/s.",
+   "unit": "motion"
+  },
+  {
+   "front": "Average speed",
+   "back": "Total distance travelled ÷ total time taken.",
+   "unit": "motion"
+  },
+  {
+   "front": "Acceleration",
+   "back": "Change in velocity per unit time. a = Δv ÷ Δt. Unit m/s².",
+   "unit": "motion"
+  },
+  {
+   "front": "Distance–time graph shapes",
+   "back": "Gradient = speed. Horizontal line: at rest. Straight sloping line: constant speed. Curve getting steeper: accelerating.",
+   "unit": "motion"
+  },
+  {
+   "front": "Speed–time graph shapes",
+   "back": "Horizontal line: constant speed. Line sloping up: accelerating. Line sloping down: decelerating. On the time axis: at rest.",
+   "unit": "motion"
+  },
+  {
+   "front": "Area under a speed–time graph",
+   "back": "= distance travelled. For a triangle use ½ × base × height; for a rectangle, base × height.",
+   "unit": "motion"
+  },
+  {
+   "front": "Acceleration of free fall (g)",
+   "back": "About 9.8 m/s², the same for all objects near the Earth’s surface when there is no air resistance.",
+   "unit": "motion"
+  },
+  {
+   "front": "(Extended) Velocity",
+   "back": "Speed in a given direction. Velocity is a vector; speed is a scalar.",
+   "unit": "motion"
+  },
+  {
+   "front": "(Extended) Gradient of a speed–time graph",
+   "back": "= acceleration. A negative gradient means deceleration (negative acceleration).",
+   "unit": "motion"
+  },
+  {
+   "front": "(Extended) Terminal velocity",
+   "back": "Falling object: air resistance grows with speed until it equals the weight. Resultant force is then zero, so the object falls at constant (terminal) velocity.",
+   "unit": "motion"
+  },
+  {
+   "front": "Mass",
+   "back": "A measure of the quantity of matter in an object. Unit kg. It does not change from place to place.",
+   "unit": "mass"
+  },
+  {
+   "front": "Weight",
+   "back": "The gravitational force on an object that has mass. Unit newton (N).",
+   "unit": "mass"
+  },
+  {
+   "front": "Weight equation",
+   "back": "W = mg. Weight (N) = mass (kg) × gravitational field strength (N/kg). On Earth g = 9.8 N/kg.",
+   "unit": "mass"
+  },
+  {
+   "front": "Gravitational field strength",
+   "back": "Force per unit mass (N/kg). On the Moon it is much smaller (about 1.6 N/kg), so your weight falls but your mass stays the same.",
+   "unit": "mass"
+  },
+  {
+   "front": "What does a balance do?",
+   "back": "Compares weights. Because weight is proportional to mass, a balance can be used to measure mass.",
+   "unit": "mass"
+  },
+  {
+   "front": "Density",
+   "back": "Mass per unit volume. ρ = m ÷ V. Units kg/m³ or g/cm³ (water: 1000 kg/m³ = 1.0 g/cm³).",
+   "unit": "mass"
+  },
+  {
+   "front": "Density of a regular solid",
+   "back": "Mass on a balance. Measure length, width, height with a ruler; V = l × w × h. Then ρ = m ÷ V.",
+   "unit": "mass"
+  },
+  {
+   "front": "Volume of an irregular solid (displacement)",
+   "back": "Part-fill a measuring cylinder with water and read the volume. Lower the object in until submerged and read again. Volume = difference.",
+   "unit": "mass"
+  },
+  {
+   "front": "Density of a liquid",
+   "back": "Find the mass of an empty measuring cylinder, add liquid, find the mass again (difference = mass of liquid), read the volume, then ρ = m ÷ V.",
+   "unit": "mass"
+  },
+  {
+   "front": "Floating and sinking",
+   "back": "An object floats in a liquid if its density is less than the liquid’s, and sinks if its density is greater.",
+   "unit": "mass"
+  },
+  {
+   "front": "Effects of forces",
+   "back": "A force can change an object’s size, shape, speed or direction of motion.",
+   "unit": "forces"
+  },
+  {
+   "front": "Resultant force",
+   "back": "The single force that has the same effect as all the forces acting. Same direction: add. Opposite directions: subtract.",
+   "unit": "forces"
+  },
+  {
+   "front": "Balanced forces (resultant force zero)",
+   "back": "An object at rest stays at rest; a moving object keeps moving at constant speed in a straight line.",
+   "unit": "forces"
+  },
+  {
+   "front": "Load–extension graph for a spring",
+   "back": "A straight line through the origin (extension proportional to load) up to the limit of proportionality, then it curves.",
+   "unit": "forces"
+  },
+  {
+   "front": "Extension",
+   "back": "Stretched length − original length.",
+   "unit": "forces"
+  },
+  {
+   "front": "(Extended) Spring constant",
+   "back": "Force per unit extension. k = F ÷ x. Unit N/m.",
+   "unit": "forces"
+  },
+  {
+   "front": "Friction",
+   "back": "A force between surfaces that opposes motion and causes heating. Air resistance (drag) is friction in air.",
+   "unit": "forces"
+  },
+  {
+   "front": "Moment of a force",
+   "back": "Turning effect. moment = force × perpendicular distance from the pivot. Unit N m.",
+   "unit": "forces"
+  },
+  {
+   "front": "Principle of moments",
+   "back": "For an object in equilibrium, the sum of clockwise moments = the sum of anticlockwise moments about any pivot.",
+   "unit": "forces"
+  },
+  {
+   "front": "Equilibrium",
+   "back": "No resultant force and no resultant moment.",
+   "unit": "forces"
+  },
+  {
+   "front": "Centre of gravity and stability",
+   "back": "Point where the weight seems to act. Low centre of gravity and wide base = more stable. It topples when the weight acts outside the base.",
+   "unit": "forces"
+  },
+  {
+   "front": "(Extended) Force, mass and acceleration",
+   "back": "F = ma. Resultant force (N) = mass (kg) × acceleration (m/s²). Acceleration is in the direction of the resultant force.",
+   "unit": "forces"
+  },
+  {
+   "front": "Pressure",
+   "back": "Force per unit area. p = F ÷ A. Unit pascal (Pa); 1 Pa = 1 N/m².",
+   "unit": "pressure"
+  },
+  {
+   "front": "Spreading a force over a large area",
+   "back": "Reduces the pressure: snowshoes, wide tractor tyres, building foundations, camel feet.",
+   "unit": "pressure"
+  },
+  {
+   "front": "Concentrating a force on a small area",
+   "back": "Increases the pressure: sharp knives, drawing pins, nails, stiletto heels.",
+   "unit": "pressure"
+  },
+  {
+   "front": "Pressure in a liquid",
+   "back": "Increases with depth and with the density of the liquid. Acts equally in all directions.",
+   "unit": "pressure"
+  },
+  {
+   "front": "(Extended) Liquid pressure equation",
+   "back": "Δp = ρgΔh. Change in pressure (Pa) = density (kg/m³) × g (N/kg) × change in depth (m).",
+   "unit": "pressure"
+  },
+  {
+   "front": "Why a dam is thicker at the bottom",
+   "back": "Water pressure is greatest at the greatest depth, so the bottom must withstand the largest force.",
+   "unit": "pressure"
+  },
+  {
+   "front": "Converting area units",
+   "back": "1 m² = 10 000 cm². To change cm² to m², divide by 10 000.",
+   "unit": "pressure"
+  },
+  {
+   "front": "Why a drawing pin goes in easily",
+   "back": "Your thumb’s force acts on the tiny area of the point, giving a very large pressure there; the wide head keeps the pressure on your thumb low.",
+   "unit": "pressure"
+  },
+  {
+   "front": "Water from holes in the side of a tank",
+   "back": "Water spurts out furthest from the lowest hole because the pressure is greatest at the greatest depth.",
+   "unit": "pressure"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "A student times 20 complete swings of a pendulum. The total time is 36.0 s. What is the period?",
+   "options": [
+    "36.0 s",
+    "0.56 s",
+    "1.8 s",
+    "18 s"
+   ],
+   "answer": 2,
+   "why": "Period = total time ÷ number of oscillations = 36.0 ÷ 20 = 1.8 s.",
+   "unit": "measure"
+  },
+  {
+   "q": "Which instrument is best for measuring the volume of about 40 cm³ of water?",
+   "options": [
+    "Metre rule",
+    "Measuring cylinder",
+    "Balance",
+    "Stopwatch"
+   ],
+   "answer": 1,
+   "why": "A measuring cylinder measures liquid volume. A balance measures mass, not volume.",
+   "unit": "measure"
+  },
+  {
+   "q": "A stack of 200 identical sheets of paper is 2.0 cm thick. How thick is one sheet?",
+   "options": [
+    "0.1 mm",
+    "1 mm",
+    "0.01 mm",
+    "10 mm"
+   ],
+   "answer": 0,
+   "why": "2.0 cm ÷ 200 = 0.01 cm = 0.1 mm. Measuring many and dividing makes a tiny length measurable.",
+   "unit": "measure"
+  },
+  {
+   "q": "Why should you read a measuring cylinder with your eye level with the liquid surface?",
+   "options": [
+    "To read the top of the meniscus",
+    "To avoid zero error",
+    "So the liquid does not spill",
+    "To avoid parallax error"
+   ],
+   "answer": 3,
+   "why": "Looking from above or below makes the reading seem higher or lower: that is parallax error. Read the bottom of the meniscus at eye level.",
+   "unit": "measure"
+  },
+  {
+   "q": "Which of these is NOT an SI base unit?",
+   "options": [
+    "metre",
+    "newton",
+    "kilogram",
+    "second"
+   ],
+   "answer": 1,
+   "why": "The newton is a derived unit (1 N = 1 kg m/s²). Metre, kilogram and second are base units.",
+   "unit": "measure"
+  },
+  {
+   "q": "Convert 2.5 km into metres.",
+   "options": [
+    "250 m",
+    "25 000 m",
+    "0.0025 m",
+    "2500 m"
+   ],
+   "answer": 3,
+   "why": "Kilo means × 1000, so 2.5 × 1000 = 2500 m.",
+   "unit": "measure"
+  },
+  {
+   "q": "A car travels 150 m in 6.0 s. What is its average speed?",
+   "options": [
+    "900 m/s",
+    "0.04 m/s",
+    "25 m/s",
+    "156 m/s"
+   ],
+   "answer": 2,
+   "why": "Speed = distance ÷ time = 150 ÷ 6.0 = 25 m/s. 900 comes from multiplying instead.",
+   "unit": "motion"
+  },
+  {
+   "q": "On a distance–time graph, what does a horizontal line show?",
+   "options": [
+    "The object is at rest",
+    "Constant speed",
+    "Constant acceleration",
+    "Deceleration"
+   ],
+   "answer": 0,
+   "why": "Distance is not changing, so the object is not moving. Constant speed would be a straight sloping line.",
+   "unit": "motion"
+  },
+  {
+   "q": "A car speeds up steadily from rest to 20 m/s in 10 s. How far does it travel in this time?",
+   "options": [
+    "200 m",
+    "100 m",
+    "2 m",
+    "30 m"
+   ],
+   "answer": 1,
+   "why": "Distance = area under the speed–time graph = ½ × 10 × 20 = 100 m. 200 m forgets the ½.",
+   "unit": "motion"
+  },
+  {
+   "q": "A cyclist’s speed rises from 4 m/s to 16 m/s in 3 s. What is the acceleration?",
+   "options": [
+    "12 m/s²",
+    "36 m/s²",
+    "5.3 m/s²",
+    "4 m/s²"
+   ],
+   "answer": 3,
+   "why": "a = change in velocity ÷ time = (16 − 4) ÷ 3 = 4 m/s². 5.3 m/s² wrongly uses 16 ÷ 3.",
+   "unit": "motion"
+  },
+  {
+   "q": "What does the area under a speed–time graph represent?",
+   "options": [
+    "Acceleration",
+    "Speed",
+    "Distance travelled",
+    "Time taken"
+   ],
+   "answer": 2,
+   "why": "Speed × time = distance, so the area gives the distance travelled. The gradient gives acceleration.",
+   "unit": "motion"
+  },
+  {
+   "q": "(Extended) A skydiver is falling at terminal velocity. Which statement is correct?",
+   "options": [
+    "Weight is greater than air resistance",
+    "Air resistance is greater than weight",
+    "There are no forces acting",
+    "Air resistance equals weight"
+   ],
+   "answer": 3,
+   "why": "At terminal velocity the forces balance, so the resultant force is zero and the speed is constant. Both forces still act.",
+   "unit": "motion"
+  },
+  {
+   "q": "A bag has a mass of 5.0 kg. What is its weight on Earth? (g = 9.8 N/kg)",
+   "options": [
+    "5.0 N",
+    "0.51 N",
+    "49 N",
+    "4.9 N"
+   ],
+   "answer": 2,
+   "why": "W = mg = 5.0 × 9.8 = 49 N. 0.51 N comes from dividing.",
+   "unit": "mass"
+  },
+  {
+   "q": "An astronaut travels from the Earth to the Moon. What happens to her mass and weight?",
+   "options": [
+    "Mass same, weight less",
+    "Both less",
+    "Mass less, weight same",
+    "Both the same"
+   ],
+   "answer": 0,
+   "why": "Mass is the amount of matter, so it does not change. The Moon’s gravitational field strength is smaller, so weight is less.",
+   "unit": "mass"
+  },
+  {
+   "q": "A block has a mass of 20 g and a volume of 8.0 cm³. What is its density?",
+   "options": [
+    "160 g/cm³",
+    "0.4 g/cm³",
+    "28 g/cm³",
+    "2.5 g/cm³"
+   ],
+   "answer": 3,
+   "why": "ρ = m ÷ V = 20 ÷ 8.0 = 2.5 g/cm³. 0.4 is V ÷ m, the wrong way round.",
+   "unit": "mass"
+  },
+  {
+   "q": "The water in a measuring cylinder rises from 50 cm³ to 62 cm³ when a stone is lowered in. What is the stone’s volume?",
+   "options": [
+    "62 cm³",
+    "12 cm³",
+    "50 cm³",
+    "112 cm³"
+   ],
+   "answer": 1,
+   "why": "Volume of stone = volume of water displaced = 62 − 50 = 12 cm³.",
+   "unit": "mass"
+  },
+  {
+   "q": "Water has a density of 1.0 g/cm³. Which object will float in water?",
+   "options": [
+    "Wood, 0.70 g/cm³",
+    "Aluminium, 2.7 g/cm³",
+    "Iron, 7.9 g/cm³",
+    "Rubber, 1.3 g/cm³"
+   ],
+   "answer": 0,
+   "why": "Only the wood has a density less than water, so only it floats.",
+   "unit": "mass"
+  },
+  {
+   "q": "What is the unit of weight?",
+   "options": [
+    "kg",
+    "N",
+    "N/kg",
+    "kg/m³"
+   ],
+   "answer": 1,
+   "why": "Weight is a force, measured in newtons. N/kg is the unit of gravitational field strength.",
+   "unit": "mass"
+  },
+  {
+   "q": "A box is pushed with 12 N to the right while friction is 5 N to the left. What is the resultant force?",
+   "options": [
+    "17 N to the right",
+    "7 N to the left",
+    "7 N to the right",
+    "60 N to the right"
+   ],
+   "answer": 2,
+   "why": "Opposite directions, so subtract: 12 − 5 = 7 N, in the direction of the larger force (right).",
+   "unit": "forces"
+  },
+  {
+   "q": "A force of 20 N is applied 0.15 m from the nut on a spanner, at right angles to it. What is the moment?",
+   "options": [
+    "3.0 N m",
+    "133 N m",
+    "20.15 N m",
+    "0.0075 N m"
+   ],
+   "answer": 0,
+   "why": "Moment = F × d = 20 × 0.15 = 3.0 N m.",
+   "unit": "forces"
+  },
+  {
+   "q": "Which change makes a bus more stable?",
+   "options": [
+    "Carrying luggage on the roof",
+    "A narrower wheelbase",
+    "Making it taller",
+    "Lowering its centre of gravity"
+   ],
+   "answer": 3,
+   "why": "A low centre of gravity (and wide base) keeps the line of the weight inside the base when tilted.",
+   "unit": "forces"
+  },
+  {
+   "q": "A spring is 10.0 cm long. With a load on it, it is 13.5 cm long. What is the extension?",
+   "options": [
+    "13.5 cm",
+    "3.5 cm",
+    "23.5 cm",
+    "1.35 cm"
+   ],
+   "answer": 1,
+   "why": "Extension = stretched length − original length = 13.5 − 10.0 = 3.5 cm.",
+   "unit": "forces"
+  },
+  {
+   "q": "A 400 N child sits 1.5 m from the pivot of a see-saw. How far from the pivot on the other side must a 600 N child sit to balance it?",
+   "options": [
+    "1.5 m",
+    "2.25 m",
+    "0.67 m",
+    "1.0 m"
+   ],
+   "answer": 3,
+   "why": "Clockwise = anticlockwise: 400 × 1.5 = 600 × d, so d = 600 ÷ 600 = 1.0 m.",
+   "unit": "forces"
+  },
+  {
+   "q": "An object moves at constant speed in a straight line. What is the resultant force on it?",
+   "options": [
+    "Zero",
+    "In the direction of motion",
+    "Opposite to the motion",
+    "Equal to its weight"
+   ],
+   "answer": 0,
+   "why": "Constant velocity means no acceleration, so the forces are balanced and the resultant force is zero.",
+   "unit": "forces"
+  },
+  {
+   "q": "(Extended) A resultant force of 3000 N acts on a car of mass 1200 kg. What is its acceleration?",
+   "options": [
+    "0.4 m/s²",
+    "2.5 m/s²",
+    "3.6 × 10⁶ m/s²",
+    "4200 m/s²"
+   ],
+   "answer": 1,
+   "why": "a = F ÷ m = 3000 ÷ 1200 = 2.5 m/s².",
+   "unit": "forces"
+  },
+  {
+   "q": "A force of 600 N acts on an area of 0.20 m². What is the pressure?",
+   "options": [
+    "120 Pa",
+    "3000 Pa",
+    "600.2 Pa",
+    "0.00033 Pa"
+   ],
+   "answer": 1,
+   "why": "p = F ÷ A = 600 ÷ 0.20 = 3000 Pa. 120 comes from multiplying.",
+   "unit": "pressure"
+  },
+  {
+   "q": "Why do camels have wide feet?",
+   "options": [
+    "To increase pressure on the sand",
+    "To increase their weight",
+    "To reduce friction",
+    "To spread their weight and reduce pressure on the sand"
+   ],
+   "answer": 3,
+   "why": "A larger area means a smaller pressure for the same weight, so the feet do not sink.",
+   "unit": "pressure"
+  },
+  {
+   "q": "Which unit is the same as the pascal?",
+   "options": [
+    "N m",
+    "N/kg",
+    "N/m²",
+    "kg/m³"
+   ],
+   "answer": 2,
+   "why": "Pressure = force ÷ area, so 1 Pa = 1 N/m². N m is the unit of moment.",
+   "unit": "pressure"
+  },
+  {
+   "q": "A tall tank of water has three holes at different heights. Why does water spurt furthest from the bottom hole?",
+   "options": [
+    "Pressure is greatest at the greatest depth",
+    "The bottom hole is the largest",
+    "Water is denser at the top",
+    "Air pressure is greatest at the bottom"
+   ],
+   "answer": 0,
+   "why": "Liquid pressure increases with depth, so the bottom hole has the highest pressure behind it.",
+   "unit": "pressure"
+  },
+  {
+   "q": "(Extended) What is the pressure due to water 5.0 m deep? (density 1000 kg/m³, g = 9.8 N/kg)",
+   "options": [
+    "490 000 Pa",
+    "5000 Pa",
+    "49 000 Pa",
+    "4900 Pa"
+   ],
+   "answer": 2,
+   "why": "Δp = ρgΔh = 1000 × 9.8 × 5.0 = 49 000 Pa.",
+   "unit": "pressure"
+  },
+  {
+   "q": "A person stands on the floor in different shoes. Which gives the greatest pressure on the floor?",
+   "options": [
+    "Flat trainers",
+    "Snowshoes",
+    "Wide boots",
+    "Stiletto heels"
+   ],
+   "answer": 3,
+   "why": "Same weight on the smallest area gives the greatest pressure.",
+   "unit": "pressure"
+  }
+ ],
+ "examIntro": "Theory-paper style. Write your answer first, then open the mark scheme and give yourself one mark per point you made clearly. In calculations, the formula, the substitution and the answer with unit each earn marks.",
+ "exam": [
+  {
+   "q": "State two things a student should do to measure the length of a pencil accurately with a ruler.",
+   "marks": 2,
+   "points": [
+    "Eye directly above / perpendicular to the scale at the reading (avoids parallax)",
+    "Line the end of the pencil up with the zero mark (or check for zero error)",
+    "Repeat the measurement and take an average"
+   ],
+   "note": "Any 2.",
+   "unit": "measure"
+  },
+  {
+   "q": "Describe how to find the period of a simple pendulum as accurately as possible.",
+   "marks": 3,
+   "points": [
+    "Time a large number (e.g. 20) of complete oscillations with a stopwatch",
+    "Divide the total time by the number of oscillations",
+    "Repeat and take the average",
+    "Use a fixed reference mark (e.g. the centre of the swing) to start and stop timing"
+   ],
+   "note": "Any 3.",
+   "unit": "measure"
+  },
+  {
+   "q": "A student times 10 oscillations of a pendulum three times: 15.2 s, 15.6 s, 15.4 s. (a) Calculate the average time. (b) Calculate the period. (c) Explain why timing 10 oscillations is better than timing one.",
+   "marks": 4,
+   "points": [
+    "(a) Average = (15.2 + 15.6 + 15.4) ÷ 3",
+    "= 15.4 s",
+    "(b) Period = 15.4 ÷ 10 = 1.54 s",
+    "(c) Reaction time error is the same for a longer time, so it is a smaller fraction of the reading"
+   ],
+   "unit": "measure"
+  },
+  {
+   "q": "A runner runs 400 m in 80 s. Calculate the runner’s average speed.",
+   "marks": 3,
+   "points": [
+    "speed = distance ÷ time",
+    "= 400 ÷ 80",
+    "= 5.0 m/s"
+   ],
+   "unit": "motion"
+  },
+  {
+   "q": "A bus accelerates steadily from rest to 12 m/s in 8.0 s. It then travels at 12 m/s for 20 s. (a) Calculate the acceleration. (b) Calculate the distance travelled in the 20 s at constant speed.",
+   "marks": 4,
+   "points": [
+    "(a) a = change in velocity ÷ time = 12 ÷ 8.0",
+    "= 1.5 m/s²",
+    "(b) distance = speed × time = 12 × 20",
+    "= 240 m"
+   ],
+   "unit": "motion"
+  },
+  {
+   "q": "(Extended) A skydiver jumps from a plane. Describe and explain how her speed changes until she reaches terminal velocity.",
+   "marks": 5,
+   "points": [
+    "At first only weight acts (air resistance very small), so she accelerates (at about 9.8 m/s²)",
+    "As her speed increases, air resistance increases",
+    "The resultant (downward) force decreases",
+    "So her acceleration decreases",
+    "Eventually air resistance equals weight",
+    "Resultant force is zero, so she falls at constant speed (terminal velocity)"
+   ],
+   "note": "Any 5.",
+   "unit": "motion"
+  },
+  {
+   "q": "Calculate the weight on Earth of a student with a mass of 60 kg. (g = 9.8 N/kg)",
+   "marks": 3,
+   "points": [
+    "W = mg",
+    "= 60 × 9.8",
+    "= 588 N (590 N)"
+   ],
+   "unit": "mass"
+  },
+  {
+   "q": "Describe how to find the density of an irregularly shaped stone.",
+   "marks": 4,
+   "points": [
+    "Measure the mass of the stone on a balance",
+    "Part-fill a measuring cylinder with water and record the volume",
+    "Lower the stone in (on a thread) until fully submerged and record the new volume",
+    "Volume of stone = difference between the two readings",
+    "Density = mass ÷ volume"
+   ],
+   "note": "Any 4.",
+   "unit": "mass"
+  },
+  {
+   "q": "A metal block measures 2.0 cm × 3.0 cm × 5.0 cm and has a mass of 81 g. (a) Calculate its density. (b) State and explain whether it floats in water (density 1.0 g/cm³).",
+   "marks": 5,
+   "points": [
+    "Volume = 2.0 × 3.0 × 5.0 = 30 cm³",
+    "ρ = m ÷ V",
+    "= 81 ÷ 30",
+    "= 2.7 g/cm³",
+    "It sinks, because its density is greater than that of water"
+   ],
+   "unit": "mass"
+  },
+  {
+   "q": "A metre rule is balanced at its centre. A 2.0 N weight hangs 30 cm to the left of the pivot. How far to the right of the pivot must a 3.0 N weight hang to balance the rule?",
+   "marks": 3,
+   "points": [
+    "Clockwise moment = anticlockwise moment (principle of moments)",
+    "3.0 × d = 2.0 × 0.30 (= 0.60 N m)",
+    "d = 0.20 m (20 cm)"
+   ],
+   "unit": "forces"
+  },
+  {
+   "q": "Describe how to obtain the results for a load–extension graph for a spring.",
+   "marks": 4,
+   "points": [
+    "Hang the spring from a clamp stand and measure its original length with a metre rule",
+    "Add loads (masses) one at a time, e.g. 1 N at a time",
+    "Measure the new length each time; extension = new length − original length",
+    "Read the rule at eye level / use a pointer to avoid parallax",
+    "Plot extension against load"
+   ],
+   "note": "Any 4.",
+   "unit": "forces"
+  },
+  {
+   "q": "(Extended) A trolley of mass 2.0 kg is pulled with a force of 10 N. Friction on it is 4.0 N. (a) Calculate the resultant force. (b) Calculate the acceleration. (c) The pull is reduced to 4.0 N. State what happens to the trolley’s speed.",
+   "marks": 5,
+   "points": [
+    "(a) Resultant force = 10 − 4.0 = 6.0 N",
+    "(b) a = F ÷ m",
+    "= 6.0 ÷ 2.0",
+    "= 3.0 m/s²",
+    "(c) Forces balanced, so it moves at constant speed (it does not stop)"
+   ],
+   "unit": "forces"
+  },
+  {
+   "q": "Explain why a sharp knife cuts more easily than a blunt one.",
+   "marks": 2,
+   "points": [
+    "A sharp edge has a smaller area",
+    "So the same force gives a greater pressure"
+   ],
+   "unit": "pressure"
+  },
+  {
+   "q": "A box of weight 900 N rests on a floor. Its base measures 0.50 m by 0.60 m. Calculate the pressure it exerts on the floor.",
+   "marks": 4,
+   "points": [
+    "Area = 0.50 × 0.60 = 0.30 m²",
+    "p = F ÷ A",
+    "= 900 ÷ 0.30",
+    "= 3000 Pa"
+   ],
+   "unit": "pressure"
+  },
+  {
+   "q": "(Extended) A diver is 12 m below the surface of seawater of density 1030 kg/m³. (a) Calculate the pressure due to the water. (b) Explain why the wall of a dam is made thicker at the bottom.",
+   "marks": 5,
+   "points": [
+    "(a) Δp = ρgΔh",
+    "= 1030 × 9.8 × 12",
+    "= 121 000 Pa (1.2 × 10⁵ Pa)",
+    "(b) Pressure increases with depth",
+    "So the force on the bottom of the wall is greatest; the wall must be strongest there"
+   ],
+   "unit": "pressure"
+  }
+ ]
+}

@@ -1,0 +1,924 @@
+{
+ "id": "phys-waves",
+ "subject": "Physics",
+ "title": "Waves, light & sound",
+ "sub": "General wave properties, reflection and refraction, lenses and dispersion, the electromagnetic spectrum, sound",
+ "units": [
+  {
+   "key": "waves",
+   "name": "Wave properties"
+  },
+  {
+   "key": "light",
+   "name": "Reflection, refraction"
+  },
+  {
+   "key": "lenses",
+   "name": "Lenses & dispersion"
+  },
+  {
+   "key": "emspec",
+   "name": "EM spectrum"
+  },
+  {
+   "key": "sound",
+   "name": "Sound"
+  }
+ ],
+ "strategyIntro": "In Co-ordinated Sciences, physics is one third of every paper: a multiple-choice paper, a structured theory paper and a paper on experiments. Your school test may be shorter, but it will be marked the same way.",
+ "strategy": [
+  {
+   "title": "Multiple choice",
+   "key": true,
+   "points": [
+    "About a minute per question. Calculation questions: work it out on paper before you look at the options.",
+    "Wrong options are often the answer from using the formula the wrong way round (e.g. dividing instead of multiplying). Check units.",
+    "Never leave one blank. A wrong answer loses nothing."
+   ]
+  },
+  {
+   "title": "Calculations",
+   "key": true,
+   "points": [
+    "Three steps for full marks: write the formula, substitute the numbers, give the answer with its unit.",
+    "Convert units first: g to kg, cm to m, minutes to seconds, kW to W.",
+    "Keep the answer to 2 or 3 significant figures, like the data in the question."
+   ]
+  },
+  {
+   "title": "Structured questions",
+   "points": [
+    "The marks in brackets tell you how many separate points to make.",
+    "Use the keyword the syllabus uses (“resultant force”, “principal focus”), not an everyday word.",
+    "For “explain”, link cause to effect with “so” or “because”."
+   ]
+  },
+  {
+   "title": "Questions on experiments",
+   "points": [
+    "Name the instrument and say what you measure with it.",
+    "Repeat readings and take an average; time many oscillations or measure many sheets, then divide.",
+    "Tables: units in the column headings. Graphs: labelled axes with units, even scale, small crosses, best-fit line."
+   ]
+  },
+  {
+   "title": "Easy marks people lose",
+   "points": [
+    "Measuring angles of incidence and refraction from the surface instead of from the normal.",
+    "Saying refraction happens because light “changes direction”. The cause is the change in speed.",
+    "Forgetting to halve the time (or distance) in echo calculations: the sound goes there and back.",
+    "Calling sound transverse. Sound is longitudinal; light and all electromagnetic waves are transverse."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "State",
+   "Give a short fact or name. No explanation needed."
+  ],
+  [
+   "Define",
+   "Give the exact meaning, ideally with the equation in words."
+  ],
+  [
+   "Describe",
+   "Say what happens or what you see, step by step."
+  ],
+  [
+   "Explain",
+   "Say why or how. Use “because” and link cause to effect."
+  ],
+  [
+   "Calculate",
+   "Formula, substitution, answer with unit. Show working."
+  ],
+  [
+   "Suggest",
+   "Apply what you know to a new situation. Any sensible physics scores."
+  ],
+  [
+   "Sketch",
+   "A simple drawn graph or diagram showing the right shape, with labelled axes."
+  ]
+ ],
+ "quizTitle": "Multiple-choice practice",
+ "quizIntro": "Answer in multiple-choice-paper style: about a minute each. For calculations, work out the answer first, then find it. Read the explanation after every answer.",
+ "flashIntro": "Say the definition or equation out loud before you tap, then check you used the exact keywords and the right unit.",
+ "flashcards": [
+  {
+   "front": "What waves transfer",
+   "back": "Energy, without transferring matter.",
+   "unit": "waves"
+  },
+  {
+   "front": "Transverse wave",
+   "back": "Vibrations are perpendicular (at right angles) to the direction the wave travels. e.g. light and all electromagnetic waves, water ripples.",
+   "unit": "waves"
+  },
+  {
+   "front": "Longitudinal wave",
+   "back": "Vibrations are parallel to the direction the wave travels. e.g. sound.",
+   "unit": "waves"
+  },
+  {
+   "front": "Amplitude",
+   "back": "The maximum displacement of a point on the wave from its rest (undisturbed) position.",
+   "unit": "waves"
+  },
+  {
+   "front": "Wavelength (λ)",
+   "back": "Distance between a point on one wave and the same point on the next, e.g. crest to crest. Unit m.",
+   "unit": "waves"
+  },
+  {
+   "front": "Frequency (f)",
+   "back": "The number of waves passing a point per second. Unit hertz (Hz).",
+   "unit": "waves"
+  },
+  {
+   "front": "Wave equation",
+   "back": "v = fλ. Wave speed (m/s) = frequency (Hz) × wavelength (m).",
+   "unit": "waves"
+  },
+  {
+   "front": "Wavefront",
+   "back": "A line joining points on a wave that are in step, e.g. along one crest.",
+   "unit": "waves"
+  },
+  {
+   "front": "Ripple tank effects",
+   "back": "Reflection off a straight barrier; refraction where depth changes (waves slow in shallow water and wavelength shortens); diffraction (spreading) through a gap or round an edge.",
+   "unit": "waves"
+  },
+  {
+   "front": "(Extended) Diffraction and gap size",
+   "back": "Spreading is greatest when the gap is about the same size as the wavelength. A gap much wider than the wavelength gives little diffraction.",
+   "unit": "waves"
+  },
+  {
+   "front": "Normal",
+   "back": "A line drawn at 90° to a surface where a ray meets it. All angles are measured from the normal.",
+   "unit": "light"
+  },
+  {
+   "front": "Law of reflection",
+   "back": "Angle of incidence = angle of reflection.",
+   "unit": "light"
+  },
+  {
+   "front": "Image in a plane mirror",
+   "back": "Same size as the object; as far behind the mirror as the object is in front; upright; virtual; laterally inverted (left and right swapped).",
+   "unit": "light"
+  },
+  {
+   "front": "Refraction",
+   "back": "The change in direction of light passing from one medium to another, caused by a change in its speed.",
+   "unit": "light"
+  },
+  {
+   "front": "Light entering a denser medium (air → glass)",
+   "back": "It slows down and bends towards the normal. Leaving (glass → air) it speeds up and bends away from the normal. Along the normal: no bending.",
+   "unit": "light"
+  },
+  {
+   "front": "(Extended) Refractive index",
+   "back": "n = sin i ÷ sin r (for light going from air into the material). Glass is about 1.5.",
+   "unit": "light"
+  },
+  {
+   "front": "Critical angle",
+   "back": "The angle of incidence (in the denser medium) for which the angle of refraction is 90°.",
+   "unit": "light"
+  },
+  {
+   "front": "Total internal reflection",
+   "back": "All the light is reflected inside the denser medium. Happens when light goes towards a less dense medium at an angle of incidence greater than the critical angle.",
+   "unit": "light"
+  },
+  {
+   "front": "Optical fibres",
+   "back": "Light travels along a thin glass fibre by repeated total internal reflection, even round bends. Used for communications (internet, phone) and endoscopes in medicine.",
+   "unit": "light"
+  },
+  {
+   "front": "(Extended) Critical angle equation",
+   "back": "n = 1 ÷ sin c.",
+   "unit": "light"
+  },
+  {
+   "front": "Converging (convex) lens",
+   "back": "Thicker in the middle. Refracts parallel rays so they meet at a point (the principal focus).",
+   "unit": "lenses"
+  },
+  {
+   "front": "Principal axis",
+   "back": "The line through the centre of a lens, at right angles to the lens.",
+   "unit": "lenses"
+  },
+  {
+   "front": "Principal focus (focal point)",
+   "back": "The point where rays parallel to the principal axis meet after passing through a converging lens.",
+   "unit": "lenses"
+  },
+  {
+   "front": "Focal length",
+   "back": "Distance from the centre of the lens to the principal focus.",
+   "unit": "lenses"
+  },
+  {
+   "front": "Ray diagram rules (converging lens)",
+   "back": "Ray parallel to the axis → refracts through the principal focus on the far side. Ray through the centre of the lens → carries straight on.",
+   "unit": "lenses"
+  },
+  {
+   "front": "Real image",
+   "back": "Formed where rays actually meet; can be shown on a screen. A converging lens gives a real, inverted image when the object is further away than F.",
+   "unit": "lenses"
+  },
+  {
+   "front": "Virtual image",
+   "back": "Formed where rays only appear to come from; cannot be shown on a screen.",
+   "unit": "lenses"
+  },
+  {
+   "front": "Object beyond 2F",
+   "back": "Image is real, inverted, diminished (smaller), and between F and 2F on the other side (as in a camera or the eye).",
+   "unit": "lenses"
+  },
+  {
+   "front": "(Extended) Magnifying glass",
+   "back": "Object closer to the lens than F. Image is virtual, upright, magnified and on the same side as the object.",
+   "unit": "lenses"
+  },
+  {
+   "front": "Dispersion",
+   "back": "A prism splits white light into a spectrum because each colour is refracted by a different amount. Order: red, orange, yellow, green, blue, indigo, violet. Violet is refracted most.",
+   "unit": "lenses"
+  },
+  {
+   "front": "(Extended) Monochromatic light",
+   "back": "Light of a single frequency (one colour).",
+   "unit": "lenses"
+  },
+  {
+   "front": "Order of the electromagnetic spectrum",
+   "back": "Radio, microwaves, infrared, visible, ultraviolet, X-rays, gamma rays. Wavelength gets shorter and frequency higher along this list.",
+   "unit": "emspec"
+  },
+  {
+   "front": "Properties of all electromagnetic waves",
+   "back": "Transverse; travel at the same speed in a vacuum (3.0 × 10⁸ m/s, about the same in air); transfer energy; can be reflected and refracted.",
+   "unit": "emspec"
+  },
+  {
+   "front": "Radio waves: uses",
+   "back": "Radio and television broadcasting and communication.",
+   "unit": "emspec"
+  },
+  {
+   "front": "Microwaves: uses",
+   "back": "Satellite television and phones, mobile phones, microwave ovens.",
+   "unit": "emspec"
+  },
+  {
+   "front": "Infrared: uses",
+   "back": "Electric grills and heaters, TV remote controls, intruder alarms, thermal imaging, optical fibres.",
+   "unit": "emspec"
+  },
+  {
+   "front": "Visible light: uses",
+   "back": "Vision, photography, illumination.",
+   "unit": "emspec"
+  },
+  {
+   "front": "Ultraviolet: uses",
+   "back": "Security marking (invisible ink), detecting fake bank notes, sterilising water.",
+   "unit": "emspec"
+  },
+  {
+   "front": "X-rays: uses",
+   "back": "Medical imaging (seeing bones) and security scanners at airports.",
+   "unit": "emspec"
+  },
+  {
+   "front": "Gamma rays: uses",
+   "back": "Sterilising food and medical equipment; detecting and treating cancer.",
+   "unit": "emspec"
+  },
+  {
+   "front": "Harmful effects",
+   "back": "Microwaves: internal heating of body cells. Infrared: skin burns. Ultraviolet: damage to surface cells and eyes, skin cancer. X-rays and gamma: mutation or damage to cells (cancer).",
+   "unit": "emspec"
+  },
+  {
+   "front": "How sound is produced",
+   "back": "By vibrating sources, e.g. a guitar string, a loudspeaker cone, vocal cords.",
+   "unit": "sound"
+  },
+  {
+   "front": "Nature of sound waves",
+   "back": "Longitudinal. Needs a medium (solid, liquid or gas) to travel through, so cannot travel through a vacuum.",
+   "unit": "sound"
+  },
+  {
+   "front": "(Extended) Compressions and rarefactions",
+   "back": "Compression: particles pushed closer together (higher pressure). Rarefaction: particles further apart (lower pressure).",
+   "unit": "sound"
+  },
+  {
+   "front": "Range of human hearing",
+   "back": "About 20 Hz to 20 000 Hz (20 kHz).",
+   "unit": "sound"
+  },
+  {
+   "front": "Ultrasound",
+   "back": "Sound with a frequency above 20 kHz, too high for humans to hear.",
+   "unit": "sound"
+  },
+  {
+   "front": "Speed of sound",
+   "back": "In air about 330–350 m/s. Faster in liquids, and fastest in solids.",
+   "unit": "sound"
+  },
+  {
+   "front": "Echo",
+   "back": "A reflection of sound from a hard surface.",
+   "unit": "sound"
+  },
+  {
+   "front": "Echo calculations",
+   "back": "The sound travels there and back, so distance to the surface = (speed × time) ÷ 2.",
+   "unit": "sound"
+  },
+  {
+   "front": "Measuring the speed of sound in air",
+   "back": "Two people a measured large distance apart. One makes a sound with a visible action; the other times from seeing to hearing it. Speed = distance ÷ time; repeat and average.",
+   "unit": "sound"
+  },
+  {
+   "front": "Pitch and loudness",
+   "back": "Higher frequency = higher pitch. Larger amplitude = louder sound.",
+   "unit": "sound"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "A wave has a frequency of 50 Hz and a wavelength of 0.20 m. What is its speed?",
+   "options": [
+    "250 m/s",
+    "0.004 m/s",
+    "50.2 m/s",
+    "10 m/s"
+   ],
+   "answer": 3,
+   "why": "v = fλ = 50 × 0.20 = 10 m/s. 250 m/s comes from dividing f by λ.",
+   "unit": "waves"
+  },
+  {
+   "q": "Which of these is a longitudinal wave?",
+   "options": [
+    "Light",
+    "Radio waves",
+    "Water ripples",
+    "Sound"
+   ],
+   "answer": 3,
+   "why": "Sound vibrations are along the direction of travel. All electromagnetic waves and water ripples are transverse.",
+   "unit": "waves"
+  },
+  {
+   "q": "What is the amplitude of a wave?",
+   "options": [
+    "Maximum displacement from the rest position",
+    "Distance from crest to trough",
+    "Distance between two crests",
+    "Number of waves per second"
+   ],
+   "answer": 0,
+   "why": "Amplitude is measured from the rest position to a crest, so it is half the crest-to-trough height.",
+   "unit": "waves"
+  },
+  {
+   "q": "Water waves move from deep water into shallow water. What happens?",
+   "options": [
+    "Speed increases, wavelength increases",
+    "Frequency decreases, speed is the same",
+    "Speed decreases, wavelength decreases",
+    "Nothing changes"
+   ],
+   "answer": 2,
+   "why": "Waves slow down in shallower water. Frequency stays the same, so from v = fλ the wavelength gets shorter.",
+   "unit": "waves"
+  },
+  {
+   "q": "A sound wave in air has a wavelength of 0.68 m. The speed of sound is 340 m/s. What is its frequency?",
+   "options": [
+    "231 Hz",
+    "500 Hz",
+    "0.002 Hz",
+    "340.68 Hz"
+   ],
+   "answer": 1,
+   "why": "f = v ÷ λ = 340 ÷ 0.68 = 500 Hz.",
+   "unit": "waves"
+  },
+  {
+   "q": "(Extended) When do waves diffract most through a gap?",
+   "options": [
+    "When the gap is about the same size as the wavelength",
+    "When the gap is much wider than the wavelength",
+    "When the waves have a large amplitude",
+    "When the water is deep"
+   ],
+   "answer": 0,
+   "why": "Diffraction is greatest when the gap width is similar to the wavelength.",
+   "unit": "waves"
+  },
+  {
+   "q": "A ray hits a plane mirror with an angle of incidence of 35°. What is the angle of reflection?",
+   "options": [
+    "55°",
+    "35°",
+    "70°",
+    "145°"
+   ],
+   "answer": 1,
+   "why": "Angle of reflection = angle of incidence. 55° is the angle to the mirror surface, not to the normal.",
+   "unit": "light"
+  },
+  {
+   "q": "An object is 2 m in front of a plane mirror. How far is the image from the object?",
+   "options": [
+    "2 m",
+    "1 m",
+    "4 m",
+    "0 m"
+   ],
+   "answer": 2,
+   "why": "The image is 2 m behind the mirror, so it is 2 + 2 = 4 m from the object.",
+   "unit": "light"
+  },
+  {
+   "q": "What happens when light passes from air into glass at an angle?",
+   "options": [
+    "It slows down and bends towards the normal",
+    "It speeds up and bends towards the normal",
+    "It slows down and bends away from the normal",
+    "It speeds up and bends away from the normal"
+   ],
+   "answer": 0,
+   "why": "Glass is optically denser, so light slows down and bends towards the normal.",
+   "unit": "light"
+  },
+  {
+   "q": "When does total internal reflection happen?",
+   "options": [
+    "Light goes from air into glass at a large angle",
+    "The angle of incidence equals 0°",
+    "The angle of incidence is less than the critical angle",
+    "Light goes from glass towards air at more than the critical angle"
+   ],
+   "answer": 3,
+   "why": "Both conditions are needed: travelling towards a less dense medium, and i greater than the critical angle.",
+   "unit": "light"
+  },
+  {
+   "q": "Which is a use of optical fibres?",
+   "options": [
+    "Sterilising instruments",
+    "An endoscope to see inside the body",
+    "Heating food",
+    "Taking X-ray images"
+   ],
+   "answer": 1,
+   "why": "An endoscope carries light down to the organ and back by total internal reflection.",
+   "unit": "light"
+  },
+  {
+   "q": "(Extended) A ray in air enters glass with i = 50° and r = 30°. What is the refractive index? (sin 50° = 0.77, sin 30° = 0.50)",
+   "options": [
+    "0.65",
+    "1.67",
+    "20",
+    "1.54"
+   ],
+   "answer": 3,
+   "why": "n = sin i ÷ sin r = 0.77 ÷ 0.50 = 1.54 (about 1.5). 1.67 wrongly divides the angles, not their sines.",
+   "unit": "light"
+  },
+  {
+   "q": "(Extended) Glass has a refractive index of 1.5. What is its critical angle?",
+   "options": [
+    "67°",
+    "1.5°",
+    "42°",
+    "90°"
+   ],
+   "answer": 2,
+   "why": "sin c = 1 ÷ n = 1 ÷ 1.5 = 0.67, so c = 42°.",
+   "unit": "light"
+  },
+  {
+   "q": "White light passes through a prism. Which colour is refracted the most?",
+   "options": [
+    "Red",
+    "Yellow",
+    "Green",
+    "Violet"
+   ],
+   "answer": 3,
+   "why": "Violet is bent most and red least, so the spectrum runs red to violet.",
+   "unit": "lenses"
+  },
+  {
+   "q": "What is meant by a real image?",
+   "options": [
+    "One that can be formed on a screen",
+    "One that is always upright",
+    "One that is the same size as the object",
+    "One that forms behind a mirror"
+   ],
+   "answer": 0,
+   "why": "Light rays actually meet at a real image, so it can be caught on a screen.",
+   "unit": "lenses"
+  },
+  {
+   "q": "An object is placed three focal lengths from a converging lens. What is the image like?",
+   "options": [
+    "Virtual, upright, magnified",
+    "Real, upright, the same size",
+    "Real, inverted, diminished",
+    "Virtual, inverted, diminished"
+   ],
+   "answer": 2,
+   "why": "Object beyond 2F gives a real, inverted, smaller image between F and 2F.",
+   "unit": "lenses"
+  },
+  {
+   "q": "What is the focal length of a lens?",
+   "options": [
+    "The thickness of the lens",
+    "The distance from the centre of the lens to the principal focus",
+    "The distance from the object to the image",
+    "The width of the lens"
+   ],
+   "answer": 1,
+   "why": "Focal length is measured from the centre of the lens to the principal focus.",
+   "unit": "lenses"
+  },
+  {
+   "q": "In a ray diagram, what happens to a ray passing through the centre of a thin converging lens?",
+   "options": [
+    "It passes straight through without bending",
+    "It bends towards the principal axis",
+    "It is reflected back",
+    "It passes through the principal focus"
+   ],
+   "answer": 0,
+   "why": "A ray through the optical centre is not deviated. It is the ray parallel to the axis that goes through F.",
+   "unit": "lenses"
+  },
+  {
+   "q": "(Extended) Where must an object be placed to use a converging lens as a magnifying glass?",
+   "options": [
+    "Beyond 2F",
+    "Closer to the lens than F",
+    "Exactly at 2F",
+    "Exactly at F"
+   ],
+   "answer": 1,
+   "why": "Closer than F, the rays leaving the lens spread out, so they seem to come from a magnified, upright, virtual image.",
+   "unit": "lenses"
+  },
+  {
+   "q": "Which electromagnetic wave has the longest wavelength?",
+   "options": [
+    "Gamma rays",
+    "Visible light",
+    "Radio waves",
+    "Ultraviolet"
+   ],
+   "answer": 2,
+   "why": "Radio waves are at the long-wavelength, low-frequency end of the spectrum.",
+   "unit": "emspec"
+  },
+  {
+   "q": "Which waves are used to sterilise medical equipment?",
+   "options": [
+    "Gamma rays",
+    "Infrared",
+    "Radio waves",
+    "Microwaves"
+   ],
+   "answer": 0,
+   "why": "Gamma rays kill bacteria and can pass through sealed packaging.",
+   "unit": "emspec"
+  },
+  {
+   "q": "Which region lies between visible light and X-rays?",
+   "options": [
+    "Infrared",
+    "Microwaves",
+    "Radio waves",
+    "Ultraviolet"
+   ],
+   "answer": 3,
+   "why": "The order is … infrared, visible, ultraviolet, X-rays, gamma.",
+   "unit": "emspec"
+  },
+  {
+   "q": "Which waves does a TV remote control use?",
+   "options": [
+    "Ultraviolet",
+    "Infrared",
+    "X-rays",
+    "Gamma rays"
+   ],
+   "answer": 1,
+   "why": "Remote controls send short-range infrared signals.",
+   "unit": "emspec"
+  },
+  {
+   "q": "A radio station broadcasts at 1.5 × 10⁶ Hz. What is the wavelength? (speed = 3.0 × 10⁸ m/s)",
+   "options": [
+    "2000 m",
+    "200 m",
+    "0.005 m",
+    "4.5 × 10¹⁴ m"
+   ],
+   "answer": 1,
+   "why": "λ = v ÷ f = 3.0 × 10⁸ ÷ 1.5 × 10⁶ = 200 m.",
+   "unit": "emspec"
+  },
+  {
+   "q": "What do all electromagnetic waves have in common?",
+   "options": [
+    "Same frequency",
+    "Same wavelength",
+    "Same speed in a vacuum",
+    "All are longitudinal"
+   ],
+   "answer": 2,
+   "why": "All travel at 3.0 × 10⁸ m/s in a vacuum. They are all transverse, with different wavelengths and frequencies.",
+   "unit": "emspec"
+  },
+  {
+   "q": "What is a harmful effect of too much ultraviolet radiation?",
+   "options": [
+    "Internal heating of body cells",
+    "Hearing damage",
+    "Broken bones",
+    "Skin cancer and eye damage"
+   ],
+   "answer": 3,
+   "why": "UV damages surface cells and eyes and can cause skin cancer. Internal heating is the danger from microwaves.",
+   "unit": "emspec"
+  },
+  {
+   "q": "Why can sound not travel through space?",
+   "options": [
+    "It is too cold",
+    "There is no light",
+    "Space is too large",
+    "There are no particles (no medium) to vibrate"
+   ],
+   "answer": 3,
+   "why": "Sound needs a medium. Space is a vacuum. Light, an electromagnetic wave, can still travel through it.",
+   "unit": "sound"
+  },
+  {
+   "q": "Which sound can a human with normal hearing hear?",
+   "options": [
+    "5 Hz",
+    "2000 Hz",
+    "50 kHz",
+    "2 MHz"
+   ],
+   "answer": 1,
+   "why": "The human range is about 20 Hz to 20 kHz. 50 kHz and 2 MHz are ultrasound; 5 Hz is too low.",
+   "unit": "sound"
+  },
+  {
+   "q": "A note is played more loudly but at the same pitch. What has changed?",
+   "options": [
+    "The amplitude has increased",
+    "The frequency has increased",
+    "The speed has increased",
+    "The wavelength has decreased"
+   ],
+   "answer": 0,
+   "why": "Loudness depends on amplitude. Same pitch means the frequency is unchanged.",
+   "unit": "sound"
+  },
+  {
+   "q": "How does the speed of sound in steel compare with its speed in air?",
+   "options": [
+    "Slower",
+    "The same",
+    "Faster",
+    "Sound cannot travel through steel"
+   ],
+   "answer": 2,
+   "why": "Sound travels fastest in solids, then liquids, then gases.",
+   "unit": "sound"
+  },
+  {
+   "q": "A girl shouts towards a cliff and hears the echo 0.60 s later. Sound travels at 340 m/s. How far away is the cliff?",
+   "options": [
+    "204 m",
+    "567 m",
+    "0.0018 m",
+    "102 m"
+   ],
+   "answer": 3,
+   "why": "Distance there and back = 340 × 0.60 = 204 m, so the cliff is 204 ÷ 2 = 102 m away.",
+   "unit": "sound"
+  },
+  {
+   "q": "What is ultrasound?",
+   "options": [
+    "Sound below 20 Hz",
+    "Very loud sound",
+    "Sound above 20 kHz",
+    "Sound in a vacuum"
+   ],
+   "answer": 2,
+   "why": "Ultrasound has a frequency above the upper limit of human hearing, 20 kHz.",
+   "unit": "sound"
+  }
+ ],
+ "examIntro": "Theory-paper style. Write your answer first, then open the mark scheme and give yourself one mark per point you made clearly. In calculations, the formula, the substitution and the answer with unit each earn marks.",
+ "exam": [
+  {
+   "q": "Describe the difference between a transverse wave and a longitudinal wave.",
+   "marks": 2,
+   "points": [
+    "Transverse: vibrations are at right angles to the direction of travel (energy transfer)",
+    "Longitudinal: vibrations are parallel to the direction of travel"
+   ],
+   "unit": "waves"
+  },
+  {
+   "q": "A water wave has a frequency of 2.5 Hz and a wavelength of 0.40 m. Calculate its speed.",
+   "marks": 3,
+   "points": [
+    "v = fλ",
+    "= 2.5 × 0.40",
+    "= 1.0 m/s"
+   ],
+   "unit": "waves"
+  },
+  {
+   "q": "In a ripple tank, 12 waves pass a point in 4.0 s. The distance from the first to the fifth crest is 20 cm. Calculate (a) the frequency, (b) the wavelength in m, (c) the wave speed.",
+   "marks": 5,
+   "points": [
+    "(a) f = 12 ÷ 4.0 = 3.0 Hz",
+    "(b) Five crests contain four wavelengths",
+    "λ = 20 ÷ 4 = 5.0 cm = 0.050 m",
+    "(c) v = fλ = 3.0 × 0.050",
+    "= 0.15 m/s"
+   ],
+   "unit": "waves"
+  },
+  {
+   "q": "Describe the image formed by a plane mirror.",
+   "marks": 3,
+   "points": [
+    "Same size as the object",
+    "Same distance behind the mirror as the object is in front",
+    "Upright",
+    "Virtual (cannot be shown on a screen)",
+    "Laterally inverted"
+   ],
+   "note": "Any 3.",
+   "unit": "light"
+  },
+  {
+   "q": "(Extended) Light in air hits a glass block with an angle of incidence of 40°. The refractive index of the glass is 1.5. Calculate the angle of refraction. (sin 40° = 0.64)",
+   "marks": 4,
+   "points": [
+    "n = sin i ÷ sin r",
+    "sin r = sin 40° ÷ 1.5 = 0.64 ÷ 1.5",
+    "sin r = 0.43",
+    "r = 25°"
+   ],
+   "unit": "light"
+  },
+  {
+   "q": "Explain how light travels along a curved optical fibre, and state one use of optical fibres.",
+   "marks": 5,
+   "points": [
+    "Light enters one end of the fibre",
+    "It hits the inside surface (glass–air or core–cladding boundary) at an angle greater than the critical angle",
+    "So it is totally internally reflected",
+    "This happens again and again along the fibre, even round bends",
+    "Very little light escapes",
+    "Use: endoscope / telephone and internet cables (communications)"
+   ],
+   "note": "Any 4 for the explanation, plus 1 for the use.",
+   "unit": "light"
+  },
+  {
+   "q": "State what is meant by (a) the principal focus and (b) the focal length of a converging lens.",
+   "marks": 2,
+   "points": [
+    "(a) The point where rays parallel to the principal axis meet after passing through the lens",
+    "(b) The distance from the centre of the lens to the principal focus"
+   ],
+   "unit": "lenses"
+  },
+  {
+   "q": "Describe what happens when a narrow beam of white light passes through a glass prism.",
+   "marks": 3,
+   "points": [
+    "The light is refracted (slows down and bends) on entering and leaving",
+    "Different colours are refracted by different amounts",
+    "White light is split into a spectrum (dispersion)",
+    "Red is refracted least, violet most"
+   ],
+   "note": "Any 3.",
+   "unit": "lenses"
+  },
+  {
+   "q": "An object 4.0 cm tall stands 15 cm from a converging lens of focal length 5.0 cm. Describe how to draw a ray diagram to find the image, and state three properties of the image.",
+   "marks": 5,
+   "points": [
+    "Draw a ray from the top of the object parallel to the principal axis, refracting through the principal focus on the far side",
+    "Draw a ray from the top of the object through the centre of the lens, carrying straight on",
+    "The top of the image is where the two rays cross",
+    "Image is real",
+    "Image is inverted",
+    "Image is diminished (smaller than the object), between F and 2F"
+   ],
+   "note": "Any 5.",
+   "unit": "lenses"
+  },
+  {
+   "q": "State two properties that all electromagnetic waves share.",
+   "marks": 2,
+   "points": [
+    "Transverse",
+    "Same speed in a vacuum (3.0 × 10⁸ m/s)",
+    "Transfer energy",
+    "Can travel through a vacuum",
+    "Can be reflected / refracted"
+   ],
+   "note": "Any 2.",
+   "unit": "emspec"
+  },
+  {
+   "q": "A microwave oven uses waves of frequency 2.4 × 10⁹ Hz. Calculate their wavelength. (speed = 3.0 × 10⁸ m/s)",
+   "marks": 3,
+   "points": [
+    "λ = v ÷ f",
+    "= 3.0 × 10⁸ ÷ 2.4 × 10⁹",
+    "= 0.125 m (0.13 m)"
+   ],
+   "unit": "emspec"
+  },
+  {
+   "q": "For X-rays and ultraviolet, state one use and one harmful effect of each.",
+   "marks": 4,
+   "points": [
+    "X-rays use: medical imaging of bones / airport security scanners",
+    "X-rays harm: mutation or damage to cells, causing cancer",
+    "Ultraviolet use: security marking / detecting fake bank notes / sterilising water",
+    "Ultraviolet harm: damage to skin cells and eyes, skin cancer"
+   ],
+   "unit": "emspec"
+  },
+  {
+   "q": "Explain why astronauts on the Moon cannot hear each other directly, even when close together.",
+   "marks": 2,
+   "points": [
+    "Sound needs a medium (particles) to travel through",
+    "There is no air on the Moon (it is a vacuum)"
+   ],
+   "unit": "sound"
+  },
+  {
+   "q": "Describe how two students could measure the speed of sound in air on a playing field.",
+   "marks": 4,
+   "points": [
+    "Measure a large distance between them (e.g. 200 m or more) with a tape or trundle wheel",
+    "One student makes a loud sound with a visible action (claps blocks / bangs cymbals)",
+    "The other starts a stopwatch on seeing the action and stops it on hearing the sound",
+    "Speed = distance ÷ time",
+    "Repeat several times and average"
+   ],
+   "note": "Any 4.",
+   "unit": "sound"
+  },
+  {
+   "q": "A ship sends a sound pulse down to the sea bed. The echo returns 0.40 s later. Sound travels at 1500 m/s in water. Calculate the depth of the sea.",
+   "marks": 4,
+   "points": [
+    "distance = speed × time",
+    "= 1500 × 0.40 = 600 m",
+    "The pulse travels there and back, so halve it",
+    "Depth = 300 m"
+   ],
+   "unit": "sound"
+  }
+ ]
+}
