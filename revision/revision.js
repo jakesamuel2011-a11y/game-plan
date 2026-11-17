@@ -19,7 +19,7 @@
 //  upcomingTests() / paceSummary() for the Today plan and dashboard.
 // =============================================================
 import { SUBJECTS, PACKS, PACK_VERSION, REVISION_GOAL, SEED_TESTS, SEED_SESSIONS, allTopics, topicById, subjectByKey } from "./syllabus.js?v=11";
-import { renderPack, packModes, writtenWork } from "./packview.js?v=11";
+import { renderPack, packModes, writtenWork } from "./packview.js?v=12";
 import { makePlanner, TOPIC_MINS, weekday } from "./dayplan.js?v=1";
 export { TOPIC_MINS };
 
@@ -43,7 +43,7 @@ export function initRevision({ db, fs, me, nameFor, onChange, isParent }) {
     F.onSnapshot(F.query(F.collection(DB, "revprogress")), s => { R.progress = Object.fromEntries(s.docs.map(d => [d.id, d.data()])); changed(); });
     F.onSnapshot(F.query(F.collection(DB, "revsessions")), s => { R.sessions = s.docs.map(d => ({ id: d.id, ...d.data() })); changed(); });
     F.onSnapshot(F.query(F.collection(DB, "revtests")), s => { R.tests = s.docs.map(d => ({ id: d.id, ...d.data() })); changed(); });
-    F.onSnapshot(F.query(F.collection(DB, "revpractice")), s => { R.practice = Object.fromEntries(s.docs.map(d => [d.id, d.data()])); changed(true); });
+    F.onSnapshot(F.query(F.collection(DB, "revpractice")), s => { R.practice = Object.fromEntries(s.docs.map(d => [d.id, d.data()])); changed(true); autoRounds(); clearTimeout(practiceTimer); practiceTimer = setTimeout(() => ON_CHANGE(), 1500); });
     F.onSnapshot(F.query(F.collection(DB, "studysessions")), s => { R.study = s.docs.map(d => ({ id: d.id, ...d.data() })); changed(); });
     F.onSnapshot(F.query(F.collection(DB, "revoff")), s => { revOff = new Map(s.docs.map(d => [d.id, d.data()])); changed(); });
     F.onSnapshot(F.query(F.collection(DB, "revgrade")), s => { R.grades = s.docs.map(d => ({ id: d.id, ...d.data() })).sort((a, b) => (b.date || "").localeCompare(a.date || "") || (b.n || 0) - (a.n || 0)); changed(); });
@@ -111,6 +111,7 @@ export function paceSummary() {
 // The planning rules live in dayplan.js (shared with the plan emails). app.js supplies the
 // football / holiday / tournament data with setPlanContext; "no-revision" days are revoff/{date}.
 let revOff = new Map(); // date -> {reason, by, at}
+let practiceTimer = null;
 let planCtx = () => ({});
 export function setPlanContext(fn) { planCtx = fn; }
 const planner = () => makePlanner({ subjects: SUBJECTS, progress: R.progress, tests: R.tests, ctx: { ...planCtx(), revOff }, today: todayStr(), goalBy: REVISION_GOAL.by });
@@ -156,6 +157,54 @@ export function mountOffDays(el, selDate) {
   });
 }
 
+// ---------- a round is earned by doing the practice ----------
+// A topic's next round is recorded automatically once, on one day, Jake has done that
+// chapter's practice: flashcards (8, or all if fewer), quiz questions (5, or all if fewer;
+// the date quiz for History) and one written exam answer. Confidence comes from the quiz score.
+const NEED = { cards: 8, quiz: 5, exam: 1 };
+const sameDay = (iso, t) => (iso || "").slice(0, 10) === t;
+export function chapterWork(pack, st, unit, t) {
+  const inU = (x) => x.unit === unit;
+  const cardKeys = new Set((pack.flashcards || []).map((c, i) => [c, c.key || "c" + i]).filter(([c]) => inU(c)).map(([, k]) => k));
+  const last = {};
+  (st.cardLog || []).filter(e => sameDay(e.at, t) && cardKeys.has(e.key)).forEach(e => { last[e.key] = e.r; });
+  const seen = Object.keys(last).length, got = Object.values(last).filter(r => r === "got").length;
+  let qs = 0, qn = 0;
+  (st.quizzes || []).filter(q => sameDay(q.at, t)).forEach(q => { const b = q.byUnit?.[unit]; if (b) { qs += b[0]; qn += b[1]; } });
+  const quizPool = pack.quiz?.length ? pack.quiz.filter(inU).length : (pack.timeline || []).filter(inU).length;
+  const examKeys = (pack.exam || []).map((q, i) => [q, q.key || "eq" + i]).filter(([q]) => inU(q)).map(([, k]) => k);
+  const written = examKeys.filter(k => sameDay(st.answeredAt?.[k], t) && (st.answers?.[k] || "").trim().length >= 15).length;
+  const need = { cards: Math.min(NEED.cards, cardKeys.size), quiz: Math.min(NEED.quiz, quizPool), exam: Math.min(NEED.exam, examKeys.length) };
+  const have = { cards: seen, quiz: qn, exam: written };
+  const complete = need.cards + need.quiz + need.exam > 0 && ["cards", "quiz", "exam"].every(k => have[k] >= need[k]);
+  const pct = qn ? qs / qn : seen ? got / seen : 0;
+  const conf = pct >= 0.9 ? 5 : pct >= 0.75 ? 4 : pct >= 0.6 ? 3 : pct >= 0.4 ? 2 : 1;
+  return { need, have, quiz: [qs, qn], complete, conf };
+}
+const workLine = (w) => [["🃏 Flashcards", "cards"], ["📝 Quiz", "quiz"], ["✍️ Exam answer", "exam"]]
+  .filter(([, k]) => w.need[k]).map(([l, k]) => `${w.have[k] >= w.need[k] ? "✅" : "⬜"} ${l} ${Math.min(w.have[k], w.need[k])}/${w.need[k]}`).join(" · ");
+// Record rounds earned today (Jake's device only; runs when practice is saved).
+let autoBusy = false;
+async function autoRounds() {
+  if (IS_PARENT() || autoBusy || !DB) return;
+  autoBusy = true;
+  try {
+    const t = todayStr();
+    for (const [packId, st] of Object.entries(R.practice)) {
+      const fresh = (st.cardLog || []).some(e => sameDay(e.at, t)) || (st.quizzes || []).some(q => sameDay(q.at, t)) || Object.values(st.answeredAt || {}).some(a => sameDay(a, t));
+      if (!fresh) continue;
+      const pack = await loadPack(packId);
+      for (const tp of allTopics().filter(x => x.pack === packId)) {
+        const w = chapterWork(pack, st, tp.packUnit, t);
+        if (!w.complete) continue;
+        const p = R.progress[tp.id] || {};
+        const round = !p.r1?.done ? "r1" : !p.r2?.done && p.r1.at < t ? "r2" : null;
+        if (round) await F.setDoc(progRef(tp.id), { [round]: { done: true, conf: w.conf, at: t, by: ME().email, auto: true, quiz: w.quiz } }, { merge: true });
+      }
+    }
+  } catch (e) { console.warn("auto rounds", e); } finally { autoBusy = false; }
+}
+
 // The "Today's revision" card in the Today tab.
 export function mountDayPlan(el, d, { onPractise, label }) {
   el.innerHTML = "";
@@ -173,13 +222,25 @@ export function mountDayPlan(el, d, { onPractise, label }) {
   const subj = (k) => subjectByKey(k);
   const row = (tp, round, doneRec) => {
     const r = document.createElement("div"); r.className = "item rv-today-item" + (doneRec ? " done" : "");
-    r.innerHTML = `<div class="item-main"><div class="item-title">${subj(tp.subject)?.emoji || ""} ${esc(shortNames([tp.subject]))} · ${esc(tp.name)}</div><div class="item-sub">${round === "r1" ? "Round 1" : "Round 2"}${doneRec ? ` · ✓ done, confidence ${doneRec.conf}/5` : " · flashcards + quiz, then exam questions"}</div></div>`;
+    const how = doneRec ? (doneRec.auto ? ` · ✅ done from practice${doneRec.quiz?.[1] ? `, quiz ${doneRec.quiz[0]}/${doneRec.quiz[1]}` : ""} · confidence ${doneRec.conf}/5` : ` · ✅ marked done by ${esc(NAME_FOR(doneRec.by))} · confidence ${doneRec.conf}/5`) : "";
+    r.innerHTML = `<div class="item-main"><div class="item-title">${subj(tp.subject)?.emoji || ""} ${esc(shortNames([tp.subject]))} · ${esc(tp.name)}</div><div class="item-sub">${round === "r1" ? "Round 1" : "Round 2"}${how}</div>${doneRec || !tp.pack ? "" : `<div class="item-sub rv-work">${d === t ? "Checking today's practice…" : "Do: 8 flashcards, 5 quiz questions and 1 exam answer for this chapter"}</div>`}</div>`;
+    if (!doneRec && tp.pack && d === t) {
+      // Live checklist from what he has actually done in this chapter today.
+      loadPack(tp.pack).then(pack => {
+        const w = chapterWork(pack, stateFor(tp.pack), tp.packUnit, t);
+        const el2 = r.querySelector(".rv-work"); if (el2) el2.textContent = workLine(w) + (w.complete ? " · recording…" : "");
+        if (w.complete) autoRounds();
+      }).catch(() => {});
+    }
     if (!doneRec && d === t) {
       const b = document.createElement("div"); b.className = "rv-today-btns";
       if (tp.pack) { const p = document.createElement("button"); p.type = "button"; p.className = "btn tiny primary"; p.textContent = "▶ Practise"; p.onclick = () => onPractise(tp.id); b.appendChild(p); }
-      const k = document.createElement("button"); k.type = "button"; k.className = "btn tiny ghost"; k.textContent = "✓ Done";
-      k.onclick = () => { r.querySelector(".rv-conf")?.remove(); r.appendChild(confPicker(conf => setRound(tp.id, round, conf))); };
-      b.appendChild(k); r.appendChild(b);
+      if (IS_PARENT()) { // Mum can still record a round done another way (e.g. from the textbook)
+        const k = document.createElement("button"); k.type = "button"; k.className = "btn tiny ghost"; k.textContent = "Mark done";
+        k.onclick = () => { r.querySelector(".rv-conf")?.remove(); r.appendChild(confPicker(conf => setRound(tp.id, round, conf))); };
+        b.appendChild(k);
+      }
+      r.appendChild(b);
     }
     list.appendChild(r);
   };
@@ -191,7 +252,7 @@ export function mountDayPlan(el, d, { onPractise, label }) {
     if (off !== "busy") c.appendChild(b);
   }
   const pr = planProjection();
-  c.insertAdjacentHTML("beforeend", `<div class="muted small rv-proj">Topics you don't finish move to the next day. At this pace: Round 1 of all ${pr.total} topics ${pr.r1Done ? `done by ${fmtDate(pr.r1Done)}` : "not finished yet"}; ${pr.r2ByGoal} of ${pr.total} Round 2s by ${fmtDate(REVISION_GOAL.by)}.</div>`);
+  c.insertAdjacentHTML("beforeend", `<div class="muted small rv-proj">A topic is ticked off by itself once its flashcards, quiz and an exam answer are done. Topics you don't finish move to the next day. At this pace: Round 1 of all ${pr.total} topics ${pr.r1Done ? `done by ${fmtDate(pr.r1Done)}` : "not finished yet"}; ${pr.r2ByGoal} of ${pr.total} Round 2s by ${fmtDate(REVISION_GOAL.by)}.</div>`);
   el.appendChild(c);
 }
 
@@ -618,11 +679,15 @@ function roundChip(topic, round) {
   b.type = "button";
   b.className = "rv-round" + (p?.done ? " on" : "") + (p?.done && p.conf <= 2 ? " shaky" : "");
   b.innerHTML = p?.done ? `✓ ${label} · ${p.conf}/5` : label;
-  b.title = p?.done ? `Done ${fmtDate(p.at)} by ${NAME_FOR(p.by)}` : "Tap when you've revised this topic";
+  b.title = p?.done ? `Done ${fmtDate(p.at)}${p.auto ? " from practice" : ` by ${NAME_FOR(p.by)}`}` : "Recorded when the chapter's flashcards, quiz and an exam answer are done";
   b.onclick = (ev) => {
     ev.stopPropagation();
     const host = b.closest(".rv-topic");
     host.querySelector(".rv-conf")?.remove();
+    if (!IS_PARENT()) { // Jake earns rounds by doing the practice; only Mum ticks or undoes them by hand
+      alert(p?.done ? `${label} was recorded ${fmtDate(p.at)}.` : `${label} is ticked off by itself when you do this chapter's practice on one day: ${NEED.cards} flashcards, ${NEED.quiz} quiz questions and 1 exam answer.`);
+      return;
+    }
     if (p?.done) {
       if (confirm(`Undo ${label} for “${topic.name}”?`)) setRound(topic.id, round, 0);
       return;
@@ -828,7 +893,7 @@ function unitPracticeCard(packId, subjectKey, unitName) {
 // items and chapters are keyed "<packId>::c3", "<packId>::eq2", "<packId>::<unit>";
 // one shared state is split back into each book's own revpractice/{packId} on every save.
 const SEP = "::";
-const MERGE_FIELDS = ["answers", "cards", "done", "sent", "drills"];
+const MERGE_FIELDS = ["answers", "cards", "done", "sent", "drills", "answeredAt"];
 const splitKey = (k) => { const i = k.indexOf(SEP); return [k.slice(0, i), k.slice(i + SEP.length)]; };
 
 function mergePacks(ids, packs) {

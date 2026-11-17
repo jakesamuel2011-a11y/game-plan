@@ -9,7 +9,7 @@
 //                     cardLog:[{at, unit, key, r}]  (every Got it / Not yet, newest last),
 //                     quizzes:[{d, at, unit, kind, score, n, byUnit:{unit:[score, n]}}]
 //                              (saved after every answer; byUnit = per-chapter score),
-//                     drills:{key:date} }
+//                     drills:{key:date}, answeredAt:{key:ISO time last typed} }
 //    opts  = { unit }  — pre-select a chapter (e.g. "kq4", or an array of chapters).
 //            Chapters ("units") are multi-select; none selected = all chapters.
 //            { submit(key), submitted(key) } — optional: shows a Submit button
@@ -96,7 +96,7 @@ export function writtenWork(pack, state) {
 
 export function renderPack(root, pack, store, opts = {}) {
   const S = store.state;
-  S.answers ||= {}; S.cards ||= {}; S.quizzes ||= []; S.drills ||= {}; S.cardLog ||= [];
+  S.answers ||= {}; S.cards ||= {}; S.quizzes ||= []; S.drills ||= {}; S.cardLog ||= []; S.answeredAt ||= {};
   const nowISO = () => new Date().toISOString();
   // Each Got it / Not yet is logged with a time, so a study session can report what was done in it.
   const logCard = (key, r) => { S.cardLog.push({ at: nowISO(), unit: unitKey(), key, r }); if (S.cardLog.length > 1500) S.cardLog.splice(0, S.cardLog.length - 1500); };
@@ -152,7 +152,7 @@ export function renderPack(root, pack, store, opts = {}) {
   function textBox(key, placeholder) {
     const t = h("textarea", { class: "pk-text", placeholder });
     t.value = S.answers[key] || "";
-    t.addEventListener("input", () => { S.answers[key] = t.value; store.save(); });
+    t.addEventListener("input", () => { S.answers[key] = t.value; S.answeredAt[key] = new Date().toISOString(); store.save(); });
     return t;
   }
   // "Submit answer": marks this answer finished; it goes to Mum when the study

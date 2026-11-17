@@ -55,9 +55,9 @@ export function weeklyEmail(data, from) {
   const body = `<p style="font-size:14px">In the last 7 days Jake revised <b>${lastWeek}</b> topic round${lastWeek === 1 ? "" : "s"}. The plan: <b>${count}</b> topics, about ${Math.round(count * TOPIC_MINS / 60 * 10) / 10} hours.</p>
     ${testsHtml(data, mon, addDays(sun, 7))}
     <table style="width:100%;border-collapse:collapse;margin-top:6px">${rows}</table>
-    <p style="font-size:14px">Each topic: open it from the Today tab (▶ Practise), do the flashcards and quiz, try an exam question, then tap ✓ Done.</p>
+    <p style="font-size:14px">Each topic: open it from the Today tab (▶ Practise) and do 8 flashcards, 5 quiz questions and 1 exam answer for that chapter. It's ticked off automatically when all three are done.</p>
     ${statusHtml(s, data)}`;
-  return { subject: `📅 Jake's revision plan · ${fmt(mon)} – ${fmt(sun)} · ${count} topics`, html: wrap("📅 Jake's revision plan this week", `${fmt(mon)} – ${fmt(sun)}`, body) };
+  return { subject: `📅 WEEKLY plan (day by day): Jake's revision ${fmt(mon)} – ${fmt(sun)} · ${count} topics`, html: wrap("📅 Weekly plan: Jake's revision, day by day", `${fmt(mon)} – ${fmt(sun)}`, body) };
 }
 
 // Every other Sunday: overview of the next two weeks, grouped by subject.
@@ -80,7 +80,7 @@ export function fortnightEmail(data, from) {
       <ul style="font-size:14px;line-height:1.7;margin:0;padding-left:18px">${Object.entries(bySubj).map(([k, xs]) => `<li>${EMOJI[k] || ""} <b>${esc(SUBJ[k] || k)}:</b> ${xs.map((x) => `${esc(x.topic.name)}${x.round === "r2" ? " (Round 2)" : ""}`).join("; ")}</li>`).join("") || "<li>Nothing planned</li>"}</ul>
       ${offDays.length ? `<p style="font-size:13px;color:#7a8a96">${offDays.join(" · ")}</p>` : ""}`;
   }
-  body = `<p style="font-size:14px">The plan for the next two weeks, by subject. A day-by-day plan comes every Sunday morning.</p>
+  body = `<p style="font-size:14px">The plan for the next two weeks, by subject. The weekly email (day by day) comes every Sunday morning.</p>
     ${testsHtml(data, start, end)}${body}${statusHtml(s, data)}`;
-  return { subject: `🗓️ Jake's revision: the next 2 weeks (${fmt(start)} – ${fmt(end)})`, html: wrap("🗓️ Jake's revision: the next 2 weeks", `${fmt(start)} – ${fmt(end)}`, body) };
+  return { subject: `🗓️ 2-WEEK plan ahead: Jake's revision ${fmt(start)} – ${fmt(end)}`, html: wrap("🗓️ 2-week plan ahead: Jake's revision", `${fmt(start)} – ${fmt(end)}`, body) };
 }
