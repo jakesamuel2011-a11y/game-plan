@@ -580,11 +580,11 @@ function paceCard() {
 function renderHome(el) {
   const t = todayStr();
   el.innerHTML = `<h2>📖 Revision</h2>
-    <div id="rvGrades"></div>
     <h3 class="section-h">📚 Subjects: tap one for its topics, checklists and practice</h3><div id="rvSubj" class="rv-grid"></div>
     ${paceCard()}<div id="rvParent"></div>
     <h3 class="section-h">📝 Tests</h3><div id="rvTests" class="list"></div>
-    <h3 class="section-h">🗓️ Revision sessions</h3><div id="rvSess" class="list"></div>`;
+    <h3 class="section-h">🗓️ Revision sessions</h3><div id="rvSess" class="list"></div>
+    <div id="rvGrades"></div>`; // marking and feedback for each session: at the bottom
 
   // Tests
   const tl = el.querySelector("#rvTests");
