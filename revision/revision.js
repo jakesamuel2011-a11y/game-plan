@@ -128,7 +128,9 @@ function makeup(sat) {
   const end = lastPast < addDays(sat, -1) ? lastPast : addDays(sat, -1);
   let planned = 0;
   for (let d = mon; d <= end; d = addDays(d, 1)) planned += dayCap(d);
-  return Math.max(0, Math.min(3, planned - roundsDoneOn(mon, end)));
+  // Work done any day this week (today included) counts, so getting ahead cancels catch-up.
+  const fri = addDays(sat, -1), doneTo = t < fri ? t : fri;
+  return Math.max(0, Math.min(3, planned - roundsDoneOn(mon, doneTo)));
 }
 // Simulate from today to `until`. Returns { days: {date: [{topic, round}]}, r1Done: date|null, r2ByGoal }
 function simulate(until) {
