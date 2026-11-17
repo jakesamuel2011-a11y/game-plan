@@ -12,9 +12,9 @@ import { weeklyEmail, fortnightEmail } from "./plan-email-html.mjs";
 import { addDays } from "../revision/dayplan.js";
 
 const SEND_HOUR_IST = 7;
-// One-off: send the weekly + fortnightly emails as they would have gone out on this Sunday,
-// using only the progress recorded by then. Sent once (mailstate/plans.resentAsOf).
-const RESEND_AS_OF = "2026-11-15";
+// One-off: send the weekly + fortnightly emails now, planned from this date (today).
+// Sent once (mailstate/plans.sentNowFor).
+const SEND_NOW_FROM = "2026-11-17";
 const docs = async (db, name) => (await db.collection(name).get()).docs;
 
 export async function runPlanEmails(db, transporter) {
@@ -26,8 +26,8 @@ export async function runPlanEmails(db, transporter) {
   const first = !state;
   const weeklyDue = first || (isSunday && hour >= SEND_HOUR_IST && state.weeklyFor !== today);
   const fortnightDue = first || (isSunday && hour >= SEND_HOUR_IST && (!state.fortnightFor || today >= addDays(state.fortnightFor, 14)));
-  const resendDue = RESEND_AS_OF && state && state.resentAsOf !== RESEND_AS_OF;
-  if (!weeklyDue && !fortnightDue && !resendDue) { console.log("Plan emails: nothing due."); return; }
+  const nowDue = SEND_NOW_FROM && state && state.sentNowFor !== SEND_NOW_FROM && today === SEND_NOW_FROM;
+  if (!weeklyDue && !fortnightDue && !nowDue) { console.log("Plan emails: nothing due."); return; }
 
   const progress = Object.fromEntries((await docs(db, "revprogress")).map((d) => [d.id, d.data()]));
   const tests = (await docs(db, "revtests")).map((d) => d.data());
@@ -44,14 +44,10 @@ export async function runPlanEmails(db, transporter) {
   const send = (m) => transporter.sendMail({ from: `"Jake's Game Plan" <${process.env.GMAIL_USER}>`, to, subject: m.subject, html: m.html });
 
   const next = { ...(state || {}) };
-  if (resendDue) {
-    const asOf = RESEND_AS_OF;
-    const keep = (r) => (r?.done && r.at <= asOf ? r : undefined);
-    const past = Object.fromEntries(Object.entries(progress).map(([id, p]) => [id, { ...p, r1: keep(p.r1), r2: keep(p.r2) }]));
-    const old = { ...data, progress: past, today: asOf };
-    await send(weeklyEmail(old));
-    await send(fortnightEmail(old));
-    next.resentAsOf = asOf; console.log("Resent plan emails as of", asOf);
+  if (nowDue) {
+    await send(weeklyEmail(data, today));
+    await send(fortnightEmail(data, today));
+    next.sentNowFor = SEND_NOW_FROM; console.log("Sent plan emails from", today);
   }
   if (weeklyDue) {
     await send(weeklyEmail(data, first && !isSunday ? addDays(today, 1) : undefined));
