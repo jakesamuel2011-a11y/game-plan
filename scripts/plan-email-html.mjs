@@ -61,9 +61,9 @@ export function weeklyEmail(data, from) {
 }
 
 // Every other Sunday: overview of the next two weeks, grouped by subject.
-export function fortnightEmail(data) {
+export function fortnightEmail(data, from) {
   const s = setup(data);
-  const start = addDays(data.today, 1), end = addDays(data.today, 14);
+  const start = from || addDays(data.today, 1), end = addDays(start, 13);
   const sim = s.pl.simulate(end).days;
   let body = "";
   for (let w = 0; w < 2; w++) {
