@@ -1,0 +1,760 @@
+{
+ "id": "history-interwar",
+ "subject": "Humanities",
+ "title": "Inter-war years (KQ1–3)",
+ "sub": "IGCSE History 0470 · peace treaties, the League of Nations, the road to war",
+ "units": [
+  {
+   "key": "kq1",
+   "name": "KQ1 Treaties"
+  },
+  {
+   "key": "kq2",
+   "name": "KQ2 League"
+  },
+  {
+   "key": "kq3",
+   "name": "KQ3 Road to war"
+  }
+ ],
+ "strategyIntro": "Three question types. Every practice session should end with you writing an answer, not just reading. Close the book, write what you remember, then check.",
+ "strategy": [
+  {
+   "title": "4 marks: Facts (Describe… / What were…)",
+   "key": true,
+   "points": [
+    "Two points, each backed by a specific detail (a date, name, number).",
+    "No intro, no conclusion, no opinion. About 5 minutes."
+   ]
+  },
+  {
+   "title": "6 marks: Analysis (Explain why…)",
+   "key": true,
+   "points": [
+    "Two or three fully explained reasons; aim for at least one point each way where the question allows.",
+    "PEEL each paragraph: Point → Evidence → Explain how it caused the outcome → Link back to the question.",
+    "The marks are in the explanation. About 10 minutes."
+   ]
+  },
+  {
+   "title": "10 marks: Debate (How far do you agree…?)",
+   "key": true,
+   "points": [
+    "One-line intro stating your overall answer.",
+    "Side 1: two explained points that agree. Side 2: two explained points that disagree or give another factor.",
+    "Conclusion with a judgement and a reason, using a criterion: which came first, which made the others possible, which had the biggest effect.",
+    "A balanced essay with no clear judgement caps the mark. About 20 minutes."
+   ]
+  },
+  {
+   "title": "Useful phrases",
+   "points": [
+    "“The most important reason was… because…”",
+    "“However, this was only possible because…”",
+    "“On balance…”",
+    "“Without X, Y would not have happened.”"
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "Describe",
+   "4 marks: two specific facts."
+  ],
+  [
+   "Explain why",
+   "6 marks: reasons, each explained with PEEL."
+  ],
+  [
+   "How far",
+   "10 marks: both sides plus a judgement with a reason."
+  ]
+ ],
+ "quizTitle": "Date quiz",
+ "quizIntro": "Ten events, pick the year. Uses the timeline below.",
+ "flashIntro": "Read the question, answer out loud, then flip. Mark “Got it” or “Not yet”: “Not yet” cards come back sooner.",
+ "flashcards": [
+  {
+   "front": "What did each of the Big Three want at Paris in 1919?",
+   "back": "Clemenceau (France): punish Germany hard and make France safe. Wilson (USA): a fair peace based on his Fourteen Points and a League of Nations. Lloyd George (Britain): punish Germany but not cripple it, so trade could recover.",
+   "unit": "kq1"
+  },
+  {
+   "front": "What were Wilson's Fourteen Points (Jan 1918)?",
+   "back": "His plan for peace: self-determination for nations, disarmament, freedom of the seas, no secret treaties, and a League of Nations.",
+   "unit": "kq1"
+  },
+  {
+   "front": "When and where was the Treaty of Versailles signed?",
+   "back": "28 June 1919, in the Hall of Mirrors at Versailles. Germany was not allowed to take part in the talks.",
+   "unit": "kq1"
+  },
+  {
+   "front": "Versailles: what land did Germany lose?",
+   "back": "Alsace-Lorraine to France; the Polish Corridor to Poland; Danzig made a free city; the Saar run by the League for 15 years; all colonies became League mandates. About 13% of its European land.",
+   "unit": "kq1"
+  },
+  {
+   "front": "Versailles: military terms?",
+   "back": "Army cut to 100,000; no conscription; no tanks, air force or submarines; only 6 battleships; the Rhineland demilitarised.",
+   "unit": "kq1"
+  },
+  {
+   "front": "Versailles: reparations and war guilt?",
+   "back": "Article 231 (War Guilt Clause): Germany accepted blame for the war. Reparations fixed in 1921 at £6,600 million.",
+   "unit": "kq1"
+  },
+  {
+   "front": "How did Germans react to Versailles?",
+   "back": "They called it a 'Diktat' (dictated peace). The politicians who signed were branded the 'November Criminals'. Anger was greatest over war guilt and reparations.",
+   "unit": "kq1"
+  },
+  {
+   "front": "Treaty of Saint-Germain (1919): Austria",
+   "back": "Austria lost land to Italy, Czechoslovakia and Yugoslavia; army cut to 30,000; union with Germany (Anschluss) forbidden.",
+   "unit": "kq1"
+  },
+  {
+   "front": "Treaty of Trianon (1920): Hungary",
+   "back": "Hungary lost about two-thirds of its land to Romania, Czechoslovakia and Yugoslavia; army cut to 35,000.",
+   "unit": "kq1"
+  },
+  {
+   "front": "Treaty of Neuilly (1919): Bulgaria",
+   "back": "Bulgaria lost land to Greece (its Aegean coast), Yugoslavia and Romania; army cut to 20,000; reparations of £100 million.",
+   "unit": "kq1"
+  },
+  {
+   "front": "Treaty of Sèvres (1920) and Lausanne (1923): Turkey",
+   "back": "Sèvres took away Turkey's empire and land in Europe. Turkish nationalists under Mustafa Kemal fought back, and the Treaty of Lausanne (1923) gave Turkey better terms.",
+   "unit": "kq1"
+  },
+  {
+   "front": "Why did Clemenceau not get everything he wanted?",
+   "back": "Wilson and Lloyd George blocked the harshest ideas, such as splitting the Rhineland off from Germany. France got Alsace-Lorraine and a demilitarised Rhineland instead.",
+   "unit": "kq1"
+  },
+  {
+   "front": "What happened in 1923 because of reparations?",
+   "back": "Germany missed a payment, so France and Belgium occupied the Ruhr (Jan 1923). Workers went on strike, the government printed money, and hyperinflation followed.",
+   "unit": "kq1"
+  },
+  {
+   "front": "One argument that Versailles was fair",
+   "back": "It was milder than Germany's own Treaty of Brest-Litovsk (1918) on Russia, and France had suffered huge damage. Reparations were paid back for the destruction.",
+   "unit": "kq1"
+  },
+  {
+   "front": "When did the League of Nations start, and where was it based?",
+   "back": "January 1920, in Geneva, Switzerland.",
+   "unit": "kq2"
+  },
+  {
+   "front": "Main parts of the League",
+   "back": "Assembly (every member, met once a year, decisions unanimous); Council (permanent members Britain, France, Italy, Japan); Secretariat; Permanent Court of International Justice; agencies such as the ILO.",
+   "unit": "kq2"
+  },
+  {
+   "front": "What is collective security?",
+   "back": "The idea that members act together against an aggressor: first moral pressure, then economic sanctions, then (in theory) military force.",
+   "unit": "kq2"
+  },
+  {
+   "front": "Key weaknesses of the League",
+   "back": "USA never joined; Germany out until 1926 and the USSR until 1934; no army of its own; decisions had to be unanimous; sanctions were slow and easy to ignore.",
+   "unit": "kq2"
+  },
+  {
+   "front": "Åland Islands (1921)",
+   "back": "Sweden and Finland both claimed them. The League gave them to Finland and Sweden accepted. A success.",
+   "unit": "kq2"
+  },
+  {
+   "front": "Upper Silesia (1921)",
+   "back": "Disputed by Germany and Poland. After a plebiscite the League split it between them, and both accepted. A success.",
+   "unit": "kq2"
+  },
+  {
+   "front": "Vilna (1920)",
+   "back": "Poland seized Vilna, the capital of Lithuania. The League did nothing because Britain and France would not act. A failure.",
+   "unit": "kq2"
+  },
+  {
+   "front": "Corfu (1923)",
+   "back": "An Italian general (Tellini) was murdered in Greece. Mussolini bombarded and occupied Corfu. The Conference of Ambassadors made Greece apologise and pay 50 million lire. A failure: a big power had bullied a small one.",
+   "unit": "kq2"
+  },
+  {
+   "front": "Bulgaria (1925)",
+   "back": "Greece invaded Bulgaria after a border incident. The League ordered Greece to withdraw and pay compensation, and it did. A success, but only against a small country.",
+   "unit": "kq2"
+  },
+  {
+   "front": "Successes of the League's agencies",
+   "back": "Refugees Committee returned about 400,000 prisoners of war home; Health Committee fought leprosy and malaria (later the WHO); Slavery Commission freed 200,000 slaves in Sierra Leone; ILO improved working conditions.",
+   "unit": "kq2"
+  },
+  {
+   "front": "How did the Depression (1929) weaken the League?",
+   "back": "Countries looked after themselves, so sanctions were less likely. Japan, Italy and Germany turned to aggressive nationalist leaders who wanted new land.",
+   "unit": "kq2"
+  },
+  {
+   "front": "Manchuria (1931–33)",
+   "back": "After the Mukden Incident (Sept 1931) Japan invaded Manchuria. The Lytton Report took a year and condemned Japan. Japan ignored it and left the League in 1933.",
+   "unit": "kq2"
+  },
+  {
+   "front": "Abyssinia (1935–36)",
+   "back": "Italy invaded in Oct 1935. The League's sanctions left out oil, and Britain kept the Suez Canal open. The secret Hoare–Laval Pact offered Italy most of Abyssinia. Italy won and left the League in 1937.",
+   "unit": "kq2"
+  },
+  {
+   "front": "Disarmament Conference (1932–33)",
+   "back": "Failed: no one agreed how far to disarm. Germany demanded equality, walked out in 1933 and left the League.",
+   "unit": "kq2"
+  },
+  {
+   "front": "Hitler's foreign policy aims",
+   "back": "Overturn the Treaty of Versailles; unite all German speakers in one Reich; win living space (Lebensraum) in the East; destroy communism.",
+   "unit": "kq3"
+  },
+  {
+   "front": "How did Hitler rearm Germany?",
+   "back": "Secretly from 1933, then openly: conscription announced in March 1935. The Anglo-German Naval Agreement (June 1935) let Germany build a navy 35% the size of Britain's.",
+   "unit": "kq3"
+  },
+  {
+   "front": "Saar plebiscite (Jan 1935)",
+   "back": "Over 90% of the Saar voted to return to Germany. A big propaganda boost for Hitler, and fully legal under Versailles.",
+   "unit": "kq3"
+  },
+  {
+   "front": "Remilitarisation of the Rhineland (March 1936)",
+   "back": "German troops marched into the Rhineland, breaking Versailles and Locarno. Hitler's generals had orders to pull back if opposed, but Britain and France did nothing.",
+   "unit": "kq3"
+  },
+  {
+   "front": "Rome–Berlin Axis and Anti-Comintern Pact (1936)",
+   "back": "Hitler and Mussolini became allies (Axis, 1936). Germany and Japan signed the Anti-Comintern Pact against communism (1936); Italy joined in 1937.",
+   "unit": "kq3"
+  },
+  {
+   "front": "Spanish Civil War (1936–39)",
+   "back": "Hitler and Mussolini helped Franco. Germany's Condor Legion bombed Guernica (1937), testing its air force. Britain and France stayed out.",
+   "unit": "kq3"
+  },
+  {
+   "front": "Anschluss (March 1938)",
+   "back": "German troops entered Austria on 12 March 1938, after Chancellor Schuschnigg called a vote on independence. A controlled plebiscite then gave 99% support. Britain and France only protested.",
+   "unit": "kq3"
+  },
+  {
+   "front": "Why did Hitler want the Sudetenland?",
+   "back": "About 3 million German speakers lived there, and it had Czechoslovakia's border defences and the Skoda arms works.",
+   "unit": "kq3"
+  },
+  {
+   "front": "Munich Agreement (Sept 1938)",
+   "back": "Chamberlain, Daladier, Mussolini and Hitler agreed Germany could take the Sudetenland. Czechoslovakia was not invited. Chamberlain promised 'peace for our time'.",
+   "unit": "kq3"
+  },
+  {
+   "front": "What was appeasement, and why did Britain follow it?",
+   "back": "Giving in to reasonable demands to avoid war. Reasons: the public feared another war; Britain was not ready to fight; many felt Versailles was too harsh; communism seemed the bigger threat.",
+   "unit": "kq3"
+  },
+  {
+   "front": "What ended appeasement?",
+   "back": "Germany took the rest of Czechoslovakia in March 1939, which had nothing to do with German speakers. Britain and France then guaranteed to defend Poland.",
+   "unit": "kq3"
+  },
+  {
+   "front": "Nazi–Soviet Pact (23 Aug 1939)",
+   "back": "Germany and the USSR agreed not to fight each other, and secretly agreed to divide Poland. It meant Hitler would not face a war on two fronts.",
+   "unit": "kq3"
+  },
+  {
+   "front": "How did the war start?",
+   "back": "Germany invaded Poland on 1 September 1939. Britain and France declared war on 3 September.",
+   "unit": "kq3"
+  },
+  {
+   "front": "Arguments against appeasement",
+   "back": "Each success made Hitler bolder; Czechoslovakia's army, defences and arms works were thrown away; Stalin was left out at Munich, which pushed him towards the Nazi–Soviet Pact.",
+   "unit": "kq3"
+  }
+ ],
+ "examIntro": "Write your own answer first, then open the model. Look for the same moves, not the same words: two specific facts (4), explained reasons (6), both sides plus a judgement (10).",
+ "exam": [
+  {
+   "q": "Describe the military terms of the Treaty of Versailles.",
+   "marks": 4,
+   "unit": "kq1",
+   "model": [
+    "The German army was limited to 100,000 men and conscription was banned. Germany was not allowed tanks, an air force or submarines, and its navy was cut to six battleships. The Rhineland, on the border with France, was demilitarised, so no German troops could be stationed there."
+   ],
+   "why": "four separate terms, each specific."
+  },
+  {
+   "q": "What did Clemenceau want from the peace settlement?",
+   "marks": 4,
+   "unit": "kq1",
+   "model": [
+    "Clemenceau wanted to punish Germany because France had suffered huge damage and losses in the war. He wanted Germany to pay large reparations to rebuild France, and to weaken Germany's armed forces so it could never invade again. He also wanted Alsace-Lorraine returned to France and, if possible, the Rhineland separated from Germany as a buffer."
+   ],
+   "why": "several aims, each tied to a specific detail."
+  },
+  {
+   "q": "Explain why Germany objected to the Treaty of Versailles.",
+   "marks": 6,
+   "unit": "kq1",
+   "model": [
+    "One reason was the War Guilt Clause (Article 231). Germans believed they had fought a defensive war, so being forced to accept all the blame felt like a national humiliation, and it was the basis for the reparations.",
+    "A second reason was reparations. The bill of £6,600 million, set in 1921, seemed impossible to pay for a country already weakened by war, and Germans believed it was meant to keep Germany poor.",
+    "Finally, Germany had no say. It was not invited to the talks and had to sign or face invasion, so Germans called it a 'Diktat'. Losing 13% of its land and all its colonies, and seeing German speakers placed under Polish rule, made the anger worse."
+   ],
+   "why": "three reasons, each with evidence and why it caused anger."
+  },
+  {
+   "q": "Explain why the Big Three disagreed about how to treat Germany.",
+   "marks": 6,
+   "unit": "kq1",
+   "model": [
+    "France had suffered most: its north-east was devastated and 1.4 million soldiers had died. Clemenceau therefore wanted a harsh peace that would cripple Germany and keep France safe.",
+    "Wilson, whose country had suffered far less and joined the war late, wanted a fair peace based on the Fourteen Points. He feared a harsh treaty would make Germany want revenge and lead to another war.",
+    "Lloyd George was in between. British voters wanted Germany punished, but Britain needed Germany as a trading partner and did not want France to become too powerful in Europe, so he argued for moderate terms."
+   ],
+   "why": "explains each leader's position by linking it to their country's situation."
+  },
+  {
+   "q": "\"The Treaty of Versailles was fair to Germany.\" How far do you agree?",
+   "marks": 10,
+   "unit": "kq1",
+   "model": [
+    "Intro: I partly agree. The treaty was harsh, but it was not unreasonable given the war Germany had fought.",
+    "Agree: Germany had imposed the far harsher Treaty of Brest-Litovsk on Russia in 1918, taking about a third of its population and much of its industry, so Germany could not claim it would have been gentler. France's north-east had been destroyed, so reparations to rebuild it were reasonable. Germany also kept most of its land and industry and remained potentially the strongest country in Europe.",
+    "Disagree: Germany was not allowed to negotiate and had to sign a 'Diktat'. The War Guilt Clause blamed Germany alone, which most Germans saw as untrue. The £6,600 million reparations bill added to economic chaos, and self-determination was applied to others but not to Germans in the Polish Corridor, the Sudetenland or Austria.",
+    "Conclusion: On balance the treaty was not fair, because it broke the principle of self-determination it claimed to follow and humiliated Germany without weakening it permanently. That combination created resentment that Hitler later exploited."
+   ],
+   "why": "two developed points each side, then a judgement with a reason."
+  },
+  {
+   "q": "\"The peace treaties of 1919–23 were successful.\" How far do you agree?",
+   "marks": 10,
+   "unit": "kq1",
+   "model": [
+    "Intro: They succeeded in the short term but failed to create lasting peace.",
+    "Agree: They ended the war and redrew Europe's map, creating new states such as Poland, Czechoslovakia and Yugoslavia based on self-determination. They set up the League of Nations, which solved several disputes in the 1920s. Turkey's terms were renegotiated at Lausanne in 1923, a settlement that lasted.",
+    "Disagree: Every defeated country resented its treaty: Hungary lost two-thirds of its land at Trianon, and Germany called Versailles a 'Diktat'. Millions of people were left in states they did not want to belong to, such as Germans in Czechoslovakia. The USA never ratified Versailles, so the settlement lacked its main supporter, and reparations led to the Ruhr crisis of 1923.",
+    "Conclusion: On balance they were not successful, because the resentment they created gave Hitler and Mussolini grievances to exploit, and within 20 years Europe was at war again."
+   ],
+   "why": "balanced, then a judgement based on long-term results."
+  },
+  {
+   "q": "Describe how the League of Nations dealt with the Corfu crisis of 1923.",
+   "marks": 4,
+   "unit": "kq2",
+   "model": [
+    "After the Italian General Tellini was murdered while mapping the Greek–Albanian border, Mussolini bombarded and occupied the Greek island of Corfu. Greece appealed to the League, which condemned Italy. However, the Conference of Ambassadors overruled it and made Greece apologise and pay Italy 50 million lire, after which Mussolini left Corfu."
+   ],
+   "why": "the events in order, with specific details."
+  },
+  {
+   "q": "What were the weaknesses in the League's organisation?",
+   "marks": 4,
+   "unit": "kq2",
+   "model": [
+    "Decisions in the Assembly and Council had to be unanimous, so action was slow. The League had no army, so it relied on members such as Britain and France to provide troops. Its main weapon was economic sanctions, which did not work when big trading nations like the USA were outside the League."
+   ],
+   "why": "three weaknesses, each specific."
+  },
+  {
+   "q": "Explain why the League failed to stop Japan in Manchuria.",
+   "marks": 6,
+   "unit": "kq2",
+   "model": [
+    "One reason was distance. Manchuria was far from Europe, and Britain and France were not willing to send forces to the other side of the world to defend China.",
+    "A second reason was the slowness of the League. It took a year for the Lytton Report to be completed, and by then Japan had taken all of Manchuria. When the League condemned Japan in 1933, Japan simply left.",
+    "Finally, sanctions would not work. The USA, Japan's main trading partner, was not a member, and during the Depression Britain and France did not want to lose trade, so no sanctions were imposed."
+   ],
+   "why": "three explained reasons, each linked to why the League could not act."
+  },
+  {
+   "q": "Explain why the Abyssinian crisis was so damaging for the League.",
+   "marks": 6,
+   "unit": "kq2",
+   "model": [
+    "The crisis showed sanctions did not work. The League banned some trade with Italy but not oil, and Britain kept the Suez Canal open, so Italy's invasion carried on and Abyssinia was conquered by May 1936.",
+    "It showed the League's leading members were not loyal to it. The Hoare–Laval Pact revealed that Britain and France were secretly prepared to give Italy most of Abyssinia. Smaller nations lost faith in collective security.",
+    "It also pushed Mussolini towards Hitler. Italy left the League in 1937 and formed the Rome–Berlin Axis, while Hitler used the distraction to remilitarise the Rhineland in March 1936."
+   ],
+   "why": "three consequences, each explaining the damage to the League."
+  },
+  {
+   "q": "\"The League of Nations was a success in the 1920s.\" How far do you agree?",
+   "marks": 10,
+   "unit": "kq2",
+   "model": [
+    "Intro: I largely agree, although its successes were mostly against small countries.",
+    "Agree: The League settled disputes over the Åland Islands (1921) and Upper Silesia (1921), and in 1925 it made Greece withdraw from Bulgaria and pay compensation. Its agencies achieved a great deal: the Refugees Committee returned about 400,000 prisoners of war home and the Slavery Commission freed 200,000 slaves in Sierra Leone. Germany joined in 1926, which made it look stronger.",
+    "Disagree: When a large power was involved, the League backed down. Poland kept Vilna in 1920, and in 1923 Mussolini was rewarded after occupying Corfu. Big agreements of the decade, such as Locarno (1925) and the Kellogg–Briand Pact (1928), were made outside the League. Its weaknesses, such as no army and no USA, had not been tested by a major crisis.",
+    "Conclusion: On balance it was a qualified success, because it kept the peace and improved millions of lives. However, Corfu showed that it could not stand up to a determined great power, which is exactly what happened in the 1930s."
+   ],
+   "why": "both sides with evidence, then a judgement that weighs who the successes were against."
+  },
+  {
+   "q": "\"The main reason for the failure of the League was the absence of the USA.\" How far do you agree?",
+   "marks": 10,
+   "unit": "kq2",
+   "model": [
+    "Intro: The USA's absence was important, but the Depression was the main reason.",
+    "Agree: The USA was the world's richest country. Without it, sanctions were weak because countries could trade with the USA instead, as Japan did during the Manchurian crisis. Its absence also meant the League depended on Britain and France, who put their own interests first.",
+    "Disagree: The Depression after 1929 made countries look after themselves and turned Japan, Italy and Germany towards aggressive leaders. Britain and France were also unwilling to act: in Abyssinia they left oil out of sanctions and made the secret Hoare–Laval Pact. The League's own structure, needing unanimous decisions and having no army, also made it slow and weak.",
+    "Conclusion: On balance the Depression was more important, because it created the aggression that the League then had to face. The USA's absence made the League weaker, but Britain and France's unwillingness to act decided the outcome in Manchuria and Abyssinia."
+   ],
+   "why": "weighs the stated factor against others and judges with a reason."
+  },
+  {
+   "q": "What happened at the Munich Conference in September 1938?",
+   "marks": 4,
+   "unit": "kq3",
+   "model": [
+    "Chamberlain (Britain), Daladier (France), Mussolini (Italy) and Hitler met in Munich to settle the crisis over the Sudetenland. They agreed that Germany could take the Sudetenland, an area of Czechoslovakia with about 3 million German speakers. Czechoslovakia was not invited to the meeting. Chamberlain returned home claiming 'peace for our time'."
+   ],
+   "why": "who, what was decided, and a specific detail."
+  },
+  {
+   "q": "Describe how Hitler remilitarised the Rhineland in 1936.",
+   "marks": 4,
+   "unit": "kq3",
+   "model": [
+    "In March 1936 Hitler sent about 22,000 German troops into the Rhineland, which had been demilitarised by Versailles. It was a gamble: his generals had orders to retreat if the French resisted. Britain and France were distracted by the Abyssinian crisis and did nothing, so Hitler grew more confident."
+   ],
+   "why": "the event plus specific detail about the risk and the reaction."
+  },
+  {
+   "q": "Explain why Britain followed a policy of appeasement.",
+   "marks": 6,
+   "unit": "kq3",
+   "model": [
+    "One reason was public opinion. The memory of the First World War was still strong, and people in Britain wanted to avoid another war at almost any cost.",
+    "A second reason was that Britain was not ready to fight. Its armed forces had been cut back during the Depression, so Chamberlain wanted to buy time to rearm.",
+    "Finally, many British politicians felt Versailles had been too harsh, so some of Hitler's demands, such as uniting German speakers, seemed reasonable. Many also saw Stalin's communism as the bigger threat and a strong Germany as a barrier against it."
+   ],
+   "why": "three reasons, each explained."
+  },
+  {
+   "q": "Explain why the Nazi–Soviet Pact was signed in August 1939.",
+   "marks": 6,
+   "unit": "kq3",
+   "model": [
+    "Hitler wanted to invade Poland without fighting a war on two fronts. A pact with Stalin meant that if Britain and France declared war, Germany would only have to fight in the West.",
+    "Stalin did not trust Britain and France. They had left him out of the Munich Conference, and their talks with him in 1939 were slow and half-hearted, so he believed they wanted Germany to attack the USSR.",
+    "Stalin also needed time and land. The secret clause gave him eastern Poland as a buffer, and the pact gave him time to build up the Red Army, which had been weakened by his purges."
+   ],
+   "why": "reasons from both sides, each explained."
+  },
+  {
+   "q": "\"Appeasement was the main cause of the Second World War.\" How far do you agree?",
+   "marks": 10,
+   "unit": "kq3",
+   "model": [
+    "Intro: Appeasement helped cause the war, but Hitler's aims were the main cause.",
+    "Agree: Each time Britain and France gave way, in the Rhineland (1936), the Anschluss (1938) and Munich (1938), Hitler became bolder and convinced they would never fight. Munich gave away Czechoslovakia's defences and Skoda arms works, making Germany stronger, and it convinced Stalin that the West could not be trusted, leading to the Nazi–Soviet Pact.",
+    "Disagree: Hitler's aims (overturning Versailles and conquering Lebensraum in the East) made war likely whatever Britain did. Other factors helped too: the failure of the League in Manchuria and Abyssinia showed aggression would go unpunished, and the Nazi–Soviet Pact in August 1939 removed the last obstacle to invading Poland.",
+    "Conclusion: On balance Hitler's aims were the main cause, because he planned expansion that could only be won by war. Appeasement mattered because it let him grow stronger, but it was a response to his actions, not their cause."
+   ],
+   "why": "two developed sides and a judgement based on which factor drove the others."
+  },
+  {
+   "q": "\"The Nazi–Soviet Pact was the main reason war broke out in 1939.\" How far do you agree?",
+   "marks": 10,
+   "unit": "kq3",
+   "model": [
+    "Intro: The pact was the immediate trigger, but it was not the main reason.",
+    "Agree: The pact, signed on 23 August 1939, removed the threat of a war on two fronts. Its secret clause divided Poland, so Hitler could invade on 1 September knowing the USSR would not stop him. Without it, he might have hesitated.",
+    "Disagree: The pact only mattered because Hitler had already decided to take Poland as part of his plan for Lebensraum. Appeasement had convinced him Britain and France would not fight, and the failure of the League had shown that aggression worked. The occupation of Prague in March 1939 had already made war very likely.",
+    "Conclusion: On balance the pact decided when the war started rather than why. The main reason was Hitler's aim of expansion, encouraged by years of appeasement."
+   ],
+   "why": "separates short-term trigger from long-term cause in the judgement."
+  }
+ ],
+ "debates": [
+  {
+   "unit": "kq1",
+   "q": "\"The Treaty of Versailles was too harsh on Germany.\" How far do you agree?",
+   "for": [
+    "Germany had no say: a 'Diktat'",
+    "War Guilt Clause blamed Germany alone",
+    "£6,600m reparations added to the chaos of 1923",
+    "Self-determination denied to Germans (Poland, Austria)"
+   ],
+   "against": [
+    "Milder than Brest-Litovsk (1918)",
+    "France had been devastated; reparations paid for repairs",
+    "Germany kept most land and industry and stayed strong"
+   ],
+   "judgement": "Harsh mainly because it humiliated Germany without weakening it permanently, which created resentment Hitler later used."
+  },
+  {
+   "unit": "kq1",
+   "q": "\"Clemenceau was the most satisfied of the Big Three.\" How far do you agree?",
+   "for": [
+    "Got Alsace-Lorraine, reparations and a much smaller German army",
+    "Rhineland demilitarised"
+   ],
+   "against": [
+    "Did not get the Rhineland separated from Germany",
+    "French voters thought it too soft; he lost the 1920 election",
+    "Wilson got his League, Lloyd George got colonies and naval safety"
+   ],
+   "judgement": "Clemenceau gained most, but none of the three was fully satisfied: the treaty was a compromise."
+  },
+  {
+   "unit": "kq2",
+   "q": "\"The League of Nations failed because of the Depression.\" How far do you agree?",
+   "for": [
+    "Countries put themselves first; sanctions less likely",
+    "Aggressive leaders rose in Japan, Italy and Germany"
+   ],
+   "against": [
+    "Structural weakness: no army, unanimity, no USA",
+    "Britain and France put self-interest first (Hoare–Laval)",
+    "Corfu (1923) showed weakness before the Depression"
+   ],
+   "judgement": "The Depression created the crises; the League's weaknesses and its members' self-interest decided that it failed them."
+  },
+  {
+   "unit": "kq2",
+   "q": "\"The Abyssinian crisis was more damaging to the League than Manchuria.\" How far do you agree?",
+   "for": [
+    "Abyssinia was a League member next door to British and French interests; failure there was a choice",
+    "Hoare–Laval Pact exposed the leading members' hypocrisy",
+    "Pushed Mussolini towards Hitler"
+   ],
+   "against": [
+    "Manchuria came first and showed aggression went unpunished",
+    "Japan left the League (1933), the first major power to do so"
+   ],
+   "judgement": "Abyssinia was more damaging: Britain and France could have acted and chose not to, which ended faith in collective security."
+  },
+  {
+   "unit": "kq3",
+   "q": "\"Appeasement was the right policy for Britain in the 1930s.\" How far do you agree?",
+   "for": [
+    "Britain was not ready for war; it bought time to rearm (e.g. radar, Spitfires)",
+    "Public opinion strongly against war",
+    "The Empire would not have supported war over the Sudetenland in 1938"
+   ],
+   "against": [
+    "Made Hitler bolder each time",
+    "Gave away Czechoslovakia's army, defences and Skoda works",
+    "Pushed Stalin into the Nazi–Soviet Pact"
+   ],
+   "judgement": "Understandable in 1938 but wrong overall: each concession made Germany stronger and the eventual war harder."
+  },
+  {
+   "unit": "kq3",
+   "q": "\"Hitler's foreign policy was the main cause of the Second World War.\" How far do you agree?",
+   "for": [
+    "Aims of Lebensraum and overturning Versailles needed war",
+    "Step-by-step breaking of Versailles from 1935",
+    "Invaded Poland despite the British guarantee"
+   ],
+   "against": [
+    "Versailles created resentment he exploited",
+    "The League's failures showed aggression worked",
+    "Appeasement and the Nazi–Soviet Pact let him go further"
+   ],
+   "judgement": "Hitler's aims were the main cause, because the other factors only mattered in how they helped or failed to stop him."
+  }
+ ],
+ "timeline": [
+  {
+   "unit": "kq1",
+   "event": "Wilson's Fourteen Points",
+   "year": 1918
+  },
+  {
+   "unit": "kq1",
+   "event": "Armistice ends the First World War",
+   "year": 1918
+  },
+  {
+   "unit": "kq1",
+   "event": "Treaty of Versailles signed",
+   "year": 1919
+  },
+  {
+   "unit": "kq1",
+   "event": "Treaty of Saint-Germain (Austria)",
+   "year": 1919
+  },
+  {
+   "unit": "kq1",
+   "event": "Treaty of Neuilly (Bulgaria)",
+   "year": 1919
+  },
+  {
+   "unit": "kq1",
+   "event": "Treaty of Trianon (Hungary)",
+   "year": 1920
+  },
+  {
+   "unit": "kq1",
+   "event": "Treaty of Sèvres (Turkey)",
+   "year": 1920
+  },
+  {
+   "unit": "kq1",
+   "event": "Reparations fixed at £6,600 million",
+   "year": 1921
+  },
+  {
+   "unit": "kq1",
+   "event": "France and Belgium occupy the Ruhr",
+   "year": 1923
+  },
+  {
+   "unit": "kq1",
+   "event": "Treaty of Lausanne",
+   "year": 1923
+  },
+  {
+   "unit": "kq2",
+   "event": "League of Nations begins",
+   "year": 1920
+  },
+  {
+   "unit": "kq2",
+   "event": "Poland seizes Vilna",
+   "year": 1920
+  },
+  {
+   "unit": "kq2",
+   "event": "Åland Islands dispute settled",
+   "year": 1921
+  },
+  {
+   "unit": "kq2",
+   "event": "Upper Silesia divided",
+   "year": 1921
+  },
+  {
+   "unit": "kq2",
+   "event": "Corfu crisis",
+   "year": 1923
+  },
+  {
+   "unit": "kq2",
+   "event": "Greece invades Bulgaria; League orders withdrawal",
+   "year": 1925
+  },
+  {
+   "unit": "kq2",
+   "event": "Germany joins the League",
+   "year": 1926
+  },
+  {
+   "unit": "kq2",
+   "event": "Kellogg–Briand Pact",
+   "year": 1928
+  },
+  {
+   "unit": "kq2",
+   "event": "Wall Street Crash",
+   "year": 1929
+  },
+  {
+   "unit": "kq2",
+   "event": "Mukden Incident: Japan invades Manchuria",
+   "year": 1931
+  },
+  {
+   "unit": "kq2",
+   "event": "Japan leaves the League",
+   "year": 1933
+  },
+  {
+   "unit": "kq2",
+   "event": "Italy invades Abyssinia",
+   "year": 1935
+  },
+  {
+   "unit": "kq2",
+   "event": "Hoare–Laval Pact",
+   "year": 1935
+  },
+  {
+   "unit": "kq2",
+   "event": "Italy leaves the League",
+   "year": 1937
+  },
+  {
+   "unit": "kq3",
+   "event": "Hitler becomes Chancellor",
+   "year": 1933
+  },
+  {
+   "unit": "kq3",
+   "event": "Germany leaves the Disarmament Conference",
+   "year": 1933
+  },
+  {
+   "unit": "kq3",
+   "event": "Saar plebiscite",
+   "year": 1935
+  },
+  {
+   "unit": "kq3",
+   "event": "Conscription announced in Germany",
+   "year": 1935
+  },
+  {
+   "unit": "kq3",
+   "event": "Anglo-German Naval Agreement",
+   "year": 1935
+  },
+  {
+   "unit": "kq3",
+   "event": "Rhineland remilitarised",
+   "year": 1936
+  },
+  {
+   "unit": "kq3",
+   "event": "Spanish Civil War begins",
+   "year": 1936
+  },
+  {
+   "unit": "kq3",
+   "event": "Guernica bombed",
+   "year": 1937
+  },
+  {
+   "unit": "kq3",
+   "event": "Anschluss with Austria",
+   "year": 1938
+  },
+  {
+   "unit": "kq3",
+   "event": "Munich Agreement",
+   "year": 1938
+  },
+  {
+   "unit": "kq3",
+   "event": "Germany occupies the rest of Czechoslovakia",
+   "year": 1939
+  },
+  {
+   "unit": "kq3",
+   "event": "Nazi–Soviet Pact",
+   "year": 1939
+  },
+  {
+   "unit": "kq3",
+   "event": "Germany invades Poland",
+   "year": 1939
+  }
+ ]
+}

@@ -1,0 +1,996 @@
+{
+ "id": "history-russia",
+ "subject": "Humanities",
+ "title": "Russia 1905–41 (depth study)",
+ "sub": "IGCSE History 0470 · depth study: fall of the Tsar, the Bolsheviks, Stalin's USSR",
+ "units": [
+  {
+   "key": "tsar",
+   "name": "Fall of the Tsar"
+  },
+  {
+   "key": "bolsh",
+   "name": "Bolsheviks in power"
+  },
+  {
+   "key": "stalinp",
+   "name": "Stalin's power"
+  },
+  {
+   "key": "econ",
+   "name": "Stalin's economy"
+  }
+ ],
+ "strategyIntro": "Three question types. Every practice session should end with you writing an answer, not just reading. Close the book, write what you remember, then check.",
+ "strategy": [
+  {
+   "title": "4 marks: Facts (Describe… / What were…)",
+   "key": true,
+   "points": [
+    "Two points, each backed by a specific detail (a date, name, number).",
+    "No intro, no conclusion, no opinion. About 5 minutes."
+   ]
+  },
+  {
+   "title": "6 marks: Analysis (Explain why…)",
+   "key": true,
+   "points": [
+    "Two or three fully explained reasons; aim for at least one point each way where the question allows.",
+    "PEEL each paragraph: Point → Evidence → Explain how it caused the outcome → Link back to the question.",
+    "The marks are in the explanation. About 10 minutes."
+   ]
+  },
+  {
+   "title": "10 marks: Debate (How far do you agree…?)",
+   "key": true,
+   "points": [
+    "One-line intro stating your overall answer.",
+    "Side 1: two explained points that agree. Side 2: two explained points that disagree or give another factor.",
+    "Conclusion with a judgement and a reason, using a criterion: which came first, which made the others possible, which had the biggest effect.",
+    "A balanced essay with no clear judgement caps the mark. About 20 minutes."
+   ]
+  },
+  {
+   "title": "Useful phrases",
+   "points": [
+    "“The most important reason was… because…”",
+    "“However, this was only possible because…”",
+    "“On balance…”",
+    "“Without X, Y would not have happened.”"
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "Describe",
+   "4 marks: two specific facts."
+  ],
+  [
+   "Explain why",
+   "6 marks: reasons, each explained with PEEL."
+  ],
+  [
+   "How far",
+   "10 marks: both sides plus a judgement with a reason."
+  ]
+ ],
+ "quizTitle": "Date quiz",
+ "quizIntro": "Ten events, pick the year. Uses the timeline below.",
+ "flashIntro": "Read the question, answer out loud, then flip. Mark “Got it” or “Not yet”: “Not yet” cards come back sooner.",
+ "flashcards": [
+  {
+   "front": "What was Russia like under Nicholas II before 1905?",
+   "back": "A huge empire ruled by an autocrat: the tsar answered to no parliament. About four in five people were peasants, most poor and land-hungry. Industry was growing fast in a few cities, with crowded, badly paid workers. The Okhrana (secret police) and censorship kept control.",
+   "unit": "tsar"
+  },
+  {
+   "front": "Why are there two dates for some Russian events?",
+   "back": "Russia used the old Julian calendar (Old Style, OS) until February 1918, 13 days behind the Western calendar (New Style, NS). So the 'October' Revolution of 25 Oct OS 1917 was 7 Nov NS.",
+   "unit": "tsar"
+  },
+  {
+   "front": "What caused the 1905 revolution?",
+   "back": "Long-term poverty of peasants and workers, plus a short-term shock: humiliating defeat in the Russo-Japanese War (1904–05), which also raised prices. Bloody Sunday then turned anger into nationwide strikes and revolts.",
+   "unit": "tsar"
+  },
+  {
+   "front": "What happened on Bloody Sunday (9 Jan OS / 22 Jan NS 1905)?",
+   "back": "Father Gapon led a peaceful march of workers to the Winter Palace in St Petersburg with a petition for the tsar. Troops opened fire; probably around 200 were killed (estimates vary widely). Many peasants and workers stopped seeing the tsar as their 'little father'.",
+   "unit": "tsar"
+  },
+  {
+   "front": "What did the October Manifesto (Oct 1905) promise?",
+   "back": "An elected parliament (the Duma) whose consent was needed for new laws, plus civil rights such as freedom of speech, assembly and to form political parties. It split the opposition: liberals were largely satisfied, so the army could crush the remaining socialists and soviets.",
+   "unit": "tsar"
+  },
+  {
+   "front": "How did Nicholas II undermine the Dumas?",
+   "back": "The Fundamental Laws (April 1906) let him dissolve the Duma, veto laws and rule by decree. The first two Dumas were dissolved within months (1906, 1907). He then changed the voting rules (1907) so landowners dominated, making the 3rd and 4th Dumas more obedient.",
+   "unit": "tsar"
+  },
+  {
+   "front": "Who was Stolypin and what were his two policies?",
+   "back": "Prime minister 1906–11. Repression: field courts martial hanged so many rebels that the noose became 'Stolypin's necktie'. Reform: peasants could leave the village commune (mir) and own consolidated farms, helped by the Peasant Land Bank, creating a loyal class of richer peasants (kulaks). Assassinated in 1911.",
+   "unit": "tsar"
+  },
+  {
+   "front": "What was the Lena goldfields massacre (1912)?",
+   "back": "Troops fired on striking gold miners in Siberia, killing well over 100 (some accounts say about 270). It set off a big wave of strikes from 1912 to 1914, showing that discontent was rising again before the war.",
+   "unit": "tsar"
+  },
+  {
+   "front": "Why was Rasputin so damaging to the monarchy?",
+   "back": "A peasant 'holy man' who seemed able to ease the bleeding of Alexei, the haemophiliac heir. Stories of his drinking and influence over Tsarina Alexandra spread. After 1915 he and Alexandra influenced the choice of ministers, making the royal family look corrupt and ridiculous. Nobles murdered him in Dec 1916.",
+   "unit": "tsar"
+  },
+  {
+   "front": "How did the First World War weaken the tsar?",
+   "back": "Heavy defeats from Tannenberg (1914) onward and millions of casualties. Railways were overloaded, so food and fuel did not reach the cities; prices soared. In 1915 Nicholas took personal command, so he was blamed for every defeat, while Alexandra and Rasputin ran the government at home.",
+   "unit": "tsar"
+  },
+  {
+   "front": "What happened in the February Revolution (1917)?",
+   "back": "Bread queues and strikes in Petrograd grew into mass protests from 23 Feb OS (8 Mar NS), starting on International Women's Day. On 27 Feb soldiers mutinied and joined the crowds. Generals and Duma leaders advised Nicholas to go; he abdicated on 2 Mar OS (15 Mar NS) 1917.",
+   "unit": "tsar"
+  },
+  {
+   "front": "What was 'Dual Power'?",
+   "back": "After the abdication, power was shared between the Provisional Government (formed from Duma leaders) and the Petrograd Soviet (elected by workers and soldiers). The Soviet's Order No. 1 told soldiers to obey the Soviet first, so the Government could not act without the Soviet's support.",
+   "unit": "tsar"
+  },
+  {
+   "front": "Who was Alexei and why did his illness matter?",
+   "back": "Nicholas II's only son and heir, born 1904, with haemophilia. The illness was kept secret, which made Rasputin's role look mysterious and scandalous.",
+   "unit": "tsar"
+  },
+  {
+   "front": "What problems did the Provisional Government face in 1917?",
+   "back": "It was unelected and saw itself as temporary, so it delayed big decisions (land reform, elections to a Constituent Assembly). It kept fighting the war; the June Offensive failed. Shortages got worse and it shared power with the Petrograd Soviet (Dual Power).",
+   "unit": "bolsh"
+  },
+  {
+   "front": "What were Lenin's April Theses (April 1917)?",
+   "back": "Issued after Lenin returned from Switzerland in a sealed train arranged by Germany (3 Apr OS). No support for the Provisional Government, end the war, give land to peasants, 'All power to the Soviets'. Slogan: 'Peace, Land, Bread'.",
+   "unit": "bolsh"
+  },
+  {
+   "front": "What were the July Days (1917)?",
+   "back": "Armed protests by soldiers, sailors and workers in Petrograd against the Government. They failed. The Bolsheviks were blamed and called German agents; Lenin fled to Finland and Trotsky was arrested. A setback for the Bolsheviks.",
+   "unit": "bolsh"
+  },
+  {
+   "front": "How did the Kornilov affair (Aug 1917) help the Bolsheviks?",
+   "back": "General Kornilov, army commander, seemed to march on Petrograd to crush the Soviet. Kerensky armed the Red Guards and freed Bolshevik prisoners to defend the city. Kornilov's troops melted away, the Bolsheviks looked like saviours and Kerensky looked weak. By September the Bolsheviks controlled the Petrograd Soviet.",
+   "unit": "bolsh"
+  },
+  {
+   "front": "How did the Bolsheviks seize power in the October Revolution (25 Oct OS / 7 Nov NS 1917)?",
+   "back": "Trotsky's Military Revolutionary Committee used Red Guards and loyal soldiers to take bridges, stations, the telegraph and power stations, then the Winter Palace. Little blood was shed. The Congress of Soviets approved a new government, Sovnarkom, led by Lenin.",
+   "unit": "bolsh"
+  },
+  {
+   "front": "What happened to the Constituent Assembly?",
+   "back": "Elected in Nov 1917, the Socialist Revolutionaries won most seats (about 370 of roughly 700) and the Bolsheviks only about 175 (about a quarter of the vote). It met on 5 Jan OS (18 Jan NS) 1918; Lenin had Red Guards close it after one day. Russia's only free election for decades was ignored.",
+   "unit": "bolsh"
+  },
+  {
+   "front": "What was the Cheka?",
+   "back": "The Bolshevik secret police, set up in Dec 1917 under Felix Dzerzhinsky. It arrested, tortured and shot opponents, and ran the Red Terror after an attempt on Lenin's life in Aug 1918.",
+   "unit": "bolsh"
+  },
+  {
+   "front": "What did Russia lose by the Treaty of Brest-Litovsk (March 1918)?",
+   "back": "Peace with Germany at a huge price: Poland, the Baltic lands, Finland and Ukraine. About a third of Russia's population and farmland and around half its industry, including most of its coal. Lenin accepted it because the army had collapsed and the revolution needed peace.",
+   "unit": "bolsh"
+  },
+  {
+   "front": "Who fought in the Russian Civil War (1918–21)?",
+   "back": "Reds (Bolsheviks) against Whites: ex-tsarist officers such as Kolchak, Denikin, Yudenich and Wrangel, plus other socialists, national groups and the Czech Legion. Britain, France, the USA and Japan sent troops to help the Whites. The tsar and his family were shot at Ekaterinburg in July 1918.",
+   "unit": "bolsh"
+  },
+  {
+   "front": "Why did the Reds win the Civil War?",
+   "back": "Trotsky built a disciplined Red Army of about 5 million, using ex-tsarist officers watched by commissars. The Reds held the central heartland with Moscow, Petrograd, the industry and the railways. The Whites were divided, far apart, had no shared aims and were seen as the landlords' side, backed by foreigners. War Communism, propaganda and the Cheka kept the Reds supplied and in control.",
+   "unit": "bolsh"
+  },
+  {
+   "front": "What was War Communism (1918–21)?",
+   "back": "Emergency measures to win the war: the state took over industry, grain was requisitioned (seized) from peasants, private trade was banned, food was rationed and workers faced strict discipline. Peasants grew less, and famine in 1921 killed millions (about 5 million).",
+   "unit": "bolsh"
+  },
+  {
+   "front": "What was the Kronstadt rising (March 1921)?",
+   "back": "Sailors at the Kronstadt naval base, heroes of 1917, rebelled demanding freely elected soviets, free speech and an end to grain requisitioning. The Red Army crushed them across the ice. It convinced Lenin that War Communism had to end.",
+   "unit": "bolsh"
+  },
+  {
+   "front": "What was the New Economic Policy (NEP), 1921?",
+   "back": "A partial return to capitalism: requisitioning replaced by a tax, peasants could sell surplus food, and small businesses and private trade were allowed (traders were called Nepmen). The state kept the 'commanding heights': heavy industry, banks, railways and foreign trade. Output recovered to roughly pre-war levels by the mid-1920s.",
+   "unit": "bolsh"
+  },
+  {
+   "front": "How else did Lenin tighten control in 1921?",
+   "back": "The 10th Party Congress (March 1921), which approved NEP, also banned factions inside the Communist Party. Other parties had already been suppressed, so the USSR became a one-party state.",
+   "unit": "bolsh"
+  },
+  {
+   "front": "What was Lenin's Testament?",
+   "back": "Notes Lenin wrote in Dec 1922 – Jan 1923 judging the leading Bolsheviks. He criticised them all but added that Stalin was 'too rude' and should be removed as General Secretary. Zinoviev and Kamenev helped keep it from being published in 1924, saving Stalin.",
+   "unit": "stalinp"
+  },
+  {
+   "front": "Why was the post of General Secretary (from 1922) so useful to Stalin?",
+   "back": "It looked dull and administrative, but it let him appoint and promote party officials. He filled key posts with supporters, who then voted for him at Party Congresses. He also controlled party membership and records.",
+   "unit": "stalinp"
+  },
+  {
+   "front": "Who were Stalin's rivals after Lenin's death in 1924?",
+   "back": "Left: Trotsky (leader of the Red Army, brilliant but arrogant), Zinoviev and Kamenev. Right: Bukharin (with Rykov and Tomsky), who wanted to keep NEP.",
+   "unit": "stalinp"
+  },
+  {
+   "front": "What was the difference between 'permanent revolution' and 'Socialism in One Country'?",
+   "back": "Trotsky argued the USSR should spread revolution worldwide. Stalin (1924) argued it should build socialism at home first, which sounded more patriotic and realistic to party members tired of war.",
+   "unit": "stalinp"
+  },
+  {
+   "front": "How did Stalin defeat his rivals, 1924–29?",
+   "back": "He allied with Zinoviev and Kamenev against Trotsky (who lost his army post in 1925). When they joined Trotsky, he sided with Bukharin; Trotsky, Zinoviev and Kamenev were expelled from the party in 1927. In 1928–29 he turned on Bukharin over NEP. Trotsky was deported in 1929; by then Stalin was unchallenged.",
+   "unit": "stalinp"
+  },
+  {
+   "front": "What happened to Trotsky?",
+   "back": "Expelled from the party (1927), sent to Kazakhstan (1928), deported from the USSR (1929). He was murdered with an ice axe in Mexico by a Soviet agent in 1940.",
+   "unit": "stalinp"
+  },
+  {
+   "front": "What was the significance of Kirov's murder (Dec 1934)?",
+   "back": "Kirov, the popular Leningrad party boss, was shot. Stalin may have arranged it (never proven). He used it as an excuse to claim a vast conspiracy, starting the purges.",
+   "unit": "stalinp"
+  },
+  {
+   "front": "What were the show trials?",
+   "back": "Public trials of old Bolshevik leaders who 'confessed' to absurd crimes after torture and threats: Zinoviev and Kamenev (1936), Radek and Pyatakov (1937), Bukharin and Rykov (1938). Most were shot. They removed anyone who could challenge Stalin.",
+   "unit": "stalinp"
+  },
+  {
+   "front": "What was the Great Terror (1937–38)?",
+   "back": "Mass arrests by the NKVD under Yezhov. About 1.5 million people were arrested and roughly 700,000 shot in 1937–38; arrest quotas were set for each region. Fear made people denounce each other.",
+   "unit": "stalinp"
+  },
+  {
+   "front": "What was the purge of the Red Army (1937–38)?",
+   "back": "Marshal Tukhachevsky was shot in 1937. Three of the five marshals and most senior commanders were removed, with about 35,000 officers purged (many later reinstated). It removed a possible threat to Stalin but weakened the army before 1941.",
+   "unit": "stalinp"
+  },
+  {
+   "front": "What was the Gulag?",
+   "back": "The system of labour camps, mostly in Siberia and the far north. Prisoners built canals, railways and mines in brutal conditions; by the late 1930s it held well over a million people (estimates vary).",
+   "unit": "stalinp"
+  },
+  {
+   "front": "What was the cult of personality?",
+   "back": "Propaganda presenting Stalin as a genius and 'father of the people': portraits and statues everywhere, towns named after him (Stalingrad), history rewritten to make him Lenin's closest helper, and photographs altered to remove purged leaders.",
+   "unit": "stalinp"
+  },
+  {
+   "front": "What did the 1936 'Stalin Constitution' promise, and what was the reality?",
+   "back": "It promised free speech, a secret ballot, votes for all adults, and rights to work and education. In reality only the Communist Party was allowed, elections had one candidate, and it was published as the Terror began.",
+   "unit": "stalinp"
+  },
+  {
+   "front": "Why did Stalin want to modernise the economy rapidly?",
+   "back": "Fear of invasion: in 1931 he said the USSR was 50–100 years behind the West and had ten years to catch up or be crushed. Also: to build a socialist, industrial society of workers, to end NEP and the Nepmen, to feed the cities and pay for machinery, and to strengthen his own power.",
+   "unit": "econ"
+  },
+  {
+   "front": "What was Gosplan?",
+   "back": "The State Planning Commission. It set production targets for every industry, region, factory and even worker under the Five-Year Plans.",
+   "unit": "econ"
+  },
+  {
+   "front": "What did the First Five-Year Plan (1928–32) focus on?",
+   "back": "Heavy industry: coal, iron, steel, oil and electricity. Huge projects included the new steel city of Magnitogorsk and the Dnieper dam. It was declared complete after four years and four months, in Dec 1932.",
+   "unit": "econ"
+  },
+  {
+   "front": "What did the Second and Third Five-Year Plans focus on?",
+   "back": "Second (1933–37): still heavy industry, plus transport (the Moscow Metro opened in 1935) and new industries such as chemicals. Third (1938–41): increasingly armaments; cut short by the German invasion in June 1941.",
+   "unit": "econ"
+  },
+  {
+   "front": "Give two statistics showing industrial growth.",
+   "back": "Coal: about 35 million tonnes (1928) to about 128 million (1937). Steel: about 4 million tonnes (1928) to about 18 million (1940). Soviet figures were often exaggerated, but growth was real and enormous.",
+   "unit": "econ"
+  },
+  {
+   "front": "Who was Alexei Stakhanov?",
+   "back": "A miner who in Aug 1935 cut 102 tonnes of coal in one shift, about 14 times his quota (with help arranged in advance). He was made a hero; 'Stakhanovites' got bonuses, but norms were raised for everyone else.",
+   "unit": "econ"
+  },
+  {
+   "front": "What was life like for industrial workers in the 1930s?",
+   "back": "Unemployment disappeared and many got training and promotion. But real wages fell in the early 1930s, housing was overcrowded, accidents were common, and discipline was harsh: internal passports (1932), labour books, and lateness punished as a crime (1940). Failures were blamed on 'wreckers'.",
+   "unit": "econ"
+  },
+  {
+   "front": "What was collectivisation?",
+   "back": "From 1929, peasants were forced to join their land and animals into large collective farms (kolkhozes) or state farms (sovkhozes). They had to sell grain to the state at low fixed prices. Machine Tractor Stations (MTS) hired out tractors and kept watch on the farms.",
+   "unit": "econ"
+  },
+  {
+   "front": "Why did Stalin collectivise agriculture?",
+   "back": "To make farming bigger and mechanised, produce more grain to feed the growing cities and sell abroad to pay for machinery, end the grain-hoarding crisis of 1927–28, crush the 'capitalist' kulaks and bring the peasants under party control.",
+   "unit": "econ"
+  },
+  {
+   "front": "Who were the kulaks and what happened to them?",
+   "back": "Richer peasants (in practice anyone who resisted). In Dec 1929 Stalin called for them to be 'liquidated as a class'. Millions were deported to Siberia, Kazakhstan or labour camps; many were shot.",
+   "unit": "econ"
+  },
+  {
+   "front": "How did peasants resist collectivisation?",
+   "back": "They slaughtered and ate their animals rather than hand them over, burned crops and attacked officials. The numbers of cattle and horses roughly halved between 1928 and 1933. Stalin's 'Dizzy with Success' article (March 1930) paused the drive briefly before it resumed.",
+   "unit": "econ"
+  },
+  {
+   "front": "What was the famine of 1932–33?",
+   "back": "Grain quotas were kept high and grain was still exported while harvests fell. About 5–7 million people died (estimates vary), worst in Ukraine (where it is called the Holodomor), Kazakhstan and the Volga. Internal passports stopped peasants fleeing to towns.",
+   "unit": "econ"
+  },
+  {
+   "front": "What had collectivisation achieved by 1941?",
+   "back": "Almost all farms were collectivised and the state controlled the grain supply, which fed the cities and industry. But output was poor: grain only got back to about pre-1928 levels in the later 1930s and livestock took decades to recover. Peasants were allowed small private plots, which produced much of the meat, milk and vegetables.",
+   "unit": "econ"
+  },
+  {
+   "front": "What had the Five-Year Plans achieved by 1941?",
+   "back": "The USSR had become one of the world's leading industrial powers, with new industries, cities and factories (many in the Urals and beyond, safe from invasion), and a much larger urban workforce. This industrial base helped it survive the German invasion. The cost was huge human suffering and few consumer goods.",
+   "unit": "econ"
+  }
+ ],
+ "examIntro": "Write your own answer first, then open the model. Look for the same moves, not the same words: two specific facts (4), explained reasons (6), both sides plus a judgement (10).",
+ "exam": [
+  {
+   "q": "Describe the events of Bloody Sunday, 1905.",
+   "marks": 4,
+   "unit": "tsar",
+   "model": [
+    "On 9 January 1905 (OS) Father Gapon led a peaceful march of workers and their families to the Winter Palace in St Petersburg. They carried icons and portraits of the tsar and a petition asking for better conditions, shorter hours and an elected assembly. Troops opened fire on the crowd, killing probably around 200 people and wounding many more. Nicholas was not even in the palace, and the massacre destroyed many people's faith in him."
+   ],
+   "why": "four specific details: who, where, what they wanted, what happened."
+  },
+  {
+   "q": "What were Stolypin's policies?",
+   "marks": 4,
+   "unit": "tsar",
+   "model": [
+    "Stolypin, prime minister from 1906 to 1911, used harsh repression: field courts martial tried and hanged thousands of rebels, so the noose was nicknamed 'Stolypin's necktie'. He also tried land reform. Peasants were allowed to leave the village commune and combine their scattered strips into their own farms, with loans from the Peasant Land Bank, and were encouraged to move to Siberia. He hoped a class of prosperous peasants (kulaks) would be loyal to the tsar."
+   ],
+   "why": "repression and reform, each with specific detail."
+  },
+  {
+   "q": "Explain why Nicholas II survived the 1905 revolution.",
+   "marks": 6,
+   "unit": "tsar",
+   "model": [
+    "The main reason was the October Manifesto. By promising a Duma and civil rights, Nicholas satisfied the liberals and middle classes, who stopped protesting. This split the opposition, leaving the workers' soviets and peasants isolated.",
+    "Secondly, the army stayed loyal. Once peace was signed with Japan in September 1905, troops returned and were used to crush the Moscow uprising in December 1905, arrest the St Petersburg Soviet and put down peasant revolts. Because the army obeyed, the regime kept its means of force.",
+    "Finally, the opposition was divided and leaderless. Liberals, socialists, workers and peasants wanted different things and did not act together, so they could be dealt with one at a time."
+   ],
+   "why": "three reasons, each linked back to why the tsar survived."
+  },
+  {
+   "q": "Explain why the First World War weakened the tsarist regime.",
+   "marks": 6,
+   "unit": "tsar",
+   "model": [
+    "First, military defeat. Russia lost huge battles such as Tannenberg in 1914 and suffered millions of casualties. In 1915 Nicholas took personal command of the army, so he was now blamed directly for every defeat, and soldiers' loyalty began to crack.",
+    "Second, the home front collapsed. The railways were used for the army, so food and fuel could not reach the cities, and prices rose far faster than wages. By early 1917 Petrograd had long bread queues and strikes, which turned working people against the regime.",
+    "Third, government at home fell to Tsarina Alexandra and Rasputin while Nicholas was at the front. They kept changing ministers, and rumours about the German-born Tsarina and the 'mad monk' destroyed the royal family's reputation, even among nobles and generals whose support the tsar needed."
+   ],
+   "why": "three explained reasons: army, home front, government."
+  },
+  {
+   "q": "\"The First World War was the main reason for the collapse of the Tsarist regime in 1917.\" How far do you agree?",
+   "marks": 10,
+   "unit": "tsar",
+   "model": [
+    "Intro: I largely agree. Long-term problems weakened the regime, but the war turned them into a crisis it could not survive.",
+    "Agree: The war brought defeat and millions of casualties; when Nicholas took command in 1915 he was personally blamed. It wrecked the economy: transport broke down, food and fuel did not reach Petrograd and prices soared, which caused the bread riots and strikes of February 1917. Crucially, in February the soldiers of the Petrograd garrison, sick of the war, mutinied and joined the protesters, and generals told the tsar to abdicate. Without the army's support he could not survive.",
+    "Disagree: The regime had deep problems before 1914. Nicholas refused to share power, undermining the Dumas after the October Manifesto. Peasants still wanted land and workers lived in poor conditions; the Lena goldfields massacre of 1912 set off a wave of strikes. Nicholas's own weak leadership, and the influence of Rasputin, discredited the monarchy among nobles and the Duma.",
+    "Conclusion: On balance the war was the main reason, because it made the long-term problems fatal. The regime had survived 1905 because the army stayed loyal; in 1917 the war turned the army against it. Nicholas's weaknesses mattered, but they became fatal only under the strain of war."
+   ],
+   "why": "both sides developed, then a judgement using a criterion (what turned the army)."
+  },
+  {
+   "q": "\"Nicholas II's own weaknesses were the main reason why the Tsarist regime collapsed.\" How far do you agree?",
+   "marks": 10,
+   "unit": "tsar",
+   "model": [
+    "Intro: I partly agree. Nicholas's choices made things worse at every stage, but the war was what finally broke the regime.",
+    "Agree: Nicholas believed in autocracy and would not share power. After promising a Duma in the October Manifesto, he weakened it with the Fundamental Laws and dissolved the first two Dumas, so moderates lost faith in reform. He allowed Rasputin to influence the royal family, and his decision in 1915 to take command of the army left him blamed for defeats and left Alexandra and Rasputin to mismanage the government.",
+    "Disagree: Other factors were bigger than one man. Russia's economy and society were under strain: poor peasants wanted land and workers faced bad conditions, causing strikes such as those after the Lena goldfields massacre (1912). Above all, the First World War brought huge losses, shortages of food and fuel and high prices, which caused the February 1917 protests and led the soldiers to mutiny.",
+    "Conclusion: On balance Nicholas's weaknesses were important but not the main reason. They explain why the regime had few friends left in 1917, but it was the war that created the crisis and made the army refuse to defend him; without the war he might have survived as he did in 1905."
+   ],
+   "why": "a reasoned judgement that weighs the named factor against another."
+  },
+  {
+   "q": "Describe the problems faced by the Provisional Government in 1917.",
+   "marks": 4,
+   "unit": "bolsh",
+   "model": [
+    "The Provisional Government was not elected and saw itself as temporary, so it put off big decisions such as land reform and elections to the Constituent Assembly. It kept Russia in the war, and the June Offensive of 1917 failed with heavy losses. It had to share power with the Petrograd Soviet, whose Order No. 1 told soldiers to obey the Soviet first. Food shortages and rising prices continued, and peasants began seizing land themselves."
+   ],
+   "why": "four separate problems, each specific."
+  },
+  {
+   "q": "What was the New Economic Policy (NEP)?",
+   "marks": 4,
+   "unit": "bolsh",
+   "model": [
+    "NEP was introduced by Lenin in March 1921 to replace War Communism. Grain requisitioning was ended and replaced by a tax, so peasants could sell their surplus for profit. Small factories and private trade were allowed again, and traders who did well were called Nepmen. The state kept control of the 'commanding heights': heavy industry, banking, railways and foreign trade."
+   ],
+   "why": "four specific features."
+  },
+  {
+   "q": "Explain why the Bolsheviks were able to seize power in October 1917.",
+   "marks": 6,
+   "unit": "bolsh",
+   "model": [
+    "One reason was the weakness of the Provisional Government. It continued the unpopular war and delayed land reform, and the failed June Offensive and food shortages lost it support. By October few soldiers were willing to defend it.",
+    "A second reason was the Kornilov affair in August 1917. Kerensky had to arm the Red Guards and release Bolsheviks to defend Petrograd. The Bolsheviks looked like the defenders of the revolution, they kept their weapons, and by September they had a majority in the Petrograd Soviet.",
+    "Finally, Bolshevik leadership and organisation. Lenin's slogans 'Peace, Land, Bread' and 'All power to the Soviets' offered what people wanted, and Trotsky's Military Revolutionary Committee planned the seizure of key points in Petrograd, which Red Guards carried out with little bloodshed."
+   ],
+   "why": "three explained reasons, from Government weakness to Bolshevik strengths."
+  },
+  {
+   "q": "Explain why Lenin introduced the New Economic Policy in 1921.",
+   "marks": 6,
+   "unit": "bolsh",
+   "model": [
+    "The first reason was economic collapse. War Communism's grain requisitioning meant peasants grew only enough for themselves, and industrial output had fallen far below pre-war levels. Famine in 1921 killed millions, so the economy had to recover.",
+    "Secondly, there were revolts against the Bolsheviks. Peasants rose up, for example in Tambov province, and in March 1921 the Kronstadt sailors, once loyal heroes of the revolution, rebelled demanding an end to requisitioning. This showed Lenin that the regime could fall if it did not change course.",
+    "Finally, the Civil War was over, so the emergency reasons for War Communism had gone. Lenin saw NEP as a temporary 'step back' that would win time for the economy and the party to recover."
+   ],
+   "why": "three reasons, each explaining why change was needed."
+  },
+  {
+   "q": "\"The weakness of the Whites was the main reason why the Reds won the Civil War.\" How far do you agree?",
+   "marks": 10,
+   "unit": "bolsh",
+   "model": [
+    "Intro: I partly agree. The Whites' weaknesses were serious, but the Reds' own strengths were more decisive.",
+    "Agree: The Whites were divided. Their armies, under leaders such as Kolchak, Denikin and Yudenich, were spread around the edges of Russia, hundreds of miles apart, and never coordinated their attacks. They had no shared aims beyond defeating the Bolsheviks, ranging from monarchists to socialists. Many peasants feared a White victory would bring back the landlords, and foreign help made the Whites look like puppets of other countries.",
+    "Disagree: The Reds had major strengths. Trotsky built the Red Army into a force of about 5 million, using ex-tsarist officers watched by commissars, and harsh discipline. The Reds held the central area with Moscow and Petrograd, most industry and the railway network, so they could move troops quickly. War Communism kept the army supplied, and the Cheka's terror and Bolshevik propaganda kept control behind the lines.",
+    "Conclusion: On balance the Reds' strengths mattered more, because the Whites' weaknesses only mattered when they faced a determined, organised enemy. Trotsky's Red Army and control of the centre allowed the Reds to defeat each White army in turn."
+   ],
+   "why": "both sides with evidence and a reasoned judgement."
+  },
+  {
+   "q": "\"Lenin's leadership was the main reason why the Bolsheviks gained and kept power, 1917–24.\" How far do you agree?",
+   "marks": 10,
+   "unit": "bolsh",
+   "model": [
+    "Intro: I partly agree. Lenin was essential, but others' mistakes and Trotsky's work were just as important.",
+    "Agree: Lenin's April Theses gave the Bolsheviks a clear, popular message: 'Peace, Land, Bread' and no support for the Provisional Government. He insisted on seizing power in October 1917 when other Bolsheviks hesitated. In power, he closed the Constituent Assembly, set up the Cheka and signed Brest-Litovsk to get Russia out of the war. In 1921 he saw that War Communism was failing and introduced NEP to save the regime.",
+    "Disagree: The Provisional Government's mistakes, especially continuing the war and the Kornilov affair, handed the Bolsheviks their chance. Trotsky organised the October seizure of power through the Military Revolutionary Committee and built the Red Army that won the Civil War. Ruthless force by the Cheka and the Red Terror, and the divisions of the Whites, also explain why the Bolsheviks kept power.",
+    "Conclusion: On balance Lenin's leadership was the most important single factor, because his decisions (to seize power, to make peace, to introduce NEP) set the direction at each turning point. But he could not have succeeded without the Provisional Government's weakness and Trotsky's organisation."
+   ],
+   "why": "weighs one factor against others and ends with a clear criterion."
+  },
+  {
+   "q": "What was Lenin's Testament?",
+   "marks": 4,
+   "unit": "stalinp",
+   "model": [
+    "Lenin's Testament was a set of notes Lenin wrote in December 1922 and January 1923, after a series of strokes, judging the leading Bolsheviks who might succeed him. He criticised Trotsky as too self-confident and others too. In an addition he said Stalin was 'too rude' and should be removed as General Secretary. After Lenin died in 1924, Zinoviev and Kamenev helped stop it being published, which saved Stalin's career."
+   ],
+   "why": "what, when, what it said, what happened to it."
+  },
+  {
+   "q": "Describe the show trials of 1936–38.",
+   "marks": 4,
+   "unit": "stalinp",
+   "model": [
+    "The show trials were public trials of leading old Bolsheviks. In 1936 Zinoviev and Kamenev were tried and shot, and in 1938 Bukharin and Rykov were tried and shot. The defendants confessed to crimes such as plotting with Trotsky or foreign powers to kill Stalin, after torture and threats against their families. The prosecutor Vyshinsky led the trials, which were reported to show that enemies were everywhere."
+   ],
+   "why": "named defendants, dates, how confessions were obtained, purpose."
+  },
+  {
+   "q": "Explain why Stalin was able to defeat Trotsky in the leadership struggle.",
+   "marks": 6,
+   "unit": "stalinp",
+   "model": [
+    "First, Stalin's position as General Secretary. He controlled appointments, so he placed his supporters in key posts across the party. They voted for him at Party Congresses, which gave him a majority whenever Trotsky challenged him.",
+    "Second, Trotsky's own weaknesses. He was seen as arrogant, had joined the Bolsheviks only in 1917, and as head of the Red Army others feared he might become a military dictator. He missed Lenin's funeral, which looked disrespectful, and was poor at building alliances.",
+    "Third, Stalin's tactics and ideas. He allied with Zinoviev and Kamenev against Trotsky, and his 'Socialism in One Country' appealed to members more than Trotsky's 'permanent revolution'. Trotsky lost his army post in 1925, was expelled in 1927 and deported in 1929."
+   ],
+   "why": "three explained reasons, linked to the outcome."
+  },
+  {
+   "q": "Explain why Stalin carried out the purges.",
+   "marks": 6,
+   "unit": "stalinp",
+   "model": [
+    "One reason was to remove possible rivals. Old Bolsheviks such as Zinoviev, Kamenev and Bukharin remembered Lenin's Testament and Stalin's past; the show trials of 1936–38 ensured no one with prestige could replace him. Kirov's murder in 1934 gave him the excuse.",
+    "A second reason was to control the army. Stalin feared the army leaders could overthrow him, so Marshal Tukhachevsky was shot in 1937 and tens of thousands of officers were purged.",
+    "A third reason was to create fear and find scapegoats. Arrest quotas and denunciations made everyone afraid to criticise, and failures in the Five-Year Plans could be blamed on 'wreckers' and saboteurs instead of on Stalin's policies. Some historians also stress Stalin's paranoia."
+   ],
+   "why": "three reasons, each explaining how purges helped Stalin."
+  },
+  {
+   "q": "\"Stalin held on to power mainly through terror.\" How far do you agree?",
+   "marks": 10,
+   "unit": "stalinp",
+   "model": [
+    "Intro: I mostly agree. Terror was the main method, but propaganda and the party system also mattered.",
+    "Agree: The purges removed anyone who might challenge Stalin. The show trials (1936–38) destroyed old Bolsheviks such as Zinoviev, Kamenev and Bukharin, the army purge removed Tukhachevsky and thousands of officers, and in the Great Terror of 1937–38 about 1.5 million were arrested and roughly 700,000 shot. Millions more were in the Gulag. Fear stopped people speaking out and encouraged them to denounce others.",
+    "Disagree: Stalin also used persuasion and control. The cult of personality presented him as a wise, caring leader in posters, films and schoolbooks, and many Soviet citizens genuinely admired him. The 1936 Constitution made the USSR look democratic. Some groups benefited, such as workers who were promoted and educated, so they had reasons to support him. As General Secretary he controlled the party machine, so the system itself was loyal to him.",
+    "Conclusion: On balance terror was the main reason, because it removed every possible rival and made opposition impossible. Propaganda and rewards made people support Stalin, but terror made sure that those who did not dared not act."
+   ],
+   "why": "both sides and a reasoned judgement."
+  },
+  {
+   "q": "\"Stalin became leader by 1929 mainly because of his position as General Secretary.\" How far do you agree?",
+   "marks": 10,
+   "unit": "stalinp",
+   "model": [
+    "Intro: I largely agree. His post gave him the votes he needed, though his rivals' mistakes helped.",
+    "Agree: As General Secretary from 1922, Stalin controlled appointments and promotions in the party. He placed loyal officials in local and national posts, and they voted for him at Party Congresses. He oversaw the 'Lenin Enrolment', when hundreds of thousands of new members, many grateful to him, joined the party. This gave him a reliable majority against Trotsky in 1924–27 and Bukharin in 1928–29.",
+    "Disagree: His rivals made mistakes. Trotsky was arrogant, failed to build alliances and missed Lenin's funeral; Zinoviev and Kamenev helped suppress Lenin's Testament, which could have ended Stalin's career. Stalin's own cunning also mattered: he played the Left and Right against each other, first allying with Zinoviev and Kamenev, then with Bukharin, and 'Socialism in One Country' was a popular policy.",
+    "Conclusion: On balance the General Secretary post was the main reason, because it gave Stalin control of the votes that decided every contest. His rivals' mistakes made it easier, but without the party machine his tactics would not have worked."
+   ],
+   "why": "both sides developed and a judgement with a criterion."
+  },
+  {
+   "q": "Describe the main features of the Five-Year Plans.",
+   "marks": 4,
+   "unit": "econ",
+   "model": [
+    "The Five-Year Plans were drawn up by Gosplan, which set production targets for every industry, factory and worker. The First Plan (1928–32) concentrated on heavy industry such as coal, iron, steel and electricity, with huge projects like Magnitogorsk and the Dnieper dam. The Second Plan (1933–37) added transport, including the Moscow Metro. The Third Plan (1938–41) concentrated on armaments and was interrupted by the German invasion in 1941."
+   ],
+   "why": "four specific features."
+  },
+  {
+   "q": "What happened to the kulaks?",
+   "marks": 4,
+   "unit": "econ",
+   "model": [
+    "The kulaks were the richer peasants, and the label was used against anyone who resisted collectivisation. In December 1929 Stalin announced they would be 'liquidated as a class'. Their land, animals and tools were taken. Millions were deported in cattle trucks to Siberia, Kazakhstan or labour camps, where many died, and some were shot."
+   ],
+   "why": "four specific details."
+  },
+  {
+   "q": "Explain why Stalin introduced collectivisation.",
+   "marks": 6,
+   "unit": "econ",
+   "model": [
+    "First, to feed the cities. Industrialisation meant millions more workers in the towns, but in 1927–28 peasants held back grain because state prices were low. Collective farms would let the state take a fixed share of the harvest.",
+    "Second, to pay for industrialisation. Grain could be exported to buy foreign machinery and pay foreign experts, so large mechanised farms producing a surplus were essential to the Five-Year Plans.",
+    "Third, for political reasons. Communists saw private farming and the kulaks as capitalist. Collectivisation would crush the kulaks, bring the peasants under party control, and also defeat Bukharin and the Right, who defended NEP."
+   ],
+   "why": "three reasons: food, money and politics."
+  },
+  {
+   "q": "Explain why the Five-Year Plans increased industrial production.",
+   "marks": 6,
+   "unit": "econ",
+   "model": [
+    "One reason was central planning. Gosplan set ambitious targets and directed all resources, money and labour towards heavy industry, so coal, steel and electricity rose dramatically; coal went from about 35 million tonnes in 1928 to about 128 million in 1937.",
+    "A second reason was huge new projects and a growing workforce. New industrial cities such as Magnitogorsk were built, and millions of peasants moved to the towns. Gulag prisoners also provided forced labour for canals and mines.",
+    "A third reason was pressure and incentives. Propaganda and the Stakhanovite movement encouraged workers to exceed their norms with bonuses, while harsh punishments for lateness and 'sabotage' forced them to work hard."
+   ],
+   "why": "three reasons, each with evidence."
+  },
+  {
+   "q": "\"Stalin's economic policies were a success.\" How far do you agree?",
+   "marks": 10,
+   "unit": "econ",
+   "model": [
+    "Intro: I partly agree. Industry was transformed, but farming was a disaster and the human cost was enormous.",
+    "Agree: The Five-Year Plans turned the USSR into one of the world's leading industrial powers. Coal output rose from about 35 million tonnes (1928) to about 128 million (1937) and steel from about 4 million to about 18 million tonnes by 1940. New cities and factories were built, many in the Urals, and unemployment disappeared. This industrial base let the USSR produce the tanks and weapons that helped defeat Germany after 1941.",
+    "Disagree: Collectivisation was a failure in output: peasants slaughtered their animals, cattle and horse numbers roughly halved, and the famine of 1932–33 killed about 5–7 million people. Workers paid a heavy price, with falling real wages in the early 1930s, poor housing, harsh discipline and few consumer goods. Millions of kulaks were deported, and Gulag labour was used to meet targets.",
+    "Conclusion: On balance they were a success only by Stalin's own aim of making the USSR strong enough to survive a war, which it did. Judged by the lives and living standards of ordinary people, they were a failure, so the success came at an unacceptable human cost."
+   ],
+   "why": "two sides and a judgement that defines 'success'."
+  },
+  {
+   "q": "\"Collectivisation brought more harm than benefit to the USSR.\" How far do you agree?",
+   "marks": 10,
+   "unit": "econ",
+   "model": [
+    "Intro: I agree. Collectivisation achieved Stalin's political aims, but at a terrible cost to people and farming.",
+    "Agree: Grain output fell in the early 1930s and only returned to about pre-1928 levels later in the decade. Peasants slaughtered their livestock, so the numbers of cattle and horses roughly halved between 1928 and 1933, and meat and milk stayed scarce for years. Millions of kulaks were deported, and the famine of 1932–33, made worse by grain exports and high quotas, killed about 5–7 million people, especially in Ukraine and Kazakhstan.",
+    "Disagree: For the state, collectivisation worked. By the late 1930s almost all farms were collective, so the government controlled the grain supply and could feed the growing cities. Grain exports helped pay for machinery for the Five-Year Plans, and peasants who moved to towns provided the workforce for industry. The peasants, once a threat, were now under party control.",
+    "Conclusion: On balance it brought more harm than benefit. It helped industrialisation and Stalin's control, but output fell and millions died, and agriculture remained the weakest part of the Soviet economy for decades."
+   ],
+   "why": "both sides with evidence and a clear judgement."
+  }
+ ],
+ "debates": [
+  {
+   "unit": "tsar",
+   "q": "\"The First World War was the main reason the Tsar fell in 1917.\" How far do you agree?",
+   "for": [
+    "Defeats and millions of casualties; Nicholas blamed after taking command (1915)",
+    "Transport collapse: food and fuel shortages, soaring prices in Petrograd",
+    "Rasputin and Alexandra mismanaged government at home",
+    "Petrograd garrison mutinied in Feb 1917, unlike in 1905"
+   ],
+   "against": [
+    "Autocracy and Nicholas's refusal to share power (Dumas undermined)",
+    "Peasant land hunger and poor workers' conditions; strike wave after Lena (1912)",
+    "Bloody Sunday (1905) had already damaged the tsar's image"
+   ],
+   "judgement": "The war was the main reason: it turned long-term weaknesses into a crisis and, above all, turned the army against the tsar."
+  },
+  {
+   "unit": "tsar",
+   "q": "\"The October Manifesto saved the Tsar in 1905.\" How far do you agree?",
+   "for": [
+    "Promised a Duma and civil rights, satisfying the liberals",
+    "Split the opposition, isolating workers and peasants"
+   ],
+   "against": [
+    "The army stayed loyal and crushed the Moscow rising and peasant revolts",
+    "Peace with Japan (Sept 1905) freed troops to return",
+    "Stolypin's repression restored order afterwards"
+   ],
+   "judgement": "The Manifesto split the opposition, but the loyal army is what actually crushed the revolution, so force mattered more."
+  },
+  {
+   "unit": "tsar",
+   "q": "\"Stolypin's reforms strengthened the Tsarist regime.\" How far do you agree?",
+   "for": [
+    "Repression restored order after 1905",
+    "Land reform created some loyal, prosperous peasants (kulaks)",
+    "Farm output grew before 1914"
+   ],
+   "against": [
+    "Only a minority of peasants left the commune",
+    "'Stolypin's necktie' bred hatred",
+    "Nicholas never fully backed him; assassinated 1911"
+   ],
+   "judgement": "They brought short-term stability, but there was not enough time or support from Nicholas for lasting change."
+  },
+  {
+   "unit": "bolsh",
+   "q": "\"The weakness of the Provisional Government was the main reason the Bolsheviks seized power.\" How far do you agree?",
+   "for": [
+    "Continued the war; June Offensive failed",
+    "Delayed land reform and the Constituent Assembly",
+    "Dual Power: Order No. 1 limited its control of the army",
+    "Kornilov affair made Kerensky arm the Red Guards"
+   ],
+   "against": [
+    "Lenin's April Theses and slogans ('Peace, Land, Bread')",
+    "Trotsky and the Military Revolutionary Committee planned the rising",
+    "Bolsheviks disciplined, with armed Red Guards"
+   ],
+   "judgement": "The Government's weakness gave the Bolsheviks their chance, but only Lenin and Trotsky's determination turned it into a seizure of power."
+  },
+  {
+   "unit": "bolsh",
+   "q": "\"The Reds won the Civil War because of the Whites' weaknesses.\" How far do you agree?",
+   "for": [
+    "Whites divided, with different aims and leaders",
+    "Armies spread around the edges, could not coordinate",
+    "Seen as landlords' side; foreign support looked unpatriotic"
+   ],
+   "against": [
+    "Trotsky's disciplined Red Army of about 5 million",
+    "Reds held the centre: Moscow, Petrograd, industry, railways",
+    "War Communism supplied the army; Cheka kept control"
+   ],
+   "judgement": "Both mattered, but the Reds' organisation and control of the centre were decisive: the Whites' weaknesses were exploited by a strong opponent."
+  },
+  {
+   "unit": "bolsh",
+   "q": "\"NEP was a success.\" How far do you agree?",
+   "for": [
+    "Production recovered to about pre-war levels by the mid-1920s",
+    "Ended peasant revolts; food returned to the towns",
+    "Saved the Bolshevik regime after Kronstadt"
+   ],
+   "against": [
+    "Many communists saw it as a betrayal; Nepmen resented",
+    "Heavy industry grew slowly",
+    "Grain shortages again in 1927–28"
+   ],
+   "judgement": "A short-term success: it saved the regime and the economy, but it was never meant to be permanent and Stalin ended it."
+  },
+  {
+   "unit": "stalinp",
+   "q": "\"Stalin won the leadership struggle mainly because of his own skills.\" How far do you agree?",
+   "for": [
+    "Used the General Secretary post to fill the party with supporters",
+    "Played Left against Right, then crushed each",
+    "'Socialism in One Country' was popular"
+   ],
+   "against": [
+    "Trotsky's arrogance and mistakes (missed Lenin's funeral)",
+    "Zinoviev and Kamenev helped suppress Lenin's Testament",
+    "Rivals underestimated him as a dull administrator"
+   ],
+   "judgement": "Stalin's skill in using his post was decisive; his rivals' mistakes helped, but he exploited every one of them."
+  },
+  {
+   "unit": "stalinp",
+   "q": "\"Terror was the main way Stalin kept power.\" How far do you agree?",
+   "for": [
+    "Show trials removed old Bolsheviks",
+    "Army purge (Tukhachevsky, 1937)",
+    "Great Terror: about 700,000 shot in 1937–38; the Gulag"
+   ],
+   "against": [
+    "Cult of personality built genuine support",
+    "1936 Constitution looked democratic",
+    "Some workers gained education and promotion"
+   ],
+   "judgement": "Terror was the main method because it destroyed every alternative; propaganda made it easier to accept."
+  },
+  {
+   "unit": "econ",
+   "q": "\"The Five-Year Plans were a success.\" How far do you agree?",
+   "for": [
+    "Coal about 35m to 128m tonnes (1928–37); steel about 4m to 18m (by 1940)",
+    "New cities and industries, many safe in the Urals",
+    "Unemployment ended; industrial base helped win the war"
+   ],
+   "against": [
+    "Targets unrealistic; figures exaggerated; waste and poor quality",
+    "Real wages fell; poor housing; harsh discipline",
+    "Few consumer goods; Gulag forced labour"
+   ],
+   "judgement": "A success in making the USSR an industrial power ready for war, but at a heavy cost to workers."
+  },
+  {
+   "unit": "econ",
+   "q": "\"Collectivisation was a disaster.\" How far do you agree?",
+   "for": [
+    "Livestock roughly halved (1928–33)",
+    "Famine of 1932–33 killed about 5–7 million",
+    "Kulaks deported; peasants lost their land"
+   ],
+   "against": [
+    "State controlled grain to feed towns",
+    "Grain exports paid for machinery",
+    "Peasants moved to towns, supplying labour for industry"
+   ],
+   "judgement": "A human and agricultural disaster, even though it gave Stalin the control and grain he wanted."
+  }
+ ],
+ "timeline": [
+  {
+   "unit": "tsar",
+   "event": "Nicholas II becomes tsar",
+   "year": 1894
+  },
+  {
+   "unit": "tsar",
+   "event": "Russo-Japanese War begins",
+   "year": 1904
+  },
+  {
+   "unit": "tsar",
+   "event": "Bloody Sunday massacre in St Petersburg",
+   "year": 1905
+  },
+  {
+   "unit": "tsar",
+   "event": "October Manifesto promises a Duma",
+   "year": 1905
+  },
+  {
+   "unit": "tsar",
+   "event": "First Duma meets and is dissolved",
+   "year": 1906
+  },
+  {
+   "unit": "tsar",
+   "event": "Stolypin becomes prime minister",
+   "year": 1906
+  },
+  {
+   "unit": "tsar",
+   "event": "Stolypin assassinated in Kiev",
+   "year": 1911
+  },
+  {
+   "unit": "tsar",
+   "event": "Lena goldfields massacre",
+   "year": 1912
+  },
+  {
+   "unit": "tsar",
+   "event": "Russia enters the First World War",
+   "year": 1914
+  },
+  {
+   "unit": "tsar",
+   "event": "Nicholas takes personal command of the army",
+   "year": 1915
+  },
+  {
+   "unit": "tsar",
+   "event": "Rasputin murdered",
+   "year": 1916
+  },
+  {
+   "unit": "tsar",
+   "event": "February Revolution and the tsar's abdication",
+   "year": 1917
+  },
+  {
+   "unit": "bolsh",
+   "event": "Lenin returns and issues the April Theses",
+   "year": 1917
+  },
+  {
+   "unit": "bolsh",
+   "event": "Kornilov affair",
+   "year": 1917
+  },
+  {
+   "unit": "bolsh",
+   "event": "Bolsheviks seize power in the October Revolution",
+   "year": 1917
+  },
+  {
+   "unit": "bolsh",
+   "event": "Cheka set up",
+   "year": 1917
+  },
+  {
+   "unit": "bolsh",
+   "event": "Constituent Assembly closed after one day",
+   "year": 1918
+  },
+  {
+   "unit": "bolsh",
+   "event": "Treaty of Brest-Litovsk",
+   "year": 1918
+  },
+  {
+   "unit": "bolsh",
+   "event": "Tsar and his family shot at Ekaterinburg",
+   "year": 1918
+  },
+  {
+   "unit": "bolsh",
+   "event": "Last White army (Wrangel) leaves the Crimea",
+   "year": 1920
+  },
+  {
+   "unit": "bolsh",
+   "event": "Kronstadt rising crushed",
+   "year": 1921
+  },
+  {
+   "unit": "bolsh",
+   "event": "New Economic Policy introduced",
+   "year": 1921
+  },
+  {
+   "unit": "bolsh",
+   "event": "USSR formed",
+   "year": 1922
+  },
+  {
+   "unit": "stalinp",
+   "event": "Stalin becomes General Secretary",
+   "year": 1922
+  },
+  {
+   "unit": "stalinp",
+   "event": "Lenin dies",
+   "year": 1924
+  },
+  {
+   "unit": "stalinp",
+   "event": "Trotsky removed as head of the Red Army",
+   "year": 1925
+  },
+  {
+   "unit": "stalinp",
+   "event": "Trotsky, Zinoviev and Kamenev expelled from the party",
+   "year": 1927
+  },
+  {
+   "unit": "stalinp",
+   "event": "Trotsky deported from the USSR",
+   "year": 1929
+  },
+  {
+   "unit": "stalinp",
+   "event": "Bukharin removed from the Politburo",
+   "year": 1929
+  },
+  {
+   "unit": "stalinp",
+   "event": "Kirov murdered in Leningrad",
+   "year": 1934
+  },
+  {
+   "unit": "stalinp",
+   "event": "Show trial of Zinoviev and Kamenev",
+   "year": 1936
+  },
+  {
+   "unit": "stalinp",
+   "event": "'Stalin Constitution' introduced",
+   "year": 1936
+  },
+  {
+   "unit": "stalinp",
+   "event": "Marshal Tukhachevsky shot",
+   "year": 1937
+  },
+  {
+   "unit": "stalinp",
+   "event": "Show trial of Bukharin",
+   "year": 1938
+  },
+  {
+   "unit": "stalinp",
+   "event": "Trotsky murdered in Mexico",
+   "year": 1940
+  },
+  {
+   "unit": "econ",
+   "event": "Gosplan set up",
+   "year": 1921
+  },
+  {
+   "unit": "econ",
+   "event": "First Five-Year Plan begins",
+   "year": 1928
+  },
+  {
+   "unit": "econ",
+   "event": "Stalin calls for the kulaks to be 'liquidated as a class'",
+   "year": 1929
+  },
+  {
+   "unit": "econ",
+   "event": "'Dizzy with Success' article pauses collectivisation",
+   "year": 1930
+  },
+  {
+   "unit": "econ",
+   "event": "Stalin's speech: 'we are 50–100 years behind'",
+   "year": 1931
+  },
+  {
+   "unit": "econ",
+   "event": "Famine begins in Ukraine and Kazakhstan; internal passports introduced",
+   "year": 1932
+  },
+  {
+   "unit": "econ",
+   "event": "Second Five-Year Plan begins",
+   "year": 1933
+  },
+  {
+   "unit": "econ",
+   "event": "Moscow Metro opens",
+   "year": 1935
+  },
+  {
+   "unit": "econ",
+   "event": "Stakhanov's coal-cutting record",
+   "year": 1935
+  },
+  {
+   "unit": "econ",
+   "event": "Third Five-Year Plan begins",
+   "year": 1938
+  },
+  {
+   "unit": "econ",
+   "event": "Germany invades the USSR",
+   "year": 1941
+  }
+ ]
+}
