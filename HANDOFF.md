@@ -46,11 +46,11 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 5. **Verify an upload landed:** open the file on GitHub and Cmd+F for a string you just changed.
 
 ### Current cache-buster versions (keep incrementing from here)
-- `app.js?v=64`
-- `styles.css?v=32`
+- `app.js?v=67`
+- `styles.css?v=33`
 - planner import `./planner.js?v=29`
 - timetable import `./timetable.js?v=3` (Jake's school timetable, shown in Today)
-- revision import in app.js `./revision/revision.js?v=19` (and its own imports of `syllabus.js?v=4` / `packview.js?v=10`)
+- revision import in app.js `./revision/revision.js?v=21` (and its own imports of `syllabus.js?v=5` / `packview.js?v=11`)
 - pack JSON files: bump `PACK_VERSION` in `revision/syllabus.js`
 
 > The `.github/workflows/*.yml` files won't drag-upload (hidden folder). Edit those via GitHub's **Add file → Create new file** if needed.
@@ -72,7 +72,8 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 - `.github/workflows/digest.yml` (twice-weekly) + `monthly.yml` (monthly) + `session-email.yml` (every 15 min: emails each finished study session once) — schedules. Pushing workflow files needs a `gh` token with the `workflow` scope (`gh auth refresh -h github.com -s workflow`).
 - `revision/revision.js` — the 📖 Revision tab (subjects, topics, Round 1/2, tests, sessions, parent check). Exposes `sessionsFor` / `upcomingTests` / `paceSummary` to app.js for the Today plan + dashboard.
 - `revision/syllabus.js` — **edit this to add topics**: subjects → topics (stable ids!) → must-know points → practice pack; exam-format cards; the 31 Jan goal; the Nov seed plan.
-- `revision/packview.js` — pure renderer for a practice pack (flashcards, quiz/date quiz, exam questions with mark scheme or model answer, data practice, 6-mark plans, 10-mark drill, timeline).
+- `revision/packview.js` — pure renderer for a practice pack (flashcards, quiz/date quiz, exam questions with mark scheme or model answer, data practice, 6-mark plans, 10-mark drill, timeline). Chapters are multi-select and questions are shuffled. Items may carry their own `key`; units may carry `book` (heading over that book's chapters) and `label` (shown on mixed questions); `opts.onUnits(keys)` / `opts.onMode(mode)` report changes so the caller can keep them across redraws. Each quiz attempt records `byUnit:{unit:[score,n]}`.
+- **Several books at once (one subject):** on the practice page a "📚 Books" card lists the subject's practice packs (hidden when it has only one, which is every subject today). Picking more than one merges them (`mergePacks` in revision.js): chapters grouped per book, flashcards/quiz/exam mixed and shuffled, keys `<packId>::c3` / `<packId>::eq2`, units `<packId>::<unit>`. One shared state for the screen (`mergedStore`) is split back into each book's own `revpractice/{packId}` on every save (answers, cards, done, sent, drills, new cardLog entries; a mixed quiz is filed under each book with its own byUnit score). `sessionPractice` joins quizzes with the same start time back into one line ("Quiz 5/8"). 6-mark plans and data practice only show with a single book.
 - `revision/packs/*.json` — one file per practice pack. A new subject's pack = a new JSON file + `pack:` on its topics.
 - `dev/revision-preview.html` — local preview of the Revision tab on fake in-memory data (`python3 -m http.server 8765` from the repo root → `/dev/revision-preview.html`, `?as=jake` to view as Jake).
 - `jose-agent.md` — a maintenance-assistant agent definition ("José").
@@ -101,8 +102,8 @@ You edit files locally, then upload to GitHub; GitHub Pages serves them.
 - `revprogress/{topicId}` {r1:{done,conf,at,by}, r2:{…}, pts:{index:true}} — revision rounds + checklist ticks
 - `revsessions` {date, slot, subject, topics[], title, method, mins, done, conf, notes, doneBy, doneAt} — planned revision sessions (feed the Today plan); finishing one marks the next round on its topics
 - `revtests` {subject, name, date, topics[]}
-- `revpractice/{packId}` {answers, cards, cardLog[{at,unit,key,r}], quizzes[{d,at,unit,kind,score,n}], drills, done, sent} — practice-pack progress (shared: both logins can see it). `done` = answers Jake tapped Submit on; `sent` = answers already sent for grading
-- `studysessions` {by, date, start, end, mins, subjects[], status: running|done, conf, notes, answers, answersBy{subject:n}, grades{subject:gradeId}, gradeId (first; older sessions), practice{subject:{quizzes[], cards{seen,got,again}, notYet[]}}, emailed} — Jake's timed study sessions (Start / End bar on every Revision page; table in Progress). Ending one copies the new answers in its subjects into one `revgrade` set per subject (Progress shows one row per subject, each with its own score); `send-session-email.mjs` emails it to the parent and sets `emailed`. Sessions of 20+ min count toward the weekly revision requirement. While a session is running, model answers / mark schemes are hidden for Jake (packview `locked` option)
+- `revpractice/{packId}` {answers, cards, cardLog[{at,unit,key,r}], quizzes[{d,at,unit,kind,score,n,byUnit{unit:[score,n]}}], drills, done, sent} — practice-pack progress (shared: both logins can see it). `done` = answers Jake tapped Submit on; `sent` = answers already sent for grading
+- `studysessions` {by, date, start, end, mins, subjects[], status: running|done, conf, notes, answers, answersBy{subject:n}, grades{subject:gradeId}, gradeId (first; older sessions), practice{subject:{quizzes[], cards{seen,got,again}, notYet[]}}, emailed} — Jake's timed study sessions (Start / End bar on every Revision page; table in Progress). **One subject per session**: the start and end panels are single-select, and opening practice in another subject does not add it (those answers go with his next session in that subject). Older sessions may list several subjects. Ending one copies the new answers in its subjects into one `revgrade` set per subject (Progress shows one row per subject, each with its own score); `send-session-email.mjs` emails it to the parent and sets `emailed`. Sessions of 20+ min count toward the weekly revision requirement. While a session is running, model answers / mark schemes are hidden for Jake (packview `locked` option)
 - `revgrade` {sessionId, subjects[], subject, date, by, items[{q, marks, answer, guide, subject}], prompt, status, feedback, score} — grading sets. The parent copies `prompt` (questions, answers, mark schemes) into Claude and pastes the feedback back for Jake; waiting sets are also in the digest email. Older sets (no sessionId) came from the retired "Grade this" button
 - `meta/revision_v1` — seeds the Nov 7–13 EM/Bio plan + tests once
 - `meta/history_rename_v1` — one-time move of homework subject Humanities → History (revision keeps the internal key "Humanities", shown as History)

@@ -333,3 +333,8 @@ details summary{list-style-position:inside}
 .quote-pop.on .quote-pop-card{transform:scale(1)}
 .quote-pop-card .q-by{font-size:.8rem;margin-top:10px}
 .pk-units-h{flex-basis:100%;margin-bottom:2px}
+/* Several books at once: book headings over their chapters, and the Books card */
+.pk-book-h{flex-basis:100%;margin:6px 0 0;font-size:12px;font-weight:600;color:var(--text)}
+.rv-books{margin:8px 0;border-left:4px solid var(--accent)}
+.rv-books .chip{cursor:pointer;background:transparent;color:var(--muted)}
+.rv-books .chip.on{background:#13302a;color:var(--accent)}
