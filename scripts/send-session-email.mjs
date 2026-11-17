@@ -13,6 +13,7 @@
 import admin from "firebase-admin";
 import nodemailer from "nodemailer";
 import { readFileSync } from "node:fs";
+import { runPlanEmails } from "./send-plan-email.mjs";
 
 const APP_URL = "https://jakesamuel2011-a11y.github.io/game-plan/";
 const SUBJ = { Humanities: "History", EM: "EM", Bio: "Biology", Math: "Maths", English: "English", Physics: "Physics", Chem: "Chemistry" };
@@ -97,4 +98,7 @@ async function main() {
   }
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+// Then the revision plan emails (weekly / fortnightly), which only send when due.
+main()
+  .then(() => runPlanEmails(db, nodemailer.createTransport({ service: "gmail", auth: { user: need("GMAIL_USER"), pass: need("GMAIL_APP_PASSWORD") } })))
+  .catch((e) => { console.error(e); process.exit(1); });

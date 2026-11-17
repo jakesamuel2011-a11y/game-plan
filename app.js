@@ -4,7 +4,7 @@
 import { firebaseConfig, PEOPLE } from "./firebase-config.js";
 import { buildDayPlan, matchAssessment, FOOTBALL_DAYS } from "./planner.js?v=29";
 import { TIMETABLE } from "./timetable.js?v=3";
-import { initRevision, sessionsFor, upcomingTests, overdueSessions, paceSummary, revisionCount, progressHtml as revisionProgressHtml, subjectName, openSubject as openRevisionSubject, render as renderRevision, gradeQueue, mountStudyLog, setPlanCapacity, mountDayPlan, revisionPlanFor, openTopicPractice, TOPIC_MINS, mountOffDays } from "./revision/revision.js?v=31";
+import { initRevision, sessionsFor, upcomingTests, overdueSessions, paceSummary, revisionCount, progressHtml as revisionProgressHtml, subjectName, openSubject as openRevisionSubject, render as renderRevision, gradeQueue, mountStudyLog, setPlanContext, mountDayPlan, revisionPlanFor, openTopicPractice, TOPIC_MINS, mountOffDays } from "./revision/revision.js?v=32";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
@@ -65,19 +65,6 @@ function shortsExpected() {
 function fmtT(hhmm) { if (!hhmm) return ""; const [h, m] = hhmm.split(":").map(Number); const ap = h >= 12 ? "pm" : "am"; let hh = h % 12; if (hh === 0) hh = 12; return m ? `${hh}:${String(m).padStart(2, "0")}${ap}` : `${hh}${ap}`; }
 function fmtDate(s) { if (!s) return ""; const d = new Date(s + "T00:00:00"); return d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }); }
 function fmtDayMonth(s) { if (!s) return ""; const d = new Date(s + "T00:00:00"); return d.toLocaleDateString("en-GB", { day: "numeric", month: "short" }); }
-// Revision topics per day (about 25 min each) for the daily plan. Sunday is always free;
-// tournament days are off; Saturday also gets catch-up for the week (added in revision.js).
-const REV_PER_DAY = { football: 1, school: 2, saturday: 3, holiday: 3 };
-function revisionCapacity(d) {
-  const wd = new Date(d + "T00:00:00Z").getUTCDay();
-  if (wd === 0) return 0;
-  if (cache.tournaments.some(x => x.date === d)) return 0;
-  if (isHoliday(d)) return REV_PER_DAY.holiday;
-  if (wd === 6) return REV_PER_DAY.saturday;
-  const movedHere = [...cache.resched.values()].some(r => r.toDate === d);
-  const training = movedHere || (FOOTBALL_DAYS.includes(wd) && !cache.footballOff.has(d) && !cache.resched.has(d));
-  return training ? REV_PER_DAY.football : REV_PER_DAY.school;
-}
 const isHoliday = (dateStr) => cache.holidays.some(h => h.from && h.to && dateStr >= h.from && dateStr <= h.to);
 
 // Daily inspiration — wide pool so it won't repeat for ~3 months (rotates daily).
@@ -379,7 +366,7 @@ onAuthStateChanged(auth, async (user) => {
     await ensureFixups();
     await ensureHistoryRename();
     subscribeAll();
-    setPlanCapacity(revisionCapacity);
+    setPlanContext(() => ({ tournaments: cache.tournaments, holidays: cache.holidays, footballOff: cache.footballOff, resched: cache.resched }));
     initRevision({
       db, me: () => ME, nameFor, isParent: isMum,
       fs: { collection, doc, addDoc, setDoc, getDoc, updateDoc, deleteDoc, onSnapshot, query, serverTimestamp },
