@@ -1,0 +1,1 @@
+{ "type": "module", "private": true, "description": "Lets Node (the email scripts) import these browser ES modules." }

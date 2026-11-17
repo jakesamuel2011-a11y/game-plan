@@ -20,6 +20,8 @@
 // =============================================================
 import { SUBJECTS, PACKS, PACK_VERSION, REVISION_GOAL, SEED_TESTS, SEED_SESSIONS, allTopics, topicById, subjectByKey } from "./syllabus.js?v=11";
 import { renderPack, packModes, writtenWork } from "./packview.js?v=11";
+import { makePlanner, TOPIC_MINS, weekday } from "./dayplan.js?v=1";
+export { TOPIC_MINS };
 
 const esc = (s) => String(s ?? "").replace(/[<>&"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
 const ymd = (d) => d.toISOString().slice(0, 10);
@@ -106,79 +108,19 @@ export function paceSummary() {
 }
 
 // ---------- daily revision plan ----------
-// Each day gets a few topics (one revision round each, about TOPIC_MINS minutes).
-// How many depends on the day: app.js sets that with setPlanCapacity (football, holidays,
-// tournaments; Sunday 0). Days Jake marks "can't revise" (revoff/{date}) get none.
-// Order: topics with a test in the next 14 days first; then Round 1 of every topic, subjects
-// taking turns; then Round 2, at least 7 days after that topic's Round 1. The plan is worked out
-// again from progress every time, so a topic that isn't done just moves to the next day.
-// Saturday adds catch-up (up to 3) for topics planned Mon–Fri that week but not done.
-export const TOPIC_MINS = 25;
-const PLAN_ORDER = ["Humanities", "EM", "Bio", "Math", "Physics", "Chem", "English"];
+// The planning rules live in dayplan.js (shared with the plan emails). app.js supplies the
+// football / holiday / tournament data with setPlanContext; "no-revision" days are revoff/{date}.
 let revOff = new Map(); // date -> {reason, by, at}
-let capacityFor = (d) => (new Date(d + "T00:00:00Z").getUTCDay() === 0 ? 0 : 2);
-export function setPlanCapacity(fn) { capacityFor = fn; }
-const dayCap = (d) => (revOff.has(d) ? 0 : capacityFor(d));
-const weekday = (d) => new Date(d + "T00:00:00Z").getUTCDay();
-const roundsDoneOn = (from, to) => Object.values(R.progress).reduce((n, p) => n + ["r1", "r2"].filter(r => p[r]?.done && p[r].at >= from && p[r].at <= to).length, 0);
-// Catch-up for a Saturday in the current week: topics planned on past weekdays that weren't done.
-function makeup(sat) {
-  const t = todayStr(), mon = addDays(sat, -5), lastPast = addDays(t, -1);
-  if (weekday(sat) !== 6 || sat < t || mon > lastPast) return 0;
-  const end = lastPast < addDays(sat, -1) ? lastPast : addDays(sat, -1);
-  let planned = 0;
-  for (let d = mon; d <= end; d = addDays(d, 1)) planned += dayCap(d);
-  // Work done any day this week (today included) counts, so getting ahead cancels catch-up.
-  const fri = addDays(sat, -1), doneTo = t < fri ? t : fri;
-  return Math.max(0, Math.min(3, planned - roundsDoneOn(mon, doneTo)));
-}
-// Simulate from today to `until`. Returns { days: {date: [{topic, round}]}, r1Done: date|null, r2ByGoal }
-function simulate(until) {
-  const t = todayStr();
-  const soon = new Set(upcomingTests().filter(x => x.date <= addDays(t, 14)).flatMap(x => x.topics || []));
-  const lists = PLAN_ORDER.map(k => (subjectByKey(k)?.topics || []).map(tp => ({ ...tp, subject: k })));
-  const all = [];
-  for (let i = 0; lists.some(l => i < l.length); i++) lists.forEach(l => { if (l[i]) all.push(l[i]); });
-  const r1at = {}, r2done = new Set();
-  all.forEach(tp => { const p = R.progress[tp.id] || {}; if (p.r1?.done) r1at[tp.id] = p.r1.at; if (p.r2?.done) r2done.add(tp.id); });
-  const days = {};
-  let r1Done = all.every(tp => r1at[tp.id]) ? t : null, r2ByGoal = r2done.size;
-  for (let d = t; d <= until; d = addDays(d, 1)) {
-    let cap = dayCap(d) + makeup(d);
-    if (d === t) cap = Math.max(0, cap - roundsDoneOn(t, t));
-    const pick = [];
-    const next = () => {
-      const r1 = (tp) => !r1at[tp.id], r2 = (tp, gap) => r1at[tp.id] && !r2done.has(tp.id) && r1at[tp.id] <= addDays(d, -gap);
-      return all.find(tp => soon.has(tp.id) && r1(tp)) ? [all.find(tp => soon.has(tp.id) && r1(tp)), "r1"]
-        : all.find(tp => soon.has(tp.id) && r2(tp, 2)) ? [all.find(tp => soon.has(tp.id) && r2(tp, 2)), "r2"]
-        : all.find(r1) ? [all.find(r1), "r1"]
-        : all.find(tp => r2(tp, 7)) ? [all.find(tp => r2(tp, 7)), "r2"] : null;
-    };
-    while (pick.length < cap) {
-      const n = next(); if (!n) break;
-      const [tp, round] = n;
-      if (round === "r1") r1at[tp.id] = d; else r2done.add(tp.id);
-      pick.push({ topic: tp, round });
-    }
-    days[d] = pick;
-    if (!r1Done && all.every(tp => r1at[tp.id])) r1Done = d;
-    if (d <= REVISION_GOAL.by) r2ByGoal = r2done.size;
-  }
-  return { days, r1Done, r2ByGoal, total: all.length };
-}
+let planCtx = () => ({});
+export function setPlanContext(fn) { planCtx = fn; }
+const planner = () => makePlanner({ subjects: SUBJECTS, progress: R.progress, tests: R.tests, ctx: { ...planCtx(), revOff }, today: todayStr(), goalBy: REVISION_GOAL.by });
 // The plan for one day: what's left, what's already done that day, and why a day is off.
 export function revisionPlanFor(d) {
-  const t = todayStr();
-  const off = weekday(d) === 0 ? "sunday" : revOff.has(d) ? "marked" : capacityFor(d) === 0 ? "busy" : null;
-  const done = d > t ? [] : allTopics().flatMap(tp => ["r1", "r2"].filter(r => R.progress[tp.id]?.[r]?.done && R.progress[tp.id][r].at === d).map(round => ({ topic: tp, round, done: R.progress[tp.id][round] })));
-  const todo = d < t ? [] : (simulate(d).days[d] || []);
-  return { off, todo, done, makeup: makeup(d) };
+  const p = planner().planFor(d);
+  const off = { sunday: "sunday", off: "marked", tournament: "busy" }[p.info.kind] || null;
+  return { off, todo: p.todo, done: p.done, makeup: p.makeup };
 }
-export function planProjection() {
-  const end = addDays(REVISION_GOAL.by, 120);
-  const s = simulate(end);
-  return { r1Done: s.r1Done, r2ByGoal: s.r2ByGoal, total: s.total };
-}
+export const planProjection = () => planner().projection();
 export function openTopicPractice(topicId) {
   const tp = topicById(topicId); if (!tp) return;
   go(tp.pack ? { name: "pack", id: tp.pack, unit: tp.packUnit, back: tp.subject } : { name: "subject", key: tp.subject });
