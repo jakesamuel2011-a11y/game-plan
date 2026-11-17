@@ -1,0 +1,841 @@
+{
+ "id": "math-trig",
+ "subject": "Math",
+ "title": "Trigonometry, transformations & vectors",
+ "sub": "Pythagoras and trigonometry, sine and cosine rules, 3D and trig graphs, transformations and vectors",
+ "units": [
+  {
+   "key": "pythag",
+   "name": "Pythagoras & SOHCAHTOA"
+  },
+  {
+   "key": "sinecos",
+   "name": "Sine & cosine rules"
+  },
+  {
+   "key": "trig3d",
+   "name": "3D & trig graphs"
+  },
+  {
+   "key": "transform",
+   "name": "Transformations"
+  },
+  {
+   "key": "vectors",
+   "name": "Vectors"
+  }
+ ],
+ "strategyIntro": "Extended Maths is two papers of equal weight: Paper 2 (2 hours, 100 marks, no calculator) and Paper 4 (2 hours, 100 marks, calculator). Your school test may be shorter, but it is marked the same way: M marks for a correct method, A marks for the correct answer that follows, B marks for a correct result on its own.",
+ "strategy": [
+  {
+   "title": "Timing",
+   "key": true,
+   "points": [
+    "About 1.2 minutes per mark: a 5-mark question is worth about 6 minutes.",
+    "If a question has taken twice its time, leave a gap and come back at the end.",
+    "Keep 10 minutes at the end to check answers against the question."
+   ]
+  },
+  {
+   "title": "Show your working",
+   "key": true,
+   "points": [
+    "Most marks are method marks. A wrong answer with clear working can still score most of the marks.",
+    "Write the calculation you are doing before the answer, e.g. 360 ÷ 12 = 30.",
+    "An answer with no working can score zero if it is wrong, and sometimes even if it is right (\"show that\")."
+   ]
+  },
+  {
+   "title": "Paper 2: no calculator",
+   "points": [
+    "Practise fractions, negative numbers, standard form and surds by hand.",
+    "Leave answers exact when you can: fractions, surds, or in terms of π.",
+    "Check with a quick estimate: is the answer about the right size?"
+   ]
+  },
+  {
+   "title": "Paper 4: calculator",
+   "points": [
+    "Give answers to 3 significant figures unless the question says otherwise; angles to 1 decimal place.",
+    "Never round partway through. Keep the full value in the calculator memory (or write 4+ figures).",
+    "Use the π button, not 3.14. Check the calculator is in degrees."
+   ]
+  },
+  {
+   "title": "Answer the question",
+   "points": [
+    "Read the last line again: units, form of answer (\"in its simplest form\", \"in terms of π\"), and accuracy.",
+    "\"Show that\" questions: every step must be written, ending with the given result.",
+    "When the question says \"hence\", use the previous part."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "Calculate",
+   "Work out from given facts. Show the working; usually a calculator is allowed."
+  ],
+  [
+   "Work out / Find",
+   "Get the answer by any correct method. Show working."
+  ],
+  [
+   "Write down",
+   "The answer needs little or no working: you can often read or state it."
+  ],
+  [
+   "Show that",
+   "The answer is given. Write every step clearly so the examiner can follow the logic to it."
+  ],
+  [
+   "Estimate",
+   "Round each number (usually to 1 significant figure) and calculate a rough value."
+  ],
+  [
+   "Simplify",
+   "Write in its simplest form: collect like terms, cancel common factors."
+  ],
+  [
+   "Factorise (completely)",
+   "Write as a product of factors. Completely means take out every common factor."
+  ],
+  [
+   "Expand",
+   "Multiply out the brackets."
+  ],
+  [
+   "Solve",
+   "Find the value(s) of the unknown that make the equation or inequality true."
+  ],
+  [
+   "Sketch",
+   "Show the shape and key features (intercepts, turning points), not plotted accurately."
+  ],
+  [
+   "Describe fully",
+   "For a transformation: name it and give every detail (centre, angle, direction, scale factor, vector or mirror line)."
+  ],
+  [
+   "Hence",
+   "Use the result you have just found to answer this part."
+  ],
+  [
+   "Give your answer in its simplest form",
+   "Cancel fractions and ratios fully; simplify surds."
+  ]
+ ],
+ "quizTitle": "Multiple-choice practice",
+ "quizIntro": "Quick calculations and concept checks. Do each one on paper first, then pick. The wrong options are common mistakes, so if you got one, read the working in the explanation.",
+ "flashIntro": "Methods, rules and formulas. Say the rule out loud (or write it down) with an example before you tap, then check you remembered every step.",
+ "flashcards": [
+  {
+   "front": "Pythagoras' theorem",
+   "back": "a² + b² = c², where c is the hypotenuse (the longest side, opposite the right angle).",
+   "unit": "pythag"
+  },
+  {
+   "front": "Finding a shorter side with Pythagoras",
+   "back": "Subtract: a² = c² − b². Check your answer is shorter than the hypotenuse.",
+   "unit": "pythag"
+  },
+  {
+   "front": "SOHCAHTOA",
+   "back": "sin θ = opposite/hypotenuse; cos θ = adjacent/hypotenuse; tan θ = opposite/adjacent.",
+   "unit": "pythag"
+  },
+  {
+   "front": "Finding an angle",
+   "back": "Use the inverse function: θ = sin⁻¹(opp/hyp), cos⁻¹(adj/hyp) or tan⁻¹(opp/adj).",
+   "unit": "pythag"
+  },
+  {
+   "front": "Angles of elevation and depression",
+   "back": "Both are measured from the horizontal: elevation looking up, depression looking down. They are equal (alternate angles).",
+   "unit": "pythag"
+  },
+  {
+   "front": "Exact trig values",
+   "back": "sin 30° = cos 60° = ½; sin 60° = cos 30° = √3/2; sin 45° = cos 45° = √2/2 (= 1/√2); tan 45° = 1; tan 30° = 1/√3; tan 60° = √3.",
+   "unit": "pythag"
+  },
+  {
+   "front": "Bearings",
+   "back": "Measured clockwise from north, written with three figures (e.g. 045°). The back bearing differs by 180°.",
+   "unit": "pythag"
+  },
+  {
+   "front": "Pythagorean triples",
+   "back": "3, 4, 5; 5, 12, 13; 8, 15, 17, and their multiples (6, 8, 10 …).",
+   "unit": "pythag"
+  },
+  {
+   "front": "Calculator check",
+   "back": "Make sure the calculator is in degrees (D on screen), not radians.",
+   "unit": "pythag"
+  },
+  {
+   "front": "Sine rule (finding a side)",
+   "back": "a/sin A = b/sin B = c/sin C. Use it when you know a side and its opposite angle.",
+   "unit": "sinecos"
+  },
+  {
+   "front": "Sine rule (finding an angle)",
+   "back": "sin A/a = sin B/b. Put the unknown angle on top.",
+   "unit": "sinecos"
+  },
+  {
+   "front": "Cosine rule (finding a side)",
+   "back": "a² = b² + c² − 2bc cos A. Use with two sides and the angle between them.",
+   "unit": "sinecos"
+  },
+  {
+   "front": "Cosine rule (finding an angle)",
+   "back": "cos A = (b² + c² − a²) ÷ 2bc. Use when all three sides are known.",
+   "unit": "sinecos"
+  },
+  {
+   "front": "Area of any triangle",
+   "back": "½ab sin C, where C is the angle between sides a and b.",
+   "unit": "sinecos"
+  },
+  {
+   "front": "Which rule?",
+   "back": "Label each side with the letter of the opposite angle. If you know a side and its opposite angle, use the sine rule; otherwise use the cosine rule.",
+   "unit": "sinecos"
+  },
+  {
+   "front": "Obtuse angles and the sine rule",
+   "back": "sin θ = sin(180° − θ). When the sine rule gives an angle, the obtuse angle 180° − θ may also be possible (the ambiguous case).",
+   "unit": "sinecos"
+  },
+  {
+   "front": "Negative cosine",
+   "back": "cos of an obtuse angle is negative. If the cosine rule gives cos A < 0, angle A is obtuse.",
+   "unit": "sinecos"
+  },
+  {
+   "front": "Diagonal of a cuboid",
+   "back": "d = √(a² + b² + c²) for edges a, b and c.",
+   "unit": "trig3d"
+  },
+  {
+   "front": "Angle between a line and a plane",
+   "back": "Drop a perpendicular from the end of the line to the plane. The angle is between the line and its projection (shadow) on the plane.",
+   "unit": "trig3d"
+  },
+  {
+   "front": "Method for 3D problems",
+   "back": "Find the right-angled triangle that contains the length or angle you need. Draw it separately in 2D, label it, then use Pythagoras or SOHCAHTOA.",
+   "unit": "trig3d"
+  },
+  {
+   "front": "Graph of y = sin x",
+   "back": "A wave with period 360°. Starts at (0, 0), maximum 1 at 90°, back to 0 at 180°, minimum −1 at 270°.",
+   "unit": "trig3d"
+  },
+  {
+   "front": "Graph of y = cos x",
+   "back": "Period 360°. Starts at (0, 1), 0 at 90°, minimum −1 at 180°, 0 at 270°, back to 1 at 360°.",
+   "unit": "trig3d"
+  },
+  {
+   "front": "Graph of y = tan x",
+   "back": "Period 180°. Through (0, 0) and (180°, 0). Asymptotes (it is undefined) at 90° and 270°.",
+   "unit": "trig3d"
+  },
+  {
+   "front": "Solving sin x = k for 0° ≤ x ≤ 360°",
+   "back": "x₁ = sin⁻¹ k, x₂ = 180° − x₁. If x₁ is negative, add 360° to it.",
+   "unit": "trig3d"
+  },
+  {
+   "front": "Solving cos x = k for 0° ≤ x ≤ 360°",
+   "back": "x₁ = cos⁻¹ k, x₂ = 360° − x₁.",
+   "unit": "trig3d"
+  },
+  {
+   "front": "Solving tan x = k for 0° ≤ x ≤ 360°",
+   "back": "x₁ = tan⁻¹ k, x₂ = x₁ + 180°.",
+   "unit": "trig3d"
+  },
+  {
+   "front": "Describing a reflection",
+   "back": "\"Reflection in the line …\" with its equation, e.g. y = x, x = 2, y = −1.",
+   "unit": "transform"
+  },
+  {
+   "front": "Describing a rotation",
+   "back": "\"Rotation, [angle] [clockwise/anticlockwise], centre (a, b).\" A 180° rotation needs no direction.",
+   "unit": "transform"
+  },
+  {
+   "front": "Describing a translation",
+   "back": "\"Translation by the vector (x over y)\". Top number: right (+) or left (−). Bottom number: up (+) or down (−).",
+   "unit": "transform"
+  },
+  {
+   "front": "Describing an enlargement",
+   "back": "\"Enlargement, scale factor k, centre (a, b).\" Find the centre by drawing lines through corresponding points; they meet at the centre.",
+   "unit": "transform"
+  },
+  {
+   "front": "Fractional scale factor",
+   "back": "Between 0 and 1: the image is smaller and closer to the centre.",
+   "unit": "transform"
+  },
+  {
+   "front": "Negative scale factor",
+   "back": "The image is on the opposite side of the centre and upside down (as if also rotated 180°).",
+   "unit": "transform"
+  },
+  {
+   "front": "\"Describe fully the single transformation\"",
+   "back": "Give exactly one transformation with all its details. Two transformations score nothing.",
+   "unit": "transform"
+  },
+  {
+   "front": "Reflections of a point",
+   "back": "In y = x: (a, b) → (b, a). In y = −x: (a, b) → (−b, −a). In the x-axis: (a, b) → (a, −b). In the y-axis: (a, b) → (−a, b).",
+   "unit": "transform"
+  },
+  {
+   "front": "Rotating 90° about the origin",
+   "back": "Anticlockwise: (x, y) → (−y, x). Clockwise: (x, y) → (y, −x). In the exam use tracing paper.",
+   "unit": "transform"
+  },
+  {
+   "front": "Column vector (x over y)",
+   "back": "x is the movement right (+) or left (−); y is up (+) or down (−). Written as bold a, or AB with an arrow.",
+   "unit": "vectors"
+  },
+  {
+   "front": "Adding vectors",
+   "back": "Add the components. In a diagram, follow one vector and then the other (nose to tail).",
+   "unit": "vectors"
+  },
+  {
+   "front": "Magnitude of a vector",
+   "back": "|(x, y)| = √(x² + y²), the length of the vector.",
+   "unit": "vectors"
+  },
+  {
+   "front": "Vector AB from position vectors",
+   "back": "AB = OB − OA = b − a.",
+   "unit": "vectors"
+  },
+  {
+   "front": "Route method",
+   "back": "To find a vector, go along a route of known vectors. Travelling a vector backwards changes its sign: BA = −AB.",
+   "unit": "vectors"
+  },
+  {
+   "front": "Parallel vectors",
+   "back": "One is a scalar multiple of the other: 3a − 6b = 3(a − 2b), so it is parallel to a − 2b and 3 times as long.",
+   "unit": "vectors"
+  },
+  {
+   "front": "Proving three points are collinear",
+   "back": "Show AB = k × BC (so they are parallel) AND say they share the point B.",
+   "unit": "vectors"
+  },
+  {
+   "front": "Ratio along a line",
+   "back": "If P divides AB in the ratio 1 : 3, then AP = ¼ AB.",
+   "unit": "vectors"
+  },
+  {
+   "front": "Midpoint vector",
+   "back": "If M is the midpoint of AB, OM = ½(a + b).",
+   "unit": "vectors"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "A right-angled triangle has shorter sides 7 cm and 24 cm. How long is the hypotenuse?",
+   "options": [
+    "31 cm",
+    "25 cm",
+    "√527 cm",
+    "17 cm"
+   ],
+   "answer": 1,
+   "why": "√(7² + 24²) = √(49 + 576) = √625 = 25 cm.",
+   "unit": "pythag"
+  },
+  {
+   "q": "In a right-angled triangle, tan θ = 5/12. What is sin θ?",
+   "options": [
+    "5/13",
+    "12/13",
+    "13/5",
+    "5/12"
+   ],
+   "answer": 0,
+   "why": "Opposite 5, adjacent 12, so hypotenuse 13 (5, 12, 13). sin θ = opp/hyp = 5/13.",
+   "unit": "pythag"
+  },
+  {
+   "q": "A 6 m ladder leans against a wall, making 70° with the ground. How high up the wall does it reach?",
+   "options": [
+    "2.05 m",
+    "16.5 m",
+    "5.64 m",
+    "6.39 m"
+   ],
+   "answer": 2,
+   "why": "Height is opposite the 70° angle, ladder is the hypotenuse: 6 sin 70° = 5.64 m. 6 cos 70° = 2.05 m is the distance from the wall.",
+   "unit": "pythag"
+  },
+  {
+   "q": "The bearing of B from A is 125°. What is the bearing of A from B?",
+   "options": [
+    "055°",
+    "235°",
+    "215°",
+    "305°"
+   ],
+   "answer": 3,
+   "why": "Back bearing: 125 + 180 = 305°.",
+   "unit": "pythag"
+  },
+  {
+   "q": "What is the exact value of cos 30°?",
+   "options": [
+    "½",
+    "√3/2",
+    "1/√2",
+    "√3"
+   ],
+   "answer": 1,
+   "why": "cos 30° = √3/2 (≈ 0.866). ½ is cos 60°.",
+   "unit": "pythag"
+  },
+  {
+   "q": "From 50 m away on level ground, the top of a 20 m tower is seen. What is the angle of elevation?",
+   "options": [
+    "21.8°",
+    "23.6°",
+    "68.2°",
+    "66.4°"
+   ],
+   "answer": 0,
+   "why": "tan θ = 20/50 = 0.4, θ = tan⁻¹ 0.4 = 21.8°. Using sin⁻¹ 0.4 gives 23.6°.",
+   "unit": "pythag"
+  },
+  {
+   "q": "You know b = 7, c = 9 and A = 50°. Which rule finds side a?",
+   "options": [
+    "Sine rule",
+    "Cosine rule",
+    "Pythagoras",
+    "SOHCAHTOA"
+   ],
+   "answer": 1,
+   "why": "Two sides and the included angle: cosine rule. There is no right angle, so Pythagoras and SOHCAHTOA don't apply.",
+   "unit": "sinecos"
+  },
+  {
+   "q": "A triangle has sides 8 cm and 10 cm with 30° between them. What is its area?",
+   "options": [
+    "40 cm²",
+    "80 cm²",
+    "20 cm²",
+    "34.6 cm²"
+   ],
+   "answer": 2,
+   "why": "½ × 8 × 10 × sin 30° = 40 × 0.5 = 20 cm².",
+   "unit": "sinecos"
+  },
+  {
+   "q": "Which is equal to sin 150°?",
+   "options": [
+    "0.5",
+    "−0.5",
+    "0.866",
+    "−0.866"
+   ],
+   "answer": 0,
+   "why": "sin 150° = sin(180° − 150°) = sin 30° = 0.5. Sine is positive for angles between 0° and 180°.",
+   "unit": "sinecos"
+  },
+  {
+   "q": "A triangle has sides 5 cm, 7 cm and 8 cm. What is the angle opposite the 7 cm side?",
+   "options": [
+    "30°",
+    "45°",
+    "120°",
+    "60°"
+   ],
+   "answer": 3,
+   "why": "cos θ = (5² + 8² − 7²) ÷ (2 × 5 × 8) = 40 ÷ 80 = 0.5, so θ = 60°.",
+   "unit": "sinecos"
+  },
+  {
+   "q": "In triangle ABC, a = 12 cm, A = 40° and B = 65°. Find b.",
+   "options": [
+    "8.51 cm",
+    "16.9 cm",
+    "10.9 cm",
+    "13.2 cm"
+   ],
+   "answer": 1,
+   "why": "b/sin 65° = 12/sin 40°, so b = 12 sin 65° ÷ sin 40° = 16.9 cm. Swapping the sines gives 8.51 cm.",
+   "unit": "sinecos"
+  },
+  {
+   "q": "A cuboid measures 3 cm by 4 cm by 12 cm. How long is its space diagonal?",
+   "options": [
+    "13 cm",
+    "19 cm",
+    "√63 cm",
+    "169 cm"
+   ],
+   "answer": 0,
+   "why": "√(3² + 4² + 12²) = √169 = 13 cm.",
+   "unit": "trig3d"
+  },
+  {
+   "q": "Solve sin x = 0.5 for 0° ≤ x ≤ 360°.",
+   "options": [
+    "30° and 330°",
+    "30° and 210°",
+    "30° and 150°",
+    "60° and 120°"
+   ],
+   "answer": 2,
+   "why": "sin⁻¹ 0.5 = 30°; the other is 180° − 30° = 150°.",
+   "unit": "trig3d"
+  },
+  {
+   "q": "Solve cos x = −0.5 for 0° ≤ x ≤ 360°.",
+   "options": [
+    "60° and 300°",
+    "120° and 240°",
+    "120° and 300°",
+    "150° and 210°"
+   ],
+   "answer": 1,
+   "why": "cos⁻¹(−0.5) = 120°; the other is 360° − 120° = 240°.",
+   "unit": "trig3d"
+  },
+  {
+   "q": "What is the period of y = tan x?",
+   "options": [
+    "180°",
+    "90°",
+    "360°",
+    "270°"
+   ],
+   "answer": 0,
+   "why": "The tan graph repeats every 180°.",
+   "unit": "trig3d"
+  },
+  {
+   "q": "Solve tan x = 2 for 0° ≤ x ≤ 360°.",
+   "options": [
+    "63.4° and 116.6°",
+    "63.4° and 296.6°",
+    "26.6° and 206.6°",
+    "63.4° and 243.4°"
+   ],
+   "answer": 3,
+   "why": "tan⁻¹ 2 = 63.4°; add 180°: 243.4°.",
+   "unit": "trig3d"
+  },
+  {
+   "q": "Reflect the point (3, −2) in the line y = x.",
+   "options": [
+    "(2, −3)",
+    "(−2, 3)",
+    "(−3, 2)",
+    "(3, 2)"
+   ],
+   "answer": 1,
+   "why": "Reflecting in y = x swaps the coordinates: (−2, 3).",
+   "unit": "transform"
+  },
+  {
+   "q": "Which column vector translates (1, 4) to (−2, 9)? (Written as (x, y).)",
+   "options": [
+    "(−3, 5)",
+    "(3, −5)",
+    "(−1, 13)",
+    "(5, −3)"
+   ],
+   "answer": 0,
+   "why": "x: −2 − 1 = −3; y: 9 − 4 = 5. So (−3 over 5).",
+   "unit": "transform"
+  },
+  {
+   "q": "An enlargement with scale factor −2 and centre (0, 0) maps (1, 3) to:",
+   "options": [
+    "(2, 6)",
+    "(−1, −3)",
+    "(−2, −6)",
+    "(−0.5, −1.5)"
+   ],
+   "answer": 2,
+   "why": "Multiply each coordinate by −2: (−2, −6). The image is on the other side of the centre.",
+   "unit": "transform"
+  },
+  {
+   "q": "Rotate (4, 1) through 90° anticlockwise about the origin.",
+   "options": [
+    "(1, −4)",
+    "(−1, 4)",
+    "(−4, −1)",
+    "(4, −1)"
+   ],
+   "answer": 1,
+   "why": "(x, y) → (−y, x): (−1, 4). (1, −4) is the clockwise rotation.",
+   "unit": "transform"
+  },
+  {
+   "q": "Which is a complete description of a rotation?",
+   "options": [
+    "Rotation of 90° clockwise",
+    "Rotation about (0, 0)",
+    "Rotation, 90° clockwise, centre (0, 0)",
+    "Quarter turn"
+   ],
+   "answer": 2,
+   "why": "A rotation needs angle, direction and centre.",
+   "unit": "transform"
+  },
+  {
+   "q": "A shape is enlarged by scale factor 3. How many times bigger is its area?",
+   "options": [
+    "3 times",
+    "6 times",
+    "27 times",
+    "9 times"
+   ],
+   "answer": 3,
+   "why": "Area scale factor = 3² = 9.",
+   "unit": "transform"
+  },
+  {
+   "q": "a = (3, −1) and b = (−2, 5). Find 2a − b.",
+   "options": [
+    "(4, 3)",
+    "(1, 4)",
+    "(8, −7)",
+    "(8, 3)"
+   ],
+   "answer": 2,
+   "why": "2a = (6, −2). 2a − b = (6 − (−2), −2 − 5) = (8, −7). (4, 3) is 2a + b.",
+   "unit": "vectors"
+  },
+  {
+   "q": "What is the magnitude of the vector (−5, 12)?",
+   "options": [
+    "7",
+    "13",
+    "17",
+    "√119"
+   ],
+   "answer": 1,
+   "why": "√((−5)² + 12²) = √169 = 13.",
+   "unit": "vectors"
+  },
+  {
+   "q": "OA = a and OB = b. Which is the vector AB?",
+   "options": [
+    "b − a",
+    "a − b",
+    "a + b",
+    "½(a + b)"
+   ],
+   "answer": 0,
+   "why": "A to B: go back along a, then along b: −a + b = b − a.",
+   "unit": "vectors"
+  },
+  {
+   "q": "Which vector is parallel to 2a − 3b?",
+   "options": [
+    "3a − 2b",
+    "−4a + 6b",
+    "2a + 3b",
+    "4a − 3b"
+   ],
+   "answer": 1,
+   "why": "−4a + 6b = −2(2a − 3b), a scalar multiple, so it is parallel (opposite direction).",
+   "unit": "vectors"
+  },
+  {
+   "q": "OA = a, OB = b and M is the midpoint of AB. Find OM.",
+   "options": [
+    "½(b − a)",
+    "a + ½b",
+    "½(a + b)",
+    "b − ½a"
+   ],
+   "answer": 2,
+   "why": "OM = a + ½(b − a) = ½a + ½b = ½(a + b).",
+   "unit": "vectors"
+  }
+ ],
+ "examIntro": "Paper 2 / Paper 4 style. [No calculator] questions are Paper 2; [Calculator] questions are Paper 4. Write full working first, then open the mark scheme: M1 = method mark, A1 = accuracy mark (correct answer from correct working), B1 = mark for a correct result on its own. Give yourself one mark per point you got.",
+ "exam": [
+  {
+   "q": "[Calculator] A right-angled triangle has hypotenuse 13.5 cm and one other side 8.2 cm. Find the length of the third side.",
+   "marks": 2,
+   "points": [
+    "M1: 13.5² − 8.2² (= 115.01)",
+    "A1: 10.7 cm"
+   ],
+   "unit": "pythag"
+  },
+  {
+   "q": "[Calculator] A ship sails 15 km due north from P to Q, then 8 km due east from Q to R. Find (a) the distance PR (b) the bearing of R from P.",
+   "marks": 4,
+   "points": [
+    "M1: √(15² + 8²)",
+    "A1: 17 km",
+    "M1: tan⁻¹(8/15)",
+    "A1: 028.1°"
+   ],
+   "unit": "pythag"
+  },
+  {
+   "q": "[Calculator] From the top of a cliff 85 m high, the angles of depression of two boats, which are in a straight line with the foot of the cliff on the same side, are 32° and 21°. Find the distance between the boats.",
+   "marks": 5,
+   "points": [
+    "M1: angle of elevation from each boat equals the angle of depression (alternate angles)",
+    "M1: 85 ÷ tan 32° (= 136.0 m)",
+    "M1: 85 ÷ tan 21° (= 221.4 m)",
+    "M1: 221.4… − 136.0…",
+    "A1: 85.4 m"
+   ],
+   "unit": "pythag"
+  },
+  {
+   "q": "[Calculator] In triangle PQR, PQ = 9 cm, PR = 11 cm and angle QPR = 48°. Find the area of the triangle.",
+   "marks": 2,
+   "points": [
+    "M1: ½ × 9 × 11 × sin 48°",
+    "A1: 36.8 cm²"
+   ],
+   "unit": "sinecos"
+  },
+  {
+   "q": "[Calculator] In triangle PQR, PQ = 9 cm, PR = 11 cm and angle QPR = 48°. Find the length of QR.",
+   "marks": 3,
+   "points": [
+    "M1: 9² + 11² − 2 × 9 × 11 × cos 48°",
+    "A1: QR² = 69.5…",
+    "A1: QR = 8.34 cm"
+   ],
+   "unit": "sinecos"
+  },
+  {
+   "q": "[Calculator] Town B is 40 km from town A on a bearing of 070°. Town C is 25 km from B on a bearing of 190°. (a) Show that angle ABC = 60°. (b) Find the distance AC. (c) Find the bearing of C from A.",
+   "marks": 6,
+   "points": [
+    "B1: bearing of A from B is 250°, so angle ABC = 250° − 190° = 60°",
+    "M1: AC² = 40² + 25² − 2 × 40 × 25 × cos 60°",
+    "A1: AC = √1225 = 35 km",
+    "M1: sin BAC ÷ 25 = sin 60° ÷ 35",
+    "A1: angle BAC = 38.2°",
+    "A1: bearing 070 + 38.2 = 108.2°"
+   ],
+   "unit": "sinecos",
+   "note": "Draw a sketch with north lines at A and B first."
+  },
+  {
+   "q": "[No calculator] Sketch the graph of y = cos x for 0° ≤ x ≤ 360° and write down the coordinates of its minimum point.",
+   "marks": 2,
+   "points": [
+    "B1: correct shape from (0, 1) through (90, 0), (270, 0) to (360, 1)",
+    "B1: minimum (180°, −1)"
+   ],
+   "unit": "trig3d"
+  },
+  {
+   "q": "[Calculator] Solve 5 sin x = 2 for 0° ≤ x ≤ 360°.",
+   "marks": 3,
+   "points": [
+    "M1: sin x = 0.4",
+    "A1: 23.6°",
+    "A1: 180 − 23.6 = 156.4°"
+   ],
+   "unit": "trig3d"
+  },
+  {
+   "q": "[Calculator] ABCDEFGH is a cuboid with base ABCD. AB = 8 cm, BC = 6 cm and the vertical edge CG = 5 cm. Find (a) the length of the diagonal AG (b) the angle between AG and the base ABCD.",
+   "marks": 5,
+   "points": [
+    "M1: AC = √(8² + 6²) = 10",
+    "M1: AG = √(10² + 5²), or √(8² + 6² + 5²)",
+    "A1: 11.2 cm",
+    "M1: tan⁻¹(5/10), or sin⁻¹(5/11.18…)",
+    "A1: 26.6°"
+   ],
+   "unit": "trig3d"
+  },
+  {
+   "q": "[No calculator] Triangle A has vertices (1, 1), (3, 1) and (1, 2). It is translated by the vector (−4 over 3). Write down the vertices of the image.",
+   "marks": 2,
+   "points": [
+    "B1: two vertices correct",
+    "B1: all three correct: (−3, 4), (−1, 4), (−3, 5)"
+   ],
+   "unit": "transform"
+  },
+  {
+   "q": "[No calculator] Triangle P has vertices (2, 1), (4, 1) and (4, 2). Triangle Q has vertices (−1, 2), (−1, 4) and (−2, 4). Describe fully the single transformation that maps P onto Q.",
+   "marks": 3,
+   "points": [
+    "B1: rotation",
+    "B1: 90° anticlockwise",
+    "B1: centre (0, 0)"
+   ],
+   "unit": "transform"
+  },
+  {
+   "q": "[No calculator] Triangle T has vertices (2, 2), (4, 2) and (2, 6). (a) Find the vertices of the image of T after an enlargement, scale factor −½, centre (0, 0). (b) Find the vertices of the image of T after reflection in the line y = x. (c) Describe fully the single transformation that maps the image from part (a) back onto T.",
+   "marks": 6,
+   "points": [
+    "B1: two of (−1, −1), (−2, −1), (−1, −3)",
+    "B1: all three correct",
+    "B1: two of (2, 2), (2, 4), (6, 2)",
+    "B1: all three correct",
+    "B1: enlargement, scale factor −2",
+    "B1: centre (0, 0)"
+   ],
+   "unit": "transform"
+  },
+  {
+   "q": "[No calculator] p = (2, −3) and q = (−1, 4). Find 3p + 2q as a column vector.",
+   "marks": 2,
+   "points": [
+    "M1: (6, −9) + (−2, 8)",
+    "A1: (4, −1)"
+   ],
+   "unit": "vectors"
+  },
+  {
+   "q": "[No calculator] A is the point (2, 5) and the vector AB = (6, −8). Find (a) the coordinates of B (b) |AB|.",
+   "marks": 3,
+   "points": [
+    "A1: B = (8, −3)",
+    "M1: √(6² + (−8)²)",
+    "A1: 10"
+   ],
+   "unit": "vectors"
+  },
+  {
+   "q": "[No calculator] OA = a and OB = b. P is on AB so that AP : PB = 1 : 2. C is the point with OC = 2a + b. (a) Find AB in terms of a and b. (b) Find OP in its simplest form. (c) Show that O, P and C lie on a straight line.",
+   "marks": 6,
+   "points": [
+    "B1: AB = b − a",
+    "M1: OP = OA + AP = a + ⅓(b − a)",
+    "A1: OP = ⅔a + ⅓b",
+    "M1: OP = ⅓(2a + b)",
+    "A1: so OC = 3 OP: OP and OC are parallel",
+    "A1: and they share the point O, so O, P and C are collinear"
+   ],
+   "unit": "vectors"
+  }
+ ]
+}
