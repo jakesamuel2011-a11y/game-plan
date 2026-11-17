@@ -338,3 +338,12 @@ details summary{list-style-position:inside}
 .rv-books{margin:8px 0;border-left:4px solid var(--accent)}
 .rv-books .chip{cursor:pointer;background:transparent;color:var(--muted)}
 .rv-books .chip.on{background:#13302a;color:var(--accent)}
+/* Daily revision plan (Today tab) */
+.rv-today{border-left:4px solid var(--accent)}
+.rv-today-list{margin-top:6px}
+.rv-today-item{flex-wrap:wrap}
+.rv-today-item.done .item-title{color:var(--muted)}
+.rv-today-btns{display:flex;gap:6px;align-items:center}
+.rv-today .rv-conf{flex-basis:100%}
+.rv-offbtn{margin-top:6px}
+.rv-proj{margin-top:6px}
