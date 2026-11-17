@@ -43,6 +43,7 @@ export function initRevision({ db, fs, me, nameFor, onChange, isParent }) {
     F.onSnapshot(F.query(F.collection(DB, "revtests")), s => { R.tests = s.docs.map(d => ({ id: d.id, ...d.data() })); changed(); });
     F.onSnapshot(F.query(F.collection(DB, "revpractice")), s => { R.practice = Object.fromEntries(s.docs.map(d => [d.id, d.data()])); changed(true); });
     F.onSnapshot(F.query(F.collection(DB, "studysessions")), s => { R.study = s.docs.map(d => ({ id: d.id, ...d.data() })); changed(); });
+    F.onSnapshot(F.query(F.collection(DB, "revoff")), s => { revOff = new Map(s.docs.map(d => [d.id, d.data()])); changed(); });
     F.onSnapshot(F.query(F.collection(DB, "revgrade")), s => { R.grades = s.docs.map(d => ({ id: d.id, ...d.data() })).sort((a, b) => (b.date || "").localeCompare(a.date || "") || (b.n || 0) - (a.n || 0)); changed(); });
   });
 }
@@ -102,6 +103,152 @@ export function paceSummary() {
     perWeek: (Math.max(0, total - done) / weeksLeft).toFixed(1),
     subjectsWithTopics: SUBJECTS.filter(s => s.topics.length).length, subjects: SUBJECTS.length,
   };
+}
+
+// ---------- daily revision plan ----------
+// Each day gets a few topics (one revision round each, about TOPIC_MINS minutes).
+// How many depends on the day: app.js sets that with setPlanCapacity (football, holidays,
+// tournaments; Sunday 0). Days Jake marks "can't revise" (revoff/{date}) get none.
+// Order: topics with a test in the next 14 days first; then Round 1 of every topic, subjects
+// taking turns; then Round 2, at least 7 days after that topic's Round 1. The plan is worked out
+// again from progress every time, so a topic that isn't done just moves to the next day.
+// Saturday adds catch-up (up to 3) for topics planned Mon–Fri that week but not done.
+export const TOPIC_MINS = 25;
+const PLAN_ORDER = ["Humanities", "EM", "Bio", "Math", "Physics", "Chem", "English"];
+let revOff = new Map(); // date -> {reason, by, at}
+let capacityFor = (d) => (new Date(d + "T00:00:00Z").getUTCDay() === 0 ? 0 : 2);
+export function setPlanCapacity(fn) { capacityFor = fn; }
+const dayCap = (d) => (revOff.has(d) ? 0 : capacityFor(d));
+const weekday = (d) => new Date(d + "T00:00:00Z").getUTCDay();
+const roundsDoneOn = (from, to) => Object.values(R.progress).reduce((n, p) => n + ["r1", "r2"].filter(r => p[r]?.done && p[r].at >= from && p[r].at <= to).length, 0);
+// Catch-up for a Saturday in the current week: topics planned on past weekdays that weren't done.
+function makeup(sat) {
+  const t = todayStr(), mon = addDays(sat, -5), lastPast = addDays(t, -1);
+  if (weekday(sat) !== 6 || sat < t || mon > lastPast) return 0;
+  const end = lastPast < addDays(sat, -1) ? lastPast : addDays(sat, -1);
+  let planned = 0;
+  for (let d = mon; d <= end; d = addDays(d, 1)) planned += dayCap(d);
+  return Math.max(0, Math.min(3, planned - roundsDoneOn(mon, end)));
+}
+// Simulate from today to `until`. Returns { days: {date: [{topic, round}]}, r1Done: date|null, r2ByGoal }
+function simulate(until) {
+  const t = todayStr();
+  const soon = new Set(upcomingTests().filter(x => x.date <= addDays(t, 14)).flatMap(x => x.topics || []));
+  const lists = PLAN_ORDER.map(k => (subjectByKey(k)?.topics || []).map(tp => ({ ...tp, subject: k })));
+  const all = [];
+  for (let i = 0; lists.some(l => i < l.length); i++) lists.forEach(l => { if (l[i]) all.push(l[i]); });
+  const r1at = {}, r2done = new Set();
+  all.forEach(tp => { const p = R.progress[tp.id] || {}; if (p.r1?.done) r1at[tp.id] = p.r1.at; if (p.r2?.done) r2done.add(tp.id); });
+  const days = {};
+  let r1Done = all.every(tp => r1at[tp.id]) ? t : null, r2ByGoal = r2done.size;
+  for (let d = t; d <= until; d = addDays(d, 1)) {
+    let cap = dayCap(d) + makeup(d);
+    if (d === t) cap = Math.max(0, cap - roundsDoneOn(t, t));
+    const pick = [];
+    const next = () => {
+      const r1 = (tp) => !r1at[tp.id], r2 = (tp, gap) => r1at[tp.id] && !r2done.has(tp.id) && r1at[tp.id] <= addDays(d, -gap);
+      return all.find(tp => soon.has(tp.id) && r1(tp)) ? [all.find(tp => soon.has(tp.id) && r1(tp)), "r1"]
+        : all.find(tp => soon.has(tp.id) && r2(tp, 2)) ? [all.find(tp => soon.has(tp.id) && r2(tp, 2)), "r2"]
+        : all.find(r1) ? [all.find(r1), "r1"]
+        : all.find(tp => r2(tp, 7)) ? [all.find(tp => r2(tp, 7)), "r2"] : null;
+    };
+    while (pick.length < cap) {
+      const n = next(); if (!n) break;
+      const [tp, round] = n;
+      if (round === "r1") r1at[tp.id] = d; else r2done.add(tp.id);
+      pick.push({ topic: tp, round });
+    }
+    days[d] = pick;
+    if (!r1Done && all.every(tp => r1at[tp.id])) r1Done = d;
+    if (d <= REVISION_GOAL.by) r2ByGoal = r2done.size;
+  }
+  return { days, r1Done, r2ByGoal, total: all.length };
+}
+// The plan for one day: what's left, what's already done that day, and why a day is off.
+export function revisionPlanFor(d) {
+  const t = todayStr();
+  const off = weekday(d) === 0 ? "sunday" : revOff.has(d) ? "marked" : capacityFor(d) === 0 ? "busy" : null;
+  const done = d > t ? [] : allTopics().flatMap(tp => ["r1", "r2"].filter(r => R.progress[tp.id]?.[r]?.done && R.progress[tp.id][r].at === d).map(round => ({ topic: tp, round, done: R.progress[tp.id][round] })));
+  const todo = d < t ? [] : (simulate(d).days[d] || []);
+  return { off, todo, done, makeup: makeup(d) };
+}
+export function planProjection() {
+  const end = addDays(REVISION_GOAL.by, 120);
+  const s = simulate(end);
+  return { r1Done: s.r1Done, r2ByGoal: s.r2ByGoal, total: s.total };
+}
+export function openTopicPractice(topicId) {
+  const tp = topicById(topicId); if (!tp) return;
+  go(tp.pack ? { name: "pack", id: tp.pack, unit: tp.packUnit, back: tp.subject } : { name: "subject", key: tp.subject });
+}
+const setRevOff = (d, on, reason = "") => on ? F.setDoc(F.doc(DB, "revoff", d), { reason, by: ME().email, at: F.serverTimestamp() }) : F.deleteDoc(F.doc(DB, "revoff", d));
+
+// "No-revision days" box in the Today tab: mark a day or a range (trip, busy day) as off.
+export function mountOffDays(el, selDate) {
+  const t = todayStr();
+  const dates = [...revOff.keys()].filter(d => d >= t).sort();
+  // Group runs of consecutive days with the same reason.
+  const runs = [];
+  dates.forEach(d => {
+    const last = runs[runs.length - 1], reason = revOff.get(d)?.reason || "";
+    if (last && addDays(last.to, 1) === d && last.reason === reason) last.to = d; else runs.push({ from: d, to: d, reason });
+  });
+  el.innerHTML = `<div class="card add-card"><b>🚫 No-revision days</b>
+    <div class="muted small" style="margin:4px 0 8px">Trips, events or busy days when Jake can't revise. The daily plan skips them and moves topics to other days.</div>
+    <div class="grid2"><label class="mins">From<input type="date" class="rvOffFrom" value="${selDate}" /></label><label class="mins">To<input type="date" class="rvOffTo" value="${selDate}" /></label></div>
+    <input type="text" class="rvOffWhy" placeholder="Reason (optional) e.g. School trip" />
+    <button class="btn primary rvOffAdd" type="button">Add no-revision days</button>
+    ${runs.length ? `<div class="list" style="margin-top:10px">${runs.map((r, i) => `<div class="item"><div class="item-main"><div class="item-title">${r.from === r.to ? fmtDate(r.from) : `${fmtDate(r.from)} → ${fmtDate(r.to)}`}</div>${r.reason ? `<div class="item-sub">${esc(r.reason)}</div>` : ""}</div><button class="del" data-i="${i}" title="Remove">✕</button></div>`).join("")}</div>` : ""}</div>`;
+  el.querySelector(".rvOffAdd").onclick = async () => {
+    const from = el.querySelector(".rvOffFrom").value; let to = el.querySelector(".rvOffTo").value || from;
+    if (!from) return;
+    if (to < from) to = from;
+    const reason = el.querySelector(".rvOffWhy").value.trim();
+    for (let d = from; d <= to; d = addDays(d, 1)) await setRevOff(d, true, reason);
+  };
+  el.querySelectorAll(".del[data-i]").forEach(b => b.onclick = async () => {
+    const r = runs[+b.dataset.i];
+    for (let d = r.from; d <= r.to; d = addDays(d, 1)) await setRevOff(d, false);
+  });
+}
+
+// The "Today's revision" card in the Today tab.
+export function mountDayPlan(el, d, { onPractise, label }) {
+  el.innerHTML = "";
+  const t = todayStr();
+  const { off, todo, done, makeup: mk } = revisionPlanFor(d);
+  const c = document.createElement("div"); c.className = "card rv-today";
+  const mins = todo.length * TOPIC_MINS;
+  const head = off === "sunday" ? "Sunday: no revision. Rest day 🎉"
+    : off === "marked" ? `No revision planned${revOff.get(d)?.reason ? `: ${esc(revOff.get(d).reason)}` : " (marked as a day off)"}`
+    : off === "busy" ? "No revision planned (tournament day)"
+    : todo.length ? `${todo.length} topic${todo.length > 1 ? "s" : ""} · about ${mins} min${mk ? ` · includes ${mk} catch-up` : ""}`
+    : done.length ? "All done for the day ✅" : d < t ? "Nothing was planned" : "Nothing left to plan 🎉";
+  c.innerHTML = `<div class="row-between"><b>📖 ${esc(label || "Today")}'s revision</b></div><div class="muted small">${head}</div><div class="list rv-today-list"></div>`;
+  const list = c.querySelector(".rv-today-list");
+  const subj = (k) => subjectByKey(k);
+  const row = (tp, round, doneRec) => {
+    const r = document.createElement("div"); r.className = "item rv-today-item" + (doneRec ? " done" : "");
+    r.innerHTML = `<div class="item-main"><div class="item-title">${subj(tp.subject)?.emoji || ""} ${esc(shortNames([tp.subject]))} · ${esc(tp.name)}</div><div class="item-sub">${round === "r1" ? "Round 1" : "Round 2"}${doneRec ? ` · ✓ done, confidence ${doneRec.conf}/5` : " · flashcards + quiz, then exam questions"}</div></div>`;
+    if (!doneRec && d === t) {
+      const b = document.createElement("div"); b.className = "rv-today-btns";
+      if (tp.pack) { const p = document.createElement("button"); p.type = "button"; p.className = "btn tiny primary"; p.textContent = "▶ Practise"; p.onclick = () => onPractise(tp.id); b.appendChild(p); }
+      const k = document.createElement("button"); k.type = "button"; k.className = "btn tiny ghost"; k.textContent = "✓ Done";
+      k.onclick = () => { r.querySelector(".rv-conf")?.remove(); r.appendChild(confPicker(conf => setRound(tp.id, round, conf))); };
+      b.appendChild(k); r.appendChild(b);
+    }
+    list.appendChild(r);
+  };
+  if (!off || off === "marked") { done.forEach(x => row(x.topic, x.round, x.done)); todo.forEach(x => row(x.topic, x.round)); }
+  if (d >= t && weekday(d) !== 0) {
+    const b = document.createElement("button"); b.type = "button"; b.className = "btn tiny ghost rv-offbtn";
+    b.textContent = off === "marked" ? "↩︎ Plan revision for this day again" : "🚫 Can't revise this day";
+    b.onclick = () => setRevOff(d, off !== "marked");
+    if (off !== "busy") c.appendChild(b);
+  }
+  const pr = planProjection();
+  c.insertAdjacentHTML("beforeend", `<div class="muted small rv-proj">Topics you don't finish move to the next day. At this pace: Round 1 of all ${pr.total} topics ${pr.r1Done ? `done by ${fmtDate(pr.r1Done)}` : "not finished yet"}; ${pr.r2ByGoal} of ${pr.total} Round 2s by ${fmtDate(REVISION_GOAL.by)}.</div>`);
+  el.appendChild(c);
 }
 
 // ---------- writes ----------
