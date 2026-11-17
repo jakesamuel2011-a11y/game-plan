@@ -1,0 +1,698 @@
+{
+ "id": "em-agriculture",
+ "subject": "EM",
+ "title": "Agriculture & soils",
+ "sub": "Soils, farming systems, impacts, sustainable farming",
+ "strategyIntro": "Environmental Management has no Core or Extended split. The full exam is Paper 1 (theory: short questions, then longer questions using source material) and Paper 2 (management in context, based on one country). Most marks come from reading sources and building arguments.",
+ "strategy": [
+  {
+   "title": "Quote the data",
+   "key": true,
+   "points": [
+    "Most marks come from graphs, tables and maps.",
+    "Use figures with units: “fell from 62% to 41%” scores; “it fell” doesn’t.",
+    "Describe the overall trend first, then give the highest, lowest or any exception."
+   ]
+  },
+  {
+   "title": "The 6-mark argument",
+   "key": true,
+   "points": [
+    "Usually one per paper: discuss a statement for and against.",
+    "Structure: two points for, two against, then a conclusion.",
+    "Each point needs a reason: say why it matters, not just what it is."
+   ]
+  },
+  {
+   "title": "Use named examples",
+   "points": [
+    "Name a real crop, farming method or country where you can (e.g. terracing in Nepal, drip irrigation in Israel).",
+    "On Paper 2, link every answer back to the country in the source. General answers score lower."
+   ]
+  },
+  {
+   "title": "Fieldwork comes up every year",
+   "points": [
+    "Know sampling, quadrats, questionnaires and how to make them reliable.",
+    "Evaluate a method: one strength, one weakness, one improvement."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "State",
+   "Give a short fact. No explanation needed."
+  ],
+  [
+   "Describe",
+   "Say what happens or what you see. With data, quote figures and units."
+  ],
+  [
+   "Explain",
+   "Say why or how. Use “because” and link cause to effect."
+  ],
+  [
+   "Suggest",
+   "Apply what you know to a new situation. Any sensible reason scores."
+  ],
+  [
+   "Compare",
+   "Give similarities or differences for both things in the same sentence."
+  ],
+  [
+   "Calculate",
+   "Show working and give the unit."
+  ],
+  [
+   "Evaluate",
+   "Weigh up both sides and finish with a judgement."
+  ]
+ ],
+ "quizTitle": "Quick recall check",
+ "quizIntro": "These are not exam-format questions (EM has no multiple choice). Use them to check the facts are secure before you try the longer questions.",
+ "flashIntro": "Say each definition out loud before you tap, then check you used the exact keywords.",
+ "flashcards": [
+  {
+   "front": "Soil",
+   "back": "A mixture of mineral particles, organic matter (humus), water, air and living organisms.",
+   "unit": "soils"
+  },
+  {
+   "front": "Humus",
+   "back": "Dark, decomposed organic matter in soil. It holds water and nutrients and improves soil structure.",
+   "unit": "soils"
+  },
+  {
+   "front": "Soil particle sizes",
+   "back": "Sand is the largest, then silt; clay particles are the smallest.",
+   "unit": "soils"
+  },
+  {
+   "front": "Sandy soil",
+   "back": "Large particles and air spaces: drains quickly, well aerated, easy to dig, but dries out and loses nutrients by leaching.",
+   "unit": "soils"
+  },
+  {
+   "front": "Clay soil",
+   "back": "Tiny particles: holds water and nutrients well, but can become waterlogged, is poorly aerated and heavy to dig.",
+   "unit": "soils"
+  },
+  {
+   "front": "Loam",
+   "back": "A soil with a balanced mix of sand, silt and clay plus humus. Holds water and nutrients but still drains: best for most crops.",
+   "unit": "soils"
+  },
+  {
+   "front": "Leaching",
+   "back": "Nutrients dissolve in water and are washed down through the soil, out of reach of plant roots.",
+   "unit": "soils"
+  },
+  {
+   "front": "NPK",
+   "back": "The three main nutrients in fertiliser: nitrogen (leaf growth, proteins), phosphorus (roots), potassium (flowers, fruit, disease resistance).",
+   "unit": "soils"
+  },
+  {
+   "front": "Soil pH and lime",
+   "back": "Most crops grow best at pH 6–7. Adding lime (calcium carbonate) raises the pH of an acidic soil.",
+   "unit": "soils"
+  },
+  {
+   "front": "Soil organisms",
+   "back": "Earthworms mix and aerate soil and drag in leaves; bacteria and fungi decompose dead matter, releasing nutrients.",
+   "unit": "soils"
+  },
+  {
+   "front": "Arable farming",
+   "back": "Growing crops, e.g. wheat, rice, maize.",
+   "unit": "farming"
+  },
+  {
+   "front": "Pastoral farming",
+   "back": "Rearing animals, e.g. cattle, sheep, goats. Mixed farming does both.",
+   "unit": "farming"
+  },
+  {
+   "front": "Subsistence farming",
+   "back": "Producing food mainly to feed the farmer’s own family, with little or nothing left to sell.",
+   "unit": "farming"
+  },
+  {
+   "front": "Commercial farming",
+   "back": "Producing crops or animals to sell for profit, often on a large scale.",
+   "unit": "farming"
+  },
+  {
+   "front": "Intensive farming",
+   "back": "High inputs of labour or money (machinery, fertiliser, feed) per unit area to get high yields from a small area.",
+   "unit": "farming"
+  },
+  {
+   "front": "Extensive farming",
+   "back": "Low inputs per unit area, usually over large areas, giving lower yields per hectare, e.g. sheep on hill land.",
+   "unit": "farming"
+  },
+  {
+   "front": "Inorganic fertiliser",
+   "back": "Manufactured chemicals containing nitrogen, phosphorus and potassium (NPK), added to soil to increase crop growth.",
+   "unit": "farming"
+  },
+  {
+   "front": "Pesticide",
+   "back": "Chemical that kills organisms that harm crops: insecticides (insects), herbicides (weeds), fungicides (fungi).",
+   "unit": "farming"
+  },
+  {
+   "front": "Selective breeding",
+   "back": "Choosing parents with useful features (e.g. high yield, disease resistance) to breed from, over many generations. Gave the high-yielding varieties of the Green Revolution.",
+   "unit": "farming"
+  },
+  {
+   "front": "GM crop",
+   "back": "A crop whose genes have been changed by inserting a gene from another organism, e.g. to resist pests or tolerate drought.",
+   "unit": "farming"
+  },
+  {
+   "front": "Soil erosion",
+   "back": "Removal of topsoil by wind or water faster than new soil can form.",
+   "unit": "impacts"
+  },
+  {
+   "front": "Overgrazing",
+   "back": "Keeping too many animals on land, so vegetation is eaten faster than it regrows and soil is left bare.",
+   "unit": "impacts"
+  },
+  {
+   "front": "Desertification",
+   "back": "Land in dry areas becoming desert-like, caused by overgrazing, overcultivation, deforestation and drought.",
+   "unit": "impacts"
+  },
+  {
+   "front": "Salinisation",
+   "back": "Build-up of salts in the soil when irrigation water evaporates in hot, dry places, leaving the salts behind. Crops cannot grow.",
+   "unit": "impacts"
+  },
+  {
+   "front": "Waterlogging",
+   "back": "Soil saturated with water, so roots lack oxygen. Can be caused by over-irrigation and poor drainage.",
+   "unit": "impacts"
+  },
+  {
+   "front": "Eutrophication",
+   "back": "Nutrient enrichment of water (e.g. fertiliser runoff) causing algal blooms, then oxygen loss when the algae die and decompose.",
+   "unit": "impacts"
+  },
+  {
+   "front": "Bioaccumulation",
+   "back": "Build-up of a persistent chemical (e.g. a pesticide) in an organism’s body over its lifetime.",
+   "unit": "impacts"
+  },
+  {
+   "front": "Biomagnification",
+   "back": "Concentration of a persistent chemical increasing at each trophic level up a food chain, e.g. DDT in birds of prey.",
+   "unit": "impacts"
+  },
+  {
+   "front": "Monoculture",
+   "back": "Growing one crop over a large area. Problems: low biodiversity, pests spread easily, same nutrients used up each year.",
+   "unit": "impacts"
+  },
+  {
+   "front": "Pesticide resistance",
+   "back": "Pests evolve so the pesticide no longer kills them: resistant individuals survive and breed (natural selection).",
+   "unit": "impacts"
+  },
+  {
+   "front": "Terracing",
+   "back": "Cutting flat steps into a hillside. Slows runoff, so less soil is washed away, and creates flat land to farm.",
+   "unit": "sustfarm"
+  },
+  {
+   "front": "Contour ploughing",
+   "back": "Ploughing across a slope, along the contours. The ridges trap water and soil instead of channelling them downhill.",
+   "unit": "sustfarm"
+  },
+  {
+   "front": "Intercropping",
+   "back": "Growing two or more crops in the same field at the same time, so the ground stays covered and pests spread less.",
+   "unit": "sustfarm"
+  },
+  {
+   "front": "Crop rotation",
+   "back": "Growing different crops in a field in successive years. Legumes add nitrogen; pest and disease cycles are broken.",
+   "unit": "sustfarm"
+  },
+  {
+   "front": "Windbreaks (shelter belts)",
+   "back": "Rows of trees or hedges that reduce wind speed across fields, cutting wind erosion.",
+   "unit": "sustfarm"
+  },
+  {
+   "front": "Cover crops",
+   "back": "Plants grown between main crops to keep the soil covered, bind it with roots and add organic matter.",
+   "unit": "sustfarm"
+  },
+  {
+   "front": "Drip (trickle) irrigation",
+   "back": "Pipes deliver small amounts of water directly to plant roots. Little evaporation, so less water used and less salinisation.",
+   "unit": "sustfarm"
+  },
+  {
+   "front": "Organic farming",
+   "back": "Farming without artificial fertilisers or pesticides, using manure, compost, crop rotation and biological control.",
+   "unit": "sustfarm"
+  },
+  {
+   "front": "Biological control",
+   "back": "Using a natural predator, parasite or disease to control a pest, e.g. ladybirds to eat aphids.",
+   "unit": "sustfarm"
+  },
+  {
+   "front": "Rotational grazing",
+   "back": "Moving animals between fields so grass can recover, preventing overgrazing.",
+   "unit": "sustfarm"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "Which soil particles are the smallest?",
+   "options": [
+    "Sand",
+    "Silt",
+    "Clay",
+    "Gravel"
+   ],
+   "answer": 2,
+   "why": "Clay particles are tiny, so the pores between them are tiny too. That is why clay holds water but drains slowly.",
+   "unit": "soils"
+  },
+  {
+   "q": "Why does sandy soil lose nutrients easily?",
+   "options": [
+    "Large pore spaces let water drain through fast, leaching nutrients",
+    "Its particles are too small for roots to grow",
+    "It contains too much humus",
+    "It is always waterlogged"
+   ],
+   "answer": 0,
+   "why": "Fast drainage carries dissolved nutrients down past the roots (leaching).",
+   "unit": "soils"
+  },
+  {
+   "q": "Which mineral ion do plants need to make chlorophyll?",
+   "options": [
+    "Phosphate",
+    "Nitrate",
+    "Potassium",
+    "Magnesium"
+   ],
+   "answer": 3,
+   "why": "Magnesium is at the centre of the chlorophyll molecule. Lack of it gives yellow leaves.",
+   "unit": "soils"
+  },
+  {
+   "q": "Loam is the best soil for most crops because it:",
+   "options": [
+    "Has no air spaces",
+    "Holds water and nutrients but still drains well",
+    "Is made only of clay",
+    "Never needs fertiliser"
+   ],
+   "answer": 1,
+   "why": "The mix of particle sizes gives both water retention and drainage; humus adds nutrients.",
+   "unit": "soils"
+  },
+  {
+   "q": "A farmer adds lime to a field in order to:",
+   "options": [
+    "Kill weeds",
+    "Add nitrogen",
+    "Raise the pH of acidic soil",
+    "Make the soil drain faster"
+   ],
+   "answer": 2,
+   "why": "Lime (calcium carbonate) neutralises acidity, bringing the pH up towards 6–7.",
+   "unit": "soils"
+  },
+  {
+   "q": "A family grows maize and beans to feed themselves and sells almost nothing. This is:",
+   "options": [
+    "Commercial farming",
+    "Subsistence farming",
+    "Extensive ranching",
+    "Plantation farming"
+   ],
+   "answer": 1,
+   "why": "Subsistence = growing food mainly for your own family.",
+   "unit": "farming"
+  },
+  {
+   "q": "Which is an example of intensive farming?",
+   "options": [
+    "Tomatoes grown in heated glasshouses",
+    "Cattle ranching on huge unfenced grassland",
+    "Nomadic herding of goats",
+    "Sheep grazing on mountain land"
+   ],
+   "answer": 0,
+   "why": "Glasshouses use large inputs of money and energy on a small area to get very high yields.",
+   "unit": "farming"
+  },
+  {
+   "q": "Hydroponics means:",
+   "options": [
+    "Watering crops with sprinklers",
+    "Growing crops on terraces",
+    "Growing plants in a nutrient solution without soil",
+    "Breeding fish in rice paddies"
+   ],
+   "answer": 2,
+   "why": "Roots sit in water with dissolved mineral nutrients; often used in glasshouses with controlled light and temperature.",
+   "unit": "farming"
+  },
+  {
+   "q": "Which input increases yield mainly by reducing competition for light, water and nutrients?",
+   "options": [
+    "Insecticide",
+    "Fungicide",
+    "Irrigation",
+    "Herbicide"
+   ],
+   "answer": 3,
+   "why": "Herbicides kill weeds, which compete with the crop for light, water and nutrients.",
+   "unit": "farming"
+  },
+  {
+   "q": "One advantage of a pest-resistant GM crop is that:",
+   "options": [
+    "Less insecticide needs to be sprayed",
+    "It never needs water",
+    "It increases biodiversity on the farm",
+    "Seeds are always cheaper"
+   ],
+   "answer": 0,
+   "why": "The crop makes its own toxin to insect pests, so the farmer can spray less. Concerns include cost of seed and genes spreading to wild plants.",
+   "unit": "farming"
+  },
+  {
+   "q": "In eutrophication, what directly causes fish to die?",
+   "options": [
+    "Algae release poison into the water",
+    "Fertiliser kills fish directly",
+    "Bacteria decomposing dead algae and plants use up the dissolved oxygen",
+    "The water becomes too warm"
+   ],
+   "answer": 2,
+   "why": "Order: nutrients → algal bloom → light blocked, plants die → decomposers multiply and respire → oxygen falls → fish suffocate.",
+   "unit": "impacts"
+  },
+  {
+   "q": "Salinisation is most likely where:",
+   "options": [
+    "Fields are irrigated in a hot, dry climate",
+    "Rain falls all year",
+    "Crops are grown in glasshouses",
+    "Fields are ploughed along the contours"
+   ],
+   "answer": 0,
+   "why": "High evaporation draws water up and leaves the dissolved salts in the topsoil.",
+   "unit": "impacts"
+  },
+  {
+   "q": "Which farming practice increases the risk of soil erosion?",
+   "options": [
+    "Planting hedgerows",
+    "Ploughing up and down a slope",
+    "Leaving crop stubble on fields",
+    "Terracing"
+   ],
+   "answer": 1,
+   "why": "Furrows running downhill channel rainwater, which carries soil away.",
+   "unit": "impacts"
+  },
+  {
+   "q": "Why were birds of prey worst affected by DDT?",
+   "options": [
+    "They ate the crops that were sprayed",
+    "They drank more water than other animals",
+    "They are top predators, so DDT was most concentrated in them",
+    "They were sprayed directly"
+   ],
+   "answer": 2,
+   "why": "Biomagnification: DDT is not broken down, so it concentrates at each level. It made eggshells thin, so few chicks hatched.",
+   "unit": "impacts"
+  },
+  {
+   "q": "Overgrazing leads to soil erosion because:",
+   "options": [
+    "Animals compact the soil so it holds more water",
+    "Animal dung adds too many nutrients",
+    "Grass grows too fast",
+    "Vegetation is removed, leaving bare soil exposed to wind and rain"
+   ],
+   "answer": 3,
+   "why": "Without plant cover and roots, nothing holds the soil or shields it from rain splash and wind.",
+   "unit": "impacts"
+  },
+  {
+   "q": "Terraces reduce soil erosion mainly because they:",
+   "options": [
+    "Slow down water flowing down the slope",
+    "Add nutrients to the soil",
+    "Stop all rain reaching the soil",
+    "Kill pests"
+   ],
+   "answer": 0,
+   "why": "Flat steps let water soak in rather than rushing downhill carrying soil.",
+   "unit": "sustfarm"
+  },
+  {
+   "q": "Why are legumes (beans, peas, clover) included in a crop rotation?",
+   "options": [
+    "They need no water",
+    "They kill weeds",
+    "Bacteria in their root nodules fix nitrogen, adding nitrates to the soil",
+    "They attract pests away from other crops"
+   ],
+   "answer": 2,
+   "why": "Nitrogen-fixing bacteria turn nitrogen gas into compounds plants can use, so less fertiliser is needed.",
+   "unit": "sustfarm"
+  },
+  {
+   "q": "Drip irrigation reduces salinisation because:",
+   "options": [
+    "It adds lime to the soil",
+    "Less water is used and less evaporates from the surface",
+    "It uses sea water",
+    "It washes salt into rivers"
+   ],
+   "answer": 1,
+   "why": "Less evaporation means fewer salts are left behind in the topsoil.",
+   "unit": "sustfarm"
+  },
+  {
+   "q": "A disadvantage of biological control is that:",
+   "options": [
+    "It always pollutes water",
+    "Pests quickly become resistant to it",
+    "It is more toxic than pesticides",
+    "The control species may attack other, non-target species"
+   ],
+   "answer": 3,
+   "why": "Example: cane toads brought to Australia to eat beetles became a pest themselves.",
+   "unit": "sustfarm"
+  },
+  {
+   "q": "Which method most directly reduces wind erosion?",
+   "options": [
+    "Planting windbreaks",
+    "Contour ploughing",
+    "Drip irrigation",
+    "Adding fertiliser"
+   ],
+   "answer": 0,
+   "why": "Trees and hedges lower wind speed at ground level, so less soil is blown away.",
+   "unit": "sustfarm"
+  }
+ ],
+ "examIntro": "Paper 1 style. Write your answer first, then open the mark scheme. The data questions give a small table in the question: quote the figures in your answer.",
+ "exam": [
+  {
+   "q": "State two components of soil, other than mineral particles.",
+   "marks": 2,
+   "points": [
+    "Organic matter / humus",
+    "Water",
+    "Air",
+    "Living organisms, e.g. earthworms, bacteria, fungi"
+   ],
+   "note": "Any 2.",
+   "unit": "soils"
+  },
+  {
+   "q": "Compare the properties of sandy soil and clay soil.",
+   "marks": 4,
+   "points": [
+    "Sandy soil has larger particles than clay",
+    "Sandy soil drains faster; clay holds more water / can waterlog",
+    "Clay holds more nutrients; sandy soil loses them by leaching",
+    "Sandy soil is better aerated than clay",
+    "Sandy soil is easier to dig / plough and warms up faster in spring"
+   ],
+   "note": "Any 4. “Compare” means each point must mention both soils.",
+   "unit": "soils"
+  },
+  {
+   "q": "A student poured 100 cm³ of water onto each of two 200 g soil samples in funnels. After 10 minutes, 74 cm³ had drained through soil A and 21 cm³ through soil B. (a) Calculate the percentage of the water retained by soil B. (b) Suggest which soil contains more clay, and explain why. (c) Suggest one way to make the test fair.",
+   "marks": 5,
+   "points": [
+    "(a) 100 − 21 = 79 cm³ retained",
+    "(a) 79%",
+    "(b) Soil B",
+    "(b) Clay has very small particles / small pore spaces, so water passes through slowly and is held",
+    "(c) Same mass of soil / same volume of water / same time / same size funnel and filter paper / both soils equally dry at the start"
+   ],
+   "note": "(c) any 1.",
+   "unit": "soils"
+  },
+  {
+   "q": "State two differences between intensive and extensive farming.",
+   "marks": 2,
+   "points": [
+    "Intensive has high inputs per hectare; extensive has low inputs",
+    "Intensive gets high yields per hectare; extensive gets low yields per hectare",
+    "Intensive usually uses a small area; extensive a large area",
+    "Intensive uses more machinery, fertiliser or labour per hectare"
+   ],
+   "note": "Any 2.",
+   "unit": "farming"
+  },
+  {
+   "q": "Explain how two different methods can increase crop yields.",
+   "marks": 4,
+   "points": [
+    "Method 1 named, e.g. inorganic fertiliser",
+    "Explanation, e.g. supplies nitrogen, phosphorus and potassium the soil lacks, so plants grow faster",
+    "Method 2 named, e.g. irrigation",
+    "Explanation, e.g. supplies water in the dry season, so crops do not wilt and more than one crop a year can be grown",
+    "Other methods: pesticides (fewer crops eaten or diseased), high-yielding varieties / selective breeding, GM crops, glasshouses (control temperature, light, CO2), mechanisation"
+   ],
+   "note": "1 mark for each method and 1 for each explanation.",
+   "unit": "farming"
+  },
+  {
+   "q": "Wheat yield in Country Y (tonnes per hectare): 1960 – 1.2; 1980 – 2.1; 2000 – 3.0; 2020 – 3.4. Fertiliser use (kg per hectare): 1960 – 20; 1980 – 85; 2000 – 140; 2020 – 150. (a) Describe the change in wheat yield. (b) Calculate the percentage increase in yield from 1960 to 2020. (c) Suggest why yield increased more slowly after 2000.",
+   "marks": 6,
+   "points": [
+    "(a) Yield increased throughout / nearly tripled",
+    "(a) From 1.2 to 3.4 tonnes per hectare; rose 0.9 each 20 years to 2000 but only 0.4 from 2000 to 2020",
+    "(b) (3.4 − 1.2) ÷ 1.2 × 100",
+    "(b) = 183%",
+    "(c) Fertiliser use hardly increased after 2000 (140 to 150 kg/ha)",
+    "(c) Adding more fertiliser gives smaller extra gains / another factor such as water became limiting / soil degraded / droughts or climate change"
+   ],
+   "note": "(c) any 2.",
+   "unit": "farming"
+  },
+  {
+   "q": "State two causes of soil erosion on farmland.",
+   "marks": 2,
+   "points": [
+    "Overgrazing",
+    "Removing hedgerows / trees",
+    "Ploughing up and down slopes",
+    "Leaving soil bare between crops",
+    "Deforestation to create fields",
+    "Overcultivation / monoculture weakening soil structure"
+   ],
+   "note": "Any 2.",
+   "unit": "impacts"
+  },
+  {
+   "q": "Describe how the use of fertiliser on farmland can lead to the death of fish in a nearby lake.",
+   "marks": 4,
+   "points": [
+    "Rain washes fertiliser (nitrates/phosphates) into the lake by runoff or leaching",
+    "Algae grow rapidly / algal bloom",
+    "Algae block light so plants below die",
+    "Algae and plants die",
+    "Bacteria decompose the dead material",
+    "Bacteria use up oxygen in respiration, so fish suffocate"
+   ],
+   "note": "Any 4, in a logical order.",
+   "unit": "impacts"
+  },
+  {
+   "q": "Concentration of a pesticide (parts per million) in a lake food chain: water 0.00005; plankton 0.04; small fish 0.5; large fish 2.0; fish-eating bird 25. (a) Calculate how many times greater the concentration is in the bird than in the small fish. (b) Explain the pattern shown. (c) Suggest one effect on the bird population.",
+   "marks": 5,
+   "points": [
+    "(a) 25 ÷ 0.5 = 50 times",
+    "(b) Concentration increases at each trophic level / biomagnification",
+    "(b) The pesticide is persistent: not broken down or excreted, stored in fat",
+    "(b) Each consumer eats many organisms from the level below, so the pesticide builds up",
+    "(c) Thin eggshells / fewer chicks / birds die, so the population falls"
+   ],
+   "note": "Any 5; (a) needs the working.",
+   "unit": "impacts"
+  },
+  {
+   "q": "Name two methods that reduce soil erosion on steep slopes.",
+   "marks": 2,
+   "points": [
+    "Terracing",
+    "Contour ploughing",
+    "Planting trees / afforestation",
+    "Stone lines (bunds) along the contours",
+    "Keeping soil covered: cover crops / intercropping"
+   ],
+   "note": "Any 2.",
+   "unit": "sustfarm"
+  },
+  {
+   "q": "Explain how crop rotation helps to maintain soil fertility and reduce pests.",
+   "marks": 4,
+   "points": [
+    "Different crops take different nutrients, so one nutrient is not used up",
+    "Legumes in the rotation fix nitrogen / add nitrates",
+    "Less inorganic fertiliser needed",
+    "Pests and diseases specific to one crop die out when their host crop is moved",
+    "So less pesticide is needed"
+   ],
+   "note": "Any 4; at least one point on fertility and one on pests.",
+   "unit": "sustfarm"
+  },
+  {
+   "q": "“Organic farming should replace intensive farming.” Discuss this statement.",
+   "marks": 6,
+   "points": [
+    "For: no artificial pesticides, so less biomagnification and harm to wildlife",
+    "For: no inorganic fertiliser runoff, so less eutrophication",
+    "For: manure, crop rotation and hedgerows improve soil structure and biodiversity",
+    "Against: yields are usually lower, so more land is needed to feed the same number of people",
+    "Against: food costs more; more labour needed",
+    "Against: may not feed a growing world population; more forest might be cleared for farmland",
+    "Conclusion: a judgement, e.g. a mix, using sustainable methods within intensive farms, is more realistic"
+   ],
+   "note": "Two points for, two against, plus a conclusion. Max 5 without a conclusion.",
+   "unit": "sustfarm"
+  }
+ ],
+ "units": [
+  {
+   "key": "soils",
+   "name": "Soils"
+  },
+  {
+   "key": "farming",
+   "name": "Farming systems"
+  },
+  {
+   "key": "impacts",
+   "name": "Farming impacts"
+  },
+  {
+   "key": "sustfarm",
+   "name": "Sustainable farming"
+  }
+ ]
+}

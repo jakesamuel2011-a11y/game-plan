@@ -1,0 +1,914 @@
+{
+ "id": "phys-energy-thermal",
+ "subject": "Physics",
+ "title": "Energy & thermal physics",
+ "sub": "Energy, work and power, energy resources, the particle model, thermal properties, thermal energy transfer",
+ "units": [
+  {
+   "key": "energy",
+   "name": "Energy, work & power"
+  },
+  {
+   "key": "resources",
+   "name": "Energy resources"
+  },
+  {
+   "key": "particles",
+   "name": "Particle model"
+  },
+  {
+   "key": "thermal",
+   "name": "Thermal properties"
+  },
+  {
+   "key": "transfer",
+   "name": "Thermal transfer"
+  }
+ ],
+ "strategyIntro": "In Co-ordinated Sciences, physics is one third of every paper: a multiple-choice paper, a structured theory paper and a paper on experiments. Your school test may be shorter, but it will be marked the same way.",
+ "strategy": [
+  {
+   "title": "Multiple choice",
+   "key": true,
+   "points": [
+    "About a minute per question. Calculation questions: work it out on paper before you look at the options.",
+    "Wrong options are often the answer from using the formula the wrong way round (e.g. dividing instead of multiplying). Check units.",
+    "Never leave one blank. A wrong answer loses nothing."
+   ]
+  },
+  {
+   "title": "Calculations",
+   "key": true,
+   "points": [
+    "Three steps for full marks: write the formula, substitute the numbers, give the answer with its unit.",
+    "Convert units first: g to kg, cm to m, minutes to seconds, kW to W.",
+    "Keep the answer to 2 or 3 significant figures, like the data in the question."
+   ]
+  },
+  {
+   "title": "Structured questions",
+   "points": [
+    "The marks in brackets tell you how many separate points to make.",
+    "Use the keyword the syllabus uses (“resultant force”, “principal focus”), not an everyday word.",
+    "For “explain”, link cause to effect with “so” or “because”."
+   ]
+  },
+  {
+   "title": "Questions on experiments",
+   "points": [
+    "Name the instrument and say what you measure with it.",
+    "Repeat readings and take an average; time many oscillations or measure many sheets, then divide.",
+    "Tables: units in the column headings. Graphs: labelled axes with units, even scale, small crosses, best-fit line."
+   ]
+  },
+  {
+   "title": "Easy marks people lose",
+   "points": [
+    "Writing “energy is used up” or “made”. Energy is transferred or dissipated, never created or destroyed.",
+    "Saying “heat rises”. Hot air (or water) rises because it expands and becomes less dense.",
+    "Forgetting to add 273 when changing °C to kelvin.",
+    "Saying particles “get bigger” when heated. They move faster and further apart; the particles do not expand."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "State",
+   "Give a short fact or name. No explanation needed."
+  ],
+  [
+   "Define",
+   "Give the exact meaning, ideally with the equation in words."
+  ],
+  [
+   "Describe",
+   "Say what happens or what you see, step by step."
+  ],
+  [
+   "Explain",
+   "Say why or how. Use “because” and link cause to effect."
+  ],
+  [
+   "Calculate",
+   "Formula, substitution, answer with unit. Show working."
+  ],
+  [
+   "Suggest",
+   "Apply what you know to a new situation. Any sensible physics scores."
+  ],
+  [
+   "Sketch",
+   "A simple drawn graph or diagram showing the right shape, with labelled axes."
+  ]
+ ],
+ "quizTitle": "Multiple-choice practice",
+ "quizIntro": "Answer in multiple-choice-paper style: about a minute each. For calculations, work out the answer first, then find it. Read the explanation after every answer.",
+ "flashIntro": "Say the definition or equation out loud before you tap, then check you used the exact keywords and the right unit.",
+ "flashcards": [
+  {
+   "front": "Energy stores",
+   "back": "Kinetic, gravitational potential, chemical, elastic (strain), nuclear, electrostatic, internal (thermal).",
+   "unit": "energy"
+  },
+  {
+   "front": "Ways energy is transferred",
+   "back": "Mechanically (by forces doing work), electrically (by currents), by heating, and by waves (e.g. light, sound).",
+   "unit": "energy"
+  },
+  {
+   "front": "Principle of conservation of energy",
+   "back": "Energy cannot be created or destroyed. It is transferred from one store to another; the total stays the same.",
+   "unit": "energy"
+  },
+  {
+   "front": "Work done",
+   "back": "W = F × d = ΔE. Work done (J) = force (N) × distance moved in the direction of the force (m). Work done = energy transferred.",
+   "unit": "energy"
+  },
+  {
+   "front": "Power",
+   "back": "Work done per unit time, or energy transferred per unit time. P = W ÷ t = ΔE ÷ t. Unit watt (W); 1 W = 1 J/s.",
+   "unit": "energy"
+  },
+  {
+   "front": "(Extended) Kinetic energy",
+   "back": "Ek = ½mv². Energy (J), mass (kg), speed (m/s).",
+   "unit": "energy"
+  },
+  {
+   "front": "(Extended) Change in gravitational potential energy",
+   "back": "ΔEp = mgΔh. Mass (kg) × g (9.8 N/kg) × change in height (m).",
+   "unit": "energy"
+  },
+  {
+   "front": "(Extended) Efficiency",
+   "back": "Efficiency = (useful energy output ÷ total energy input) × 100%, or (useful power output ÷ total power input) × 100%.",
+   "unit": "energy"
+  },
+  {
+   "front": "Wasted energy",
+   "back": "Usually ends up in the internal (thermal) store of the surroundings. It spreads out (is dissipated) and is hard to use.",
+   "unit": "energy"
+  },
+  {
+   "front": "Sankey diagram",
+   "back": "Arrow widths show amounts of energy. Total input = useful output + wasted output.",
+   "unit": "energy"
+  },
+  {
+   "front": "Renewable and non-renewable",
+   "back": "Renewable: replaced naturally, will not run out (solar, wind, hydroelectric, tides, waves, geothermal, biofuels). Non-renewable: will run out (coal, oil, natural gas, nuclear fuel).",
+   "unit": "resources"
+  },
+  {
+   "front": "Fossil-fuel power station",
+   "back": "Fuel burned (chemical store) → water heated to steam → steam turns a turbine → turbine turns a generator → electricity.",
+   "unit": "resources"
+  },
+  {
+   "front": "Fossil fuels: for and against",
+   "back": "For: reliable, large output, cheap to start up. Against: non-renewable; release carbon dioxide (global warming) and sulfur dioxide (acid rain).",
+   "unit": "resources"
+  },
+  {
+   "front": "Nuclear fuel",
+   "back": "Nuclear fission of uranium releases energy to heat water. No CO₂ while running and reliable, but radioactive waste, high cost and risk of accidents.",
+   "unit": "resources"
+  },
+  {
+   "front": "Wind",
+   "back": "Kinetic energy of moving air turns turbines. Renewable, no fuel cost, no CO₂ when running. Unreliable (no wind, no power), noisy, spoils views.",
+   "unit": "resources"
+  },
+  {
+   "front": "Hydroelectric",
+   "back": "Water stored behind a dam (gravitational store) flows down through turbines. Reliable and quick to start; flooding a valley destroys habitats.",
+   "unit": "resources"
+  },
+  {
+   "front": "Tides and waves",
+   "back": "Tides: predictable and reliable twice a day; barrages affect estuary habitats. Waves: less reliable, small output.",
+   "unit": "resources"
+  },
+  {
+   "front": "Geothermal",
+   "back": "Hot rocks underground heat water to make steam. Reliable, renewable, but only practical in a few (volcanic) areas.",
+   "unit": "resources"
+  },
+  {
+   "front": "Solar",
+   "back": "Solar cells turn light into electricity; solar panels heat water. Renewable, no CO₂ when running, but no output at night and less when cloudy.",
+   "unit": "resources"
+  },
+  {
+   "front": "Energy from the Sun",
+   "back": "Most resources come from the Sun’s radiation (fossil fuels, biofuels, wind, waves, hydroelectric). Not from the Sun: geothermal, nuclear, tidal.",
+   "unit": "resources"
+  },
+  {
+   "front": "(Extended) Source of the Sun’s energy",
+   "back": "Nuclear fusion in the Sun’s core: hydrogen nuclei fuse to form helium, releasing energy.",
+   "unit": "resources"
+  },
+  {
+   "front": "Solid",
+   "back": "Fixed shape and volume. Particles close together in a regular pattern, vibrating about fixed positions; strong forces between them.",
+   "unit": "particles"
+  },
+  {
+   "front": "Liquid",
+   "back": "Fixed volume, takes the shape of its container. Particles close together but irregular, moving around each other.",
+   "unit": "particles"
+  },
+  {
+   "front": "Gas",
+   "back": "No fixed shape or volume; fills its container. Particles far apart, moving quickly and randomly in all directions; very weak forces.",
+   "unit": "particles"
+  },
+  {
+   "front": "Temperature and particles",
+   "back": "The higher the temperature, the greater the average kinetic energy of the particles.",
+   "unit": "particles"
+  },
+  {
+   "front": "Gas pressure (particle explanation)",
+   "back": "Particles collide with the container walls. Each collision exerts a force; the total force per unit area is the pressure.",
+   "unit": "particles"
+  },
+  {
+   "front": "Heating a gas at constant volume",
+   "back": "Particles move faster, so they hit the walls more often and with more force: the pressure increases.",
+   "unit": "particles"
+  },
+  {
+   "front": "Absolute zero",
+   "back": "−273 °C, or 0 K. The lowest possible temperature, where particles have the least kinetic energy.",
+   "unit": "particles"
+  },
+  {
+   "front": "Celsius to kelvin",
+   "back": "T (K) = θ (°C) + 273. e.g. 27 °C = 300 K.",
+   "unit": "particles"
+  },
+  {
+   "front": "Brownian motion",
+   "back": "Tiny visible particles (e.g. smoke in air) move randomly and jerkily because they are hit unevenly by fast-moving, invisible air molecules.",
+   "unit": "particles"
+  },
+  {
+   "front": "(Extended) Pressure and volume of a gas",
+   "back": "At constant temperature, pV = constant (p₁V₁ = p₂V₂). Halve the volume and the pressure doubles: particles hit the walls more often.",
+   "unit": "particles"
+  },
+  {
+   "front": "Thermal expansion",
+   "back": "Solids, liquids and gases expand when heated. For the same temperature rise, gases expand most and solids least.",
+   "unit": "thermal"
+  },
+  {
+   "front": "Why things expand",
+   "back": "Particles move (or vibrate) more and move further apart. The particles themselves do not get bigger.",
+   "unit": "thermal"
+  },
+  {
+   "front": "Uses and problems of expansion",
+   "back": "Liquid-in-glass thermometers use expansion. Gaps are left in railway tracks and bridges so they do not buckle on hot days; overhead cables sag in summer.",
+   "unit": "thermal"
+  },
+  {
+   "front": "Internal energy",
+   "back": "A rise in the temperature of an object increases its internal energy (the energy of its particles).",
+   "unit": "thermal"
+  },
+  {
+   "front": "Melting and boiling points of water",
+   "back": "Melts at 0 °C and boils at 100 °C (at standard atmospheric pressure).",
+   "unit": "thermal"
+  },
+  {
+   "front": "Changes of state",
+   "back": "Melting (solid → liquid), boiling (liquid → gas), condensation (gas → liquid), solidification / freezing (liquid → solid). Temperature stays constant during a change of state.",
+   "unit": "thermal"
+  },
+  {
+   "front": "Evaporation",
+   "back": "The more energetic particles escape from the surface of a liquid. The average kinetic energy of those left falls, so the liquid cools.",
+   "unit": "thermal"
+  },
+  {
+   "front": "(Extended) Factors that increase evaporation",
+   "back": "Higher temperature, larger surface area, air moving over the surface.",
+   "unit": "thermal"
+  },
+  {
+   "front": "(Extended) Boiling vs evaporation",
+   "back": "Boiling: only at the boiling point, throughout the liquid (bubbles), needs continuous heating. Evaporation: at any temperature, from the surface only.",
+   "unit": "thermal"
+  },
+  {
+   "front": "(Extended) Specific heat capacity",
+   "back": "Energy needed per unit mass to raise the temperature by 1 °C. c = ΔE ÷ (mΔθ), so ΔE = mcΔθ. Unit J/(kg °C). Water: 4200 J/(kg °C).",
+   "unit": "thermal"
+  },
+  {
+   "front": "Conduction",
+   "back": "Transfer of thermal energy through a material, mainly solids, without the material itself moving. Vibrating particles pass energy to their neighbours.",
+   "unit": "transfer"
+  },
+  {
+   "front": "Good and bad thermal conductors",
+   "back": "Metals are good conductors. Plastics, wood, glass, liquids and especially gases (air) are poor conductors (insulators).",
+   "unit": "transfer"
+  },
+  {
+   "front": "(Extended) Why metals conduct well",
+   "back": "Energy is passed on by atomic (lattice) vibrations and also by free electrons, which move quickly through the metal carrying energy.",
+   "unit": "transfer"
+  },
+  {
+   "front": "Convection",
+   "back": "In liquids and gases: heated fluid expands, becomes less dense and rises; cooler, denser fluid sinks to take its place. This forms a convection current.",
+   "unit": "transfer"
+  },
+  {
+   "front": "Thermal radiation",
+   "back": "Infrared electromagnetic radiation. Needs no medium, so it can travel through a vacuum (e.g. from the Sun).",
+   "unit": "transfer"
+  },
+  {
+   "front": "Surfaces and radiation",
+   "back": "Dull black surfaces are the best emitters and absorbers. Shiny white or silver surfaces are the worst emitters and absorbers and are good reflectors.",
+   "unit": "transfer"
+  },
+  {
+   "front": "Vacuum flask",
+   "back": "Vacuum stops conduction and convection; silvered walls reduce radiation; the stopper reduces conduction, convection and evaporation at the top.",
+   "unit": "transfer"
+  },
+  {
+   "front": "Insulation with trapped air",
+   "back": "Wool, foam, double glazing and loft insulation trap air: air is a poor conductor, and trapped air cannot form convection currents.",
+   "unit": "transfer"
+  },
+  {
+   "front": "Where to put heaters and cooling units",
+   "back": "Room heater low down; freezer unit at the top of a fridge. Convection then circulates the whole volume of air.",
+   "unit": "transfer"
+  },
+  {
+   "front": "(Extended) Rate of radiation",
+   "back": "A hotter surface and a larger surface area emit infrared radiation faster.",
+   "unit": "transfer"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "A crane lifts a load with a force of 2000 N through a height of 15 m. How much work does it do?",
+   "options": [
+    "133 J",
+    "30 000 J",
+    "2015 J",
+    "3000 J"
+   ],
+   "answer": 1,
+   "why": "W = F × d = 2000 × 15 = 30 000 J.",
+   "unit": "energy"
+  },
+  {
+   "q": "A motor transfers 6000 J of energy in 20 s. What is its power?",
+   "options": [
+    "120 000 W",
+    "0.0033 W",
+    "300 W",
+    "6020 W"
+   ],
+   "answer": 2,
+   "why": "P = E ÷ t = 6000 ÷ 20 = 300 W.",
+   "unit": "energy"
+  },
+  {
+   "q": "A ball falls freely towards the ground (ignore air resistance). Which energy transfer happens?",
+   "options": [
+    "Gravitational potential → kinetic",
+    "Kinetic → gravitational potential",
+    "Chemical → kinetic",
+    "Kinetic → elastic"
+   ],
+   "answer": 0,
+   "why": "As it falls, height decreases and speed increases: the gravitational store empties into the kinetic store.",
+   "unit": "energy"
+  },
+  {
+   "q": "What is the unit of power?",
+   "options": [
+    "joule",
+    "newton",
+    "kelvin",
+    "watt"
+   ],
+   "answer": 3,
+   "why": "Power is measured in watts. One watt is one joule per second.",
+   "unit": "energy"
+  },
+  {
+   "q": "(Extended) What is the kinetic energy of a 2.0 kg ball moving at 3.0 m/s?",
+   "options": [
+    "6.0 J",
+    "18 J",
+    "3.0 J",
+    "9.0 J"
+   ],
+   "answer": 3,
+   "why": "Ek = ½mv² = 0.5 × 2.0 × 3.0² = 9.0 J. 18 J forgets the ½; 6.0 J forgets to square v.",
+   "unit": "energy"
+  },
+  {
+   "q": "(Extended) A lamp is supplied with 100 J of energy and gives out 20 J as light. What is its efficiency?",
+   "options": [
+    "80%",
+    "20%",
+    "5%",
+    "120%"
+   ],
+   "answer": 1,
+   "why": "Efficiency = useful output ÷ total input × 100 = 20 ÷ 100 × 100 = 20%.",
+   "unit": "energy"
+  },
+  {
+   "q": "Which energy resource is non-renewable?",
+   "options": [
+    "Wind",
+    "Tidal",
+    "Natural gas",
+    "Solar"
+   ],
+   "answer": 2,
+   "why": "Natural gas is a fossil fuel; once used it cannot be replaced.",
+   "unit": "resources"
+  },
+  {
+   "q": "Which energy resource does NOT get its energy from the Sun?",
+   "options": [
+    "Geothermal",
+    "Wind",
+    "Coal",
+    "Hydroelectric"
+   ],
+   "answer": 0,
+   "why": "Geothermal energy comes from hot rocks inside the Earth. Wind and rain (hydro) are driven by the Sun; coal formed from plants that photosynthesised.",
+   "unit": "resources"
+  },
+  {
+   "q": "What is a main disadvantage of wind turbines?",
+   "options": [
+    "They produce carbon dioxide",
+    "They need a fuel supply",
+    "They produce radioactive waste",
+    "They produce nothing when there is no wind"
+   ],
+   "answer": 3,
+   "why": "Wind is unreliable. Turbines burn no fuel and produce no CO₂ while running.",
+   "unit": "resources"
+  },
+  {
+   "q": "In a coal-fired power station, what is the order of energy stores and transfers?",
+   "options": [
+    "Kinetic → chemical → thermal → electrical",
+    "Chemical → thermal → kinetic → electrical",
+    "Thermal → chemical → electrical → kinetic",
+    "Chemical → electrical → thermal → kinetic"
+   ],
+   "answer": 1,
+   "why": "Burning releases chemical energy as thermal energy, steam gives the turbine kinetic energy, and the generator transfers it electrically.",
+   "unit": "resources"
+  },
+  {
+   "q": "Which resource produces no carbon dioxide while generating and works whatever the weather?",
+   "options": [
+    "Coal",
+    "Wind",
+    "Solar cells",
+    "Nuclear"
+   ],
+   "answer": 3,
+   "why": "Nuclear stations release no CO₂ when running and do not depend on weather. Wind and solar do; coal produces CO₂.",
+   "unit": "resources"
+  },
+  {
+   "q": "Why is tidal energy more reliable than wave energy?",
+   "options": [
+    "Tides are always large",
+    "Tides need no equipment",
+    "Tides happen at predictable times every day",
+    "Tides are caused by the wind"
+   ],
+   "answer": 2,
+   "why": "Tides rise and fall twice a day at known times. Waves depend on the wind, which varies.",
+   "unit": "resources"
+  },
+  {
+   "q": "Which describes the particles in a liquid?",
+   "options": [
+    "Far apart, moving randomly",
+    "Close together, irregular, moving around each other",
+    "Close together in a regular pattern, vibrating",
+    "Far apart, not moving"
+   ],
+   "answer": 1,
+   "why": "Liquid particles are touching but not in fixed positions, so the liquid flows.",
+   "unit": "particles"
+  },
+  {
+   "q": "What is 27 °C in kelvin?",
+   "options": [
+    "246 K",
+    "300 K",
+    "27 K",
+    "273 K"
+   ],
+   "answer": 1,
+   "why": "T = θ + 273 = 27 + 273 = 300 K.",
+   "unit": "particles"
+  },
+  {
+   "q": "A sealed can of gas is heated. Why does the pressure inside rise?",
+   "options": [
+    "Particles move faster and hit the walls more often and harder",
+    "Particles get bigger",
+    "More particles are made",
+    "Particles stick to the walls"
+   ],
+   "answer": 0,
+   "why": "Higher temperature = more kinetic energy, so collisions with the walls are more frequent and more forceful.",
+   "unit": "particles"
+  },
+  {
+   "q": "Smoke particles seen under a microscope move randomly. Why?",
+   "options": [
+    "They are alive",
+    "They are heated by the light",
+    "They are hit by moving air molecules",
+    "Convection currents in the air"
+   ],
+   "answer": 2,
+   "why": "This is Brownian motion: the small, fast-moving air molecules collide with the larger smoke particles from all sides unevenly.",
+   "unit": "particles"
+  },
+  {
+   "q": "What is absolute zero on the Celsius scale?",
+   "options": [
+    "0 °C",
+    "−273 °C",
+    "−100 °C",
+    "273 °C"
+   ],
+   "answer": 1,
+   "why": "Absolute zero is 0 K = −273 °C.",
+   "unit": "particles"
+  },
+  {
+   "q": "(Extended) A gas at 100 kPa has a volume of 6.0 m³. It is compressed to 2.0 m³ at constant temperature. What is the new pressure?",
+   "options": [
+    "33 kPa",
+    "200 kPa",
+    "600 kPa",
+    "300 kPa"
+   ],
+   "answer": 3,
+   "why": "p₁V₁ = p₂V₂: 100 × 6.0 = p₂ × 2.0, so p₂ = 300 kPa.",
+   "unit": "particles"
+  },
+  {
+   "q": "The same temperature rise is given to a block of iron, some water and some air. Which expands most?",
+   "options": [
+    "The iron",
+    "The water",
+    "The air",
+    "They all expand the same"
+   ],
+   "answer": 2,
+   "why": "Gases expand much more than liquids, and liquids more than solids.",
+   "unit": "thermal"
+  },
+  {
+   "q": "Why are gaps left between sections of railway track?",
+   "options": [
+    "To let the rails expand on hot days",
+    "To save steel",
+    "To let rain drain away",
+    "To reduce friction"
+   ],
+   "answer": 0,
+   "why": "In hot weather the rails expand; without gaps they would push against each other and buckle.",
+   "unit": "thermal"
+  },
+  {
+   "q": "Why does sweating cool you down?",
+   "options": [
+    "Sweat is colder than skin",
+    "Sweat conducts energy into the body",
+    "Sweat reflects infrared",
+    "The most energetic particles evaporate, lowering the average energy of what is left"
+   ],
+   "answer": 3,
+   "why": "Evaporation removes the fastest particles, so the remaining liquid (and your skin) cools.",
+   "unit": "thermal"
+  },
+  {
+   "q": "Ice at 0 °C is heated steadily. What happens to its temperature while it melts?",
+   "options": [
+    "It rises steadily",
+    "It stays at 0 °C until all the ice has melted",
+    "It falls",
+    "It jumps to 100 °C"
+   ],
+   "answer": 1,
+   "why": "During a change of state the energy breaks bonds between particles rather than raising the temperature.",
+   "unit": "thermal"
+  },
+  {
+   "q": "(Extended) How much energy is needed to heat 2.0 kg of water by 10 °C? (c = 4200 J/(kg °C))",
+   "options": [
+    "8400 J",
+    "42 000 J",
+    "84 000 J",
+    "840 J"
+   ],
+   "answer": 2,
+   "why": "ΔE = mcΔθ = 2.0 × 4200 × 10 = 84 000 J.",
+   "unit": "thermal"
+  },
+  {
+   "q": "(Extended) Which change makes wet washing dry faster?",
+   "options": [
+    "Folding it up",
+    "A breeze blowing over it",
+    "Hanging it in a cold room",
+    "Putting it in a closed bag"
+   ],
+   "answer": 1,
+   "why": "Moving air carries away the evaporated water molecules. Folding reduces the surface area and cold slows evaporation.",
+   "unit": "thermal"
+  },
+  {
+   "q": "How does thermal energy reach the Earth from the Sun?",
+   "options": [
+    "Conduction",
+    "Convection",
+    "Both conduction and convection",
+    "Radiation"
+   ],
+   "answer": 3,
+   "why": "Space is a vacuum. Conduction and convection need particles; radiation does not.",
+   "unit": "transfer"
+  },
+  {
+   "q": "Which surface is the best emitter of infrared radiation?",
+   "options": [
+    "Dull black",
+    "Shiny silver",
+    "Shiny white",
+    "Dull white"
+   ],
+   "answer": 0,
+   "why": "Dull black surfaces are the best emitters (and absorbers). Shiny surfaces are the worst.",
+   "unit": "transfer"
+  },
+  {
+   "q": "Why is a room heater usually placed near the floor?",
+   "options": [
+    "Cold air rises",
+    "Heaters work better near the ground",
+    "Warm air rises and sets up a convection current round the room",
+    "To heat the floor by conduction"
+   ],
+   "answer": 2,
+   "why": "Warm air expands, becomes less dense and rises; cooler air sinks to the heater, so the whole room is heated.",
+   "unit": "transfer"
+  },
+  {
+   "q": "Why do saucepans often have plastic handles?",
+   "options": [
+    "Plastic is a good conductor",
+    "Plastic is a poor conductor",
+    "Plastic reflects radiation",
+    "Plastic stops convection"
+   ],
+   "answer": 1,
+   "why": "Plastic is a thermal insulator, so little energy is conducted to your hand.",
+   "unit": "transfer"
+  },
+  {
+   "q": "Which of these cannot transfer thermal energy by convection?",
+   "options": [
+    "Air",
+    "A solid metal block",
+    "Water",
+    "Steam"
+   ],
+   "answer": 1,
+   "why": "Convection needs a fluid whose particles can move from place to place. Particles in a solid stay in fixed positions.",
+   "unit": "transfer"
+  },
+  {
+   "q": "(Extended) Why are metals much better thermal conductors than non-metals?",
+   "options": [
+    "Their atoms are larger",
+    "They are denser",
+    "They contain more air",
+    "They have free electrons that carry energy"
+   ],
+   "answer": 3,
+   "why": "Free (delocalised) electrons move quickly through the metal, transferring energy as well as the lattice vibrations.",
+   "unit": "transfer"
+  }
+ ],
+ "examIntro": "Theory-paper style. Write your answer first, then open the mark scheme and give yourself one mark per point you made clearly. In calculations, the formula, the substitution and the answer with unit each earn marks.",
+ "exam": [
+  {
+   "q": "A person pushes a box with a force of 150 N through a distance of 4.0 m. Calculate the work done.",
+   "marks": 3,
+   "points": [
+    "W = F × d",
+    "= 150 × 4.0",
+    "= 600 J"
+   ],
+   "unit": "energy"
+  },
+  {
+   "q": "A student of weight 500 N runs up stairs 3.0 m high in 5.0 s. Calculate (a) the work done against gravity, (b) the student’s power.",
+   "marks": 4,
+   "points": [
+    "(a) W = F × d = 500 × 3.0",
+    "= 1500 J",
+    "(b) P = W ÷ t = 1500 ÷ 5.0",
+    "= 300 W"
+   ],
+   "unit": "energy"
+  },
+  {
+   "q": "(Extended) A ball of mass 0.50 kg is dropped from a height of 5.0 m. (a) Calculate the gravitational potential energy it loses. (b) Calculate its speed just before it hits the ground, ignoring air resistance. (c) Explain why the real speed is a little less.",
+   "marks": 6,
+   "points": [
+    "(a) ΔEp = mgΔh = 0.50 × 9.8 × 5.0",
+    "= 24.5 J (25 J)",
+    "(b) Kinetic energy gained = GPE lost = 24.5 J (conservation of energy)",
+    "½ × 0.50 × v² = 24.5, so v² = 98",
+    "v = 9.9 m/s",
+    "(c) Air resistance: some energy is transferred to the thermal store of the air, so less becomes kinetic energy"
+   ],
+   "unit": "energy"
+  },
+  {
+   "q": "State two advantages of using solar cells to generate electricity.",
+   "marks": 2,
+   "points": [
+    "Renewable / will not run out",
+    "No carbon dioxide or polluting gases when generating",
+    "No fuel cost",
+    "Low running/maintenance cost; can be used in remote places"
+   ],
+   "note": "Any 2.",
+   "unit": "resources"
+  },
+  {
+   "q": "Describe how electricity is generated in a gas-fired power station.",
+   "marks": 4,
+   "points": [
+    "Gas is burned, transferring energy from its chemical store to thermal energy",
+    "Water is heated and boils to make steam",
+    "Steam turns a turbine",
+    "The turbine turns a generator, which produces electricity"
+   ],
+   "unit": "resources"
+  },
+  {
+   "q": "Compare coal and wind as energy resources for generating electricity.",
+   "marks": 6,
+   "points": [
+    "Coal is reliable / available at any time; wind depends on the weather",
+    "Coal is non-renewable / will run out; wind is renewable",
+    "Burning coal releases carbon dioxide, which causes global warming; wind produces none when running",
+    "Burning coal releases sulfur dioxide, causing acid rain",
+    "Wind has no fuel costs; coal must be mined and transported",
+    "A coal station gives a large output from a small site; wind farms need a large area",
+    "Wind turbines can be noisy and spoil the landscape"
+   ],
+   "note": "Any 6. Each point must say something about both resources, or clearly compare them.",
+   "unit": "resources"
+  },
+  {
+   "q": "Describe the arrangement and motion of the particles in a gas.",
+   "marks": 3,
+   "points": [
+    "Particles are far apart",
+    "Arranged randomly",
+    "Move quickly in random directions",
+    "Very weak forces between them"
+   ],
+   "note": "Any 3.",
+   "unit": "particles"
+  },
+  {
+   "q": "Explain, in terms of particles, why the pressure of a gas in a sealed container increases when its temperature rises.",
+   "marks": 4,
+   "points": [
+    "Particles gain kinetic energy / move faster",
+    "They hit the walls more often",
+    "They hit the walls with greater force",
+    "So the force per unit area on the walls (pressure) increases"
+   ],
+   "unit": "particles"
+  },
+  {
+   "q": "(Extended) Gas in a syringe has a pressure of 120 kPa and a volume of 50 cm³. The plunger is pushed in slowly until the volume is 30 cm³; the temperature stays the same. (a) Calculate the new pressure. (b) Explain the change in terms of particles.",
+   "marks": 5,
+   "points": [
+    "(a) p₁V₁ = p₂V₂",
+    "120 × 50 = p₂ × 30",
+    "p₂ = 200 kPa",
+    "(b) The same number of particles is in a smaller volume, so they hit the walls more often",
+    "So the force per unit area (pressure) is greater"
+   ],
+   "unit": "particles"
+  },
+  {
+   "q": "Explain why the liquid in a thermometer rises when the temperature goes up.",
+   "marks": 2,
+   "points": [
+    "The liquid expands when heated",
+    "It can only expand along the narrow tube, so it moves up it"
+   ],
+   "unit": "thermal"
+  },
+  {
+   "q": "(Extended) Describe four differences between boiling and evaporation.",
+   "marks": 4,
+   "points": [
+    "Boiling happens only at the boiling point; evaporation happens at any temperature",
+    "Boiling happens throughout the liquid (bubbles form); evaporation only at the surface",
+    "Boiling needs a continuous energy supply; evaporation cools the liquid",
+    "Boiling is rapid; evaporation is usually slow"
+   ],
+   "unit": "thermal"
+  },
+  {
+   "q": "(Extended) A 50 W heater warms a 1.0 kg aluminium block for 300 s. Its temperature rises by 16 °C. Calculate (a) the energy supplied, (b) the specific heat capacity of aluminium. Assume no energy is lost.",
+   "marks": 4,
+   "points": [
+    "(a) E = P × t = 50 × 300",
+    "= 15 000 J",
+    "(b) c = ΔE ÷ (mΔθ) = 15 000 ÷ (1.0 × 16)",
+    "= 940 J/(kg °C) (937.5)"
+   ],
+   "unit": "thermal"
+  },
+  {
+   "q": "(Extended) A kettle heats 1.5 kg of water from 20 °C to 100 °C. (a) Calculate the energy needed (c = 4200 J/(kg °C)). (b) The kettle has a power of 2000 W. Calculate the minimum time taken.",
+   "marks": 5,
+   "points": [
+    "(a) ΔE = mcΔθ",
+    "= 1.5 × 4200 × 80",
+    "= 504 000 J",
+    "(b) t = E ÷ P = 504 000 ÷ 2000",
+    "= 252 s"
+   ],
+   "unit": "thermal"
+  },
+  {
+   "q": "Explain why loft insulation reduces the rate of energy loss from a house.",
+   "marks": 2,
+   "points": [
+    "It traps air, which is a poor conductor",
+    "The trapped air cannot move, so convection is reduced"
+   ],
+   "unit": "transfer"
+  },
+  {
+   "q": "Describe an experiment to show that a dull black surface is a better emitter of radiation than a shiny surface.",
+   "marks": 4,
+   "points": [
+    "Use two identical cans: one dull black, one shiny",
+    "Fill both with the same volume of hot water at the same starting temperature",
+    "Put a thermometer in each (and a lid on each)",
+    "Measure the temperatures after equal times",
+    "The black can cools faster, so it emits more radiation"
+   ],
+   "note": "Any 4.",
+   "unit": "transfer"
+  },
+  {
+   "q": "Explain how a vacuum flask keeps a hot drink hot.",
+   "marks": 6,
+   "points": [
+    "Vacuum between the double walls has no particles, so no conduction across it",
+    "No convection across the vacuum either",
+    "Silvered inner surfaces reflect infrared radiation back towards the drink",
+    "Silvered surfaces are poor emitters of radiation",
+    "The stopper is made of a poor conductor (plastic/cork), reducing conduction",
+    "The stopper stops warm air rising out (convection) and evaporation"
+   ],
+   "unit": "transfer"
+  }
+ ]
+}

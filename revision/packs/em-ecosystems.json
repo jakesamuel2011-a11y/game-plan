@@ -1,0 +1,850 @@
+{
+ "id": "em-ecosystems",
+ "subject": "EM",
+ "title": "Ecosystems & fieldwork",
+ "sub": "Ecosystems, biodiversity, deforestation, conservation, fieldwork",
+ "strategyIntro": "Environmental Management has no Core or Extended split. The full exam is Paper 1 (theory: short questions, then longer questions using source material) and Paper 2 (management in context, based on one country). Most marks come from reading sources and building arguments.",
+ "strategy": [
+  {
+   "title": "Quote the data",
+   "key": true,
+   "points": [
+    "Most marks come from graphs, tables and maps.",
+    "Use figures with units: “fell from 62% to 41%” scores; “it fell” doesn’t.",
+    "Describe the overall trend first, then give the highest, lowest or any exception."
+   ]
+  },
+  {
+   "title": "The 6-mark argument",
+   "key": true,
+   "points": [
+    "Usually one per paper: discuss a statement for and against.",
+    "Structure: two points for, two against, then a conclusion.",
+    "Each point needs a reason: say why it matters, not just what it is."
+   ]
+  },
+  {
+   "title": "Use named examples",
+   "points": [
+    "Learn one rainforest case study (e.g. the Amazon): causes and impacts of deforestation and how it is managed.",
+    "On Paper 2, link every answer back to the country in the source. General answers score lower."
+   ]
+  },
+  {
+   "title": "Fieldwork comes up every year",
+   "points": [
+    "Know sampling, quadrats, questionnaires and how to make them reliable.",
+    "Evaluate a method: one strength, one weakness, one improvement."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "State",
+   "Give a short fact. No explanation needed."
+  ],
+  [
+   "Describe",
+   "Say what happens or what you see. With data, quote figures and units."
+  ],
+  [
+   "Explain",
+   "Say why or how. Use “because” and link cause to effect."
+  ],
+  [
+   "Suggest",
+   "Apply what you know to a new situation. Any sensible reason scores."
+  ],
+  [
+   "Compare",
+   "Give similarities or differences for both things in the same sentence."
+  ],
+  [
+   "Calculate",
+   "Show working and give the unit."
+  ],
+  [
+   "Evaluate",
+   "Weigh up both sides and finish with a judgement."
+  ]
+ ],
+ "quizTitle": "Quick recall check",
+ "quizIntro": "These are not exam-format questions (EM has no multiple choice). Use them to check the facts are secure before you try the longer questions.",
+ "flashIntro": "Say each definition out loud before you tap, then check you used the exact keywords.",
+ "flashcards": [
+  {
+   "front": "Ecosystem",
+   "back": "A community of organisms interacting with each other and with their non-living environment.",
+   "unit": "ecosystems"
+  },
+  {
+   "front": "Biotic and abiotic factors",
+   "back": "Biotic: living factors, e.g. predators, competition, disease. Abiotic: non-living, e.g. temperature, light, water, soil pH.",
+   "unit": "ecosystems"
+  },
+  {
+   "front": "Habitat",
+   "back": "The place where an organism lives.",
+   "unit": "ecosystems"
+  },
+  {
+   "front": "Population and community",
+   "back": "Population: all the organisms of one species in an area. Community: all the populations of different species in an area.",
+   "unit": "ecosystems"
+  },
+  {
+   "front": "Niche",
+   "back": "The role of a species in its ecosystem: what it eats, where it lives and how it interacts with others.",
+   "unit": "ecosystems"
+  },
+  {
+   "front": "Producer",
+   "back": "An organism that makes its own food by photosynthesis, e.g. green plants, algae, phytoplankton.",
+   "unit": "ecosystems"
+  },
+  {
+   "front": "Consumers and decomposers",
+   "back": "Consumers eat other organisms. Decomposers (bacteria, fungi) break down dead material, releasing nutrients back into the soil.",
+   "unit": "ecosystems"
+  },
+  {
+   "front": "Trophic level",
+   "back": "The feeding position of an organism in a food chain: producer, primary consumer, secondary consumer, tertiary consumer.",
+   "unit": "ecosystems"
+  },
+  {
+   "front": "Energy transfer",
+   "back": "Only about 10% of energy passes to the next trophic level. The rest is lost in respiration (as heat), movement, and undigested waste.",
+   "unit": "ecosystems"
+  },
+  {
+   "front": "Photosynthesis",
+   "back": "Carbon dioxide + water → glucose + oxygen, using light energy absorbed by chlorophyll.",
+   "unit": "ecosystems"
+  },
+  {
+   "front": "Biodiversity",
+   "back": "The variety of living things in an area: genetic diversity, species diversity and ecosystem diversity.",
+   "unit": "biodiversity"
+  },
+  {
+   "front": "Why biodiversity matters",
+   "back": "Food, medicines, timber, genes for breeding crops, tourism, and ecosystem services. Many argue species also have a right to exist.",
+   "unit": "biodiversity"
+  },
+  {
+   "front": "Ecosystem services",
+   "back": "Benefits nature gives people, e.g. pollination, clean water, fertile soil, flood control, carbon storage.",
+   "unit": "biodiversity"
+  },
+  {
+   "front": "Threats to biodiversity",
+   "back": "Habitat loss, pollution, overharvesting (hunting, overfishing), invasive species, climate change.",
+   "unit": "biodiversity"
+  },
+  {
+   "front": "Invasive species",
+   "back": "A non-native species that spreads and harms native species, e.g. by eating them, outcompeting them or bringing disease.",
+   "unit": "biodiversity"
+  },
+  {
+   "front": "Habitat fragmentation",
+   "back": "Habitat broken into small, isolated patches. Populations become small and isolated, and inbreeding rises.",
+   "unit": "biodiversity"
+  },
+  {
+   "front": "Overharvesting",
+   "back": "Taking a species faster than it can reproduce, e.g. poaching for ivory or rhino horn, overfishing.",
+   "unit": "biodiversity"
+  },
+  {
+   "front": "Endangered species",
+   "back": "A species at high risk of extinction in the near future.",
+   "unit": "biodiversity"
+  },
+  {
+   "front": "Extinction",
+   "back": "When the last individual of a species dies, so the species no longer exists.",
+   "unit": "biodiversity"
+  },
+  {
+   "front": "Mangroves",
+   "back": "Coastal forests of salt-tolerant trees. Protect coasts from storm surges and erosion, and are nurseries for young fish.",
+   "unit": "biodiversity"
+  },
+  {
+   "front": "Deforestation",
+   "back": "The permanent clearing of forest to use the land for something else.",
+   "unit": "deforestation"
+  },
+  {
+   "front": "Causes of deforestation",
+   "back": "Cattle ranching, commercial crops (soya, palm oil), logging, mining, roads, settlements, HEP reservoirs, fuelwood.",
+   "unit": "deforestation"
+  },
+  {
+   "front": "Rainforest structure",
+   "back": "Layers: emergent trees, canopy, understorey, shrub layer and forest floor.",
+   "unit": "deforestation"
+  },
+  {
+   "front": "Rainforest nutrient cycle",
+   "back": "Most nutrients are stored in the plants, not the soil. Once trees are removed, heavy rain leaches the thin soil and it becomes infertile.",
+   "unit": "deforestation"
+  },
+  {
+   "front": "Environmental impacts",
+   "back": "Biodiversity loss, soil erosion, rivers silting up, more flooding, less rainfall, carbon dioxide released.",
+   "unit": "deforestation"
+  },
+  {
+   "front": "Social impacts",
+   "back": "Indigenous people lose homes, food sources and culture; conflict over land. But jobs and income for others.",
+   "unit": "deforestation"
+  },
+  {
+   "front": "Carbon sink",
+   "back": "Something that absorbs more carbon dioxide than it releases. Forests store carbon; burning them releases it.",
+   "unit": "deforestation"
+  },
+  {
+   "front": "Selective logging",
+   "back": "Cutting only some mature trees and leaving the rest, so the forest can recover. Clear-felling removes all trees.",
+   "unit": "deforestation"
+  },
+  {
+   "front": "Agroforestry",
+   "back": "Growing trees and crops together on the same land, protecting soil and giving several products.",
+   "unit": "deforestation"
+  },
+  {
+   "front": "Sustainable forestry",
+   "back": "Selective logging, replanting, protected areas, and certification such as FSC (Forest Stewardship Council).",
+   "unit": "deforestation"
+  },
+  {
+   "front": "Conservation",
+   "back": "Protecting and managing habitats and species so they survive for the future.",
+   "unit": "conservation"
+  },
+  {
+   "front": "In situ conservation",
+   "back": "Protecting species in their natural habitat, e.g. national parks, nature reserves, marine protected areas.",
+   "unit": "conservation"
+  },
+  {
+   "front": "Ex situ conservation",
+   "back": "Protecting species outside their natural habitat, e.g. zoos, botanic gardens, seed banks.",
+   "unit": "conservation"
+  },
+  {
+   "front": "Captive breeding",
+   "back": "Breeding endangered animals in zoos to increase numbers, then reintroducing them to the wild.",
+   "unit": "conservation"
+  },
+  {
+   "front": "Seed bank",
+   "back": "A store of seeds kept dry and frozen so plant species can be grown again in future, e.g. the Svalbard Global Seed Vault.",
+   "unit": "conservation"
+  },
+  {
+   "front": "CITES",
+   "back": "International agreement controlling trade in endangered species and their products, e.g. ivory.",
+   "unit": "conservation"
+  },
+  {
+   "front": "Ecotourism",
+   "back": "Low-impact tourism to natural areas that funds conservation and benefits local people.",
+   "unit": "conservation"
+  },
+  {
+   "front": "Wildlife corridor",
+   "back": "A strip of habitat linking separate areas, so animals can move, feed and breed between them.",
+   "unit": "conservation"
+  },
+  {
+   "front": "Biosphere reserve",
+   "back": "Protected area with zones: core (strictly protected), buffer (research, education, limited use), transition (sustainable use, settlements).",
+   "unit": "conservation"
+  },
+  {
+   "front": "Community involvement",
+   "back": "Giving local people jobs, income or a say (e.g. as rangers), so they benefit from protecting the area.",
+   "unit": "conservation"
+  },
+  {
+   "front": "Random sampling",
+   "back": "Every point has an equal chance of being chosen, e.g. using random numbers for coordinates. Avoids bias.",
+   "unit": "fieldwork"
+  },
+  {
+   "front": "Systematic sampling",
+   "back": "Taking samples at regular intervals, e.g. every 5 m along a line or every 10th person.",
+   "unit": "fieldwork"
+  },
+  {
+   "front": "Stratified sampling",
+   "back": "Dividing the area or population into groups (strata) and sampling each in proportion to its size.",
+   "unit": "fieldwork"
+  },
+  {
+   "front": "Quadrat",
+   "back": "A square frame (e.g. 0.5 m × 0.5 m or 1 m × 1 m) placed on the ground to count plants or estimate percentage cover.",
+   "unit": "fieldwork"
+  },
+  {
+   "front": "Transect",
+   "back": "A line across an area where conditions change (e.g. from a path into woodland). Quadrats are placed at intervals along it.",
+   "unit": "fieldwork"
+  },
+  {
+   "front": "Percentage cover",
+   "back": "The percentage of a quadrat’s area covered by a species. Used when individual plants are hard to count, e.g. grass, moss.",
+   "unit": "fieldwork"
+  },
+  {
+   "front": "Pitfall trap",
+   "back": "A container sunk into the ground, level with the surface, to catch ground-living invertebrates.",
+   "unit": "fieldwork"
+  },
+  {
+   "front": "Kick sampling",
+   "back": "Kicking the riverbed for a set time just upstream of a net, to catch invertebrates (e.g. to assess water quality).",
+   "unit": "fieldwork"
+  },
+  {
+   "front": "Open and closed questions",
+   "back": "Closed: fixed choice of answers, easy to analyse. Open: people answer in their own words, giving more detail but harder to compare.",
+   "unit": "fieldwork"
+  },
+  {
+   "front": "Pilot study",
+   "back": "A small trial run of a method or questionnaire to find and fix problems before the main survey.",
+   "unit": "fieldwork"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "Which is an abiotic factor?",
+   "options": [
+    "Predation",
+    "Disease",
+    "Temperature",
+    "Competition for food"
+   ],
+   "answer": 2,
+   "why": "Abiotic = non-living. The others are biotic.",
+   "unit": "ecosystems"
+  },
+  {
+   "q": "Food chains rarely have more than four or five trophic levels because:",
+   "options": [
+    "Energy is lost at each level, so too little is left",
+    "Predators eat each other",
+    "Plants cannot support herbivores",
+    "There is too much energy at the top"
+   ],
+   "answer": 0,
+   "why": "Only about 10% passes on each time, so the top levels get very little.",
+   "unit": "ecosystems"
+  },
+  {
+   "q": "The role of decomposers is to:",
+   "options": [
+    "Make food by photosynthesis",
+    "Break down dead material and recycle nutrients",
+    "Eat live animals",
+    "Pollinate flowers"
+   ],
+   "answer": 1,
+   "why": "Without them, nutrients would stay locked in dead organisms.",
+   "unit": "ecosystems"
+  },
+  {
+   "q": "A species’ niche is:",
+   "options": [
+    "Its home only",
+    "The number of individuals",
+    "The biome it lives in",
+    "Its role in the ecosystem"
+   ],
+   "answer": 3,
+   "why": "Niche includes what it eats, when it is active and how it interacts with other species.",
+   "unit": "ecosystems"
+  },
+  {
+   "q": "Producers get their energy from:",
+   "options": [
+    "Eating consumers",
+    "Sunlight, through photosynthesis",
+    "Decomposers",
+    "The soil"
+   ],
+   "answer": 1,
+   "why": "They convert light energy into chemical energy in glucose.",
+   "unit": "ecosystems"
+  },
+  {
+   "q": "Which is an example of an invasive species problem?",
+   "options": [
+    "Grey squirrels from North America replacing red squirrels in the UK",
+    "Pandas eating bamboo in China",
+    "Salmon swimming upstream to breed",
+    "Bees pollinating crops"
+   ],
+   "answer": 0,
+   "why": "Grey squirrels outcompete red squirrels and carry a virus that kills them.",
+   "unit": "biodiversity"
+  },
+  {
+   "q": "Habitat fragmentation threatens species because:",
+   "options": [
+    "It creates more habitat",
+    "It increases the food supply",
+    "Populations become small and isolated",
+    "It stops climate change"
+   ],
+   "answer": 2,
+   "why": "Small populations lose genetic diversity and can die out after one bad event.",
+   "unit": "biodiversity"
+  },
+  {
+   "q": "Biodiversity includes diversity of:",
+   "options": [
+    "Species only",
+    "Genes, species and ecosystems",
+    "Plants only",
+    "Rocks and soils"
+   ],
+   "answer": 1,
+   "why": "All three levels matter, e.g. genetic diversity helps a species survive a new disease.",
+   "unit": "biodiversity"
+  },
+  {
+   "q": "Which is an ecosystem service?",
+   "options": [
+    "Building roads",
+    "Mining",
+    "Fishing quotas",
+    "Pollination of crops by insects"
+   ],
+   "answer": 3,
+   "why": "Around three quarters of major crop types benefit from animal pollination.",
+   "unit": "biodiversity"
+  },
+  {
+   "q": "Tropical rainforests have very high biodiversity because:",
+   "options": [
+    "It is warm and wet all year, with many layers and niches",
+    "They have poor soils",
+    "They have few plant species",
+    "They are cold at night"
+   ],
+   "answer": 0,
+   "why": "Constant growing conditions and a layered structure give huge numbers of niches.",
+   "unit": "biodiversity"
+  },
+  {
+   "q": "Why does rainforest soil become infertile soon after the forest is cleared?",
+   "options": [
+    "The soil is too cold",
+    "Most nutrients were in the trees, and heavy rain leaches the rest",
+    "Cattle add too many nutrients",
+    "The soil was clay"
+   ],
+   "answer": 1,
+   "why": "That is why farmers often clear more forest after a few years.",
+   "unit": "deforestation"
+  },
+  {
+   "q": "The largest cause of deforestation in the Amazon is:",
+   "options": [
+    "Cattle ranching",
+    "Tourism",
+    "Fuelwood collection",
+    "Building cities"
+   ],
+   "answer": 0,
+   "why": "Soya farming, logging and mining also contribute.",
+   "unit": "deforestation"
+  },
+  {
+   "q": "Deforestation increases flooding downstream because:",
+   "options": [
+    "Trees block rivers",
+    "Rainfall increases",
+    "Less interception and infiltration, so more runoff, and rivers silt up",
+    "Soil becomes more permeable"
+   ],
+   "answer": 2,
+   "why": "Silt from eroded soil makes river channels shallower.",
+   "unit": "deforestation"
+  },
+  {
+   "q": "An FSC label on timber shows that it:",
+   "options": [
+    "Is tropical hardwood",
+    "Was imported",
+    "Is the cheapest timber",
+    "Comes from a sustainably managed forest"
+   ],
+   "answer": 3,
+   "why": "Certification lets buyers choose sustainable products.",
+   "unit": "deforestation"
+  },
+  {
+   "q": "Large-scale deforestation can reduce local rainfall because:",
+   "options": [
+    "There is less transpiration, so less water vapour enters the air",
+    "More water evaporates from rivers",
+    "Trees cause rain by blocking wind",
+    "It cools the land"
+   ],
+   "answer": 0,
+   "why": "Rainforests recycle much of their own rainfall through transpiration.",
+   "unit": "deforestation"
+  },
+  {
+   "q": "Which is an example of ex situ conservation?",
+   "options": [
+    "A national park",
+    "A marine protected area",
+    "A seed bank",
+    "A wildlife corridor"
+   ],
+   "answer": 2,
+   "why": "Ex situ = outside the natural habitat.",
+   "unit": "conservation"
+  },
+  {
+   "q": "CITES controls:",
+   "options": [
+    "Fishing quotas",
+    "International trade in endangered species",
+    "Carbon dioxide emissions",
+    "Logging in national parks"
+   ],
+   "answer": 1,
+   "why": "It bans or limits trade in species such as elephants (ivory) and rhinos (horn).",
+   "unit": "conservation"
+  },
+  {
+   "q": "The main purpose of a wildlife corridor is to:",
+   "options": [
+    "Let animals move between fragments of habitat",
+    "Build roads through forests",
+    "Keep tourists out",
+    "Grow crops"
+   ],
+   "answer": 0,
+   "why": "It reconnects small, isolated populations.",
+   "unit": "conservation"
+  },
+  {
+   "q": "In a biosphere reserve, the core zone is:",
+   "options": [
+    "Where people live and farm",
+    "Used for tourism hotels",
+    "Open to logging",
+    "Strictly protected, with only monitoring allowed"
+   ],
+   "answer": 3,
+   "why": "The buffer zone around it allows research and limited use.",
+   "unit": "conservation"
+  },
+  {
+   "q": "A disadvantage of captive breeding is that:",
+   "options": [
+    "It increases poaching",
+    "Populations may have low genetic diversity, and animals may struggle in the wild",
+    "It always costs nothing",
+    "It destroys habitats"
+   ],
+   "answer": 1,
+   "why": "Released animals may lack skills such as hunting, and the original threat may remain.",
+   "unit": "conservation"
+  },
+  {
+   "q": "To study how plants change from a beach to the sand dunes behind it, you should use:",
+   "options": [
+    "One quadrat in the middle",
+    "A transect with quadrats at regular intervals",
+    "A questionnaire",
+    "A pitfall trap"
+   ],
+   "answer": 1,
+   "why": "A transect shows change along an environmental gradient.",
+   "unit": "fieldwork"
+  },
+  {
+   "q": "Quadrats are placed randomly in order to:",
+   "options": [
+    "Avoid bias in choosing where to sample",
+    "Save time",
+    "Find the rarest plants",
+    "Make the results bigger"
+   ],
+   "answer": 0,
+   "why": "People tend to put quadrats where plants look interesting.",
+   "unit": "fieldwork"
+  },
+  {
+   "q": "Which makes quadrat results more reliable?",
+   "options": [
+    "Using one large quadrat",
+    "Choosing quadrats with the most plants",
+    "Changing quadrat size each time",
+    "Using more quadrats and calculating a mean"
+   ],
+   "answer": 3,
+   "why": "A bigger sample reduces the effect of unusual results.",
+   "unit": "fieldwork"
+  },
+  {
+   "q": "An advantage of closed questions in a questionnaire is that:",
+   "options": [
+    "They give detailed opinions",
+    "Answers are easy to count and compare",
+    "People can say anything they like",
+    "They need no planning"
+   ],
+   "answer": 1,
+   "why": "e.g. “Yes / No / Don’t know” or tick-box age groups.",
+   "unit": "fieldwork"
+  },
+  {
+   "q": "Kick sampling is used to collect:",
+   "options": [
+    "Flying insects",
+    "Soil samples",
+    "Invertebrates living in rivers",
+    "Plant seeds"
+   ],
+   "answer": 2,
+   "why": "The types found (indicator species) show how polluted the river is.",
+   "unit": "fieldwork"
+  }
+ ],
+ "examIntro": "Paper 1 style. Write your answer first, then open the mark scheme. The data questions give a small table in the question: quote the figures and show your working.",
+ "exam": [
+  {
+   "q": "Define the term ecosystem.",
+   "marks": 2,
+   "points": [
+    "A community of living organisms / all the populations in an area",
+    "interacting with each other and their non-living (abiotic) environment"
+   ],
+   "unit": "ecosystems"
+  },
+  {
+   "q": "Explain the role of decomposers in an ecosystem.",
+   "marks": 3,
+   "points": [
+    "Decomposers are bacteria and fungi",
+    "They break down dead organisms and waste",
+    "releasing nutrients (e.g. nitrates) back into the soil",
+    "which plants take up again, so nutrients are recycled",
+    "They release carbon dioxide by respiration"
+   ],
+   "note": "Any 3.",
+   "unit": "ecosystems"
+  },
+  {
+   "q": "Energy in a food chain (kJ per m² per year): grass 20 000; grasshoppers 2 000; frogs 180; snakes 15. (a) Calculate the percentage of energy passed from grass to grasshoppers. (b) Explain why energy is lost between trophic levels. (c) Suggest why there are very few snakes.",
+   "marks": 5,
+   "points": [
+    "(a) 2 000 ÷ 20 000 × 100 = 10%",
+    "(b) Energy used in respiration / lost as heat",
+    "(b) Energy used for movement",
+    "(b) Not all of the organism is eaten or digested; lost in faeces",
+    "(c) Only 15 kJ reaches snakes, so there is too little energy to support many"
+   ],
+   "note": "Any 5; (a) needs working.",
+   "unit": "ecosystems"
+  },
+  {
+   "q": "State two reasons why biodiversity is important to people.",
+   "marks": 2,
+   "points": [
+    "Source of food",
+    "Source of medicines",
+    "Timber and other materials",
+    "Genes for breeding new crops",
+    "Ecosystem services, e.g. pollination, clean water",
+    "Tourism / income"
+   ],
+   "note": "Any 2.",
+   "unit": "biodiversity"
+  },
+  {
+   "q": "Explain how an invasive species can reduce biodiversity.",
+   "marks": 3,
+   "points": [
+    "It has no natural predators in its new area, so its population grows quickly",
+    "It outcompetes native species for food or space",
+    "It may eat native species",
+    "It may spread disease to native species",
+    "Native species decline or become extinct"
+   ],
+   "note": "Any 3.",
+   "unit": "biodiversity"
+  },
+  {
+   "q": "Bird species recorded in four habitats in one region: large unbroken woodland (500 ha) 62 species; five separate small woods (20 ha each) 31 species; farmland 18 species; urban park 22 species. (a) Compare the large woodland with the small woods. (b) Suggest reasons for the difference. (c) Suggest one way to increase the number of species in the small woods.",
+   "marks": 5,
+   "points": [
+    "(a) The large woodland has twice as many species as the small woods (62 compared with 31)",
+    "(b) Small woods are fragmented, so populations are small and isolated",
+    "(b) Fewer habitats and niches in small woods / more edge, with more disturbance",
+    "(b) Species that need large territories cannot live in small woods",
+    "(c) Plant wildlife corridors / hedgerows to link the woods / plant more trees to enlarge them"
+   ],
+   "note": "Any 5; (a) needs figures.",
+   "unit": "biodiversity"
+  },
+  {
+   "q": "State two reasons why tropical rainforests are cleared.",
+   "marks": 2,
+   "points": [
+    "Cattle ranching",
+    "Commercial crops, e.g. soya, palm oil",
+    "Logging for timber",
+    "Mining",
+    "Roads / settlements",
+    "HEP reservoirs"
+   ],
+   "note": "Any 2.",
+   "unit": "deforestation"
+  },
+  {
+   "q": "Explain how deforestation can lead to soil erosion and the silting of rivers.",
+   "marks": 4,
+   "points": [
+    "No canopy to intercept heavy rain, so rain hits the soil directly",
+    "No roots to hold the soil together",
+    "Less infiltration, so more surface runoff",
+    "Runoff carries topsoil away",
+    "Soil is deposited in rivers, making them shallower (silting)",
+    "So rivers flood more easily / reservoirs fill up"
+   ],
+   "note": "Any 4.",
+   "unit": "deforestation"
+  },
+  {
+   "q": "Forest cleared each year in Region R (thousand km²): 2004 – 27.8; 2008 – 12.9; 2012 – 4.6; 2016 – 7.9; 2020 – 10.9. (a) Calculate the percentage fall from 2004 to 2012. (b) Describe the trend. (c) Suggest reasons for the changes.",
+   "marks": 6,
+   "points": [
+    "(a) (27.8 − 4.6) ÷ 27.8 × 100",
+    "(a) = 83%",
+    "(b) Clearance fell sharply from 27.8 to 4.6 thousand km² by 2012",
+    "(b) Then rose again to 10.9 by 2020, but still below 2004",
+    "(c) Fall: satellite monitoring, fines and enforcement, new protected areas, agreements by buyers not to use soya from cleared land",
+    "(c) Rise: weaker enforcement or budget cuts, higher prices for beef and soya, new roads opening up the forest"
+   ],
+   "note": "(c) at least one reason for the fall and one for the rise.",
+   "unit": "deforestation"
+  },
+  {
+   "q": "State the difference between in situ and ex situ conservation, with an example of each.",
+   "marks": 2,
+   "points": [
+    "In situ: in the natural habitat, e.g. national park / nature reserve",
+    "Ex situ: outside the natural habitat, e.g. zoo / seed bank / botanic garden"
+   ],
+   "unit": "conservation"
+  },
+  {
+   "q": "Explain how ecotourism can help to conserve a rainforest.",
+   "marks": 4,
+   "points": [
+    "Tourists pay fees that fund conservation, e.g. rangers",
+    "Local people get jobs as guides or in lodges",
+    "So they earn more from protecting the forest than from clearing it",
+    "Small numbers and low-impact facilities limit damage",
+    "Raises awareness / educates visitors",
+    "Gives the government a reason to protect the area"
+   ],
+   "note": "Any 4.",
+   "unit": "conservation"
+  },
+  {
+   "q": "“Zoos are the best way to protect endangered species.” Discuss this statement.",
+   "marks": 6,
+   "points": [
+    "For: captive breeding can increase numbers of very rare species",
+    "For: animals are safe from poaching and habitat loss",
+    "For: research and education raise awareness and funds",
+    "Against: protects only a few individuals, not the habitat or the whole ecosystem",
+    "Against: low genetic diversity; released animals may not survive in the wild",
+    "Against: expensive; in situ protection (parks, corridors, CITES) protects many species at once",
+    "Conclusion: e.g. zoos are a useful back-up, but protecting habitats in situ is better"
+   ],
+   "note": "Two points for, two against, plus a conclusion. Max 5 without a conclusion.",
+   "unit": "conservation"
+  },
+  {
+   "q": "Give two ways to reduce bias in a questionnaire survey.",
+   "marks": 2,
+   "points": [
+    "Avoid leading questions",
+    "Ask people at different times / days / places",
+    "Use random or systematic sampling, e.g. every 10th person",
+    "Stratified sample to include different ages / genders",
+    "Use a large sample size",
+    "Keep it anonymous so people answer honestly"
+   ],
+   "note": "Any 2.",
+   "unit": "fieldwork"
+  },
+  {
+   "q": "A student counted daisies in ten 1 m² quadrats placed at random in a field of 2 500 m². Results: 4, 7, 0, 3, 6, 5, 2, 8, 1, 4. (a) Calculate the mean number of daisies per quadrat. (b) Estimate the number of daisies in the whole field. (c) Suggest one reason why the estimate may be inaccurate.",
+   "marks": 4,
+   "points": [
+    "(a) 40 ÷ 10 = 4 daisies per m²",
+    "(b) 4 × 2 500",
+    "(b) = 10 000 daisies",
+    "(c) Only ten quadrats / small sample; daisies not evenly spread; daisies miscounted or counted twice; plants on the edge of the quadrat not counted consistently"
+   ],
+   "note": "(c) any 1.",
+   "unit": "fieldwork"
+  },
+  {
+   "q": "A student wants to find out what local people think about a planned wind farm. Describe how she should plan and carry out a questionnaire survey.",
+   "marks": 6,
+   "points": [
+    "Write clear questions: mainly closed, with some open questions for opinions",
+    "Avoid leading or biased questions",
+    "Carry out a pilot study and improve the questions",
+    "Choose a large enough sample, e.g. at least 50 people",
+    "Use a sampling method: random, systematic (every 10th person) or stratified by age and gender",
+    "Survey at different times, days and locations",
+    "Ask permission, explain the purpose and keep answers anonymous",
+    "Record answers in a tally chart and present them as graphs"
+   ],
+   "note": "Any 6.",
+   "unit": "fieldwork"
+  }
+ ],
+ "units": [
+  {
+   "key": "ecosystems",
+   "name": "Ecosystems"
+  },
+  {
+   "key": "biodiversity",
+   "name": "Biodiversity"
+  },
+  {
+   "key": "deforestation",
+   "name": "Deforestation"
+  },
+  {
+   "key": "conservation",
+   "name": "Conservation"
+  },
+  {
+   "key": "fieldwork",
+   "name": "Fieldwork"
+  }
+ ]
+}

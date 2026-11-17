@@ -478,6 +478,26 @@
    "front": "Sustainable development",
    "back": "Meeting the needs of people today without harming the ability of future generations to meet theirs.",
    "unit": "sustainable"
+  },
+  {
+   "front": "Recycling metals",
+   "back": "Collecting and reprocessing scrap metal (e.g. aluminium cans, steel) into new products. Saves ore, energy and landfill space, and means less mining.",
+   "unit": "sustainable"
+  },
+  {
+   "front": "Reuse",
+   "back": "Using a product again, for the same or a different purpose, without reprocessing it, e.g. refillable bottles, repairing machines.",
+   "unit": "sustainable"
+  },
+  {
+   "front": "Mining laws and regulation",
+   "back": "Laws that require an EIA, set limits on pollution, and make companies plan and pay for restoring the land before mining is allowed.",
+   "unit": "sustainable"
+  },
+  {
+   "front": "Making mineral reserves last longer",
+   "back": "Reduce demand, reuse, recycle, use materials more efficiently, and substitute other materials where possible.",
+   "unit": "sustainable"
   }
  ],
  "examIntro": "Paper 1 Section A style. Write your answer first, then open the mark scheme. Your mine case study answers go in the last box: fill it in once so it is ready to learn.",

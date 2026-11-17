@@ -1,0 +1,865 @@
+{
+ "id": "em-water-oceans",
+ "subject": "EM",
+ "title": "Water, oceans & fisheries",
+ "sub": "Water supply, pollution, disease, oceans, fisheries",
+ "strategyIntro": "Environmental Management has no Core or Extended split. The full exam is Paper 1 (theory: short questions, then longer questions using source material) and Paper 2 (management in context, based on one country). Most marks come from reading sources and building arguments.",
+ "strategy": [
+  {
+   "title": "Quote the data",
+   "key": true,
+   "points": [
+    "Most marks come from graphs, tables and maps.",
+    "Use figures with units: “fell from 62% to 41%” scores; “it fell” doesn’t.",
+    "Describe the overall trend first, then give the highest, lowest or any exception."
+   ]
+  },
+  {
+   "title": "The 6-mark argument",
+   "key": true,
+   "points": [
+    "Usually one per paper: discuss a statement for and against.",
+    "Structure: two points for, two against, then a conclusion.",
+    "Each point needs a reason: say why it matters, not just what it is."
+   ]
+  },
+  {
+   "title": "Use named examples",
+   "points": [
+    "Name a real dam, river or fishery where you can (e.g. the Peruvian anchovy fishery, North Sea cod).",
+    "On Paper 2, link every answer back to the country in the source. General answers score lower."
+   ]
+  },
+  {
+   "title": "Fieldwork comes up every year",
+   "points": [
+    "Know sampling, quadrats, questionnaires and how to make them reliable.",
+    "Evaluate a method: one strength, one weakness, one improvement."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "State",
+   "Give a short fact. No explanation needed."
+  ],
+  [
+   "Describe",
+   "Say what happens or what you see. With data, quote figures and units."
+  ],
+  [
+   "Explain",
+   "Say why or how. Use “because” and link cause to effect."
+  ],
+  [
+   "Suggest",
+   "Apply what you know to a new situation. Any sensible reason scores."
+  ],
+  [
+   "Compare",
+   "Give similarities or differences for both things in the same sentence."
+  ],
+  [
+   "Calculate",
+   "Show working and give the unit."
+  ],
+  [
+   "Evaluate",
+   "Weigh up both sides and finish with a judgement."
+  ]
+ ],
+ "quizTitle": "Quick recall check",
+ "quizIntro": "These are not exam-format questions (EM has no multiple choice). Use them to check the facts are secure before you try the longer questions.",
+ "flashIntro": "Say each definition out loud before you tap, then check you used the exact keywords.",
+ "flashcards": [
+  {
+   "front": "Global water",
+   "back": "About 97% of Earth’s water is salt water. Of the fresh water, most is frozen in ice caps and glaciers; under 1% of all water is easy to reach.",
+   "unit": "watercycle"
+  },
+  {
+   "front": "Evaporation",
+   "back": "Liquid water turning into water vapour, using heat from the Sun, e.g. from oceans, lakes and soil.",
+   "unit": "watercycle"
+  },
+  {
+   "front": "Transpiration",
+   "back": "Loss of water vapour from plant leaves through the stomata.",
+   "unit": "watercycle"
+  },
+  {
+   "front": "Condensation",
+   "back": "Water vapour cooling and turning back into liquid droplets, forming clouds.",
+   "unit": "watercycle"
+  },
+  {
+   "front": "Precipitation",
+   "back": "Water falling from clouds as rain, snow, sleet or hail.",
+   "unit": "watercycle"
+  },
+  {
+   "front": "Infiltration and surface runoff",
+   "back": "Infiltration: water soaking into the soil. Surface runoff: water flowing over the ground into rivers.",
+   "unit": "watercycle"
+  },
+  {
+   "front": "Aquifer",
+   "back": "A layer of porous rock that stores groundwater, which can be pumped up through wells.",
+   "unit": "watercycle"
+  },
+  {
+   "front": "Potable water",
+   "back": "Water that is safe to drink.",
+   "unit": "watercycle"
+  },
+  {
+   "front": "Desalination",
+   "back": "Removing salt from sea water to make fresh water (e.g. reverse osmosis). Reliable but expensive and uses a lot of energy.",
+   "unit": "watercycle"
+  },
+  {
+   "front": "Multipurpose dam scheme",
+   "back": "A dam and reservoir built for several uses: HEP, irrigation, water supply, flood control and recreation.",
+   "unit": "watercycle"
+  },
+  {
+   "front": "Point and non-point sources",
+   "back": "Point source: pollution from one place, e.g. a factory pipe. Non-point (diffuse): from a wide area, e.g. runoff from many farms.",
+   "unit": "waterpoll"
+  },
+  {
+   "front": "Untreated sewage",
+   "back": "Contains organic matter (decomposed by bacteria, using up oxygen) and pathogens that spread disease.",
+   "unit": "waterpoll"
+  },
+  {
+   "front": "Agricultural runoff",
+   "back": "Fertilisers (cause eutrophication), pesticides and animal waste washed into rivers.",
+   "unit": "waterpoll"
+  },
+  {
+   "front": "Industrial pollution",
+   "back": "Toxic chemicals and heavy metals such as mercury and lead released into water. They can bioaccumulate in food chains.",
+   "unit": "waterpoll"
+  },
+  {
+   "front": "Thermal pollution",
+   "back": "Warm water released from power stations or factories. Warm water holds less dissolved oxygen.",
+   "unit": "waterpoll"
+  },
+  {
+   "front": "Oil spills",
+   "back": "Oil coats birds’ feathers (they lose waterproofing and insulation), blocks light and is toxic to marine life.",
+   "unit": "waterpoll"
+  },
+  {
+   "front": "Plastics",
+   "back": "Not biodegradable. Animals become entangled or eat it; microplastics enter food chains.",
+   "unit": "waterpoll"
+  },
+  {
+   "front": "Indicator species",
+   "back": "Organisms whose presence or absence shows how polluted water is, e.g. stonefly nymphs = clean; bloodworms, sludge worms = polluted.",
+   "unit": "waterpoll"
+  },
+  {
+   "front": "BOD",
+   "back": "Biochemical oxygen demand: oxygen used by microorganisms breaking down organic matter. High BOD = heavy organic pollution.",
+   "unit": "waterpoll"
+  },
+  {
+   "front": "Sewage treatment",
+   "back": "Screening, settling (sludge removed), bacteria breaking down organic matter with air bubbled through, settling again, then release; sludge can make biogas.",
+   "unit": "waterpoll"
+  },
+  {
+   "front": "Pathogen",
+   "back": "A microorganism that causes disease, e.g. a bacterium, virus or protoctist.",
+   "unit": "disease"
+  },
+  {
+   "front": "Waterborne disease",
+   "back": "A disease caught by drinking or using water containing pathogens, e.g. cholera, typhoid.",
+   "unit": "disease"
+  },
+  {
+   "front": "Cholera",
+   "back": "Caused by a bacterium spread in water contaminated with faeces. Causes severe diarrhoea and dehydration, which can kill within hours.",
+   "unit": "disease"
+  },
+  {
+   "front": "Oral rehydration therapy",
+   "back": "Treating dehydration (e.g. from cholera) with clean water containing salts and sugar.",
+   "unit": "disease"
+  },
+  {
+   "front": "Preventing cholera",
+   "back": "Safe drinking water (treated, boiled), sanitation (toilets, sewers), handwashing, vaccination.",
+   "unit": "disease"
+  },
+  {
+   "front": "Sanitation",
+   "back": "Safe disposal of human waste, e.g. toilets and sewers, so it does not contaminate water.",
+   "unit": "disease"
+  },
+  {
+   "front": "Water treatment",
+   "back": "Making water potable: filtration (e.g. through sand) removes particles; chlorination kills pathogens.",
+   "unit": "disease"
+  },
+  {
+   "front": "Vector",
+   "back": "An organism that carries a pathogen from one host to another, e.g. the mosquito for malaria.",
+   "unit": "disease"
+  },
+  {
+   "front": "Malaria",
+   "back": "Caused by a Plasmodium parasite, passed on when a female Anopheles mosquito bites. Mosquitoes breed in still water.",
+   "unit": "disease"
+  },
+  {
+   "front": "Controlling malaria",
+   "back": "Insecticide-treated bed nets, draining standing water, spraying insecticide, fish that eat larvae, antimalarial drugs.",
+   "unit": "disease"
+  },
+  {
+   "front": "Ocean resources",
+   "back": "Food (fish, shellfish, seaweed), minerals (oil, gas, sand, gravel, salt), energy (tidal, wave, offshore wind), transport, tourism.",
+   "unit": "oceans"
+  },
+  {
+   "front": "Continental shelf",
+   "back": "Shallow sea (under about 200 m deep) around continents. Light reaches far down, so plankton thrive: most fishing happens here.",
+   "unit": "oceans"
+  },
+  {
+   "front": "Phytoplankton",
+   "back": "Microscopic algae that photosynthesise near the surface. The producers at the base of most marine food chains.",
+   "unit": "oceans"
+  },
+  {
+   "front": "Upwelling",
+   "back": "Cold, nutrient-rich water rising from the deep ocean to the surface. Plankton grow fast, making rich fishing grounds, e.g. off Peru.",
+   "unit": "oceans"
+  },
+  {
+   "front": "Ocean currents",
+   "back": "Large movements of surface water driven by winds. Warm and cold currents move heat around the planet.",
+   "unit": "oceans"
+  },
+  {
+   "front": "El Niño",
+   "back": "Trade winds weaken; warm water spreads east across the Pacific to South America and stops upwelling off Peru. Fish catches collapse.",
+   "unit": "oceans"
+  },
+  {
+   "front": "El Niño weather",
+   "back": "Heavy rain and floods in Peru and Ecuador; drought in Australia and Indonesia.",
+   "unit": "oceans"
+  },
+  {
+   "front": "Exclusive Economic Zone (EEZ)",
+   "back": "Sea up to 200 nautical miles from a country’s coast, where it controls fishing and mineral rights.",
+   "unit": "oceans"
+  },
+  {
+   "front": "Coral reefs",
+   "back": "Very high biodiversity; protect coasts and support fisheries and tourism. Threatened by warming (bleaching), pollution and destructive fishing.",
+   "unit": "oceans"
+  },
+  {
+   "front": "Overfishing",
+   "back": "Catching fish faster than they can reproduce, so the stock (population) falls.",
+   "unit": "fisheries"
+  },
+  {
+   "front": "Maximum sustainable yield",
+   "back": "The largest catch that can be taken from a fish stock every year without the stock falling.",
+   "unit": "fisheries"
+  },
+  {
+   "front": "Bycatch",
+   "back": "Unwanted species caught by accident, e.g. dolphins, turtles, young fish. Often thrown back dead.",
+   "unit": "fisheries"
+  },
+  {
+   "front": "Trawling",
+   "back": "Dragging a large net through the water or along the seabed. Bottom trawling damages seabed habitats.",
+   "unit": "fisheries"
+  },
+  {
+   "front": "Purse seine net",
+   "back": "A net that encircles a shoal and is then pulled closed at the bottom like a drawstring purse.",
+   "unit": "fisheries"
+  },
+  {
+   "front": "Long-lining",
+   "back": "A very long line with thousands of baited hooks. Bycatch includes seabirds, sharks and turtles.",
+   "unit": "fisheries"
+  },
+  {
+   "front": "Fishing quota",
+   "back": "A limit on the amount of a species that may be caught in a period.",
+   "unit": "fisheries"
+  },
+  {
+   "front": "Mesh size regulation",
+   "back": "A minimum size for the holes in nets, so young fish can escape and grow to breed.",
+   "unit": "fisheries"
+  },
+  {
+   "front": "Marine protected area",
+   "back": "An area of sea where fishing is restricted or banned (no-take zone), so stocks can recover.",
+   "unit": "fisheries"
+  },
+  {
+   "front": "Aquaculture (fish farming)",
+   "back": "Raising fish or shellfish in enclosures. Can cause waste pollution, disease spreading to wild fish, escapes, and mangrove clearance.",
+   "unit": "fisheries"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "Most of Earth’s fresh water is stored in:",
+   "options": [
+    "Rivers and lakes",
+    "The atmosphere",
+    "Living things",
+    "Ice caps and glaciers"
+   ],
+   "answer": 3,
+   "why": "Roughly two thirds of fresh water is frozen; most of the rest is groundwater.",
+   "unit": "watercycle"
+  },
+  {
+   "q": "Which process forms clouds?",
+   "options": [
+    "Condensation",
+    "Evaporation",
+    "Infiltration",
+    "Transpiration"
+   ],
+   "answer": 0,
+   "why": "Rising air cools, so water vapour condenses into tiny droplets.",
+   "unit": "watercycle"
+  },
+  {
+   "q": "Globally, which sector uses the most fresh water?",
+   "options": [
+    "Industry",
+    "Homes",
+    "Agriculture (mainly irrigation)",
+    "Power stations"
+   ],
+   "answer": 2,
+   "why": "About 70% of fresh water taken worldwide goes to farming.",
+   "unit": "watercycle"
+  },
+  {
+   "q": "A disadvantage of desalination is that it:",
+   "options": [
+    "Only works in cold countries",
+    "Uses a lot of energy and is expensive",
+    "Makes water unsafe to drink",
+    "Lowers the water table"
+   ],
+   "answer": 1,
+   "why": "It also produces very salty brine that must be disposed of.",
+   "unit": "watercycle"
+  },
+  {
+   "q": "Wells obtain water from:",
+   "options": [
+    "Reservoirs",
+    "The sea",
+    "Rain clouds",
+    "Aquifers (groundwater)"
+   ],
+   "answer": 3,
+   "why": "A well is dug or drilled down below the water table into a water-bearing rock layer.",
+   "unit": "watercycle"
+  },
+  {
+   "q": "“Economic water scarcity” means:",
+   "options": [
+    "The country has no rivers",
+    "There is enough water, but people cannot afford the infrastructure to reach it",
+    "Water is too expensive to export",
+    "All water is used by industry"
+   ],
+   "answer": 1,
+   "why": "Physical scarcity is when there is not enough water at all; economic scarcity is lack of money for pipes, wells and treatment.",
+   "unit": "watercycle"
+  },
+  {
+   "q": "Which organism in a river shows clean, well-oxygenated water?",
+   "options": [
+    "Bloodworm",
+    "Rat-tailed maggot",
+    "Stonefly nymph",
+    "Sludge worm"
+   ],
+   "answer": 2,
+   "why": "Stonefly nymphs need high oxygen levels. The other three can survive in low-oxygen, polluted water.",
+   "unit": "waterpoll"
+  },
+  {
+   "q": "Thermal pollution harms fish because:",
+   "options": [
+    "Warm water holds less dissolved oxygen",
+    "Warm water contains heavy metals",
+    "It makes the water acidic",
+    "It blocks out light"
+   ],
+   "answer": 0,
+   "why": "Fish also respire faster in warm water, so they need more oxygen just as less is available.",
+   "unit": "waterpoll"
+  },
+  {
+   "q": "A high BOD in a river shows that:",
+   "options": [
+    "The water is very clean",
+    "There is a lot of organic matter being decomposed",
+    "There are many fish",
+    "The water is cold"
+   ],
+   "answer": 1,
+   "why": "Decomposers break down the organic matter (e.g. sewage) and use up oxygen as they do.",
+   "unit": "waterpoll"
+  },
+  {
+   "q": "Which is a non-point (diffuse) source of pollution?",
+   "options": [
+    "A pipe from a paper mill",
+    "A sewage works outlet",
+    "A power station outlet",
+    "Fertiliser running off many farms"
+   ],
+   "answer": 3,
+   "why": "It enters the river along a long stretch rather than at one point, so it is hard to control.",
+   "unit": "waterpoll"
+  },
+  {
+   "q": "Oil spills kill seabirds mainly because the oil:",
+   "options": [
+    "Makes the water too warm",
+    "Coats their feathers, so they lose waterproofing and insulation",
+    "Kills all their prey at once",
+    "Makes their eggs too hard"
+   ],
+   "answer": 1,
+   "why": "Oiled birds get cold, cannot fly or float, and swallow oil while preening.",
+   "unit": "waterpoll"
+  },
+  {
+   "q": "Malaria is passed to humans by:",
+   "options": [
+    "Drinking dirty water",
+    "The bite of an infected female mosquito",
+    "Eating undercooked meat",
+    "Touching an infected person"
+   ],
+   "answer": 1,
+   "why": "Malaria is water-related (mosquitoes breed in water) but not waterborne.",
+   "unit": "disease"
+  },
+  {
+   "q": "Draining areas of standing water helps control malaria because it:",
+   "options": [
+    "Kills the Plasmodium in people",
+    "Makes water safe to drink",
+    "Removes places where mosquito larvae develop",
+    "Stops people getting dehydrated"
+   ],
+   "answer": 2,
+   "why": "Mosquitoes lay eggs in still water, and the larvae live there.",
+   "unit": "disease"
+  },
+  {
+   "q": "Cholera kills mainly by causing:",
+   "options": [
+    "Dehydration from severe diarrhoea",
+    "High fever and brain damage",
+    "Lung infection",
+    "Blood loss"
+   ],
+   "answer": 0,
+   "why": "That is why oral rehydration therapy saves so many lives.",
+   "unit": "disease"
+  },
+  {
+   "q": "Chlorine is added to drinking water to:",
+   "options": [
+    "Remove salt",
+    "Make it taste better",
+    "Remove solid particles",
+    "Kill pathogens"
+   ],
+   "answer": 3,
+   "why": "Filtration removes particles; chlorination kills bacteria such as the one that causes cholera.",
+   "unit": "disease"
+  },
+  {
+   "q": "Why do cholera outbreaks often follow floods?",
+   "options": [
+    "Floods kill mosquitoes",
+    "Sewage mixes with drinking water and pipes are damaged",
+    "Flood water is too cold",
+    "People drink less water"
+   ],
+   "answer": 1,
+   "why": "Crowded camps with no sanitation add to the risk.",
+   "unit": "disease"
+  },
+  {
+   "q": "Most fishing grounds are on continental shelves because:",
+   "options": [
+    "The water is deep and cold",
+    "Shallow water lets light reach plankton, and rivers bring nutrients",
+    "There are no predators",
+    "The water is fresh"
+   ],
+   "answer": 1,
+   "why": "More plankton means more food for fish.",
+   "unit": "oceans"
+  },
+  {
+   "q": "Upwelling brings to the surface:",
+   "options": [
+    "Warm, nutrient-poor water",
+    "Fresh water from rivers",
+    "Cold, nutrient-rich water",
+    "Oil and gas"
+   ],
+   "answer": 2,
+   "why": "The nutrients (nitrates, phosphates) feed phytoplankton when they reach sunlit water.",
+   "unit": "oceans"
+  },
+  {
+   "q": "During an El Niño year off Peru:",
+   "options": [
+    "Upwelling increases and catches rise",
+    "Warm water stops upwelling, and anchovy catches fall",
+    "The sea freezes",
+    "Trade winds become stronger"
+   ],
+   "answer": 1,
+   "why": "Less nutrient-rich water means less plankton, so anchovies die or move away.",
+   "unit": "oceans"
+  },
+  {
+   "q": "A country’s Exclusive Economic Zone extends:",
+   "options": [
+    "12 nautical miles",
+    "50 nautical miles",
+    "100 nautical miles",
+    "200 nautical miles"
+   ],
+   "answer": 3,
+   "why": "Within its EEZ a country controls fishing and seabed resources such as oil and gas.",
+   "unit": "oceans"
+  },
+  {
+   "q": "Which is a non-living resource from the oceans?",
+   "options": [
+    "Oil and natural gas",
+    "Tuna",
+    "Seaweed",
+    "Krill"
+   ],
+   "answer": 0,
+   "why": "Other non-living resources: sand and gravel, salt, manganese nodules.",
+   "unit": "oceans"
+  },
+  {
+   "q": "A larger minimum mesh size helps to conserve fish stocks because:",
+   "options": [
+    "More fish are caught",
+    "Young fish can escape and grow to breed",
+    "Nets last longer",
+    "Fishing boats use less fuel"
+   ],
+   "answer": 1,
+   "why": "Fish must breed at least once before being caught if the stock is to replace itself.",
+   "unit": "fisheries"
+  },
+  {
+   "q": "Which fishing method does most damage to seabed habitats?",
+   "options": [
+    "Rod and line",
+    "Purse seine",
+    "Bottom trawling",
+    "Pole and line"
+   ],
+   "answer": 2,
+   "why": "Heavy nets dragged along the seabed destroy corals, sponges and breeding areas.",
+   "unit": "fisheries"
+  },
+  {
+   "q": "Sonar and GPS on fishing boats increase the risk of overfishing because they:",
+   "options": [
+    "Make fishing slower",
+    "Scare fish away",
+    "Make boats cheaper",
+    "Help boats find and catch whole shoals"
+   ],
+   "answer": 3,
+   "why": "Technology raised catches far above what stocks could replace.",
+   "unit": "fisheries"
+  },
+  {
+   "q": "Which is a problem caused by fish farming?",
+   "options": [
+    "Waste and disease spreading to wild fish",
+    "It always increases bycatch",
+    "It uses no feed",
+    "It damages the seabed by trawling"
+   ],
+   "answer": 0,
+   "why": "Farmed salmon, for example, can spread sea lice to wild fish; feed is often made from wild-caught fish.",
+   "unit": "fisheries"
+  },
+  {
+   "q": "Fishing quotas can fail because:",
+   "options": [
+    "They are always too high",
+    "Fish do not reproduce",
+    "They are hard to enforce, and fish may be caught illegally or discarded",
+    "They only apply to farmed fish"
+   ],
+   "answer": 2,
+   "why": "Fishers may land extra fish illegally, or throw back dead fish that would take them over quota.",
+   "unit": "fisheries"
+  }
+ ],
+ "examIntro": "Paper 1 style. Write your answer first, then open the mark scheme. The data questions give a small table in the question: quote the figures in your answer.",
+ "exam": [
+  {
+   "q": "State two ways water can be supplied to a town.",
+   "marks": 2,
+   "points": [
+    "Wells / boreholes into aquifers",
+    "Rivers",
+    "Reservoirs behind dams",
+    "Desalination of sea water",
+    "Rainwater harvesting",
+    "Water transfer by pipeline or canal"
+   ],
+   "note": "Any 2.",
+   "unit": "watercycle"
+  },
+  {
+   "q": "Water use by sector (%). Country P (high-income): agriculture 30, industry 50, domestic 20. Country Q (low-income): agriculture 85, industry 5, domestic 10. Compare the water use of the two countries and suggest reasons for the differences.",
+   "marks": 4,
+   "points": [
+    "Q uses a much higher share for agriculture (85% compared with 30%)",
+    "P uses a much higher share for industry (50% compared with 5%)",
+    "P uses a higher share for domestic use (20% compared with 10%)",
+    "Q’s economy depends more on farming / needs irrigation in a dry climate",
+    "P is more industrialised",
+    "P’s homes have piped water and appliances such as washing machines and showers"
+   ],
+   "note": "Any 4; at least one must quote figures for both countries.",
+   "unit": "watercycle"
+  },
+  {
+   "q": "Evaluate the use of multipurpose dam schemes to manage water.",
+   "marks": 6,
+   "points": [
+    "Benefit: HEP, a renewable source of electricity",
+    "Benefit: reliable water supply for irrigation, homes and industry all year",
+    "Benefit: flood control downstream",
+    "Benefit: recreation, tourism and fishing on the reservoir",
+    "Cost: land flooded, so people are relocated and habitats lost",
+    "Cost: sediment trapped behind the dam, so the reservoir silts up and farmland downstream gets less fertile silt",
+    "Cost: very expensive; blocks fish migration; disputes with countries downstream",
+    "Judgement: e.g. worthwhile if the people moved are compensated and an EIA is carried out"
+   ],
+   "note": "Benefits and costs needed, plus a judgement. Max 5 without a judgement.",
+   "unit": "watercycle"
+  },
+  {
+   "q": "State two sources of water pollution.",
+   "marks": 2,
+   "points": [
+    "Untreated sewage",
+    "Fertiliser or pesticide runoff from farms",
+    "Industrial waste / heavy metals",
+    "Oil spills",
+    "Warm water from power stations",
+    "Plastic waste",
+    "Leachate from landfill / mining waste"
+   ],
+   "note": "Any 2.",
+   "unit": "waterpoll"
+  },
+  {
+   "q": "Describe how sewage is treated before the water is released into a river.",
+   "marks": 4,
+   "points": [
+    "Screening removes large objects / grit",
+    "Primary settling tanks: solids sink as sludge",
+    "Aeration: air is bubbled through / trickling filter",
+    "Bacteria break down organic matter",
+    "Second settling tank removes bacteria and remaining solids",
+    "Water may be disinfected (e.g. UV) before release; sludge digested to make biogas or fertiliser"
+   ],
+   "note": "Any 4, in order.",
+   "unit": "waterpoll"
+  },
+  {
+   "q": "Dissolved oxygen (mg per litre) at sites along a river: Site 1 (500 m above a sewage outlet) 9.5; Site 2 (at the outlet) 3.0; Site 3 (1 km below) 5.5; Site 4 (5 km below) 8.5. (a) Describe the pattern. (b) Explain the low value at Site 2. (c) Suggest why the oxygen level recovers downstream.",
+   "marks": 5,
+   "points": [
+    "(a) High above the outlet (9.5) and falls sharply to 3.0 at the outlet",
+    "(a) Rises again downstream to 8.5 at 5 km, nearly back to the upstream level",
+    "(b) Sewage adds organic matter; bacteria decompose it",
+    "(b) Bacteria use up oxygen in respiration",
+    "(c) The organic matter has been broken down / diluted downstream",
+    "(c) Oxygen dissolves from the air (e.g. at riffles) / is released by water plants in photosynthesis"
+   ],
+   "note": "Any 5; (a) needs figures.",
+   "unit": "waterpoll"
+  },
+  {
+   "q": "Explain why cholera spreads more easily where there is no sanitation.",
+   "marks": 3,
+   "points": [
+    "The faeces of infected people contain the cholera bacteria",
+    "Without toilets or sewers, faeces get into rivers, wells or water supplies",
+    "People drink or wash food in this untreated water",
+    "So more people are infected and the cycle continues"
+   ],
+   "note": "Any 3.",
+   "unit": "disease"
+  },
+  {
+   "q": "Describe two methods of controlling malaria and explain how each works.",
+   "marks": 4,
+   "points": [
+    "Bed nets treated with insecticide",
+    "Stop mosquitoes biting people at night / kill mosquitoes that land",
+    "Draining standing water / adding oil to ponds / fish that eat larvae",
+    "Removes or kills mosquito larvae, so fewer adult mosquitoes",
+    "Spraying insecticide indoors / antimalarial drugs",
+    "Kills adult mosquitoes / kills the parasite in the body"
+   ],
+   "note": "2 methods with an explanation each.",
+   "unit": "disease"
+  },
+  {
+   "q": "Malaria cases in District Z (thousands): 2010 – 48; 2013 – 41; 2016 – 22; 2019 – 15; 2022 – 19. Bed nets were handed out from 2014. (a) Describe the trend. (b) Calculate the percentage decrease from 2010 to 2019. (c) Suggest two reasons why cases rose after 2019.",
+   "marks": 6,
+   "points": [
+    "(a) Cases fell from 48 000 to 15 000 by 2019, then rose to 19 000",
+    "(a) Fastest fall 2013–2016 (41 000 to 22 000), after nets were handed out",
+    "(b) (48 − 15) ÷ 48 × 100",
+    "(b) = 69% (68.75%)",
+    "(c) Nets wear out or are not replaced",
+    "(c) Mosquitoes resistant to insecticide / parasite resistant to drugs",
+    "(c) Heavy rain or floods made more breeding sites / funding for control cut"
+   ],
+   "note": "(c) any 2.",
+   "unit": "disease"
+  },
+  {
+   "q": "State three resources, other than food, that people obtain from the oceans.",
+   "marks": 3,
+   "points": [
+    "Oil and natural gas",
+    "Sand and gravel",
+    "Salt / minerals such as manganese nodules",
+    "Energy: tidal, wave or offshore wind",
+    "Fresh water by desalination",
+    "Transport routes / tourism"
+   ],
+   "note": "Any 3.",
+   "unit": "oceans"
+  },
+  {
+   "q": "Explain why areas of upwelling are rich fishing grounds.",
+   "marks": 3,
+   "points": [
+    "Cold water rises from the deep ocean",
+    "It carries nutrients (nitrates, phosphates) to the surface",
+    "In sunlight, phytoplankton grow rapidly",
+    "Zooplankton and fish feed on them, so there are large fish populations"
+   ],
+   "note": "Any 3.",
+   "unit": "oceans"
+  },
+  {
+   "q": "Anchovy catch off a South American coast (million tonnes, made-up figures): 1970 – 12.0; 1973 – 1.8; 1980 – 0.8; 1994 – 9.5; 1998 – 1.5; 2004 – 10.5. El Niño events happened in 1972–73, 1982–83 and 1997–98. (a) Describe the changes in the catch. (b) Explain how El Niño causes the catch to fall. (c) Suggest one other reason why the catch stayed low in 1980.",
+   "marks": 6,
+   "points": [
+    "(a) The catch varies greatly / falls and recovers",
+    "(a) Fell from 12.0 in 1970 to 1.8 in 1973; recovered to 9.5–10.5 by 1994 and 2004",
+    "(a) Sharp falls in El Niño years (1973 and 1998)",
+    "(b) Trade winds weaken and warm water spreads east over the cold water",
+    "(b) Upwelling stops, so no nutrients reach the surface",
+    "(b) Less plankton, so anchovies starve or move away",
+    "(c) Overfishing: too few adult fish were left to breed after the collapse"
+   ],
+   "note": "Any 6, with at least one mark from each part.",
+   "unit": "oceans"
+  },
+  {
+   "q": "State what is meant by bycatch and give one example.",
+   "marks": 2,
+   "points": [
+    "Species caught unintentionally / not the target species",
+    "Example: dolphins, turtles, seabirds, sharks or young fish"
+   ],
+   "unit": "fisheries"
+  },
+  {
+   "q": "Cod caught in Sea Area N (thousand tonnes): 1970 – 300; 1980 – 250; 1990 – 120; 2000 – 60; 2010 – 40. Number of large trawlers: 1970 – 80; 1980 – 110; 1990 – 140; 2000 – 120; 2010 – 70. (a) Calculate the percentage fall in the catch from 1970 to 2010. (b) Suggest why the catch fell between 1980 and 1990 even though the number of trawlers increased.",
+   "marks": 4,
+   "points": [
+    "(a) (300 − 40) ÷ 300 × 100",
+    "(a) = 87%",
+    "(b) More fishing effort but fewer fish: catch fell from 250 to 120 while trawlers rose from 110 to 140",
+    "(b) The stock was overfished: fish caught faster than they could reproduce / young fish caught before breeding"
+   ],
+   "note": "(b) needs data and a reason.",
+   "unit": "fisheries"
+  },
+  {
+   "q": "Evaluate methods used to manage fish stocks.",
+   "marks": 6,
+   "points": [
+    "Quotas limit the catch, but are hard to enforce",
+    "Larger mesh sizes let young fish escape, but bycatch of other species can continue",
+    "Closed seasons protect fish while they breed",
+    "Marine protected areas let stocks recover and fish spill over to nearby areas, but are hard to police",
+    "Bans on methods such as bottom trawling or drift nets protect habitats and reduce bycatch",
+    "Fish farming reduces pressure on wild stocks, but causes pollution and disease",
+    "Judgement: e.g. a combination works best, with monitoring and international agreement because fish cross borders"
+   ],
+   "note": "At least two methods weighed up, plus a judgement. Max 5 without a judgement.",
+   "unit": "fisheries"
+  }
+ ],
+ "units": [
+  {
+   "key": "watercycle",
+   "name": "Water cycle & supply"
+  },
+  {
+   "key": "waterpoll",
+   "name": "Water pollution"
+  },
+  {
+   "key": "disease",
+   "name": "Water & disease"
+  },
+  {
+   "key": "oceans",
+   "name": "Oceans"
+  },
+  {
+   "key": "fisheries",
+   "name": "Fisheries"
+  }
+ ]
+}
