@@ -671,7 +671,7 @@ function renderSubject(el, s) {
     <details class="card rv-guide" open><summary><b>📋 How it's marked</b></summary>
       <div class="list" style="margin-top:8px">${s.guide.papers.map(([p, d]) => `<div class="item-sub"><b>${esc(p)}</b> · ${esc(d)}</div>`).join("")}</div>
       <ul class="pk-ul">${s.guide.tips.map(x => `<li>${esc(x)}</li>`).join("")}</ul>${s.guide.note ? `<div class="muted small">${esc(s.guide.note)}</div>` : ""}</details>
-    <div id="rvGrade"></div><div id="rvTopics"></div>`;
+    <div id="rvTopics"></div><div id="rvGrade"></div>`; // marking for this subject: at the bottom
   el.querySelector("#rvBack").onclick = () => go({ name: "home" });
   if (subjectPacks(s).length) {
     const gbox = el.querySelector("#rvGrade");
