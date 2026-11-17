@@ -1,0 +1,540 @@
+{
+ "id": "bio-health-breathing",
+ "subject": "Bio",
+ "title": "Disease, breathing & respiration",
+ "sub": "Pathogens and body defences, lungs and gas exchange, aerobic and anaerobic respiration",
+ "units": [
+  {
+   "key": "disease",
+   "name": "Disease & immunity"
+  },
+  {
+   "key": "gasexchange",
+   "name": "Gas exchange"
+  },
+  {
+   "key": "respiration",
+   "name": "Respiration"
+  }
+ ],
+ "strategyIntro": "Cambridge Core Biology is assessed on Paper 1 (40 multiple-choice questions, 45 min), Paper 3 (structured theory questions, 1h 15, 80 marks) and Paper 6 (questions on experiments). Your school test may be shorter, but it will be marked the same way.",
+ "strategy": [
+  {
+   "title": "Multiple choice",
+   "key": true,
+   "points": [
+    "About a minute per question. If one is taking longer, mark it and move on.",
+    "Cross out options you know are wrong first. Two often look similar: read every word.",
+    "Never leave one blank. A wrong answer loses nothing."
+   ]
+  },
+  {
+   "title": "Structured questions",
+   "key": true,
+   "points": [
+    "Marks go to keywords. Write the textbook term: “oviduct”, not “tube”.",
+    "The marks in brackets tell you how many separate points to make.",
+    "Label diagrams with a ruler line that touches the exact part."
+   ]
+  },
+  {
+   "title": "Questions on experiments",
+   "points": [
+    "Results tables: units go in the column headings, not next to each number.",
+    "Graphs: label both axes with units, choose an even scale, plot with small crosses.",
+    "Know the control variables and one safety precaution for each experiment."
+   ]
+  },
+  {
+   "title": "Easy marks people lose",
+   "points": [
+    "Mixing up breathing and respiration. Breathing moves air; respiration is a chemical reaction in every cell.",
+    "Writing that respiration “makes energy”. It releases energy.",
+    "Saying antibiotics work on viruses. They only kill bacteria.",
+    "Forgetting the word “anaerobic” means without oxygen, and that in muscles it makes lactic acid, not alcohol."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "State",
+   "Give a short fact. No explanation needed."
+  ],
+  [
+   "Describe",
+   "Say what happens or what you see. With data, quote figures and units."
+  ],
+  [
+   "Explain",
+   "Say why or how. Use “because” and link cause to effect."
+  ],
+  [
+   "Suggest",
+   "Apply what you know to a new situation. Any sensible reason scores."
+  ],
+  [
+   "Compare",
+   "Give similarities or differences for both things in the same sentence."
+  ],
+  [
+   "Calculate",
+   "Show working and give the unit."
+  ]
+ ],
+ "quizTitle": "Multiple-choice practice",
+ "quizIntro": "Answer in Paper 1 style: about a minute each, eliminating wrong options first. Read the explanation after every answer, even when you get it right.",
+ "flashIntro": "These are close to Cambridge’s own wording. Say each definition out loud before you tap, then check you used the exact keywords.",
+ "flashcards": [
+  {
+   "front": "Pathogen",
+   "back": "A disease-causing organism, e.g. a bacterium, virus or fungus.",
+   "unit": "disease"
+  },
+  {
+   "front": "Transmissible disease",
+   "back": "A disease in which the pathogen can be passed from one host to another.",
+   "unit": "disease"
+  },
+  {
+   "front": "Direct transmission",
+   "back": "Passing a pathogen through contact with blood or other body fluids, e.g. HIV.",
+   "unit": "disease"
+  },
+  {
+   "front": "Indirect transmission",
+   "back": "Passing a pathogen via contaminated surfaces, food, water, the air, or animals such as insects.",
+   "unit": "disease"
+  },
+  {
+   "front": "Mechanical barriers",
+   "back": "Skin and the hairs in the nose stop pathogens getting into the body.",
+   "unit": "disease"
+  },
+  {
+   "front": "Chemical barriers",
+   "back": "Mucus traps pathogens; stomach acid kills pathogens in food.",
+   "unit": "disease"
+  },
+  {
+   "front": "White blood cells",
+   "back": "Phagocytes engulf and digest pathogens (phagocytosis); lymphocytes make antibodies.",
+   "unit": "disease"
+  },
+  {
+   "front": "Vaccination",
+   "back": "A vaccine contains weakened or dead pathogens (or their antigens). The body makes antibodies, so it can fight the real pathogen quickly later.",
+   "unit": "disease"
+  },
+  {
+   "front": "Controlling the spread of disease",
+   "back": "Clean water supply, hygienic food preparation, good personal hygiene, safe waste disposal and sewage treatment.",
+   "unit": "disease"
+  },
+  {
+   "front": "Antibiotics",
+   "back": "Drugs that kill bacteria. They have no effect on viruses.",
+   "unit": "disease"
+  },
+  {
+   "front": "Features of gas exchange surfaces",
+   "back": "Large surface area, thin surface, good blood supply and good ventilation with air.",
+   "unit": "gasexchange"
+  },
+  {
+   "front": "Alveoli",
+   "back": "Tiny air sacs at the ends of the bronchioles where gas exchange happens. Walls one cell thick, surrounded by capillaries.",
+   "unit": "gasexchange"
+  },
+  {
+   "front": "Route of air into the lungs",
+   "back": "Nose/mouth → larynx → trachea → bronchi → bronchioles → alveoli.",
+   "unit": "gasexchange"
+  },
+  {
+   "front": "Cartilage in the trachea",
+   "back": "C-shaped rings that keep the airway open.",
+   "unit": "gasexchange"
+  },
+  {
+   "front": "Inspired vs expired air",
+   "back": "Expired air has less oxygen (about 16% vs 21%), more carbon dioxide (about 4% vs 0.04%) and more water vapour.",
+   "unit": "gasexchange"
+  },
+  {
+   "front": "Limewater test",
+   "back": "Limewater turns milky (cloudy) with carbon dioxide. Expired air turns it cloudy faster than inspired air.",
+   "unit": "gasexchange"
+  },
+  {
+   "front": "Breathing in",
+   "back": "Diaphragm contracts and flattens; intercostal muscles raise the ribs; chest volume increases, so air is drawn in.",
+   "unit": "gasexchange"
+  },
+  {
+   "front": "Exercise and breathing",
+   "back": "Rate and depth of breathing increase, to supply more oxygen and remove more carbon dioxide.",
+   "unit": "gasexchange"
+  },
+  {
+   "front": "Mucus and cilia",
+   "back": "Goblet cells make mucus that traps dust and pathogens; cilia sweep it up to the throat.",
+   "unit": "gasexchange"
+  },
+  {
+   "front": "Breathing vs respiration",
+   "back": "Breathing moves air in and out of the lungs. Respiration is the chemical reactions in cells that release energy.",
+   "unit": "gasexchange"
+  },
+  {
+   "front": "Aerobic respiration",
+   "back": "Chemical reactions in cells that use oxygen to break down nutrient molecules to release energy.",
+   "unit": "respiration"
+  },
+  {
+   "front": "Word equation for aerobic respiration",
+   "back": "glucose + oxygen → carbon dioxide + water",
+   "unit": "respiration"
+  },
+  {
+   "front": "Anaerobic respiration",
+   "back": "Chemical reactions in cells that break down nutrient molecules to release energy without using oxygen.",
+   "unit": "respiration"
+  },
+  {
+   "front": "Anaerobic respiration in muscles",
+   "back": "glucose → lactic acid",
+   "unit": "respiration"
+  },
+  {
+   "front": "Anaerobic respiration in yeast",
+   "back": "glucose → alcohol (ethanol) + carbon dioxide",
+   "unit": "respiration"
+  },
+  {
+   "front": "Aerobic vs anaerobic energy",
+   "back": "Aerobic respiration releases much more energy per glucose molecule than anaerobic.",
+   "unit": "respiration"
+  },
+  {
+   "front": "Uses of energy from respiration",
+   "back": "Muscle contraction, making proteins, cell division, active transport, growth, nerve impulses, keeping body temperature constant.",
+   "unit": "respiration"
+  },
+  {
+   "front": "Where aerobic respiration happens",
+   "back": "In the mitochondria.",
+   "unit": "respiration"
+  },
+  {
+   "front": "Yeast in bread and beer",
+   "back": "Carbon dioxide makes bread dough rise; alcohol is made in brewing.",
+   "unit": "respiration"
+  },
+  {
+   "front": "Temperature and respiration",
+   "back": "Respiration is controlled by enzymes, so its rate rises with temperature up to an optimum, then falls.",
+   "unit": "respiration"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "What is a pathogen?",
+   "options": [
+    "A chemical that kills bacteria",
+    "A disease-causing organism",
+    "A type of white blood cell",
+    "A protein made by lymphocytes"
+   ],
+   "answer": 1,
+   "why": "A pathogen is the organism that causes disease. The chemicals made by lymphocytes are antibodies.",
+   "unit": "disease"
+  },
+  {
+   "q": "How is HIV transmitted?",
+   "options": [
+    "By coughing and sneezing",
+    "In contaminated drinking water",
+    "By shaking hands",
+    "Through contact with infected body fluids"
+   ],
+   "answer": 3,
+   "why": "HIV is passed directly in blood and other body fluids, e.g. through sex or shared needles.",
+   "unit": "disease"
+  },
+  {
+   "q": "Which is a chemical barrier against pathogens?",
+   "options": [
+    "Hydrochloric acid in the stomach",
+    "The skin",
+    "Hairs in the nose",
+    "Phagocytes"
+   ],
+   "answer": 0,
+   "why": "Stomach acid kills pathogens in food. Skin and nose hairs are mechanical barriers; phagocytes are cells.",
+   "unit": "disease"
+  },
+  {
+   "q": "Why does treating sewage reduce the spread of disease?",
+   "options": [
+    "It adds antibiotics to rivers",
+    "It vaccinates people",
+    "It removes pathogens before the water goes back into rivers",
+    "It kills mosquitoes"
+   ],
+   "answer": 2,
+   "why": "Untreated sewage contains pathogens that can get into drinking water. Treatment removes them.",
+   "unit": "disease"
+  },
+  {
+   "q": "Why are antibiotics not given for flu?",
+   "options": [
+    "Flu is not transmissible",
+    "Flu is caused by a virus, and antibiotics do not affect viruses",
+    "Antibiotics only work on fungi",
+    "Flu is caused by a bacterium that is too small"
+   ],
+   "answer": 1,
+   "why": "Antibiotics kill bacteria only. Using them for viral infections does nothing and helps resistant bacteria spread.",
+   "unit": "disease"
+  },
+  {
+   "q": "Where does gas exchange take place in the lungs?",
+   "options": [
+    "Trachea",
+    "Bronchi",
+    "Alveoli",
+    "Larynx"
+   ],
+   "answer": 2,
+   "why": "The alveoli have thin walls and a huge surface area next to capillaries. The other parts just carry air.",
+   "unit": "gasexchange"
+  },
+  {
+   "q": "Which shows the approximate composition of expired air?",
+   "options": [
+    "16% oxygen, 4% carbon dioxide",
+    "21% oxygen, 0.04% carbon dioxide",
+    "4% oxygen, 16% carbon dioxide",
+    "21% oxygen, 4% carbon dioxide"
+   ],
+   "answer": 0,
+   "why": "We use some oxygen (21% → 16%) and add carbon dioxide from respiration (0.04% → 4%).",
+   "unit": "gasexchange"
+  },
+  {
+   "q": "What is the function of the cartilage rings in the trachea?",
+   "options": [
+    "To trap dust",
+    "To make mucus",
+    "To exchange gases",
+    "To keep the airway open"
+   ],
+   "answer": 3,
+   "why": "Cartilage is stiff, so the trachea does not collapse when air pressure inside falls.",
+   "unit": "gasexchange"
+  },
+  {
+   "q": "Which is NOT a feature of an efficient gas exchange surface?",
+   "options": [
+    "Large surface area",
+    "Thick walls",
+    "Good blood supply",
+    "Good ventilation"
+   ],
+   "answer": 1,
+   "why": "A thin surface gives a short diffusion distance. Thick walls would slow diffusion.",
+   "unit": "gasexchange"
+  },
+  {
+   "q": "Why do breathing rate and depth increase during exercise?",
+   "options": [
+    "Muscles respire more and need more oxygen; more carbon dioxide must be removed",
+    "The lungs get bigger",
+    "The heart needs less oxygen",
+    "Less carbon dioxide is made"
+   ],
+   "answer": 0,
+   "why": "Working muscles respire faster, so more oxygen must be taken in and more carbon dioxide breathed out.",
+   "unit": "gasexchange"
+  },
+  {
+   "q": "What are the products of aerobic respiration?",
+   "options": [
+    "Glucose and oxygen",
+    "Carbon dioxide and water",
+    "Lactic acid",
+    "Alcohol and carbon dioxide"
+   ],
+   "answer": 1,
+   "why": "Glucose and oxygen are the reactants; carbon dioxide and water are the products.",
+   "unit": "respiration"
+  },
+  {
+   "q": "During hard exercise, anaerobic respiration in muscles produces:",
+   "options": [
+    "Alcohol",
+    "Carbon dioxide and water",
+    "Oxygen",
+    "Lactic acid"
+   ],
+   "answer": 3,
+   "why": "Muscles make lactic acid. Yeast makes alcohol and carbon dioxide.",
+   "unit": "respiration"
+  },
+  {
+   "q": "Why does bread dough rise?",
+   "options": [
+    "Yeast makes carbon dioxide",
+    "Yeast makes oxygen",
+    "Yeast makes lactic acid",
+    "Yeast makes water"
+   ],
+   "answer": 0,
+   "why": "Yeast respires the sugar, and bubbles of carbon dioxide make the dough expand.",
+   "unit": "respiration"
+  },
+  {
+   "q": "Which of these does NOT use energy from respiration?",
+   "options": [
+    "Muscle contraction",
+    "Active transport",
+    "Diffusion of oxygen into cells",
+    "Making proteins"
+   ],
+   "answer": 2,
+   "why": "Diffusion is passive: it uses the particles’ own kinetic energy, not energy from respiration.",
+   "unit": "respiration"
+  },
+  {
+   "q": "Germinating seeds in a vacuum flask make the temperature inside rise. Why?",
+   "options": [
+    "The seeds photosynthesise",
+    "Respiration releases energy, some as heat",
+    "The flask absorbs light",
+    "Water evaporates"
+   ],
+   "answer": 1,
+   "why": "Respiring cells release energy; some is lost as heat, which the flask traps. Boiled (dead) seeds give a control.",
+   "unit": "respiration"
+  }
+ ],
+ "examIntro": "Paper 3 style. Write your answer first, then open the mark scheme and give yourself one mark per point you made clearly. One point per mark is the rule.",
+ "exam": [
+  {
+   "q": "State two ways a pathogen can be transmitted indirectly.",
+   "marks": 2,
+   "points": [
+    "Contaminated surfaces",
+    "Contaminated food",
+    "Contaminated water",
+    "Through the air (droplets)",
+    "By animals / insect vectors"
+   ],
+   "note": "Any 2.",
+   "unit": "disease"
+  },
+  {
+   "q": "Describe three ways the body stops pathogens getting in, or kills them before they cause disease.",
+   "marks": 3,
+   "points": [
+    "Skin acts as a barrier",
+    "Hairs in the nose trap particles",
+    "Mucus traps pathogens",
+    "Stomach acid kills pathogens in food",
+    "Phagocytes engulf pathogens",
+    "Lymphocytes make antibodies"
+   ],
+   "note": "Any 3.",
+   "unit": "disease"
+  },
+  {
+   "q": "Explain how vaccination protects a person from a disease.",
+   "marks": 4,
+   "points": [
+    "The vaccine contains weakened / dead pathogens or their antigens",
+    "White blood cells (lymphocytes) make antibodies",
+    "Memory cells are made",
+    "If the real pathogen enters, antibodies are made faster / in larger amounts",
+    "The pathogen is destroyed before the person becomes ill"
+   ],
+   "note": "Any 4.",
+   "unit": "disease"
+  },
+  {
+   "q": "State two features of alveoli that make gas exchange efficient.",
+   "marks": 2,
+   "points": [
+    "Large surface area (many alveoli)",
+    "Thin walls (one cell thick)",
+    "Good blood supply / surrounded by capillaries",
+    "Well ventilated",
+    "Moist surface"
+   ],
+   "note": "Any 2.",
+   "unit": "gasexchange"
+  },
+  {
+   "q": "Describe three differences between inspired and expired air.",
+   "marks": 3,
+   "points": [
+    "Expired air has less oxygen (21% → 16%)",
+    "Expired air has more carbon dioxide (0.04% → 4%)",
+    "Expired air has more water vapour",
+    "Expired air is warmer"
+   ],
+   "note": "Any 3. Compare both, e.g. “expired air has more…”.",
+   "unit": "gasexchange"
+  },
+  {
+   "q": "Explain how oxygen gets from the air in an alveolus into the blood, and how the alveoli are adapted for this.",
+   "marks": 5,
+   "points": [
+    "Oxygen moves by diffusion",
+    "From higher concentration in the alveolus to lower concentration in the blood",
+    "Across thin walls of alveolus and capillary (short distance)",
+    "Many alveoli give a large surface area",
+    "Good blood supply carries oxygen away, keeping the gradient steep",
+    "Ventilation brings in fresh air, keeping oxygen concentration high",
+    "Oxygen combines with haemoglobin in red blood cells"
+   ],
+   "note": "Any 5.",
+   "unit": "gasexchange"
+  },
+  {
+   "q": "Write the word equation for aerobic respiration.",
+   "marks": 2,
+   "points": [
+    "glucose + oxygen (on the left)",
+    "→ carbon dioxide + water (on the right)"
+   ],
+   "unit": "respiration"
+  },
+  {
+   "q": "Compare aerobic and anaerobic respiration in human muscles.",
+   "marks": 3,
+   "points": [
+    "Aerobic uses oxygen; anaerobic does not",
+    "Aerobic makes carbon dioxide and water; anaerobic makes lactic acid",
+    "Aerobic releases much more energy (per glucose)",
+    "Both break down glucose / both release energy"
+   ],
+   "note": "Any 3. Each point must refer to both types.",
+   "unit": "respiration"
+  },
+  {
+   "q": "Describe an experiment to find how temperature affects the rate of respiration of yeast. Include the result you would expect.",
+   "marks": 5,
+   "points": [
+    "Mix yeast with sugar solution",
+    "Put tubes in water baths at different temperatures",
+    "Count bubbles / measure volume of carbon dioxide in a set time",
+    "Keep the same mass of yeast, volume and concentration of sugar solution",
+    "Repeat at each temperature and take a mean",
+    "Rate increases with temperature up to an optimum (around 35–40 °C)",
+    "Then falls as enzymes are denatured"
+   ],
+   "note": "Any 5.",
+   "unit": "respiration"
+  }
+ ]
+}

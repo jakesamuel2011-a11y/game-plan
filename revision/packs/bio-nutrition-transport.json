@@ -1,0 +1,752 @@
+{
+ "id": "bio-nutrition-transport",
+ "subject": "Bio",
+ "title": "Nutrition & transport",
+ "sub": "Photosynthesis and leaves, diet and digestion, transport in plants, the heart and blood",
+ "units": [
+  {
+   "key": "photosynthesis",
+   "name": "Plant nutrition"
+  },
+  {
+   "key": "nutrition",
+   "name": "Human nutrition"
+  },
+  {
+   "key": "planttransport",
+   "name": "Transport in plants"
+  },
+  {
+   "key": "circulation",
+   "name": "Transport in mammals"
+  }
+ ],
+ "strategyIntro": "Cambridge Core Biology is assessed on Paper 1 (40 multiple-choice questions, 45 min), Paper 3 (structured theory questions, 1h 15, 80 marks) and Paper 6 (questions on experiments). Your school test may be shorter, but it will be marked the same way.",
+ "strategy": [
+  {
+   "title": "Multiple choice",
+   "key": true,
+   "points": [
+    "About a minute per question. If one is taking longer, mark it and move on.",
+    "Cross out options you know are wrong first. Two often look similar: read every word.",
+    "Never leave one blank. A wrong answer loses nothing."
+   ]
+  },
+  {
+   "title": "Structured questions",
+   "key": true,
+   "points": [
+    "Marks go to keywords. Write the textbook term: “oviduct”, not “tube”.",
+    "The marks in brackets tell you how many separate points to make.",
+    "Label diagrams with a ruler line that touches the exact part."
+   ]
+  },
+  {
+   "title": "Questions on experiments",
+   "points": [
+    "Results tables: units go in the column headings, not next to each number.",
+    "Graphs: label both axes with units, choose an even scale, plot with small crosses.",
+    "Know the control variables and one safety precaution for each experiment."
+   ]
+  },
+  {
+   "title": "Easy marks people lose",
+   "points": [
+    "Saying plants get food from the soil. They make glucose by photosynthesis; the soil gives water and mineral ions.",
+    "Writing “arteries carry oxygenated blood”. Arteries carry blood away from the heart (the pulmonary artery carries deoxygenated blood).",
+    "Saying the large intestine digests food. It absorbs water.",
+    "Saying transpiration is water “leaving the plant”. Say evaporation from mesophyll cells and diffusion of water vapour out through stomata."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "State",
+   "Give a short fact. No explanation needed."
+  ],
+  [
+   "Describe",
+   "Say what happens or what you see. With data, quote figures and units."
+  ],
+  [
+   "Explain",
+   "Say why or how. Use “because” and link cause to effect."
+  ],
+  [
+   "Suggest",
+   "Apply what you know to a new situation. Any sensible reason scores."
+  ],
+  [
+   "Compare",
+   "Give similarities or differences for both things in the same sentence."
+  ],
+  [
+   "Calculate",
+   "Show working and give the unit."
+  ]
+ ],
+ "quizTitle": "Multiple-choice practice",
+ "quizIntro": "Answer in Paper 1 style: about a minute each, eliminating wrong options first. Read the explanation after every answer, even when you get it right.",
+ "flashIntro": "These are close to Cambridge’s own wording. Say each definition out loud before you tap, then check you used the exact keywords.",
+ "flashcards": [
+  {
+   "front": "Photosynthesis",
+   "back": "The process by which plants make carbohydrates from raw materials using energy from light.",
+   "unit": "photosynthesis"
+  },
+  {
+   "front": "Word equation for photosynthesis",
+   "back": "carbon dioxide + water → glucose + oxygen (in light, with chlorophyll).",
+   "unit": "photosynthesis"
+  },
+  {
+   "front": "Chlorophyll",
+   "back": "Green pigment in chloroplasts that absorbs light energy so it can be used to make glucose.",
+   "unit": "photosynthesis"
+  },
+  {
+   "front": "Uses of glucose in a plant",
+   "back": "Respiration; stored as starch; cellulose for cell walls; sucrose for transport; with nitrate, amino acids for proteins.",
+   "unit": "photosynthesis"
+  },
+  {
+   "front": "Testing a leaf for starch",
+   "back": "Boil in water, then in ethanol (water bath) to remove chlorophyll, rinse, add iodine: blue-black means starch.",
+   "unit": "photosynthesis"
+  },
+  {
+   "front": "Destarching",
+   "back": "Keeping a plant in the dark for about 48 hours so it uses up its starch before an experiment.",
+   "unit": "photosynthesis"
+  },
+  {
+   "front": "Limiting factors",
+   "back": "Light intensity, carbon dioxide concentration and temperature: the one in shortest supply limits the rate.",
+   "unit": "photosynthesis"
+  },
+  {
+   "front": "Nitrate ions",
+   "back": "Needed to make amino acids (proteins). Lack causes poor growth and yellow older leaves.",
+   "unit": "photosynthesis"
+  },
+  {
+   "front": "Magnesium ions",
+   "back": "Needed to make chlorophyll. Lack causes yellowing between the veins of the leaves.",
+   "unit": "photosynthesis"
+  },
+  {
+   "front": "Palisade mesophyll",
+   "back": "Column-shaped cells near the upper surface, packed with chloroplasts: the main site of photosynthesis.",
+   "unit": "photosynthesis"
+  },
+  {
+   "front": "Stomata",
+   "back": "Pores, mainly in the lower epidermis, that let carbon dioxide in and oxygen and water vapour out. Guard cells open and close them.",
+   "unit": "photosynthesis"
+  },
+  {
+   "front": "Balanced diet",
+   "back": "A diet with all the nutrients in the right proportions, plus fibre and water, giving the right amount of energy.",
+   "unit": "nutrition"
+  },
+  {
+   "front": "Main nutrients and uses",
+   "back": "Carbohydrates and fats: energy. Proteins: growth and repair. Vitamins and minerals: health. Fibre: moving food through the gut.",
+   "unit": "nutrition"
+  },
+  {
+   "front": "Vitamin C",
+   "back": "Needed for healthy skin and gums. Lack causes scurvy. Found in citrus fruit.",
+   "unit": "nutrition"
+  },
+  {
+   "front": "Vitamin D and calcium",
+   "back": "Needed for strong bones and teeth. Lack causes rickets (soft, weak bones).",
+   "unit": "nutrition"
+  },
+  {
+   "front": "Iron",
+   "back": "Needed to make haemoglobin in red blood cells. Lack causes anaemia (tiredness).",
+   "unit": "nutrition"
+  },
+  {
+   "front": "Dietary fibre",
+   "back": "Adds bulk so the gut muscles can push food along (peristalsis); prevents constipation.",
+   "unit": "nutrition"
+  },
+  {
+   "front": "Physical digestion",
+   "back": "Breaking food into smaller pieces without chemical change, e.g. chewing. Increases surface area for enzymes.",
+   "unit": "nutrition"
+  },
+  {
+   "front": "Chemical digestion",
+   "back": "Breaking large insoluble molecules into small soluble molecules, using enzymes.",
+   "unit": "nutrition"
+  },
+  {
+   "front": "The three digestive enzymes",
+   "back": "Amylase: starch → simple sugars. Protease: protein → amino acids. Lipase: fats → fatty acids and glycerol.",
+   "unit": "nutrition"
+  },
+  {
+   "front": "Absorption",
+   "back": "Movement of small food molecules and ions through the wall of the intestine into the blood. Mostly in the small intestine.",
+   "unit": "nutrition"
+  },
+  {
+   "front": "Villi",
+   "back": "Finger-like folds lining the small intestine that give a large surface area for absorption.",
+   "unit": "nutrition"
+  },
+  {
+   "front": "Stomach acid",
+   "back": "Hydrochloric acid kills harmful microorganisms in food and gives the acid pH the stomach protease needs.",
+   "unit": "nutrition"
+  },
+  {
+   "front": "Xylem",
+   "back": "Carries water and mineral ions from the roots to the leaves. Also supports the plant.",
+   "unit": "planttransport"
+  },
+  {
+   "front": "Phloem",
+   "back": "Carries sucrose and amino acids from where they are made to where they are used or stored.",
+   "unit": "planttransport"
+  },
+  {
+   "front": "Root hair cells",
+   "back": "Long extensions give a large surface area for taking in water (by osmosis) and mineral ions.",
+   "unit": "planttransport"
+  },
+  {
+   "front": "Pathway of water",
+   "back": "Root hair cells → root cortex cells → xylem → mesophyll cells in the leaf.",
+   "unit": "planttransport"
+  },
+  {
+   "front": "Transpiration",
+   "back": "Loss of water vapour from leaves: water evaporates from mesophyll cells into air spaces, then diffuses out through stomata.",
+   "unit": "planttransport"
+  },
+  {
+   "front": "Why transpiration matters",
+   "back": "It pulls water up the xylem, supplying water and mineral ions to the leaves, and cools the leaf.",
+   "unit": "planttransport"
+  },
+  {
+   "front": "Temperature and transpiration",
+   "back": "Higher temperature increases the rate: water evaporates and diffuses faster.",
+   "unit": "planttransport"
+  },
+  {
+   "front": "Humidity and transpiration",
+   "back": "Higher humidity decreases the rate: the concentration gradient of water vapour is smaller.",
+   "unit": "planttransport"
+  },
+  {
+   "front": "Wilting",
+   "back": "When a plant loses water faster than it takes it in, its cells become flaccid and it droops.",
+   "unit": "planttransport"
+  },
+  {
+   "front": "Investigating water movement",
+   "back": "Put a cut stem (e.g. celery) in coloured dye: the dye shows up in the xylem.",
+   "unit": "planttransport"
+  },
+  {
+   "front": "Double circulation",
+   "back": "Blood passes through the heart twice in one full circuit: once to the lungs and once to the rest of the body.",
+   "unit": "circulation"
+  },
+  {
+   "front": "The four chambers",
+   "back": "Right atrium and right ventricle (pump blood to the lungs); left atrium and left ventricle (pump blood to the body).",
+   "unit": "circulation"
+  },
+  {
+   "front": "Left ventricle wall",
+   "back": "Thicker and more muscular than the right, because it pumps blood all round the body at higher pressure.",
+   "unit": "circulation"
+  },
+  {
+   "front": "Valves",
+   "back": "Stop blood flowing backwards in the heart and veins.",
+   "unit": "circulation"
+  },
+  {
+   "front": "Arteries",
+   "back": "Carry blood away from the heart at high pressure. Thick, muscular, elastic walls; narrow lumen.",
+   "unit": "circulation"
+  },
+  {
+   "front": "Veins",
+   "back": "Carry blood back to the heart at low pressure. Thin walls, wide lumen, valves.",
+   "unit": "circulation"
+  },
+  {
+   "front": "Capillaries",
+   "back": "Tiny vessels with walls one cell thick, where substances are exchanged with tissues.",
+   "unit": "circulation"
+  },
+  {
+   "front": "Red blood cells",
+   "back": "Contain haemoglobin to carry oxygen. No nucleus, biconcave shape.",
+   "unit": "circulation"
+  },
+  {
+   "front": "White blood cells",
+   "back": "Defend against pathogens: phagocytes engulf them (phagocytosis); lymphocytes make antibodies.",
+   "unit": "circulation"
+  },
+  {
+   "front": "Platelets and plasma",
+   "back": "Platelets help blood clot. Plasma carries cells, glucose, ions, carbon dioxide, urea and hormones.",
+   "unit": "circulation"
+  },
+  {
+   "front": "Coronary heart disease",
+   "back": "Fatty deposits block the coronary arteries. Risks: diet high in saturated fat, smoking, lack of exercise, stress, age, genes, being male.",
+   "unit": "circulation"
+  },
+  {
+   "front": "Heart rate and exercise",
+   "back": "Heart rate rises so muscles get more oxygen and glucose and carbon dioxide is removed faster.",
+   "unit": "circulation"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "What are the raw materials for photosynthesis?",
+   "options": [
+    "Glucose and oxygen",
+    "Oxygen and water",
+    "Carbon dioxide and water",
+    "Carbon dioxide and glucose"
+   ],
+   "answer": 2,
+   "why": "Carbon dioxide (from the air) and water (from the soil) are the reactants. Glucose and oxygen are the products.",
+   "unit": "photosynthesis"
+  },
+  {
+   "q": "In the starch test, why is the leaf boiled in ethanol?",
+   "options": [
+    "To remove the chlorophyll so the colour change can be seen",
+    "To kill the leaf",
+    "To turn starch into sugar",
+    "To soften the cuticle"
+   ],
+   "answer": 0,
+   "why": "Ethanol dissolves the chlorophyll, so the green colour no longer hides the iodine result. Boiling in water first kills the leaf.",
+   "unit": "photosynthesis"
+  },
+  {
+   "q": "Which leaf tissue contains the most chloroplasts?",
+   "options": [
+    "Upper epidermis",
+    "Palisade mesophyll",
+    "Spongy mesophyll",
+    "Xylem"
+   ],
+   "answer": 1,
+   "why": "Palisade cells are packed with chloroplasts and sit near the upper surface where light is brightest.",
+   "unit": "photosynthesis"
+  },
+  {
+   "q": "A variegated leaf (green and white) is kept in light and then tested with iodine. Only the green parts go blue-black. This shows that photosynthesis needs:",
+   "options": [
+    "Carbon dioxide",
+    "Water",
+    "Light",
+    "Chlorophyll"
+   ],
+   "answer": 3,
+   "why": "The white parts have no chlorophyll and made no starch, while both parts had the same light and carbon dioxide.",
+   "unit": "photosynthesis"
+  },
+  {
+   "q": "Which mineral ion does a plant need to make chlorophyll?",
+   "options": [
+    "Nitrate",
+    "Phosphate",
+    "Magnesium",
+    "Potassium"
+   ],
+   "answer": 2,
+   "why": "Magnesium is part of the chlorophyll molecule. Nitrate is needed for amino acids.",
+   "unit": "photosynthesis"
+  },
+  {
+   "q": "A lamp is moved further away from some pondweed. What happens to the number of bubbles per minute?",
+   "options": [
+    "It increases, because it is cooler",
+    "It decreases, because light intensity falls",
+    "It stays the same",
+    "It increases, because there is more carbon dioxide"
+   ],
+   "answer": 1,
+   "why": "Further away means lower light intensity, so less photosynthesis and less oxygen given off.",
+   "unit": "photosynthesis"
+  },
+  {
+   "q": "A lack of vitamin C in the diet causes:",
+   "options": [
+    "Rickets",
+    "Scurvy",
+    "Anaemia",
+    "Constipation"
+   ],
+   "answer": 1,
+   "why": "Scurvy (bleeding gums) is caused by lack of vitamin C. Rickets: vitamin D or calcium. Anaemia: iron. Constipation: fibre.",
+   "unit": "nutrition"
+  },
+  {
+   "q": "Where are most digested food molecules absorbed into the blood?",
+   "options": [
+    "Stomach",
+    "Large intestine",
+    "Oesophagus",
+    "Small intestine"
+   ],
+   "answer": 3,
+   "why": "The small intestine is long and lined with villi, giving a huge surface area for absorption.",
+   "unit": "nutrition"
+  },
+  {
+   "q": "Lipase breaks fats down into:",
+   "options": [
+    "Amino acids",
+    "Simple sugars",
+    "Fatty acids and glycerol",
+    "Glucose"
+   ],
+   "answer": 2,
+   "why": "Fats are made of fatty acids and glycerol, so lipase releases those.",
+   "unit": "nutrition"
+  },
+  {
+   "q": "How does chewing help digestion?",
+   "options": [
+    "It increases the surface area for enzymes to act on",
+    "It kills bacteria",
+    "It turns starch into sugar",
+    "It absorbs water"
+   ],
+   "answer": 0,
+   "why": "Chewing is physical digestion: smaller pieces give more surface area, so enzymes work faster.",
+   "unit": "nutrition"
+  },
+  {
+   "q": "What is the main job of the large intestine (colon)?",
+   "options": [
+    "Making bile",
+    "Digesting protein",
+    "Absorbing water",
+    "Making amylase"
+   ],
+   "answer": 2,
+   "why": "Water is absorbed in the colon. Bile comes from the liver; protein is digested in the stomach and small intestine.",
+   "unit": "nutrition"
+  },
+  {
+   "q": "Which order does food pass through the gut?",
+   "options": [
+    "Mouth, stomach, oesophagus, small intestine, large intestine",
+    "Mouth, oesophagus, stomach, small intestine, large intestine",
+    "Mouth, oesophagus, stomach, large intestine, small intestine",
+    "Mouth, stomach, small intestine, oesophagus, large intestine"
+   ],
+   "answer": 1,
+   "why": "Mouth → oesophagus → stomach → small intestine → large intestine → anus. The liver and pancreas add juices but food does not pass through them.",
+   "unit": "nutrition"
+  },
+  {
+   "q": "Which tissue carries water up the stem?",
+   "options": [
+    "Phloem",
+    "Palisade mesophyll",
+    "Xylem",
+    "Epidermis"
+   ],
+   "answer": 2,
+   "why": "Xylem carries water and mineral ions. Phloem carries sucrose and amino acids.",
+   "unit": "planttransport"
+  },
+  {
+   "q": "How is a root hair cell adapted for absorbing water?",
+   "options": [
+    "It contains many chloroplasts",
+    "It has a large surface area",
+    "It has a thick waxy cuticle",
+    "It is dead and hollow"
+   ],
+   "answer": 1,
+   "why": "The long hair-like extension gives a large surface area in contact with soil water.",
+   "unit": "planttransport"
+  },
+  {
+   "q": "In which conditions would transpiration be fastest?",
+   "options": [
+    "Cool and humid",
+    "Cool and dry",
+    "Hot and humid",
+    "Hot and dry"
+   ],
+   "answer": 3,
+   "why": "Heat speeds up evaporation and diffusion; dry air keeps a steep water vapour gradient.",
+   "unit": "planttransport"
+  },
+  {
+   "q": "Water vapour leaves a leaf mainly through the:",
+   "options": [
+    "Stomata",
+    "Upper epidermis",
+    "Xylem",
+    "Palisade cells"
+   ],
+   "answer": 0,
+   "why": "Stomata are pores, mostly on the lower surface. The waxy cuticle stops most water escaping elsewhere.",
+   "unit": "planttransport"
+  },
+  {
+   "q": "What does phloem transport?",
+   "options": [
+    "Water and mineral ions",
+    "Oxygen",
+    "Sucrose and amino acids",
+    "Starch grains"
+   ],
+   "answer": 2,
+   "why": "Phloem moves sucrose and amino acids around the plant. Starch is insoluble, so it is not transported.",
+   "unit": "planttransport"
+  },
+  {
+   "q": "Which blood vessel carries blood from the heart to the lungs?",
+   "options": [
+    "Pulmonary vein",
+    "Aorta",
+    "Vena cava",
+    "Pulmonary artery"
+   ],
+   "answer": 3,
+   "why": "Arteries carry blood away from the heart: the pulmonary artery takes deoxygenated blood to the lungs.",
+   "unit": "circulation"
+  },
+  {
+   "q": "Why is the wall of the left ventricle thicker than the right?",
+   "options": [
+    "It pumps blood all round the body at higher pressure",
+    "It holds more blood",
+    "It receives blood from the lungs",
+    "It has more valves"
+   ],
+   "answer": 0,
+   "why": "The right ventricle only pumps to the nearby lungs; the left must push blood round the whole body.",
+   "unit": "circulation"
+  },
+  {
+   "q": "Which part of the blood carries oxygen?",
+   "options": [
+    "Plasma",
+    "White blood cells",
+    "Red blood cells",
+    "Platelets"
+   ],
+   "answer": 2,
+   "why": "Haemoglobin in red blood cells combines with oxygen in the lungs and releases it in the tissues.",
+   "unit": "circulation"
+  },
+  {
+   "q": "Which vessel has valves and a wide lumen?",
+   "options": [
+    "Artery",
+    "Vein",
+    "Capillary",
+    "Aorta"
+   ],
+   "answer": 1,
+   "why": "Veins carry blood at low pressure, so they need valves to stop backflow and a wide lumen for easy flow.",
+   "unit": "circulation"
+  },
+  {
+   "q": "Which of these increases the risk of coronary heart disease?",
+   "options": [
+    "Eating plenty of fibre",
+    "Regular exercise",
+    "Smoking",
+    "A low-salt diet"
+   ],
+   "answer": 2,
+   "why": "Smoking damages arteries and raises blood pressure. The others lower the risk.",
+   "unit": "circulation"
+  },
+  {
+   "q": "What is the function of the valves in the heart?",
+   "options": [
+    "To stop blood flowing backwards",
+    "To make the heart beat",
+    "To separate oxygenated and deoxygenated blood",
+    "To pump blood"
+   ],
+   "answer": 0,
+   "why": "Valves make sure blood flows one way. The septum separates the two sides; the muscle wall pumps.",
+   "unit": "circulation"
+  }
+ ],
+ "examIntro": "Paper 3 style. Write your answer first, then open the mark scheme and give yourself one mark per point you made clearly. One point per mark is the rule.",
+ "exam": [
+  {
+   "q": "Write the word equation for photosynthesis.",
+   "marks": 2,
+   "points": [
+    "carbon dioxide + water (on the left)",
+    "→ glucose + oxygen (on the right)"
+   ],
+   "note": "Light and chlorophyll can be written over the arrow.",
+   "unit": "photosynthesis"
+  },
+  {
+   "q": "Describe how you would test a leaf to show it contains starch.",
+   "marks": 4,
+   "points": [
+    "Boil the leaf in water (to kill it / break membranes)",
+    "Put it in hot ethanol in a water bath to remove the chlorophyll",
+    "Rinse in water to soften it",
+    "Add iodine solution",
+    "Blue-black shows starch is present"
+   ],
+   "note": "Any 4. Safety: ethanol is flammable, so heat it in a water bath, not over a flame.",
+   "unit": "photosynthesis"
+  },
+  {
+   "q": "Describe three ways a leaf is adapted for photosynthesis and explain how each helps.",
+   "marks": 6,
+   "points": [
+    "Large surface area",
+    "absorbs more light",
+    "Thin",
+    "short distance for carbon dioxide to diffuse",
+    "Many chloroplasts in palisade cells near the top",
+    "absorb more light",
+    "Stomata",
+    "let carbon dioxide in",
+    "Air spaces in spongy mesophyll",
+    "carbon dioxide diffuses to the cells",
+    "Veins with xylem",
+    "bring water to the cells"
+   ],
+   "note": "Any 3 features with a matching explanation: 1 mark each.",
+   "unit": "photosynthesis"
+  },
+  {
+   "q": "Name the deficiency disease caused by a lack of vitamin D and state one of its effects.",
+   "marks": 2,
+   "points": [
+    "Rickets",
+    "Soft / weak bones or bowed legs"
+   ],
+   "unit": "nutrition"
+  },
+  {
+   "q": "Explain why starch must be digested before it can be absorbed.",
+   "marks": 3,
+   "points": [
+    "Starch molecules are large / insoluble",
+    "They cannot pass through the wall of the intestine into the blood",
+    "Amylase breaks starch into small, soluble sugars",
+    "Small molecules can be absorbed (in the small intestine)"
+   ],
+   "note": "Any 3.",
+   "unit": "nutrition"
+  },
+  {
+   "q": "Describe what happens to the protein in a meal as it passes through the stomach and small intestine.",
+   "marks": 5,
+   "points": [
+    "Stomach muscles churn the food (physical digestion)",
+    "Hydrochloric acid kills microorganisms / gives acid pH",
+    "Protease in the stomach starts breaking protein down",
+    "Protease in the small intestine breaks it down to amino acids",
+    "Amino acids are absorbed into the blood",
+    "Through the villi, which have a large surface area",
+    "Food is moved along by peristalsis"
+   ],
+   "note": "Any 5.",
+   "unit": "nutrition"
+  },
+  {
+   "q": "Define transpiration.",
+   "marks": 2,
+   "points": [
+    "Loss of water vapour from plant leaves",
+    "By evaporation from mesophyll cells and diffusion out through the stomata"
+   ],
+   "unit": "planttransport"
+  },
+  {
+   "q": "Describe the pathway taken by water from the soil to a leaf.",
+   "marks": 3,
+   "points": [
+    "Enters root hair cells (by osmosis)",
+    "Passes through root cortex cells",
+    "Moves up the xylem",
+    "Into mesophyll cells of the leaf"
+   ],
+   "note": "Any 3, in order.",
+   "unit": "planttransport"
+  },
+  {
+   "q": "Explain why a plant transpires faster on a hot, dry day than on a cool, humid day.",
+   "marks": 4,
+   "points": [
+    "Higher temperature makes water evaporate faster from mesophyll cells",
+    "Water vapour molecules have more kinetic energy / diffuse faster",
+    "Dry air has low humidity",
+    "So there is a steeper concentration gradient of water vapour between leaf and air",
+    "More water vapour diffuses out through the stomata"
+   ],
+   "note": "Any 4.",
+   "unit": "planttransport"
+  },
+  {
+   "q": "State two differences between arteries and veins.",
+   "marks": 2,
+   "points": [
+    "Arteries carry blood away from the heart; veins carry it to the heart",
+    "Arteries have thicker, more muscular / elastic walls",
+    "Veins have valves (arteries do not, except at the heart)",
+    "Veins have a wider lumen",
+    "Arteries carry blood at high pressure; veins at low pressure"
+   ],
+   "note": "Any 2. Each must compare both vessels.",
+   "unit": "circulation"
+  },
+  {
+   "q": "Explain why heart rate increases during exercise.",
+   "marks": 3,
+   "points": [
+    "Muscles contract more, so they respire faster",
+    "They need more oxygen and glucose",
+    "Delivered faster by the blood",
+    "Carbon dioxide must be removed faster"
+   ],
+   "note": "Any 3.",
+   "unit": "circulation"
+  },
+  {
+   "q": "Describe the route blood takes from the vena cava to the aorta.",
+   "marks": 6,
+   "points": [
+    "Right atrium",
+    "Right ventricle",
+    "Pulmonary artery to the lungs",
+    "Pulmonary vein back to the heart",
+    "Left atrium",
+    "Left ventricle",
+    "Valves stop blood flowing backwards"
+   ],
+   "note": "Any 6, in the right order.",
+   "unit": "circulation"
+  }
+ ]
+}
