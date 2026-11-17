@@ -1,0 +1,1030 @@
+{
+ "id": "math-number",
+ "subject": "Math",
+ "title": "Number",
+ "sub": "Types of number, fractions and percentages, indices and surds, ratio, bounds, money and growth",
+ "units": [
+  {
+   "key": "types",
+   "name": "Types of number"
+  },
+  {
+   "key": "fdp",
+   "name": "Fractions & percent"
+  },
+  {
+   "key": "indices",
+   "name": "Indices & surds"
+  },
+  {
+   "key": "ratio",
+   "name": "Ratio & rates"
+  },
+  {
+   "key": "bounds",
+   "name": "Estimation & bounds"
+  },
+  {
+   "key": "finance",
+   "name": "Money & growth"
+  }
+ ],
+ "strategyIntro": "Extended Maths is two papers of equal weight: Paper 2 (2 hours, 100 marks, no calculator) and Paper 4 (2 hours, 100 marks, calculator). Your school test may be shorter, but it is marked the same way: M marks for a correct method, A marks for the correct answer that follows, B marks for a correct result on its own.",
+ "strategy": [
+  {
+   "title": "Timing",
+   "key": true,
+   "points": [
+    "About 1.2 minutes per mark: a 5-mark question is worth about 6 minutes.",
+    "If a question has taken twice its time, leave a gap and come back at the end.",
+    "Keep 10 minutes at the end to check answers against the question."
+   ]
+  },
+  {
+   "title": "Show your working",
+   "key": true,
+   "points": [
+    "Most marks are method marks. A wrong answer with clear working can still score most of the marks.",
+    "Write the calculation you are doing before the answer, e.g. 360 ÷ 12 = 30.",
+    "An answer with no working can score zero if it is wrong, and sometimes even if it is right (\"show that\")."
+   ]
+  },
+  {
+   "title": "Paper 2: no calculator",
+   "points": [
+    "Practise fractions, negative numbers, standard form and surds by hand.",
+    "Leave answers exact when you can: fractions, surds, or in terms of π.",
+    "Check with a quick estimate: is the answer about the right size?"
+   ]
+  },
+  {
+   "title": "Paper 4: calculator",
+   "points": [
+    "Give answers to 3 significant figures unless the question says otherwise; angles to 1 decimal place.",
+    "Never round partway through. Keep the full value in the calculator memory (or write 4+ figures).",
+    "Use the π button, not 3.14. Check the calculator is in degrees."
+   ]
+  },
+  {
+   "title": "Answer the question",
+   "points": [
+    "Read the last line again: units, form of answer (\"in its simplest form\", \"in terms of π\"), and accuracy.",
+    "\"Show that\" questions: every step must be written, ending with the given result.",
+    "When the question says \"hence\", use the previous part."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "Calculate",
+   "Work out from given facts. Show the working; usually a calculator is allowed."
+  ],
+  [
+   "Work out / Find",
+   "Get the answer by any correct method. Show working."
+  ],
+  [
+   "Write down",
+   "The answer needs little or no working: you can often read or state it."
+  ],
+  [
+   "Show that",
+   "The answer is given. Write every step clearly so the examiner can follow the logic to it."
+  ],
+  [
+   "Estimate",
+   "Round each number (usually to 1 significant figure) and calculate a rough value."
+  ],
+  [
+   "Simplify",
+   "Write in its simplest form: collect like terms, cancel common factors."
+  ],
+  [
+   "Factorise (completely)",
+   "Write as a product of factors. Completely means take out every common factor."
+  ],
+  [
+   "Expand",
+   "Multiply out the brackets."
+  ],
+  [
+   "Solve",
+   "Find the value(s) of the unknown that make the equation or inequality true."
+  ],
+  [
+   "Sketch",
+   "Show the shape and key features (intercepts, turning points), not plotted accurately."
+  ],
+  [
+   "Describe fully",
+   "For a transformation: name it and give every detail (centre, angle, direction, scale factor, vector or mirror line)."
+  ],
+  [
+   "Hence",
+   "Use the result you have just found to answer this part."
+  ],
+  [
+   "Give your answer in its simplest form",
+   "Cancel fractions and ratios fully; simplify surds."
+  ]
+ ],
+ "quizTitle": "Multiple-choice practice",
+ "quizIntro": "Quick calculations and concept checks. Do each one on paper first, then pick. The wrong options are common mistakes, so if you got one, read the working in the explanation.",
+ "flashIntro": "Methods, rules and formulas. Say the rule out loud (or write it down) with an example before you tap, then check you remembered every step.",
+ "flashcards": [
+  {
+   "front": "Prime number",
+   "back": "A number with exactly two factors: 1 and itself. 1 is not prime; 2 is the only even prime.",
+   "unit": "types"
+  },
+  {
+   "front": "How do you find the HCF and LCM using prime factors?",
+   "back": "Write both as products of primes. HCF: multiply the common primes using the lowest powers. LCM: multiply all the primes using the highest powers. 12 = 2² × 3 and 18 = 2 × 3² give HCF = 2 × 3 = 6, LCM = 2² × 3² = 36.",
+   "unit": "types"
+  },
+  {
+   "front": "Rational vs irrational",
+   "back": "Rational: can be written as a/b with whole numbers a, b (b ≠ 0); includes terminating and recurring decimals. Irrational: cannot, e.g. √2, π, √5. Its decimal never ends or repeats.",
+   "unit": "types"
+  },
+  {
+   "front": "How do you turn 0.454545… into a fraction?",
+   "back": "Let x = 0.4545…, so 100x = 45.4545… Subtract: 99x = 45, so x = 45/99 = 5/11. Multiply by 10 for each digit that repeats.",
+   "unit": "types"
+  },
+  {
+   "front": "How do you turn 0.1333… (one digit recurring after the point) into a fraction?",
+   "back": "x = 0.1333…, 10x = 1.333…, 100x = 13.333… Subtract: 90x = 12, so x = 12/90 = 2/15.",
+   "unit": "types"
+  },
+  {
+   "front": "Set notation: ℰ, n(A), A′, ∈, ∅, ⊆",
+   "back": "ℰ universal set; n(A) number of elements in A; A′ complement (everything not in A); x ∈ A means x is an element of A; ∅ empty set; A ⊆ B means A is a subset of B.",
+   "unit": "types"
+  },
+  {
+   "front": "A ∪ B and A ∩ B",
+   "back": "Union A ∪ B: in A or B or both. Intersection A ∩ B: in both A and B.",
+   "unit": "types"
+  },
+  {
+   "front": "Reciprocal",
+   "back": "1 divided by the number. The reciprocal of 2/3 is 3/2; of 5 is 1/5. A number × its reciprocal = 1.",
+   "unit": "types"
+  },
+  {
+   "front": "Order of operations",
+   "back": "Brackets, Indices, then × and ÷ (left to right), then + and − (left to right). E.g. 3 + 4 × 2² = 3 + 16 = 19.",
+   "unit": "types"
+  },
+  {
+   "front": "How do you add or subtract fractions?",
+   "back": "Change mixed numbers to improper fractions. Use a common denominator (the LCM), convert both fractions, then add or subtract the numerators only.",
+   "unit": "fdp"
+  },
+  {
+   "front": "How do you divide by a fraction?",
+   "back": "Multiply by its reciprocal: keep the first, change ÷ to ×, flip the second. 3/4 ÷ 2/5 = 3/4 × 5/2 = 15/8.",
+   "unit": "fdp"
+  },
+  {
+   "front": "Percentage change",
+   "back": "(change ÷ original) × 100. Always divide by the ORIGINAL value.",
+   "unit": "fdp"
+  },
+  {
+   "front": "Multiplier for a percentage increase or decrease",
+   "back": "Increase by r%: × (1 + r/100), e.g. +15% → × 1.15. Decrease by r%: × (1 − r/100), e.g. −15% → × 0.85.",
+   "unit": "fdp"
+  },
+  {
+   "front": "Reverse percentage: how do you find the original amount?",
+   "back": "Divide the new amount by the multiplier. After a 20% increase the price is $96, so the original = 96 ÷ 1.2 = $80. (Taking 20% off $96 is wrong.)",
+   "unit": "fdp"
+  },
+  {
+   "front": "One quantity as a percentage of another",
+   "back": "Put them in the same units, then (first ÷ second) × 100. 45 cm as a % of 2 m = 45/200 × 100 = 22.5%.",
+   "unit": "fdp"
+  },
+  {
+   "front": "Which fractions give terminating decimals?",
+   "back": "In its simplest form, a fraction terminates only if the denominator's prime factors are 2s and/or 5s (e.g. 3/40). Others recur (e.g. 1/3, 5/6).",
+   "unit": "fdp"
+  },
+  {
+   "front": "Percentages without a calculator",
+   "back": "Build from 10% (÷ 10), 5% (half of 10%) and 1% (÷ 100). E.g. 35% of 260 = 3 × 26 + 13 = 91.",
+   "unit": "fdp"
+  },
+  {
+   "front": "How do you order fractions, decimals and percentages?",
+   "back": "Convert them all to decimals (or all to percentages), then compare. Write the answer using the original forms.",
+   "unit": "fdp"
+  },
+  {
+   "front": "Laws of indices",
+   "back": "aᵐ × aⁿ = aᵐ⁺ⁿ; aᵐ ÷ aⁿ = aᵐ⁻ⁿ; (aᵐ)ⁿ = aᵐⁿ.",
+   "unit": "indices"
+  },
+  {
+   "front": "Zero and negative powers",
+   "back": "a⁰ = 1. a⁻ⁿ = 1/aⁿ, e.g. 2⁻³ = 1/8 and (2/3)⁻² = (3/2)² = 9/4.",
+   "unit": "indices"
+  },
+  {
+   "front": "Fractional powers",
+   "back": "a^(1/n) = ⁿ√a. a^(m/n) = (ⁿ√a)ᵐ: take the root first, then the power. 8^(2/3) = 2² = 4.",
+   "unit": "indices"
+  },
+  {
+   "front": "Negative fractional powers, e.g. 27^(−2/3)",
+   "back": "Deal with the minus by taking the reciprocal, then root, then power: 27^(−2/3) = 1/(∛27)² = 1/9.",
+   "unit": "indices"
+  },
+  {
+   "front": "Standard form",
+   "back": "A × 10ⁿ where 1 ≤ A < 10 and n is an integer. 45 000 = 4.5 × 10⁴; 0.0062 = 6.2 × 10⁻³.",
+   "unit": "indices"
+  },
+  {
+   "front": "Multiplying and dividing in standard form",
+   "back": "Multiply/divide the number parts, add/subtract the powers, then adjust so 1 ≤ A < 10: (4 × 10⁵) × (3 × 10⁷) = 12 × 10¹² = 1.2 × 10¹³.",
+   "unit": "indices"
+  },
+  {
+   "front": "Adding in standard form without a calculator",
+   "back": "Rewrite with the same power of 10 (or as ordinary numbers) first: 3 × 10⁴ + 5 × 10³ = 30 000 + 5000 = 3.5 × 10⁴.",
+   "unit": "indices"
+  },
+  {
+   "front": "Simplifying a surd",
+   "back": "√(ab) = √a × √b. Take out the largest square factor: √72 = √36 × √2 = 6√2.",
+   "unit": "indices"
+  },
+  {
+   "front": "Rationalising the denominator",
+   "back": "Multiply top and bottom by the surd: 6/√3 = 6√3/3 = 2√3. For 1/(a + √b), multiply top and bottom by (a − √b).",
+   "unit": "indices"
+  },
+  {
+   "front": "(a + √b)(a − √b)",
+   "back": "= a² − b, a whole number (difference of two squares). This is why it rationalises a denominator.",
+   "unit": "indices"
+  },
+  {
+   "front": "How do you share an amount in the ratio a : b?",
+   "back": "Total parts = a + b. One part = amount ÷ (a + b). Multiply one part by each number in the ratio. Check the shares add up.",
+   "unit": "ratio"
+  },
+  {
+   "front": "Simplifying a ratio",
+   "back": "Same units first, then divide every part by the HCF. For 1 : n, divide both parts by the first number.",
+   "unit": "ratio"
+  },
+  {
+   "front": "Direct proportion (unitary method)",
+   "back": "Find the value for one, then multiply. 5 pens cost $3.50 → 1 pen $0.70 → 8 pens $5.60.",
+   "unit": "ratio"
+  },
+  {
+   "front": "Inverse proportion",
+   "back": "As one quantity doubles, the other halves; their product stays the same. 6 workers take 10 days → 4 workers take 6 × 10 ÷ 4 = 15 days.",
+   "unit": "ratio"
+  },
+  {
+   "front": "Speed, distance, time",
+   "back": "speed = distance ÷ time; distance = speed × time; time = distance ÷ speed. Average speed = total distance ÷ total time.",
+   "unit": "ratio"
+  },
+  {
+   "front": "Density",
+   "back": "density = mass ÷ volume (e.g. g/cm³). mass = density × volume.",
+   "unit": "ratio"
+  },
+  {
+   "front": "Pressure",
+   "back": "pressure = force ÷ area (e.g. N/m²).",
+   "unit": "ratio"
+  },
+  {
+   "front": "Converting km/h to m/s",
+   "back": "× 1000 ÷ 3600, which is the same as ÷ 3.6. 72 km/h = 20 m/s. For m/s to km/h, × 3.6.",
+   "unit": "ratio"
+  },
+  {
+   "front": "Map scale 1 : 50 000",
+   "back": "1 cm on the map is 50 000 cm = 500 m = 0.5 km in real life.",
+   "unit": "ratio"
+  },
+  {
+   "front": "Best buy",
+   "back": "Work out the price per unit (or the amount per $1) for each option and compare like with like.",
+   "unit": "ratio"
+  },
+  {
+   "front": "Rounding to significant figures",
+   "back": "Start counting at the first non-zero digit. 0.004506 to 2 s.f. is 0.0045; 38 470 to 3 s.f. is 38 500 (keep the place-value zeros).",
+   "unit": "bounds"
+  },
+  {
+   "front": "How do you estimate a calculation?",
+   "back": "Round every number to 1 significant figure, write the rounded calculation down, then work it out.",
+   "unit": "bounds"
+  },
+  {
+   "front": "Upper and lower bounds",
+   "back": "Half the rounding unit either side. 7.4 cm to 1 d.p.: lower bound 7.35, upper bound 7.45. 340 to the nearest 10: 335 and 345.",
+   "unit": "bounds"
+  },
+  {
+   "front": "Error interval",
+   "back": "lower bound ≤ x < upper bound, e.g. 7.35 ≤ x < 7.45. The upper bound is not included.",
+   "unit": "bounds"
+  },
+  {
+   "front": "Bounds for a + b",
+   "back": "Maximum = UB + UB. Minimum = LB + LB.",
+   "unit": "bounds"
+  },
+  {
+   "front": "Bounds for a − b",
+   "back": "Maximum = UB of a − LB of b. Minimum = LB of a − UB of b.",
+   "unit": "bounds"
+  },
+  {
+   "front": "Bounds for a × b",
+   "back": "Maximum = UB × UB. Minimum = LB × LB (for positive numbers).",
+   "unit": "bounds"
+  },
+  {
+   "front": "Bounds for a ÷ b",
+   "back": "Maximum = UB of a ÷ LB of b. Minimum = LB of a ÷ UB of b.",
+   "unit": "bounds"
+  },
+  {
+   "front": "Bounds in context: \"how many boxes can definitely fit?\"",
+   "back": "Use the bound that gives the worst case (e.g. the heaviest box, UB), then round down to a whole number.",
+   "unit": "bounds"
+  },
+  {
+   "front": "Simple interest",
+   "back": "I = PRT/100 (P = principal, R = rate % per year, T = years). The interest is the same every year.",
+   "unit": "finance"
+  },
+  {
+   "front": "Compound interest",
+   "back": "Value = P × (1 + r/100)ⁿ after n years. Interest earned = value − P.",
+   "unit": "finance"
+  },
+  {
+   "front": "Depreciation (exponential decay)",
+   "back": "Value = P × (1 − r/100)ⁿ. A car losing 12% a year keeps 0.88 of its value each year.",
+   "unit": "finance"
+  },
+  {
+   "front": "Percentage profit or loss",
+   "back": "(profit ÷ cost price) × 100. Divide by the cost price, not the selling price.",
+   "unit": "finance"
+  },
+  {
+   "front": "Currency conversion",
+   "back": "Multiply by the rate one way, divide the other way. If £1 = $1.25: £80 = 80 × 1.25 = $100, and $50 = 50 ÷ 1.25 = £40.",
+   "unit": "finance"
+  },
+  {
+   "front": "Finding the original amount after compound growth",
+   "back": "Divide by the whole multiplier: P = final value ÷ (1 + r/100)ⁿ.",
+   "unit": "finance"
+  },
+  {
+   "front": "Finding how many years until a value is reached",
+   "back": "Try values of n in P × multiplierⁿ until you pass the target. Write down each trial.",
+   "unit": "finance"
+  },
+  {
+   "front": "Converting decimal hours",
+   "back": "2.25 hours = 2 hours + 0.25 × 60 minutes = 2 h 15 min (not 2 h 25 min). Minutes ÷ 60 gives hours.",
+   "unit": "finance"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "Which of these numbers is irrational?",
+   "options": [
+    "√49",
+    "0.333…",
+    "√20",
+    "22/7"
+   ],
+   "answer": 2,
+   "why": "√20 = 2√5 cannot be written as a fraction. √49 = 7, 0.333… = 1/3 and 22/7 are all rational (22/7 is only close to π).",
+   "unit": "types"
+  },
+  {
+   "q": "What is the HCF of 84 and 120?",
+   "options": [
+    "6",
+    "12",
+    "24",
+    "840"
+   ],
+   "answer": 1,
+   "why": "84 = 2² × 3 × 7 and 120 = 2³ × 3 × 5. Common primes with lowest powers: 2² × 3 = 12. (840 is the LCM.)",
+   "unit": "types"
+  },
+  {
+   "q": "Write 0.272727… as a fraction in its simplest form.",
+   "options": [
+    "27/100",
+    "3/11",
+    "27/90",
+    "2/7"
+   ],
+   "answer": 1,
+   "why": "Two digits repeat: 100x − x = 27.27… − 0.27… so 99x = 27 and x = 27/99 = 3/11.",
+   "unit": "types"
+  },
+  {
+   "q": "ℰ = {1, 2, …, 12}, A = {multiples of 3}, B = {even numbers}. Find n(A ∩ B′).",
+   "options": [
+    "4",
+    "6",
+    "2",
+    "8"
+   ],
+   "answer": 2,
+   "why": "A = {3, 6, 9, 12}. B′ is the odd numbers. A ∩ B′ = {3, 9}, so n = 2.",
+   "unit": "types"
+  },
+  {
+   "q": "How many prime numbers are there between 20 and 40?",
+   "options": [
+    "3",
+    "4",
+    "5",
+    "6"
+   ],
+   "answer": 1,
+   "why": "23, 29, 31, 37. (21, 27, 33, 39 are multiples of 3; 25 and 35 are multiples of 5.)",
+   "unit": "types"
+  },
+  {
+   "q": "Which is 360 as a product of its prime factors?",
+   "options": [
+    "2² × 3³ × 5",
+    "2³ × 45",
+    "2 × 3 × 5 × 12",
+    "2³ × 3² × 5"
+   ],
+   "answer": 3,
+   "why": "360 → 180 → 90 → 45 (three 2s), 45 = 3² × 5. So 2³ × 3² × 5. The others either aren't all primes or multiply to the wrong number.",
+   "unit": "types"
+  },
+  {
+   "q": "Work out 2⅓ ÷ 1¾.",
+   "options": [
+    "49/12",
+    "1⅓",
+    "¾",
+    "2 1/12"
+   ],
+   "answer": 1,
+   "why": "7/3 ÷ 7/4 = 7/3 × 4/7 = 28/21 = 4/3 = 1⅓. 49/12 comes from multiplying instead of dividing.",
+   "unit": "fdp"
+  },
+  {
+   "q": "A coat costs $64 after a 20% reduction. What was the original price?",
+   "options": [
+    "$76.80",
+    "$51.20",
+    "$80",
+    "$84"
+   ],
+   "answer": 2,
+   "why": "New price = 0.8 × original, so original = 64 ÷ 0.8 = $80. Adding 20% of $64 ($76.80) is the classic mistake.",
+   "unit": "fdp"
+  },
+  {
+   "q": "A town's population rises from 2400 to 2700. What is the percentage increase?",
+   "options": [
+    "11.1%",
+    "12.5%",
+    "300%",
+    "112.5%"
+   ],
+   "answer": 1,
+   "why": "Change = 300. 300 ÷ 2400 × 100 = 12.5%. Dividing by the new value (2700) gives 11.1%, which is wrong.",
+   "unit": "fdp"
+  },
+  {
+   "q": "Which fraction is equal to a terminating decimal?",
+   "options": [
+    "7/12",
+    "3/40",
+    "5/6",
+    "2/9"
+   ],
+   "answer": 1,
+   "why": "40 = 2³ × 5, only 2s and 5s, so 3/40 = 0.075. The others have a factor of 3 in the denominator, so they recur.",
+   "unit": "fdp"
+  },
+  {
+   "q": "Work out 5/6 − 1/4.",
+   "options": [
+    "4/2",
+    "1/2",
+    "4/24",
+    "7/12"
+   ],
+   "answer": 3,
+   "why": "Common denominator 12: 10/12 − 3/12 = 7/12. Subtracting tops and bottoms separately (4/2) is wrong.",
+   "unit": "fdp"
+  },
+  {
+   "q": "Which calculation increases $250 by 12%?",
+   "options": [
+    "250 × 1.12",
+    "250 × 0.12",
+    "250 × 1.2",
+    "250 + 12"
+   ],
+   "answer": 0,
+   "why": "Increase by 12% → multiplier 1 + 0.12 = 1.12. 250 × 0.12 only gives the increase ($30).",
+   "unit": "fdp"
+  },
+  {
+   "q": "Find the value of 16^(3/4).",
+   "options": [
+    "12",
+    "8",
+    "6",
+    "64"
+   ],
+   "answer": 1,
+   "why": "Fourth root first: ⁴√16 = 2. Then cube: 2³ = 8. 12 is 16 × ¾, which is wrong.",
+   "unit": "indices"
+  },
+  {
+   "q": "What is 5⁻² as a fraction?",
+   "options": [
+    "−25",
+    "−10",
+    "1/25",
+    "1/10"
+   ],
+   "answer": 2,
+   "why": "A negative power means reciprocal: 5⁻² = 1/5² = 1/25. It is not negative.",
+   "unit": "indices"
+  },
+  {
+   "q": "Work out (6 × 10⁴) × (5 × 10⁻⁷). Give the answer in standard form.",
+   "options": [
+    "3 × 10⁻²",
+    "30 × 10⁻³",
+    "3 × 10⁻³",
+    "1.1 × 10⁻²"
+   ],
+   "answer": 0,
+   "why": "6 × 5 = 30 and 10⁴ × 10⁻⁷ = 10⁻³, so 30 × 10⁻³ = 3 × 10⁻². 30 × 10⁻³ has the right value but is not standard form.",
+   "unit": "indices"
+  },
+  {
+   "q": "Simplify √50 + √18.",
+   "options": [
+    "√68",
+    "8√2",
+    "15√2",
+    "34"
+   ],
+   "answer": 1,
+   "why": "√50 = 5√2 and √18 = 3√2, so the sum is 8√2. You cannot add the numbers under the roots (√68).",
+   "unit": "indices"
+  },
+  {
+   "q": "Simplify (2x³)⁴.",
+   "options": [
+    "8x⁷",
+    "2x¹²",
+    "16x⁷",
+    "16x¹²"
+   ],
+   "answer": 3,
+   "why": "Both parts are raised to the power 4: 2⁴ = 16 and (x³)⁴ = x¹². Adding powers (x⁷) is the mistake.",
+   "unit": "indices"
+  },
+  {
+   "q": "Rationalise the denominator of 10/√5.",
+   "options": [
+    "2√5",
+    "√2",
+    "10√5",
+    "5√2"
+   ],
+   "answer": 0,
+   "why": "10/√5 × √5/√5 = 10√5/5 = 2√5.",
+   "unit": "indices"
+  },
+  {
+   "q": "Share $360 in the ratio 2 : 3 : 7. What is the largest share?",
+   "options": [
+    "$180",
+    "$252",
+    "$210",
+    "$120"
+   ],
+   "answer": 2,
+   "why": "2 + 3 + 7 = 12 parts. 360 ÷ 12 = 30 per part. Largest = 7 × 30 = $210.",
+   "unit": "ratio"
+  },
+  {
+   "q": "A car travels 150 km in 1 hour 15 minutes. What is its average speed?",
+   "options": [
+    "130.4 km/h",
+    "200 km/h",
+    "120 km/h",
+    "187.5 km/h"
+   ],
+   "answer": 2,
+   "why": "1 h 15 min = 1.25 h (not 1.15 h). 150 ÷ 1.25 = 120 km/h.",
+   "unit": "ratio"
+  },
+  {
+   "q": "5 identical pumps empty a tank in 12 hours. How long would 3 pumps take?",
+   "options": [
+    "7.2 hours",
+    "20 hours",
+    "10 hours",
+    "36 hours"
+   ],
+   "answer": 1,
+   "why": "Inverse proportion: 5 × 12 = 60 pump-hours. 60 ÷ 3 = 20 hours. Fewer pumps must take longer.",
+   "unit": "ratio"
+  },
+  {
+   "q": "Convert 54 km/h to m/s.",
+   "options": [
+    "15 m/s",
+    "194.4 m/s",
+    "0.9 m/s",
+    "540 m/s"
+   ],
+   "answer": 0,
+   "why": "54 × 1000 ÷ 3600 = 54 ÷ 3.6 = 15 m/s.",
+   "unit": "ratio"
+  },
+  {
+   "q": "A block has mass 600 g and volume 250 cm³. What is its density?",
+   "options": [
+    "0.42 g/cm³",
+    "2.4 g/cm³",
+    "150 000 g/cm³",
+    "350 g/cm³"
+   ],
+   "answer": 1,
+   "why": "density = mass ÷ volume = 600 ÷ 250 = 2.4 g/cm³.",
+   "unit": "ratio"
+  },
+  {
+   "q": "On a map with scale 1 : 25 000, two towns are 6 cm apart. What is the real distance?",
+   "options": [
+    "15 km",
+    "0.15 km",
+    "150 km",
+    "1.5 km"
+   ],
+   "answer": 3,
+   "why": "6 × 25 000 = 150 000 cm = 1500 m = 1.5 km.",
+   "unit": "ratio"
+  },
+  {
+   "q": "Round 0.070 49 to 3 significant figures.",
+   "options": [
+    "0.070",
+    "0.0705",
+    "0.07049",
+    "0.0704"
+   ],
+   "answer": 1,
+   "why": "The first significant figure is the 7. Three s.f.: 7, 0, 4, and the next digit 9 rounds the 4 up: 0.0705.",
+   "unit": "bounds"
+  },
+  {
+   "q": "Estimate (39.8 × 6.12) ÷ 0.198.",
+   "options": [
+    "48",
+    "120",
+    "12 000",
+    "1200"
+   ],
+   "answer": 3,
+   "why": "Round to 1 s.f.: 40 × 6 ÷ 0.2 = 240 ÷ 0.2 = 1200. Dividing by 0.2 makes it 5 times bigger.",
+   "unit": "bounds"
+  },
+  {
+   "q": "A length is 12 cm to the nearest centimetre. What is its upper bound?",
+   "options": [
+    "12.4 cm",
+    "12.49 cm",
+    "12.5 cm",
+    "13 cm"
+   ],
+   "answer": 2,
+   "why": "Half of 1 cm either side: 11.5 ≤ length < 12.5. The upper bound is 12.5 cm (not included, but it is still the bound).",
+   "unit": "bounds"
+  },
+  {
+   "q": "a = 8.4 and b = 2.1, both to 1 decimal place. Which gives the upper bound of a ÷ b?",
+   "options": [
+    "8.45 ÷ 2.15",
+    "8.45 ÷ 2.05",
+    "8.35 ÷ 2.05",
+    "8.4 ÷ 2.1"
+   ],
+   "answer": 1,
+   "why": "Biggest answer: largest top ÷ smallest bottom = 8.45 ÷ 2.05.",
+   "unit": "bounds"
+  },
+  {
+   "q": "A rectangle measures 20 cm by 10 cm, each to the nearest cm. What is the least possible perimeter?",
+   "options": [
+    "58 cm",
+    "60 cm",
+    "59 cm",
+    "56 cm"
+   ],
+   "answer": 0,
+   "why": "Lower bounds 19.5 and 9.5. Perimeter = 2 × (19.5 + 9.5) = 58 cm.",
+   "unit": "bounds"
+  },
+  {
+   "q": "$2000 is invested at 3% per year simple interest. How much interest is earned in 4 years?",
+   "options": [
+    "$240",
+    "$2240",
+    "$251.02",
+    "$24"
+   ],
+   "answer": 0,
+   "why": "I = 2000 × 3 × 4 ÷ 100 = $240. $251.02 would be compound interest; $2240 is the total amount, not the interest.",
+   "unit": "finance"
+  },
+  {
+   "q": "$5000 is invested at 2% per year compound interest. What is it worth after 3 years?",
+   "options": [
+    "$5300.00",
+    "$5100.00",
+    "$5306.04",
+    "$5060.00"
+   ],
+   "answer": 2,
+   "why": "5000 × 1.02³ = 5000 × 1.061208 = $5306.04. $5300 is simple interest.",
+   "unit": "finance"
+  },
+  {
+   "q": "A car worth $18 000 depreciates by 12% each year. What is it worth after 2 years?",
+   "options": [
+    "$13 680",
+    "$13 939.20",
+    "$14 080",
+    "$15 840"
+   ],
+   "answer": 1,
+   "why": "18 000 × 0.88² = $13 939.20. Taking 24% off once ($13 680) ignores the compounding.",
+   "unit": "finance"
+  },
+  {
+   "q": "A shop buys a lamp for $40 and sells it for $50. What is the percentage profit?",
+   "options": [
+    "20%",
+    "10%",
+    "125%",
+    "25%"
+   ],
+   "answer": 3,
+   "why": "Profit $10 ÷ cost $40 × 100 = 25%. Dividing by the selling price gives 20%, which is wrong.",
+   "unit": "finance"
+  },
+  {
+   "q": "€1 = $1.08. How many euros do you get for $270?",
+   "options": [
+    "€291.60",
+    "€250",
+    "€270",
+    "€25"
+   ],
+   "answer": 1,
+   "why": "Dollars to euros: divide by 1.08. 270 ÷ 1.08 = €250. Check: 250 × 1.08 = 270.",
+   "unit": "finance"
+  },
+  {
+   "q": "A population falls by 6% each year. Which calculation gives the multiplier for 5 years?",
+   "options": [
+    "0.94⁵",
+    "0.6⁵",
+    "1.06⁵",
+    "0.94 × 5"
+   ],
+   "answer": 0,
+   "why": "Each year × 0.94, so over 5 years × 0.94⁵.",
+   "unit": "finance"
+  }
+ ],
+ "examIntro": "Paper 2 / Paper 4 style. [No calculator] questions are Paper 2; [Calculator] questions are Paper 4. Write full working first, then open the mark scheme: M1 = method mark, A1 = accuracy mark (correct answer from correct working), B1 = mark for a correct result on its own. Give yourself one mark per point you got.",
+ "exam": [
+  {
+   "q": "[No calculator] Write 0.1333… (the 3 recurring) as a fraction in its simplest form. Show all your working.",
+   "marks": 2,
+   "points": [
+    "M1: x = 0.1333…, 10x = 1.333…, 100x = 13.333…, so 90x = 12 (any correct pair subtracted)",
+    "A1: 12/90 = 2/15"
+   ],
+   "unit": "types"
+  },
+  {
+   "q": "[No calculator] (a) Write 252 as a product of its prime factors. (b) Find the lowest common multiple (LCM) of 252 and 90.",
+   "marks": 3,
+   "points": [
+    "M1: repeated division, e.g. 252 → 126 → 63 → 21 → 7",
+    "A1: 252 = 2² × 3² × 7",
+    "A1: 90 = 2 × 3² × 5, so LCM = 2² × 3² × 5 × 7 = 1260"
+   ],
+   "unit": "types"
+  },
+  {
+   "q": "[No calculator] ℰ = {integers from 1 to 15}, P = {prime numbers}, Q = {odd numbers}. (a) List the elements of P ∩ Q. (b) Find n(P ∪ Q). (c) List the elements of (P ∪ Q)′. (d) A number is chosen at random from ℰ. Find the probability that it is in P′ ∩ Q.",
+   "marks": 4,
+   "points": [
+    "B1: P ∩ Q = {3, 5, 7, 11, 13}",
+    "B1: P ∪ Q = {1, 2, 3, 5, 7, 9, 11, 13, 15}, so n(P ∪ Q) = 9",
+    "B1: (P ∪ Q)′ = {4, 6, 8, 10, 12, 14}",
+    "B1: P′ ∩ Q = {1, 9, 15}, probability 3/15 = 1/5"
+   ],
+   "unit": "types",
+   "note": "Remember 1 is not prime, and 2 is prime but not odd."
+  },
+  {
+   "q": "[No calculator] Work out 1⅖ + 2¾. Give your answer as a mixed number in its simplest form.",
+   "marks": 2,
+   "points": [
+    "M1: 7/5 + 11/4 = 28/20 + 55/20",
+    "A1: 83/20 = 4 3/20"
+   ],
+   "unit": "fdp"
+  },
+  {
+   "q": "[Calculator] The price of a laptop was increased by 15% to $425.50. (a) Find the price before the increase. (b) In a sale, the new price of $425.50 is then reduced by 15%. Find the sale price.",
+   "marks": 4,
+   "points": [
+    "M1: 425.50 ÷ 1.15",
+    "A1: $370",
+    "M1: 425.50 × 0.85",
+    "A1: $361.68 (accept $361.675)"
+   ],
+   "unit": "fdp",
+   "note": "Note the sale price is not $370: 15% of $425.50 is more than 15% of $370."
+  },
+  {
+   "q": "[Calculator] Sara earns $2400 a month. She spends 35% of it on rent and 2/5 of what is left on food. (a) How much does she spend on food? (b) What percentage of her earnings is left after rent and food?",
+   "marks": 5,
+   "points": [
+    "M1: rent = 0.35 × 2400 = 840, or remainder = 0.65 × 2400 = 1560",
+    "M1: 2/5 × 1560",
+    "A1: $624",
+    "M1: (2400 − 840 − 624) ÷ 2400 × 100",
+    "A1: 39%"
+   ],
+   "unit": "fdp"
+  },
+  {
+   "q": "[No calculator] Find the value of (a) 27^(2/3) (b) (1/4)^(−3/2).",
+   "marks": 3,
+   "points": [
+    "B1: 27^(2/3) = (∛27)² = 3² = 9",
+    "M1: (1/4)^(−3/2) = 4^(3/2) = (√4)³",
+    "A1: 8"
+   ],
+   "unit": "indices"
+  },
+  {
+   "q": "[No calculator] a = 4 × 10⁸ and b = 5 × 10⁻³. Find, giving each answer in standard form, (a) ab (b) a ÷ b.",
+   "marks": 4,
+   "points": [
+    "M1: 4 × 5 = 20 and 10⁸ × 10⁻³ = 10⁵",
+    "A1: 2 × 10⁶",
+    "M1: 4 ÷ 5 = 0.8 and 10⁸ ÷ 10⁻³ = 10¹¹",
+    "A1: 8 × 10¹⁰"
+   ],
+   "unit": "indices"
+  },
+  {
+   "q": "[No calculator] (a) Simplify √75 − √12. (b) Expand and simplify (3 + √2)(5 − √2). (c) Rationalise the denominator and simplify 4/(3 − √5).",
+   "marks": 6,
+   "points": [
+    "M1: √75 = 5√3 and √12 = 2√3",
+    "A1: 3√3",
+    "M1: 15 − 3√2 + 5√2 − 2 (four terms)",
+    "A1: 13 + 2√2",
+    "M1: multiply top and bottom by (3 + √5); denominator 9 − 5 = 4",
+    "A1: 4(3 + √5)/4 = 3 + √5"
+   ],
+   "unit": "indices"
+  },
+  {
+   "q": "[No calculator] Write the ratio 45 minutes : 2 hours in its simplest form.",
+   "marks": 2,
+   "points": [
+    "M1: same units, 45 : 120",
+    "A1: 3 : 8"
+   ],
+   "unit": "ratio"
+  },
+  {
+   "q": "[No calculator] Amira, Ben and Chen share some money in the ratio 3 : 4 : 5. Chen receives $36 more than Amira. How much does Ben receive?",
+   "marks": 3,
+   "points": [
+    "M1: 5 − 3 = 2 parts = $36",
+    "M1: one part = $18",
+    "A1: Ben gets 4 × 18 = $72"
+   ],
+   "unit": "ratio"
+  },
+  {
+   "q": "[Calculator] A train travels 84 km at 112 km/h, then 126 km at an average speed of 90 km/h. (a) Find the total time taken, in hours and minutes. (b) Find the average speed for the whole journey.",
+   "marks": 5,
+   "points": [
+    "M1: 84 ÷ 112 = 0.75 h",
+    "M1: 126 ÷ 90 = 1.4 h",
+    "A1: 2.15 h = 2 hours 9 minutes",
+    "M1: (84 + 126) ÷ 2.15",
+    "A1: 97.7 km/h"
+   ],
+   "unit": "ratio",
+   "note": "Averaging the two speeds ((112 + 90) ÷ 2 = 101) is wrong: average speed is total distance ÷ total time."
+  },
+  {
+   "q": "[No calculator] By rounding each number to 1 significant figure, estimate the value of (61.3 × 4.87) ÷ 0.512. Show your working.",
+   "marks": 2,
+   "points": [
+    "M1: 60 × 5 ÷ 0.5 seen",
+    "A1: 600"
+   ],
+   "unit": "bounds"
+  },
+  {
+   "q": "[Calculator] The mass of a box is 2.4 kg, correct to the nearest 0.1 kg. A lift can safely carry at most 500 kg. Find the greatest number of boxes that the lift can definitely carry safely.",
+   "marks": 3,
+   "points": [
+    "B1: upper bound 2.45 kg",
+    "M1: 500 ÷ 2.45 (= 204.08…)",
+    "A1: 204 boxes"
+   ],
+   "unit": "bounds"
+  },
+  {
+   "q": "[Calculator] A rectangular field is 85 m long and 42 m wide, both measured to the nearest metre. (a) Write down the lower bound of the length. (b) Calculate the upper bound of the area. (c) Calculate the lower bound of the length of the diagonal of the field.",
+   "marks": 5,
+   "points": [
+    "B1: 84.5 m",
+    "M1: 85.5 × 42.5",
+    "A1: 3633.75 m²",
+    "M1: √(84.5² + 41.5²)",
+    "A1: 94.1 m"
+   ],
+   "unit": "bounds"
+  },
+  {
+   "q": "[Calculator] Calculate the simple interest on $1250 invested for 5 years at 2.4% per year.",
+   "marks": 2,
+   "points": [
+    "M1: 1250 × 2.4 × 5 ÷ 100",
+    "A1: $150"
+   ],
+   "unit": "finance"
+  },
+  {
+   "q": "[Calculator] A house was bought for $240 000. Its value increases by 3.5% each year. (a) Find its value after 6 years, to the nearest dollar. (b) After how many whole years will its value first be more than $300 000?",
+   "marks": 4,
+   "points": [
+    "M1: 240 000 × 1.035⁶",
+    "A1: $295 021",
+    "M1: trials, e.g. 240 000 × 1.035⁷ = 305 347…",
+    "A1: 7 years"
+   ],
+   "unit": "finance"
+  },
+  {
+   "q": "[Calculator] A machine loses 15% of its value each year. After 3 years it is worth $12 282.50. (a) Find its value when new. (b) Find the overall percentage decrease in value over the 3 years.",
+   "marks": 5,
+   "points": [
+    "M1: multiplier 0.85 seen",
+    "M1: 12 282.50 ÷ 0.85³",
+    "A1: $20 000",
+    "M1: (20 000 − 12 282.50) ÷ 20 000 × 100, or (1 − 0.85³) × 100",
+    "A1: 38.6%"
+   ],
+   "unit": "finance",
+   "note": "45% (3 × 15%) is wrong: each year's 15% is taken from a smaller value."
+  }
+ ]
+}

@@ -1,0 +1,948 @@
+{
+ "id": "math-algebra",
+ "subject": "Math",
+ "title": "Algebra",
+ "sub": "Expanding and factorising, equations, quadratics, inequalities, formulae and sequences",
+ "units": [
+  {
+   "key": "expressions",
+   "name": "Expand & factorise"
+  },
+  {
+   "key": "equations",
+   "name": "Linear & simultaneous"
+  },
+  {
+   "key": "quadratics",
+   "name": "Quadratics"
+  },
+  {
+   "key": "inequalities",
+   "name": "Inequalities"
+  },
+  {
+   "key": "formulae",
+   "name": "Formulae & fractions"
+  },
+  {
+   "key": "sequences",
+   "name": "Sequences"
+  }
+ ],
+ "strategyIntro": "Extended Maths is two papers of equal weight: Paper 2 (2 hours, 100 marks, no calculator) and Paper 4 (2 hours, 100 marks, calculator). Your school test may be shorter, but it is marked the same way: M marks for a correct method, A marks for the correct answer that follows, B marks for a correct result on its own.",
+ "strategy": [
+  {
+   "title": "Timing",
+   "key": true,
+   "points": [
+    "About 1.2 minutes per mark: a 5-mark question is worth about 6 minutes.",
+    "If a question has taken twice its time, leave a gap and come back at the end.",
+    "Keep 10 minutes at the end to check answers against the question."
+   ]
+  },
+  {
+   "title": "Show your working",
+   "key": true,
+   "points": [
+    "Most marks are method marks. A wrong answer with clear working can still score most of the marks.",
+    "Write the calculation you are doing before the answer, e.g. 360 ÷ 12 = 30.",
+    "An answer with no working can score zero if it is wrong, and sometimes even if it is right (\"show that\")."
+   ]
+  },
+  {
+   "title": "Paper 2: no calculator",
+   "points": [
+    "Practise fractions, negative numbers, standard form and surds by hand.",
+    "Leave answers exact when you can: fractions, surds, or in terms of π.",
+    "Check with a quick estimate: is the answer about the right size?"
+   ]
+  },
+  {
+   "title": "Paper 4: calculator",
+   "points": [
+    "Give answers to 3 significant figures unless the question says otherwise; angles to 1 decimal place.",
+    "Never round partway through. Keep the full value in the calculator memory (or write 4+ figures).",
+    "Use the π button, not 3.14. Check the calculator is in degrees."
+   ]
+  },
+  {
+   "title": "Answer the question",
+   "points": [
+    "Read the last line again: units, form of answer (\"in its simplest form\", \"in terms of π\"), and accuracy.",
+    "\"Show that\" questions: every step must be written, ending with the given result.",
+    "When the question says \"hence\", use the previous part."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "Calculate",
+   "Work out from given facts. Show the working; usually a calculator is allowed."
+  ],
+  [
+   "Work out / Find",
+   "Get the answer by any correct method. Show working."
+  ],
+  [
+   "Write down",
+   "The answer needs little or no working: you can often read or state it."
+  ],
+  [
+   "Show that",
+   "The answer is given. Write every step clearly so the examiner can follow the logic to it."
+  ],
+  [
+   "Estimate",
+   "Round each number (usually to 1 significant figure) and calculate a rough value."
+  ],
+  [
+   "Simplify",
+   "Write in its simplest form: collect like terms, cancel common factors."
+  ],
+  [
+   "Factorise (completely)",
+   "Write as a product of factors. Completely means take out every common factor."
+  ],
+  [
+   "Expand",
+   "Multiply out the brackets."
+  ],
+  [
+   "Solve",
+   "Find the value(s) of the unknown that make the equation or inequality true."
+  ],
+  [
+   "Sketch",
+   "Show the shape and key features (intercepts, turning points), not plotted accurately."
+  ],
+  [
+   "Describe fully",
+   "For a transformation: name it and give every detail (centre, angle, direction, scale factor, vector or mirror line)."
+  ],
+  [
+   "Hence",
+   "Use the result you have just found to answer this part."
+  ],
+  [
+   "Give your answer in its simplest form",
+   "Cancel fractions and ratios fully; simplify surds."
+  ]
+ ],
+ "quizTitle": "Multiple-choice practice",
+ "quizIntro": "Quick calculations and concept checks. Do each one on paper first, then pick. The wrong options are common mistakes, so if you got one, read the working in the explanation.",
+ "flashIntro": "Methods, rules and formulas. Say the rule out loud (or write it down) with an example before you tap, then check you remembered every step.",
+ "flashcards": [
+  {
+   "front": "Expanding a single bracket",
+   "back": "Multiply every term inside by the term outside: 3x(2x − 5) = 6x² − 15x. Watch signs: −2(x − 4) = −2x + 8.",
+   "unit": "expressions"
+  },
+  {
+   "front": "Expanding double brackets",
+   "back": "Multiply every term by every term (four products), then collect like terms: (x + 3)(x − 5) = x² − 5x + 3x − 15 = x² − 2x − 15.",
+   "unit": "expressions"
+  },
+  {
+   "front": "Expanding three brackets",
+   "back": "Expand two of the brackets first, simplify, then multiply the result by the third bracket.",
+   "unit": "expressions"
+  },
+  {
+   "front": "Factorising with a common factor",
+   "back": "Take out the HCF of the numbers and of each letter: 6x²y − 9xy² = 3xy(2x − 3y). Factorise completely means nothing common is left inside.",
+   "unit": "expressions"
+  },
+  {
+   "front": "Factorising x² + bx + c",
+   "back": "Find two numbers that multiply to c and add to b: x² + 7x + 12 = (x + 3)(x + 4).",
+   "unit": "expressions"
+  },
+  {
+   "front": "Difference of two squares",
+   "back": "a² − b² = (a + b)(a − b). 9x² − 25 = (3x + 5)(3x − 5).",
+   "unit": "expressions"
+  },
+  {
+   "front": "Factorising ax² + bx + c (a ≠ 1)",
+   "back": "Find two numbers that multiply to ac and add to b; split the middle term and group. 2x² + 7x + 3: ac = 6 → 6 and 1: 2x² + 6x + x + 3 = 2x(x + 3) + 1(x + 3) = (2x + 1)(x + 3).",
+   "unit": "expressions"
+  },
+  {
+   "front": "Factorising by grouping",
+   "back": "Pair the terms and factorise each pair so a bracket repeats: ax + ay + bx + by = a(x + y) + b(x + y) = (a + b)(x + y).",
+   "unit": "expressions"
+  },
+  {
+   "front": "Substituting negative numbers",
+   "back": "Use brackets. If x = −3: x² = (−3)² = 9, but −x² = −9, and 2x³ = 2 × (−27) = −54.",
+   "unit": "expressions"
+  },
+  {
+   "front": "Solving linear equations",
+   "back": "Expand brackets, collect the x terms on one side and numbers on the other, then divide. Do the same to both sides.",
+   "unit": "equations"
+  },
+  {
+   "front": "Equations with fractions",
+   "back": "Multiply every term by the LCM of the denominators: x/3 + x/4 = 7 → 4x + 3x = 84 → x = 12.",
+   "unit": "equations"
+  },
+  {
+   "front": "Simultaneous equations by elimination",
+   "back": "Multiply so one letter has the same coefficient in both. Same signs: subtract. Different signs: add. Solve, then substitute back to find the other letter.",
+   "unit": "equations"
+  },
+  {
+   "front": "Simultaneous equations by substitution",
+   "back": "Rearrange one equation (e.g. y = …) and substitute into the other. Best when one equation is already y = …",
+   "unit": "equations"
+  },
+  {
+   "front": "One linear and one quadratic equation",
+   "back": "Substitute the linear one into the quadratic, rearrange to = 0, solve. Then find the matching value of the other letter for EACH solution: two pairs (x, y).",
+   "unit": "equations"
+  },
+  {
+   "front": "Forming equations from words",
+   "back": "Let x = the unknown. Write each quantity in terms of x, form the equation, solve, then answer the actual question in context.",
+   "unit": "equations"
+  },
+  {
+   "front": "Graphs and simultaneous equations",
+   "back": "The solution is the point where the two graphs intersect.",
+   "unit": "equations"
+  },
+  {
+   "front": "Checking a solution",
+   "back": "Substitute your values into the ORIGINAL equations (both of them for simultaneous).",
+   "unit": "equations"
+  },
+  {
+   "front": "Solving a quadratic by factorising",
+   "back": "Rearrange to = 0, factorise, then set each bracket equal to 0. (x − 4)(x + 2) = 0 → x = 4 or x = −2.",
+   "unit": "quadratics"
+  },
+  {
+   "front": "The quadratic formula",
+   "back": "For ax² + bx + c = 0: x = (−b ± √(b² − 4ac)) ÷ 2a.",
+   "unit": "quadratics"
+  },
+  {
+   "front": "When should you use the quadratic formula?",
+   "back": "When it will not factorise, or when the question asks for answers to 2 d.p. or 3 s.f. (that is a hint the roots are not whole numbers).",
+   "unit": "quadratics"
+  },
+  {
+   "front": "Completing the square (a = 1)",
+   "back": "x² + bx + c = (x + b/2)² − (b/2)² + c. x² + 6x + 2 = (x + 3)² − 9 + 2 = (x + 3)² − 7.",
+   "unit": "quadratics"
+  },
+  {
+   "front": "Turning point from completed-square form",
+   "back": "y = (x + p)² + q has a minimum (turning) point at (−p, q).",
+   "unit": "quadratics"
+  },
+  {
+   "front": "Completing the square when a ≠ 1",
+   "back": "Take a out of the x² and x terms first: 2x² + 12x + 5 = 2(x² + 6x) + 5 = 2[(x + 3)² − 9] + 5 = 2(x + 3)² − 13.",
+   "unit": "quadratics"
+  },
+  {
+   "front": "Why not divide x² = 5x by x?",
+   "back": "You lose the solution x = 0. Instead: x² − 5x = 0 → x(x − 5) = 0 → x = 0 or x = 5.",
+   "unit": "quadratics"
+  },
+  {
+   "front": "Quadratics from area or length problems",
+   "back": "Write the area expression, set it equal to the value, rearrange to = 0 and solve. Reject a negative length and say why.",
+   "unit": "quadratics"
+  },
+  {
+   "front": "Solving a linear inequality",
+   "back": "Same as an equation, BUT if you multiply or divide both sides by a negative number, reverse the inequality sign: −2x < 6 → x > −3.",
+   "unit": "inequalities"
+  },
+  {
+   "front": "Inequalities on a number line",
+   "back": "Open (empty) circle for < or >; filled circle for ≤ or ≥.",
+   "unit": "inequalities"
+  },
+  {
+   "front": "Integers satisfying −2 < x ≤ 3",
+   "back": "−1, 0, 1, 2, 3 (−2 is not included, 3 is).",
+   "unit": "inequalities"
+  },
+  {
+   "front": "Solving a double inequality",
+   "back": "Do the same to all three parts: 3 < 2x + 1 ≤ 9 → 2 < 2x ≤ 8 → 1 < x ≤ 4.",
+   "unit": "inequalities"
+  },
+  {
+   "front": "Boundary lines for regions",
+   "back": "Solid line for ≤ or ≥ (points on the line included); broken (dashed) line for < or >.",
+   "unit": "inequalities"
+  },
+  {
+   "front": "Which side of the line?",
+   "back": "Test a point not on the line, such as (0, 0). If it satisfies the inequality, it is on the wanted side. y > mx + c is above the line.",
+   "unit": "inequalities"
+  },
+  {
+   "front": "Shading regions",
+   "back": "Read the question: Cambridge often asks you to shade the UNWANTED region so the required region R is left unshaded.",
+   "unit": "inequalities"
+  },
+  {
+   "front": "Maximum or minimum of an expression in a region",
+   "back": "Check the points in the region (usually the vertices, or integer points near them) and work out the expression for each.",
+   "unit": "inequalities"
+  },
+  {
+   "front": "Changing the subject",
+   "back": "Undo the operations on the new subject in reverse order, doing the same to both sides.",
+   "unit": "formulae"
+  },
+  {
+   "front": "Subject appearing twice",
+   "back": "Get all terms with the subject on one side, factorise it out, then divide: ax + b = cx + d → x(a − c) = d − b → x = (d − b)/(a − c).",
+   "unit": "formulae"
+  },
+  {
+   "front": "Subject inside a square root",
+   "back": "Isolate the square root, then square both sides.",
+   "unit": "formulae"
+  },
+  {
+   "front": "Subject squared",
+   "back": "Isolate the squared term, then square root both sides (± if both signs are possible): A = πr² → r = √(A/π).",
+   "unit": "formulae"
+  },
+  {
+   "front": "Simplifying an algebraic fraction",
+   "back": "Factorise top and bottom fully, then cancel common brackets. Never cancel single terms from a sum.",
+   "unit": "formulae"
+  },
+  {
+   "front": "Adding algebraic fractions",
+   "back": "Use a common denominator: 2/x + 3/(x + 1) = [2(x + 1) + 3x] / [x(x + 1)] = (5x + 2)/[x(x + 1)].",
+   "unit": "formulae"
+  },
+  {
+   "front": "Multiplying and dividing algebraic fractions",
+   "back": "Factorise everything; for ÷, flip the second fraction; cancel; then multiply.",
+   "unit": "formulae"
+  },
+  {
+   "front": "Solving an equation with algebraic fractions",
+   "back": "Multiply every term by the common denominator to clear the fractions, then solve (often a quadratic).",
+   "unit": "formulae"
+  },
+  {
+   "front": "nth term of a linear sequence",
+   "back": "Common difference d → dn + (first term − d). 5, 8, 11, … → 3n + 2.",
+   "unit": "sequences"
+  },
+  {
+   "front": "nth term of a quadratic sequence",
+   "back": "Second differences are constant and equal 2a, so start with an². Subtract an² from each term and find the linear nth term of what is left; add the two parts.",
+   "unit": "sequences"
+  },
+  {
+   "front": "Is a number a term of the sequence?",
+   "back": "Set the nth term equal to the number and solve. If n is a positive whole number, it is a term; otherwise it is not.",
+   "unit": "sequences"
+  },
+  {
+   "front": "Geometric (exponential) sequence",
+   "back": "Multiply by the same ratio r each time. nth term = a × rⁿ⁻¹, where a is the first term. 3, 6, 12, … → 3 × 2ⁿ⁻¹.",
+   "unit": "sequences"
+  },
+  {
+   "front": "Cubic sequences",
+   "back": "Compare with the cube numbers 1, 8, 27, 64, … e.g. 2, 9, 28, 65, … is n³ + 1.",
+   "unit": "sequences"
+  },
+  {
+   "front": "Term-to-term vs position-to-term",
+   "back": "Term-to-term: how to get the next term (e.g. add 4). Position-to-term: the nth term formula, used to find any term directly.",
+   "unit": "sequences"
+  },
+  {
+   "front": "Square and triangular numbers",
+   "back": "Squares n²: 1, 4, 9, 16, … Triangular n(n + 1)/2: 1, 3, 6, 10, 15, …",
+   "unit": "sequences"
+  },
+  {
+   "front": "Generating terms from an nth term",
+   "back": "Substitute n = 1, 2, 3, … For the 20th term substitute n = 20.",
+   "unit": "sequences"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "Expand (2x − 3)².",
+   "options": [
+    "4x² − 9",
+    "4x² − 12x + 9",
+    "4x² + 9",
+    "2x² − 12x + 9"
+   ],
+   "answer": 1,
+   "why": "(2x − 3)(2x − 3) = 4x² − 6x − 6x + 9 = 4x² − 12x + 9. Squaring each term separately misses the middle term.",
+   "unit": "expressions"
+  },
+  {
+   "q": "Factorise completely 12a²b − 18ab².",
+   "options": [
+    "6ab(2a − 3b)",
+    "3ab(4a − 6b)",
+    "6(2a²b − 3ab²)",
+    "2ab(6a − 9b)"
+   ],
+   "answer": 0,
+   "why": "HCF of 12 and 18 is 6; a and b are both common: 6ab(2a − 3b). The others still have a common factor inside.",
+   "unit": "expressions"
+  },
+  {
+   "q": "Factorise x² − x − 20.",
+   "options": [
+    "(x − 4)(x + 5)",
+    "(x − 10)(x + 2)",
+    "(x − 5)(x + 4)",
+    "(x − 20)(x + 1)"
+   ],
+   "answer": 2,
+   "why": "Need two numbers multiplying to −20 and adding to −1: −5 and +4.",
+   "unit": "expressions"
+  },
+  {
+   "q": "Find the value of 3a² − 2b when a = −2 and b = 3.",
+   "options": [
+    "−18",
+    "6",
+    "−6",
+    "30"
+   ],
+   "answer": 1,
+   "why": "3 × (−2)² − 2 × 3 = 3 × 4 − 6 = 6. Writing −2² = −4 gives −18.",
+   "unit": "expressions"
+  },
+  {
+   "q": "Factorise 3x² − 10x − 8.",
+   "options": [
+    "(3x − 4)(x + 2)",
+    "(3x − 2)(x + 4)",
+    "(3x + 4)(x − 2)",
+    "(3x + 2)(x − 4)"
+   ],
+   "answer": 3,
+   "why": "ac = −24: −12 and +2. 3x² − 12x + 2x − 8 = 3x(x − 4) + 2(x − 4) = (3x + 2)(x − 4). Expand to check: middle term −12x + 2x = −10x.",
+   "unit": "expressions"
+  },
+  {
+   "q": "Factorise 49 − 4y².",
+   "options": [
+    "(7 − 2y)²",
+    "(7 − 2y)(7 + 2y)",
+    "(49 − 2y)(1 + 2y)",
+    "(7 − 4y)(7 + 4y)"
+   ],
+   "answer": 1,
+   "why": "Difference of two squares: 49 = 7² and 4y² = (2y)², so (7 − 2y)(7 + 2y).",
+   "unit": "expressions"
+  },
+  {
+   "q": "Solve 5(x − 2) = 3x + 4.",
+   "options": [
+    "x = 3",
+    "x = 7",
+    "x = 1",
+    "x = −3"
+   ],
+   "answer": 1,
+   "why": "5x − 10 = 3x + 4 → 2x = 14 → x = 7. Forgetting to multiply the 2 by 5 gives x = 3.",
+   "unit": "equations"
+  },
+  {
+   "q": "Solve (2x + 1)/3 = 5.",
+   "options": [
+    "x = 2",
+    "x = 8",
+    "x = 7",
+    "x = 4"
+   ],
+   "answer": 2,
+   "why": "Multiply both sides by 3: 2x + 1 = 15 → 2x = 14 → x = 7.",
+   "unit": "equations"
+  },
+  {
+   "q": "Solve 2x + y = 11 and x − y = 1.",
+   "options": [
+    "x = 4, y = 3",
+    "x = 3, y = 5",
+    "x = 5, y = 1",
+    "x = 4, y = −3"
+   ],
+   "answer": 0,
+   "why": "Add (different signs on y): 3x = 12 → x = 4. Then 4 − y = 1 → y = 3. Check: 8 + 3 = 11 ✓.",
+   "unit": "equations"
+  },
+  {
+   "q": "Solve 3x + 2y = 12 and 3x − 4y = −6.",
+   "options": [
+    "x = 3, y = 1.5",
+    "x = 1, y = 4.5",
+    "x = 2, y = −3",
+    "x = 2, y = 3"
+   ],
+   "answer": 3,
+   "why": "Same sign on 3x, so subtract: 6y = 18 → y = 3. Then 3x + 6 = 12 → x = 2. Check: 6 − 12 = −6 ✓.",
+   "unit": "equations"
+  },
+  {
+   "q": "The sum of three consecutive integers is 72. What is the largest?",
+   "options": [
+    "24",
+    "25",
+    "23",
+    "26"
+   ],
+   "answer": 1,
+   "why": "n + (n + 1) + (n + 2) = 72 → 3n + 3 = 72 → n = 23. Largest = 25.",
+   "unit": "equations"
+  },
+  {
+   "q": "Solve x² − 5x = 0.",
+   "options": [
+    "x = 5",
+    "x = 0 or x = 5",
+    "x = 0 or x = −5",
+    "x = ±√5"
+   ],
+   "answer": 1,
+   "why": "x(x − 5) = 0, so x = 0 or x = 5. Dividing by x loses the x = 0 solution.",
+   "unit": "quadratics"
+  },
+  {
+   "q": "Write x² + 8x + 5 in the form (x + p)² + q.",
+   "options": [
+    "(x + 4)² + 5",
+    "(x + 8)² − 59",
+    "(x + 4)² − 11",
+    "(x + 4)² − 21"
+   ],
+   "answer": 2,
+   "why": "Half of 8 is 4: (x + 4)² = x² + 8x + 16, so subtract 16: (x + 4)² − 16 + 5 = (x + 4)² − 11.",
+   "unit": "quadratics"
+  },
+  {
+   "q": "What is the turning point of y = (x − 3)² + 2?",
+   "options": [
+    "(−3, 2)",
+    "(3, 2)",
+    "(3, −2)",
+    "(2, 3)"
+   ],
+   "answer": 1,
+   "why": "The bracket is zero when x = 3, giving the minimum y = 2. So (3, 2).",
+   "unit": "quadratics"
+  },
+  {
+   "q": "Solve x² − 2x − 4 = 0, giving answers to 2 decimal places.",
+   "options": [
+    "3.24 and −1.24",
+    "−3.24 and 1.24",
+    "2.24 and −2.24",
+    "4.47 and −2.47"
+   ],
+   "answer": 0,
+   "why": "x = (2 ± √(4 + 16)) ÷ 2 = (2 ± √20) ÷ 2 = 1 ± √5, so 3.24 and −1.24. Sign slip on −b gives −3.24 and 1.24.",
+   "unit": "quadratics"
+  },
+  {
+   "q": "Solve 2x² − 7x + 3 = 0.",
+   "options": [
+    "x = −½ or x = −3",
+    "x = 2 or x = 3",
+    "x = 1 or x = 3",
+    "x = ½ or x = 3"
+   ],
+   "answer": 3,
+   "why": "(2x − 1)(x − 3) = 0, so 2x = 1 → x = ½, or x = 3.",
+   "unit": "quadratics"
+  },
+  {
+   "q": "Solve 7 − 3x > 19.",
+   "options": [
+    "x > −4",
+    "x < −4",
+    "x > 4",
+    "x < 4"
+   ],
+   "answer": 1,
+   "why": "−3x > 12. Dividing by −3 reverses the sign: x < −4.",
+   "unit": "inequalities"
+  },
+  {
+   "q": "List the integers n such that −3 ≤ 2n < 6.",
+   "options": [
+    "−1, 0, 1, 2, 3",
+    "−2, −1, 0, 1, 2",
+    "−1, 0, 1, 2",
+    "−3, −2, −1, 0, 1, 2"
+   ],
+   "answer": 2,
+   "why": "Divide by 2: −1.5 ≤ n < 3. Integers: −1, 0, 1, 2 (3 is not included).",
+   "unit": "inequalities"
+  },
+  {
+   "q": "A region is below the line y = 2x + 1, and the line is drawn dashed. Which inequality describes it?",
+   "options": [
+    "y ≤ 2x + 1",
+    "y > 2x + 1",
+    "y < 2x + 1",
+    "y ≥ 2x + 1"
+   ],
+   "answer": 2,
+   "why": "Below the line → y < …; dashed means the line is not included, so strict <.",
+   "unit": "inequalities"
+  },
+  {
+   "q": "Solve 2x + 5 ≤ 5x − 7.",
+   "options": [
+    "x ≥ 4",
+    "x ≤ 4",
+    "x ≥ −4",
+    "x ≤ −4"
+   ],
+   "answer": 0,
+   "why": "Subtract 2x and add 7: 12 ≤ 3x, so 4 ≤ x, i.e. x ≥ 4.",
+   "unit": "inequalities"
+  },
+  {
+   "q": "A number line shows a filled circle at 2, an open circle at 5, and a line between them. Which inequality is this?",
+   "options": [
+    "2 < x ≤ 5",
+    "2 ≤ x ≤ 5",
+    "2 < x < 5",
+    "2 ≤ x < 5"
+   ],
+   "answer": 3,
+   "why": "Filled at 2 → 2 is included (≤). Open at 5 → 5 is not included (<).",
+   "unit": "inequalities"
+  },
+  {
+   "q": "Make r the subject of A = πr².",
+   "options": [
+    "r = A/π²",
+    "r = √(A/π)",
+    "r = √A/π",
+    "r = (A/π)²"
+   ],
+   "answer": 1,
+   "why": "Divide by π: r² = A/π. Then square root: r = √(A/π).",
+   "unit": "formulae"
+  },
+  {
+   "q": "Make x the subject of y = (3x − 2)/5.",
+   "options": [
+    "x = (5y + 2)/3",
+    "x = (5y − 2)/3",
+    "x = 5y/3 + 2",
+    "x = (y + 2)/15"
+   ],
+   "answer": 0,
+   "why": "× 5: 5y = 3x − 2. + 2: 5y + 2 = 3x. ÷ 3: x = (5y + 2)/3.",
+   "unit": "formulae"
+  },
+  {
+   "q": "Simplify (x² − 9)/(x² + 5x + 6).",
+   "options": [
+    "−9/(5x + 6)",
+    "(x + 3)/(x + 2)",
+    "(x − 3)/(x + 2)",
+    "(x − 3)/(x + 3)"
+   ],
+   "answer": 2,
+   "why": "(x − 3)(x + 3) / [(x + 2)(x + 3)] = (x − 3)/(x + 2). Cancelling the x² terms (−9/(5x + 6)) is not allowed.",
+   "unit": "formulae"
+  },
+  {
+   "q": "Make t the subject of a(t + 3) = bt.",
+   "options": [
+    "t = 3a/(a − b)",
+    "t = 3a/(b − a)",
+    "t = (bt − 3a)/a",
+    "t = −3a/b"
+   ],
+   "answer": 1,
+   "why": "at + 3a = bt → 3a = bt − at = t(b − a) → t = 3a/(b − a). Option C still has t on both sides.",
+   "unit": "formulae"
+  },
+  {
+   "q": "Simplify 1/x + 1/(2x).",
+   "options": [
+    "2/(3x)",
+    "1/(3x)",
+    "2/(3x²)",
+    "3/(2x)"
+   ],
+   "answer": 3,
+   "why": "Common denominator 2x: 2/(2x) + 1/(2x) = 3/(2x).",
+   "unit": "formulae"
+  },
+  {
+   "q": "Find the nth term of 7, 11, 15, 19, …",
+   "options": [
+    "n + 4",
+    "4n + 3",
+    "4n + 7",
+    "7n + 4"
+   ],
+   "answer": 1,
+   "why": "Difference 4 → 4n. First term 7 = 4 + 3, so 4n + 3.",
+   "unit": "sequences"
+  },
+  {
+   "q": "Find the nth term of 20, 17, 14, 11, …",
+   "options": [
+    "3n + 17",
+    "20 − 3n",
+    "23 − 3n",
+    "17 − 3n"
+   ],
+   "answer": 2,
+   "why": "Difference −3 → −3n. When n = 1, −3 + c = 20 → c = 23. So 23 − 3n.",
+   "unit": "sequences"
+  },
+  {
+   "q": "Find the nth term of 2, 9, 20, 35, 54, …",
+   "options": [
+    "4n² − 2",
+    "2n² + 7",
+    "n² + 4n − 3",
+    "2n² + n − 1"
+   ],
+   "answer": 3,
+   "why": "Differences 7, 11, 15, 19; second difference 4 → 2n². Terms − 2n² = 0, 1, 2, 3, 4 = n − 1. So 2n² + n − 1. (n² + 4n − 3 only fits the first two terms.)",
+   "unit": "sequences"
+  },
+  {
+   "q": "Find the nth term of 3, 6, 12, 24, …",
+   "options": [
+    "3 × 2ⁿ",
+    "3 × 2ⁿ⁻¹",
+    "6ⁿ⁻¹",
+    "3n"
+   ],
+   "answer": 1,
+   "why": "First term 3, ratio 2: 3 × 2ⁿ⁻¹. Check n = 1: 3 × 2⁰ = 3 ✓. 3 × 2ⁿ starts at 6.",
+   "unit": "sequences"
+  },
+  {
+   "q": "Is 100 a term of the sequence with nth term 4n + 2?",
+   "options": [
+    "Yes, the 24th term",
+    "Yes, the 25th term",
+    "No, because n = 24.5 is not a whole number",
+    "No, because 100 is even"
+   ],
+   "answer": 2,
+   "why": "4n + 2 = 100 → n = 24.5. Not a whole number, so 100 is not a term (all terms are 2 more than a multiple of 4).",
+   "unit": "sequences"
+  }
+ ],
+ "examIntro": "Paper 2 / Paper 4 style. [No calculator] questions are Paper 2; [Calculator] questions are Paper 4. Write full working first, then open the mark scheme: M1 = method mark, A1 = accuracy mark (correct answer from correct working), B1 = mark for a correct result on its own. Give yourself one mark per point you got.",
+ "exam": [
+  {
+   "q": "[No calculator] Factorise completely 2x² − 18.",
+   "marks": 2,
+   "points": [
+    "M1: 2(x² − 9)",
+    "A1: 2(x + 3)(x − 3)"
+   ],
+   "unit": "expressions"
+  },
+  {
+   "q": "[No calculator] Expand and simplify (x + 4)(2x − 3) − x(x + 1).",
+   "marks": 3,
+   "points": [
+    "M1: 2x² − 3x + 8x − 12",
+    "M1: − x² − x",
+    "A1: x² + 4x − 12"
+   ],
+   "unit": "expressions"
+  },
+  {
+   "q": "[No calculator] (a) Expand and simplify (x + 1)(x − 2)(2x + 3). (b) Factorise 6x² + x − 15.",
+   "marks": 5,
+   "points": [
+    "M1: (x + 1)(x − 2) = x² − x − 2",
+    "M1: 2x³ + 3x² − 2x² − 3x − 4x − 6 (at least 4 terms correct)",
+    "A1: 2x³ + x² − 7x − 6",
+    "M1: 6x² + 10x − 9x − 15, or (2x ± 3)(3x ± 5)",
+    "A1: (2x − 3)(3x + 5)"
+   ],
+   "unit": "expressions"
+  },
+  {
+   "q": "[No calculator] Solve 4(3x − 1) = 2(x + 8).",
+   "marks": 2,
+   "points": [
+    "M1: 12x − 4 = 2x + 16",
+    "A1: 10x = 20, x = 2"
+   ],
+   "unit": "equations"
+  },
+  {
+   "q": "[No calculator] Solve the simultaneous equations 3x + 4y = 5 and 5x − 2y = 17. Show all your working.",
+   "marks": 3,
+   "points": [
+    "M1: correct method to eliminate a letter, e.g. 10x − 4y = 34 added to 3x + 4y = 5 (13x = 39)",
+    "A1: x = 3",
+    "A1: y = −1"
+   ],
+   "unit": "equations"
+  },
+  {
+   "q": "[No calculator] Solve the simultaneous equations y = x + 1 and x² + y² = 25.",
+   "marks": 5,
+   "points": [
+    "M1: x² + (x + 1)² = 25",
+    "M1: 2x² + 2x − 24 = 0, or x² + x − 12 = 0",
+    "M1: (x + 4)(x − 3) = 0",
+    "A1: x = 3, y = 4",
+    "A1: x = −4, y = −3"
+   ],
+   "unit": "equations"
+  },
+  {
+   "q": "[No calculator] Solve x² + 2x − 15 = 0.",
+   "marks": 3,
+   "points": [
+    "M1: (x + 5)(x − 3) = 0",
+    "A1: x = −5",
+    "A1: x = 3"
+   ],
+   "unit": "quadratics"
+  },
+  {
+   "q": "[Calculator] Solve 3x² − 5x − 4 = 0. Show your working and give your answers correct to 2 decimal places.",
+   "marks": 4,
+   "points": [
+    "B1: √(25 + 48) or √73 seen",
+    "M1: (5 ± √73) ÷ 6",
+    "A1: 2.26",
+    "A1: −0.59"
+   ],
+   "unit": "quadratics"
+  },
+  {
+   "q": "[No calculator] A rectangle has length (x + 5) cm and width (x − 1) cm. Its area is 40 cm². (a) Show that x² + 4x − 45 = 0. (b) Solve the equation and hence find the perimeter of the rectangle.",
+   "marks": 6,
+   "points": [
+    "M1: (x + 5)(x − 1) = 40",
+    "A1: x² + 4x − 5 = 40 → x² + 4x − 45 = 0 (no errors)",
+    "M1: (x + 9)(x − 5) = 0",
+    "A1: x = 5 (x = −9 rejected: the width would be negative)",
+    "M1: length 10, width 4: 2 × (10 + 4)",
+    "A1: 28 cm"
+   ],
+   "unit": "quadratics"
+  },
+  {
+   "q": "[No calculator] Solve 3(x − 4) < 5x + 2.",
+   "marks": 2,
+   "points": [
+    "M1: 3x − 12 < 5x + 2 and terms collected, e.g. −14 < 2x",
+    "A1: x > −7"
+   ],
+   "unit": "inequalities"
+  },
+  {
+   "q": "[No calculator] (a) Solve −5 < 3x + 1 ≤ 13. (b) List the integers that satisfy this inequality.",
+   "marks": 3,
+   "points": [
+    "M1: −6 < 3x ≤ 12",
+    "A1: −2 < x ≤ 4",
+    "B1: −1, 0, 1, 2, 3, 4"
+   ],
+   "unit": "inequalities"
+  },
+  {
+   "q": "[No calculator] Region R satisfies y ≥ 1, x + y ≤ 6 and y ≤ 2x. (a) Find the coordinates of the three vertices of R. (b) Find the greatest value of 3x + y for a point (x, y) in R with integer coordinates.",
+   "marks": 5,
+   "points": [
+    "B1: (0.5, 1) where y = 1 meets y = 2x",
+    "B1: (5, 1) where y = 1 meets x + y = 6",
+    "B1: (2, 4) where x + y = 6 meets y = 2x",
+    "M1: evaluates 3x + y at points in R, e.g. (5, 1) → 16, (2, 4) → 10",
+    "A1: 16"
+   ],
+   "unit": "inequalities",
+   "note": "In the exam you would draw the three lines on a grid first; sketching them helps here too."
+  },
+  {
+   "q": "[No calculator] Make h the subject of the formula V = ⅓πr²h.",
+   "marks": 2,
+   "points": [
+    "M1: 3V = πr²h",
+    "A1: h = 3V/(πr²)"
+   ],
+   "unit": "formulae"
+  },
+  {
+   "q": "[No calculator] Simplify (2x² − 8)/(x² − x − 6).",
+   "marks": 3,
+   "points": [
+    "M1: numerator 2(x − 2)(x + 2)",
+    "M1: denominator (x − 3)(x + 2)",
+    "A1: 2(x − 2)/(x − 3)"
+   ],
+   "unit": "formulae"
+  },
+  {
+   "q": "[Calculator] Solve 3/(x + 1) + 2/(x − 2) = 1. Give your answers correct to 2 decimal places.",
+   "marks": 5,
+   "points": [
+    "M1: 3(x − 2) + 2(x + 1) = (x + 1)(x − 2)",
+    "M1: 5x − 4 = x² − x − 2",
+    "A1: x² − 6x + 2 = 0",
+    "M1: x = (6 ± √(36 − 8)) ÷ 2",
+    "A1: 5.65 and 0.35"
+   ],
+   "unit": "formulae"
+  },
+  {
+   "q": "[No calculator] The sequence 1, 8, 27, 64, … continues. (a) Write down the next two terms. (b) Write down the nth term.",
+   "marks": 2,
+   "points": [
+    "B1: 125 and 216",
+    "B1: n³"
+   ],
+   "unit": "sequences"
+  },
+  {
+   "q": "[No calculator] For the sequence 6, 11, 16, 21, … (a) find the nth term (b) find the 50th term.",
+   "marks": 3,
+   "points": [
+    "M1: common difference 5, so 5n + …",
+    "A1: 5n + 1",
+    "A1: 5 × 50 + 1 = 251"
+   ],
+   "unit": "sequences"
+  },
+  {
+   "q": "[No calculator] The sequence 4, 11, 22, 37, 56, … is quadratic. (a) Find the nth term. (b) Which term of the sequence is 211?",
+   "marks": 5,
+   "points": [
+    "M1: second differences 4, so 2n²",
+    "M1: terms − 2n² = 2, 3, 4, 5, 6 (= n + 1)",
+    "A1: 2n² + n + 1",
+    "M1: 2n² + n + 1 = 211 → 2n² + n − 210 = 0 → (2n + 21)(n − 10) = 0",
+    "A1: the 10th term"
+   ],
+   "unit": "sequences"
+  }
+ ]
+}

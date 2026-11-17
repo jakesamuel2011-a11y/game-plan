@@ -1,0 +1,827 @@
+{
+ "id": "math-geometry",
+ "subject": "Math",
+ "title": "Geometry & mensuration",
+ "sub": "Angles and polygons, circle theorems, similarity and symmetry, area, surface area and volume",
+ "units": [
+  {
+   "key": "angles",
+   "name": "Angles & polygons"
+  },
+  {
+   "key": "circles",
+   "name": "Circle theorems"
+  },
+  {
+   "key": "similarity",
+   "name": "Similarity & symmetry"
+  },
+  {
+   "key": "area",
+   "name": "Perimeter & area"
+  },
+  {
+   "key": "volume",
+   "name": "Surface area & volume"
+  }
+ ],
+ "strategyIntro": "Extended Maths is two papers of equal weight: Paper 2 (2 hours, 100 marks, no calculator) and Paper 4 (2 hours, 100 marks, calculator). Your school test may be shorter, but it is marked the same way: M marks for a correct method, A marks for the correct answer that follows, B marks for a correct result on its own.",
+ "strategy": [
+  {
+   "title": "Timing",
+   "key": true,
+   "points": [
+    "About 1.2 minutes per mark: a 5-mark question is worth about 6 minutes.",
+    "If a question has taken twice its time, leave a gap and come back at the end.",
+    "Keep 10 minutes at the end to check answers against the question."
+   ]
+  },
+  {
+   "title": "Show your working",
+   "key": true,
+   "points": [
+    "Most marks are method marks. A wrong answer with clear working can still score most of the marks.",
+    "Write the calculation you are doing before the answer, e.g. 360 ÷ 12 = 30.",
+    "An answer with no working can score zero if it is wrong, and sometimes even if it is right (\"show that\")."
+   ]
+  },
+  {
+   "title": "Paper 2: no calculator",
+   "points": [
+    "Practise fractions, negative numbers, standard form and surds by hand.",
+    "Leave answers exact when you can: fractions, surds, or in terms of π.",
+    "Check with a quick estimate: is the answer about the right size?"
+   ]
+  },
+  {
+   "title": "Paper 4: calculator",
+   "points": [
+    "Give answers to 3 significant figures unless the question says otherwise; angles to 1 decimal place.",
+    "Never round partway through. Keep the full value in the calculator memory (or write 4+ figures).",
+    "Use the π button, not 3.14. Check the calculator is in degrees."
+   ]
+  },
+  {
+   "title": "Answer the question",
+   "points": [
+    "Read the last line again: units, form of answer (\"in its simplest form\", \"in terms of π\"), and accuracy.",
+    "\"Show that\" questions: every step must be written, ending with the given result.",
+    "When the question says \"hence\", use the previous part."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "Calculate",
+   "Work out from given facts. Show the working; usually a calculator is allowed."
+  ],
+  [
+   "Work out / Find",
+   "Get the answer by any correct method. Show working."
+  ],
+  [
+   "Write down",
+   "The answer needs little or no working: you can often read or state it."
+  ],
+  [
+   "Show that",
+   "The answer is given. Write every step clearly so the examiner can follow the logic to it."
+  ],
+  [
+   "Estimate",
+   "Round each number (usually to 1 significant figure) and calculate a rough value."
+  ],
+  [
+   "Simplify",
+   "Write in its simplest form: collect like terms, cancel common factors."
+  ],
+  [
+   "Factorise (completely)",
+   "Write as a product of factors. Completely means take out every common factor."
+  ],
+  [
+   "Expand",
+   "Multiply out the brackets."
+  ],
+  [
+   "Solve",
+   "Find the value(s) of the unknown that make the equation or inequality true."
+  ],
+  [
+   "Sketch",
+   "Show the shape and key features (intercepts, turning points), not plotted accurately."
+  ],
+  [
+   "Describe fully",
+   "For a transformation: name it and give every detail (centre, angle, direction, scale factor, vector or mirror line)."
+  ],
+  [
+   "Hence",
+   "Use the result you have just found to answer this part."
+  ],
+  [
+   "Give your answer in its simplest form",
+   "Cancel fractions and ratios fully; simplify surds."
+  ]
+ ],
+ "quizTitle": "Multiple-choice practice",
+ "quizIntro": "Quick calculations and concept checks. Do each one on paper first, then pick. The wrong options are common mistakes, so if you got one, read the working in the explanation.",
+ "flashIntro": "Methods, rules and formulas. Say the rule out loud (or write it down) with an example before you tap, then check you remembered every step.",
+ "flashcards": [
+  {
+   "front": "Basic angle facts",
+   "back": "Angles on a straight line add to 180°; angles around a point add to 360°; vertically opposite angles are equal.",
+   "unit": "angles"
+  },
+  {
+   "front": "Angles with parallel lines",
+   "back": "Alternate angles are equal; corresponding angles are equal; co-interior angles add up to 180°.",
+   "unit": "angles"
+  },
+  {
+   "front": "Angle sums of triangles and quadrilaterals",
+   "back": "Triangle: 180°. Quadrilateral: 360°.",
+   "unit": "angles"
+  },
+  {
+   "front": "Sum of interior angles of an n-sided polygon",
+   "back": "(n − 2) × 180°. Pentagon: 540°; hexagon: 720°.",
+   "unit": "angles"
+  },
+  {
+   "front": "Exterior and interior angle of a regular polygon",
+   "back": "Exterior = 360° ÷ n. Interior = 180° − exterior.",
+   "unit": "angles"
+  },
+  {
+   "front": "Finding the number of sides from an exterior angle",
+   "back": "n = 360 ÷ exterior angle. Exterior 24° → 15 sides.",
+   "unit": "angles"
+  },
+  {
+   "front": "Exterior angle of a triangle",
+   "back": "Equals the sum of the two interior angles opposite it.",
+   "unit": "angles"
+  },
+  {
+   "front": "Quadrilateral properties",
+   "back": "Parallelogram: opposite sides equal and parallel, opposite angles equal. Rhombus: also all sides equal, diagonals cross at 90°. Kite: one pair of equal angles, diagonals at 90°. Trapezium: one pair of parallel sides.",
+   "unit": "angles"
+  },
+  {
+   "front": "Giving reasons",
+   "back": "Name the fact in words each time: \"alternate angles are equal\", \"angles in a triangle sum to 180°\". \"Z angles\" may not score.",
+   "unit": "angles"
+  },
+  {
+   "front": "Angle in a semicircle",
+   "back": "The angle at the circumference subtended by a diameter is 90°.",
+   "unit": "circles"
+  },
+  {
+   "front": "Tangent and radius",
+   "back": "A tangent meets the radius at the point of contact at 90°.",
+   "unit": "circles"
+  },
+  {
+   "front": "Two tangents from an external point",
+   "back": "They are equal in length. With the two radii they form a kite, symmetrical about the line to the centre.",
+   "unit": "circles"
+  },
+  {
+   "front": "Angle at the centre",
+   "back": "The angle at the centre is twice the angle at the circumference subtended by the same arc.",
+   "unit": "circles"
+  },
+  {
+   "front": "Angles in the same segment",
+   "back": "Angles at the circumference subtended by the same chord (on the same side) are equal.",
+   "unit": "circles"
+  },
+  {
+   "front": "Cyclic quadrilateral",
+   "back": "All four vertices on a circle. Opposite angles add up to 180°.",
+   "unit": "circles"
+  },
+  {
+   "front": "Alternate segment theorem",
+   "back": "The angle between a tangent and a chord equals the angle in the alternate segment (the angle at the circumference on the other side of the chord).",
+   "unit": "circles"
+  },
+  {
+   "front": "Perpendicular from the centre to a chord",
+   "back": "It bisects the chord (cuts it in half).",
+   "unit": "circles"
+  },
+  {
+   "front": "Writing circle theorem reasons",
+   "back": "Use full words, e.g. \"opposite angles of a cyclic quadrilateral add up to 180°\". Also look for isosceles triangles made by two radii.",
+   "unit": "circles"
+  },
+  {
+   "front": "Similar shapes",
+   "back": "Same shape, different size: corresponding angles are equal and corresponding sides are in the same ratio (the scale factor k).",
+   "unit": "similarity"
+  },
+  {
+   "front": "Area and volume scale factors",
+   "back": "If lengths are multiplied by k, areas are multiplied by k² and volumes by k³.",
+   "unit": "similarity"
+  },
+  {
+   "front": "Finding k from areas or volumes",
+   "back": "From an area ratio: k = √(area ratio). From a volume ratio: k = ∛(volume ratio). Then use k for lengths.",
+   "unit": "similarity"
+  },
+  {
+   "front": "Conditions for congruent triangles",
+   "back": "SSS, SAS, ASA (or AAS) and RHS. AAA only shows similarity.",
+   "unit": "similarity"
+  },
+  {
+   "front": "Similar triangles with a parallel line",
+   "back": "If DE is parallel to BC (D on AB, E on AC), triangles ADE and ABC are similar. Use the whole side AB, not just DB.",
+   "unit": "similarity"
+  },
+  {
+   "front": "Rotational symmetry",
+   "back": "The order is the number of times the shape looks the same in one full turn. A regular pentagon has order 5.",
+   "unit": "similarity"
+  },
+  {
+   "front": "Planes of symmetry",
+   "back": "A plane that cuts a 3D shape into two mirror-image halves. A cuboid with three different edge lengths has 3; a cube has 9.",
+   "unit": "similarity"
+  },
+  {
+   "front": "Standard constructions",
+   "back": "Perpendicular bisector: points equidistant from two points. Angle bisector: points equidistant from two lines. Leave the compass arcs visible.",
+   "unit": "similarity"
+  },
+  {
+   "front": "Scale drawing 1 : 200",
+   "back": "1 cm on the drawing represents 200 cm = 2 m in real life.",
+   "unit": "similarity"
+  },
+  {
+   "front": "Area of a triangle",
+   "back": "½ × base × perpendicular height (or ½ab sin C with two sides and the angle between them).",
+   "unit": "area"
+  },
+  {
+   "front": "Area of a parallelogram",
+   "back": "base × perpendicular height (not the slanted side).",
+   "unit": "area"
+  },
+  {
+   "front": "Area of a trapezium",
+   "back": "½(a + b)h, where a and b are the parallel sides and h is the distance between them.",
+   "unit": "area"
+  },
+  {
+   "front": "Circumference of a circle",
+   "back": "C = πd = 2πr.",
+   "unit": "area"
+  },
+  {
+   "front": "Area of a circle",
+   "back": "A = πr². Use the radius, not the diameter.",
+   "unit": "area"
+  },
+  {
+   "front": "Arc length",
+   "back": "(θ/360) × 2πr.",
+   "unit": "area"
+  },
+  {
+   "front": "Sector area",
+   "back": "(θ/360) × πr².",
+   "unit": "area"
+  },
+  {
+   "front": "Perimeter of a sector",
+   "back": "Arc length + 2 radii. Forgetting the two straight edges is a common mistake.",
+   "unit": "area"
+  },
+  {
+   "front": "Converting area units",
+   "back": "1 m² = 100 × 100 = 10 000 cm²; 1 cm² = 100 mm². Square the length conversion.",
+   "unit": "area"
+  },
+  {
+   "front": "Answer in terms of π",
+   "back": "Leave π as a symbol: radius 6 → area 36π. Do not use a calculator value.",
+   "unit": "area"
+  },
+  {
+   "front": "Volume of a prism",
+   "back": "Area of cross-section × length. Cylinder: πr²h.",
+   "unit": "volume"
+  },
+  {
+   "front": "Surface area of a cylinder",
+   "back": "Curved surface 2πrh; total (closed) 2πrh + 2πr².",
+   "unit": "volume"
+  },
+  {
+   "front": "Volume of a pyramid",
+   "back": "⅓ × base area × perpendicular height.",
+   "unit": "volume"
+  },
+  {
+   "front": "Cone formulas",
+   "back": "Volume ⅓πr²h. Curved surface area πrl, where l is the slant height.",
+   "unit": "volume"
+  },
+  {
+   "front": "Sphere formulas",
+   "back": "Volume (4/3)πr³. Surface area 4πr².",
+   "unit": "volume"
+  },
+  {
+   "front": "Hemisphere",
+   "back": "Volume (2/3)πr³. Curved surface 2πr²; with the flat circle, total 3πr².",
+   "unit": "volume"
+  },
+  {
+   "front": "Slant height of a cone",
+   "back": "l = √(r² + h²) by Pythagoras, where h is the perpendicular height.",
+   "unit": "volume"
+  },
+  {
+   "front": "Volume units and litres",
+   "back": "1 litre = 1000 cm³. 1 m³ = 1 000 000 cm³ = 1000 litres.",
+   "unit": "volume"
+  },
+  {
+   "front": "Volume of a frustum",
+   "back": "Volume of the whole cone minus the small cone cut off. Use similar triangles to find the missing height.",
+   "unit": "volume"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "What is the interior angle of a regular hexagon?",
+   "options": [
+    "60°",
+    "108°",
+    "120°",
+    "135°"
+   ],
+   "answer": 2,
+   "why": "Exterior = 360 ÷ 6 = 60°, so interior = 180 − 60 = 120°. (60° is the exterior angle.)",
+   "unit": "angles"
+  },
+  {
+   "q": "A regular polygon has an exterior angle of 24°. How many sides does it have?",
+   "options": [
+    "15",
+    "24",
+    "7.5",
+    "156"
+   ],
+   "answer": 0,
+   "why": "n = 360 ÷ 24 = 15. (156° is the interior angle.)",
+   "unit": "angles"
+  },
+  {
+   "q": "What is the sum of the interior angles of a decagon (10 sides)?",
+   "options": [
+    "1800°",
+    "1440°",
+    "1260°",
+    "360°"
+   ],
+   "answer": 1,
+   "why": "(10 − 2) × 180 = 1440°. 1800° uses 10 × 180.",
+   "unit": "angles"
+  },
+  {
+   "q": "Two parallel lines are crossed by a transversal. One co-interior angle is 65°. What is the other?",
+   "options": [
+    "65°",
+    "25°",
+    "115°",
+    "295°"
+   ],
+   "answer": 2,
+   "why": "Co-interior angles add to 180°: 180 − 65 = 115°.",
+   "unit": "angles"
+  },
+  {
+   "q": "Which quadrilateral has exactly one pair of parallel sides?",
+   "options": [
+    "Parallelogram",
+    "Kite",
+    "Rhombus",
+    "Trapezium"
+   ],
+   "answer": 3,
+   "why": "A trapezium has one pair of parallel sides. Parallelograms and rhombuses have two pairs; a kite has none.",
+   "unit": "angles"
+  },
+  {
+   "q": "The angle at the centre of a circle is 130°. What is the angle at the circumference subtended by the same arc?",
+   "options": [
+    "130°",
+    "65°",
+    "115°",
+    "260°"
+   ],
+   "answer": 1,
+   "why": "The angle at the circumference is half the angle at the centre: 130 ÷ 2 = 65°.",
+   "unit": "circles"
+  },
+  {
+   "q": "ABCD is a cyclic quadrilateral. Angle A = 78°. What is angle C?",
+   "options": [
+    "102°",
+    "78°",
+    "12°",
+    "156°"
+   ],
+   "answer": 0,
+   "why": "Opposite angles of a cyclic quadrilateral add to 180°: 180 − 78 = 102°.",
+   "unit": "circles"
+  },
+  {
+   "q": "AB is a diameter and C is on the circle. Angle CAB = 35°. What is angle ABC?",
+   "options": [
+    "35°",
+    "55°",
+    "90°",
+    "145°"
+   ],
+   "answer": 1,
+   "why": "Angle ACB = 90° (angle in a semicircle). 180 − 90 − 35 = 55°.",
+   "unit": "circles"
+  },
+  {
+   "q": "PT is a tangent at T to a circle with centre O. Angle TOP = 62°. What is angle OPT?",
+   "options": [
+    "62°",
+    "118°",
+    "31°",
+    "28°"
+   ],
+   "answer": 3,
+   "why": "Angle OTP = 90° (tangent ⟂ radius). 180 − 90 − 62 = 28°.",
+   "unit": "circles"
+  },
+  {
+   "q": "The angle between a tangent and a chord is 48°. What is the angle in the alternate segment?",
+   "options": [
+    "42°",
+    "96°",
+    "48°",
+    "132°"
+   ],
+   "answer": 2,
+   "why": "Alternate segment theorem: the two angles are equal, 48°.",
+   "unit": "circles"
+  },
+  {
+   "q": "Two similar triangles have corresponding sides 4 cm and 10 cm. The smaller has area 12 cm². What is the area of the larger?",
+   "options": [
+    "30 cm²",
+    "75 cm²",
+    "187.5 cm²",
+    "60 cm²"
+   ],
+   "answer": 1,
+   "why": "k = 10/4 = 2.5, area factor 2.5² = 6.25. 12 × 6.25 = 75 cm². 30 cm² uses k instead of k².",
+   "unit": "similarity"
+  },
+  {
+   "q": "Two similar bottles have heights 10 cm and 15 cm. The small one holds 400 ml. How much does the large one hold?",
+   "options": [
+    "600 ml",
+    "900 ml",
+    "1350 ml",
+    "1200 ml"
+   ],
+   "answer": 2,
+   "why": "k = 1.5, volume factor 1.5³ = 3.375. 400 × 3.375 = 1350 ml.",
+   "unit": "similarity"
+  },
+  {
+   "q": "Two similar solids have surface areas 25 cm² and 64 cm². What is the ratio of their volumes?",
+   "options": [
+    "25 : 64",
+    "5 : 8",
+    "625 : 4096",
+    "125 : 512"
+   ],
+   "answer": 3,
+   "why": "Length ratio = √25 : √64 = 5 : 8. Volume ratio = 5³ : 8³ = 125 : 512.",
+   "unit": "similarity"
+  },
+  {
+   "q": "Which of these is NOT a condition for congruent triangles?",
+   "options": [
+    "AAA",
+    "SSS",
+    "SAS",
+    "RHS"
+   ],
+   "answer": 0,
+   "why": "Three equal angles only show the triangles are similar; they could be different sizes.",
+   "unit": "similarity"
+  },
+  {
+   "q": "What is the order of rotational symmetry of a regular pentagon?",
+   "options": [
+    "10",
+    "5",
+    "2",
+    "1"
+   ],
+   "answer": 1,
+   "why": "It looks the same 5 times in a full turn (every 72°).",
+   "unit": "similarity"
+  },
+  {
+   "q": "What is the area of a circle of diameter 10 cm, in terms of π?",
+   "options": [
+    "100π cm²",
+    "10π cm²",
+    "25π cm²",
+    "20π cm²"
+   ],
+   "answer": 2,
+   "why": "Radius = 5, so area = π × 5² = 25π. 100π uses the diameter as the radius.",
+   "unit": "area"
+  },
+  {
+   "q": "Find the arc length of a sector with radius 9 cm and angle 80°.",
+   "options": [
+    "18π cm",
+    "4π cm",
+    "2π cm",
+    "8π cm"
+   ],
+   "answer": 1,
+   "why": "80/360 × 2π × 9 = 80/360 × 18π = 4π cm. 18π cm² is the sector AREA.",
+   "unit": "area"
+  },
+  {
+   "q": "A trapezium has parallel sides 7 cm and 11 cm, and height 6 cm. What is its area?",
+   "options": [
+    "54 cm²",
+    "108 cm²",
+    "462 cm²",
+    "24 cm²"
+   ],
+   "answer": 0,
+   "why": "½ × (7 + 11) × 6 = 9 × 6 = 54 cm².",
+   "unit": "area"
+  },
+  {
+   "q": "Convert 3.5 m² to cm².",
+   "options": [
+    "350 cm²",
+    "3500 cm²",
+    "35 000 cm²",
+    "350 000 cm²"
+   ],
+   "answer": 2,
+   "why": "1 m² = 10 000 cm², so 3.5 × 10 000 = 35 000 cm².",
+   "unit": "area"
+  },
+  {
+   "q": "What is the perimeter of a semicircle of radius 5 cm?",
+   "options": [
+    "15.7 cm",
+    "25.7 cm",
+    "31.4 cm",
+    "39.3 cm"
+   ],
+   "answer": 1,
+   "why": "Half the circumference = 5π = 15.71, plus the diameter 10: 25.7 cm. 15.7 cm forgets the straight edge; 39.3 is the area.",
+   "unit": "area"
+  },
+  {
+   "q": "Find the volume of a cylinder with radius 3 cm and height 10 cm, in terms of π.",
+   "options": [
+    "30π cm³",
+    "60π cm³",
+    "90π cm³",
+    "300π cm³"
+   ],
+   "answer": 2,
+   "why": "π × 3² × 10 = 90π. 60π cm² is the curved surface area.",
+   "unit": "volume"
+  },
+  {
+   "q": "Find the volume of a sphere with radius 6 cm, in terms of π.",
+   "options": [
+    "288π cm³",
+    "144π cm³",
+    "864π cm³",
+    "48π cm³"
+   ],
+   "answer": 0,
+   "why": "(4/3) × π × 216 = 288π. 144π is the surface area 4πr².",
+   "unit": "volume"
+  },
+  {
+   "q": "A cone has radius 5 cm and height 12 cm. What is its slant height?",
+   "options": [
+    "17 cm",
+    "13 cm",
+    "√119 cm",
+    "7 cm"
+   ],
+   "answer": 1,
+   "why": "l = √(5² + 12²) = √169 = 13 cm. (√119 subtracts instead of adds.)",
+   "unit": "volume"
+  },
+  {
+   "q": "How many cm³ are in 2.4 litres?",
+   "options": [
+    "240 cm³",
+    "24 000 cm³",
+    "2 400 000 cm³",
+    "2400 cm³"
+   ],
+   "answer": 3,
+   "why": "1 litre = 1000 cm³, so 2.4 × 1000 = 2400 cm³.",
+   "unit": "volume"
+  },
+  {
+   "q": "A cube has volume 64 cm³. What is its total surface area?",
+   "options": [
+    "96 cm²",
+    "64 cm²",
+    "16 cm²",
+    "384 cm²"
+   ],
+   "answer": 0,
+   "why": "Edge = ∛64 = 4 cm. 6 faces × 16 = 96 cm².",
+   "unit": "volume"
+  }
+ ],
+ "examIntro": "Paper 2 / Paper 4 style. [No calculator] questions are Paper 2; [Calculator] questions are Paper 4. Write full working first, then open the mark scheme: M1 = method mark, A1 = accuracy mark (correct answer from correct working), B1 = mark for a correct result on its own. Give yourself one mark per point you got.",
+ "exam": [
+  {
+   "q": "[No calculator] Find the size of one interior angle of a regular 12-sided polygon.",
+   "marks": 2,
+   "points": [
+    "M1: 360 ÷ 12 = 30 (exterior), or 10 × 180 ÷ 12",
+    "A1: 150°"
+   ],
+   "unit": "angles"
+  },
+  {
+   "q": "[No calculator] The angles of a pentagon are x°, (x + 20)°, 2x°, 100° and 120°. Find x and the largest angle.",
+   "marks": 3,
+   "points": [
+    "M1: (5 − 2) × 180 = 540",
+    "M1: 4x + 240 = 540",
+    "A1: x = 75, largest angle 150°"
+   ],
+   "unit": "angles"
+  },
+  {
+   "q": "[No calculator] Each interior angle of a regular polygon is 7 times its exterior angle. (a) Find the exterior angle. (b) Find the number of sides.",
+   "marks": 4,
+   "points": [
+    "M1: e + 7e = 180",
+    "A1: e = 22.5°",
+    "M1: n = 360 ÷ 22.5",
+    "A1: 16 sides"
+   ],
+   "unit": "angles"
+  },
+  {
+   "q": "[No calculator] A, B and C are points on a circle with centre O. Angle AOC = 140° and B is on the major arc. Find angle ABC. Give a reason.",
+   "marks": 2,
+   "points": [
+    "B1: 70°",
+    "B1: the angle at the centre is twice the angle at the circumference"
+   ],
+   "unit": "circles"
+  },
+  {
+   "q": "[No calculator] PA and PB are tangents from P to a circle with centre O. Angle APB = 40°. Find (a) angle AOB (b) angle OAB. Give reasons.",
+   "marks": 4,
+   "points": [
+    "M1: angles OAP = OBP = 90° (tangent ⟂ radius)",
+    "A1: angle AOB = 360 − 90 − 90 − 40 = 140°",
+    "M1: OA = OB (radii), so triangle OAB is isosceles: (180 − 140) ÷ 2",
+    "A1: angle OAB = 20°"
+   ],
+   "unit": "circles"
+  },
+  {
+   "q": "[No calculator] A, B, C and D lie on a circle in that order. AC is a diameter. Angle BAC = 32° and angle CAD = 25°. Find (a) angle ACB (b) angle BCD (c) angle BDC. Give a reason for each answer.",
+   "marks": 6,
+   "points": [
+    "B1: angle ABC = 90° (angle in a semicircle)",
+    "A1: angle ACB = 180 − 90 − 32 = 58°",
+    "M1: angle BAD = 32 + 25 = 57°",
+    "A1: angle BCD = 180 − 57 = 123° (opposite angles of a cyclic quadrilateral)",
+    "B1: angle BDC = 32°",
+    "B1: angles in the same segment are equal (BDC and BAC both stand on BC)"
+   ],
+   "unit": "circles"
+  },
+  {
+   "q": "[No calculator] Triangles ABC and PQR are similar, with AB corresponding to PQ and BC to QR. AB = 6 cm, BC = 9 cm and PQ = 8 cm. Find QR.",
+   "marks": 2,
+   "points": [
+    "M1: scale factor 8/6 = 4/3",
+    "A1: QR = 9 × 4/3 = 12 cm"
+   ],
+   "unit": "similarity"
+  },
+  {
+   "q": "[No calculator] In triangle ABC, D is on AB and E is on AC, with DE parallel to BC. AD = 4 cm, DB = 6 cm and DE = 5 cm. (a) Find BC. (b) The area of triangle ADE is 8 cm². Find the area of the trapezium DBCE.",
+   "marks": 4,
+   "points": [
+    "M1: AB = 10, scale factor 10/4 = 2.5",
+    "A1: BC = 12.5 cm",
+    "M1: area ABC = 8 × 2.5² (= 50)",
+    "A1: area DBCE = 50 − 8 = 42 cm²"
+   ],
+   "unit": "similarity"
+  },
+  {
+   "q": "[Calculator] Two mathematically similar cones have volumes 135 cm³ and 320 cm³. The smaller cone has height 9 cm. (a) Find the height of the larger cone. (b) The curved surface area of the larger cone is 400 cm². Find the curved surface area of the smaller cone.",
+   "marks": 5,
+   "points": [
+    "M1: 320 ÷ 135 (= 64/27)",
+    "M1: length factor ∛(64/27) = 4/3",
+    "A1: 12 cm",
+    "M1: 400 ÷ (4/3)², or 400 × 9/16",
+    "A1: 225 cm²"
+   ],
+   "unit": "similarity"
+  },
+  {
+   "q": "[No calculator] A sector has radius 6 cm and angle 120°. Find its area, giving your answer in terms of π.",
+   "marks": 2,
+   "points": [
+    "M1: 120/360 × π × 6²",
+    "A1: 12π cm²"
+   ],
+   "unit": "area"
+  },
+  {
+   "q": "[Calculator] A circle has area 200 cm². Find its circumference.",
+   "marks": 3,
+   "points": [
+    "M1: r = √(200 ÷ π)",
+    "M1: 2 × π × 7.978…",
+    "A1: 50.1 cm"
+   ],
+   "unit": "area"
+  },
+  {
+   "q": "[Calculator] A garden is a rectangle 12 m by 8 m with a semicircle of diameter 8 m attached to one of the 8 m sides. Find (a) the area of the garden (b) the perimeter of the garden.",
+   "marks": 5,
+   "points": [
+    "M1: 12 × 8 = 96",
+    "M1: ½ × π × 4²",
+    "A1: 121 m² (121.1…)",
+    "M1: 12 + 8 + 12 + ½ × π × 8",
+    "A1: 44.6 m"
+   ],
+   "unit": "area",
+   "note": "The 8 m side joined to the semicircle is not part of the perimeter."
+  },
+  {
+   "q": "[No calculator] Find the total surface area of a cuboid measuring 5 cm by 4 cm by 3 cm.",
+   "marks": 2,
+   "points": [
+    "M1: 2 × (5 × 4 + 5 × 3 + 4 × 3)",
+    "A1: 94 cm²"
+   ],
+   "unit": "volume"
+  },
+  {
+   "q": "[Calculator] A cylinder of radius 4 cm holds exactly 1 litre of water when full. Find its height.",
+   "marks": 3,
+   "points": [
+    "B1: 1 litre = 1000 cm³",
+    "M1: π × 4² × h = 1000",
+    "A1: 19.9 cm"
+   ],
+   "unit": "volume"
+  },
+  {
+   "q": "[Calculator] A solid is made from a hemisphere of radius 6 cm with a cone of radius 6 cm and height 8 cm on its flat face. Find (a) the volume of the solid (b) the total surface area of the solid.",
+   "marks": 6,
+   "points": [
+    "M1: ⅔ × π × 6³ (= 144π)",
+    "M1: ⅓ × π × 6² × 8 (= 96π)",
+    "A1: 754 cm³ (240π)",
+    "M1: slant height √(6² + 8²) = 10",
+    "M1: 2 × π × 6² + π × 6 × 10",
+    "A1: 415 cm² (132π)"
+   ],
+   "unit": "volume",
+   "note": "The flat faces are joined together, so they are not part of the surface area."
+  }
+ ]
+}

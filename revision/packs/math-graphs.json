@@ -1,0 +1,951 @@
+{
+ "id": "math-graphs",
+ "subject": "Math",
+ "title": "Lines, functions & graphs",
+ "sub": "Coordinate geometry, functions, variation, graphs of functions, travel graphs and differentiation",
+ "units": [
+  {
+   "key": "lines",
+   "name": "Straight lines"
+  },
+  {
+   "key": "functions",
+   "name": "Functions"
+  },
+  {
+   "key": "variation",
+   "name": "Variation"
+  },
+  {
+   "key": "curves",
+   "name": "Graphs of functions"
+  },
+  {
+   "key": "motion",
+   "name": "Travel graphs"
+  },
+  {
+   "key": "calculus",
+   "name": "Differentiation"
+  }
+ ],
+ "strategyIntro": "Extended Maths is two papers of equal weight: Paper 2 (2 hours, 100 marks, no calculator) and Paper 4 (2 hours, 100 marks, calculator). Your school test may be shorter, but it is marked the same way: M marks for a correct method, A marks for the correct answer that follows, B marks for a correct result on its own.",
+ "strategy": [
+  {
+   "title": "Timing",
+   "key": true,
+   "points": [
+    "About 1.2 minutes per mark: a 5-mark question is worth about 6 minutes.",
+    "If a question has taken twice its time, leave a gap and come back at the end.",
+    "Keep 10 minutes at the end to check answers against the question."
+   ]
+  },
+  {
+   "title": "Show your working",
+   "key": true,
+   "points": [
+    "Most marks are method marks. A wrong answer with clear working can still score most of the marks.",
+    "Write the calculation you are doing before the answer, e.g. 360 ÷ 12 = 30.",
+    "An answer with no working can score zero if it is wrong, and sometimes even if it is right (\"show that\")."
+   ]
+  },
+  {
+   "title": "Paper 2: no calculator",
+   "points": [
+    "Practise fractions, negative numbers, standard form and surds by hand.",
+    "Leave answers exact when you can: fractions, surds, or in terms of π.",
+    "Check with a quick estimate: is the answer about the right size?"
+   ]
+  },
+  {
+   "title": "Paper 4: calculator",
+   "points": [
+    "Give answers to 3 significant figures unless the question says otherwise; angles to 1 decimal place.",
+    "Never round partway through. Keep the full value in the calculator memory (or write 4+ figures).",
+    "Use the π button, not 3.14. Check the calculator is in degrees."
+   ]
+  },
+  {
+   "title": "Answer the question",
+   "points": [
+    "Read the last line again: units, form of answer (\"in its simplest form\", \"in terms of π\"), and accuracy.",
+    "\"Show that\" questions: every step must be written, ending with the given result.",
+    "When the question says \"hence\", use the previous part."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "Calculate",
+   "Work out from given facts. Show the working; usually a calculator is allowed."
+  ],
+  [
+   "Work out / Find",
+   "Get the answer by any correct method. Show working."
+  ],
+  [
+   "Write down",
+   "The answer needs little or no working: you can often read or state it."
+  ],
+  [
+   "Show that",
+   "The answer is given. Write every step clearly so the examiner can follow the logic to it."
+  ],
+  [
+   "Estimate",
+   "Round each number (usually to 1 significant figure) and calculate a rough value."
+  ],
+  [
+   "Simplify",
+   "Write in its simplest form: collect like terms, cancel common factors."
+  ],
+  [
+   "Factorise (completely)",
+   "Write as a product of factors. Completely means take out every common factor."
+  ],
+  [
+   "Expand",
+   "Multiply out the brackets."
+  ],
+  [
+   "Solve",
+   "Find the value(s) of the unknown that make the equation or inequality true."
+  ],
+  [
+   "Sketch",
+   "Show the shape and key features (intercepts, turning points), not plotted accurately."
+  ],
+  [
+   "Describe fully",
+   "For a transformation: name it and give every detail (centre, angle, direction, scale factor, vector or mirror line)."
+  ],
+  [
+   "Hence",
+   "Use the result you have just found to answer this part."
+  ],
+  [
+   "Give your answer in its simplest form",
+   "Cancel fractions and ratios fully; simplify surds."
+  ]
+ ],
+ "quizTitle": "Multiple-choice practice",
+ "quizIntro": "Quick calculations and concept checks. Do each one on paper first, then pick. The wrong options are common mistakes, so if you got one, read the working in the explanation.",
+ "flashIntro": "Methods, rules and formulas. Say the rule out loud (or write it down) with an example before you tap, then check you remembered every step.",
+ "flashcards": [
+  {
+   "front": "Gradient between two points",
+   "back": "(y₂ − y₁) ÷ (x₂ − x₁): change in y over change in x. Uphill left to right is positive.",
+   "unit": "lines"
+  },
+  {
+   "front": "y = mx + c",
+   "back": "m is the gradient, c is the y-intercept (where the line crosses the y-axis).",
+   "unit": "lines"
+  },
+  {
+   "front": "Midpoint of a line segment",
+   "back": "Average the coordinates: ((x₁ + x₂)/2, (y₁ + y₂)/2).",
+   "unit": "lines"
+  },
+  {
+   "front": "Length of a line segment",
+   "back": "Pythagoras: √((x₂ − x₁)² + (y₂ − y₁)²).",
+   "unit": "lines"
+  },
+  {
+   "front": "Parallel lines",
+   "back": "Have the same gradient. y = 3x − 1 is parallel to y = 3x + 5.",
+   "unit": "lines"
+  },
+  {
+   "front": "Perpendicular lines",
+   "back": "Gradients multiply to −1, so m₂ = −1/m₁ (flip and change sign). Perpendicular to gradient 2/3 is −3/2.",
+   "unit": "lines"
+  },
+  {
+   "front": "Equation of a line through a point with gradient m",
+   "back": "Substitute the point into y = mx + c to find c, or use y − y₁ = m(x − x₁).",
+   "unit": "lines"
+  },
+  {
+   "front": "Finding the gradient of 2y + 3x = 8",
+   "back": "Make y the subject: y = −1.5x + 4. Gradient −1.5, y-intercept 4.",
+   "unit": "lines"
+  },
+  {
+   "front": "Perpendicular bisector of AB",
+   "back": "Find the midpoint of AB, find the perpendicular gradient, then the equation of the line through the midpoint with that gradient.",
+   "unit": "lines"
+  },
+  {
+   "front": "Function notation",
+   "back": "f(x) = 2x + 1 and f: x ↦ 2x + 1 mean the same. f(3) means substitute x = 3: f(3) = 7.",
+   "unit": "functions"
+  },
+  {
+   "front": "Composite function fg(x)",
+   "back": "Do g first, then f: fg(x) = f(g(x)). Order matters: fg is usually not the same as gf.",
+   "unit": "functions"
+  },
+  {
+   "front": "Finding an inverse function",
+   "back": "Write y = f(x), swap x and y, then rearrange to make y the subject. That is f⁻¹(x).",
+   "unit": "functions"
+  },
+  {
+   "front": "What does f⁻¹ do?",
+   "back": "It undoes f: f⁻¹(f(x)) = x. Its graph is the reflection of the graph of f in the line y = x.",
+   "unit": "functions"
+  },
+  {
+   "front": "Solving f(x) = k",
+   "back": "Set the expression equal to k and solve the equation.",
+   "unit": "functions"
+  },
+  {
+   "front": "Domain and range",
+   "back": "Domain: the input values allowed. Range: the output values produced.",
+   "unit": "functions"
+  },
+  {
+   "front": "Values excluded from a domain",
+   "back": "You cannot divide by zero: 1/(x − 2) needs x ≠ 2. You cannot square root a negative number.",
+   "unit": "functions"
+  },
+  {
+   "front": "ff(x)",
+   "back": "Apply f twice: substitute f(x) into f. If f(x) = 3x + 2, ff(x) = 3(3x + 2) + 2 = 9x + 8.",
+   "unit": "functions"
+  },
+  {
+   "front": "y is directly proportional to x",
+   "back": "y ∝ x, so y = kx. The graph is a straight line through the origin.",
+   "unit": "variation"
+  },
+  {
+   "front": "y is inversely proportional to x",
+   "back": "y = k/x. As x doubles, y halves.",
+   "unit": "variation"
+  },
+  {
+   "front": "y is proportional to the square of x",
+   "back": "y = kx². If x is doubled, y is multiplied by 2² = 4.",
+   "unit": "variation"
+  },
+  {
+   "front": "y is proportional to the square root of x",
+   "back": "y = k√x.",
+   "unit": "variation"
+  },
+  {
+   "front": "y is inversely proportional to the square of x",
+   "back": "y = k/x². If x is doubled, y is divided by 4.",
+   "unit": "variation"
+  },
+  {
+   "front": "y is proportional to the cube of x",
+   "back": "y = kx³. If x is doubled, y is multiplied by 8.",
+   "unit": "variation"
+  },
+  {
+   "front": "Method for variation questions",
+   "back": "1. Write the equation with k. 2. Substitute the given pair to find k. 3. Rewrite the formula with the value of k. 4. Use it to answer.",
+   "unit": "variation"
+  },
+  {
+   "front": "Spotting the type of variation in words",
+   "back": "\"proportional to\" → multiply by k; \"inversely proportional to\" → k divided by it. Watch for \"square\", \"cube\", \"square root\".",
+   "unit": "variation"
+  },
+  {
+   "front": "Shape of y = ax² + bx + c",
+   "back": "Parabola. a > 0: U-shaped with a minimum. a < 0: ∩-shaped with a maximum. Symmetrical about the vertical line through the turning point.",
+   "unit": "curves"
+  },
+  {
+   "front": "Shape of y = x³",
+   "back": "S-shaped curve through the origin, rising from bottom left to top right (a negative x³ term flips it).",
+   "unit": "curves"
+  },
+  {
+   "front": "Shape of y = k/x",
+   "back": "Two separate branches (a hyperbola). Asymptotes are the axes x = 0 and y = 0: the curve gets close but never touches them.",
+   "unit": "curves"
+  },
+  {
+   "front": "Shape of y = aˣ (a > 1)",
+   "back": "Passes through (0, 1), rises more and more steeply. As x becomes very negative it approaches the x-axis (asymptote y = 0) but never touches it.",
+   "unit": "curves"
+  },
+  {
+   "front": "Solving f(x) = 0 from a graph",
+   "back": "Read the x-coordinates where the curve crosses the x-axis.",
+   "unit": "curves"
+  },
+  {
+   "front": "Solving a related equation with a line",
+   "back": "Rearrange the new equation so one side is the plotted function; the other side is the line to draw. Read the x-coordinates where they cross.",
+   "unit": "curves"
+  },
+  {
+   "front": "Gradient of a curve at a point",
+   "back": "Draw a tangent touching the curve at that point, pick two points far apart on it, and work out rise ÷ run.",
+   "unit": "curves"
+  },
+  {
+   "front": "Plotting a curve from a table",
+   "back": "Plot each point accurately with a small cross, then join with a smooth freehand curve (no ruler, no straight segments).",
+   "unit": "curves"
+  },
+  {
+   "front": "Turning point",
+   "back": "A maximum or minimum point on a curve, where the gradient is zero.",
+   "unit": "curves"
+  },
+  {
+   "front": "Gradient of a distance–time graph",
+   "back": "Speed. A horizontal line means stationary; a steeper line means faster.",
+   "unit": "motion"
+  },
+  {
+   "front": "Gradient of a speed–time graph",
+   "back": "Acceleration (m/s²). A negative gradient is deceleration; a horizontal line is constant speed.",
+   "unit": "motion"
+  },
+  {
+   "front": "Area under a speed–time graph",
+   "back": "Distance travelled. Split the area into rectangles, triangles and trapezia.",
+   "unit": "motion"
+  },
+  {
+   "front": "Average speed",
+   "back": "Total distance ÷ total time, including any time spent stopped.",
+   "unit": "motion"
+  },
+  {
+   "front": "Acceleration",
+   "back": "Change in speed ÷ time taken. From 4 m/s to 16 m/s in 6 s: 12 ÷ 6 = 2 m/s².",
+   "unit": "motion"
+  },
+  {
+   "front": "Curved distance–time graph",
+   "back": "The speed is changing. Find the speed at an instant from the gradient of the tangent.",
+   "unit": "motion"
+  },
+  {
+   "front": "Converting minutes to hours",
+   "back": "Divide by 60: 20 minutes = 20/60 = ⅓ hour. Use hours when the speed is in km/h.",
+   "unit": "motion"
+  },
+  {
+   "front": "Area of a trapezium on a speed–time graph",
+   "back": "½ × (sum of the parallel sides) × width. The parallel sides are usually the two time lengths at the top and bottom.",
+   "unit": "motion"
+  },
+  {
+   "front": "Differentiating axⁿ",
+   "back": "Multiply by the power, then reduce the power by 1: d/dx(axⁿ) = naxⁿ⁻¹. y = 4x³ → dy/dx = 12x².",
+   "unit": "calculus"
+  },
+  {
+   "front": "Differentiating a constant and kx",
+   "back": "A constant differentiates to 0. kx differentiates to k (e.g. 5x → 5).",
+   "unit": "calculus"
+  },
+  {
+   "front": "What does dy/dx mean?",
+   "back": "The gradient function: it gives the gradient of the curve at any value of x.",
+   "unit": "calculus"
+  },
+  {
+   "front": "Gradient at a point",
+   "back": "Differentiate, then substitute the x-coordinate of the point into dy/dx.",
+   "unit": "calculus"
+  },
+  {
+   "front": "Turning (stationary) points",
+   "back": "Solve dy/dx = 0 to find x; substitute into the ORIGINAL equation to find y.",
+   "unit": "calculus"
+  },
+  {
+   "front": "Maximum or minimum?",
+   "back": "Find d²y/dx² (differentiate again). Positive → minimum; negative → maximum. Or check the sign of dy/dx just either side.",
+   "unit": "calculus"
+  },
+  {
+   "front": "Equation of a tangent at a point",
+   "back": "Find the gradient m from dy/dx at that x, then use y − y₁ = m(x − x₁).",
+   "unit": "calculus"
+  },
+  {
+   "front": "Differentiating 1/x² and similar",
+   "back": "Rewrite as a power first: 1/x² = x⁻², which differentiates to −2x⁻³ = −2/x³.",
+   "unit": "calculus"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "What is the gradient of the line through (2, 5) and (6, −3)?",
+   "options": [
+    "2",
+    "−2",
+    "−½",
+    "½"
+   ],
+   "answer": 1,
+   "why": "(−3 − 5) ÷ (6 − 2) = −8 ÷ 4 = −2.",
+   "unit": "lines"
+  },
+  {
+   "q": "What is the gradient of a line perpendicular to y = 4x − 1?",
+   "options": [
+    "4",
+    "−4",
+    "¼",
+    "−¼"
+   ],
+   "answer": 3,
+   "why": "Negative reciprocal of 4 is −¼. Check: 4 × (−¼) = −1.",
+   "unit": "lines"
+  },
+  {
+   "q": "Find the midpoint of (−3, 4) and (7, 10).",
+   "options": [
+    "(5, 3)",
+    "(2, 7)",
+    "(4, 14)",
+    "(10, 6)"
+   ],
+   "answer": 1,
+   "why": "((−3 + 7)/2, (4 + 10)/2) = (2, 7). (5, 3) is half the difference, not the average.",
+   "unit": "lines"
+  },
+  {
+   "q": "Find the length of the line from (1, 2) to (7, 10).",
+   "options": [
+    "10",
+    "14",
+    "√28",
+    "100"
+   ],
+   "answer": 0,
+   "why": "√(6² + 8²) = √100 = 10. Adding 6 + 8 = 14 is wrong.",
+   "unit": "lines"
+  },
+  {
+   "q": "What is the gradient of the line 3x + 2y = 12?",
+   "options": [
+    "3",
+    "6",
+    "−3/2",
+    "3/2"
+   ],
+   "answer": 2,
+   "why": "2y = −3x + 12 → y = −1.5x + 6. Gradient −3/2. (6 is the y-intercept.)",
+   "unit": "lines"
+  },
+  {
+   "q": "f(x) = 3x − 5. Find f(−2).",
+   "options": [
+    "1",
+    "−11",
+    "−1",
+    "11"
+   ],
+   "answer": 1,
+   "why": "3 × (−2) − 5 = −6 − 5 = −11.",
+   "unit": "functions"
+  },
+  {
+   "q": "f(x) = x² and g(x) = x + 3. Find fg(2).",
+   "options": [
+    "25",
+    "7",
+    "10",
+    "13"
+   ],
+   "answer": 0,
+   "why": "g first: g(2) = 5. Then f(5) = 25. Doing f first gives gf(2) = 7.",
+   "unit": "functions"
+  },
+  {
+   "q": "f(x) = (x + 4)/3. Find f⁻¹(x).",
+   "options": [
+    "3/(x + 4)",
+    "3x + 4",
+    "3x − 4",
+    "(x − 4)/3"
+   ],
+   "answer": 2,
+   "why": "y = (x + 4)/3, swap: x = (y + 4)/3 → 3x = y + 4 → y = 3x − 4. The reciprocal (3/(x + 4)) is not the inverse.",
+   "unit": "functions"
+  },
+  {
+   "q": "f(x) = 2x + 1 and g(x) = x². Find gf(x).",
+   "options": [
+    "2x² + 1",
+    "4x² + 4x + 1",
+    "4x² + 1",
+    "2x² + 2x + 1"
+   ],
+   "answer": 1,
+   "why": "f first, then square: (2x + 1)² = 4x² + 4x + 1. 2x² + 1 is fg(x).",
+   "unit": "functions"
+  },
+  {
+   "q": "Which value of x must be excluded from the domain of f(x) = 5/(2x − 3)?",
+   "options": [
+    "x = 0",
+    "x = 3",
+    "x = 1.5",
+    "x = −1.5"
+   ],
+   "answer": 2,
+   "why": "The denominator 2x − 3 = 0 when x = 1.5, and you cannot divide by zero.",
+   "unit": "functions"
+  },
+  {
+   "q": "y is proportional to x². y = 12 when x = 2. Find y when x = 5.",
+   "options": [
+    "30",
+    "75",
+    "150",
+    "48"
+   ],
+   "answer": 1,
+   "why": "12 = k × 4 → k = 3. y = 3 × 25 = 75. 30 comes from treating it as y = kx.",
+   "unit": "variation"
+  },
+  {
+   "q": "y is inversely proportional to x. y = 6 when x = 4. Find y when x = 3.",
+   "options": [
+    "8",
+    "4.5",
+    "2",
+    "72"
+   ],
+   "answer": 0,
+   "why": "k = xy = 24. y = 24 ÷ 3 = 8. Smaller x → bigger y.",
+   "unit": "variation"
+  },
+  {
+   "q": "y is inversely proportional to x². What happens to y when x is halved?",
+   "options": [
+    "It is halved",
+    "It is divided by 4",
+    "It is multiplied by 2",
+    "It is multiplied by 4"
+   ],
+   "answer": 3,
+   "why": "y = k/x². Halving x makes x² a quarter, so y is multiplied by 4.",
+   "unit": "variation"
+  },
+  {
+   "q": "p is proportional to √q. p = 10 when q = 16. Find p when q = 36.",
+   "options": [
+    "22.5",
+    "90",
+    "15",
+    "6"
+   ],
+   "answer": 2,
+   "why": "10 = k × 4 → k = 2.5. p = 2.5 × √36 = 2.5 × 6 = 15.",
+   "unit": "variation"
+  },
+  {
+   "q": "The time t to fill a pool is inversely proportional to the number of pumps n. Which formula is correct?",
+   "options": [
+    "t = kn",
+    "t = k/n",
+    "t = n/k",
+    "t = k + n"
+   ],
+   "answer": 1,
+   "why": "Inversely proportional → t = k/n: more pumps, less time.",
+   "unit": "variation"
+  },
+  {
+   "q": "Which statement about the graph of y = 2ˣ is true?",
+   "options": [
+    "It passes through (0, 0)",
+    "It passes through (0, 1)",
+    "It passes through (0, 2)",
+    "It has an asymptote at x = 0"
+   ],
+   "answer": 1,
+   "why": "2⁰ = 1, so it crosses the y-axis at (0, 1). Its asymptote is y = 0, not x = 0.",
+   "unit": "curves"
+  },
+  {
+   "q": "The graph of y = x² − 4x + 1 is drawn. Which line should you draw to solve x² − 4x − 2 = 0?",
+   "options": [
+    "y = −2",
+    "y = 2",
+    "y = −3",
+    "y = 3"
+   ],
+   "answer": 3,
+   "why": "x² − 4x − 2 = 0 → x² − 4x + 1 = 3 (add 3 to both sides). So draw y = 3.",
+   "unit": "curves"
+  },
+  {
+   "q": "Which graph has both axes as asymptotes?",
+   "options": [
+    "y = 4x",
+    "y = x² − 4",
+    "y = 4/x",
+    "y = 4ˣ"
+   ],
+   "answer": 2,
+   "why": "y = 4/x is undefined at x = 0 and never reaches y = 0. y = 4ˣ only has y = 0 as an asymptote.",
+   "unit": "curves"
+  },
+  {
+   "q": "What is the line of symmetry of y = x² − 6x + 5?",
+   "options": [
+    "x = 3",
+    "x = −3",
+    "x = 6",
+    "x = 5"
+   ],
+   "answer": 0,
+   "why": "Roots are x = 1 and x = 5 ((x − 1)(x − 5)); halfway between them is x = 3. Or x = −b/2a = 6/2 = 3.",
+   "unit": "curves"
+  },
+  {
+   "q": "A tangent to a curve at x = 2 passes through (1, 3) and (4, 12). Estimate the gradient of the curve at x = 2.",
+   "options": [
+    "9",
+    "3",
+    "1/3",
+    "4"
+   ],
+   "answer": 1,
+   "why": "Gradient of the tangent = (12 − 3) ÷ (4 − 1) = 9 ÷ 3 = 3.",
+   "unit": "curves"
+  },
+  {
+   "q": "A car accelerates uniformly from rest to 24 m/s in 8 s. What is its acceleration?",
+   "options": [
+    "3 m/s²",
+    "192 m/s²",
+    "0.33 m/s²",
+    "96 m/s²"
+   ],
+   "answer": 0,
+   "why": "Acceleration = 24 ÷ 8 = 3 m/s².",
+   "unit": "motion"
+  },
+  {
+   "q": "A car accelerates uniformly from rest to 24 m/s in 8 s. How far does it travel in those 8 seconds?",
+   "options": [
+    "192 m",
+    "96 m",
+    "32 m",
+    "3 m"
+   ],
+   "answer": 1,
+   "why": "Area of the triangle = ½ × 8 × 24 = 96 m. 192 m forgets the ½.",
+   "unit": "motion"
+  },
+  {
+   "q": "On a distance–time graph, what does a horizontal line show?",
+   "options": [
+    "Constant speed",
+    "Accelerating",
+    "Stationary",
+    "Returning to the start"
+   ],
+   "answer": 2,
+   "why": "Distance from the start is not changing, so the object is not moving.",
+   "unit": "motion"
+  },
+  {
+   "q": "An object moves at 10 m/s for 30 s, then decelerates uniformly to rest in 5 s. How far does it travel altogether?",
+   "options": [
+    "350 m",
+    "300 m",
+    "400 m",
+    "325 m"
+   ],
+   "answer": 3,
+   "why": "Rectangle 30 × 10 = 300 m, plus triangle ½ × 5 × 10 = 25 m: total 325 m.",
+   "unit": "motion"
+  },
+  {
+   "q": "A cyclist travels 12 km in 40 minutes. What is the average speed in km/h?",
+   "options": [
+    "0.3 km/h",
+    "18 km/h",
+    "30 km/h",
+    "4.8 km/h"
+   ],
+   "answer": 1,
+   "why": "40 minutes = ⅔ hour. 12 ÷ ⅔ = 18 km/h.",
+   "unit": "motion"
+  },
+  {
+   "q": "Differentiate y = 5x⁴ − 3x + 7.",
+   "options": [
+    "5x³ − 3",
+    "20x³ − 3x + 7",
+    "20x³ − 3",
+    "20x⁵ − 3"
+   ],
+   "answer": 2,
+   "why": "5x⁴ → 20x³; −3x → −3; 7 → 0. So dy/dx = 20x³ − 3.",
+   "unit": "calculus"
+  },
+  {
+   "q": "Find the gradient of y = x² − 6x at x = 4.",
+   "options": [
+    "−8",
+    "2",
+    "10",
+    "−2"
+   ],
+   "answer": 1,
+   "why": "dy/dx = 2x − 6. At x = 4: 8 − 6 = 2.",
+   "unit": "calculus"
+  },
+  {
+   "q": "Find the x-coordinate of the turning point of y = x² + 8x − 3.",
+   "options": [
+    "x = −4",
+    "x = 4",
+    "x = −8",
+    "x = 8"
+   ],
+   "answer": 0,
+   "why": "dy/dx = 2x + 8 = 0 → x = −4.",
+   "unit": "calculus"
+  },
+  {
+   "q": "Differentiate y = 6/x.",
+   "options": [
+    "6",
+    "−6/x",
+    "6/x²",
+    "−6/x²"
+   ],
+   "answer": 3,
+   "why": "6/x = 6x⁻¹ → −1 × 6x⁻² = −6/x².",
+   "unit": "calculus"
+  },
+  {
+   "q": "y = x³ − 12x has a turning point at x = 2. What type is it?",
+   "options": [
+    "Minimum, because d²y/dx² = 12 > 0",
+    "Maximum, because d²y/dx² = 12 > 0",
+    "Minimum, because dy/dx = 0",
+    "Maximum, because y = −16"
+   ],
+   "answer": 0,
+   "why": "dy/dx = 3x² − 12, d²y/dx² = 6x = 12 at x = 2. Positive → minimum. dy/dx = 0 only tells you it is a turning point.",
+   "unit": "calculus"
+  }
+ ],
+ "examIntro": "Paper 2 / Paper 4 style. [No calculator] questions are Paper 2; [Calculator] questions are Paper 4. Write full working first, then open the mark scheme: M1 = method mark, A1 = accuracy mark (correct answer from correct working), B1 = mark for a correct result on its own. Give yourself one mark per point you got.",
+ "exam": [
+  {
+   "q": "[No calculator] A line passes through (0, 3) and (4, 11). Find its equation.",
+   "marks": 2,
+   "points": [
+    "M1: gradient = (11 − 3) ÷ 4 = 2",
+    "A1: y = 2x + 3"
+   ],
+   "unit": "lines"
+  },
+  {
+   "q": "[No calculator] A is (−2, 1) and B is (4, 9). Find (a) the midpoint of AB (b) the length of AB.",
+   "marks": 4,
+   "points": [
+    "M1: ((−2 + 4)/2, (1 + 9)/2)",
+    "A1: (1, 5)",
+    "M1: √(6² + 8²)",
+    "A1: 10"
+   ],
+   "unit": "lines"
+  },
+  {
+   "q": "[No calculator] A is (−2, 1) and B is (4, 9). Find the equation of the perpendicular bisector of AB. Give your answer in the form ax + by = c.",
+   "marks": 5,
+   "points": [
+    "M1: gradient AB = 8/6 = 4/3",
+    "M1: perpendicular gradient −3/4",
+    "M1: midpoint (1, 5)",
+    "M1: y − 5 = −¾(x − 1)",
+    "A1: 3x + 4y = 23"
+   ],
+   "unit": "lines"
+  },
+  {
+   "q": "[No calculator] f(x) = 5 − 2x. (a) Find f(−3). (b) Solve f(x) = 13.",
+   "marks": 2,
+   "points": [
+    "A1: f(−3) = 5 + 6 = 11",
+    "A1: 5 − 2x = 13 → x = −4"
+   ],
+   "unit": "functions"
+  },
+  {
+   "q": "[No calculator] f(x) = 2x − 1 and g(x) = x² + 1. (a) Find gf(x), giving your answer in its simplest form. (b) Find f⁻¹(x).",
+   "marks": 4,
+   "points": [
+    "M1: (2x − 1)² + 1",
+    "A1: 4x² − 4x + 2",
+    "M1: x = 2y − 1 (swap) or y + 1 = 2x",
+    "A1: f⁻¹(x) = (x + 1)/2"
+   ],
+   "unit": "functions"
+  },
+  {
+   "q": "[No calculator] f(x) = 3x + 2 and g(x) = 1/(x − 1), x ≠ 1. (a) Find g(3). (b) Find fg(x) as a single fraction. (c) Solve ff(x) = 47.",
+   "marks": 6,
+   "points": [
+    "B1: g(3) = ½",
+    "M1: fg(x) = 3/(x − 1) + 2",
+    "M1: [3 + 2(x − 1)]/(x − 1)",
+    "A1: (2x + 1)/(x − 1)",
+    "M1: ff(x) = 3(3x + 2) + 2 = 9x + 8",
+    "A1: 9x + 8 = 47 → x = 13/3 (= 4⅓)"
+   ],
+   "unit": "functions"
+  },
+  {
+   "q": "[No calculator] y is directly proportional to x. y = 18 when x = 6. Find y when x = 11.",
+   "marks": 2,
+   "points": [
+    "M1: y = kx, 18 = 6k, so k = 3",
+    "A1: 33"
+   ],
+   "unit": "variation"
+  },
+  {
+   "q": "[Calculator] y is inversely proportional to the square of (x + 1). y = 5 when x = 3. (a) Find y in terms of x. (b) Find y when x = 7.",
+   "marks": 4,
+   "points": [
+    "M1: y = k/(x + 1)² and 5 = k/16",
+    "A1: y = 80/(x + 1)²",
+    "M1: 80/(7 + 1)²",
+    "A1: 1.25"
+   ],
+   "unit": "variation"
+  },
+  {
+   "q": "[Calculator] The distance, d metres, that a stone falls is proportional to the square of the time, t seconds. It falls 20 m in 2 s. (a) Find a formula for d in terms of t. (b) How far does it fall in 3.5 s? (c) How long does it take to fall 180 m?",
+   "marks": 5,
+   "points": [
+    "M1: d = kt² and 20 = 4k",
+    "A1: d = 5t²",
+    "A1: 5 × 3.5² = 61.25 m (61.3 m)",
+    "M1: 180 = 5t² → t² = 36",
+    "A1: 6 s"
+   ],
+   "unit": "variation"
+  },
+  {
+   "q": "[No calculator] For y = x² − 2x − 3: (a) find y when x = −2 and when x = 1. (b) Use the graph (or the equation) to write down the solutions of x² − 2x − 3 = 0.",
+   "marks": 3,
+   "points": [
+    "B1: x = −2 → y = 5",
+    "B1: x = 1 → y = −4",
+    "B1: x = −1 and x = 3"
+   ],
+   "unit": "curves"
+  },
+  {
+   "q": "[No calculator] The graph of y = x² − 2x − 3 is drawn for −2 ≤ x ≤ 4. (a) Find the equation of the straight line you should draw to solve x² − 3x − 2 = 0. (b) Estimate the solutions.",
+   "marks": 4,
+   "points": [
+    "M1: x² − 3x − 2 = 0 rearranged to x² − 2x − 3 = x − 1",
+    "A1: y = x − 1",
+    "M1: line drawn and intersections read",
+    "A1: x ≈ −0.6 and x ≈ 3.6"
+   ],
+   "unit": "curves",
+   "note": "Exact values are (3 ± √17)/2 = −0.56 and 3.56; graph readings within about 0.1 score."
+  },
+  {
+   "q": "[Calculator] y = x + 4/x for 0.5 ≤ x ≤ 5. (a) Find y when x = 0.5, x = 1 and x = 5. (b) Write down the coordinates of the minimum point. (c) By drawing a suitable line on the graph, solve x + 4/x = 4.5.",
+   "marks": 6,
+   "points": [
+    "B1: x = 0.5 → y = 8.5",
+    "B1: x = 1 → y = 5",
+    "B1: x = 5 → y = 5.8",
+    "B1: minimum (2, 4)",
+    "M1: draw the line y = 4.5",
+    "A1: x ≈ 1.2 and x ≈ 3.3"
+   ],
+   "unit": "curves",
+   "note": "Exact values of (c): 1.22 and 3.28."
+  },
+  {
+   "q": "[No calculator] A runner runs 6 km in 25 minutes. Find the average speed in km/h.",
+   "marks": 2,
+   "points": [
+    "M1: 6 ÷ (25/60), or 6 × 60 ÷ 25",
+    "A1: 14.4 km/h"
+   ],
+   "unit": "motion"
+  },
+  {
+   "q": "[No calculator] A car starts from rest and accelerates uniformly to 20 m/s in 10 s. It travels at 20 m/s for 30 s, then decelerates uniformly to rest in 15 s. (a) Find the acceleration in the first 10 s. (b) Find the total distance travelled.",
+   "marks": 4,
+   "points": [
+    "M1: 20 ÷ 10",
+    "A1: 2 m/s²",
+    "M1: ½ × 10 × 20 + 30 × 20 + ½ × 15 × 20, or ½ × (30 + 55) × 20",
+    "A1: 850 m"
+   ],
+   "unit": "motion"
+  },
+  {
+   "q": "[Calculator] A train accelerates uniformly from 12 m/s to 30 m/s in 45 s. It then decelerates uniformly to rest in 60 s. (a) Find the acceleration. (b) Find the total distance travelled. (c) Find the average speed for the whole 105 s in km/h.",
+   "marks": 7,
+   "points": [
+    "M1: (30 − 12) ÷ 45",
+    "A1: 0.4 m/s²",
+    "M1: ½ × (12 + 30) × 45 (= 945)",
+    "M1: ½ × 60 × 30 (= 900)",
+    "A1: 1845 m",
+    "M1: 1845 ÷ 105 (= 17.57 m/s) × 3.6",
+    "A1: 63.3 km/h"
+   ],
+   "unit": "motion"
+  },
+  {
+   "q": "[No calculator] Differentiate y = 2x³ − 5x² + 4x − 1.",
+   "marks": 2,
+   "points": [
+    "B1: two terms correct from 6x² − 10x + 4",
+    "B1: fully correct 6x² − 10x + 4"
+   ],
+   "unit": "calculus"
+  },
+  {
+   "q": "[No calculator] The curve y = x³ − 4x + 2 passes through (2, 2). Find (a) the gradient of the curve at (2, 2) (b) the equation of the tangent at (2, 2).",
+   "marks": 4,
+   "points": [
+    "M1: dy/dx = 3x² − 4",
+    "A1: gradient = 3 × 4 − 4 = 8",
+    "M1: y − 2 = 8(x − 2), or 2 = 8 × 2 + c",
+    "A1: y = 8x − 14"
+   ],
+   "unit": "calculus"
+  },
+  {
+   "q": "[No calculator] y = x³ − 3x² − 9x + 5. Find the coordinates of the two turning points and determine whether each is a maximum or a minimum.",
+   "marks": 6,
+   "points": [
+    "M1: dy/dx = 3x² − 6x − 9",
+    "M1: 3x² − 6x − 9 = 0 → 3(x − 3)(x + 1) = 0",
+    "A1: x = 3 and x = −1",
+    "A1: (3, −22) and (−1, 10)",
+    "M1: d²y/dx² = 6x − 6 (or sign of dy/dx either side)",
+    "A1: (3, −22) minimum (d²y/dx² = 12 > 0); (−1, 10) maximum (d²y/dx² = −12 < 0)"
+   ],
+   "unit": "calculus"
+  }
+ ]
+}

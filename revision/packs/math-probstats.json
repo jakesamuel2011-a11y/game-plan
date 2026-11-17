@@ -1,0 +1,818 @@
+{
+ "id": "math-probstats",
+ "subject": "Math",
+ "title": "Probability & statistics",
+ "sub": "Probability, combined events, averages, charts and scatter graphs, histograms and cumulative frequency",
+ "units": [
+  {
+   "key": "prob",
+   "name": "Probability"
+  },
+  {
+   "key": "combined",
+   "name": "Combined events"
+  },
+  {
+   "key": "averages",
+   "name": "Averages & spread"
+  },
+  {
+   "key": "charts",
+   "name": "Charts & scatter"
+  },
+  {
+   "key": "cumfreq",
+   "name": "Histograms & cum freq"
+  }
+ ],
+ "strategyIntro": "Extended Maths is two papers of equal weight: Paper 2 (2 hours, 100 marks, no calculator) and Paper 4 (2 hours, 100 marks, calculator). Your school test may be shorter, but it is marked the same way: M marks for a correct method, A marks for the correct answer that follows, B marks for a correct result on its own.",
+ "strategy": [
+  {
+   "title": "Timing",
+   "key": true,
+   "points": [
+    "About 1.2 minutes per mark: a 5-mark question is worth about 6 minutes.",
+    "If a question has taken twice its time, leave a gap and come back at the end.",
+    "Keep 10 minutes at the end to check answers against the question."
+   ]
+  },
+  {
+   "title": "Show your working",
+   "key": true,
+   "points": [
+    "Most marks are method marks. A wrong answer with clear working can still score most of the marks.",
+    "Write the calculation you are doing before the answer, e.g. 360 ÷ 12 = 30.",
+    "An answer with no working can score zero if it is wrong, and sometimes even if it is right (\"show that\")."
+   ]
+  },
+  {
+   "title": "Paper 2: no calculator",
+   "points": [
+    "Practise fractions, negative numbers, standard form and surds by hand.",
+    "Leave answers exact when you can: fractions, surds, or in terms of π.",
+    "Check with a quick estimate: is the answer about the right size?"
+   ]
+  },
+  {
+   "title": "Paper 4: calculator",
+   "points": [
+    "Give answers to 3 significant figures unless the question says otherwise; angles to 1 decimal place.",
+    "Never round partway through. Keep the full value in the calculator memory (or write 4+ figures).",
+    "Use the π button, not 3.14. Check the calculator is in degrees."
+   ]
+  },
+  {
+   "title": "Answer the question",
+   "points": [
+    "Read the last line again: units, form of answer (\"in its simplest form\", \"in terms of π\"), and accuracy.",
+    "\"Show that\" questions: every step must be written, ending with the given result.",
+    "When the question says \"hence\", use the previous part."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "Calculate",
+   "Work out from given facts. Show the working; usually a calculator is allowed."
+  ],
+  [
+   "Work out / Find",
+   "Get the answer by any correct method. Show working."
+  ],
+  [
+   "Write down",
+   "The answer needs little or no working: you can often read or state it."
+  ],
+  [
+   "Show that",
+   "The answer is given. Write every step clearly so the examiner can follow the logic to it."
+  ],
+  [
+   "Estimate",
+   "Round each number (usually to 1 significant figure) and calculate a rough value."
+  ],
+  [
+   "Simplify",
+   "Write in its simplest form: collect like terms, cancel common factors."
+  ],
+  [
+   "Factorise (completely)",
+   "Write as a product of factors. Completely means take out every common factor."
+  ],
+  [
+   "Expand",
+   "Multiply out the brackets."
+  ],
+  [
+   "Solve",
+   "Find the value(s) of the unknown that make the equation or inequality true."
+  ],
+  [
+   "Sketch",
+   "Show the shape and key features (intercepts, turning points), not plotted accurately."
+  ],
+  [
+   "Describe fully",
+   "For a transformation: name it and give every detail (centre, angle, direction, scale factor, vector or mirror line)."
+  ],
+  [
+   "Hence",
+   "Use the result you have just found to answer this part."
+  ],
+  [
+   "Give your answer in its simplest form",
+   "Cancel fractions and ratios fully; simplify surds."
+  ]
+ ],
+ "quizTitle": "Multiple-choice practice",
+ "quizIntro": "Quick calculations and concept checks. Do each one on paper first, then pick. The wrong options are common mistakes, so if you got one, read the working in the explanation.",
+ "flashIntro": "Methods, rules and formulas. Say the rule out loud (or write it down) with an example before you tap, then check you remembered every step.",
+ "flashcards": [
+  {
+   "front": "Probability scale",
+   "back": "From 0 (impossible) to 1 (certain). Write as a fraction, decimal or percentage, never as \"1 in 4\" or a ratio.",
+   "unit": "prob"
+  },
+  {
+   "front": "P(not A)",
+   "back": "1 − P(A).",
+   "unit": "prob"
+  },
+  {
+   "front": "Sum of probabilities",
+   "back": "The probabilities of all the possible outcomes add up to 1.",
+   "unit": "prob"
+  },
+  {
+   "front": "Relative frequency",
+   "back": "Number of times the event happened ÷ number of trials. More trials give a better estimate of the probability.",
+   "unit": "prob"
+  },
+  {
+   "front": "Expected frequency",
+   "back": "Probability × number of trials. P(six) = 1/6, 300 rolls → expect 50 sixes.",
+   "unit": "prob"
+  },
+  {
+   "front": "Sample space diagram",
+   "back": "A grid of all equally likely outcomes of two events, e.g. two dice give 6 × 6 = 36 outcomes.",
+   "unit": "prob"
+  },
+  {
+   "front": "Mutually exclusive events",
+   "back": "Cannot happen at the same time. P(A or B) = P(A) + P(B).",
+   "unit": "prob"
+  },
+  {
+   "front": "Independent events",
+   "back": "One does not affect the other. P(A and B) = P(A) × P(B).",
+   "unit": "prob"
+  },
+  {
+   "front": "Probability from a Venn diagram",
+   "back": "Number in the required region ÷ total number in ℰ.",
+   "unit": "prob"
+  },
+  {
+   "front": "Tree diagrams",
+   "back": "Multiply along the branches for AND; add the end results for OR. Each pair of branches from a point adds to 1.",
+   "unit": "combined"
+  },
+  {
+   "front": "Without replacement",
+   "back": "On the second set of branches the total goes down by 1, and so does the count of whatever was taken first: 4 red of 10, then 3 red of 9.",
+   "unit": "combined"
+  },
+  {
+   "front": "P(at least one)",
+   "back": "1 − P(none). Much quicker than adding every other case.",
+   "unit": "combined"
+  },
+  {
+   "front": "Conditional probability",
+   "back": "P(A given B) = P(A and B) ÷ P(B). Only look at the outcomes where B happened.",
+   "unit": "combined"
+  },
+  {
+   "front": "Conditional probability from a table or Venn diagram",
+   "back": "The denominator is the total of the GIVEN group, not the grand total.",
+   "unit": "combined"
+  },
+  {
+   "front": "Checking independence",
+   "back": "A and B are independent if P(A and B) = P(A) × P(B).",
+   "unit": "combined"
+  },
+  {
+   "front": "First success on the third try",
+   "back": "Fail, fail, succeed: e.g. P(first six on the 3rd roll) = 5/6 × 5/6 × 1/6 = 25/216.",
+   "unit": "combined"
+  },
+  {
+   "front": "Two-way tables",
+   "back": "Read a single cell for \"and\"; use a row or column total for \"given\".",
+   "unit": "combined"
+  },
+  {
+   "front": "Mean",
+   "back": "Total of the values ÷ number of values.",
+   "unit": "averages"
+  },
+  {
+   "front": "Median",
+   "back": "The middle value when the data are in order. Its position is (n + 1)/2.",
+   "unit": "averages"
+  },
+  {
+   "front": "Mode",
+   "back": "The most common value. From a frequency table: the value with the highest frequency (not the frequency itself).",
+   "unit": "averages"
+  },
+  {
+   "front": "Range",
+   "back": "Largest value − smallest value. A measure of spread.",
+   "unit": "averages"
+  },
+  {
+   "front": "Mean from a frequency table",
+   "back": "Σfx ÷ Σf: multiply each value by its frequency, add, then divide by the total frequency.",
+   "unit": "averages"
+  },
+  {
+   "front": "Estimated mean from grouped data",
+   "back": "Use the midpoint of each class: Σ(f × midpoint) ÷ Σf. It is an estimate because the exact values are not known.",
+   "unit": "averages"
+  },
+  {
+   "front": "Interquartile range",
+   "back": "Upper quartile − lower quartile. The spread of the middle 50%, not affected by extreme values.",
+   "unit": "averages"
+  },
+  {
+   "front": "Finding a missing value from a mean",
+   "back": "New total = mean × number of values. Subtract the total you already know.",
+   "unit": "averages"
+  },
+  {
+   "front": "Which average?",
+   "back": "Median is best when there are extreme values (outliers). Mode for categories. Mean uses every value.",
+   "unit": "averages"
+  },
+  {
+   "front": "Comparing two distributions",
+   "back": "Compare an average (e.g. median or mean) AND a spread (IQR or range), and say what it means in context.",
+   "unit": "averages"
+  },
+  {
+   "front": "Pie chart angle",
+   "back": "(frequency ÷ total) × 360°. Check the angles add up to 360°.",
+   "unit": "charts"
+  },
+  {
+   "front": "Types of correlation",
+   "back": "Positive: both increase together. Negative: as one increases, the other decreases. None: no pattern.",
+   "unit": "charts"
+  },
+  {
+   "front": "Line of best fit",
+   "back": "A straight line following the trend with points roughly evenly either side. If you know the mean point, the line should pass through it.",
+   "unit": "charts"
+  },
+  {
+   "front": "Interpolation vs extrapolation",
+   "back": "Estimating inside the range of the data (interpolation) is reliable. Outside the range (extrapolation) is unreliable: the trend may not continue.",
+   "unit": "charts"
+  },
+  {
+   "front": "Correlation and causation",
+   "back": "Correlation shows a relationship, not that one variable causes the other.",
+   "unit": "charts"
+  },
+  {
+   "front": "Stem-and-leaf diagram",
+   "back": "Leaves in order, with a key (e.g. 3 | 4 means 34). Good for finding the median and range.",
+   "unit": "charts"
+  },
+  {
+   "front": "Bar chart vs histogram",
+   "back": "Bar charts: categorical or discrete data, gaps between bars. Histograms: continuous grouped data, no gaps, area shows frequency.",
+   "unit": "charts"
+  },
+  {
+   "front": "Types of data",
+   "back": "Discrete: counted (number of goals). Continuous: measured (height). Categorical: names or groups (favourite colour).",
+   "unit": "charts"
+  },
+  {
+   "front": "Writing a comparison",
+   "back": "\"On average, A is higher because its median is greater (32 vs 28). B is more varied because its IQR is larger (11 vs 6).\"",
+   "unit": "charts"
+  },
+  {
+   "front": "Frequency density",
+   "back": "Frequency ÷ class width. It goes on the vertical axis of a histogram.",
+   "unit": "cumfreq"
+  },
+  {
+   "front": "Frequency from a histogram",
+   "back": "Frequency = frequency density × class width (the area of the bar).",
+   "unit": "cumfreq"
+  },
+  {
+   "front": "Estimating part of a class",
+   "back": "Assume values are spread evenly: e.g. half of the class width gives half of its frequency.",
+   "unit": "cumfreq"
+  },
+  {
+   "front": "Drawing a cumulative frequency curve",
+   "back": "Plot running totals at the UPPER class boundary. Start at the lower boundary of the first class with 0. Join with a smooth curve.",
+   "unit": "cumfreq"
+  },
+  {
+   "front": "Median from a cumulative frequency curve",
+   "back": "Read across from n/2 on the vertical axis, then down to the horizontal axis.",
+   "unit": "cumfreq"
+  },
+  {
+   "front": "Quartiles and IQR",
+   "back": "Lower quartile at n/4, upper quartile at 3n/4. IQR = UQ − LQ.",
+   "unit": "cumfreq"
+  },
+  {
+   "front": "Percentiles",
+   "back": "The 90th percentile is read at 0.9 × n.",
+   "unit": "cumfreq"
+  },
+  {
+   "front": "\"How many are more than x?\"",
+   "back": "Read the cumulative frequency at x, then subtract it from the total.",
+   "unit": "cumfreq"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "The probability that a counter is red is 0.35. What is the probability that it is not red?",
+   "options": [
+    "0.35",
+    "0.65",
+    "0.75",
+    "1.35"
+   ],
+   "answer": 1,
+   "why": "1 − 0.35 = 0.65.",
+   "unit": "prob"
+  },
+  {
+   "q": "A fair dice is rolled 300 times. How many sixes would you expect?",
+   "options": [
+    "6",
+    "30",
+    "50",
+    "60"
+   ],
+   "answer": 2,
+   "why": "1/6 × 300 = 50.",
+   "unit": "prob"
+  },
+  {
+   "q": "Two fair dice are rolled and the scores added. What is P(total = 7)?",
+   "options": [
+    "1/6",
+    "1/12",
+    "7/36",
+    "1/11"
+   ],
+   "answer": 0,
+   "why": "(1,6), (2,5), (3,4), (4,3), (5,2), (6,1): 6 of 36 outcomes = 1/6. 1/11 wrongly treats the 11 totals as equally likely.",
+   "unit": "prob"
+  },
+  {
+   "q": "A spinner has P(A) = 0.2, P(B) = 0.35, P(C) = x and P(D) = 2x. Find x.",
+   "options": [
+    "0.225",
+    "0.45",
+    "0.3",
+    "0.15"
+   ],
+   "answer": 3,
+   "why": "0.2 + 0.35 + 3x = 1 → 3x = 0.45 → x = 0.15.",
+   "unit": "prob"
+  },
+  {
+   "q": "A coin lands on heads 46 times in 80 throws. What is the relative frequency of heads?",
+   "options": [
+    "0.5",
+    "0.575",
+    "0.46",
+    "0.425"
+   ],
+   "answer": 1,
+   "why": "46 ÷ 80 = 0.575. 0.5 is the theoretical probability for a fair coin.",
+   "unit": "prob"
+  },
+  {
+   "q": "A bag has 4 red and 6 blue counters. Two are taken without replacement. What is P(both red)?",
+   "options": [
+    "4/25",
+    "2/15",
+    "2/5",
+    "7/15"
+   ],
+   "answer": 1,
+   "why": "4/10 × 3/9 = 12/90 = 2/15. 4/25 is with replacement.",
+   "unit": "combined"
+  },
+  {
+   "q": "P(rain) = 0.3 on each of two days, independently. What is P(rain on at least one day)?",
+   "options": [
+    "0.09",
+    "0.6",
+    "0.49",
+    "0.51"
+   ],
+   "answer": 3,
+   "why": "P(no rain both days) = 0.7 × 0.7 = 0.49, so P(at least one) = 1 − 0.49 = 0.51. Adding 0.3 + 0.3 double-counts.",
+   "unit": "combined"
+  },
+  {
+   "q": "A fair coin is thrown 3 times. What is P(exactly two heads)?",
+   "options": [
+    "1/4",
+    "3/8",
+    "1/8",
+    "2/3"
+   ],
+   "answer": 1,
+   "why": "HHT, HTH, THH: 3 of 8 equally likely outcomes. Each has probability 1/8.",
+   "unit": "combined"
+  },
+  {
+   "q": "In a class of 40, 25 have a phone. Of those with a phone, 15 are girls. A student with a phone is chosen. What is P(girl)?",
+   "options": [
+    "3/5",
+    "3/8",
+    "5/8",
+    "2/5"
+   ],
+   "answer": 0,
+   "why": "Given they have a phone, the total is 25: 15/25 = 3/5. 15/40 = 3/8 uses the wrong total.",
+   "unit": "combined"
+  },
+  {
+   "q": "P(A) = 0.4 and P(B) = 0.5, and A and B are independent. What is P(A and B)?",
+   "options": [
+    "0.9",
+    "0.1",
+    "0.2",
+    "0.45"
+   ],
+   "answer": 2,
+   "why": "Independent: multiply. 0.4 × 0.5 = 0.2. Adding (0.9) is for mutually exclusive OR.",
+   "unit": "combined"
+  },
+  {
+   "q": "Find the mean of 4, 7, 7, 9, 13.",
+   "options": [
+    "7",
+    "8",
+    "9",
+    "40"
+   ],
+   "answer": 1,
+   "why": "Total = 40, 40 ÷ 5 = 8. 7 is the mode and median.",
+   "unit": "averages"
+  },
+  {
+   "q": "Find the median of 12, 5, 9, 3, 15, 8.",
+   "options": [
+    "8.5",
+    "9",
+    "8",
+    "10.5"
+   ],
+   "answer": 0,
+   "why": "In order: 3, 5, 8, 9, 12, 15. Middle two are 8 and 9, so the median is 8.5.",
+   "unit": "averages"
+  },
+  {
+   "q": "The mean of 5 numbers is 12. A sixth number is added and the mean becomes 13. What is the sixth number?",
+   "options": [
+    "13",
+    "1",
+    "18",
+    "78"
+   ],
+   "answer": 2,
+   "why": "New total 6 × 13 = 78; old total 5 × 12 = 60. Sixth number = 18.",
+   "unit": "averages"
+  },
+  {
+   "q": "Values 1, 2, 3, 4 have frequencies 3, 5, 8, 4. What is the mean?",
+   "options": [
+    "2.5",
+    "2.65",
+    "13.25",
+    "3"
+   ],
+   "answer": 1,
+   "why": "Σfx = 3 + 10 + 24 + 16 = 53; Σf = 20. 53 ÷ 20 = 2.65. Dividing by 4 (13.25) is wrong.",
+   "unit": "averages"
+  },
+  {
+   "q": "Which average is least affected by one very large value?",
+   "options": [
+    "Mean",
+    "Range",
+    "Median",
+    "Total"
+   ],
+   "answer": 2,
+   "why": "The median depends only on the middle position. The range is a spread, not an average.",
+   "unit": "averages"
+  },
+  {
+   "q": "In a survey of 120 students, 35 walk to school. What angle represents walking on a pie chart?",
+   "options": [
+    "35°",
+    "105°",
+    "120°",
+    "70°"
+   ],
+   "answer": 1,
+   "why": "35/120 × 360 = 105°. Each student is 3°.",
+   "unit": "charts"
+  },
+  {
+   "q": "A scatter diagram shows that students who revise for longer tend to get higher scores. What type of correlation is this?",
+   "options": [
+    "Negative correlation",
+    "No correlation",
+    "Positive correlation",
+    "Inverse proportion"
+   ],
+   "answer": 2,
+   "why": "Both variables increase together: positive correlation.",
+   "unit": "charts"
+  },
+  {
+   "q": "On a pie chart, a sector of 72° represents 18 people. How many people are in the survey?",
+   "options": [
+    "90",
+    "72",
+    "360",
+    "25"
+   ],
+   "answer": 0,
+   "why": "72° is 1/5 of 360°, so the total is 18 × 5 = 90.",
+   "unit": "charts"
+  },
+  {
+   "q": "Why is a line of best fit unreliable for a prediction far outside the data?",
+   "options": [
+    "The line has a negative gradient",
+    "There are too many points",
+    "The correlation is positive",
+    "The trend may not continue beyond the data"
+   ],
+   "answer": 3,
+   "why": "That is extrapolation: there is no evidence the pattern holds outside the data.",
+   "unit": "charts"
+  },
+  {
+   "q": "A stem-and-leaf diagram shows 2 | 3 5 8 and 3 | 0 4, key 2 | 3 = 23. What is the median?",
+   "options": [
+    "25",
+    "28",
+    "30",
+    "2.8"
+   ],
+   "answer": 1,
+   "why": "Values 23, 25, 28, 30, 34. The middle (3rd) value is 28.",
+   "unit": "charts"
+  },
+  {
+   "q": "A class 20 < t ≤ 35 has frequency 45. What is its frequency density?",
+   "options": [
+    "3",
+    "45",
+    "0.33",
+    "15"
+   ],
+   "answer": 0,
+   "why": "Class width = 15. 45 ÷ 15 = 3.",
+   "unit": "cumfreq"
+  },
+  {
+   "q": "A histogram bar for 10 < h ≤ 15 has frequency density 4.8. What is the frequency?",
+   "options": [
+    "4.8",
+    "24",
+    "72",
+    "3"
+   ],
+   "answer": 1,
+   "why": "4.8 × 5 = 24.",
+   "unit": "cumfreq"
+  },
+  {
+   "q": "A cumulative frequency curve shows 200 students. At which cumulative frequency do you read the lower quartile?",
+   "options": [
+    "25",
+    "100",
+    "150",
+    "50"
+   ],
+   "answer": 3,
+   "why": "n/4 = 200 ÷ 4 = 50. (100 is the median, 150 the upper quartile.)",
+   "unit": "cumfreq"
+  },
+  {
+   "q": "Where are points plotted on a cumulative frequency graph?",
+   "options": [
+    "At the midpoints",
+    "At the lower class boundaries",
+    "At the upper class boundaries",
+    "At the frequency densities"
+   ],
+   "answer": 2,
+   "why": "The running total is complete only at the END of each class, so plot at the upper boundary.",
+   "unit": "cumfreq"
+  },
+  {
+   "q": "From a cumulative frequency curve: median 42 kg, lower quartile 35 kg, upper quartile 51 kg. What is the IQR?",
+   "options": [
+    "16 kg",
+    "9 kg",
+    "7 kg",
+    "86 kg"
+   ],
+   "answer": 0,
+   "why": "IQR = 51 − 35 = 16 kg.",
+   "unit": "cumfreq"
+  }
+ ],
+ "examIntro": "Paper 2 / Paper 4 style. [No calculator] questions are Paper 2; [Calculator] questions are Paper 4. Write full working first, then open the mark scheme: M1 = method mark, A1 = accuracy mark (correct answer from correct working), B1 = mark for a correct result on its own. Give yourself one mark per point you got.",
+ "exam": [
+  {
+   "q": "[No calculator] A bag contains 5 red, 3 blue and 2 green counters. One is taken at random. Find (a) P(blue) (b) P(not red).",
+   "marks": 2,
+   "points": [
+    "B1: 3/10",
+    "B1: 5/10 = 1/2"
+   ],
+   "unit": "prob"
+  },
+  {
+   "q": "[No calculator] Spinner A is numbered 1, 2, 3, 4 and spinner B is numbered 1, 2, 3. Both are fair. They are spun and the two scores are multiplied. Find (a) the probability that the product is even (b) the probability that the product is greater than 6.",
+   "marks": 4,
+   "points": [
+    "M1: sample space of 12 products listed",
+    "A1: 8/12 = 2/3",
+    "M1: products greater than 6 are 8, 9, 12",
+    "A1: 3/12 = 1/4"
+   ],
+   "unit": "prob"
+  },
+  {
+   "q": "[No calculator] In a class of 30 students, 18 study French, 14 study Spanish and 5 study neither. (a) How many study both? (b) A student is chosen at random. Find the probability that they study Spanish only. (c) A student who studies French is chosen at random. Find the probability that they also study Spanish.",
+   "marks": 5,
+   "points": [
+    "M1: 30 − 5 = 25 study at least one",
+    "M1: 18 + 14 − 25",
+    "A1: 7",
+    "A1: Spanish only = 14 − 7 = 7, so 7/30",
+    "A1: 7/18"
+   ],
+   "unit": "prob",
+   "note": "Draw the Venn diagram: fill in the intersection first."
+  },
+  {
+   "q": "[No calculator] The probability that a train is late is 0.15. Find the probability that it is late on two days in a row (assume independence).",
+   "marks": 2,
+   "points": [
+    "M1: 0.15 × 0.15",
+    "A1: 0.0225"
+   ],
+   "unit": "combined"
+  },
+  {
+   "q": "[No calculator] Ella walks to school with probability 0.6, otherwise she cycles. If she walks, P(late) = 0.2. If she cycles, P(late) = 0.05. (a) Find the probability that she is late. (b) Given that she is late, find the probability that she walked.",
+   "marks": 4,
+   "points": [
+    "M1: 0.6 × 0.2 + 0.4 × 0.05",
+    "A1: 0.14",
+    "M1: 0.12 ÷ 0.14",
+    "A1: 6/7"
+   ],
+   "unit": "combined"
+  },
+  {
+   "q": "[No calculator] A box contains 5 white and 3 black balls. Two balls are taken at random without replacement. Find the probability that (a) both balls are the same colour (b) at least one ball is black.",
+   "marks": 5,
+   "points": [
+    "M1: 5/8 × 4/7",
+    "M1: + 3/8 × 2/7",
+    "A1: 26/56 = 13/28",
+    "M1: 1 − 5/8 × 4/7",
+    "A1: 36/56 = 9/14"
+   ],
+   "unit": "combined"
+  },
+  {
+   "q": "[No calculator] Find the mean and the range of 2.4, 3.1, 1.8, 4.5, 3.2.",
+   "marks": 2,
+   "points": [
+    "B1: mean = 15 ÷ 5 = 3",
+    "B1: range = 4.5 − 1.8 = 2.7"
+   ],
+   "unit": "averages"
+  },
+  {
+   "q": "[Calculator] The times (t minutes) taken by 40 students to travel to school: 0 < t ≤ 10: 6 students; 10 < t ≤ 20: 14; 20 < t ≤ 30: 12; 30 < t ≤ 50: 8. Calculate an estimate of the mean time.",
+   "marks": 4,
+   "points": [
+    "M1: midpoints 5, 15, 25, 40",
+    "M1: Σfx = 30 + 210 + 300 + 320 = 860",
+    "M1: ÷ 40",
+    "A1: 21.5 minutes"
+   ],
+   "unit": "averages"
+  },
+  {
+   "q": "[Calculator] The mean mass of 12 boys is 52.5 kg and the mean mass of 18 girls is 48 kg. (a) Find the mean mass of all 30 students. (b) One more student joins and the mean mass of the 31 students becomes 50 kg. Find the mass of the new student.",
+   "marks": 5,
+   "points": [
+    "M1: 12 × 52.5 = 630",
+    "M1: 18 × 48 = 864",
+    "A1: 1494 ÷ 30 = 49.8 kg",
+    "M1: 31 × 50 − 1494",
+    "A1: 56 kg"
+   ],
+   "unit": "averages",
+   "note": "The mean is not (52.5 + 48) ÷ 2: there are more girls than boys."
+  },
+  {
+   "q": "[No calculator] In a survey of 60 people, 25 chose apples, 15 chose bananas and 20 chose cherries. Calculate the pie chart angle for each fruit.",
+   "marks": 2,
+   "points": [
+    "M1: 360 ÷ 60 = 6° per person",
+    "A1: apples 150°, bananas 90°, cherries 120°"
+   ],
+   "unit": "charts"
+  },
+  {
+   "q": "[No calculator] A scatter diagram shows the engine size (from 1.0 to 3.0 litres) and fuel economy (km per litre) of 15 cars. The points slope downwards. (a) What type of correlation is shown? (b) Describe the relationship in context. (c) Explain why the line of best fit should not be used to estimate the fuel economy of a car with a 6.0 litre engine.",
+   "marks": 3,
+   "points": [
+    "B1: negative correlation",
+    "B1: cars with larger engines travel fewer km per litre",
+    "B1: 6.0 litres is outside the range of the data (extrapolation), so the trend may not continue"
+   ],
+   "unit": "charts"
+  },
+  {
+   "q": "[No calculator] Two samples of plants were measured. Sample A: median 32 cm, interquartile range 6 cm. Sample B: median 28 cm, interquartile range 11 cm. Make two comparisons between the heights of the two samples.",
+   "marks": 4,
+   "points": [
+    "B1: Sample A plants are taller on average",
+    "B1: because A's median (32 cm) is greater than B's (28 cm)",
+    "B1: Sample A heights are more consistent (less spread out)",
+    "B1: because A's IQR (6 cm) is smaller than B's (11 cm)"
+   ],
+   "unit": "charts",
+   "note": "Each comparison needs the statistic AND what it means in context."
+  },
+  {
+   "q": "[No calculator] Waiting times: 0 < t ≤ 5: 10 people; 5 < t ≤ 15: 30 people; 15 < t ≤ 30: 24 people. Calculate the frequency density for each class.",
+   "marks": 2,
+   "points": [
+    "M1: frequency ÷ class width (e.g. 10 ÷ 5)",
+    "A1: 2, 3 and 1.6"
+   ],
+   "unit": "cumfreq"
+  },
+  {
+   "q": "[No calculator] A histogram shows masses. The bar for 40 < m ≤ 60 has height 1.5 and the bar for 60 < m ≤ 70 has height 3.2. (a) Find the frequencies of these two classes. (b) Estimate how many masses are between 50 and 65.",
+   "marks": 4,
+   "points": [
+    "M1: 1.5 × 20",
+    "A1: 30 and 32",
+    "M1: ½ × 30 + ½ × 32",
+    "A1: 31"
+   ],
+   "unit": "cumfreq"
+  },
+  {
+   "q": "[No calculator] A cumulative frequency curve shows the times of 80 runners. Readings from the curve: cumulative frequency 20 at 20 minutes, 40 at 26 minutes, 60 at 33 minutes and 72 at 40 minutes. Find (a) the median (b) the interquartile range (c) the number of runners who took more than 40 minutes (d) the 90th percentile.",
+   "marks": 5,
+   "points": [
+    "B1: median (40th) = 26 minutes",
+    "M1: LQ (20th) = 20 and UQ (60th) = 33",
+    "A1: IQR = 13 minutes",
+    "B1: 80 − 72 = 8 runners",
+    "B1: 90th percentile (72nd) = 40 minutes"
+   ],
+   "unit": "cumfreq"
+  }
+ ]
+}
