@@ -1,0 +1,572 @@
+{
+ "id": "chem-acids-metals",
+ "subject": "Chem",
+ "title": "Acids, Periodic Table & metals",
+ "sub": "Acids, bases and salts, the Periodic Table, metals, reactivity, corrosion and extraction",
+ "units": [
+  {
+   "key": "acids",
+   "name": "Acids, bases & salts"
+  },
+  {
+   "key": "periodic",
+   "name": "Periodic Table"
+  },
+  {
+   "key": "metals",
+   "name": "Metals"
+  }
+ ],
+ "strategyIntro": "Cambridge IGCSE Co-ordinated Sciences tests chemistry alongside biology and physics: a multiple-choice paper (40 questions, 45 min), a theory paper of structured questions, and a practical or alternative-to-practical paper. Your school test may be shorter, but it will be marked the same way.",
+ "strategy": [
+  {
+   "title": "Multiple choice",
+   "key": true,
+   "points": [
+    "About a minute per question. If one is taking longer, mark it and move on.",
+    "Cross out options you know are wrong first. Two often look similar: read every word.",
+    "Never leave one blank. A wrong answer loses nothing."
+   ]
+  },
+  {
+   "title": "Structured questions",
+   "key": true,
+   "points": [
+    "Marks go to keywords. Write the textbook term: “effervescence” or “fizzing”, not “it reacts”.",
+    "The marks in brackets tell you how many separate points to make.",
+    "Equations: check every atom balances, and add state symbols when the question asks."
+   ]
+  },
+  {
+   "title": "Questions on experiments",
+   "points": [
+    "Results tables: units go in the column headings, not next to each number.",
+    "Colour changes need both colours: “blue to white”, not just “white”.",
+    "Know the control variables and one safety precaution for each experiment."
+   ]
+  },
+  {
+   "title": "Easy marks people lose",
+   "points": [
+    "Saying ionic bonds “share” electrons. Ionic = transfer; covalent = share.",
+    "Writing “chlorine” when you mean the chloride ion, or “clear” when you mean “colourless”.",
+    "Calculations without units, or without the working shown."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "State",
+   "Give a short fact. No explanation needed."
+  ],
+  [
+   "Describe",
+   "Say what happens or what you see. With data, quote figures and units."
+  ],
+  [
+   "Explain",
+   "Say why or how. Use “because” and link cause to effect."
+  ],
+  [
+   "Suggest",
+   "Apply what you know to a new situation. Any sensible reason scores."
+  ],
+  [
+   "Compare",
+   "Give similarities or differences for both things in the same sentence."
+  ],
+  [
+   "Calculate",
+   "Show working and give the unit."
+  ]
+ ],
+ "quizTitle": "Multiple-choice practice",
+ "quizIntro": "Answer in Paper 1 style: about a minute each, eliminating wrong options first. Read the explanation after every answer, even when you get it right.",
+ "flashIntro": "These are close to Cambridge’s own wording. Say each definition out loud before you tap, then check you used the exact keywords. Cards marked (Extended) are Supplement content.",
+ "flashcards": [
+  {
+   "front": "Acid",
+   "back": "Has a pH below 7. Turns blue litmus red and methyl orange red.",
+   "unit": "acids"
+  },
+  {
+   "front": "Base and alkali",
+   "back": "A base neutralises an acid (e.g. metal oxides and hydroxides). An alkali is a soluble base: pH above 7, turns red litmus blue and thymolphthalein blue.",
+   "unit": "acids"
+  },
+  {
+   "front": "pH scale",
+   "back": "Universal indicator: pH 1–6 acidic (red, orange, yellow), pH 7 neutral (green), pH 8–14 alkaline (blue, purple). Lower pH = more acidic.",
+   "unit": "acids"
+  },
+  {
+   "front": "Neutralisation",
+   "back": "Acid + base → salt + water. (Extended) Ionic equation: H⁺(aq) + OH⁻(aq) → H₂O(l).",
+   "unit": "acids"
+  },
+  {
+   "front": "Acid + metal",
+   "back": "Salt + hydrogen. E.g. zinc + hydrochloric acid → zinc chloride + hydrogen.",
+   "unit": "acids"
+  },
+  {
+   "front": "Acid + carbonate",
+   "back": "Salt + water + carbon dioxide. You see fizzing (effervescence).",
+   "unit": "acids"
+  },
+  {
+   "front": "Naming salts",
+   "back": "Hydrochloric acid → chlorides; sulfuric acid → sulfates; nitric acid → nitrates.",
+   "unit": "acids"
+  },
+  {
+   "front": "Oxides",
+   "back": "Metal oxides are basic. Non-metal oxides (e.g. CO₂, SO₂) are acidic. (Extended) Amphoteric oxides, such as aluminium oxide and zinc oxide, react with both acids and bases.",
+   "unit": "acids"
+  },
+  {
+   "front": "Making a soluble salt from an insoluble base",
+   "back": "Add excess base to warm acid, filter off the excess, heat the filtrate to the crystallisation point, leave to cool, then filter and dry the crystals.",
+   "unit": "acids"
+  },
+  {
+   "front": "(Extended) Acids and bases (protons)",
+   "back": "Acids are proton (H⁺) donors; bases are proton acceptors.",
+   "unit": "acids"
+  },
+  {
+   "front": "(Extended) Strong and weak acids",
+   "back": "A strong acid is completely dissociated into ions in water (e.g. hydrochloric acid). A weak acid is only partially dissociated (e.g. ethanoic acid).",
+   "unit": "acids"
+  },
+  {
+   "front": "How the Periodic Table is arranged",
+   "back": "In order of increasing proton number. Groups are the vertical columns; periods are the horizontal rows.",
+   "unit": "periodic"
+  },
+  {
+   "front": "Why elements in a group are similar",
+   "back": "They have the same number of electrons in their outer shell, so they have similar chemical properties.",
+   "unit": "periodic"
+  },
+  {
+   "front": "Across a period",
+   "back": "Elements change from metals on the left to non-metals on the right.",
+   "unit": "periodic"
+  },
+  {
+   "front": "Group I (alkali metals)",
+   "back": "Lithium, sodium, potassium. Soft, low-density metals. React with water to form an alkaline hydroxide solution and hydrogen. Reactivity increases and melting point decreases down the group.",
+   "unit": "periodic"
+  },
+  {
+   "front": "Group I with water: what you see",
+   "back": "Lithium fizzes steadily. Sodium melts into a ball and moves around on the surface. Potassium reacts more violently and the hydrogen burns with a lilac flame.",
+   "unit": "periodic"
+  },
+  {
+   "front": "Group VII (halogens)",
+   "back": "Diatomic non-metals. Chlorine: pale yellow-green gas; bromine: red-brown liquid; iodine: grey-black solid. Reactivity decreases down the group; density increases.",
+   "unit": "periodic"
+  },
+  {
+   "front": "Halogen displacement",
+   "back": "A more reactive halogen displaces a less reactive one from a solution of its halide. Chlorine + potassium bromide → potassium chloride + bromine (solution turns orange).",
+   "unit": "periodic"
+  },
+  {
+   "front": "Transition elements",
+   "back": "Metals with high densities and high melting points. They form coloured compounds and they (and their compounds) act as catalysts. (Extended) They have variable oxidation numbers.",
+   "unit": "periodic"
+  },
+  {
+   "front": "Noble gases (Group VIII)",
+   "back": "Unreactive, monatomic gases because they have a full outer shell. Helium: balloons (low density). Argon: filling lamps (unreactive).",
+   "unit": "periodic"
+  },
+  {
+   "front": "Using trends to predict",
+   "back": "Rubidium is below potassium, so it reacts even more violently with water. Astatine is below iodine, so it is a dark solid and less reactive than iodine.",
+   "unit": "periodic"
+  },
+  {
+   "front": "Physical properties of metals",
+   "back": "Good conductors of heat and electricity, malleable, ductile, shiny, and most have high melting and boiling points.",
+   "unit": "metals"
+  },
+  {
+   "front": "Alloy",
+   "back": "A mixture of a metal with other elements. Brass = copper and zinc. Stainless steel = iron with chromium, nickel and carbon.",
+   "unit": "metals"
+  },
+  {
+   "front": "(Extended) Why alloys are harder",
+   "back": "Atoms of different sizes disrupt the regular layers, so the layers cannot slide over each other so easily.",
+   "unit": "metals"
+  },
+  {
+   "front": "Uses of metals",
+   "back": "Aluminium: aircraft (low density, strong) and food containers (resists corrosion). Copper: electrical wiring (good conductor, ductile). Stainless steel: cutlery (resists rusting).",
+   "unit": "metals"
+  },
+  {
+   "front": "Reactivity series",
+   "back": "Potassium, sodium, calcium, magnesium, aluminium, (carbon), zinc, iron, (hydrogen), copper, silver, gold.",
+   "unit": "metals"
+  },
+  {
+   "front": "Reactions with water and acid",
+   "back": "K, Na, Ca react with cold water. Mg reacts very slowly with cold water but quickly with steam. Metals above hydrogen react with dilute acids to give hydrogen; copper, silver and gold do not.",
+   "unit": "metals"
+  },
+  {
+   "front": "Metal displacement",
+   "back": "A more reactive metal displaces a less reactive metal from a solution of its salt. Zinc + copper(II) sulfate → zinc sulfate + copper.",
+   "unit": "metals"
+  },
+  {
+   "front": "Rusting",
+   "back": "Iron reacts with water and oxygen to form hydrated iron(III) oxide (rust). Both water and oxygen are needed.",
+   "unit": "metals"
+  },
+  {
+   "front": "Preventing rusting",
+   "back": "Barrier methods (paint, grease, plastic coating) keep out water and oxygen. Galvanising coats iron with zinc, which is more reactive and corrodes first (sacrificial protection).",
+   "unit": "metals"
+  },
+  {
+   "front": "Blast furnace",
+   "back": "Raw materials: haematite (iron(III) oxide), coke (carbon), limestone, hot air. Coke burns to CO₂; CO₂ + C → 2CO; carbon monoxide reduces the ore: Fe₂O₃ + 3CO → 2Fe + 3CO₂.",
+   "unit": "metals"
+  },
+  {
+   "front": "(Extended) Limestone in the blast furnace",
+   "back": "It decomposes to calcium oxide, which reacts with sand (silicon dioxide) impurities to form slag (calcium silicate): CaO + SiO₂ → CaSiO₃.",
+   "unit": "metals"
+  },
+  {
+   "front": "Extracting aluminium",
+   "back": "Aluminium is more reactive than carbon, so it is extracted by electrolysis of aluminium oxide (from bauxite) dissolved in molten cryolite.",
+   "unit": "metals"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "A solution has a pH of 13. How is it best described?",
+   "options": [
+    "Strongly acidic",
+    "Weakly acidic",
+    "Neutral",
+    "Strongly alkaline"
+   ],
+   "answer": 3,
+   "why": "pH above 7 is alkaline, and 13 is near the top of the scale, so strongly alkaline. Universal indicator would be purple.",
+   "unit": "acids"
+  },
+  {
+   "q": "Which gas is made when zinc reacts with dilute hydrochloric acid?",
+   "options": [
+    "Hydrogen",
+    "Carbon dioxide",
+    "Oxygen",
+    "Chlorine"
+   ],
+   "answer": 0,
+   "why": "Metal + acid → salt + hydrogen. Carbon dioxide comes from carbonates.",
+   "unit": "acids"
+  },
+  {
+   "q": "Which salt is made when copper(II) oxide reacts with dilute sulfuric acid?",
+   "options": [
+    "Copper(II) chloride",
+    "Copper(II) sulfate",
+    "Copper(II) nitrate",
+    "Copper(II) sulfide"
+   ],
+   "answer": 1,
+   "why": "Sulfuric acid makes sulfates. Sulfides contain no oxygen and are not made this way.",
+   "unit": "acids"
+  },
+  {
+   "q": "What colour is thymolphthalein in an alkaline solution?",
+   "options": [
+    "Colourless",
+    "Red",
+    "Blue",
+    "Yellow"
+   ],
+   "answer": 2,
+   "why": "Thymolphthalein is colourless in acid and blue in alkali. Methyl orange is the one that is red in acid and yellow in alkali.",
+   "unit": "acids"
+  },
+  {
+   "q": "When making copper(II) sulfate crystals from copper(II) oxide and sulfuric acid, why is the copper(II) oxide added in excess?",
+   "options": [
+    "To speed up crystallisation",
+    "To make the salt insoluble",
+    "To make the solution strongly alkaline",
+    "To make sure all the acid is used up"
+   ],
+   "answer": 3,
+   "why": "Excess base guarantees no acid is left in the salt solution. The unreacted solid is then removed by filtering.",
+   "unit": "acids"
+  },
+  {
+   "q": "(Extended) Which of these is a weak acid?",
+   "options": [
+    "Hydrochloric acid",
+    "Nitric acid",
+    "Ethanoic acid",
+    "Sulfuric acid"
+   ],
+   "answer": 2,
+   "why": "Ethanoic acid only partly dissociates into ions in water. The other three are strong acids.",
+   "unit": "acids"
+  },
+  {
+   "q": "Which trend is correct going down Group I?",
+   "options": [
+    "Reactivity decreases",
+    "Melting point increases",
+    "Reactivity increases",
+    "The atoms get smaller"
+   ],
+   "answer": 2,
+   "why": "Group I metals get more reactive and have lower melting points down the group. Atoms get larger as shells are added.",
+   "unit": "periodic"
+  },
+  {
+   "q": "Chlorine water is added to colourless potassium iodide solution. What is seen?",
+   "options": [
+    "No change",
+    "The solution turns brown as iodine is displaced",
+    "A white precipitate forms",
+    "Chlorine gas bubbles off"
+   ],
+   "answer": 1,
+   "why": "Chlorine is more reactive than iodine, so it displaces iodine, which colours the solution brown.",
+   "unit": "periodic"
+  },
+  {
+   "q": "Why is argon used inside filament lamps?",
+   "options": [
+    "It is unreactive",
+    "It conducts electricity",
+    "It has a low density",
+    "It glows when it gets hot"
+   ],
+   "answer": 0,
+   "why": "Argon has a full outer shell and does not react with the hot filament, so the filament does not burn away.",
+   "unit": "periodic"
+  },
+  {
+   "q": "Which property do transition elements have that Group I metals do not?",
+   "options": [
+    "They conduct electricity",
+    "They are metals",
+    "They react with oxygen",
+    "They form coloured compounds"
+   ],
+   "answer": 3,
+   "why": "Group I compounds are usually white. Coloured compounds and catalytic activity are typical of transition elements.",
+   "unit": "periodic"
+  },
+  {
+   "q": "Element X has the electronic configuration 2,8,7. Where is it in the Periodic Table?",
+   "options": [
+    "Group VII, period 3",
+    "Group III, period 7",
+    "Group VII, period 2",
+    "Group VIII, period 3"
+   ],
+   "answer": 0,
+   "why": "Seven outer electrons → Group VII. Three occupied shells → period 3. This is chlorine.",
+   "unit": "periodic"
+  },
+  {
+   "q": "Which metal is the most reactive?",
+   "options": [
+    "Zinc",
+    "Iron",
+    "Magnesium",
+    "Copper"
+   ],
+   "answer": 2,
+   "why": "In the reactivity series magnesium is above zinc, iron and copper.",
+   "unit": "metals"
+  },
+  {
+   "q": "An iron nail is placed in blue copper(II) sulfate solution. What is seen?",
+   "options": [
+    "Nothing, because iron is less reactive than copper",
+    "A pink-brown coating of copper forms on the nail",
+    "Bubbles of hydrogen form",
+    "The nail turns white"
+   ],
+   "answer": 1,
+   "why": "Iron is more reactive than copper, so it displaces copper. The blue colour fades as iron(II) sulfate forms.",
+   "unit": "metals"
+  },
+  {
+   "q": "Why is copper used for electrical wiring?",
+   "options": [
+    "It is very reactive",
+    "It has a low density",
+    "It is magnetic",
+    "It is a good conductor of electricity and ductile"
+   ],
+   "answer": 3,
+   "why": "Wires must conduct well and be drawn into thin strands (ductile). Copper is not magnetic and is unreactive.",
+   "unit": "metals"
+  },
+  {
+   "q": "Which conditions are needed for iron to rust?",
+   "options": [
+    "Oxygen only",
+    "Water only",
+    "Water and oxygen",
+    "Water and carbon dioxide"
+   ],
+   "answer": 2,
+   "why": "Rusting needs both water and oxygen. Remove either one (e.g. with a barrier) and it stops.",
+   "unit": "metals"
+  },
+  {
+   "q": "Why does a coating of zinc protect iron even when the coating is scratched?",
+   "options": [
+    "Zinc is more reactive, so it corrodes instead of the iron",
+    "Zinc is less reactive than iron",
+    "Zinc turns the iron into an alloy",
+    "Zinc makes the iron harder"
+   ],
+   "answer": 0,
+   "why": "This is sacrificial protection: the more reactive zinc loses electrons and corrodes first, so the iron does not rust.",
+   "unit": "metals"
+  },
+  {
+   "q": "In the blast furnace, which substance reduces iron(III) oxide to iron?",
+   "options": [
+    "Limestone",
+    "Carbon monoxide",
+    "Slag",
+    "Carbon dioxide"
+   ],
+   "answer": 1,
+   "why": "Carbon monoxide takes oxygen away from iron(III) oxide and is oxidised to carbon dioxide.",
+   "unit": "metals"
+  }
+ ],
+ "examIntro": "Theory-paper style. Write your answer first, then open the mark scheme and give yourself one mark per point you made clearly. One point per mark is the rule.",
+ "exam": [
+  {
+   "q": "Write a word equation for the reaction between sodium hydroxide and hydrochloric acid, and name this type of reaction.",
+   "marks": 2,
+   "points": [
+    "Sodium hydroxide + hydrochloric acid → sodium chloride + water",
+    "Neutralisation"
+   ],
+   "unit": "acids"
+  },
+  {
+   "q": "Calcium carbonate is added to dilute nitric acid. State two observations and write the word equation.",
+   "marks": 4,
+   "points": [
+    "Fizzing / effervescence / bubbles",
+    "Solid disappears / dissolves",
+    "Calcium carbonate + nitric acid → calcium nitrate + …",
+    "… + water + carbon dioxide"
+   ],
+   "note": "One mark for naming the salt, one for the other two products.",
+   "unit": "acids"
+  },
+  {
+   "q": "Describe how you would make pure, dry crystals of copper(II) sulfate from copper(II) oxide and dilute sulfuric acid.",
+   "marks": 6,
+   "points": [
+    "Warm the dilute sulfuric acid",
+    "Add copper(II) oxide a little at a time, stirring",
+    "Until it is in excess / black solid remains undissolved",
+    "Filter to remove the excess copper(II) oxide",
+    "Heat the filtrate to evaporate some water, to the crystallisation point",
+    "Leave to cool so crystals form",
+    "Filter off the crystals and dry them between filter paper"
+   ],
+   "note": "Any 6, in a sensible order.",
+   "unit": "acids"
+  },
+  {
+   "q": "A small piece of sodium is added to a trough of water. State two observations.",
+   "marks": 2,
+   "points": [
+    "Floats",
+    "Melts into a ball",
+    "Moves around on the surface",
+    "Fizzes / bubbles",
+    "Gets smaller and disappears"
+   ],
+   "note": "Any 2.",
+   "unit": "periodic"
+  },
+  {
+   "q": "Chlorine is bubbled into colourless potassium bromide solution. Describe what is seen, write a word equation, and explain the reaction.",
+   "marks": 4,
+   "points": [
+    "Solution turns orange (yellow-orange)",
+    "Chlorine + potassium bromide → potassium chloride + bromine",
+    "Chlorine is more reactive than bromine",
+    "So chlorine displaces bromine from its compound"
+   ],
+   "unit": "periodic"
+  },
+  {
+   "q": "Describe the trend in reactivity of the Group I metals and use it to predict how rubidium reacts with water.",
+   "marks": 5,
+   "points": [
+    "Reactivity increases down the group",
+    "Rubidium reacts more violently than potassium (explosively)",
+    "Forms rubidium hydroxide",
+    "And hydrogen gas",
+    "The solution formed is alkaline (high pH)",
+    "(Extended) The outer electron is further from the nucleus, so it is lost more easily"
+   ],
+   "note": "Any 5.",
+   "unit": "periodic"
+  },
+  {
+   "q": "Explain why aluminium is extracted by electrolysis and not by heating its oxide with carbon.",
+   "marks": 2,
+   "points": [
+    "Aluminium is more reactive than carbon",
+    "So carbon cannot remove oxygen from (reduce) aluminium oxide"
+   ],
+   "unit": "metals"
+  },
+  {
+   "q": "Describe and explain two different ways of preventing a steel bicycle from rusting.",
+   "marks": 4,
+   "points": [
+    "Paint the frame / oil or grease the chain",
+    "This forms a barrier that keeps out water and oxygen",
+    "Galvanise: coat with zinc",
+    "Zinc is more reactive, so it corrodes instead of the iron, even when scratched"
+   ],
+   "note": "Two marks for each method: the method, then how it works.",
+   "unit": "metals"
+  },
+  {
+   "q": "Describe how iron is extracted from haematite in the blast furnace. Include equations.",
+   "marks": 6,
+   "points": [
+    "Haematite, coke and limestone are added at the top; hot air is blown in at the bottom",
+    "Coke (carbon) burns in the air, releasing heat: C + O₂ → CO₂",
+    "Carbon dioxide reacts with more coke to form carbon monoxide: CO₂ + C → 2CO",
+    "Carbon monoxide reduces iron(III) oxide to iron",
+    "Fe₂O₃ + 3CO → 2Fe + 3CO₂",
+    "Molten iron runs to the bottom and is tapped off",
+    "Limestone removes impurities (sand) as slag"
+   ],
+   "note": "Any 6.",
+   "unit": "metals"
+  }
+ ]
+}

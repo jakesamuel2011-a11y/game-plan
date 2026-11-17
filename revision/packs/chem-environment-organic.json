@@ -1,0 +1,583 @@
+{
+ "id": "chem-environment-organic",
+ "subject": "Chem",
+ "title": "Environment, organic & analysis",
+ "sub": "Water, air and fertilisers, fuels and organic chemistry, experimental techniques and chemical analysis",
+ "units": [
+  {
+   "key": "environment",
+   "name": "Water, air & farming"
+  },
+  {
+   "key": "organic",
+   "name": "Organic chemistry"
+  },
+  {
+   "key": "analysis",
+   "name": "Techniques & analysis"
+  }
+ ],
+ "strategyIntro": "Cambridge IGCSE Co-ordinated Sciences tests chemistry alongside biology and physics: a multiple-choice paper (40 questions, 45 min), a theory paper of structured questions, and a practical or alternative-to-practical paper. Your school test may be shorter, but it will be marked the same way.",
+ "strategy": [
+  {
+   "title": "Multiple choice",
+   "key": true,
+   "points": [
+    "About a minute per question. If one is taking longer, mark it and move on.",
+    "Cross out options you know are wrong first. Two often look similar: read every word.",
+    "Never leave one blank. A wrong answer loses nothing."
+   ]
+  },
+  {
+   "title": "Structured questions",
+   "key": true,
+   "points": [
+    "Marks go to keywords. Write the textbook term: “effervescence” or “fizzing”, not “it reacts”.",
+    "The marks in brackets tell you how many separate points to make.",
+    "Equations: check every atom balances, and add state symbols when the question asks."
+   ]
+  },
+  {
+   "title": "Questions on experiments",
+   "points": [
+    "Results tables: units go in the column headings, not next to each number.",
+    "Colour changes need both colours: “blue to white”, not just “white”.",
+    "Know the control variables and one safety precaution for each experiment."
+   ]
+  },
+  {
+   "title": "Easy marks people lose",
+   "points": [
+    "Saying ionic bonds “share” electrons. Ionic = transfer; covalent = share.",
+    "Writing “chlorine” when you mean the chloride ion, or “clear” when you mean “colourless”.",
+    "Calculations without units, or without the working shown."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "State",
+   "Give a short fact. No explanation needed."
+  ],
+  [
+   "Describe",
+   "Say what happens or what you see. With data, quote figures and units."
+  ],
+  [
+   "Explain",
+   "Say why or how. Use “because” and link cause to effect."
+  ],
+  [
+   "Suggest",
+   "Apply what you know to a new situation. Any sensible reason scores."
+  ],
+  [
+   "Compare",
+   "Give similarities or differences for both things in the same sentence."
+  ],
+  [
+   "Calculate",
+   "Show working and give the unit."
+  ]
+ ],
+ "quizTitle": "Multiple-choice practice",
+ "quizIntro": "Answer in Paper 1 style: about a minute each, eliminating wrong options first. Read the explanation after every answer, even when you get it right.",
+ "flashIntro": "These are close to Cambridge’s own wording. Say each definition out loud before you tap, then check you used the exact keywords. Cards marked (Extended) are Supplement content.",
+ "flashcards": [
+  {
+   "front": "Chemical tests for water",
+   "back": "Anhydrous copper(II) sulfate turns from white to blue. Anhydrous cobalt(II) chloride turns from blue to pink.",
+   "unit": "environment"
+  },
+  {
+   "front": "Test for pure water",
+   "back": "Pure water boils at exactly 100 °C and melts at exactly 0 °C (at normal pressure).",
+   "unit": "environment"
+  },
+  {
+   "front": "Why distilled water is used in practical chemistry",
+   "back": "Tap water contains dissolved substances (impurities) that could react or affect results. Distilled water has had them removed.",
+   "unit": "environment"
+  },
+  {
+   "front": "Water treatment",
+   "back": "Sedimentation and filtration remove solids; carbon removes tastes and smells; chlorination kills microbes.",
+   "unit": "environment"
+  },
+  {
+   "front": "Substances in natural water",
+   "back": "Some are useful (dissolved oxygen, some mineral salts). Some are harmful: sewage and harmful microbes, plastics, and nitrates and phosphates from fertilisers, which lead to deoxygenation of the water.",
+   "unit": "environment"
+  },
+  {
+   "front": "NPK fertilisers",
+   "back": "Supply nitrogen, phosphorus and potassium for plant growth. Ammonium salts and nitrates provide nitrogen.",
+   "unit": "environment"
+  },
+  {
+   "front": "Clean, dry air",
+   "back": "About 78% nitrogen and 21% oxygen. The rest is mainly argon, plus about 0.04% carbon dioxide.",
+   "unit": "environment"
+  },
+  {
+   "front": "Air pollutants",
+   "back": "Carbon monoxide: incomplete combustion of carbon-containing fuels (toxic). Sulfur dioxide: burning fuels containing sulfur (acid rain). Oxides of nitrogen: car engines (acid rain, smog). Particulates: incomplete combustion (breathing problems).",
+   "unit": "environment"
+  },
+  {
+   "front": "Greenhouse gases and climate change",
+   "back": "Carbon dioxide (from burning fossil fuels) and methane (from cattle, rice fields and decomposing waste) absorb thermal energy, causing global warming and climate change. Reduce by using less fossil fuel, renewable energy and planting trees.",
+   "unit": "environment"
+  },
+  {
+   "front": "(Extended) Catalytic converter",
+   "back": "Removes pollutants from car exhaust, e.g. 2CO + 2NO → 2CO₂ + N₂.",
+   "unit": "environment"
+  },
+  {
+   "front": "Hydrocarbon",
+   "back": "A compound containing hydrogen and carbon only.",
+   "unit": "organic"
+  },
+  {
+   "front": "Fossil fuels",
+   "back": "Coal, natural gas (mainly methane) and petroleum (crude oil).",
+   "unit": "organic"
+  },
+  {
+   "front": "Fractional distillation of petroleum",
+   "back": "Petroleum is vaporised; the vapour rises up a column that is hot at the bottom and cool at the top. Fractions condense at different heights according to boiling point. Small molecules (low boiling point) come off at the top.",
+   "unit": "organic"
+  },
+  {
+   "front": "Petroleum fractions and uses (top to bottom)",
+   "back": "Refinery gas: heating and cooking. Gasoline/petrol: car fuel. Naphtha: chemical feedstock. Kerosene/paraffin: jet fuel. Diesel oil/gas oil: diesel engines. Fuel oil: ships and home heating. Lubricating oil: lubricants, waxes, polishes. Bitumen: roads.",
+   "unit": "organic"
+  },
+  {
+   "front": "Homologous series",
+   "back": "A family of compounds with the same general formula and functional group, similar chemical properties, and a trend in physical properties.",
+   "unit": "organic"
+  },
+  {
+   "front": "Alkanes",
+   "back": "General formula CₙH₂ₙ₊₂. Saturated: only single C–C bonds. Methane CH₄, ethane C₂H₆. Fairly unreactive, but burn well.",
+   "unit": "organic"
+  },
+  {
+   "front": "Complete combustion of a hydrocarbon",
+   "back": "Hydrocarbon + oxygen → carbon dioxide + water. CH₄ + 2O₂ → CO₂ + 2H₂O.",
+   "unit": "organic"
+  },
+  {
+   "front": "Alkenes",
+   "back": "General formula CₙH₂ₙ. Unsaturated: contain a C=C double bond. Ethene C₂H₄, propene C₃H₆.",
+   "unit": "organic"
+  },
+  {
+   "front": "Test for an alkene",
+   "back": "Add bromine water: an alkene turns it from orange to colourless. An alkane leaves it orange.",
+   "unit": "organic"
+  },
+  {
+   "front": "Cracking",
+   "back": "Thermal decomposition of large alkane molecules into smaller alkanes and alkenes, using high temperature and a catalyst. Done because short-chain molecules (e.g. petrol) are in high demand and alkenes are needed to make polymers.",
+   "unit": "organic"
+  },
+  {
+   "front": "Addition polymerisation",
+   "back": "Many small unsaturated molecules (monomers), e.g. ethene, join together to form a long chain (polymer), e.g. poly(ethene).",
+   "unit": "organic"
+  },
+  {
+   "front": "(Extended) Substitution reaction of alkanes",
+   "back": "Alkanes react with chlorine in ultraviolet light: a hydrogen atom is replaced by chlorine. CH₄ + Cl₂ → CH₃Cl + HCl.",
+   "unit": "organic"
+  },
+  {
+   "front": "Measuring apparatus",
+   "back": "Time: stopwatch. Temperature: thermometer. Mass: balance. Volume: measuring cylinder, burette, volumetric pipette, gas syringe.",
+   "unit": "analysis"
+  },
+  {
+   "front": "Solute, solvent, solution",
+   "back": "A solute dissolves in a solvent to make a solution. A saturated solution contains the maximum amount of solute that can dissolve at that temperature.",
+   "unit": "analysis"
+  },
+  {
+   "front": "Filtration",
+   "back": "Separates an insoluble solid (the residue) from a liquid (the filtrate).",
+   "unit": "analysis"
+  },
+  {
+   "front": "Crystallisation",
+   "back": "Heat a solution to evaporate some solvent until the crystallisation point, then leave it to cool so crystals form. Filter and dry them.",
+   "unit": "analysis"
+  },
+  {
+   "front": "Simple distillation",
+   "back": "Separates a solvent from a solution, e.g. pure water from salt water. The vapour is cooled in a condenser and collected.",
+   "unit": "analysis"
+  },
+  {
+   "front": "Fractional distillation",
+   "back": "Separates miscible liquids with different boiling points, e.g. ethanol and water, using a fractionating column.",
+   "unit": "analysis"
+  },
+  {
+   "front": "Purity",
+   "back": "A pure substance has a sharp (fixed) melting point and boiling point. Impurities lower the melting point (it melts over a range) and raise the boiling point.",
+   "unit": "analysis"
+  },
+  {
+   "front": "Paper chromatography",
+   "back": "Separates soluble substances, e.g. dyes. Draw the baseline in pencil above the solvent level. A pure substance gives one spot. (Extended) Rf = distance moved by substance ÷ distance moved by solvent front.",
+   "unit": "analysis"
+  },
+  {
+   "front": "Tests for gases",
+   "back": "Hydrogen: squeaky pop with a lighted splint. Oxygen: relights a glowing splint. Carbon dioxide: turns limewater milky. Ammonia: turns damp red litmus blue. Chlorine: bleaches damp litmus paper.",
+   "unit": "analysis"
+  },
+  {
+   "front": "Cation tests with aqueous sodium hydroxide",
+   "back": "Copper(II): light blue precipitate. Iron(II): green precipitate. Iron(III): red-brown precipitate. Zinc: white precipitate that dissolves in excess. Calcium: white precipitate that does not dissolve in excess. Ammonium: ammonia gas given off on warming.",
+   "unit": "analysis"
+  },
+  {
+   "front": "Anion tests",
+   "back": "Carbonate: add dilute acid, fizzing, gas turns limewater milky. Chloride / bromide / iodide: acidify with dilute nitric acid, add silver nitrate: white / cream / yellow precipitate. Sulfate: acidify, add barium nitrate (or chloride): white precipitate.",
+   "unit": "analysis"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "Roughly what percentage of clean, dry air is nitrogen?",
+   "options": [
+    "21%",
+    "0.04%",
+    "78%",
+    "1%"
+   ],
+   "answer": 2,
+   "why": "Nitrogen is about 78%, oxygen 21%, argon just under 1% and carbon dioxide about 0.04%.",
+   "unit": "environment"
+  },
+  {
+   "q": "Which toxic gas is produced by the incomplete combustion of carbon-containing fuels?",
+   "options": [
+    "Carbon monoxide",
+    "Carbon dioxide",
+    "Nitrogen",
+    "Argon"
+   ],
+   "answer": 0,
+   "why": "When there is not enough oxygen, carbon monoxide forms. It is toxic because it reduces the blood’s ability to carry oxygen.",
+   "unit": "environment"
+  },
+  {
+   "q": "Why is chlorine added to drinking water?",
+   "options": [
+    "To remove solid particles",
+    "To kill microbes",
+    "To remove tastes and smells",
+    "To make the water neutral"
+   ],
+   "answer": 1,
+   "why": "Chlorination kills bacteria. Filtration removes solids and carbon removes tastes and smells.",
+   "unit": "environment"
+  },
+  {
+   "q": "Which result shows that a liquid contains water?",
+   "options": [
+    "It turns limewater milky",
+    "It turns anhydrous cobalt(II) chloride from pink to blue",
+    "It relights a glowing splint",
+    "It turns anhydrous copper(II) sulfate from white to blue"
+   ],
+   "answer": 3,
+   "why": "Water turns anhydrous copper(II) sulfate blue. Cobalt(II) chloride goes the other way: blue to pink.",
+   "unit": "environment"
+  },
+  {
+   "q": "Which pair of gases is mainly responsible for acid rain?",
+   "options": [
+    "Carbon monoxide and methane",
+    "Sulfur dioxide and oxides of nitrogen",
+    "Nitrogen and oxygen",
+    "Argon and carbon dioxide"
+   ],
+   "answer": 1,
+   "why": "Sulfur dioxide and nitrogen oxides dissolve in rain to form acids. Methane and CO₂ are linked to climate change.",
+   "unit": "environment"
+  },
+  {
+   "q": "Which compound could be used as a nitrogen fertiliser?",
+   "options": [
+    "Calcium carbonate",
+    "Sodium chloride",
+    "Ammonium nitrate",
+    "Potassium chloride"
+   ],
+   "answer": 2,
+   "why": "Ammonium nitrate contains nitrogen in both ions. Potassium chloride supplies potassium, not nitrogen.",
+   "unit": "environment"
+  },
+  {
+   "q": "Which petroleum fraction is used as jet fuel?",
+   "options": [
+    "Bitumen",
+    "Kerosene",
+    "Naphtha",
+    "Refinery gas"
+   ],
+   "answer": 1,
+   "why": "Kerosene (paraffin) is jet fuel. Bitumen is for roads, naphtha is a chemical feedstock, refinery gas is for heating and cooking.",
+   "unit": "organic"
+  },
+  {
+   "q": "Which formula is an alkene?",
+   "options": [
+    "C₃H₈",
+    "C₄H₁₀",
+    "C₃H₆",
+    "CH₄"
+   ],
+   "answer": 2,
+   "why": "Alkenes fit CₙH₂ₙ: C₃H₆ (propene). The others fit CₙH₂ₙ₊₂, so they are alkanes.",
+   "unit": "organic"
+  },
+  {
+   "q": "Ethene is shaken with bromine water. What is seen?",
+   "options": [
+    "Orange to colourless",
+    "Colourless to orange",
+    "The solution turns milky",
+    "It stays orange"
+   ],
+   "answer": 0,
+   "why": "The C=C bond in ethene reacts with bromine, decolourising it. With an alkane it would stay orange.",
+   "unit": "organic"
+  },
+  {
+   "q": "Which fractions are collected at the top of the fractionating column?",
+   "options": [
+    "Those with the highest boiling points and largest molecules",
+    "Those that are most viscous",
+    "Those that are darkest in colour",
+    "Those with the lowest boiling points and smallest molecules"
+   ],
+   "answer": 3,
+   "why": "The column is coolest at the top, so only substances with the lowest boiling points stay as gases long enough to reach it.",
+   "unit": "organic"
+  },
+  {
+   "q": "Decane is cracked: C₁₀H₂₂ → C₈H₁₈ + X. What is X?",
+   "options": [
+    "C₂H₆",
+    "C₂H₄",
+    "CH₄",
+    "C₂H₂"
+   ],
+   "answer": 1,
+   "why": "Carbon: 10 − 8 = 2. Hydrogen: 22 − 18 = 4. X is C₂H₄, ethene: cracking always gives at least one alkene.",
+   "unit": "organic"
+  },
+  {
+   "q": "What is the monomer used to make poly(ethene)?",
+   "options": [
+    "Methane",
+    "Ethane",
+    "Propane",
+    "Ethene"
+   ],
+   "answer": 3,
+   "why": "Only unsaturated molecules (with C=C) can undergo addition polymerisation. Ethane is saturated.",
+   "unit": "organic"
+  },
+  {
+   "q": "Which apparatus measures exactly 25.0 cm³ of a solution most accurately?",
+   "options": [
+    "A beaker",
+    "A measuring cylinder",
+    "A volumetric pipette",
+    "A test tube"
+   ],
+   "answer": 2,
+   "why": "A volumetric pipette delivers one fixed volume very accurately. A measuring cylinder is less precise, and beakers are not for measuring.",
+   "unit": "analysis"
+  },
+  {
+   "q": "Which method gives pure water from seawater?",
+   "options": [
+    "Filtration",
+    "Simple distillation",
+    "Chromatography",
+    "Crystallisation"
+   ],
+   "answer": 1,
+   "why": "Distillation boils off the water and condenses it, leaving the salt behind. Filtration cannot remove dissolved salt.",
+   "unit": "analysis"
+  },
+  {
+   "q": "Why is the baseline on a chromatogram drawn in pencil, not ink?",
+   "options": [
+    "Ink would dissolve in the solvent and move up the paper",
+    "Pencil is easier to see",
+    "Pencil absorbs the solvent",
+    "Pencil stops the spots from spreading"
+   ],
+   "answer": 0,
+   "why": "Ink contains dyes that would separate and confuse the results. Graphite does not dissolve in the solvent.",
+   "unit": "analysis"
+  },
+  {
+   "q": "A gas turns limewater milky. What is it?",
+   "options": [
+    "Oxygen",
+    "Hydrogen",
+    "Ammonia",
+    "Carbon dioxide"
+   ],
+   "answer": 3,
+   "why": "Carbon dioxide forms a white precipitate with limewater (calcium hydroxide solution).",
+   "unit": "analysis"
+  },
+  {
+   "q": "Aqueous sodium hydroxide is added to a solution and a red-brown precipitate forms. Which ion is present?",
+   "options": [
+    "Iron(II)",
+    "Copper(II)",
+    "Iron(III)",
+    "Zinc"
+   ],
+   "answer": 2,
+   "why": "Iron(III) gives red-brown; iron(II) gives green; copper(II) gives light blue; zinc gives white.",
+   "unit": "analysis"
+  },
+  {
+   "q": "(Extended) A dye moves 3.0 cm from the baseline and the solvent front moves 7.5 cm. What is the Rf value of the dye?",
+   "options": [
+    "0.40",
+    "2.5",
+    "4.5",
+    "0.25"
+   ],
+   "answer": 0,
+   "why": "Rf = 3.0 ÷ 7.5 = 0.40. Rf is always less than 1, because the substance cannot move further than the solvent.",
+   "unit": "analysis"
+  }
+ ],
+ "examIntro": "Theory-paper style. Write your answer first, then open the mark scheme and give yourself one mark per point you made clearly. One point per mark is the rule.",
+ "exam": [
+  {
+   "q": "Describe a chemical test for water and give the result.",
+   "marks": 2,
+   "points": [
+    "Add anhydrous copper(II) sulfate (or anhydrous cobalt(II) chloride)",
+    "Turns from white to blue (cobalt(II) chloride: blue to pink)"
+   ],
+   "note": "Both colours needed for the second mark.",
+   "unit": "environment"
+  },
+  {
+   "q": "Describe how water from a river is treated to make it safe to drink.",
+   "marks": 4,
+   "points": [
+    "Sedimentation: solids settle to the bottom",
+    "Filtration (through sand and gravel) removes small particles",
+    "Carbon removes tastes and smells",
+    "Chlorination kills microbes / bacteria"
+   ],
+   "unit": "environment"
+  },
+  {
+   "q": "Carbon monoxide and sulfur dioxide are air pollutants. State the source and one harmful effect of each. Then explain how carbon dioxide and methane cause climate change.",
+   "marks": 6,
+   "points": [
+    "CO: incomplete combustion of carbon-containing fuels",
+    "CO is toxic / reduces the blood’s ability to carry oxygen",
+    "SO₂: burning fossil fuels that contain sulfur",
+    "SO₂ causes acid rain",
+    "CO₂ and methane are greenhouse gases",
+    "They absorb thermal (infrared) energy given off by the Earth, so the Earth warms (global warming → climate change)"
+   ],
+   "unit": "environment"
+  },
+  {
+   "q": "State what is meant by (a) a hydrocarbon and (b) a saturated compound.",
+   "marks": 2,
+   "points": [
+    "(a) A compound of hydrogen and carbon only",
+    "(b) Contains only single bonds (no C=C double bonds)"
+   ],
+   "note": "“Only” is needed in (a).",
+   "unit": "organic"
+  },
+  {
+   "q": "Describe how petroleum is separated into fractions.",
+   "marks": 4,
+   "points": [
+    "Petroleum is heated so it vaporises",
+    "Vapour rises up a fractionating column",
+    "Column is hot at the bottom and cooler at the top",
+    "Fractions condense at different heights according to their boiling points",
+    "Small molecules / low boiling points at the top; large molecules at the bottom"
+   ],
+   "note": "Any 4.",
+   "unit": "organic"
+  },
+  {
+   "q": "Explain why large alkanes are cracked, and describe a test to distinguish ethane from ethene.",
+   "marks": 5,
+   "points": [
+    "Cracking is the thermal decomposition of large alkane molecules",
+    "Using a high temperature and a catalyst",
+    "It produces shorter-chain alkanes, e.g. petrol, which are in greater demand",
+    "It produces alkenes, used to make polymers",
+    "Test: add bromine water",
+    "Ethene turns it from orange to colourless; ethane: stays orange"
+   ],
+   "note": "Any 5. The test result must cover both gases.",
+   "unit": "organic"
+  },
+  {
+   "q": "Describe a test for chloride ions in a solution and give the result.",
+   "marks": 2,
+   "points": [
+    "Acidify with dilute nitric acid, then add aqueous silver nitrate",
+    "White precipitate"
+   ],
+   "unit": "analysis"
+  },
+  {
+   "q": "Describe how you would obtain pure, dry samples of both sand and salt from a mixture of the two.",
+   "marks": 5,
+   "points": [
+    "Add water and stir (warm) so the salt dissolves",
+    "Filter: sand stays on the filter paper as the residue",
+    "Wash the sand with distilled water and dry it",
+    "Heat the filtrate to evaporate some water, to the crystallisation point",
+    "Leave to cool so salt crystals form",
+    "Filter off the crystals and dry them"
+   ],
+   "note": "Any 5.",
+   "unit": "analysis"
+  },
+  {
+   "q": "A food colouring may contain a banned dye. Describe how paper chromatography could show whether it does, and how you would interpret the result.",
+   "marks": 6,
+   "points": [
+    "Draw a baseline in pencil on chromatography paper",
+    "Put a spot of the food colouring and a spot of the banned dye on the baseline",
+    "Stand the paper in a solvent with the solvent level below the baseline",
+    "Remove when the solvent is near the top; mark the solvent front",
+    "If the food colouring has a spot at the same height as the banned dye, it contains the dye",
+    "The number of spots shows how many substances are in the colouring",
+    "(Extended) Calculate and compare Rf values"
+   ],
+   "note": "Any 6.",
+   "unit": "analysis"
+  }
+ ]
+}

@@ -1,0 +1,684 @@
+{
+ "id": "chem-particles-bonding",
+ "subject": "Chem",
+ "title": "Particles, atoms & bonding",
+ "sub": "States of matter, atomic structure, bonding and structure, formulae, equations and moles",
+ "units": [
+  {
+   "key": "states",
+   "name": "States of matter"
+  },
+  {
+   "key": "atoms",
+   "name": "Atoms & elements"
+  },
+  {
+   "key": "bonding",
+   "name": "Bonding & structure"
+  },
+  {
+   "key": "moles",
+   "name": "Formulae & moles"
+  }
+ ],
+ "strategyIntro": "Cambridge IGCSE Co-ordinated Sciences tests chemistry alongside biology and physics: a multiple-choice paper (40 questions, 45 min), a theory paper of structured questions, and a practical or alternative-to-practical paper. Your school test may be shorter, but it will be marked the same way.",
+ "strategy": [
+  {
+   "title": "Multiple choice",
+   "key": true,
+   "points": [
+    "About a minute per question. If one is taking longer, mark it and move on.",
+    "Cross out options you know are wrong first. Two often look similar: read every word.",
+    "Never leave one blank. A wrong answer loses nothing."
+   ]
+  },
+  {
+   "title": "Structured questions",
+   "key": true,
+   "points": [
+    "Marks go to keywords. Write the textbook term: “effervescence” or “fizzing”, not “it reacts”.",
+    "The marks in brackets tell you how many separate points to make.",
+    "Equations: check every atom balances, and add state symbols when the question asks."
+   ]
+  },
+  {
+   "title": "Questions on experiments",
+   "points": [
+    "Results tables: units go in the column headings, not next to each number.",
+    "Colour changes need both colours: “blue to white”, not just “white”.",
+    "Know the control variables and one safety precaution for each experiment."
+   ]
+  },
+  {
+   "title": "Easy marks people lose",
+   "points": [
+    "Saying ionic bonds “share” electrons. Ionic = transfer; covalent = share.",
+    "Writing “chlorine” when you mean the chloride ion, or “clear” when you mean “colourless”.",
+    "Calculations without units, or without the working shown."
+   ]
+  }
+ ],
+ "commandWords": [
+  [
+   "State",
+   "Give a short fact. No explanation needed."
+  ],
+  [
+   "Describe",
+   "Say what happens or what you see. With data, quote figures and units."
+  ],
+  [
+   "Explain",
+   "Say why or how. Use “because” and link cause to effect."
+  ],
+  [
+   "Suggest",
+   "Apply what you know to a new situation. Any sensible reason scores."
+  ],
+  [
+   "Compare",
+   "Give similarities or differences for both things in the same sentence."
+  ],
+  [
+   "Calculate",
+   "Show working and give the unit."
+  ]
+ ],
+ "quizTitle": "Multiple-choice practice",
+ "quizIntro": "Answer in Paper 1 style: about a minute each, eliminating wrong options first. Read the explanation after every answer, even when you get it right.",
+ "flashIntro": "These are close to Cambridge’s own wording. Say each definition out loud before you tap, then check you used the exact keywords. Cards marked (Extended) are Supplement content.",
+ "flashcards": [
+  {
+   "front": "Solid (particles)",
+   "back": "Particles closely packed in a regular arrangement; they vibrate about fixed positions. Fixed shape and fixed volume.",
+   "unit": "states"
+  },
+  {
+   "front": "Liquid (particles)",
+   "back": "Particles close together in an irregular arrangement; they move around (slide past) each other. Fixed volume but takes the shape of its container.",
+   "unit": "states"
+  },
+  {
+   "front": "Gas (particles)",
+   "back": "Particles far apart in a random arrangement, moving quickly in all directions. No fixed shape or volume; easily compressed.",
+   "unit": "states"
+  },
+  {
+   "front": "Melting",
+   "back": "Solid changes to liquid at the melting point. Energy is taken in to overcome the forces of attraction between particles.",
+   "unit": "states"
+  },
+  {
+   "front": "Boiling vs evaporation",
+   "back": "Boiling happens throughout the liquid, at the boiling point only. Evaporation happens only at the surface, at temperatures below the boiling point.",
+   "unit": "states"
+  },
+  {
+   "front": "Condensation and freezing",
+   "back": "Condensation: gas to liquid. Freezing: liquid to solid. Both give out energy to the surroundings.",
+   "unit": "states"
+  },
+  {
+   "front": "Flat section on a heating or cooling curve",
+   "back": "Temperature stays constant during a change of state, because the energy is going into (or coming from) changing the forces between particles, not changing their speed.",
+   "unit": "states"
+  },
+  {
+   "front": "Diffusion",
+   "back": "The net movement of particles from a region of higher concentration to a region of lower concentration, caused by their random movement.",
+   "unit": "states"
+  },
+  {
+   "front": "Heating a gas",
+   "back": "Particles move faster. At constant pressure the gas expands (volume increases). In a fixed volume the pressure increases, because particles hit the walls harder and more often.",
+   "unit": "states"
+  },
+  {
+   "front": "(Extended) Diffusion and relative molecular mass",
+   "back": "Gases with a lower Mr diffuse faster. Ammonia (Mr 17) diffuses faster than hydrogen chloride (Mr 36.5).",
+   "unit": "states"
+  },
+  {
+   "front": "Element",
+   "back": "A substance made of only one type of atom. It cannot be broken down into anything simpler by chemical means.",
+   "unit": "atoms"
+  },
+  {
+   "front": "Compound",
+   "back": "A substance containing two or more different elements chemically combined (bonded) in a fixed proportion.",
+   "unit": "atoms"
+  },
+  {
+   "front": "Mixture",
+   "back": "Two or more substances that are not chemically combined. It can be separated by physical methods.",
+   "unit": "atoms"
+  },
+  {
+   "front": "Proton, neutron, electron",
+   "back": "Relative charges: +1, 0, −1. Relative masses: 1, 1, 1/1836 (negligible). Protons and neutrons are in the nucleus; electrons are in shells.",
+   "unit": "atoms"
+  },
+  {
+   "front": "Proton number (atomic number)",
+   "back": "The number of protons in the nucleus of an atom. In a neutral atom it also equals the number of electrons.",
+   "unit": "atoms"
+  },
+  {
+   "front": "Mass number (nucleon number)",
+   "back": "The total number of protons and neutrons in the nucleus. Neutrons = mass number − proton number.",
+   "unit": "atoms"
+  },
+  {
+   "front": "Isotopes",
+   "back": "Atoms of the same element with the same proton number but a different number of neutrons (so a different mass number).",
+   "unit": "atoms"
+  },
+  {
+   "front": "Why isotopes react the same way",
+   "back": "They have the same number of electrons, arranged in the same electronic configuration. Chemical properties depend on electrons.",
+   "unit": "atoms"
+  },
+  {
+   "front": "Electronic configuration",
+   "back": "Shells fill in order: 2, then 8, then 8 (for the first 20 elements). Sodium (11) is 2,8,1; calcium (20) is 2,8,8,2.",
+   "unit": "atoms"
+  },
+  {
+   "front": "Group and period from configuration",
+   "back": "Number of outer-shell electrons = group number (groups I–VII). Number of occupied shells = period number. Noble gases have a full outer shell.",
+   "unit": "atoms"
+  },
+  {
+   "front": "(Extended) Relative atomic mass from isotopes",
+   "back": "Average mass of the isotopes, weighted by abundance. Chlorine: 75% ³⁵Cl and 25% ³⁷Cl gives (75 × 35 + 25 × 37) ÷ 100 = 35.5.",
+   "unit": "atoms"
+  },
+  {
+   "front": "Ion",
+   "back": "A charged particle, formed when an atom (or group of atoms) loses or gains electrons. Metals lose electrons to form positive ions; non-metals gain electrons to form negative ions.",
+   "unit": "bonding"
+  },
+  {
+   "front": "Ionic bonding",
+   "back": "Between a metal and a non-metal. Electrons are transferred from metal atoms to non-metal atoms, and the oppositely charged ions attract. (Extended: a strong electrostatic attraction between oppositely charged ions.)",
+   "unit": "bonding"
+  },
+  {
+   "front": "Covalent bond",
+   "back": "A pair of electrons shared between two atoms, usually non-metals, so each atom gets a full outer shell.",
+   "unit": "bonding"
+  },
+  {
+   "front": "Properties of ionic compounds",
+   "back": "High melting and boiling points; conduct electricity when molten or dissolved in water, but not when solid; often soluble in water.",
+   "unit": "bonding"
+  },
+  {
+   "front": "Why solid ionic compounds do not conduct",
+   "back": "The ions are held in fixed positions in the lattice and cannot move. When molten or in solution the ions are free to move.",
+   "unit": "bonding"
+  },
+  {
+   "front": "Simple molecular substances",
+   "back": "Low melting and boiling points; do not conduct electricity. (Extended: the forces between molecules are weak, even though the covalent bonds inside them are strong.)",
+   "unit": "bonding"
+  },
+  {
+   "front": "Diamond",
+   "back": "Giant covalent structure: each carbon atom bonded to four others. Very hard, very high melting point, does not conduct. Used in cutting tools.",
+   "unit": "bonding"
+  },
+  {
+   "front": "Graphite",
+   "back": "Giant covalent structure: each carbon bonded to three others in layers. Layers slide (soft, slippery); one electron per atom is free to move, so it conducts. Used as a lubricant and for electrodes.",
+   "unit": "bonding"
+  },
+  {
+   "front": "(Extended) Silicon(IV) oxide",
+   "back": "Giant covalent structure like diamond: each silicon bonded to four oxygens, each oxygen to two silicons. Hard, high melting point, does not conduct.",
+   "unit": "bonding"
+  },
+  {
+   "front": "(Extended) Metallic bonding",
+   "back": "Electrostatic attraction between a lattice of positive metal ions and a “sea” of delocalised electrons. The moving electrons let metals conduct; layers of ions can slide, so metals are malleable.",
+   "unit": "bonding"
+  },
+  {
+   "front": "Molecular formula",
+   "back": "The number and type of each atom in one molecule, e.g. ethene is C₂H₄.",
+   "unit": "moles"
+  },
+  {
+   "front": "(Extended) Empirical formula",
+   "back": "The simplest whole-number ratio of the atoms in a compound, e.g. ethene C₂H₄ has empirical formula CH₂.",
+   "unit": "moles"
+  },
+  {
+   "front": "Relative atomic mass, Ar",
+   "back": "The average mass of the isotopes of an element compared with 1/12 of the mass of an atom of carbon-12.",
+   "unit": "moles"
+  },
+  {
+   "front": "Relative molecular mass, Mr",
+   "back": "The sum of the relative atomic masses of all the atoms in the formula. CO₂ = 12 + 16 + 16 = 44.",
+   "unit": "moles"
+  },
+  {
+   "front": "Balancing an equation",
+   "back": "Same number of each type of atom on both sides. Change only the big numbers in front of formulae, never the small numbers inside them.",
+   "unit": "moles"
+  },
+  {
+   "front": "State symbols",
+   "back": "(s) solid, (l) liquid, (g) gas, (aq) aqueous: dissolved in water.",
+   "unit": "moles"
+  },
+  {
+   "front": "Common ions",
+   "back": "Sulfate SO₄²⁻, nitrate NO₃⁻, carbonate CO₃²⁻, hydroxide OH⁻, ammonium NH₄⁺. Balance the charges to get the formula, e.g. Al³⁺ and O²⁻ give Al₂O₃.",
+   "unit": "moles"
+  },
+  {
+   "front": "(Extended) The mole",
+   "back": "The amount of substance containing 6.02 × 10²³ particles (the Avogadro constant). Moles = mass ÷ Mr.",
+   "unit": "moles"
+  },
+  {
+   "front": "(Extended) Molar gas volume",
+   "back": "One mole of any gas occupies 24 dm³ (24 000 cm³) at room temperature and pressure. Volume = moles × 24.",
+   "unit": "moles"
+  },
+  {
+   "front": "(Extended) Concentration",
+   "back": "Moles of solute per dm³ of solution: concentration (mol/dm³) = moles ÷ volume (dm³). Divide cm³ by 1000 to get dm³.",
+   "unit": "moles"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "Which describes the particles in a liquid?",
+   "options": [
+    "Regular arrangement, vibrating about fixed positions",
+    "Close together, irregular arrangement, moving past each other",
+    "Far apart, random arrangement, moving quickly",
+    "Close together, regular arrangement, not moving at all"
+   ],
+   "answer": 1,
+   "why": "Liquid particles are still touching but are not in fixed positions, so they slide past each other. Particles in a solid always vibrate, so “not moving at all” is never right.",
+   "unit": "states"
+  },
+  {
+   "q": "What happens to the temperature of a pure solid while it is melting?",
+   "options": [
+    "It rises steadily",
+    "It falls",
+    "It stays constant",
+    "It rises, then falls"
+   ],
+   "answer": 2,
+   "why": "During a change of state the energy taken in overcomes the forces between particles, so the temperature stays the same until all the solid has melted.",
+   "unit": "states"
+  },
+  {
+   "q": "Which change of state gives out energy to the surroundings?",
+   "options": [
+    "Melting",
+    "Boiling",
+    "Evaporation",
+    "Condensation"
+   ],
+   "answer": 3,
+   "why": "Condensation (gas to liquid) releases energy as particles come closer and attractions form. The other three take energy in.",
+   "unit": "states"
+  },
+  {
+   "q": "A gas is heated inside a sealed container that cannot change size. What happens to its pressure, and why?",
+   "options": [
+    "It increases: particles move faster and hit the walls harder and more often",
+    "It decreases: particles spread out",
+    "It stays the same: the volume cannot change",
+    "It increases: the particles get bigger"
+   ],
+   "answer": 0,
+   "why": "Heating gives particles more kinetic energy. Faster particles collide with the walls more often and with more force, so pressure rises. Particles never change size.",
+   "unit": "states"
+  },
+  {
+   "q": "(Extended) Cotton wool soaked in ammonia is put at one end of a long glass tube and cotton wool soaked in hydrogen chloride at the other. Where does the white ring of ammonium chloride form?",
+   "options": [
+    "Nearer the ammonia end",
+    "Exactly in the middle",
+    "Nearer the hydrogen chloride end",
+    "No ring forms"
+   ],
+   "answer": 2,
+   "why": "Ammonia (Mr 17) is lighter than hydrogen chloride (Mr 36.5), so it diffuses faster and travels further before the gases meet. The ring forms nearer the HCl end.",
+   "unit": "states"
+  },
+  {
+   "q": "An atom has 11 protons and 12 neutrons. What is its mass number?",
+   "options": [
+    "11",
+    "12",
+    "23",
+    "34"
+   ],
+   "answer": 2,
+   "why": "Mass number = protons + neutrons = 11 + 12 = 23. The proton number is 11 (this is sodium).",
+   "unit": "atoms"
+  },
+  {
+   "q": "Which of these is a compound?",
+   "options": [
+    "Oxygen gas",
+    "Air",
+    "Brass",
+    "Carbon dioxide"
+   ],
+   "answer": 3,
+   "why": "Carbon dioxide is carbon and oxygen chemically combined. Oxygen is an element; air and brass (an alloy) are mixtures.",
+   "unit": "atoms"
+  },
+  {
+   "q": "What is the electronic configuration of chlorine (proton number 17)?",
+   "options": [
+    "2,8,7",
+    "2,7,8",
+    "2,9,6",
+    "8,8,1"
+   ],
+   "answer": 0,
+   "why": "17 electrons fill shells 2, then 8, then the remaining 7. Seven outer electrons puts chlorine in Group VII.",
+   "unit": "atoms"
+  },
+  {
+   "q": "Carbon-12 and carbon-14 are isotopes. How are their atoms different?",
+   "options": [
+    "Different numbers of protons",
+    "Different numbers of electrons",
+    "Different numbers of neutrons",
+    "They react differently with oxygen"
+   ],
+   "answer": 2,
+   "why": "Both have 6 protons and 6 electrons. Carbon-14 has 8 neutrons, carbon-12 has 6. Same electrons means same chemistry.",
+   "unit": "atoms"
+  },
+  {
+   "q": "(Extended) Boron is 20% boron-10 and 80% boron-11. What is its relative atomic mass?",
+   "options": [
+    "10.2",
+    "10.8",
+    "10.5",
+    "11.0"
+   ],
+   "answer": 1,
+   "why": "(20 × 10 + 80 × 11) ÷ 100 = (200 + 880) ÷ 100 = 10.8. The answer is nearer 11 because boron-11 is more common.",
+   "unit": "atoms"
+  },
+  {
+   "q": "Which pair of elements forms an ionic compound?",
+   "options": [
+    "Carbon and oxygen",
+    "Sodium and chlorine",
+    "Hydrogen and chlorine",
+    "Nitrogen and hydrogen"
+   ],
+   "answer": 1,
+   "why": "Ionic bonds form between a metal and a non-metal. Sodium is the only metal here; the other pairs are non-metals that bond covalently.",
+   "unit": "bonding"
+  },
+  {
+   "q": "Why does graphite conduct electricity?",
+   "options": [
+    "It contains ions that can move",
+    "Each carbon atom forms four bonds",
+    "Some electrons are delocalised and free to move",
+    "It is a metal"
+   ],
+   "answer": 2,
+   "why": "Each carbon uses three electrons to bond, leaving one free to move along the layers. Graphite is a non-metal and has no ions.",
+   "unit": "bonding"
+  },
+  {
+   "q": "Substance X melts at −95 °C and does not conduct electricity as a solid or a liquid. What type of structure does it have?",
+   "options": [
+    "Ionic",
+    "Giant covalent",
+    "Metallic",
+    "Simple molecular"
+   ],
+   "answer": 3,
+   "why": "A very low melting point means weak forces between molecules. Ionic compounds conduct when molten, and giant structures have high melting points.",
+   "unit": "bonding"
+  },
+  {
+   "q": "How many covalent bonds are there in one molecule of methane, CH₄?",
+   "options": [
+    "2",
+    "4",
+    "6",
+    "1"
+   ],
+   "answer": 1,
+   "why": "Carbon has four outer electrons and shares one with each of four hydrogen atoms: four single bonds.",
+   "unit": "bonding"
+  },
+  {
+   "q": "How does a magnesium atom become a magnesium ion, Mg²⁺?",
+   "options": [
+    "It loses two electrons",
+    "It gains two electrons",
+    "It loses two protons",
+    "It shares two electrons"
+   ],
+   "answer": 0,
+   "why": "Mg is 2,8,2. Losing the two outer electrons gives 2,8 (full outer shell) and a 2+ charge. Protons never change in a chemical reaction.",
+   "unit": "bonding"
+  },
+  {
+   "q": "What is the relative formula mass of calcium carbonate, CaCO₃? (Ar: Ca = 40, C = 12, O = 16)",
+   "options": [
+    "68",
+    "84",
+    "100",
+    "116"
+   ],
+   "answer": 2,
+   "why": "40 + 12 + (3 × 16) = 100. A common slip is to count only one oxygen (68).",
+   "unit": "moles"
+  },
+  {
+   "q": "Which is the correctly balanced equation for hydrogen burning in oxygen?",
+   "options": [
+    "H₂ + O₂ → H₂O₂",
+    "2H₂ + O₂ → 2H₂O",
+    "H₂ + O → H₂O",
+    "H₂ + 2O₂ → 2H₂O"
+   ],
+   "answer": 1,
+   "why": "The product must be water, H₂O, and oxygen exists as O₂ molecules. 2H₂ + O₂ → 2H₂O has 4 H and 2 O on each side.",
+   "unit": "moles"
+  },
+  {
+   "q": "Aluminium ions are Al³⁺ and oxide ions are O²⁻. What is the formula of aluminium oxide?",
+   "options": [
+    "AlO",
+    "Al₃O₂",
+    "AlO₃",
+    "Al₂O₃"
+   ],
+   "answer": 3,
+   "why": "Two Al³⁺ give +6 and three O²⁻ give −6, so the charges cancel: Al₂O₃.",
+   "unit": "moles"
+  },
+  {
+   "q": "(Extended) How many moles are in 8.0 g of sodium hydroxide, NaOH (Mr = 40)?",
+   "options": [
+    "0.20 mol",
+    "5.0 mol",
+    "0.50 mol",
+    "320 mol"
+   ],
+   "answer": 0,
+   "why": "Moles = mass ÷ Mr = 8.0 ÷ 40 = 0.20 mol. 5.0 comes from dividing the wrong way round.",
+   "unit": "moles"
+  },
+  {
+   "q": "(Extended) What volume does 0.50 mol of carbon dioxide occupy at room temperature and pressure?",
+   "options": [
+    "48 dm³",
+    "24 dm³",
+    "12 dm³",
+    "0.50 dm³"
+   ],
+   "answer": 2,
+   "why": "Volume = moles × 24 dm³ = 0.50 × 24 = 12 dm³. Any gas, same rule.",
+   "unit": "moles"
+  }
+ ],
+ "examIntro": "Theory-paper style. Write your answer first, then open the mark scheme and give yourself one mark per point you made clearly. One point per mark is the rule.",
+ "exam": [
+  {
+   "q": "State two differences between boiling and evaporation.",
+   "marks": 2,
+   "points": [
+    "Boiling happens at one temperature (the boiling point); evaporation happens at any temperature below it",
+    "Boiling happens throughout the liquid (bubbles form); evaporation happens only at the surface"
+   ],
+   "note": "Each point must describe both processes.",
+   "unit": "states"
+  },
+  {
+   "q": "A purple crystal of potassium manganate(VII) is placed at the bottom of a beaker of water. After an hour the purple colour has spread through the water. Explain this, and explain why it would spread faster in warm water.",
+   "marks": 4,
+   "points": [
+    "The crystal dissolves and its particles spread out by diffusion",
+    "Particles move randomly / collide with water particles",
+    "Net movement from high concentration to low concentration",
+    "In warm water particles have more kinetic energy / move faster",
+    "So diffusion is faster"
+   ],
+   "note": "Any 4.",
+   "unit": "states"
+  },
+  {
+   "q": "Ice at −10 °C is heated steadily until it becomes steam at 110 °C. Describe and explain the shape of the temperature–time graph.",
+   "marks": 5,
+   "points": [
+    "Temperature rises while it is solid ice",
+    "Graph is flat at 0 °C while the ice melts",
+    "Graph rises again while it is liquid water",
+    "Graph is flat at 100 °C while the water boils",
+    "On flat sections energy is used to overcome forces between particles, not to raise the temperature",
+    "Temperature rises again once it is all steam"
+   ],
+   "note": "Any 5. Give the two temperatures of the flat sections.",
+   "unit": "states"
+  },
+  {
+   "q": "Define the term isotopes.",
+   "marks": 2,
+   "points": [
+    "Atoms of the same element / same number of protons",
+    "With different numbers of neutrons / different mass numbers"
+   ],
+   "unit": "atoms"
+  },
+  {
+   "q": "Magnesium has proton number 12. For an atom of magnesium-24, state the number of protons, neutrons and electrons, and its electronic configuration.",
+   "marks": 4,
+   "points": [
+    "12 protons",
+    "12 neutrons (24 − 12)",
+    "12 electrons",
+    "2,8,2"
+   ],
+   "unit": "atoms"
+  },
+  {
+   "q": "Iron filings and powdered sulfur are mixed, then the mixture is heated to make iron sulfide. Explain the differences between the mixture and the compound.",
+   "marks": 5,
+   "points": [
+    "In the mixture the elements are not chemically combined; in the compound they are bonded",
+    "The mixture can be separated by physical means, e.g. a magnet attracts the iron",
+    "The compound can only be separated by a chemical reaction",
+    "The compound has a fixed composition; a mixture can have any proportions",
+    "Making the compound involves a chemical reaction with an energy change (it glows)",
+    "The compound has different properties from its elements, e.g. iron sulfide is not attracted to a magnet"
+   ],
+   "note": "Any 5.",
+   "unit": "atoms"
+  },
+  {
+   "q": "Sodium chloride conducts electricity when molten but not when solid. Explain why.",
+   "marks": 2,
+   "points": [
+    "In the solid the ions are fixed in position / cannot move",
+    "When molten the ions are free to move (and carry the charge)"
+   ],
+   "note": "Say “ions”, not “electrons”: electrons moving is a common wrong answer.",
+   "unit": "bonding"
+  },
+  {
+   "q": "Sodium is 2,8,1 and chlorine is 2,8,7. Describe how sodium and chlorine atoms form sodium chloride.",
+   "marks": 4,
+   "points": [
+    "Sodium atom loses (transfers) one electron",
+    "Chlorine atom gains one electron",
+    "Forming Na⁺ and Cl⁻ ions",
+    "Both ions have a full outer shell (2,8 and 2,8,8)",
+    "Oppositely charged ions attract: ionic bond"
+   ],
+   "note": "Any 4.",
+   "unit": "bonding"
+  },
+  {
+   "q": "Diamond and graphite are both forms of carbon. Explain how their structures lead to their different properties and uses.",
+   "marks": 6,
+   "points": [
+    "Both are giant covalent structures of carbon atoms",
+    "In diamond each carbon is bonded to four others",
+    "So diamond is very hard and is used in cutting tools / drill tips",
+    "In graphite each carbon is bonded to three others, in layers",
+    "Weak forces between layers let them slide, so graphite is a lubricant / used in pencils",
+    "Graphite has free (delocalised) electrons so it conducts and is used for electrodes",
+    "Diamond has no free electrons so it does not conduct"
+   ],
+   "note": "Any 6. Link each property to a structure point.",
+   "unit": "bonding"
+  },
+  {
+   "q": "Calculate the relative formula mass of magnesium nitrate, Mg(NO₃)₂. (Ar: Mg = 24, N = 14, O = 16)",
+   "marks": 2,
+   "points": [
+    "Correct method: 24 + 2 × (14 + 3 × 16)",
+    "= 148"
+   ],
+   "note": "Everything inside the bracket is doubled.",
+   "unit": "moles"
+  },
+  {
+   "q": "Magnesium reacts with dilute hydrochloric acid to form magnesium chloride and hydrogen. Write the balanced symbol equation, with state symbols.",
+   "marks": 3,
+   "points": [
+    "Correct formulae: Mg, HCl, MgCl₂, H₂",
+    "Balanced: Mg + 2HCl → MgCl₂ + H₂",
+    "State symbols: Mg(s), HCl(aq), MgCl₂(aq), H₂(g)"
+   ],
+   "unit": "moles"
+  },
+  {
+   "q": "(Extended) 2.4 g of magnesium reacts completely with excess hydrochloric acid: Mg + 2HCl → MgCl₂ + H₂. Calculate the volume of hydrogen produced at room temperature and pressure. (Ar: Mg = 24)",
+   "marks": 5,
+   "points": [
+    "Moles of Mg = 2.4 ÷ 24",
+    "= 0.10 mol",
+    "Mole ratio Mg : H₂ is 1 : 1, so 0.10 mol of H₂",
+    "Volume = 0.10 × 24",
+    "= 2.4 dm³ (2400 cm³)"
+   ],
+   "note": "Unit needed for the last mark.",
+   "unit": "moles"
+  }
+ ]
+}
